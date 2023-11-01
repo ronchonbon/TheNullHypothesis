@@ -1,7 +1,11 @@
 init python:
 
     def Jean_love_Quest():
-        name = "Jean Grey: Love"
+        global Jean
+        
+        name = f"{Jean.full_name}: Love"
+
+        string = "Jean_love_Quest"
 
         Quest_type = "side"
 
@@ -14,9 +18,11 @@ init python:
 
             "Gain Trust": ["Jean.trust", Jean_thresholds["love"][1]]}
 
+        optional_objectives = {}
+
         rewards = ["Do you know the difference between love and obsession?"]
 
         criteria = [
             "EventScheduler.Events['Jean_first_sex_part_two'].completed"]
 
-        return QuestClass(name, Quest_type, chapter, description, objectives, rewards, criteria)
+        return QuestClass(name, string, Quest_type, chapter, description, objectives, optional_objectives, rewards, criteria)

@@ -1,7 +1,9 @@
 init python:
 
     def Laura_friendship_Quest():
-        name = "Laura Kinney: Friendship"
+        name = f"{Laura.full_name}: Friendship"
+
+        string = "Laura_friendship_Quest"
 
         Quest_type = "side"
 
@@ -10,11 +12,11 @@ init python:
         description = "Befriend your favorite lab-grown weapon"
 
         objectives = {
-            "Train together": ["Laura.History.check('trained_with_Player')", 4],
-
             "Gain Love": ["Laura.love", Laura_thresholds["dating"][0]],
 
             "Gain Trust": ["Laura.trust", Laura_thresholds["dating"][1]]}
+
+        optional_objectives = {}
 
         rewards = ["Is friendship not a reward unto itself?"]
 
@@ -22,4 +24,4 @@ init python:
             "chapter == 1",
             "season == 1"]
 
-        return QuestClass(name, Quest_type, chapter, description, objectives, rewards, criteria)
+        return QuestClass(name, string, Quest_type, chapter, description, objectives, optional_objectives, rewards, criteria)

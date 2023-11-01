@@ -4,7 +4,7 @@ init python:
         label = "Laura_boyfriend_trigger_part_one"
 
         conditions = [
-            "QuestPool.Quests['Laura Kinney: Dating'].completed"]
+            "QuestPool.Quests['Laura_dating_Quest'].completed"]
 
         automatic = True
 

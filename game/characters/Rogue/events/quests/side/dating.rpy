@@ -1,7 +1,9 @@
 init python:
 
     def Rogue_dating_Quest():
-        name = "Rogue: Dating"
+        name = f"{Rogue.name}: Dating"
+
+        string = "Rogue_dating_Quest"
 
         Quest_type = "side"
 
@@ -16,9 +18,11 @@ init python:
 
             "Gain Trust": ["Rogue.trust", Rogue_thresholds["relationship"][1]]}
 
+        optional_objectives = {}
+
         rewards = ["You'll never know if you don't go for it"]
 
         criteria = [
             "EventScheduler.Events['Rogue_confession'].completed"]
 
-        return QuestClass(name, Quest_type, chapter, description, objectives, rewards, criteria)
+        return QuestClass(name, string, Quest_type, chapter, description, objectives, optional_objectives, rewards, criteria)

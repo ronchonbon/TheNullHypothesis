@@ -4,7 +4,7 @@ init python:
         label = "Rogue_boyfriend_trigger_part_one"
 
         conditions = [
-            "QuestPool.Quests['Rogue: Dating'].completed"]
+            "QuestPool.Quests['Rogue_dating_Quest'].completed"]
 
         automatic = True
 

@@ -5,8 +5,10 @@ init -1:
 init -2 python:
 
     class QuestClass(object):
-        def __init__(self, name, Quest_type, chapter, description, objectives, rewards, criteria, **kwargs):
+        def __init__(self, name, string, Quest_type, chapter, description, objectives, optional_objectives, rewards, criteria, **kwargs):
             self.name = name
+
+            self.string = string
 
             self.Quest_type = Quest_type
 
@@ -15,6 +17,8 @@ init -2 python:
             self.description = description
 
             self.objectives = objectives
+
+            self.optional_objectives = optional_objectives
 
             self.rewards = rewards
 
@@ -58,13 +62,22 @@ init -2 python:
             self.Quests = {}
 
         def add_Quest(self, Quest):
-            if Quest.name not in self.Quests.keys():
-                self.Quests[Quest.name] = Quest
+            if Quest.string not in self.Quests.keys():
+                self.Quests[Quest.string] = Quest
             else:
-                Quest.unlocked = self.Quests[Quest.name].unlocked
-                Quest.completed = self.Quests[Quest.name].completed
+                changed =  False
 
-                self.Quests[Quest.name] = Quest
+                for new_objective in Quest.objectives.keys():
+                    if new_objective not in self.Quests[Quest.string].objectives.keys():
+                        changed = True
+
+                        break
+
+                if not changed:
+                    Quest.unlocked = self.Quests[Quest.string].unlocked
+                    Quest.completed = self.Quests[Quest.string].completed
+
+                self.Quests[Quest.string] = Quest
 
             return
 

@@ -3,6 +3,8 @@ init python:
     def attend_class_weekly():
         name = "Attend Class Weekly"
 
+        string = "attend_class_weekly"
+
         Quest_type = "side"
 
         chapter = 1
@@ -12,6 +14,8 @@ init python:
         objectives = {
             "Attend class this week": ["Player.History.check('attended_class', tracker = 'weekly')", 3]}
 
+        optional_objectives = {}
+
         rewards = ["+10% on Love, Trust, and XP Gains for the Following Week"]
 
         criteria = [
@@ -20,4 +24,4 @@ init python:
 
         resets = True
 
-        return QuestClass(name, Quest_type, chapter, description, objectives, rewards, criteria, resets = resets)
+        return QuestClass(name, string, Quest_type, chapter, description, objectives, optional_objectives, rewards, criteria, resets = resets)

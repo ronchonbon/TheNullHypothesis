@@ -1,7 +1,9 @@
 init python:
 
     def Rogue_love_Quest():
-        name = "Rogue: Love"
+        name = f"{Rogue.name}: Love"
+
+        string = "Rogue_love_Quest"
 
         Quest_type = "side"
 
@@ -14,9 +16,11 @@ init python:
 
             "Gain Trust": ["Rogue.trust", Rogue_thresholds["love"][1]]}
 
+        optional_objectives = {}
+
         rewards = ["The real question is: do you really deserve a reward?"]
 
         criteria = [
             "EventScheduler.Events['Rogue_penultimate_quirk'].completed"]
 
-        return QuestClass(name, Quest_type, chapter, description, objectives, rewards, criteria)
+        return QuestClass(name, string, Quest_type, chapter, description, objectives, optional_objectives, rewards, criteria)

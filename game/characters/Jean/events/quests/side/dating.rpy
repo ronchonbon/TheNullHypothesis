@@ -1,7 +1,11 @@
 init python:
 
     def Jean_dating_Quest():
-        name = "Jean Grey: Dating"
+        global Jean
+        
+        name = f"{Jean.full_name}: Dating"
+
+        string = "Jean_dating_Quest"
 
         Quest_type = "side"
 
@@ -16,9 +20,11 @@ init python:
 
             "Gain Trust": ["Jean.trust", Jean_thresholds["relationship"][1]]}
 
+        optional_objectives = {}
+
         rewards = ["Seems like there are a lot of potential upsides here"]
 
         criteria = [
             "EventScheduler.Events['Jean_asked_on_date'].completed"]
 
-        return QuestClass(name, Quest_type, chapter, description, objectives, rewards, criteria)
+        return QuestClass(name, string, Quest_type, chapter, description, objectives, optional_objectives, rewards, criteria)

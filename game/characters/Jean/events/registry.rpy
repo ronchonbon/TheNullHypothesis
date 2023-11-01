@@ -105,6 +105,11 @@ init python:
 
     def all_Jean_Quests():
         Quests = [
+            Jean_ch1_season_one_Quest(),
+            Jean_ch1_season_two_Quest(),
+            Jean_ch1_season_three_Quest(),
+            Jean_ch1_season_four_Quest(),
+
             Jean_friendship_Quest(),
             Jean_dating_Quest(),
             Jean_relationship_1_Quest(),

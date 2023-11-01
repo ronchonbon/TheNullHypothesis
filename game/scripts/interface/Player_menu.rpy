@@ -668,15 +668,57 @@ screen journal_screen():
                     if current_journal_Quest.completed or progress > target:
                         $ progress = target
 
-                    text objective + ": [progress]/[target]" anchor (0.5, 0.5) pos (0.5, 0.5):
-                        size 32
+                    if progress == target:
+                        text "{s}[objective]: [progress]/[target]{/s}" anchor (0.5, 0.5) pos (0.5, 0.5):
+                            size 32
 
-                        color "#000000"
+                            color "#000000"
+                    else:
+                        text objective + ": [progress]/[target]" anchor (0.5, 0.5) pos (0.5, 0.5):
+                            size 32
+
+                            color "#000000"
                 else:
-                    text objective anchor (0.5, 0.5) pos (0.5, 0.5):
-                        size 32
+                    if eval(current_journal_Quest.objectives[objective][0]):
+                        text "{s}[objective]{/s}" anchor (0.5, 0.5) pos (0.5, 0.5):
+                            size 32
 
-                        color "#000000"
+                            color "#000000"
+                    else:
+                        text objective anchor (0.5, 0.5) pos (0.5, 0.5):
+                            size 32
+
+                            color "#000000"
+
+            for optional_objective in current_journal_Quest.optional_objectives.keys():
+                if current_journal_Quest.optional_objectives[optional_objective][1]:
+                    $ progress = eval(current_journal_Quest.optional_objectives[optional_objective][0])
+                    $ target = current_journal_Quest.optional_objectives[optional_objective][1]
+
+                    if current_journal_Quest.completed or progress > target:
+                        $ progress = target
+
+                    if progress == target:
+                        text "{s}[optional_objective]: [progress]/[target]{/s}" anchor (0.5, 0.5) pos (0.5, 0.5):
+                            size 32
+
+                            color "#000000"
+                    else:
+                        text optional_objective + ": [progress]/[target]" anchor (0.5, 0.5) pos (0.5, 0.5):
+                            size 32
+
+                            color "#000000"
+                else:
+                    if eval(current_journal_Quest.optional_objectives[optional_objective][0]):
+                        text "{s}[optional_objective]{/s}" anchor (0.5, 0.5) pos (0.5, 0.5):
+                            size 32
+
+                            color "#000000"
+                    else:
+                        text optional_objective anchor (0.5, 0.5) pos (0.5, 0.5):
+                            size 32
+
+                            color "#000000"
 
         text "REWARDS" anchor (0.0, 0.0) pos (0.37, 0.8):
             size 36

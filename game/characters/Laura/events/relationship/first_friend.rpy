@@ -4,7 +4,7 @@ init python:
         label = "Laura_first_friend_part_one"
 
         conditions = [
-            "QuestPool.Quests['Laura Kinney: Friendship'].completed",
+            "QuestPool.Quests['Laura_friendship_Quest'].completed",
             "Player.location == Player.home",
             "not Present"]
 

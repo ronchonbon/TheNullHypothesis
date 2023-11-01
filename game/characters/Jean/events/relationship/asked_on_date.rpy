@@ -4,7 +4,7 @@ init python:
         label = "Jean_asked_on_date"
 
         conditions = [
-            "QuestPool.Quests['Jean Grey: Friendship'].completed",
+            "QuestPool.Quests['Jean_friendship_Quest'].completed",
             "not get_Present(location = Player.destination)",
             "time_index >= 3"]
 

@@ -1,7 +1,9 @@
 init python:
 
     def Laura_dating_Quest():
-        name = "Laura Kinney: Dating"
+        name = f"{Laura.full_name}: Dating"
+
+        string = "Laura_dating_Quest"
 
         Quest_type = "side"
 
@@ -16,9 +18,11 @@ init python:
 
             "Gain Trust": ["Laura.trust", Laura_thresholds["relationship"][1]]}
 
+        optional_objectives = {}
+
         rewards = ["It's likely there are perks to being on her good side"]
 
         criteria = [
             "EventScheduler.Events['Laura_first_friend_part_three'].completed"]
 
-        return QuestClass(name, Quest_type, chapter, description, objectives, rewards, criteria)
+        return QuestClass(name, string, Quest_type, chapter, description, objectives, optional_objectives, rewards, criteria)

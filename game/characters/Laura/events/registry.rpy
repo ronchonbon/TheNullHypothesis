@@ -111,6 +111,11 @@ init python:
 
     def all_Laura_Quests():
         Quests = [
+            Laura_ch1_season_one_Quest(),
+            Laura_ch1_season_two_Quest(),
+            Laura_ch1_season_three_Quest(),
+            Laura_ch1_season_four_Quest(),
+
             Laura_friendship_Quest(),
             Laura_dating_Quest(),
             Laura_relationship_1_Quest(),

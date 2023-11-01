@@ -1,7 +1,9 @@
 init python:
 
     def Rogue_friendship_Quest():
-        name = "Rogue: Friendship"
+        name = f"{Rogue.name}: Friendship"
+
+        string = "Rogue_friendship_Quest"
 
         Quest_type = "side"
 
@@ -10,11 +12,11 @@ init python:
         description = "Befriend your favorite Southern belle goth"
 
         objectives = {
-            "Study together": ["Rogue.History.check('studied_with_Player', tracker = 'season')", 3],
-
             "Gain Love": ["Rogue.love", Rogue_thresholds["dating"][0]],
 
             "Gain Trust": ["Rogue.trust", Rogue_thresholds["dating"][1]]}
+
+        optional_objectives = {}
 
         rewards = ["The friends we make along the way"]
 
@@ -22,4 +24,4 @@ init python:
             "chapter == 1",
             "season == 1"]
 
-        return QuestClass(name, Quest_type, chapter, description, objectives, rewards, criteria)
+        return QuestClass(name, string, Quest_type, chapter, description, objectives, optional_objectives, rewards, criteria)

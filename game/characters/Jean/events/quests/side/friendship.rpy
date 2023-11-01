@@ -1,7 +1,11 @@
 init python:
 
     def Jean_friendship_Quest():
-        name = "Jean Grey: Friendship"
+        global Jean
+        
+        name = f"{Jean.full_name}: Friendship"
+
+        string = "Jean_friendship_Quest"
 
         Quest_type = "side"
 
@@ -10,11 +14,11 @@ init python:
         description = "Befriend your favorite redhaired upperclassman"
 
         objectives = {
-            "Train together": ["Jean.History.check('trained_with_Player', tracker = 'season')", 4],
-
             "Gain Love": ["Jean.love", Jean_thresholds["dating"][0]],
 
             "Gain Trust": ["Jean.trust", Jean_thresholds["dating"][1]]}
+
+        optional_objectives = {}
 
         rewards = ["What can any of us amount to without friendship?"]
 
@@ -22,4 +26,4 @@ init python:
             "chapter == 1",
             "season == 1"]
 
-        return QuestClass(name, Quest_type, chapter, description, objectives, rewards, criteria)
+        return QuestClass(name, string, Quest_type, chapter, description, objectives, optional_objectives, rewards, criteria)

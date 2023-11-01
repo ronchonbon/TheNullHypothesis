@@ -1,7 +1,9 @@
 init python:
 
     def Rogue_relationship_1_Quest():
-        name = "Rogue: Relationship I"
+        name = f"{Rogue.name}: Relationship I"
+
+        string = "Rogue_relationship_1_Quest"
 
         Quest_type = "side"
 
@@ -14,15 +16,19 @@ init python:
 
             "Gain Trust": ["Rogue.trust", 275]}
 
+        optional_objectives = {}
+
         rewards = ["Seems kind of selfish to ask, doesn't it?"]
 
         criteria = [
             "EventScheduler.Events['Rogue_boyfriend'].completed"]
 
-        return QuestClass(name, Quest_type, chapter, description, objectives, rewards, criteria)
+        return QuestClass(name, string, Quest_type, chapter, description, objectives, optional_objectives, rewards, criteria)
 
     def Rogue_relationship_2_Quest():
-        name = "Rogue: Relationship II"
+        name = f"{Rogue.name}: Relationship II"
+
+        string = "Rogue_relationship_2_Quest"
 
         Quest_type = "side"
 
@@ -35,15 +41,19 @@ init python:
 
             "Gain Trust": ["Rogue.trust", 525]}
 
+        optional_objectives = {}
+
         rewards = ["She really, really likes you, if you can't tell"]
 
         criteria = [
             "EventScheduler.Events['Rogue_enjoying_being_girlfriend'].completed"]
 
-        return QuestClass(name, Quest_type, chapter, description, objectives, rewards, criteria)
+        return QuestClass(name, string, Quest_type, chapter, description, objectives, optional_objectives, rewards, criteria)
 
     def Rogue_relationship_3_Quest():
-        name = "Rogue: Relationship III"
+        name = f"{Rogue.name}: Relationship III"
+
+        string = "Rogue_relationship_3_Quest"
 
         Quest_type = "side"
 
@@ -56,9 +66,11 @@ init python:
 
             "Gain Trust": ["Rogue.trust", 825]}
 
+        optional_objectives = {}
+
         rewards = ["You two are looking awfully close - that's a reward, right?"]
 
         criteria = [
             "EventScheduler.Events['Rogue_penultimate_penultimate_quirk'].completed"]
 
-        return QuestClass(name, Quest_type, chapter, description, objectives, rewards, criteria)
+        return QuestClass(name, string, Quest_type, chapter, description, objectives, optional_objectives, rewards, criteria)

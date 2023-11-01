@@ -4,7 +4,7 @@ init python:
         label = "Jean_boyfriend_trigger_part_one"
 
         conditions = [
-            "QuestPool.Quests['Jean Grey: Dating'].completed"]
+            "QuestPool.Quests['Jean_dating_Quest'].completed"]
 
         automatic = True
 

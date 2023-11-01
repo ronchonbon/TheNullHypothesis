@@ -1,7 +1,9 @@
 init python:
 
     def Laura_love_Quest():
-        name = "Laura Kinney: Love"
+        name = f"{Laura.full_name}: Love"
+
+        string = "Laura_love_Quest"
 
         Quest_type = "side"
 
@@ -14,9 +16,11 @@ init python:
 
             "Gain Trust": ["Laura.trust", Laura_thresholds["love"][1]]}
 
+        optional_objectives = {}
+
         rewards = ["She really seems to like you - better not mess it up"]
 
         criteria = [
             "EventScheduler.Events['Laura_penultimate_quirk'].completed"]
 
-        return QuestClass(name, Quest_type, chapter, description, objectives, rewards, criteria)
+        return QuestClass(name, string, Quest_type, chapter, description, objectives, optional_objectives, rewards, criteria)

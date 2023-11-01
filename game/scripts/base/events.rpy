@@ -85,6 +85,8 @@ init -3 python:
                 Event.check_conditions()
 
             QuestPool.check_progress()
+            register_Quests()
+            QuestPool.check_progress()
 
             return
 

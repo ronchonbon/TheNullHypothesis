@@ -3,6 +3,8 @@ init python:
     def ch1_season_one_main_Quest():
         name = "Chapter I: Fall"
 
+        string = "ch1_season_one_main_Quest"
+
         Quest_type = "main"
 
         chapter = 1
@@ -10,20 +12,17 @@ init python:
         description = "Explore your new home and get to know its students"
 
         objectives = {
-            "Attend class": ["Player.History.check('attended_class', tracker = 'season')", 5],
+            "Increase your level": ["Player.level", 2],
 
-            "Study with [Rogue.name]": ["Rogue.History.check('studied_with_Player', tracker = 'season')", 2],
-            "Study with [Laura.name]": ["Laura.History.check('studied_with_Player', tracker = 'season')", 1],
-            "Study with [Jean.name]": ["Jean.History.check('studied_with_Player', tracker = 'season')", 1],
+            "Complete [Rogue.name]'s Fall Quest": ["QuestPool.Quests['Rogue_ch1_season_one_Quest'].completed", None],
+            "Complete [Laura.name]'s Fall Quest": ["QuestPool.Quests['Laura_ch1_season_one_Quest'].completed", None],
+            "Complete [Jean.name]'s Fall Quest": ["QuestPool.Quests['Jean_ch1_season_one_Quest'].completed", None],
 
-            "Train with [Rogue.name]": ["Rogue.History.check('trained_with_Player', tracker = 'season')", 1],
-            "Train with [Laura.name]": ["Laura.History.check('trained_with_Player', tracker = 'season')", 4],
-            "Train with [Jean.name]": ["Jean.History.check('trained_with_Player', tracker = 'season')", 4],
+            "Gain Trust across all characters": ["Rogue.trust + Laura.trust + Jean.trust", 375]}
 
-            "Gain 250 Trust across all characters": ["Rogue.trust + Laura.trust + Jean.trust", 250]}
+        optional_objectives = {}
 
         rewards = [
-            "Increased Level, Love, and Trust Caps",
             "New Available Actions",
             "New Shop Items"]
 
@@ -31,7 +30,7 @@ init python:
             "chapter == 1",
             "season == 1"]
 
-        return QuestClass(name, Quest_type, chapter, description, objectives, rewards, criteria)
+        return QuestClass(name, string, Quest_type, chapter, description, objectives, optional_objectives, rewards, criteria)
 
 init python:
 
@@ -39,7 +38,7 @@ init python:
         label = "ch1_season_one_complete"
 
         conditions = [
-            "QuestPool.Quests['Chapter I: Fall'].completed"]
+            "QuestPool.Quests['ch1_season_one_main_Quest'].completed"]
 
         automatic = True
 

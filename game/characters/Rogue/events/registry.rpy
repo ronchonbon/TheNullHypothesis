@@ -113,6 +113,11 @@ init python:
 
     def all_Rogue_Quests():
         Quests = [
+            Rogue_ch1_season_one_Quest(),
+            Rogue_ch1_season_two_Quest(),
+            Rogue_ch1_season_three_Quest(),
+            Rogue_ch1_season_four_Quest(),
+
             Rogue_friendship_Quest(),
             Rogue_dating_Quest(),
             Rogue_relationship_1_Quest(),

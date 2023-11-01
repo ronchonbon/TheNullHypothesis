@@ -4,7 +4,7 @@ init python:
         label = "Rogue_confession_text"
 
         conditions = [
-            "QuestPool.Quests['Rogue: Friendship'].completed",
+            "QuestPool.Quests['Rogue_friendship_Quest'].completed",
             "Rogue not in Present",
             "weekday < 5"]
 
