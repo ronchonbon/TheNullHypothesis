@@ -434,7 +434,7 @@ layeredimage Jean_standing_body:
         Null()
     elif Jean.Clothes["top"].string in ["black_shirt", "pink_shirt"] and Jean.Clothes["top"].state == 0:
         "characters/Jean/images/standing/nipple_piercings_barbell_covered_[Jean.Clothes[top].string].webp"
-    elif Jean.Clothes["top"].string in ["college_shirt"] and Jean.Clothes["top"].state == 0:
+    elif Jean.Clothes["top"].string in ["college_shirt", "white_sweater"] and Jean.Clothes["top"].state == 0:
         Null()
     elif Jean.Clothes["dress"].string and Jean.Clothes["dress"].state == 0:
         "characters/Jean/images/standing/nipple_piercings_barbell_covered_[Jean.Clothes[dress].string].webp"
@@ -449,7 +449,7 @@ layeredimage Jean_standing_body:
         Null()
     elif Jean.Clothes["top"].string in ["black_shirt", "pink_shirt"] and Jean.Clothes["top"].state == 0:
         "characters/Jean/images/standing/nipple_piercings_ring_covered_[Jean.Clothes[top].string].webp"
-    elif Jean.Clothes["top"].string in ["college_shirt"] and Jean.Clothes["top"].state == 0:
+    elif Jean.Clothes["top"].string in ["college_shirt", "white_sweater"] and Jean.Clothes["top"].state == 0:
         Null()
     elif Jean.Clothes["dress"].string and Jean.Clothes["dress"].state == 0:
         "characters/Jean/images/standing/nipple_piercings_ring_covered_[Jean.Clothes[dress].string].webp"
