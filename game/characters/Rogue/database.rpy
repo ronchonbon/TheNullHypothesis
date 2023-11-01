@@ -1,0 +1,21 @@
+label update_Rogue_database:
+    $ Rogue.database["stats"] = [
+        "Name: Unknown\nCodename: Rogue\nAge: 19\nDoB: August 4th\nHeight: 5'8\"\nHair: Auburn with White Streak\nEyes: Green\nPowers: Absorption of Powers, Abilities, and Memories"]
+
+    $ Rogue.database["description"] = [
+        "Rogue has remained a mystery to us since her arrival here some time ago, due to her reluctance to tell us much about her life prior to her joining us. From what little information we have, primarily from Rogue herself, during the initial activation of her powers, a boy was injured severely.  Rogue herself was greatly traumatized by this, running away from home for several years and, for obvious reasons, has been reluctant to go into detail. As is our standard procedure here, I have tried not to pry too deeply into her history - our belief is that everyone who arrives here arrives under the terms of a clean slate, unless they give us good cause to suspect them of something or they prove to be a threat to students, faculty or the general public. As such, we will respect her wish for privacy and to be called 'Rogue', until such time as she trusts us enough to give us her real name or more information.",
+        "Rogue's mutant abilities are. . . unfortunate. As stated, she has the ability to 'drain' the abilities, memories and, for lack of a better term, 'life force' of anyone she shares skin-to-skin contact with. In tests performed under strict safety measures, we have determined that brief contact, lasting no more than a few seconds, allows her to get an image of whatever the other person is thinking, leaving the other person momentarily stunned. In situations where the other party has some sort of ability, she is also able to briefly use their power, at somewhat of a lesser strength than they would be able to, with the other party somewhat similarly weakened. A study of the effects of longer-term contact has been prohibited, due to the risk it may cause Rogue herself. As well as whoever she is working with.",
+        "The reason I say her abilities are 'unfortunate' is that Rogue has, as yet, been unable to turn her power off, meaning any kind of prolonged close contact with others is a risk. While we do have access to power-dampening technology at the school, the technology is still in its early days and, due to its complexity, power requirements and other factors, it is, as yet, not suitable for portable use. Rogue currently wears gloves to aid against accidental touches and typically wears concealing clothes. For obvious reasons, the student body has been made aware of Rogue's 'condition', but this has had the unfortunate side-effect of causing her to be left somewhat isolated by her peers. Rogue has been resilient in the face of this, but it is obvious to see that it has taken a great personal toll on her."]
+
+    $ Rogue.database["study_materials"] = [
+        "RECOMMENDED STUDY MATERIALS\n\n- X-Men Evolution (TV Show 2000-2003)\n- Age of Apocalypse (1995)\n- Supernovas (X-Men 188-199, 2007)\n- Uncanny Avengers (2012)\n- X-Men Legacy (2008)"]
+
+    $ Rogue.database["wiki"] = [
+        "Mutiefan Entry for ROGUE\n\nThis hot-tempered Southern Belle knows what she wants and isn't afraid to let anyone stand in her way. With the battlefield as a second home to her, Rogue plows through whatever gets between her and her target. But does she long for the chaos of the fight to fulfil some deep, long-buried, aching need in her? Or does she fight to take her mind off the one thing she can never have - the simple touch of another. . ."]
+
+    $ Rogue.database["comments"] = [
+        f"{Rogue.name}: Dunno about y'all, but *someone* was clearly trying to work out some frustrations when they wrote this jfc",
+        f"{Jean.name}: 'Hot-tempered'? You're practically apathetic! Half the Danger Room was on fire yesterday and you just shrugged and said 'eh, the sprinklers will take care of it!'",
+        f"{Rogue.name}: And I was right!"]
+        
+    return
