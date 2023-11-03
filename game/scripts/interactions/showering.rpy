@@ -77,8 +77,8 @@ label take_a_shower:
     $ Player.showering = True
     $ shower_steam = True
 
-    $ Player.sweaty = False
-    $ Player.chlorinated = False
+    $ Player.sweat = 0
+    $ Player.chlorine = 0
     $ Player.spunk = False
     $ Player.saliva = False
     $ Player.grool = False

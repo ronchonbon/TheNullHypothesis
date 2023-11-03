@@ -196,7 +196,7 @@ screen belt_screen():
         if phone_alert or unread_messages:
             add "images/interface/belt/phone_alert.webp" align (0.5, 0.5)
 
-        if Player.sweaty or Player.chlorinated or Player.dirty_cock:
+        if Player.sweat >= Player.sweaty_threshold:
             imagebutton align (0.5, 0.5):
                 idle "images/interface/belt/sweaty.webp" hover "images/interface/belt/sweaty.webp"
 

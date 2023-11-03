@@ -116,7 +116,7 @@ label after_swimming:
 
     $ Player.History.update("swam")
     $ Player.swimming = False
-    $ Player.chlorinated = True
+    $ Player.chlorine += 1
 
     call check_for_Events(only_automatic = True) from _call_check_for_Events_20
     call move_location(Player.location) from _call_move_location_51

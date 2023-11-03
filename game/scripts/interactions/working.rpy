@@ -51,7 +51,7 @@ label work(Character):
             $ Character.electronic = False
             $ Character.telepathic = False
 
-            $ Player.sweaty = True
+            $ Player.sweat += 1
 
             $ income = Player.level*int(work_unit*min(max(renpy.random.gauss(1.0, 0.15), 0.85), 1.15))
 

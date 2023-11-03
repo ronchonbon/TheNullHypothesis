@@ -105,7 +105,7 @@ label change_Girl_stat(Girl, flavor, update, alternate_values = {}):
                 $ update *= 1.0 - (Player.stat_modifier*Girl.stat_modifier - 1.0)
 
             if flavor == "love":
-                if Player.location == Girl.location and (Player.sweaty or Player.chlorinated):
+                if Player.location == Girl.location and Player.sweat >= Player.sweaty_threshold:
                     if update > 0:
                         $ update *= 0.8
                     elif update < 0:
@@ -120,7 +120,7 @@ label change_Girl_stat(Girl, flavor, update, alternate_values = {}):
             else:
                 $ update = 1000 - stat if stat + update >= 1000 else update
         else:
-            if Player.location == Girl.location and (Player.sweaty or Player.chlorinated):
+            if Player.location == Girl.location and Player.sweat >= Player.sweaty_threshold:
                 if update > 0:
                     $ update *= 0.75
                 elif update < 0:

@@ -197,8 +197,8 @@ label Rogue_chapter_one_season_four_first_training_session:
     $ Player.showering = True
     $ shower_steam = True
 
-    $ Player.sweat = False
-    $ Player.chlorinated = False
+    $ Player.sweat = 0
+    $ Player.chlorine = 0
     $ Player.spunk = False
     $ Player.saliva = False
     $ Player.grool = False

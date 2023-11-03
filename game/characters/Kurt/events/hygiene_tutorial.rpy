@@ -5,7 +5,7 @@ init python:
 
         conditions = [
             "Player.location == 'bg_danger'",
-            "Player.sweaty",
+            "Player.sweat >= Player.sweaty_threshold",
             "Kurt.location != Player.location",
             "not get_Present(location = Player.destination)"]
 
