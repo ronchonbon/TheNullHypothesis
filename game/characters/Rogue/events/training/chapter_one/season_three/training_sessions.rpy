@@ -146,8 +146,6 @@ label Rogue_chapter_one_season_three_training_sessions:
 
     call remove_Characters(Rogue) from _call_remove_Characters_204
 
-    call change_Girl_stat(Rogue, "trust", 10) from _call_change_Girl_stat_677
-
     $ ongoing_Event = False
 
     return

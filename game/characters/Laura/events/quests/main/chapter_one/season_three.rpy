@@ -17,8 +17,6 @@ init python:
 
         objectives.update({"Train together to learn more about your abilities": ["Laura.History.check('trained_with_Player', tracker = 'season')", 2]})
         
-        objectives.update({"Study together to help her with her coursework": ["Laura.History.check('studied_with_Player', tracker = 'season')", 1]})
-
         optional_objectives = {}
 
         rewards = ["Increased Love and Trust Cap"]

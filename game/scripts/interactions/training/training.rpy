@@ -128,7 +128,7 @@ label ask_to_train(Girl):
 
                     call expression f"{Girl.tag}_reject_train_asked_twice_text" from _call_expression_355
                 elif Girl.History.check("said_no_to_training", tracker = "recent") == 1:
-                    call change_Girl_stat(Girl, "love", -5) from _call_change_Girl_stat_1037
+                    call change_Girl_stat(Girl, "love", -2) from _call_change_Girl_stat_1037
 
                     call expression f"{Girl.tag}_reject_train_asked_once_text" from _call_expression_356
                 else:

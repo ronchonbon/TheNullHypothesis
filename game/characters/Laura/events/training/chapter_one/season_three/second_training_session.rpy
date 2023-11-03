@@ -165,9 +165,7 @@ label Laura_chapter_one_season_three_second_training_session:
     call remove_Characters(Laura) from _call_remove_Characters_138
 
     "With that, she leaves."
-    "Training with you is still not enough of a workout apparently." 
-
-    call change_Girl_stat(Laura, "trust", 20) from _call_change_Girl_stat_445
+    "Training with you is still not enough of a workout apparently."
 
     $ ongoing_Event = False
 

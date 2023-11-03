@@ -196,11 +196,6 @@ label Jean_chapter_one_season_three_study_sessions:
 
     if Player.location == Jean.home and Player.location != Jean.location and Jean not in Keys:
         call set_the_scene(location = "bg_girls_hallway") from _call_set_the_scene_132
-
-    if not Jean.History.check("studied_with_Player", tracker = "season"):
-        call change_Girl_stat(Jean, "love", 10) from _call_change_Girl_stat_137
-    else:
-        call change_Girl_stat(Jean, "love", 5) from _call_change_Girl_stat_138
     
     $ ongoing_Event = False
 

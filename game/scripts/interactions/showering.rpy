@@ -95,14 +95,7 @@ label take_a_shower:
     $ temp_showering_Girls = showering_Girls[:]
 
     while temp_showering_Girls:
-        if temp_showering_Girls[0].desire <= 70:
-            call change_Girl_stat(temp_showering_Girls[0], "desire", 10) from _call_change_Girl_stat_993
-        else:
-            call change_Girl_stat(temp_showering_Girls[0], "desire", 80 - temp_showering_Girls[0].desire) from _call_change_Girl_stat_994
-
         if not temp_showering_Girls[0].History.check("showered_with_Player", tracker = "recent"):
-            call change_Girl_stat(temp_showering_Girls[0], "trust", 5) from _call_change_Girl_stat_1597
-        
             $ temp_showering_Girls[0].History.update("showered_with_Player")
 
         $ temp_showering_Girls.remove(temp_showering_Girls[0])

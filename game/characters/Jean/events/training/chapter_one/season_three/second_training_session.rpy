@@ -153,8 +153,6 @@ label Jean_chapter_one_season_three_second_training_session:
 
     call remove_Characters(Jean) from _call_remove_Characters_58
 
-    call change_Girl_stat(Jean, "trust", 20) from _call_change_Girl_stat_196
-
     $ ongoing_Event = False
 
     return

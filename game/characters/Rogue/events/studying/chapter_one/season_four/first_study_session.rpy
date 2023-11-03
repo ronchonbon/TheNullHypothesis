@@ -162,8 +162,6 @@ label Rogue_chapter_one_season_four_first_study_session:
     ch_Player "If we're just gonna chill, let's at least clean all this stuff up."
     ch_Rogue "Sure." 
 
-    call change_Girl_stat(Rogue, "love", 10) from _call_change_Girl_stat_1070
-
     $ ongoing_Event = False
 
     return

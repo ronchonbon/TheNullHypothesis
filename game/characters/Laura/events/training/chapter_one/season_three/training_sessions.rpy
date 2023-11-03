@@ -234,8 +234,6 @@ label Laura_chapter_one_season_three_training_sessions:
         call remove_Characters(Laura) from _call_remove_Characters_141
 
         "You look down at yourself and notice the cuts from before are already closed."
-   
-    call change_Girl_stat(Laura, "trust", 10) from _call_change_Girl_stat_446
 
     $ ongoing_Event = False
 

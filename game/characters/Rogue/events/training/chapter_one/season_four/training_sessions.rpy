@@ -194,8 +194,6 @@ label Rogue_chapter_one_season_four_training_sessions:
     if dice_roll == 3:
         call send_Characters(Rogue, Rogue.home) from _call_send_Characters_165
 
-    call change_Girl_stat(Rogue, "trust", 10) from _call_change_Girl_stat_658
-
     $ ongoing_Event = False
 
     return

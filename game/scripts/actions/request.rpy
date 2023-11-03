@@ -91,12 +91,7 @@ label request_hookup(Character):
         if approval_check(temp_hookup_Characters[0], threshold = "hookup"):
             if not temp_hookup_Characters[0].History.check("hookup", tracker = "recent"):
                 if not temp_hookup_Characters[0].History.check("hookup"):
-                    call expression f"{temp_hookup_Characters[0].tag}_accepts_hookup_first_time" from _call_expression_65
-
-                    $ thresholds = eval(f"{temp_hookup_Characters[0].tag}_thresholds")
-
-                    call change_Girl_stat(temp_hookup_Characters[0], "love", int(0.04*thresholds["hookup"][0])) from _call_change_Girl_stat_1587
-                    call change_Girl_stat(temp_hookup_Characters[0], "trust", int(0.04*thresholds["hookup"][1])) from _call_change_Girl_stat_1588
+                    call expression f"{temp_hookup_Characters[0].tag}_accepts_hookup_first_time" from _call_expression_65\
                 elif temp_hookup_Characters[0].History.check("hookup") == 1:
                     call expression f"{temp_hookup_Characters[0].tag}_accepts_hookup_second_time" from _call_expression_66
                 elif approval_check(temp_hookup_Characters[0], threshold = "love"):
@@ -151,12 +146,7 @@ label request_Action(Action_type, Actors, Targets):
     if approval_check(focused_Girl, threshold = Action_type):
         if not focused_Girl.History.check(Action_type, tracker = "recent"):
             if not focused_Girl.History.check(Action_type):
-                call expression f"{focused_Girl.tag}_accepts_{Action_type}_first_time" from _call_expression_72
-
-                $ thresholds = eval(f"{focused_Girl.tag}_thresholds")
-
-                call change_Girl_stat(focused_Girl, "love", int(0.04*thresholds[Action_type][0])) from _call_change_Girl_stat_1589
-                call change_Girl_stat(focused_Girl, "trust", int(0.04*thresholds[Action_type][1])) from _call_change_Girl_stat_1590
+                call expression f"{focused_Girl.tag}_accepts_{Action_type}_first_time" from _call_expression_72\
             # elif focused_Girl.History.check(Action_type) == 1:
             #     call expression f"{focused_Girl.tag}_accepts_{Action_type}_second_time"
             # elif approval_check(focused_Girl, threshold = "love"):
@@ -241,11 +231,6 @@ label request_position(Girl, new_position, Action = None, automatic = False):
             $ proceed = _return
 
         if automatic or (proceed and approval_check(Girl, threshold = new_position)):
-            $ thresholds = eval(f"{Girl.tag}_thresholds")
-
-            call change_Girl_stat(Girl, "love", int(0.04*thresholds[new_position][0])) from _call_change_Girl_stat_1591
-            call change_Girl_stat(Girl, "trust", int(0.04*thresholds[new_position][1])) from _call_change_Girl_stat_1592
-
             if not automatic:
                 if not Girl.History.check(new_position, tracker = "recent"):
                     if not Girl.History.check(new_position):
@@ -354,11 +339,6 @@ label check_double_penetration(Girl, Action_type):
     #         if not Girl.History.check("double_penetrate", tracker = "recent"):
     #             if not Girl.History.check("double_penetrate"):
     #                 call expression f"{Girl.tag}_accepts_double_penetrate_first_time" from _call_expression_85
-
-    #                 $ thresholds = eval(f"{Girl.tag}_thresholds")
-
-    #                 call change_Girl_stat(Girl, "love", int(0.04*thresholds["double_penetrate"][0])) from _call_change_Girl_stat_1593
-    #                 call change_Girl_stat(Girl, "trust", int(0.04*thresholds["double_penetrate"][1])) from _call_change_Girl_stat_1594
     #             # elif Girl.History.check("double_penetrate") == 1:
     #             #     call expression f"{Girl.tag}_accepts_{"double_penetrate"}_second_time"
     #             # elif approval_check(Girl, threshold = "love"):

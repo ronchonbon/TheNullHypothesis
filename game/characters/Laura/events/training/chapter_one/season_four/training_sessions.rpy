@@ -233,8 +233,6 @@ label Laura_chapter_one_season_four_training_sessions:
 
         "You couldn't argue even if you wanted to."
 
-    call change_Girl_stat(Laura, "trust", 10) from _call_change_Girl_stat_422
-
     $ ongoing_Event = False
 
     return

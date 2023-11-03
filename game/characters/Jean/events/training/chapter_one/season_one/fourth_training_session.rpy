@@ -164,8 +164,6 @@ label Jean_chapter_one_season_one_fourth_training_session:
     ch_Jean "I gotta go, bye!"
 
     call remove_Characters(Jean) from _call_remove_Characters_53
-
-    call change_Girl_stat(Jean, "trust", 20) from _call_change_Girl_stat_180
     
     $ ongoing_Event = False
 

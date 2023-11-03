@@ -143,8 +143,6 @@ label Laura_chapter_one_season_one_second_training_session:
 
     "With that, she walks away and gets right into more training."
 
-    call change_Girl_stat(Laura, "trust", 20) from _call_change_Girl_stat_429
-
     $ ongoing_Event = False
 
     return

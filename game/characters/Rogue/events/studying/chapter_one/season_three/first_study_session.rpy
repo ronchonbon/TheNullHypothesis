@@ -75,8 +75,6 @@ label Rogue_chapter_one_season_three_first_study_session:
 
     "She reluctantly pulls her hand away, putting her gloves back on, before helping you clean everything up."
 
-    call change_Girl_stat(Rogue, "love", 10) from _call_change_Girl_stat_1079
-
     $ ongoing_Event = False
 
     return

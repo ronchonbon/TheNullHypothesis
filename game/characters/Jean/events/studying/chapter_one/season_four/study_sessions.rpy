@@ -149,9 +149,7 @@ label Jean_chapter_one_season_four_study_sessions:
 
         $ Jean.change_face("sly")
 
-        ch_Jean "I'm learning." 
-
-    call change_Girl_stat(Jean, "love", 5) from _call_change_Girl_stat_128
+        ch_Jean "I'm learning."
     
     $ ongoing_Event = False
 

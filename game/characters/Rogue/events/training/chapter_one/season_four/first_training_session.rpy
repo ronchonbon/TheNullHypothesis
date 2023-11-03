@@ -197,7 +197,7 @@ label Rogue_chapter_one_season_four_first_training_session:
     $ Player.showering = True
     $ shower_steam = True
 
-    $ Player.sweaty = False
+    $ Player.sweat = False
     $ Player.chlorinated = False
     $ Player.spunk = False
     $ Player.saliva = False
@@ -403,8 +403,6 @@ label Rogue_chapter_one_season_four_first_training_session:
     call set_the_scene(location = "bg_girls_hallway") from _call_set_the_scene_212
 
     $ Rogue.wants_alone_time = 1
-
-    call change_Girl_stat(Rogue, "trust", 20) from _call_change_Girl_stat_657
 
     $ ongoing_Event = False
 

@@ -132,8 +132,6 @@ label Jean_chapter_one_season_one_first_study_session:
     if Player.location == Jean.home:
         ch_Jean "You can hang out for a bit if you want. . ."
 
-    call change_Girl_stat(Jean, "love", 10) from _call_change_Girl_stat_135
-
     $ ongoing_Event = False
 
     return

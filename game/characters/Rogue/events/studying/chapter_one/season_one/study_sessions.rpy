@@ -303,8 +303,6 @@ label Rogue_chapter_one_season_one_study_sessions:
 
         ch_Player "Don't be afraid to ask."
 
-    call change_Girl_stat(Rogue, "love", 5) from _call_change_Girl_stat_1078
-
     $ ongoing_Event = False
 
     return

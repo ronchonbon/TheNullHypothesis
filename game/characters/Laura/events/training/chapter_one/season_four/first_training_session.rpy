@@ -255,8 +255,6 @@ label Laura_chapter_one_season_four_first_training_session:
     "She leaves you gasping for breath."
     "Your new power - and control over it - only seem to bring more pain and suffering to your life. . ."
 
-    call change_Girl_stat(Laura, "trust", 20) from _call_change_Girl_stat_421
-
     $ ongoing_Event = False
 
     return

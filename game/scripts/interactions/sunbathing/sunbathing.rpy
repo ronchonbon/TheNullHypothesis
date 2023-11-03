@@ -72,16 +72,6 @@ label actually_sunbathe(sunbathing_Characters):
 
         pause 1.0
 
-    $ temp_sunbathing_Characters = sunbathing_Characters[:]
-
-    while temp_sunbathing_Characters:
-        if temp_sunbathing_Characters[0].desire <= 50:
-            call change_Girl_stat(temp_sunbathing_Characters[0], "desire", 5) from _call_change_Girl_stat_1016
-        else:
-            call change_Girl_stat(temp_sunbathing_Characters[0], "desire", 60 - temp_showering_Girls[0].desire) from _call_change_Girl_stat_1017
-
-        $ temp_sunbathing_Characters.remove(temp_sunbathing_Characters[0])
-
     if black_screen:
         $ fade_in_from_black(0.4)
 

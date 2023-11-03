@@ -165,8 +165,6 @@ label Jean_chapter_one_season_two_training_sessions:
 
     call remove_Characters(Jean) from _call_remove_Characters_62
 
-    call change_Girl_stat(Jean, "trust", 10) from _call_change_Girl_stat_216
-
     $ ongoing_Event = False
 
     return

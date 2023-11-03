@@ -201,8 +201,6 @@ label Rogue_chapter_one_season_two_first_study_session:
 
     ch_Player "Really."
 
-    call change_Girl_stat(Rogue, "love", 10) from _call_change_Girl_stat_1086
-
     $ ongoing_Event = False
 
     return

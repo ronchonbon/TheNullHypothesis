@@ -130,8 +130,6 @@ label Laura_chapter_one_season_one_third_training_session:
 
     "She just leaves to continue training on her own."
 
-    call change_Girl_stat(Laura, "trust", 20) from _call_change_Girl_stat_430
-
     $ ongoing_Event = False
 
     return

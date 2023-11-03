@@ -210,8 +210,6 @@ label Laura_chapter_one_season_two_first_study_session:
 
     if Player.location == Laura.home and Laura not in Keys:
         call set_the_scene(location = "bg_girls_hallway") from _call_set_the_scene_352
-
-    call change_Girl_stat(Laura, "love", 10) from _call_change_Girl_stat_403
     
     $ ongoing_Event = False
 

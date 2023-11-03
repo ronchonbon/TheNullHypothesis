@@ -225,11 +225,6 @@ label Laura_chapter_one_season_three_study_sessions:
 
     if Player.location == Laura.home and Player.location != Laura.location and Laura not in Keys:
         call set_the_scene(location = "bg_girls_hallway") from _call_set_the_scene_351
-
-    if not Laura.History.check("studied_with_Player", tracker = "season"):
-        call change_Girl_stat(Laura, "love", 10) from _call_change_Girl_stat_396
-    else:
-        call change_Girl_stat(Laura, "love", 5) from _call_change_Girl_stat_397
     
     $ ongoing_Event = False
 

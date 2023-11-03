@@ -161,8 +161,6 @@ label Laura_chapter_one_season_two_training_sessions:
         call remove_Characters(Laura) from _call_remove_Characters_146
 
         "Phantom pains still linger around your midsection, so you don't argue."
-   
-    call change_Girl_stat(Laura, "trust", 10) from _call_change_Girl_stat_461
 
     $ ongoing_Event = False
 

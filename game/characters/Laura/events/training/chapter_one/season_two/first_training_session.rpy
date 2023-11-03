@@ -240,8 +240,6 @@ label Laura_chapter_one_season_two_first_training_session:
     
     "Leaving you to wallow in your own self pity."
 
-    call change_Girl_stat(Laura, "trust", 20) from _call_change_Girl_stat_450
-
     $ ongoing_Event = False
 
     return

@@ -147,8 +147,6 @@ label Rogue_chapter_one_season_four_study_sessions:
         ch_Player "We should probably clean up."
         ch_Rogue "Ah agree."
 
-    call change_Girl_stat(Rogue, "love", 5) from _call_change_Girl_stat_1071
-
     $ ongoing_Event = False
 
     return

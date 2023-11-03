@@ -140,10 +140,7 @@ label Laura_chapter_one_season_one_fourth_training_session:
 
     call remove_Characters(Laura) from _call_remove_Characters_130
     
-    "With that, she leaves to go train on her own." 
-
-    call change_Girl_stat(Laura, "love", 10) from _call_change_Girl_stat_427
-    call change_Girl_stat(Laura, "trust", 20) from _call_change_Girl_stat_428
+    "With that, she leaves to go train on her own."
 
     $ ongoing_Event = False
 

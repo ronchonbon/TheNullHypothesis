@@ -287,9 +287,7 @@ label Laura_chapter_one_season_three_first_training_session:
     call remove_Characters(Laura) from _call_remove_Characters_137
 
     "With that, she marches off."
-    "Leaving you gasping for air." 
-
-    call change_Girl_stat(Laura, "trust", 20) from _call_change_Girl_stat_442
+    "Leaving you gasping for air."
 
     $ ongoing_Event = False
 

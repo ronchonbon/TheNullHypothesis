@@ -232,8 +232,6 @@ label Laura_chapter_one_season_two_second_training_session:
 
     "She just leaves, refusing to elaborate."
 
-    call change_Girl_stat(Laura, "trust", 20) from _call_change_Girl_stat_460
-
     $ ongoing_Event = False
 
     return

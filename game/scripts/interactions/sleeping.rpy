@@ -56,11 +56,6 @@ label go_to_sleep(automatic = False):
                 temp_sleepover_Characters.append(C)
 
     while temp_sleepover_Characters:
-        $ thresholds = eval(f"{temp_sleepover_Characters[0].tag}_thresholds")
-
-        call change_Girl_stat(temp_sleepover_Characters[0], "love", int(0.04*thresholds["sleepover"][0])) from _call_change_Girl_stat_1602
-        call change_Girl_stat(temp_sleepover_Characters[0], "trust", int(0.04*thresholds["sleepover"][1])) from _call_change_Girl_stat_1603
-
         $ temp_sleepover_Characters[0].History.update("sleepover")
 
         $ temp_sleepover_Characters[0].getting_ready_for_bed = True

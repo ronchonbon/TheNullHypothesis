@@ -287,8 +287,6 @@ label Jean_chapter_one_season_four_first_study_session:
     ch_Jean "Yeah, [Jean.Player_petname], it does."
     ch_Jean "Let's do it again sometime soon."
 
-    call change_Girl_stat(Jean, "love", 10) from _call_change_Girl_stat_127
-
     $ ongoing_Event = False
 
     return

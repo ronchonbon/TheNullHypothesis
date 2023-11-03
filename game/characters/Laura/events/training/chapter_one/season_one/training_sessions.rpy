@@ -152,8 +152,6 @@ label Laura_chapter_one_season_one_training_sessions:
         
         "She leaves to finish working out on her own."
 
-    call change_Girl_stat(Laura, "trust", 10) from _call_change_Girl_stat_431
-
     $ ongoing_Event = False
 
     return

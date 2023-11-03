@@ -195,11 +195,6 @@ label Jean_chapter_one_season_two_study_sessions:
         ch_Player "Probably not. . ." 
 
         $ Jean.change_face("worried1", mouth = "smirk")
-
-    if not Jean.History.check("studied_with_Player", tracker = "season"):
-        call change_Girl_stat(Jean, "love", 10) from _call_change_Girl_stat_140
-    else:
-        call change_Girl_stat(Jean, "love", 5) from _call_change_Girl_stat_141
     
     $ ongoing_Event = False
 

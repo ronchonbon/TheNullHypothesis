@@ -196,12 +196,6 @@ label set_Outfit_flags(Character, Outfit = None, hypothetical = False):
                             if day - EventScheduler.Events[f"{Character.tag}_seen_{temp_parts[0]}"].completed != 0:
                                 $ EventScheduler.Events[f"{Character.tag}_seen_{temp_parts[0]}"].start()
 
-                        if temp_parts[0] in ["bra", "breasts", "underwear", "pussy"] and not Character.History.check(f"seen_{temp_parts[0]}"):
-                            $ thresholds = eval(f"{Character.tag}_thresholds")
-
-                            call change_Girl_stat(Character, "love", int(0.04*thresholds[f"see_{temp_parts[0]}"][0])) from _call_change_Girl_stat_1595
-                            call change_Girl_stat(Character, "trust", int(0.04*thresholds[f"see_{temp_parts[0]}"][1])) from _call_change_Girl_stat_1596
-
                         $ Character.History.update(f"seen_{temp_parts[0]}")
 
             if temp_parts:

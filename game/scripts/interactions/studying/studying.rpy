@@ -118,15 +118,15 @@ label ask_to_study(Girl):
             if time_index not in Girl.schedule.keys() and status not in ["miffed", "mad", "heartbroken"] and not Girl.wants_alone_time and not Girl.History.check("studied_with_Player", tracker = "daily"):
                 call expression f"{Girl.tag}_accept_study_text" from _call_expression_296
             else:
-                if Girl.History.check("said_no_to_studying", tracker = "recent") == 1:
-                    call change_Girl_stat(Girl, "love", -5) from _call_change_Girl_stat_1001
-                    
-                    call expression f"{Girl.tag}_reject_study_asked_once_text" from _call_expression_297
-                elif Girl.History.check("said_no_to_studying", tracker = "recent") > 1:
+                if Girl.History.check("said_no_to_studying", tracker = "recent") >= 2:
                     call change_Girl_stat(Girl, "love", -5) from _call_change_Girl_stat_1002
                     call change_Girl_stat(Girl, "trust", -5) from _call_change_Girl_stat_1003
 
                     call expression f"{Girl.tag}_reject_study_asked_twice_text" from _call_expression_298
+                elif Girl.History.check("said_no_to_studying", tracker = "recent") == 1:
+                    call change_Girl_stat(Girl, "love", -2) from _call_change_Girl_stat_1001
+                    
+                    call expression f"{Girl.tag}_reject_study_asked_once_text" from _call_expression_297
                 else:
                     call expression f"{Girl.tag}_reject_study_text" from _call_expression_299
 

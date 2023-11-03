@@ -124,8 +124,6 @@ label Rogue_chapter_one_season_three_study_sessions:
         ch_Rogue "'Course, [Rogue.Player_petname], {i}any{/i} time. . ."
         ch_Rogue "You know that, right?"
 
-    call change_Girl_stat(Rogue, "love", 5) from _call_change_Girl_stat_1080
-
     $ ongoing_Event = False
 
     return

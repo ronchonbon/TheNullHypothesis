@@ -172,8 +172,6 @@ label Rogue_chapter_one_season_one_second_study_session:
     if Player.location == Rogue.home and Rogue not in Keys:
         call set_the_scene(location = "bg_girls_hallway") from _call_set_the_scene_357
 
-    call change_Girl_stat(Rogue, "love", 10) from _call_change_Girl_stat_1076
-
     $ ongoing_Event = False
 
     return
