@@ -1039,7 +1039,7 @@ label Laura_flirt_d:
 
         $ Laura.change_face("neutral", mouth = "lipbite", blush = 1)
 
-        ch_Laura "Fuck it."
+        ch_Laura ". . ."
         "She grabs your hand and squeezes. . . a bit too hard."
 
         call change_Girl_stat(Laura, "love", 3) from _call_change_Girl_stat_1381
@@ -1075,7 +1075,7 @@ label Laura_flirt_eb:
     if Player.location in public_locations and approval_check(Laura, threshold = [50, 100]):
         $ Laura.change_face("smirk2", eyes = "left", mouth = "lipbite", blush = 1) 
 
-        ch_Laura "Fuck it. . ." 
+        ch_Laura ". . ." 
 
         $ Laura.change_face("kiss1", blush = 1) 
 
@@ -1291,7 +1291,7 @@ label Laura_flirt_h:
 
         $ Laura.change_face("suspicious1", blush = 1)
 
-        ch_Laura "The fuck are you trying to do?"
+        ch_Laura "What are you trying to do?"
 
         call change_Girl_stat(Laura, "trust", -3) from _call_change_Girl_stat_1399
 

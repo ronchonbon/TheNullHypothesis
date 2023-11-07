@@ -22,7 +22,7 @@ label Laura_enjoying_being_girlfriend:
     "You wake up, but as you're getting out of bed, you notice something flash by your window."
     "A quick peek outside doesn't show anything out of the ordinary, so you get ready for the day as usual."
 
-    call receive_text(Kurt, "Morning brüder") from _call_receive_text_294
+    call receive_text(Kurt, "Morning bruder") from _call_receive_text_294
     call receive_text(Kurt, "Seems like you have a visitor waiting for you") from _call_receive_text_692
     call open_texts(Kurt) from _call_open_texts_5
     call send_text(Kurt, "I do?") from _call_send_text_82

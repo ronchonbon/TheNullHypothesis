@@ -934,7 +934,7 @@ label ch1_Juggernaut_attack:
     "She's squeezing too hard and the pain sucks the breath out of your lungs."
     $ Laura.change_face("furious", eyes = "closed", blush = 3)
 
-    ch_Laura "You fucking idiot, what were you thinking?!" 
+    ch_Laura "You idiot, what were you thinking?!" 
     ch_Laura "I'm never letting you out of my sight again."
     ch_Player "X-23. . . can't. . . breathe. . ."
 
@@ -1009,7 +1009,7 @@ label ch1_Juggernaut_attack:
 
     $ Laura.change_face("appalled2")
 
-    ch_Laura "It makes no fucking sense!" 
+    ch_Laura "It makes no sense!" 
 
     $ Laura.change_face("furious")
 
@@ -1726,7 +1726,7 @@ label ch1_Juggernaut_attack_path_1A:
 
     $ Laura.change_face("furious")
 
-    ch_Laura "[Player.first_name], where the fuck are you goi. . ."
+    ch_Laura "[Player.first_name], where are you goi. . ."
 
     $ Laura.change_face("appalled3")
 
@@ -1755,7 +1755,7 @@ label ch1_Juggernaut_attack_path_1A:
 
     $ Laura.unsheathing_claws = False
 
-    ch_Laura "What the fuck. . ."
+    ch_Laura "What the. . ."
 
     $ Laura.change_face("worried4")
 
@@ -2173,7 +2173,7 @@ label ch1_Juggernaut_attack_path_1B:
 
     $ Laura.change_face("furious")
 
-    ch_Laura "[Player.first_name], where the fuck are you goi. . ."
+    ch_Laura "[Player.first_name], where are you goi. . ."
 
     $ Laura.change_face("appalled3")
 
@@ -2202,7 +2202,7 @@ label ch1_Juggernaut_attack_path_1B:
 
     $ Laura.unsheathing_claws = False
 
-    ch_Laura "What the fuck. . ."
+    ch_Laura "What the. . ."
 
     $ Laura.change_face("worried4")
 

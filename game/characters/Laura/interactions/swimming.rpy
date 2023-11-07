@@ -27,7 +27,7 @@ label Laura_reject_swim_asked_once:
 label Laura_reject_swim_asked_twice:        
     $ Laura.change_face("angry1")
 
-    ch_Laura "What the fuck."
+    ch_Laura "What the hell."
 
     call getting_kicked_out(Laura) from _call_getting_kicked_out_41
 
@@ -65,7 +65,7 @@ label Laura_reject_sunbathe_asked_once:
 label Laura_reject_sunbathe_asked_twice:
     $ Laura.change_face("angry1")
 
-    ch_Laura "What the fuck."
+    ch_Laura "What the hell."
 
     call getting_kicked_out(Laura) from _call_getting_kicked_out_42
 

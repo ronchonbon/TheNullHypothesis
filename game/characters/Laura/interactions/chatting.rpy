@@ -218,11 +218,11 @@ label Laura_busy_late_asked_twice:
         if Player.location == Laura.home:
             ch_Laura "Get out, now."
         else:
-            ch_Laura "Fuck this."
+            ch_Laura "Enough of this."
             
         call getting_kicked_out(Laura) from _call_getting_kicked_out_30
     else:
-        ch_Laura "Fuck this."
+        ch_Laura "Enough of this."
     
     return
 

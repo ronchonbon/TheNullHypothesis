@@ -17,7 +17,7 @@ label Laura_rejects_hookup_mad:
     $ Laura.change_face("suspicious1")
 
     ch_Laura "{i}Grrrrrr{/i}"
-    ch_Laura "Fuck off."
+    ch_Laura "Go away."
 
     return
 

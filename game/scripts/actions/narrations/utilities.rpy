@@ -81,7 +81,7 @@ label sex_talk(Characters):
                 $ dice_roll = renpy.random.randint(1, 3)
 
                 if dice_roll == 1:
-                    $ renpy.say(Characters[0].voice, "Oh fuck. . .")
+                    $ renpy.say(Characters[0].voice, "Oh. . .")
                 elif dice_roll == 2:
                     $ renpy.say(Characters[0].voice, "*gasp*")
                 elif dice_roll == 3:

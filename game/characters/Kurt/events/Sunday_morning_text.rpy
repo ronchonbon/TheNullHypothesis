@@ -16,7 +16,7 @@ init python:
 label Kurt_Sunday_morning_text:
     $ fade_in_from_black(0.4)
     
-    call receive_text(Kurt, "Sorry mein brüder") from _call_receive_text_220
+    call receive_text(Kurt, "Sorry mein bruder") from _call_receive_text_220
     call receive_text(Kurt, "Was at church") from _call_receive_text_221
     
     return

@@ -238,7 +238,7 @@ label Laura_knocks_horny(arriving_Characters):
 
             $ Laura.change_face("angry1", blush = 1)
 
-            ch_Laura "It's your fucking fault. . . I'm like this. . ."
+            ch_Laura "It's your fault. . . I'm like this. . ."
 
             $ Laura.mouth = "lipbite"
 
@@ -438,12 +438,12 @@ label Laura_greets_Player_knocking_mad(welcoming_Characters):
     if dice_roll == 1:
         "As you get close to the door, it sounds like someone is beating the shit out of a punching bag."
         ch_Player "[Laura.name]?"
-        ch_Laura "Fuck off!"
+        ch_Laura "Go away!"
     elif dice_roll == 2:
         "You knock on the door."
         ch_Laura "{i}Grrrrr{/i}"
         ch_Laura "Go away, [Player.first_name]."
-        ch_Laura "Not in the fucking mood."
+        ch_Laura "Not in the mood."
     elif dice_roll == 3:
         ch_Laura "Leave before I get even angrier."
 
@@ -458,7 +458,7 @@ label Laura_greets_Player_knocking_heartbroken(welcoming_Characters):
 
     if dice_roll == 1:
         "You hear sounds of anger mixed with sobs on the other side of the door."
-        ch_Laura "{i}Grrrrrr{/i}, go the fuck away, [Player.first_name]."
+        ch_Laura "{i}Grrrrrr{/i}, go away, [Player.first_name]."
         ch_Laura "*sniffle* I know you're there."
         ch_Player "Sorry. . ."
 
@@ -467,7 +467,7 @@ label Laura_greets_Player_knocking_heartbroken(welcoming_Characters):
         call move_location("bg_girls_hallway") from _call_move_location_23
     elif dice_roll == 2:
         ch_Player "[Laura.name]?"
-        ch_Laura "{size=-5}Fuck{/size}. . . one sec. . ."
+        ch_Laura ". . . one sec. . ."
 
         call set_the_scene(location = Laura.home) from _call_set_the_scene_147
 
@@ -568,14 +568,14 @@ label Laura_greets_Player_knocking_reject_asked_once:
     $ dice_roll = renpy.random.randint(1, 2)
 
     if dice_roll == 1:
-        ch_Laura "I said fuck off!"
+        ch_Laura "I said go away!"
     elif dice_roll == 2:
-        ch_Laura "Don't fucking push it."
+        ch_Laura "Don't push it."
 
     return
 
 label Laura_greets_Player_knocking_reject_asked_twice:
-    ch_Laura "Stop before I put a hole through the fucking door."
+    ch_Laura "Stop before I put a hole through the door."
 
     return
 
@@ -596,14 +596,14 @@ label Laura_greets_Player_knocking_late_asked_once:
     $ dice_roll = renpy.random.randint(1, 2)
 
     if dice_roll == 1:
-        ch_Laura "I said fuck off!"
+        ch_Laura "I said go away!"
     elif dice_roll == 2:
-        ch_Laura "Don't fucking push it."
+        ch_Laura "Don't push it."
 
     return
 
 label Laura_greets_Player_knocking_late_asked_twice:
-    ch_Laura "Stop before I put a hole through the fucking door."
+    ch_Laura "Stop before I put a hole through the door."
 
     return
 

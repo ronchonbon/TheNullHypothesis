@@ -33,7 +33,7 @@ label Laura_Rogue_talking_about_masturbation:
     ch_Laura ". . . after the tenth time."
     ch_Rogue "Tenth?!"
     ch_Rogue "Lord, how can ya walk straight?"
-    ch_Laura "But it only fucking worked when I thought about. . . [Player.first_name]. . ."
+    ch_Laura "But it only worked when I thought about. . . [Player.first_name]. . ."
     ch_Rogue "Oh darlin'. . ."
     ch_Rogue "Ah think yer fallin' hard for him."
 

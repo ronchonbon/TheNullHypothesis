@@ -100,7 +100,7 @@ label Laura_chapter_one_season_two_first_training_session:
     $ Laura.change_face("furious")
 
     ch_Player "What the fuck. . ."
-    ch_Laura "Yes. {i}What{/i} the fuck?"
+    ch_Laura "Yes. {i}What the fuck{/i}?"
 
     $ Laura.change_face("suspicious1")
 

@@ -57,7 +57,6 @@ label Laura_texting_study_response:
     elif Laura.text_history[-1][1] == temp[2]:
         call receive_text(Laura, "Goddamnit") from _call_receive_text_275
         call receive_text(Laura, "Now I have to find the redhead") from _call_receive_text_276
-        call receive_text(Laura, "Fuck") from _call_receive_text_277
         
         call change_Girl_stat(Laura, "love", -5) from _call_change_Girl_stat_351
 

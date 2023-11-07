@@ -166,7 +166,7 @@ label Laura_jealousy_went_on_date:
 
     $ Kurt.change_face("surprised")
 
-    ch_Kurt "Brüder. . ."
+    ch_Kurt "Bruder. . ."
     ch_Kurt "Is everysing okay?"
     ch_Kurt "You could hear zee yelling from across campus. . ."
 
@@ -337,7 +337,7 @@ label Laura_jealousy_flirted:
 
     $ Kurt.change_face("surprised")
 
-    ch_Kurt "Brüder. . ."
+    ch_Kurt "Bruder. . ."
     ch_Kurt "Is everysing okay?"
     ch_Kurt "I saw her dragging you across campus. . ."
     

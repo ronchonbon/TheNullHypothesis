@@ -77,7 +77,7 @@ label Laura_summon_reject_asked_twice:
     return
 
 label Laura_summon_reject_mad:
-    call receive_text(Laura, "Fuck off.") from _call_receive_text_318
+    call receive_text(Laura, "Leave me alone.") from _call_receive_text_318
 
     return
     
@@ -152,13 +152,13 @@ label Laura_dismiss_reject_asked_twice:
 
         call getting_kicked_out(Laura) from _call_getting_kicked_out_40
     else:
-        ch_Laura "I'll make you leave if you keep fucking asking."
+        ch_Laura "I'll make you leave if you keep asking."
 
     return
 
 label Laura_dismiss_reject_mad:
     $ Laura.change_face("appalled2")
 
-    ch_Laura "Fuck off, I'm not in the mood."
+    ch_Laura "I'm not in the mood."
 
     return

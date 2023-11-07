@@ -30,7 +30,7 @@ label Kurt_hygiene_tutorial:
     $ Kurt.change_face("happy")
 
     ch_Player "Gah!"
-    ch_Kurt "Brüder!"
+    ch_Kurt "Bruder!"
 
     $ Kurt.change_face("neutral")
 
@@ -70,7 +70,7 @@ label Kurt_hygiene_tutorial:
     $ Kurt.change_face("happy")
 
     ch_Kurt "Zat is all."
-    ch_Kurt "I have faith in you, mein brüder."
+    ch_Kurt "I have faith in you, mein bruder."
     ch_Kurt "Don't be stinky."
 
     call Kurt_teleports_out from _call_Kurt_teleports_out

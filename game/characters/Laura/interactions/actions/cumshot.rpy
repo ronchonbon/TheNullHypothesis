@@ -160,7 +160,7 @@ label Laura_accepts_cumshot_hair:
 
     $ Laura.change_face("sly", mouth = "lipbite", blush = 2)
 
-    ch_Laura "Fuck it." 
+    ch_Laura "Whatever." 
 
     return
 
@@ -204,7 +204,7 @@ label Laura_accepts_cumshot_back:
     if Laura.back_covered:
         $ Laura.change_face("smirk2", mouth = "lipbite", blush = 1)
 
-        ch_Laura "Fuck it." 
+        ch_Laura "Whatever." 
     else:
         $ Laura.change_face("sexy", blush = 1)
 
@@ -312,7 +312,7 @@ label Laura_accepts_cumshot_feet:
 
         $ Laura.change_face("smirk2", mouth = "lipbite", blush = 1)
 
-        ch_Laura "Fuck it."
+        ch_Laura "Whatever."
     else:
         $ Laura.change_face("sly", mouth = "lipbite", blush = 1)
 

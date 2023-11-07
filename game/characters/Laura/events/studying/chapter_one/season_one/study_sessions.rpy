@@ -107,7 +107,7 @@ label Laura_chapter_one_season_one_study_sessions:
 
         $ Laura.change_face("angry1")
 
-        ch_Laura "Fuck." 
+        pause 1.0
 
         $ Laura.change_face("neutral")
 

@@ -78,12 +78,12 @@ label Laura_follow_reject_asked_once:
 label Laura_follow_reject_asked_twice:
     $ Laura.change_face("appalled2")
 
-    ch_Laura "I just fucking said I'm not following you."
+    ch_Laura "I just said I'm not following you."
     
     if Player.location == Laura.home:
         ch_Laura "Get out, now."
     else:
-        ch_Laura "Fuck this."
+        ch_Laura "This is absurd."
         
     call getting_kicked_out(Laura) from _call_getting_kicked_out_33
 
@@ -93,7 +93,7 @@ label Laura_follow_reject_mad:
     $ Laura.change_face("appalled2")
 
     ch_Laura "{i}Grrrrrr{/i}."
-    ch_Laura "I'm not in the fucking mood."
+    ch_Laura "I'm not in the mood."
 
     return
 

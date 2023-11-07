@@ -1,7 +1,7 @@
 label Laura_rejects_sex:
     $ Laura.change_face("confused3", blush = 1)  
 
-    ch_Laura "You want to fuck?" 
+    ch_Laura "You want to have sex?" 
 
     $ Laura.change_face("suspicious1", blush = 1)
 
@@ -56,7 +56,7 @@ label Laura_rejects_anal:
         
         $ Laura.change_face("suspicious1", blush = 2)
 
-        ch_Laura "We haven't even fucked yet."
+        ch_Laura "We haven't even had sex yet."
     else:
         $ Laura.change_face("suspicious1", blush = 2)
 

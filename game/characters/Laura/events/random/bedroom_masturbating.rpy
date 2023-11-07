@@ -25,9 +25,9 @@ label Laura_bedroom_masturbating:
 
     if dice_roll == 1:
         "As you get closer, you hear. . . growling. . . and other {i}interesting{/i} noises."
-        ch_Laura "*gasp* Fucking asshole. . ."
+        ch_Laura "*gasp* Asshole. . ."
         ch_Laura "[Player.first_name]. . . making me feel. . ."
-        ch_Laura "Fuck. . . *gasp*"
+        ch_Laura ". . . *gasp*"
 
         call knock_on_door(times = 2) from _call_knock_on_door_8
 
@@ -35,8 +35,8 @@ label Laura_bedroom_masturbating:
         ch_Player "[Laura.name]?"
     elif dice_roll == 2:
         "As you get closer, you hear. . . growling. . . and other {i}interesting{/i} noises."
-        ch_Laura "{i}Grrrrr{/i}. . . this is your fucking fault, [Player.first_name]."
-        ch_Laura "Fuck. . ."
+        ch_Laura "{i}Grrrrr{/i}. . . this is your fault, [Player.first_name]."
+        ch_Laura "Mmm. . ."
         ch_Laura "*gasp* Goddamnit. . . [Player.first_name]. . ."
         
         call knock_on_door(times = 2) from _call_knock_on_door_9
@@ -58,9 +58,9 @@ label Laura_bedroom_masturbating:
         $ Laura.change_face("furious")
 
         "She looks {i}pissed{/i}."
-        ch_Laura "Fucking come in already. . ."
+        ch_Laura "Come in already. . ."
     else:
-        ch_Laura "Fuck off!"
+        ch_Laura "Go away!"
         ch_Laura "You didn't hear anything."
         ch_Laura "I'm busy."
         ch_Laura "Go away."

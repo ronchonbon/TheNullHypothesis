@@ -20,7 +20,7 @@ label Laura_accepts_touch_pussy_over_clothes_first_time:
 
     $ Laura.change_face("sly", mouth = "lipbite", blush = 2)
 
-    ch_Laura "Fuck it. . ."
+    ch_Laura "Screw it. . ."
 
     return
 
@@ -65,7 +65,7 @@ label Laura_accepts_touch_pussy_first_time:
 
     $ Laura.change_face("sly", mouth = "lipbite", blush = 2)
 
-    ch_Laura "Fuck it. . ."
+    ch_Laura "Screw it. . ."
 
     return
 

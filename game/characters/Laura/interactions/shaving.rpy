@@ -111,7 +111,7 @@ label Laura_pubes_strip_accept:
 
     $ Laura.change_face("sly", mouth = "lipbite", blush = 1)
 
-    ch_Laura "Fuck it."
+    ch_Laura "Whatever."
 
     return
 

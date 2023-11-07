@@ -158,12 +158,12 @@ label start_chapter_one_season_three:
     $ HumHumPool.update(
         HumHumThreadClass(
             "Null_recovery", [
-                HumHumClass(Jean, "Good news, looks like Null is out of the woods! He just woke up half an hour ago. Only allowed a few visitors right now, so if you want to pass on a message, just tell me or Rogue.")]))
+                HumHumClass(Jean, f"Good news, looks like {Player.first_name} is out of the woods! He just woke up half an hour ago. Only allowed a few visitors right now, so if you want to pass on a message, just tell me or Rogue.")]))
 
     $ HumHumPool.update(
         HumHumThreadClass(
             "Kurt_worries", [
-                HumHumClass(Kurt, "Word of advice, any of our more 'exotic'-looking brüder und schwestern planning on visiting town any time soon, be wary."),
+                HumHumClass(Kurt, "Word of advice, any of our more 'exotic'-looking bruder und schwestern planning on visiting town any time soon, be wary."),
                 HumHumClass(Kurt, "I was getting some very. . . upset looks today from some of the people. Take care, meine freunde.")])) 
     
     $ HumHumPool.update(

@@ -128,7 +128,7 @@ label Laura_black_bikini_top_gift_accept:
 label Laura_black_bikini_top_gift_reject:
     $ Laura.change_face("angry1")
 
-    ch_Laura "The fuck? Why are you buying me stuff like that?"
+    ch_Laura "Why are you buying me stuff like that?"
 
     return
 

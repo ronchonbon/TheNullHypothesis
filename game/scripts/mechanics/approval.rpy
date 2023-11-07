@@ -83,7 +83,10 @@ label change_Player_stat(flavor, update):
 
     return
 
-label change_Girl_stat(Girl, flavor, update, alternate_values = {}):
+label change_Girl_stat(Girl, flavor, update, alternate_values = None):
+    if not alternate_values:
+        $ alternate_values = {}
+
     if Girl in alternate_values.keys():
         $ check = alternate_values[Girl][0]
         $ update = alternate_values[Girl][1]
