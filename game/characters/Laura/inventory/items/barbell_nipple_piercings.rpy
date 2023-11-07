@@ -17,6 +17,6 @@ label Laura_barbell_nipple_piercings_accept:
 label Laura_barbell_nipple_piercings_reject:
     $ Laura.change_face("angry1")
 
-    ch_Laura "Why the fuck would I do that?"
+    ch_Laura "Why would I do that?"
 
     return

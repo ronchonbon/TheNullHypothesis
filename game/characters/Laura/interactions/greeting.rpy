@@ -154,7 +154,7 @@ label Laura_greets_Player_mad:
     elif dice_roll == 2:
         $ Laura.change_face("angry1")
 
-        ch_Laura "The fuck have you been up to?"
+        ch_Laura "What have you been up to?"
 
         $ Laura.eyes = "squint"
     elif dice_roll == 3:
@@ -164,7 +164,7 @@ label Laura_greets_Player_mad:
 
         $ Laura.change_face("angry1")
 
-        ch_Laura "The fuck do you want?"
+        ch_Laura "What do you want?"
 
     return
 

@@ -16,7 +16,7 @@ label Laura_getting_late_relationship:
 label Laura_getting_late_love:
     $ Laura.change_face("neutral", eyes = "down", blush = 1)
 
-    ch_Laura "Fuck. . . it's already late."
+    ch_Laura ". . . It's already late."
 
     $ Laura.change_face("neutral", eyes = "squint", blush = 1)
 
@@ -56,7 +56,7 @@ label Laura_getting_late_horny:
 label Laura_getting_late_nympho:
     $ Laura.change_face("suspicious1", mouth = "lipbite", blush = 1)
 
-    ch_Laura "Why the fuck is it so late already. . ."
+    ch_Laura "Why is it so late already. . ."
     ch_Laura "I had plans for you." 
 
     $ Laura.change_face("neutral", eyes = "squint", mouth = "lipbite", blush = 1)

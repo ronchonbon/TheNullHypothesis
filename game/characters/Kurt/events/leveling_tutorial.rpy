@@ -35,7 +35,7 @@ label Kurt_leveling_tutorial:
     $ Kurt.change_face("confused")
 
     ch_Player "Bro, where the hel-"
-    ch_Kurt "It seems mein brüder has recently leveled up."
+    ch_Kurt "It seems mein bruder has recently leveled up."
     ch_Player "'Leveled up'?"
 
     $ Kurt.change_face("neutral")
@@ -68,7 +68,7 @@ label Kurt_leveling_tutorial:
 
     $ Kurt.change_face("happy")
 
-    ch_Kurt "Tschuss!"
+    ch_Kurt "Tschüss!"
 
     call Kurt_teleports_out from _call_Kurt_teleports_out_1
 

@@ -78,7 +78,7 @@ label Laura_follow_reject_asked_once:
 label Laura_follow_reject_asked_twice:
     $ Laura.change_face("appalled2")
 
-    ch_Laura "I just fucking said I'm not following you."
+    ch_Laura "I just said I'm not following you."
     
     if Player.location == Laura.home:
         ch_Laura "Get out, now."

@@ -486,7 +486,7 @@ label Laura_first_friend_part_three:
 
     $ Laura.change_face("angry1", blush = 0)
 
-    ch_Laura "I still don't get these fucking terms."
+    ch_Laura "I still don't get these terms."
 
     $ chatting = True
     $ denied_boyfriend = False

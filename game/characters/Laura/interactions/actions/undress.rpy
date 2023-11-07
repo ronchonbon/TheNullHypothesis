@@ -478,7 +478,7 @@ label Laura_rejects_show_breasts_asked_once:
 label Laura_rejects_show_breasts_asked_twice:
     $ Laura.change_face("appalled1")
 
-    ch_Laura "Better fucking stop asking."
+    ch_Laura "Better stop asking."
        
     call getting_kicked_out(Laura) from _call_getting_kicked_out_25
 

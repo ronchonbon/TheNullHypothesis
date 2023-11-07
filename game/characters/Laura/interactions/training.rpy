@@ -64,7 +64,6 @@ label Laura_accept_train_text:
     if Laura.studying and Laura.History.check("studied_with_Player") and day - Laura.History.check_when("studied_with_Player") > 4:
         $ Laura.schedule[time_index] = [Laura.home, "studying"]
 
-        call receive_text(Laura, "Fuck") from _call_receive_text_435
         call receive_text(Laura, "Can't") from _call_receive_text_436
         call receive_text(Laura, "I need to study or I'll fail another goddamn test") from _call_receive_text_437
         call receive_text(Laura, "Come and teach me") from _call_receive_text_438

@@ -417,15 +417,15 @@ label Laura_reject_public_Outfit(Outfit):
 
             $ Laura.change_face("suspicious2", blush = 1)
 
-            ch_Laura "Why the fuck would I walk around effectively naked?"
+            ch_Laura "Why would I walk around effectively naked?"
         else:
             $ Laura.change_face("suspicious2", blush = 1)
 
-            ch_Laura "Why the fuck would I walk around with. . . that exposed?"
+            ch_Laura "Why would I walk around with. . . that exposed?"
     elif not Laura.breasts_covered:
         $ Laura.change_face("suspicious2", blush = 1)
 
-        ch_Laura "What the fuck would makes you think I'd walk around exposed like this?"
+        ch_Laura "What would makes you think I'd walk around exposed like this?"
     else:
         $ dice_roll = renpy.random.randint(1, 3)
 

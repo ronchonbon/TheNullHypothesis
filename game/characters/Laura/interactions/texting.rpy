@@ -155,7 +155,7 @@ label Laura_text_how_are_you_love:
     return
 
 label Laura_text_how_are_you_mad:
-    call receive_text(Laura, "I'm fucking pissed") from _call_receive_text_345
+    call receive_text(Laura, "I'm pissed") from _call_receive_text_345
     call receive_text(Laura, "I need to cut something") from _call_receive_text_346
 
     return

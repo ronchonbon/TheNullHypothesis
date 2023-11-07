@@ -8,7 +8,7 @@ label Laura_heart_anal_plug_shopping_accept:
 label Laura_heart_anal_plug_shopping_reject:
     $ Laura.change_face("appalled1")
 
-    ch_Laura "The fuck are those for?"
+    ch_Laura "What are those for?"
 
     return
 
@@ -22,7 +22,7 @@ label Laura_heart_anal_plug_gift_accept:
 label Laura_heart_anal_plug_gift_reject:
     $ Laura.change_face("appalled1")
 
-    ch_Laura "The fuck are those? No thanks."
+    ch_Laura "What are those? No thanks."
 
     return
 

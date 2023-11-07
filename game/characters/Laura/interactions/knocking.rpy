@@ -238,7 +238,7 @@ label Laura_knocks_horny(arriving_Characters):
 
             $ Laura.change_face("angry1", blush = 1)
 
-            ch_Laura "It's your fucking fault. . . I'm like this. . ."
+            ch_Laura "It's your fault. . . I'm like this. . ."
 
             $ Laura.mouth = "lipbite"
 
@@ -443,7 +443,7 @@ label Laura_greets_Player_knocking_mad(welcoming_Characters):
         "You knock on the door."
         ch_Laura "{i}Grrrrr{/i}"
         ch_Laura "Go away, [Player.first_name]."
-        ch_Laura "Not in the fucking mood."
+        ch_Laura "Not in the mood."
     elif dice_roll == 3:
         ch_Laura "Leave before I get even angrier."
 
@@ -458,7 +458,7 @@ label Laura_greets_Player_knocking_heartbroken(welcoming_Characters):
 
     if dice_roll == 1:
         "You hear sounds of anger mixed with sobs on the other side of the door."
-        ch_Laura "{i}Grrrrrr{/i}, go the fuck away, [Player.first_name]."
+        ch_Laura "{i}Grrrrrr{/i}, go away, [Player.first_name]."
         ch_Laura "*sniffle* I know you're there."
         ch_Player "Sorry. . ."
 
@@ -570,12 +570,12 @@ label Laura_greets_Player_knocking_reject_asked_once:
     if dice_roll == 1:
         ch_Laura "I said fuck off!"
     elif dice_roll == 2:
-        ch_Laura "Don't fucking push it."
+        ch_Laura "Don't push it."
 
     return
 
 label Laura_greets_Player_knocking_reject_asked_twice:
-    ch_Laura "Stop before I put a hole through the fucking door."
+    ch_Laura "Stop before I put a hole through the door."
 
     return
 
@@ -598,12 +598,12 @@ label Laura_greets_Player_knocking_late_asked_once:
     if dice_roll == 1:
         ch_Laura "I said fuck off!"
     elif dice_roll == 2:
-        ch_Laura "Don't fucking push it."
+        ch_Laura "Don't push it."
 
     return
 
 label Laura_greets_Player_knocking_late_asked_twice:
-    ch_Laura "Stop before I put a hole through the fucking door."
+    ch_Laura "Stop before I put a hole through the door."
 
     return
 

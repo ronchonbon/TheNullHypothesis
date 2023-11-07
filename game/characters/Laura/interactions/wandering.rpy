@@ -385,7 +385,7 @@ label Laura_leaves_heartbroken(leaving_Characters, also_leaving = False):
         $ Laura.change_face("angry1")
 
         ch_Laura "Maybe. . . {size=-5}you{/size}. . ."
-        ch_Laura "Fucking never mind."
+        ch_Laura "Never mind."
 
         $ Laura.change_face("worried1")
     elif dice_roll == 2:

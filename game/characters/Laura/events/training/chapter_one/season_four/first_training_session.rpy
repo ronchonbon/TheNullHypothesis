@@ -40,7 +40,7 @@ label Laura_chapter_one_season_four_first_training_session:
     $ Laura.change_face("suspicious1")
 
     ch_Laura "I don't care about what happened."
-    ch_Laura "They tried to fucking kill you."
+    ch_Laura "They tried to kill you."
     ch_Laura "You would've been entirely justified in returning the favor." 
 
     menu:

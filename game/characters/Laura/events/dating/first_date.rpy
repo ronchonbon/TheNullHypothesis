@@ -141,7 +141,7 @@ label Laura_first_date:
 
     $ Laura.change_face("angry1", blush = 1) 
 
-    ch_Laura "What the fuck is the difference between a 'ribeye' and a 'filet mignon'?!"
+    ch_Laura "What's the difference between a 'ribeye' and a 'filet mignon'?!"
 
     $ Laura.change_face("confused1") 
 

@@ -40,7 +40,6 @@ label Laura_texting_save_cum_response:
     $ del Laura.timed_text_options["Laura_texting_save_cum"]
 
     if Laura.text_history[-1][1] == temp[0]:
-        call receive_text(Laura, "Fucking") from _call_receive_text_262
         call receive_text(Laura, "Fine") from _call_receive_text_263
         call receive_text(Laura, "I'll just get off by myself") from _call_receive_text_264
 

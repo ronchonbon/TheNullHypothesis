@@ -31,7 +31,7 @@ label Kurt_pool_tutorial:
 
     ch_Player "Gah!"
     ch_Player "Where the hell-"
-    ch_Kurt "Hallo, brüder."
+    ch_Kurt "Hallo, bruder."
     ch_Kurt "Vant to go swimming, ja?"
 
     $ Kurt.change_face("confused")
