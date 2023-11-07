@@ -362,7 +362,7 @@ label does_Girl_agree_to_change_Clothes(Character, added_Items = None, removed_I
         $ actual_Outfit = create_hypothetical_Outfit(Character, added_Items = added_Items, removed_Items = removed_Items, undressed_Items = undressed_Items, undressed_states = undressed_states, only_final = True)
         $ actual_Outfit.name = Character.Outfit.name
 
-        call change_Outfit(Character, actual_Outfit) from _call_change_Outfit_39
+        call change_Outfit(Character, actual_Outfit, instant = instant) from _call_change_Outfit_39
             
         if not automatic:
             while shown_body_parts:

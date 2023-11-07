@@ -10,7 +10,7 @@ init python:
         description = "Befriend your favorite redhaired upperclassman"
 
         objectives = {
-            "Train together": ["Jean.History.check('trained_with_Player', tracker = 'season')", 4],
+            "Train together": ["Jean.History.check('trained_with_Player')", 4],
 
             "Gain Love": ["Jean.love", Jean_thresholds["dating"][0]],
 

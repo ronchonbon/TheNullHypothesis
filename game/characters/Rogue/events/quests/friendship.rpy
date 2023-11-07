@@ -10,7 +10,7 @@ init python:
         description = "Befriend your favorite Southern belle goth"
 
         objectives = {
-            "Study together": ["Rogue.History.check('studied_with_Player', tracker = 'season')", 3],
+            "Study together": ["Rogue.History.check('studied_with_Player')", 3],
 
             "Gain Love": ["Rogue.love", Rogue_thresholds["dating"][0]],
 

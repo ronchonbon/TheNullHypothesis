@@ -177,7 +177,10 @@ label set_Character_Outfits(Characters = None, instant = True):
 
     $ temp_Outfit_Characters = Characters[:]
 
-    while temp_Outfit_Characters:
+    # this is a redundancy to protect saves made in the middle of this process
+    $ temp_Outfit_Characters.append(temp_Outfit_Characters[-1])
+
+    while len(temp_Outfit_Characters) > 1:
         if time_index > 0 or temp_Outfit_Characters[0].location not in bedrooms:
             if temp_Outfit_Characters[0] in all_Girls:
                 if temp_Outfit_Characters[0].location != Player.location:
@@ -280,6 +283,8 @@ label set_Character_Outfits(Characters = None, instant = True):
                             $ temp_Outfit_Characters[0].outfit = "casual"
 
         $ temp_Outfit_Characters.remove(temp_Outfit_Characters[0])
+
+    $ temp_Outfit_Characters = []
 
     if faded:
         pause 1.0
