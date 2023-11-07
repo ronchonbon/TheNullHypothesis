@@ -10,8 +10,6 @@ init python:
         description = "Befriend your favorite lab-grown weapon"
 
         objectives = {
-            "Train together": ["Laura.History.check('trained_with_Player')", 4],
-
             "Gain Love": ["Laura.love", Laura_thresholds["dating"][0]],
 
             "Gain Trust": ["Laura.trust", Laura_thresholds["dating"][1]]}
