@@ -31,7 +31,7 @@ label Laura_getting_late_mad:
 
     $ Laura.change_face("angry1", eyes = "left")
 
-    ch_Laura "Just fuck off. . ."
+    ch_Laura "Just go away. . ."
 
     return
 

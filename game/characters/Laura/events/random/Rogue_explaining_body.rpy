@@ -48,7 +48,7 @@ label Laura_Rogue_explaining_body:
     call knock_on_door(times = 2) from _call_knock_on_door_3
 
     "You knock on the door."
-    ch_Laura "FUCK OFF!"
+    ch_Laura "GO AWAY!"
     ch_Player "I should probably come back later. . ."
     ch_Rogue "[Player.first_name]? Sorry, ah'm helpin' X-23 work through some. . . issues. . ."
 

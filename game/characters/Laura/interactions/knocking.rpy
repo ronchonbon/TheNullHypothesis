@@ -438,7 +438,7 @@ label Laura_greets_Player_knocking_mad(welcoming_Characters):
     if dice_roll == 1:
         "As you get close to the door, it sounds like someone is beating the shit out of a punching bag."
         ch_Player "[Laura.name]?"
-        ch_Laura "Fuck off!"
+        ch_Laura "Go away!"
     elif dice_roll == 2:
         "You knock on the door."
         ch_Laura "{i}Grrrrr{/i}"
@@ -467,7 +467,7 @@ label Laura_greets_Player_knocking_heartbroken(welcoming_Characters):
         call move_location("bg_girls_hallway") from _call_move_location_23
     elif dice_roll == 2:
         ch_Player "[Laura.name]?"
-        ch_Laura "{size=-5}Fuck{/size}. . . one sec. . ."
+        ch_Laura ". . . one sec. . ."
 
         call set_the_scene(location = Laura.home) from _call_set_the_scene_147
 
@@ -568,7 +568,7 @@ label Laura_greets_Player_knocking_reject_asked_once:
     $ dice_roll = renpy.random.randint(1, 2)
 
     if dice_roll == 1:
-        ch_Laura "I said fuck off!"
+        ch_Laura "I said go away!"
     elif dice_roll == 2:
         ch_Laura "Don't push it."
 
@@ -596,7 +596,7 @@ label Laura_greets_Player_knocking_late_asked_once:
     $ dice_roll = renpy.random.randint(1, 2)
 
     if dice_roll == 1:
-        ch_Laura "I said fuck off!"
+        ch_Laura "I said go away!"
     elif dice_roll == 2:
         ch_Laura "Don't push it."
 

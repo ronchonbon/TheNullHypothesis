@@ -12,7 +12,7 @@ label Laura_vibrator_shopping_accept:
 label Laura_vibrator_shopping_reject:
     $ Laura.change_face("appalled1")
 
-    ch_Laura "The fuck?"
+    ch_Laura "What the hell?"
 
     return
 
@@ -30,6 +30,6 @@ label Laura_vibrator_gift_accept:
 label Laura_vibrator_gift_reject:
     $ Laura.change_face("appalled1")
 
-    ch_Laura "The fuck?"
+    ch_Laura "What the hell?"
 
     return

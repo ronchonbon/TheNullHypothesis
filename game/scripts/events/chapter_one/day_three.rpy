@@ -444,7 +444,7 @@ label day_three_combat_lesson:
     else:
         $ Laura.change_face("furious", blush = 1)
 
-        ch_Laura "What the fuck was that?"
+        ch_Laura "What was that?"
 
         call change_Girl_stat(Laura, "love", -5) from _call_change_Girl_stat_898
         call change_Girl_stat(Laura, "trust", -5) from _call_change_Girl_stat_899

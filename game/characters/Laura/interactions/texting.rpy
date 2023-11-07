@@ -245,7 +245,7 @@ label Laura_text_good_morning_love:
     return
 
 label Laura_text_good_morning_mad:
-    call receive_text(Laura, "Fuck off") from _call_receive_text_374
+    call receive_text(Laura, "Not in the mood.") from _call_receive_text_374
 
     return
 

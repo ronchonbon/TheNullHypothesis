@@ -77,7 +77,7 @@ label Laura_summon_reject_asked_twice:
     return
 
 label Laura_summon_reject_mad:
-    call receive_text(Laura, "Fuck off.") from _call_receive_text_318
+    call receive_text(Laura, "Leave me alone.") from _call_receive_text_318
 
     return
     

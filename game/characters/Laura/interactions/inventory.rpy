@@ -24,7 +24,7 @@ label Laura_rejected_piercing_once:
 label Laura_rejected_piercing_twice:
     $ Laura.change_face("appalled2")
 
-    ch_Laura "Fuck off before I pierce {i}you{/i}. . ."
+    ch_Laura "Go away before I pierce {i}you{/i}. . ."
         
     call getting_kicked_out(Laura) from _call_getting_kicked_out_36
 
@@ -40,7 +40,7 @@ label Laura_rejected_remote_vibrator_once:
 label Laura_rejected_remote_vibrator_twice:
     $ Laura.change_face("appalled2")
 
-    ch_Laura "Fuck off before I put it in {i}you{/i}. . ."
+    ch_Laura "Go away before I put it in {i}you{/i}. . ."
         
     call getting_kicked_out(Laura) from _call_getting_kicked_out_37
 
@@ -56,7 +56,7 @@ label Laura_rejected_buttplug_once:
 label Laura_rejected_buttplug_twice:
     $ Laura.change_face("appalled2")
 
-    ch_Laura "Fuck off before I plug {i}you{/i}. . ."
+    ch_Laura "Go away before I plug {i}you{/i}. . ."
         
     call getting_kicked_out(Laura) from _call_getting_kicked_out_38
 

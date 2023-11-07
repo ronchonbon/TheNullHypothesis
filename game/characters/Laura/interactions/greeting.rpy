@@ -194,7 +194,7 @@ label Laura_greets_Player_heartbroken:
 
         $ Laura.change_face("worried1")
 
-        ch_Laura "{size=-5}fuck{/size}. . ."
+        ch_Laura "{size=-5}shit{/size}. . ."
     elif dice_roll == 3:
         $ Laura.change_face("worried3")
 

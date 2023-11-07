@@ -458,7 +458,7 @@ label Laura_rejects_show_breasts:
         if dice_roll == 1:
             $ Laura.change_face("confused3", blush = 1)
 
-            ch_Laura "The fuck?" 
+            ch_Laura "The hell?" 
 
             $ Laura.change_face("angry1", blush = 1)
 

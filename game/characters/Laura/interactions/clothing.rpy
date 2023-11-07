@@ -413,7 +413,7 @@ label Laura_reject_public_Outfit(Outfit):
         if not Laura.breasts_covered:
             $ Laura.change_face("appalled3", blush = 1)
 
-            ch_Laura "The fuck?" 
+            ch_Laura "The hell?" 
 
             $ Laura.change_face("suspicious2", blush = 1)
 
