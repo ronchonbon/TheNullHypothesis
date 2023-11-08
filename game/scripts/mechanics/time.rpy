@@ -160,7 +160,6 @@ label wait_around(fade = True, silent = False, Events = True):
         if Player.waking_up:
             call check_for_Events(waking = True) from _call_check_for_Events_2
         
-    if not silent:
         $ leaving_Characters, arriving_Characters = set_Character_locations()
 
         $ was_teaching = None
@@ -182,18 +181,18 @@ label wait_around(fade = True, silent = False, Events = True):
         if leaving_Characters:
             call Characters_leave(leaving_Characters) from _call_Characters_leave_7
 
-    call set_Character_Outfits() from _call_set_Character_Outfits_27
+    call set_Character_Outfits from _call_set_Character_Outfits_27
 
     if not silent:
         if arriving_Characters:
             call Characters_arrive(arriving_Characters) from _call_Characters_arrive_4
 
-        python:
-            for C in all_Characters:
-                C.location = C.destination
-
         if Events:
             call check_for_Events(waiting = True) from _call_check_for_Events_15
+
+    python:
+        for C in all_Characters:
+            C.location = C.destination
 
     $ Character_picker_disabled = False
     $ belt_disabled = False

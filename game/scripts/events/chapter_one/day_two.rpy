@@ -8,7 +8,7 @@ label day_two_intro:
     $ Rogue.Wardrobe.indoor_Outfit = Rogue.Wardrobe.Outfits["Casual 2"]
     $ Rogue.Wardrobe.outdoor_Outfit = Rogue.Wardrobe.Outfits["Casual 2"]
 
-    call set_Character_Outfits() from _call_set_Character_Outfits_9
+    call set_Character_Outfits from _call_set_Character_Outfits_9
 
     $ check_predicted_images()
 

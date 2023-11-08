@@ -4,6 +4,8 @@ label refresh_season_content:
     $ register_Quests()
     $ register_Items()
 
+    $ EventScheduler.update_conditions()
+
     show screen updates_screen()
     show screen belt_screen()
     show screen Character_picker()
@@ -23,7 +25,8 @@ label refresh_season_content:
 
         call expression f"update_{updated_database_Characters[0].tag}_database" from _call_expression_115
 
-        $ updated_database_Characters.remove(updated_database_Characters[0])
+        if updated_database_Characters:
+            $ updated_database_Characters.remove(updated_database_Characters[0])
 
     if chapter >= 1 and season >= 1:
         show background zorder 0
@@ -63,7 +66,7 @@ label refresh_season_content:
                     C.possible_poses.append(pose)
 
     if not game_started:
-        call set_Character_Outfits() from _call_set_Character_Outfits_10
+        call set_Character_Outfits from _call_set_Character_Outfits_10
     else:
         $ temp_resetting_Outfits_Girls = all_Girls[:]
 

@@ -91,7 +91,7 @@ label request_hookup(Character):
         if approval_check(temp_hookup_Characters[0], threshold = "hookup"):
             if not temp_hookup_Characters[0].History.check("hookup", tracker = "recent"):
                 if not temp_hookup_Characters[0].History.check("hookup"):
-                    call expression f"{temp_hookup_Characters[0].tag}_accepts_hookup_first_time" from _call_expression_65\
+                    call expression f"{temp_hookup_Characters[0].tag}_accepts_hookup_first_time" from _call_expression_65
                 elif temp_hookup_Characters[0].History.check("hookup") == 1:
                     call expression f"{temp_hookup_Characters[0].tag}_accepts_hookup_second_time" from _call_expression_66
                 elif approval_check(temp_hookup_Characters[0], threshold = "love"):
@@ -146,7 +146,7 @@ label request_Action(Action_type, Actors, Targets):
     if approval_check(focused_Girl, threshold = Action_type):
         if not focused_Girl.History.check(Action_type, tracker = "recent"):
             if not focused_Girl.History.check(Action_type):
-                call expression f"{focused_Girl.tag}_accepts_{Action_type}_first_time" from _call_expression_72\
+                call expression f"{focused_Girl.tag}_accepts_{Action_type}_first_time" from _call_expression_72
             # elif focused_Girl.History.check(Action_type) == 1:
             #     call expression f"{focused_Girl.tag}_accepts_{Action_type}_second_time"
             # elif approval_check(focused_Girl, threshold = "love"):

@@ -39,7 +39,7 @@ label day_one_intro:
     $ Ororo.Wardrobe.indoor_Outfit = Ororo.Wardrobe.Outfits["Casual 2"]
     $ Ororo.Wardrobe.outdoor_Outfit = Ororo.Wardrobe.Outfits["Casual 2"]
 
-    call set_Character_Outfits() from _call_set_Character_Outfits_8
+    call set_Character_Outfits from _call_set_Character_Outfits_8
 
     $ check_predicted_images()
 

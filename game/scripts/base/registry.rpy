@@ -101,6 +101,20 @@ init python:
         for Q in additional_Quests:
             Quests.append(Q)
 
+        Quest_strings = list(QuestPool.Quests.keys())
+
+        for Q_string in Quest_strings:
+            absent = True
+
+            for Q in Quests:
+                if Q_string == Q.string:
+                    absent = False
+
+                    break
+
+            if absent:
+                del QuestPool.Quests[Q_string]
+
         for Q in Quests:
             QuestPool.add_Quest(Q)
 

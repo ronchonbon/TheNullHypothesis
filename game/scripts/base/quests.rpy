@@ -65,7 +65,10 @@ init -2 python:
             if Quest.string not in self.Quests.keys():
                 self.Quests[Quest.string] = Quest
             else:
-                changed =  False
+                changed = False
+
+                if not hasattr(self.Quests[Quest.string], "optional_objectives"):
+                    changed = True
 
                 for new_objective in Quest.objectives.keys():
                     if new_objective not in self.Quests[Quest.string].objectives.keys():

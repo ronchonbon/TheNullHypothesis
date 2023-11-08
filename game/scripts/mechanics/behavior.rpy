@@ -181,7 +181,7 @@ label set_Character_Outfits(Characters = None, instant = True):
     $ temp_Outfit_Characters.append(temp_Outfit_Characters[-1])
 
     while len(temp_Outfit_Characters) > 1:
-        if time_index > 0 or temp_Outfit_Characters[0].location not in bedrooms:
+        if time_index > 0 or temp_Outfit_Characters[0].destination not in bedrooms:
             if temp_Outfit_Characters[0] in all_Girls:
                 if temp_Outfit_Characters[0].location != Player.location:
                     $ temp_Outfit_Characters[0].wet = False
