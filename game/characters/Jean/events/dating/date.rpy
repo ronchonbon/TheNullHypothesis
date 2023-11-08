@@ -110,8 +110,6 @@ label Jean_date:
 
                 $ ongoing_Event = False
 
-                # call move_location(Player.location) from _call_move_location_1
-
                 return
 
     call remove_Characters(location = "bg_mall") from _call_remove_Characters_2

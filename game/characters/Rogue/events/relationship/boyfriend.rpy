@@ -164,8 +164,6 @@ label Rogue_boyfriend_alternate_trigger:
 
             $ Rogue.wants_alone_time = 2
 
-            # call move_location(Player.location) from _call_move_location_31
-
             return
 
     $ EventScheduler.Events["Rogue_boyfriend"].start()

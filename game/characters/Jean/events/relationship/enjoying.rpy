@@ -243,6 +243,4 @@ label Jean_enjoying_being_girlfriend:
 
     $ ongoing_Event = False
 
-    # call move_location(Player.location)
-
     return

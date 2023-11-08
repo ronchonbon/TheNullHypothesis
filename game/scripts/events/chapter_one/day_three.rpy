@@ -5,13 +5,6 @@ label day_three_intro:
 
     call refresh_season_content from _call_refresh_season_content_6
 
-    # menu:
-    #     "Skip Day Three?"
-    #     "Yes":
-    #         jump day_three_end
-    #     "No":
-    #         pass
-
     $ Player.messy_bed = True
 
     call set_the_scene(location = Player.home) from _call_set_the_scene_252

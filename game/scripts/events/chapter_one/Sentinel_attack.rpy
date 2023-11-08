@@ -1717,8 +1717,6 @@ label ch1_Sentinel_attack:
 
     $ ongoing_Event = False
 
-    # call move_location(Player.home) from _call_move_location_36
-
     return
 
 label ch1_Sentinel_attack_path_1A:

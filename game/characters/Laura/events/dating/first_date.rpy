@@ -749,7 +749,5 @@ label Laura_first_date:
     $ Player.date_planned = {}
 
     $ ongoing_Event = False
-    
-    # call move_location(Player.location) from _call_move_location_14
 
     return

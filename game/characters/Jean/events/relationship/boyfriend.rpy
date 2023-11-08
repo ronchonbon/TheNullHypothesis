@@ -181,8 +181,6 @@ label Jean_boyfriend_alternate_trigger:
 
             $ Jean.wants_alone_time = 2
 
-            # call move_location(Player.location) from _call_move_location_4
-
             return
 
     $ EventScheduler.Events["Jean_boyfriend"].start()

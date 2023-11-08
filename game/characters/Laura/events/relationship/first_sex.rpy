@@ -504,6 +504,4 @@ label Laura_first_sex_part_two:
 
     $ ongoing_Event = False
 
-    # call move_location(Player.location) from _call_move_location_6
-
     return

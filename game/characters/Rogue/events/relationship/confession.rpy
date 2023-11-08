@@ -613,8 +613,6 @@ label Rogue_confession:
 
     $ ongoing_Event = False
 
-    # call move_location(Player.home) from _call_move_location_33
-
     return
 
 label Rogue_confession_1A:

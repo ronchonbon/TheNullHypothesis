@@ -179,8 +179,6 @@ label Laura_boyfriend_alternate_trigger:
 
             $ Laura.wants_alone_time = 2
 
-            # call move_location(Player.location) from _call_move_location_20
-
             return
 
     $ EventScheduler.Events["Laura_boyfriend"].start()

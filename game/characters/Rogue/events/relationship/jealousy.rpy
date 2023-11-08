@@ -676,8 +676,6 @@ label Rogue_jealousy_flirted_anyways:
 
     $ ongoing_Event = False
 
-    # call move_location(Player.location) from _call_move_location_59 
-
     return
 
 init python:

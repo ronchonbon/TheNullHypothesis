@@ -215,8 +215,6 @@ label Jean_asked_on_date:
 
     $ ongoing_Event = False
 
-    # call move_location(Player.location) from _call_move_location_3
-
     return
 
 label Jean_asked_on_date_1A:

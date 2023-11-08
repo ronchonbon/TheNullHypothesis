@@ -106,15 +106,14 @@ label start_chapter_one_season_two:
                 HumHumClass(Logan, "Runnin' extra defense and trainin' sessions all day Sat/Sun."),
                 HumHumClass(Logan, "Attendance ain't mandatory yet, but we've all had it too easy fer too long. That changes now.")]))
 
-    # if Rogue in Partners:
-    #     $ HumHumPool.update(
-    #         HumHumThreadClass(
-    #             "Evan_steal_your_powers", [
-    #                 HumHumClass(Evan, "Shame Mr. Steal-Your-Powers didn't get to Juggernaut before he trashed the b-ball court."),
-    #                 HumHumClass(Evan, "That's my plans for the weekend ruined!"),
-    #                 HumHumClass(Rogue, "Not his fault, he did what he could."),
-    #                 HumHumClass(Rogue, "And if you call him out like that again, Ms. Steal-Your-Powers here'll show y'all what that's really like"),
-    #                 HumHumClass(Charles, "Both of you stop immediately: Rogue, to my office now, Evan, we'll have words later.")]))
+    # $ HumHumPool.update(
+    #     HumHumThreadClass(
+    #         "Evan_steal_your_powers", [
+    #             HumHumClass(Evan, "Shame Mr. Steal-Your-Powers didn't get to Juggernaut before he trashed the b-ball court."),
+    #             HumHumClass(Evan, "That's my plans for the weekend ruined!"),
+    #             HumHumClass(Rogue, "Not his fault, he did what he could."),
+    #             HumHumClass(Rogue, "And if you call him out like that again, Ms. Steal-Your-Powers here'll show y'all what that's really like"),
+    #             HumHumClass(Charles, "Both of you stop immediately: Rogue, to my office now, Evan, we'll have words later.")]))
 
     return
 

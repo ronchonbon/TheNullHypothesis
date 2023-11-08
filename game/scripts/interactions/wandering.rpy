@@ -208,12 +208,6 @@ label Characters_leave(leaving_Characters, farewells = True, fade = True):
             for C in grouped_Characters:
                 temp_leaving_Characters.remove(C)
 
-    # $ temp_leaving_Characters = stable_leaving_Characters[:]
-
-    # call set_Character_Outfits(temp_leaving_Characters, instant = False) from _call_set_Character_Outfits_22
-
-    # pause 1.0
-
     call remove_Characters(stable_leaving_Characters, fade = False) from _call_remove_Characters_238
 
     if Player_has_to_leave:

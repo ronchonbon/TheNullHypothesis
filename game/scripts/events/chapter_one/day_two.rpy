@@ -14,13 +14,6 @@ label day_two_intro:
 
     call refresh_season_content from _call_refresh_season_content_7
 
-    # menu:
-    #     "Skip Day Two?"
-    #     "Yes":
-    #         jump day_two_end
-    #     "No":
-    #         pass
-
     "You have a deep, dreamless sleep."
 
     $ Player.messy_bed = True

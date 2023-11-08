@@ -45,13 +45,6 @@ label day_one_intro:
 
     call refresh_season_content from _call_refresh_season_content_5
 
-    # menu:
-    #     "Skip Day One?"
-    #     "Yes":
-    #         jump day_one_end
-    #     "No":
-    #         pass
-
     "You awake with a start."
     ch_Player "Oh, thank god, it was just a nightmare. . ."
     ch_Player ". . . Damn, has my bed always felt this good?"
