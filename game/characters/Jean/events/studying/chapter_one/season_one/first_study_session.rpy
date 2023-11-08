@@ -72,8 +72,8 @@ label Jean_chapter_one_season_one_first_study_session:
 
             ch_Jean "You think so?" 
             
-            call change_Girl_stat(Jean, "love", 5) from _call_change_Girl_stat_131 
-            call change_Girl_stat(Jean, "trust", 5) from _call_change_Girl_stat_132
+            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_131 
+            call change_Girl_stat(Jean, "trust", 0) from _call_change_Girl_stat_132
         "Holy shit. . . are you a genius or something?":
             $ Jean.change_face("smirk2", eyes = "right") 
             
@@ -83,7 +83,7 @@ label Jean_chapter_one_season_one_first_study_session:
 
             ch_Jean "Well. . . a few people have told me my IQ is pretty high. . ." 
             
-            call change_Girl_stat(Jean, "love", 10) from _call_change_Girl_stat_133
+            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_133
         "What the hell. . . is your entire life just spent studying and memorizing. . . ?":
             $ Jean.change_face("appalled1") 
             
@@ -95,7 +95,7 @@ label Jean_chapter_one_season_one_first_study_session:
             ch_Jean "Of course not. . ." 
             ch_Jean "I. . . do other things. . ." 
             
-            call change_Girl_stat(Jean, "love", -5) from _call_change_Girl_stat_134
+            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_134
 
     $ Jean.change_face("worried1")
 

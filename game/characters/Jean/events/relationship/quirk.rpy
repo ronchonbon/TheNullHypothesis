@@ -48,7 +48,7 @@ label Jean_penultimate_quirk:
 
                 ch_Jean "Shush, just follow your big sis'."
             "Hold on, tell me where we're going first.":
-                call change_Girl_stat(Jean, "trust", -2) from _call_change_Girl_stat_1133
+                call change_Girl_stat(Jean, "trust", 0) from _call_change_Girl_stat_1133
 
                 ch_Jean "Oh c'mon, it's like you don't trust me or something." 
                 
@@ -98,7 +98,7 @@ label Jean_penultimate_quirk:
 
         $ Jean.change_face("kiss2", blush = 1)
 
-        call change_Girl_stat(Jean, "desire", 10) from _call_change_Girl_stat_1134
+        call change_Girl_stat(Jean, "desire", 0) from _call_change_Girl_stat_1134
 
         "One hand cups your face, while her other wanders its way across your body before settling on your ass."
 
@@ -139,7 +139,7 @@ label Jean_penultimate_quirk:
 
                 ch_Jean "Oh c'mon, this is important!"
                 
-                call change_Girl_stat(Jean, "trust", -2) from _call_change_Girl_stat_1135
+                call change_Girl_stat(Jean, "trust", 0) from _call_change_Girl_stat_1135
 
         $ Jean.change_face("worried1", blush = 1)
 
@@ -167,7 +167,7 @@ label Jean_penultimate_quirk:
 
         $ Jean.change_face("kiss2", blush = 1)
 
-        call change_Girl_stat(Jean, "desire", 10) from _call_change_Girl_stat_1136
+        call change_Girl_stat(Jean, "desire", 0) from _call_change_Girl_stat_1136
 
         "One hand cups your face, while her other wanders its way across your body before settling on your ass."
 
@@ -231,7 +231,7 @@ label Jean_penultimate_quirk:
 
             ch_Jean "See! It's not that weird. . ." 
             
-            call change_Girl_stat(Jean, "love", 5) from _call_change_Girl_stat_1137
+            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1137
         "I guess you're right. . . but this isn't really a normal college. . .":
             $ Jean.change_face("worried2", blush = 1)
 
@@ -241,7 +241,7 @@ label Jean_penultimate_quirk:
 
             ch_Jean "It's not weird!" 
             
-            call change_Girl_stat(Jean, "love", -5) from _call_change_Girl_stat_1138
+            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1138
 
     $ Jean.change_face("worried1", mouth = "smirk", blush = 1)
 
@@ -273,7 +273,7 @@ label Jean_penultimate_quirk:
         menu:
             extend ""
             "Yeah. . . I think I do enjoy it. . . being your little brother. . .":
-                call change_Girl_stat(Jean, "love", 5) from _call_change_Girl_stat_1139
+                call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1139
 
                 $ Jean.change_face("sexy", eyes = "squint", blush = 2) 
                 
@@ -284,7 +284,7 @@ label Jean_penultimate_quirk:
                 menu:
                     extend ""
                     "I really, really am. . . (encourage_quirk)":
-                        call change_Girl_stat(Jean, "love", 5) from _call_change_Girl_stat_1140
+                        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1140
 
                         while Jean.History.check("quirk_encouraged") < Jean.History.check("quirk_discouraged"):
                             $ Jean.History.update("quirk_encouraged")

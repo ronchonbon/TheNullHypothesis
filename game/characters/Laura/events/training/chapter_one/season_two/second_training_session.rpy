@@ -38,8 +38,8 @@ label Laura_chapter_one_season_two_second_training_session:
             
             ch_Laura "I feel. . . fine." 
             
-            call change_Girl_stat(Laura, "love", 5) from _call_change_Girl_stat_451 
-            call change_Girl_stat(Laura, "trust", 5) from _call_change_Girl_stat_452
+            call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_451 
+            call change_Girl_stat(Laura, "trust", 0) from _call_change_Girl_stat_452
         "Uh. . . am I dreaming?":
             ch_Player "So you do actually care."
 
@@ -47,13 +47,13 @@ label Laura_chapter_one_season_two_second_training_session:
             
             ch_Laura "Shut up. . ." 
             
-            call change_Girl_stat(Laura, "love", 5) from _call_change_Girl_stat_453
+            call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_453
         "Like shit, because I know how much this is gonna suck.":
             $ Laura.change_face("furious") 
             
             ch_Laura "Suck it up." 
             
-            call change_Girl_stat(Laura, "love", -5) from _call_change_Girl_stat_454
+            call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_454
 
     $ Laura.change_face("suspicious1")
 
@@ -117,7 +117,7 @@ label Laura_chapter_one_season_two_second_training_session:
             ch_Laura "Good." 
             ch_Laura "Then you will trust that the amount of pain I'm going to put you through is justified." 
             
-            call change_Girl_stat(Laura, "love", 5) from _call_change_Girl_stat_455
+            call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_455
         "I hate being a burden to you too. I refuse to be one for much longer.":
             $ Laura.change_face("surprised1") 
             
@@ -128,8 +128,8 @@ label Laura_chapter_one_season_two_second_training_session:
             ch_Laura "Trust in the fact that I will." 
             ch_Laura "And it will be {i}very{/i} painful." 
             
-            call change_Girl_stat(Laura, "love", 5) from _call_change_Girl_stat_456 
-            call change_Girl_stat(Laura, "trust", 5) from _call_change_Girl_stat_457
+            call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_456 
+            call change_Girl_stat(Laura, "trust", 0) from _call_change_Girl_stat_457
         "How much anxiety do you think {i}I{/i} feel, having so many near-death experiences?!":
             $ Laura.change_face("furious") 
             
@@ -137,8 +137,8 @@ label Laura_chapter_one_season_two_second_training_session:
             ch_Laura "Then don't complain when I put you through more pain than you've ever felt in your life." 
             ch_Laura "Trust that it's for your own good." 
             
-            call change_Girl_stat(Laura, "love", -5) from _call_change_Girl_stat_458 
-            call change_Girl_stat(Laura, "trust", 5) from _call_change_Girl_stat_459
+            call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_458 
+            call change_Girl_stat(Laura, "trust", 0) from _call_change_Girl_stat_459
 
     $ Laura.change_face("angry1", blush = 1)
 

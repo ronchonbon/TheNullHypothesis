@@ -61,19 +61,19 @@ label Rogue_chapter_one_season_four_first_study_session:
 
             ch_Rogue "It's hard not to. . ." 
             
-            call change_Girl_stat(Rogue, "love", 5) from _call_change_Girl_stat_1066
+            call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_1066
         "I'm. . . not sure anymore. But you're making me worried, is something going on?":
             $ Rogue.change_face("worried1", eyes = "right")
 
             ch_Rogue "Don't worry, nothin' new. . ." 
             
-            call change_Girl_stat(Rogue, "love", 10) from _call_change_Girl_stat_1067
+            call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_1067
         "Yeah, I think I do. . . but where's this coming from?":
             $ Rogue.change_face("worried2")
 
             ch_Rogue "You do?" 
             
-            call change_Girl_stat(Rogue, "trust", 20) from _call_change_Girl_stat_1068
+            call change_Girl_stat(Rogue, "trust", 0) from _call_change_Girl_stat_1068
 
     $ Rogue.change_face("worried1")
 
@@ -107,7 +107,7 @@ label Rogue_chapter_one_season_four_first_study_session:
         "But, seriously, all the studying hasn't been a waste. I know you don't actually believe that.":
             $ Rogue.change_face("angry1", eyes = "right") 
             
-            call change_Girl_stat(Rogue, "love", -5) from _call_change_Girl_stat_1069
+            call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_1069
 
     $ Rogue.change_face("confused1")
 

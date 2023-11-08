@@ -33,8 +33,8 @@ label Jean_chapter_one_season_three_first_training_session:
             
             ch_Jean "Just let me be strong enough for the both of us. . ." 
             
-            call change_Girl_stat(Jean, "love", 5) from _call_change_Girl_stat_184
-            call change_Girl_stat(Jean, "trust", 5) from _call_change_Girl_stat_185
+            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_184
+            call change_Girl_stat(Jean, "trust", 0) from _call_change_Girl_stat_185
         "How do you think I feel?! This time was much worse too. . .":
             $ Jean.change_face("worried2")
 
@@ -44,7 +44,7 @@ label Jean_chapter_one_season_three_first_training_session:
             
             ch_Jean "I hope there isn't a next time." 
             
-            call change_Girl_stat(Jean, "love", 10) from _call_change_Girl_stat_186
+            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_186
         "If I can get over it, so can you. Plus, it only made me stronger in the end.":
             $ Jean.change_face("angry1", eyes = "right")
 
@@ -54,8 +54,8 @@ label Jean_chapter_one_season_three_first_training_session:
             
             ch_Jean "Not by much. . ." 
             
-            call change_Girl_stat(Jean, "love", -5) from _call_change_Girl_stat_187 
-            call change_Girl_stat(Jean, "trust", 5) from _call_change_Girl_stat_188
+            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_187 
+            call change_Girl_stat(Jean, "trust", 0) from _call_change_Girl_stat_188
 
     $ Jean.change_face("confused1")
 
@@ -99,7 +99,7 @@ label Jean_chapter_one_season_three_first_training_session:
             
             $ Jean.change_face("confused1") 
             
-            call change_Girl_stat(Jean, "trust", 5) from _call_change_Girl_stat_189
+            call change_Girl_stat(Jean, "trust", 0) from _call_change_Girl_stat_189
         "It has to do with me being scared shitless.":
             $ Jean.change_face("worried2")
 

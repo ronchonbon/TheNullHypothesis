@@ -15,8 +15,8 @@ label Rogue_horror_novel_shopping_accept:
 
     ch_Rogue "Thank you." 
 
-    call change_Girl_stat(Rogue, "love", 30) from _call_change_Girl_stat_1553
-    call change_Girl_stat(Rogue, "trust", 15) from _call_change_Girl_stat_1554
+    call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_1553
+    call change_Girl_stat(Rogue, "trust", 0) from _call_change_Girl_stat_1554
 
     return True
 
@@ -44,8 +44,8 @@ label Rogue_horror_novel_gift_accept:
 
     ch_Rogue "Thank you." 
 
-    call change_Girl_stat(Rogue, "love", 30) from _call_change_Girl_stat_1555
-    call change_Girl_stat(Rogue, "trust", 15) from _call_change_Girl_stat_1556
+    call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_1555
+    call change_Girl_stat(Rogue, "trust", 0) from _call_change_Girl_stat_1556
 
     return True
 

@@ -28,7 +28,7 @@ label Rogue_locker_room_showering:
 
         $ Rogue.change_face("surprised2", blush = 1)
 
-        call change_Girl_stat(Rogue, "desire", 10) from _call_change_Girl_stat_602
+        call change_Girl_stat(Rogue, "desire", 0) from _call_change_Girl_stat_602
 
         "You're topless in nothing but a bathing suit, and she seems to take notice."
         ch_Rogue "Well ain't that a sight. . ."
@@ -51,7 +51,7 @@ label Rogue_locker_room_showering:
 
         $ Rogue.change_face("surprised2", blush = 1)
 
-        call change_Girl_stat(Rogue, "desire", 10) from _call_change_Girl_stat_603
+        call change_Girl_stat(Rogue, "desire", 0) from _call_change_Girl_stat_603
 
         ch_Rogue "*gasp*"
 

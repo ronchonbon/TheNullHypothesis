@@ -140,7 +140,7 @@ label Rogue_enjoying_being_girlfriend:
             
             ch_Rogue "In the future, ah will make sure you know sooner." 
             
-            call change_Girl_stat(Rogue, "love", 15) from _call_change_Girl_stat_1144
+            call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_1144
         "[Rogue.name], if something's bothering you, don't bottle it up because you're afraid it might upset me. We're in this together, and how you feel matters just as much. (discourage_quirk)": 
             $ Rogue.change_face("worried2")
 
@@ -150,7 +150,7 @@ label Rogue_enjoying_being_girlfriend:
             
             ch_Rogue "Yer right." 
             
-            call change_Girl_stat(Rogue, "trust", 15) from _call_change_Girl_stat_1145 
+            call change_Girl_stat(Rogue, "trust", 0) from _call_change_Girl_stat_1145 
 
     $ Rogue.change_face("worried1")
 

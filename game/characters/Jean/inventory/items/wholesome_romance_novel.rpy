@@ -20,8 +20,8 @@ label Jean_wholesome_romance_novel_shopping_accept:
 
         ch_Jean "Now I just gotta find time to read it."
 
-        call change_Girl_stat(Jean, "love", 35) from _call_change_Girl_stat_1325
-        call change_Girl_stat(Jean, "trust", 15) from _call_change_Girl_stat_1326
+        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1325
+        call change_Girl_stat(Jean, "trust", 0) from _call_change_Girl_stat_1326
 
         return True
     else:
@@ -74,8 +74,8 @@ label Jean_wholesome_romance_novel_gift_accept:
 
         ch_Jean "Now I just gotta find time to read it."
 
-        call change_Girl_stat(Jean, "love", 35) from _call_change_Girl_stat_1327
-        call change_Girl_stat(Jean, "trust", 15) from _call_change_Girl_stat_1328
+        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1327
+        call change_Girl_stat(Jean, "trust", 0) from _call_change_Girl_stat_1328
 
         return True
     else:

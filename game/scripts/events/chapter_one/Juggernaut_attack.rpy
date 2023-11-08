@@ -215,13 +215,13 @@ label ch1_Juggernaut_attack:
     menu:
         extend ""
         "We both know that's not a good idea. You're more than powerful enough, but the instability. . .":
-            call change_Girl_stat(Jean, "love", 5) from _call_change_Girl_stat_837
-            call change_Girl_stat(Jean, "trust", 5) from _call_change_Girl_stat_838
+            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_837
+            call change_Girl_stat(Jean, "trust", 0) from _call_change_Girl_stat_838
         "[temp], are you sure. . . ? What if you lose control again?":
-            call change_Girl_stat(Jean, "love", 10) from _call_change_Girl_stat_839
+            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_839
         "Don't act all confident, you need to face reality. You and I both know you're not stable enough for that.":
-            call change_Girl_stat(Jean, "love", -5) from _call_change_Girl_stat_840  
-            call change_Girl_stat(Jean, "trust", 10) from _call_change_Girl_stat_841
+            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_840  
+            call change_Girl_stat(Jean, "trust", 0) from _call_change_Girl_stat_841
 
     $ Jean.change_face("angry1") 
 
@@ -328,8 +328,8 @@ label ch1_Juggernaut_attack:
         "I think [Rogue.name] might be in trouble, I need to find her.":
             ch_Player "She always picks up her phone." 
             
-            call change_Girl_stat(Laura, "love", 5) from _call_change_Girl_stat_842
-            call change_Girl_stat(Laura, "trust", 5) from _call_change_Girl_stat_843
+            call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_842
+            call change_Girl_stat(Laura, "trust", 0) from _call_change_Girl_stat_843
 
             ch_Laura "Part of being a friend is to tell you when you're being an idiot, right?" 
             ch_Player "Ha! Now you're getting it." 
@@ -337,8 +337,8 @@ label ch1_Juggernaut_attack:
             ch_Player "I'm sorry, but I'm going. She's our friend too."
             ch_Player "I might be able to help, they won't be expecting my power."
         "I'm not going to sit around - I'll be fine. With all the training you've put me through, I can handle it.":
-            call change_Girl_stat(Laura, "love", 10) from _call_change_Girl_stat_844 
-            call change_Girl_stat(Laura, "trust", -5) from _call_change_Girl_stat_845
+            call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_844 
+            call change_Girl_stat(Laura, "trust", 0) from _call_change_Girl_stat_845
 
             ch_Laura "You're being an idiot." 
             ch_Laura "Scenarios are nothing like the real thing." 
@@ -963,8 +963,8 @@ label ch1_Juggernaut_attack:
             ch_Player "She's our friend, remember?"
             ch_Player "And don't tell me you weren't getting ready to fight that behemoth in order to protect me." 
             
-            call change_Girl_stat(Laura, "love", 5) from _call_change_Girl_stat_846 
-            call change_Girl_stat(Laura, "trust", 5) from _call_change_Girl_stat_847
+            call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_846 
+            call change_Girl_stat(Laura, "trust", 0) from _call_change_Girl_stat_847
 
             $ Laura.change_face("furious", blush = 1) 
             
@@ -978,7 +978,7 @@ label ch1_Juggernaut_attack:
             
             ch_Player "And don't tell me you weren't ready to fight that behemoth in order to protect me." 
             
-            call change_Girl_stat(Laura, "love", 5) from _call_change_Girl_stat_848
+            call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_848
 
             $ Laura.change_face("furious", blush = 1) 
             
@@ -992,8 +992,8 @@ label ch1_Juggernaut_attack:
             
             ch_Player "And don't tell me you weren't getting ready to fight that behemoth in order to protect me." 
             
-            call change_Girl_stat(Laura, "love", 5) from _call_change_Girl_stat_849 
-            call change_Girl_stat(Laura, "trust", -5) from _call_change_Girl_stat_850
+            call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_849 
+            call change_Girl_stat(Laura, "trust", 0) from _call_change_Girl_stat_850
 
             $ Laura.change_face("furious", blush = 1) 
             
@@ -1119,7 +1119,7 @@ label ch1_Juggernaut_attack:
                 
                 ch_Jean "Good. . ." 
                 
-                call change_Girl_stat(Jean, "love", 5) from _call_change_Girl_stat_851
+                call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_851
 
                 $ Jean.Player_petname = "little bro'"
 
@@ -1193,8 +1193,8 @@ label ch1_Juggernaut_attack:
                 
                 $ Jean.change_face("sad") 
                 
-                call change_Girl_stat(Jean, "love", 5) from _call_change_Girl_stat_852 
-                call change_Girl_stat(Jean, "trust", 5) from _call_change_Girl_stat_853
+                call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_852 
+                call change_Girl_stat(Jean, "trust", 0) from _call_change_Girl_stat_853
                 
                 ch_Jean "I'm glad she's okay." 
                 
@@ -1208,7 +1208,7 @@ label ch1_Juggernaut_attack:
                 
                 $ Jean.change_face("angry1") 
                 
-                call change_Girl_stat(Jean, "trust", -5) from _call_change_Girl_stat_854
+                call change_Girl_stat(Jean, "trust", 0) from _call_change_Girl_stat_854
 
                 $ temp = Jean.Player_petname.capitalize()
 
@@ -1301,8 +1301,8 @@ label ch1_Juggernaut_attack:
             
             ch_Player "Maybe if I was faster you wouldn't have gotten hurt in the first place." 
             
-            call change_Girl_stat(Rogue, "love", 5) from _call_change_Girl_stat_855 
-            call change_Girl_stat(Rogue, "trust", 5) from _call_change_Girl_stat_856
+            call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_855 
+            call change_Girl_stat(Rogue, "trust", 0) from _call_change_Girl_stat_856
 
             $ Rogue.change_face("sad", blush = 1) 
             
@@ -1316,7 +1316,7 @@ label ch1_Juggernaut_attack:
             
             ch_Player "Maybe if I was faster you wouldn't have gotten hurt in the first place." 
             
-            call change_Girl_stat(Rogue, "love", 5) from _call_change_Girl_stat_857
+            call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_857
 
             ch_Rogue "Don't blame yerself." 
             
@@ -1534,8 +1534,8 @@ label ch1_Juggernaut_attack:
         "I've been better. . . but don't apologize, I wanted to thank you.":
             $ Ororo.change_face("worried2") 
             
-            call change_Girl_stat(Ororo, "love", 5) from _call_change_Girl_stat_858 
-            call change_Girl_stat(Ororo, "trust", 5) from _call_change_Girl_stat_859
+            call change_Girl_stat(Ororo, "love", 0) from _call_change_Girl_stat_858 
+            call change_Girl_stat(Ororo, "trust", 0) from _call_change_Girl_stat_859
         
             ch_Ororo "I do not deserve your thanks." 
             
@@ -1545,13 +1545,13 @@ label ch1_Juggernaut_attack:
         "I am exhausted, the past few days have really done a number on me. . .":
             $ Ororo.change_face("worried1", eyes = "right") 
             
-            call change_Girl_stat(Ororo, "love", 10) from _call_change_Girl_stat_860
+            call change_Girl_stat(Ororo, "love", 0) from _call_change_Girl_stat_860
         
             ch_Ororo "That is why I am here. . ."
         "I was about to go to bed, this can't wait?":
             $ Ororo.change_face("confused1", eyes = "squint") 
             
-            call change_Girl_stat(Ororo, "love", -5) from _call_change_Girl_stat_861
+            call change_Girl_stat(Ororo, "love", 0) from _call_change_Girl_stat_861
 
             ch_Ororo "It cannot. . ."
 
@@ -1574,13 +1574,13 @@ label ch1_Juggernaut_attack:
         "None of this is your fault, but I still really appreciate it.":
             $ Ororo.change_face("worried1", mouth = "smirk") 
             
-            call change_Girl_stat(Ororo, "love", 5) from _call_change_Girl_stat_862 
+            call change_Girl_stat(Ororo, "love", 0) from _call_change_Girl_stat_862 
         "Well, luckily I wasn't too badly injured. . .":
             $ Ororo.change_face("worried1", mouth = "smirk")
         "Yeah. . . I was wondering what the hell took you so long. . .": 
             $ Ororo.change_face("worried1", eyes = "right") 
             
-            call change_Girl_stat(Ororo, "love", -5) from _call_change_Girl_stat_863
+            call change_Girl_stat(Ororo, "love", 0) from _call_change_Girl_stat_863
 
     $ Ororo.change_face("worried1")
 

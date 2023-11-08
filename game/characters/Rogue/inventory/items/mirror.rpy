@@ -18,8 +18,8 @@ label Rogue_mirror_shopping_accept:
     ch_Rogue "Ah'll start usin' it right away."
     ch_Rogue "Thank you."
 
-    call change_Girl_stat(Rogue, "love", 25) from _call_change_Girl_stat_1557
-    call change_Girl_stat(Rogue, "trust", 10) from _call_change_Girl_stat_1558
+    call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_1557
+    call change_Girl_stat(Rogue, "trust", 0) from _call_change_Girl_stat_1558
 
     return True
 
@@ -47,8 +47,8 @@ label Rogue_mirror_gift_accept:
     ch_Rogue "Ah'll start usin' it right away."
     ch_Rogue "Thank you."
 
-    call change_Girl_stat(Rogue, "love", 25) from _call_change_Girl_stat_1559
-    call change_Girl_stat(Rogue, "trust", 10) from _call_change_Girl_stat_1560
+    call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_1559
+    call change_Girl_stat(Rogue, "trust", 0) from _call_change_Girl_stat_1560
 
     return True
 

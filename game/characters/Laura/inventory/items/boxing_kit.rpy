@@ -21,8 +21,8 @@ label Laura_boxing_kit_shopping_accept:
     ch_Laura "Thank you. . ."
     ch_Laura "I. . . do appreciate it. . ."
 
-    call change_Girl_stat(Laura, "love", 50) from _call_change_Girl_stat_1447
-    call change_Girl_stat(Laura, "trust", 25) from _call_change_Girl_stat_1448
+    call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_1447
+    call change_Girl_stat(Laura, "trust", 0) from _call_change_Girl_stat_1448
 
     return True
 
@@ -53,8 +53,8 @@ label Laura_boxing_kit_gift_accept:
     ch_Laura "Thank you. . ."
     ch_Laura "I. . . do appreciate it. . ."
 
-    call change_Girl_stat(Laura, "love", 50) from _call_change_Girl_stat_1449
-    call change_Girl_stat(Laura, "trust", 25) from _call_change_Girl_stat_1450
+    call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_1449
+    call change_Girl_stat(Laura, "trust", 0) from _call_change_Girl_stat_1450
 
     return True
 

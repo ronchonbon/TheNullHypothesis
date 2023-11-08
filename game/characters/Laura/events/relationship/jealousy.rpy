@@ -152,7 +152,7 @@ label Laura_jealousy_went_on_date:
     "*SLAM*"
     ". . . and slamming the door on the way out."
 
-    call change_Girl_stat(Laura, "trust", -30) from _call_change_Girl_stat_940
+    call change_Girl_stat(Laura, "trust", 0) from _call_change_Girl_stat_940
 
     ". . ."
     ch_Player "Well shit. . ."
@@ -328,7 +328,7 @@ label Laura_jealousy_flirted:
     "*SLAM*"
     ". . . and slamming the door behind you."
 
-    call change_Girl_stat(Laura, "trust", -30) from _call_change_Girl_stat_941
+    call change_Girl_stat(Laura, "trust", 0) from _call_change_Girl_stat_941
 
     ". . ."
     ch_Player "Well shit. . ."
@@ -629,7 +629,7 @@ label Laura_jealousy_went_on_date_anyways:
     "She has no mercy on the door either."
     ch_Player "Shit. . ."
 
-    call change_Girl_stat(Laura, "trust", -15 - 5*(EventScheduler.Events["Laura_jealousy_went_on_date_anyways"].completed + EventScheduler.Events["Laura_jealousy_flirted_anyways"].completed)) from _call_change_Girl_stat_942
+    call change_Girl_stat(Laura, "trust", 0) from _call_change_Girl_stat_942
 
     $ Laura.give_status("mad")
 
@@ -735,7 +735,7 @@ label Laura_jealousy_flirted_anyways:
     ". . ."
     ch_Player "Well, shit. . ."
 
-    call change_Girl_stat(Laura, "trust", -15 - 5*(EventScheduler.Events["Laura_jealousy_went_on_date_anyways"].completed + EventScheduler.Events["Laura_jealousy_flirted_anyways"].completed)) from _call_change_Girl_stat_1039
+    call change_Girl_stat(Laura, "trust", 0) from _call_change_Girl_stat_1039
 
     $ Laura.give_status("mad")
 

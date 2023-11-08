@@ -398,13 +398,13 @@ label Rogue_confession:
         "Better than. . . back home.":
             ch_Player "I hope my family's doing alright. . ."
 
-            call change_Girl_stat(Rogue, "love", 5) from _call_change_Girl_stat_618
+            call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_618
         "Sure beats the food I got back home.":
             ch_Player "At least there's a plus side to all of this. . ."
         "Still not as good as. . . back home.":
             ch_Player "I still miss my mom's cooking sometimes."
 
-            call change_Girl_stat(Rogue, "love", 5) from _call_change_Girl_stat_619
+            call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_619
     
     $ Rogue.change_face("sad", blush = 0)
 
@@ -502,22 +502,22 @@ label Rogue_confession:
         "Okay [Rogue.name], c'mon, what did you {i}actually{/i} come here to talk about?":
             $ Rogue.change_face("worried1")
 
-            call change_Girl_stat(Rogue, "trust", -5) from _call_change_Girl_stat_620
+            call change_Girl_stat(Rogue, "trust", 0) from _call_change_Girl_stat_620
 
             ch_Rogue "Alright, fine."
             ch_Rogue "Well. . ."
         "Sorry for bringing down the mood, but what did you actually want to talk about?":
             $ Rogue.change_face("worried1")
 
-            call change_Girl_stat(Rogue, "love", 5) from _call_change_Girl_stat_621
+            call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_621
 
             ch_Rogue "Don't worry hon', ah appreciate the honesty."
             ch_Rogue "Well. . ."
         "Now I kinda want more cornbread. Wanna grab some food?":
             $ Rogue.change_face("pleased1")
 
-            call change_Girl_stat(Rogue, "love", 5) from _call_change_Girl_stat_622
-            call change_Girl_stat(Rogue, "trust", 5) from _call_change_Girl_stat_623
+            call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_622
+            call change_Girl_stat(Rogue, "trust", 0) from _call_change_Girl_stat_623
 
             ch_Rogue "Heh, maybe after ah've said my peace."
             ch_Rogue "Speaking of. . ."
@@ -537,7 +537,7 @@ label Rogue_confession:
     menu:
         extend ""
         "For sure.":
-            call change_Girl_stat(Rogue, "love", 5) from _call_change_Girl_stat_624
+            call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_624
 
             $ Rogue.change_face("pleased1", blush = 1)
         "Yeah, I'd like to think so.":
@@ -574,7 +574,7 @@ label Rogue_confession:
             "Uh, sure. . . we can be more than friends." if asked_more_than_friends or asked_dating:
                 $ Rogue.change_face("confused1")
 
-                call change_Girl_stat(Rogue, "love", -5) from _call_change_Girl_stat_625
+                call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_625
 
                 $ chatting = False
             "I'd really like that." if asked_more_than_friends or asked_dating:
@@ -582,7 +582,7 @@ label Rogue_confession:
 
                 $ Rogue.change_face("happy", blush = 1)
 
-                call change_Girl_stat(Rogue, "love", 5) from _call_change_Girl_stat_626
+                call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_626
 
                 $ chatting = False
 
@@ -630,7 +630,7 @@ label Rogue_confession_1A:
 
     ch_Player "Makes my blood boil."
 
-    call change_Girl_stat(Rogue, "love", 5) from _call_change_Girl_stat_627
+    call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_627
 
     ch_Rogue "It really ain't fair. . ."
     ch_Rogue "For any of us."
@@ -656,7 +656,7 @@ label Rogue_confession_1B:
 
     ch_Player "It's been taking a while to really process everything. . ."
 
-    call change_Girl_stat(Rogue, "trust", 5) from _call_change_Girl_stat_628
+    call change_Girl_stat(Rogue, "trust", 0) from _call_change_Girl_stat_628
 
     ch_Rogue "Ah know how you feel."
     ch_Rogue "It's a lot to go through."
@@ -683,8 +683,8 @@ label Rogue_confession_1C:
 
     ch_Player "Then it won't matter what catches up to me."
 
-    call change_Girl_stat(Rogue, "love", 5) from _call_change_Girl_stat_629
-    call change_Girl_stat(Rogue, "trust", 5) from _call_change_Girl_stat_630
+    call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_629
+    call change_Girl_stat(Rogue, "trust", 0) from _call_change_Girl_stat_630
 
     ch_Rogue "Reality sure ain't kind to people like us."
     ch_Rogue "I reckon that's not. . . the worst way to deal with the stress."
@@ -716,8 +716,8 @@ label Rogue_confession_2A:
 
         $ Rogue.change_face("smirk2")
 
-        call change_Girl_stat(Rogue, "love", 5) from _call_change_Girl_stat_631
-        call change_Girl_stat(Rogue, "trust", 5) from _call_change_Girl_stat_632
+        call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_631
+        call change_Girl_stat(Rogue, "trust", 0) from _call_change_Girl_stat_632
 
         ch_Rogue "And not once did ya take advantage of me bein' a bit desperate about finally bein' able to touch someone. . ."
     else:
@@ -733,8 +733,8 @@ label Rogue_confession_2A:
         
         $ Rogue.change_face("smirk2")
 
-        call change_Girl_stat(Rogue, "love", 5) from _call_change_Girl_stat_633
-        call change_Girl_stat(Rogue, "love", 5) from _call_change_Girl_stat_634
+        call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_633
+        call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_634
 
         ch_Rogue "You've been a right gentleman about it."
     
@@ -743,8 +743,8 @@ label Rogue_confession_2A:
         ch_Rogue "Tryin' to help her out and all."
         ch_Rogue "That was real sweet of you."
 
-        call change_Girl_stat(Rogue, "love", 5) from _call_change_Girl_stat_635
-        call change_Girl_stat(Rogue, "love", 5) from _call_change_Girl_stat_636
+        call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_635
+        call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_636
 
     return
 
@@ -763,11 +763,11 @@ label Rogue_confession_2B:
 
             $ Rogue.change_face("pleased2", blush = 2)
 
-            call change_Girl_stat(Rogue, "love", 5) from _call_change_Girl_stat_637
+            call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_637
         "Oh. . . uh, yeah, that could be cool.":
             $ Rogue.change_face("perplexed")
 
-            call change_Girl_stat(Rogue, "love", -5) from _call_change_Girl_stat_638
+            call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_638
 
             ch_Player "I like you too."
 
@@ -787,11 +787,11 @@ label Rogue_confession_2C:
 
             ch_Rogue "Let's at least go on a date 'fore any of that. . ."
 
-            call change_Girl_stat(Rogue, "love", 5) from _call_change_Girl_stat_639
-            call change_Girl_stat(Rogue, "desire", 5) from _call_change_Girl_stat_640
+            call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_639
+            call change_Girl_stat(Rogue, "desire", 0) from _call_change_Girl_stat_640
         "That's fine by me, no rush to jump into anything.":
             $ Rogue.change_face("smirk2")
 
-            call change_Girl_stat(Rogue, "love", 5) from _call_change_Girl_stat_641
+            call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_641
 
     return

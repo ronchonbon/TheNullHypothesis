@@ -68,8 +68,8 @@ label Laura_chapter_one_season_two_first_study_session:
             
             ch_Laura "The vast majority of which were focused on how to most effectively kill someone." 
             
-            call change_Girl_stat(Laura, "love", 5) from _call_change_Girl_stat_398 
-            call change_Girl_stat(Laura, "trust", 5) from _call_change_Girl_stat_399
+            call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_398 
+            call change_Girl_stat(Laura, "trust", 0) from _call_change_Girl_stat_399
         "Did you really never have any experience with school before this? They must've taught you some stuff. . . before coming here.":
             $ Laura.change_face("angry1")
 
@@ -78,7 +78,7 @@ label Laura_chapter_one_season_two_first_study_session:
             ch_Laura "How to kill effectively?" 
             ch_Laura "Yes." 
             
-            call change_Girl_stat(Laura, "love", 10) from _call_change_Girl_stat_400
+            call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_400
         "Oh come on, there's no way you've never heard of this school stuff. You're pretty smart, all things considered. . .":
             ch_Player "Somebody must've taught you at some point." 
             
@@ -86,8 +86,8 @@ label Laura_chapter_one_season_two_first_study_session:
 
             ch_Laura "Why would someone like me need to learn anything but how to most effectively kill a human being?" 
             
-            call change_Girl_stat(Laura, "love", -5) from _call_change_Girl_stat_401 
-            call change_Girl_stat(Laura, "trust", 5) from _call_change_Girl_stat_402
+            call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_401 
+            call change_Girl_stat(Laura, "trust", 0) from _call_change_Girl_stat_402
 
     $ Laura.change_face("angry1", eyes = "right")
 

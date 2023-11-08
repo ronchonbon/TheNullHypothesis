@@ -56,7 +56,7 @@ label Rogue_texting_study_response:
         call receive_text(Rogue, "I just thought") from _call_receive_text_461
         call receive_text(Rogue, "Sorry") from _call_receive_text_462
         
-        call change_Girl_stat(Rogue, "love", -5) from _call_change_Girl_stat_604
+        call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_604
 
         $ Rogue.History.update("Player_rejected_studying")
 
@@ -112,7 +112,7 @@ label Rogue_texting_training_response:
         if time_index > 2:
             call receive_text(Rogue, "Too late. . .") from _call_receive_text_824
             
-            call change_Girl_stat(Rogue, "love", -2) from _call_change_Girl_stat_1606
+            call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_1606
         else:
             call send_text(Rogue, "I'll be right there") from _call_send_text_34
             call receive_text(Rogue, "Sweet") from _call_receive_text_467
@@ -129,7 +129,7 @@ label Rogue_texting_training_response:
         call receive_text(Rogue, "Okay") from _call_receive_text_470
         call receive_text(Rogue, "Sorry") from _call_receive_text_471
         
-        call change_Girl_stat(Rogue, "love", -5) from _call_change_Girl_stat_605
+        call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_605
 
         $ Rogue.History.update("Player_rejected_training")
 
@@ -183,11 +183,11 @@ label Rogue_texting_date_response:
         if time_index > 2:
             call receive_text(Rogue, "It's a little too late for that. . .") from _call_receive_text_821
             
-            call change_Girl_stat(Rogue, "love", -2) from _call_change_Girl_stat_1601
+            call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_1601
         else:
             call receive_text(Rogue, "Can't wait :)))") from _call_receive_text_476
 
-            call change_Girl_stat(Rogue, "love", 5) from _call_change_Girl_stat_606
+            call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_606
 
             $ Player.date_planned[Rogue] = "Girl_initiated_primary"
 
@@ -196,7 +196,7 @@ label Rogue_texting_date_response:
     elif Rogue.text_history[-1][1] == temp[2]:
         call receive_text(Rogue, "Sorry. . .") from _call_receive_text_477
         
-        call change_Girl_stat(Rogue, "love", -5) from _call_change_Girl_stat_607
+        call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_607
 
     return
 
@@ -245,12 +245,12 @@ label Rogue_texting_ask_to_masturbate_response:
         call receive_text(Rogue, "Alright, [Rogue.Player_petname]") from _call_receive_text_483
         call receive_text(Rogue, "Please don't make me wait too long") from _call_receive_text_484
 
-        call change_Girl_stat(Rogue, "desire", 5) from _call_change_Girl_stat_608
+        call change_Girl_stat(Rogue, "desire", 0) from _call_change_Girl_stat_608
     elif Rogue.text_history[-1][1] == temp[1]:
         call receive_text(Rogue, "Please, [Rogue.Player_petname]") from _call_receive_text_485
         call send_text(Rogue, "good, go ahead") from _call_send_text_35
         
-        call change_Girl_stat(Rogue, "love", 5) from _call_change_Girl_stat_609
+        call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_609
             
         if Rogue.location in [Rogue.home, Player.home]:
             $ reset_behavior(Rogue)
@@ -265,7 +265,7 @@ label Rogue_texting_ask_to_masturbate_response:
 
         $ Rogue.change_face("manic", blush = 2)
 
-        call change_Girl_stat(Rogue, "desire", 5) from _call_change_Girl_stat_610
+        call change_Girl_stat(Rogue, "desire", 0) from _call_change_Girl_stat_610
 
         $ Rogue.History.update("hookup")
             

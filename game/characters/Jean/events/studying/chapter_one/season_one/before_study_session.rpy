@@ -51,7 +51,7 @@ label Jean_before_study_session_part_one:
 
             ch_Jean "Really?" 
             
-            call change_Girl_stat(Jean, "love", -5) from _call_change_Girl_stat_129
+            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_129
 
             $ Jean.History.update("Player_rejected_studying")
 
@@ -129,7 +129,7 @@ label Jean_before_study_session_part_two:
 
             ch_Jean "Oh really?" 
             
-            call change_Girl_stat(Jean, "love", -5) from _call_change_Girl_stat_130
+            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_130
 
             $ Jean.History.update("Player_rejected_studying")
 

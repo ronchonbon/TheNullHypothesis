@@ -769,8 +769,8 @@ label ch1_mutant_hate:
             "She closely inspects your body to look for injuries."
             "So she says. . ."
 
-            call change_Girl_stat(Laura, "love", 5) from _call_change_Girl_stat_920 
-            call change_Girl_stat(Laura, "desire", 10) from _call_change_Girl_stat_921
+            call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_920 
+            call change_Girl_stat(Laura, "desire", 0) from _call_change_Girl_stat_921
 
             ch_Laura "Right here." 
             "She touches the exact spot where you got stabbed."
@@ -813,7 +813,7 @@ label ch1_mutant_hate:
             
             ch_Laura "Your empathy is. . . admirable. . . but it doesn't make what you did, wrong." 
             
-            call change_Girl_stat(Laura, "love", 10) from _call_change_Girl_stat_922
+            call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_922
 
             $ Player.History.update("Determined")
         "I was scared shitless. . . would probably be dead without your training. . . (reluctant)":
@@ -824,7 +824,7 @@ label ch1_mutant_hate:
             ch_Laura "You tie your emotions too strongly to it." 
             ch_Laura "Were you expecting pity?" 
 
-            call change_Girl_stat(Laura, "love", 5) from _call_change_Girl_stat_923
+            call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_923
 
             $ Player.History.update("Reluctant")
         "You're right, they tried to fucking kill me afterall. (bitter)":
@@ -835,8 +835,8 @@ label ch1_mutant_hate:
             
             ch_Laura "That doesn't make it wrong, what you had to do." 
             
-            call change_Girl_stat(Laura, "love", 5) from _call_change_Girl_stat_924
-            call change_Girl_stat(Laura, "trust", 5) from _call_change_Girl_stat_925
+            call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_924
+            call change_Girl_stat(Laura, "trust", 0) from _call_change_Girl_stat_925
 
             $ Player.History.update("told_Laura_protesters_got_what_they_deserved_during_mutant_hate")
             $ Player.History.update("Bitter")
@@ -927,7 +927,7 @@ label ch1_mutant_hate:
             "Lean into her for comfort":
                 "You squeeze her back, tightly, realizing she's right." 
                 
-                call change_Girl_stat(Jean, "love", 5) from _call_change_Girl_stat_926
+                call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_926
 
                 "Regardless of how you reacted at the time, you were terrified deep down."
                 "An angry mob of normal people just tried to murder you."
@@ -1120,22 +1120,22 @@ label ch1_mutant_hate:
         "I did what I had to do. . . but I don't feel good about it. (determined)":
             $ Rogue.change_face("worried1", eyes = "right") 
             
-            call change_Girl_stat(Rogue, "love", 5) from _call_change_Girl_stat_927 
-            call change_Girl_stat(Rogue, "trust", 5) from _call_change_Girl_stat_928
+            call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_927 
+            call change_Girl_stat(Rogue, "trust", 0) from _call_change_Girl_stat_928
 
             $ Player.History.update("told_Rogue_did_what_had_to_do_during_mutant_hate")
             $ Player.History.update("Determined")
         "To be honest, it was scarier than when those Sentinels attacked. . . (reluctant)":
             $ Rogue.change_face("worried1") 
 
-            call change_Girl_stat(Rogue, "love", 10) from _call_change_Girl_stat_929
+            call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_929
 
             $ Player.History.update("told_Rogue_was_scared_during_mutant_hate")
             $ Player.History.update("Reluctant")
         "They had it coming. Imagine if I didn't have my power. . . (bitter)":
             $ Rogue.change_face("appalled1", eyes = "right") 
 
-            call change_Girl_stat(Rogue, "love", 5) from _call_change_Girl_stat_930
+            call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_930
 
             $ Player.History.update("told_Rogue_protesters_had_it_coming_during_mutant_hate")
             $ Player.History.update("Bitter")

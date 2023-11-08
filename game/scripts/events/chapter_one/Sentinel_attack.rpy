@@ -1033,8 +1033,8 @@ label ch1_Sentinel_attack:
             
             ch_Jean "Because I really like being your 'big sis''." 
             
-            call change_Girl_stat(Jean, "love", 5) from _call_change_Girl_stat_864 
-            call change_Girl_stat(Jean, "desire", 10) from _call_change_Girl_stat_865
+            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_864 
+            call change_Girl_stat(Jean, "desire", 0) from _call_change_Girl_stat_865
 
             $ Jean.petname = "big sis'"
 
@@ -1209,7 +1209,7 @@ label ch1_Sentinel_attack:
             
             $ Rogue.change_face("worried1", mouth = "lipbite", blush = 1) 
             
-            call change_Girl_stat(Rogue, "love", 10) from _call_change_Girl_stat_866
+            call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_866
 
             $ Rogue.History.update("quirk_encouraged")
         "Hurt? Nothing hurts now that you're here. (discourage_quirk)":
@@ -1231,8 +1231,8 @@ label ch1_Sentinel_attack:
             ch_Rogue "Of course." 
             ch_Rogue "Ah just hope next time ah can actually help ya not get injured in the first place. . ." 
             
-            call change_Girl_stat(Rogue, "love", 5) from _call_change_Girl_stat_867 
-            call change_Girl_stat(Rogue, "trust", 5) from _call_change_Girl_stat_868
+            call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_867 
+            call change_Girl_stat(Rogue, "trust", 0) from _call_change_Girl_stat_868
 
             $ Rogue.History.update("quirk_discouraged")
 
@@ -1263,7 +1263,7 @@ label ch1_Sentinel_attack:
             
             $ Rogue.change_face("worried1", mouth = "lipbite", blush = 2)
 
-            call change_Girl_stat(Rogue, "desire", 10) from _call_change_Girl_stat_869
+            call change_Girl_stat(Rogue, "desire", 0) from _call_change_Girl_stat_869
 
             ch_Rogue "Thanks. . ."
 
@@ -1451,8 +1451,8 @@ label ch1_Sentinel_attack:
             
             ch_Laura "I also. . . like the feeling it gives me. . ." 
             
-            call change_Girl_stat(Laura, "love", 5) from _call_change_Girl_stat_870 
-            call change_Girl_stat(Laura, "desire", 10) from _call_change_Girl_stat_871
+            call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_870 
+            call change_Girl_stat(Laura, "desire", 0) from _call_change_Girl_stat_871
 
             $ Laura.History.update("quirk_encouraged")
         "Discourage her protectiveness (discourage_quirk)":

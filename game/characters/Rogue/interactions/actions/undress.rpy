@@ -513,7 +513,7 @@ label Rogue_accepts_show_breasts_after_first_time:
         "Any good? They're perfect.":
             $ Rogue.change_face("worried1", mouth = "smirk", blush = 1) 
             
-            call change_Girl_stat(Rogue, "love", 5) from _call_change_Girl_stat_1088
+            call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_1088
         "They are more than good.":
             $ Rogue.change_face("worried1", mouth = "smirk", blush = 1)
         "They're. . . okay. . .":
@@ -673,13 +673,13 @@ label Rogue_accepts_show_pussy_after_first_time:
         ". . . I love it.":
             $ Rogue.change_face("worried1", mouth = "smirk", blush = 1) 
             
-            call change_Girl_stat(Rogue, "love", 5) from _call_change_Girl_stat_1089
+            call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_1089
         "I do, it's beautiful.":
             $ Rogue.change_face("worried1", mouth = "smirk", blush = 1)
         "It's. . . okay. . .":
             $ Rogue.change_face("worried1", eyes = "down", blush = 1) 
             
-            call change_Girl_stat(Rogue, "love", -5) from _call_change_Girl_stat_1090
+            call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_1090
 
     return
 

@@ -350,7 +350,7 @@ label day_one_intro:
         "It's great to meet you, [Ororo.name]. I can't believe I'm talking to one of the X-Men.":
             $ Ororo.change_face("happy", blush = 1)
 
-            call change_Girl_stat(Ororo, "love", 5) from _call_change_Girl_stat_872
+            call change_Girl_stat(Ororo, "love", 0) from _call_change_Girl_stat_872
         "Nice to meet you, too.":
             pass
 
@@ -373,7 +373,7 @@ label day_one_intro:
         "Thank you, [Charles.name]. I might be dead if not for you.":
             $ Ororo.change_face("smirk1")
 
-            call change_Girl_stat(Ororo, "love", 5) from _call_change_Girl_stat_873
+            call change_Girl_stat(Ororo, "love", 0) from _call_change_Girl_stat_873
 
             ch_Charles "You are very welcome, [Player.first_name]."
 
@@ -495,14 +495,14 @@ label meet_Rogue:
         "Damn, and here I thought I could get away from freshman psychology.":
             $ Ororo.change_face("neutral", eyes = "squint")
 
-            call change_Girl_stat(Ororo, "love", -5) from _call_change_Girl_stat_874
-            call change_Girl_stat(Ororo, "trust", -5) from _call_change_Girl_stat_875
+            call change_Girl_stat(Ororo, "love", 0) from _call_change_Girl_stat_874
+            call change_Girl_stat(Ororo, "trust", 0) from _call_change_Girl_stat_875
 
             ch_Ororo "I'm afraid not, [Player.first_name]."
         "How would you compare the difficulty of the curriculum to a normal university's? (academic)" if Player.scholarship == "academic":
             $ Ororo.change_face("pleased1")
 
-            call change_Girl_stat(Ororo, "love", 5) from _call_change_Girl_stat_876
+            call change_Girl_stat(Ororo, "love", 0) from _call_change_Girl_stat_876
 
             ch_Ororo "Well, I'd venture to say even the introductory courses are quite advanced. . ."
 
@@ -555,7 +555,7 @@ label meet_Rogue:
         "No, looks like my power only makes me immune to other powers. Why do you care?":
             $ Rogue.change_face("worried2")
 
-            call change_Girl_stat(Rogue, "love", -5) from _call_change_Girl_stat_877
+            call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_877
 
             ch_Rogue "Because my ability has me absorb the memories, talents, and powers of those ah touch."
     
@@ -592,13 +592,13 @@ label meet_Rogue:
 
             $ Rogue.History.update("Player_looked_at_glove")
 
-            call change_Girl_stat(Rogue, "love", 5) from _call_change_Girl_stat_878
+            call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_878
         "We are. Thank you very much, [Ororo.name], I'll make sure to study hard.":
             $ Rogue.change_face("pleased1", blush = 1)
 
             $ Ororo.change_face("pleased1")
 
-            call change_Girl_stat(Ororo, "love", 5) from _call_change_Girl_stat_879
+            call change_Girl_stat(Ororo, "love", 0) from _call_change_Girl_stat_879
 
     pause 1.0
 
@@ -727,7 +727,7 @@ label meet_Laura:
         ch_Laura "And he looks well built."
         ch_Laura "Interesting."
 
-        call change_Girl_stat(Laura, "love", 5) from _call_change_Girl_stat_880
+        call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_880
     else:
         ch_Laura "He looks reasonably well-built."
     
@@ -820,7 +820,7 @@ label meet_Laura:
 
                 $ Laura.change_face("neutral")
 
-                call change_Girl_stat(Laura, "love", 5) from _call_change_Girl_stat_881
+                call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_881
 
                 $ asked_costume = True
             "What kind of powers do you have?" if not asked_powers:
@@ -839,7 +839,7 @@ label meet_Laura:
 
                 $ Laura.change_face("neutral")
 
-                call change_Girl_stat(Laura, "trust", 5) from _call_change_Girl_stat_882
+                call change_Girl_stat(Laura, "trust", 0) from _call_change_Girl_stat_882
 
                 $ Laura.History.update("was_warned_about_Player_power")
 
@@ -857,7 +857,7 @@ label meet_Laura:
 
                 ch_Laura "You've been physically conditioned, but apparently not martially trained."
 
-                call change_Girl_stat(Laura, "love", 5) from _call_change_Girl_stat_883
+                call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_883
 
                 $ asked_heartrate = True
             "Anyway. . . I should probably go catch up with [Ororo.name].":
@@ -888,7 +888,7 @@ label meet_Laura_1A:
 
     menu:
         "Whoa! Sick!":
-            call change_Girl_stat(Laura, "love", 5) from _call_change_Girl_stat_884
+            call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_884
 
             $ Laura.change_face("smirk2")
 
@@ -902,7 +902,7 @@ label meet_Laura_1A:
 
             $ Laura.change_face("neutral")
             
-            call change_Girl_stat(Laura, "love", -5) from _call_change_Girl_stat_885
+            call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_885
 
     call Laura_sheathes_claws from _call_Laura_sheathes_claws_5
 
@@ -971,8 +971,8 @@ label day_one_tour_farewell:
 
             "A shiver runs up the professor's arm as you shake her hand."
 
-            call change_Girl_stat(Ororo, "love", 5) from _call_change_Girl_stat_886
-            call change_Girl_stat(Ororo, "trust", -5) from _call_change_Girl_stat_887
+            call change_Girl_stat(Ororo, "love", 0) from _call_change_Girl_stat_886
+            call change_Girl_stat(Ororo, "trust", 0) from _call_change_Girl_stat_887
 
             ch_Ororo "{i}Ahem{/i}. . . Well, goodbye, [Player.first_name]. I have a mission to attend to."
         "Are you sure?":
@@ -984,8 +984,8 @@ label day_one_tour_farewell:
 
             "A shiver runs up the professor's arm as you shake her hand."
 
-            call change_Girl_stat(Ororo, "love", 5) from _call_change_Girl_stat_888
-            call change_Girl_stat(Ororo, "trust", 5) from _call_change_Girl_stat_889
+            call change_Girl_stat(Ororo, "love", 0) from _call_change_Girl_stat_888
+            call change_Girl_stat(Ororo, "trust", 0) from _call_change_Girl_stat_889
 
             ch_Ororo "Wow, that was. . . unexpected. I will see you when I return from my mission, [Player.first_name]."
 

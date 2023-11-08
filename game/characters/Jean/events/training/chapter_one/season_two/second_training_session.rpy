@@ -36,21 +36,21 @@ label Jean_chapter_one_season_two_second_training_session:
         "I don't mind at all. If anything, it'd be good to tell someone about the details.":
             $ Jean.change_face("smirk1") 
             
-            call change_Girl_stat(Jean, "love", 5) from _call_change_Girl_stat_210 
-            call change_Girl_stat(Jean, "trust", 20) from _call_change_Girl_stat_211
+            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_210 
+            call change_Girl_stat(Jean, "trust", 0) from _call_change_Girl_stat_211
 
             $ choice = "A"
         "I. . . I'll try. Not like I can ever forget how it felt. . .":
             $ Jean.change_face("worried2") 
             
-            call change_Girl_stat(Jean, "love", 10) from _call_change_Girl_stat_212
+            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_212
 
             $ choice = "B"
         "I guess I can. . . really didn't want to relive those memories, but fine.":
             $ Jean.change_face("worried1", eyes = "left") 
             
-            call change_Girl_stat(Jean, "love", 5) from _call_change_Girl_stat_213 
-            call change_Girl_stat(Jean, "trust", -5) from _call_change_Girl_stat_214
+            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_213 
+            call change_Girl_stat(Jean, "trust", 0) from _call_change_Girl_stat_214
 
             $ choice = "C"
 

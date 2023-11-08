@@ -17,8 +17,8 @@ label Rogue_occult_posters_shopping_accept:
 
     ch_Rogue "Ah'll put 'em up right away."
 
-    call change_Girl_stat(Rogue, "love", 20) from _call_change_Girl_stat_1565
-    call change_Girl_stat(Rogue, "trust", 10) from _call_change_Girl_stat_1566
+    call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_1565
+    call change_Girl_stat(Rogue, "trust", 0) from _call_change_Girl_stat_1566
 
     return True
 
@@ -45,8 +45,8 @@ label Rogue_occult_posters_gift_accept:
 
     ch_Rogue "Ah'll put 'em up right away."
 
-    call change_Girl_stat(Rogue, "love", 20) from _call_change_Girl_stat_1567
-    call change_Girl_stat(Rogue, "trust", 10) from _call_change_Girl_stat_1568
+    call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_1567
+    call change_Girl_stat(Rogue, "trust", 0) from _call_change_Girl_stat_1568
 
     return True
 

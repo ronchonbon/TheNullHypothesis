@@ -85,7 +85,7 @@ label Laura_text_how_are_you:
     call receive_text(Laura, "I'm fine") from _call_receive_text_319
     call receive_text(Laura, "Thanks") from _call_receive_text_320
     
-    call change_Girl_stat(Laura, "love", 5) from _call_change_Girl_stat_503
+    call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_503
 
     return
 
@@ -96,7 +96,7 @@ label Laura_text_how_are_you_late_accept:
     call receive_text(Laura, "I don't have to go to bed yet") from _call_receive_text_324
     call receive_text(Laura, "If you wanted to hang out") from _call_receive_text_325
 
-    call change_Girl_stat(Laura, "love", 5) from _call_change_Girl_stat_504
+    call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_504
 
     return
 
@@ -123,7 +123,7 @@ label Laura_text_how_are_you_relationship:
     call receive_text(Laura, "Bored") from _call_receive_text_334
     call receive_text(Laura, "Want to hang out with you") from _call_receive_text_335
 
-    call change_Girl_stat(Laura, "love", 5) from _call_change_Girl_stat_505
+    call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_505
 
     return
 
@@ -146,11 +146,11 @@ label Laura_text_how_are_you_love:
         call receive_text(Laura, "Thank you") from _call_receive_text_342
         call receive_text(Laura, "But stop making me worry so much") from _call_receive_text_343
 
-        call change_Girl_stat(Laura, "love", 5) from _call_change_Girl_stat_506
+        call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_506
     elif Laura.text_history[-1][1] == temp[2]:
         call receive_text(Laura, "Asshole") from _call_receive_text_344
 
-        call change_Girl_stat(Laura, "love", -5) from _call_change_Girl_stat_507
+        call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_507
 
     return
 
@@ -170,7 +170,7 @@ label Laura_text_how_are_you_horny:
     call receive_text(Laura, "I'm fine") from _call_receive_text_349
     call receive_text(Laura, "Woudl be better if I could see you") from _call_receive_text_350
     
-    call change_Girl_stat(Laura, "love", 5) from _call_change_Girl_stat_508
+    call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_508
 
     return
 
@@ -179,7 +179,7 @@ label Laura_text_how_are_you_nympho:
     call receive_text(Laura, "You are coming over some time soon") from _call_receive_text_352
     call receive_text(Laura, "Very soon") from _call_receive_text_353
 
-    call change_Girl_stat(Laura, "love", 5) from _call_change_Girl_stat_509
+    call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_509
 
     return
 
@@ -196,7 +196,7 @@ label Laura_text_good_morning:
         call receive_text(Laura, "We'll see") from _call_receive_text_357
         call receive_text(Laura, "I've had worse nights of sleep") from _call_receive_text_358
 
-    call change_Girl_stat(Laura, "love", 5) from _call_change_Girl_stat_510
+    call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_510
 
     return
 
@@ -205,7 +205,7 @@ label Laura_text_good_morning_relationship:
     call receive_text(Laura, "I") from _call_receive_text_360
     call receive_text(Laura, "Hope you slept well") from _call_receive_text_361
 
-    call change_Girl_stat(Laura, "love", 5) from _call_change_Girl_stat_511
+    call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_511
 
     return
 
@@ -218,7 +218,7 @@ label Laura_text_good_morning_love:
         call receive_text(Laura, "You were in my dreams last night") from _call_receive_text_364
         call receive_text(Laura, "It was nice for once") from _call_receive_text_365
 
-        call change_Girl_stat(Laura, "love", 5) from _call_change_Girl_stat_512
+        call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_512
     elif dice_roll == 2:
         call receive_text(Laura, "Morning") from _call_receive_text_366
         call receive_text(Laura, "How did you sleep?") from _call_receive_text_367
@@ -238,7 +238,7 @@ label Laura_text_good_morning_love:
             call receive_text(Laura, "Good") from _call_receive_text_371
             call receive_text(Laura, "I'll stop worrying when you stop giving me reasons to") from _call_receive_text_372
 
-            call change_Girl_stat(Laura, "love", 5) from _call_change_Girl_stat_513
+            call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_513
         elif Laura.text_history[-1][1] == temp[2]:
             call receive_text(Laura, "So you're fine then?") from _call_receive_text_373
 
@@ -260,7 +260,7 @@ label Laura_text_good_morning_horny:
     call receive_text(Laura, "Stop being so. . .") from _call_receive_text_378
     call receive_text(Laura, "Never mind") from _call_receive_text_379
 
-    call change_Girl_stat(Laura, "love", 5) from _call_change_Girl_stat_514
+    call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_514
 
     return
 
@@ -271,7 +271,7 @@ label Laura_text_good_morning_nympho:
 
     $ Laura.masturbating = True
 
-    call change_Girl_stat(Laura, "love", 5) from _call_change_Girl_stat_515
+    call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_515
 
     return
 
@@ -292,7 +292,7 @@ label Laura_text_goodnight:
         call receive_text(Laura, "You're going to sleep or something?") from _call_receive_text_388
         call receive_text(Laura, "I'm not done training yet") from _call_receive_text_389
 
-    call change_Girl_stat(Laura, "love", 5) from _call_change_Girl_stat_516
+    call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_516
 
     return
 
@@ -301,7 +301,7 @@ label Laura_text_goodnight_relationship:
     call receive_text(Laura, "Sleep well") from _call_receive_text_391
     call receive_text(Laura, "Or else") from _call_receive_text_392
 
-    call change_Girl_stat(Laura, "love", 5) from _call_change_Girl_stat_517
+    call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_517
 
     return
 
@@ -313,7 +313,7 @@ label Laura_text_goodnight_love:
         call receive_text(Laura, "I") from _call_receive_text_394
         call receive_text(Laura, "Love you") from _call_receive_text_395
 
-        call change_Girl_stat(Laura, "love", 5) from _call_change_Girl_stat_518
+        call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_518
     elif dice_roll == 2:
         call receive_text(Laura, "Sleep already?") from _call_receive_text_396
         call receive_text(Laura, "Why aren't you in my bed?") from _call_receive_text_397
@@ -330,12 +330,12 @@ label Laura_text_goodnight_love:
             call receive_text(Laura, "If I had it my way") from _call_receive_text_398
             call receive_text(Laura, "It would be every night") from _call_receive_text_399
 
-            call change_Girl_stat(Laura, "love", 5) from _call_change_Girl_stat_519
+            call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_519
         elif Laura.text_history[-1][1] == temp[2]:
             call receive_text(Laura, "I can't help it") from _call_receive_text_400
             call receive_text(Laura, "Nightmares") from _call_receive_text_401
 
-            call change_Girl_stat(Laura, "love", -5) from _call_change_Girl_stat_520
+            call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_520
 
     return
 
@@ -358,7 +358,7 @@ label Laura_text_goodnight_horny:
 
     $ Laura.masturbating = True
 
-    call change_Girl_stat(Laura, "love", 5) from _call_change_Girl_stat_521
+    call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_521
 
     return
 
@@ -369,14 +369,14 @@ label Laura_text_goodnight_nympho:
     call receive_text(Laura, "Attention") from _call_receive_text_412
     call receive_text(Laura, "You better at least find me tomorrow") from _call_receive_text_413
 
-    call change_Girl_stat(Laura, "love", 5) from _call_change_Girl_stat_522
+    call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_522
 
     return
 
 label Laura_text_ignored:
     call receive_text(Laura, "Don't ignore me") from _call_receive_text_414
 
-    call change_Girl_stat(Laura, "love", -5) from _call_change_Girl_stat_523
+    call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_523
 
     return
 

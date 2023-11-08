@@ -41,8 +41,8 @@ label Jean_chapter_one_season_one_fourth_training_session:
             
             $ Jean.change_face("smirk2") 
             
-            call change_Girl_stat(Jean, "love", 5) from _call_change_Girl_stat_176 
-            call change_Girl_stat(Jean, "trust", 5) from _call_change_Girl_stat_177
+            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_176 
+            call change_Girl_stat(Jean, "trust", 0) from _call_change_Girl_stat_177
         "I'm sure it'll work out. . .":
             $ Jean.change_face("worried1", eyes = "right")
 
@@ -59,7 +59,7 @@ label Jean_chapter_one_season_one_fourth_training_session:
             
             $ Jean.change_face("smirk2") 
             
-            call change_Girl_stat(Jean, "love", 5) from _call_change_Girl_stat_178
+            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_178
         "Yeah. . . I'd be worried too.":
             $ Jean.change_face("angry1", eyes = "right")
 
@@ -70,7 +70,7 @@ label Jean_chapter_one_season_one_fourth_training_session:
             ch_Jean "Whatever." 
             ch_Jean "I'll figure it out." 
             
-            call change_Girl_stat(Jean, "love", -5) from _call_change_Girl_stat_179
+            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_179
 
     $ Jean.change_face("smirk1")
 

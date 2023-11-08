@@ -55,7 +55,7 @@ label Jean_locker_room_changing:
 
             "After making sure nobody else is around, [Jean.name] gets right back to changing."
 
-            call change_Girl_stat(Jean, "desire", 10) from _call_change_Girl_stat_65
+            call change_Girl_stat(Jean, "desire", 0) from _call_change_Girl_stat_65
         
             call take_off_everything_but(Jean, ["bra", "underwear"]) from _call_take_off_everything_but
 
@@ -111,7 +111,7 @@ label Jean_locker_room_changing:
 
             "After making sure nobody else is around, [Jean.name] gets right back to changing."
 
-            call change_Girl_stat(Jean, "desire", 10) from _call_change_Girl_stat_66
+            call change_Girl_stat(Jean, "desire", 0) from _call_change_Girl_stat_66
         
             call take_off_everything_but(Jean, ["bra", "underwear"]) from _call_take_off_everything_but_1
 
@@ -161,7 +161,7 @@ label Jean_locker_room_changing:
 
         "After making sure nobody else is around, [Jean.name] gets right back to changing."
 
-        call change_Girl_stat(Jean, "desire", 10) from _call_change_Girl_stat_67
+        call change_Girl_stat(Jean, "desire", 0) from _call_change_Girl_stat_67
         
         call take_off_everything_but(Jean, ["bra", "underwear"]) from _call_take_off_everything_but_2
 
@@ -205,7 +205,7 @@ label Jean_locker_room_changing:
         ch_Jean "Heh, woops. . ."
         ch_Jean "I'm just gonna. . ."
 
-        call change_Girl_stat(Jean, "desire", 10) from _call_change_Girl_stat_68
+        call change_Girl_stat(Jean, "desire", 0) from _call_change_Girl_stat_68
 
         $ Jean.change_face("worried1", eyes = "right", mouth = "lipbite", blush = 3)
 

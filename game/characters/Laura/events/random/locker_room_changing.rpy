@@ -53,7 +53,7 @@ label Laura_locker_room_changing:
 
             "After making sure nobody is coming, [Laura.name] gets right back to changing."
 
-            call change_Girl_stat(Laura, "desire", 10) from _call_change_Girl_stat_341
+            call change_Girl_stat(Laura, "desire", 0) from _call_change_Girl_stat_341
 
             call take_off_everything_but(Laura, ["bra", "underwear"]) from _call_take_off_everything_but_5
 
@@ -105,7 +105,7 @@ label Laura_locker_room_changing:
 
             "After making sure nobody is coming, [Laura.name] gets right back to changing."
 
-            call change_Girl_stat(Laura, "desire", 10) from _call_change_Girl_stat_342
+            call change_Girl_stat(Laura, "desire", 0) from _call_change_Girl_stat_342
             call take_off_everything_but(Laura, ["bra", "underwear"]) from _call_take_off_everything_but_6
 
             pause 1.0
@@ -150,7 +150,7 @@ label Laura_locker_room_changing:
 
         "After making sure nobody else is around, [Laura.name] gets right back to changing."
 
-        call change_Girl_stat(Laura, "desire", 10) from _call_change_Girl_stat_343
+        call change_Girl_stat(Laura, "desire", 0) from _call_change_Girl_stat_343
         call take_off_everything_but(Laura, ["bra", "underwear"]) from _call_take_off_everything_but_7
 
         pause 1.0
@@ -194,7 +194,7 @@ label Laura_locker_room_changing:
 
         ch_Laura "Hard to miss. . ."
 
-        call change_Girl_stat(Laura, "desire", 10) from _call_change_Girl_stat_344
+        call change_Girl_stat(Laura, "desire", 0) from _call_change_Girl_stat_344
         call hide_Character(Laura) from _call_hide_Character_18
             
         $ Laura.location = "nearby"

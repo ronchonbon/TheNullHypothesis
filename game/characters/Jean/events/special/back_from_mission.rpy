@@ -62,20 +62,20 @@ label Jean_back_from_mission:
 
             $ Jean.change_face("smirk2", blush = 1)
 
-            call change_Girl_stat(Jean, "love", 5) from _call_change_Girl_stat_107
-            call change_Girl_stat(Jean, "trust", 5) from _call_change_Girl_stat_108
+            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_107
+            call change_Girl_stat(Jean, "trust", 0) from _call_change_Girl_stat_108
 
             $ Jean.History.update("Player_happy_to_help")
         "An excuse to spend more time with [Jean.name]? Count me in.":
             $ Jean.change_face("confused1")
 
-            call change_Girl_stat(Jean, "trust", -5) from _call_change_Girl_stat_109
+            call change_Girl_stat(Jean, "trust", 0) from _call_change_Girl_stat_109
 
             $ Jean.History.update("Player_wants_excuse_to_spend_time_together")
         "To be honest, I still don't know how I feel about having powers. But if it helps [Jean.name], then I'll do it.":
             $ Jean.change_face("sad")
 
-            call change_Girl_stat(Jean, "love", -5) from _call_change_Girl_stat_110
+            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_110
 
             $ Jean.History.update("Player_is_worried_about_being_a_mutant")
 
@@ -99,7 +99,7 @@ label Jean_back_from_mission:
 
             $ Jean.change_face("smirk2")
 
-            call change_Girl_stat(Jean, "love", 5) from _call_change_Girl_stat_111
+            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_111
 
             ch_Jean "I'm glad you feel the same way."
 
@@ -152,7 +152,7 @@ label Jean_back_from_mission:
 
             $ Jean.blush = 0
 
-            call change_Girl_stat(Jean, "love", 5) from _call_change_Girl_stat_112
+            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_112
         "Heh, I guess so.":
             pass
 
@@ -167,8 +167,8 @@ label Jean_back_from_mission:
 
             $ Jean.blush = 1
             
-            call change_Girl_stat(Jean, "love", 5) from _call_change_Girl_stat_113
-            call change_Girl_stat(Jean, "desire", 5) from _call_change_Girl_stat_114
+            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_113
+            call change_Girl_stat(Jean, "desire", 0) from _call_change_Girl_stat_114
 
             ch_Jean "Can you. . . say that again. . ."
             ch_Player "Uh. . . that would be great. . ."
@@ -177,7 +177,7 @@ label Jean_back_from_mission:
 
             $ Jean.change_face("surprised2", blush = 2)
             
-            call change_Girl_stat(Jean, "desire", 5) from _call_change_Girl_stat_115
+            call change_Girl_stat(Jean, "desire", 0) from _call_change_Girl_stat_115
 
             "[Jean.name] stares at you for a second before snapping out of it."
         "That would be great.":
@@ -205,7 +205,7 @@ label Jean_back_from_mission:
         "I really appreciate that.":
             $ Jean.blush = 1
 
-            call change_Girl_stat(Jean, "love", 5) from _call_change_Girl_stat_116
+            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_116
 
             ch_Player "Thanks, [Jean.name]."
             ch_Jean "Of course!"

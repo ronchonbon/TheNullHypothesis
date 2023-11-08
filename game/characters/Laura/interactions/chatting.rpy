@@ -122,7 +122,7 @@ label Laura_busy:
                     
                     ch_Laura "Yes, it is." 
                     
-                    call change_Girl_stat(Laura, "love", 5) from _call_change_Girl_stat_463
+                    call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_463
                 "Just wondering. . . you didn't look very happy.":
                     $ Laura.change_face("angry1") 
                     
@@ -139,7 +139,7 @@ label Laura_busy:
                     
                     ch_Laura "I never asked you to start." 
 
-                    call change_Girl_stat(Laura, "love", -5) from _call_change_Girl_stat_464
+                    call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_464
 
     return
 
@@ -423,7 +423,7 @@ label Laura_ask_about_Rogue:
                     
                     $ Laura.change_face("sexy", blush = 1) 
                     
-                    call change_Girl_stat(Laura, "love", 5) from _call_change_Girl_stat_465
+                    call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_465
                 "She is, but I don't capitalize on it like you're thinking.":
                     $ Laura.change_face("confused1") 
                     
@@ -441,7 +441,7 @@ label Laura_ask_about_Rogue:
                     
                     $ Laura.change_face("angry1") 
                     
-                    call change_Girl_stat(Laura, "love", -5) from _call_change_Girl_stat_466
+                    call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_466
         else:
             $ Laura.change_face("confused1")
 
@@ -576,7 +576,7 @@ label Laura_ask_about_Jean:
                     
                     $ Laura.change_face("smirk2", blush = 1) 
                     
-                    call change_Girl_stat(Laura, "love", 5) from _call_change_Girl_stat_467
+                    call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_467
                 "That's just how she is, she likes to take care of me. That's as far as it goes.":
                     $ Laura.change_face("suspicious1") 
                     
@@ -586,7 +586,7 @@ label Laura_ask_about_Jean:
                     
                     ch_Laura "{i}Grrrrrr{/i}."
                     
-                    call change_Girl_stat(Laura, "love", -5) from _call_change_Girl_stat_468
+                    call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_468
 
         else:
             $ Laura.change_face("confused1") 

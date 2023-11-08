@@ -47,7 +47,7 @@ label Laura_chatting_study:
             else:
                 ch_Laura "{i}Grrrr{/i}."
 
-            call change_Girl_stat(Laura, "love", -5) from _call_change_Girl_stat_339
+            call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_339
 
             $ Laura.History.update("Player_rejected_studying")
 
@@ -101,7 +101,7 @@ label Laura_chatting_training:
 
             ch_Laura "Wimp. . ."    
 
-            call change_Girl_stat(Laura, "love", -5) from _call_change_Girl_stat_340
+            call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_340
 
             $ Laura.History.update("Player_rejected_training")
 

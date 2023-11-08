@@ -58,7 +58,7 @@ label day_two_intro:
           
             ch_Rogue "Ah know how you feel. But trust me, you're doin' them a favor by stayin' away."
 
-            call change_Girl_stat(Rogue, "love", 5) from _call_change_Girl_stat_904
+            call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_904
         "I slept like a rock. The beds in this place are really something else.":
             ch_Rogue "They sure are comfortable. We're lucky the Prof is so generous."
 
@@ -113,7 +113,7 @@ label day_two_morning_class:
 
     "Out of the corner of your eye, you notice [Rogue.name] fidgeting a bit throughout the lesson."
 
-    call change_Girl_stat(Rogue, "desire", 5) from _call_change_Girl_stat_905
+    call change_Girl_stat(Rogue, "desire", 0) from _call_change_Girl_stat_905
     
     "She glances at your hands more than once as you take notes." 
 
@@ -400,13 +400,13 @@ label day_two_tutoring_session:
             ch_Player "I know how important it is to stay on top of my studies. Plus, I enjoy it."
             ch_Player "It helps. . . distract me. . ."
 
-            call change_Girl_stat(Rogue, "love", 5) from _call_change_Girl_stat_906
-            call change_Girl_stat(Rogue, "trust", 5) from _call_change_Girl_stat_907
+            call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_906
+            call change_Girl_stat(Rogue, "trust", 0) from _call_change_Girl_stat_907
         else:
             ch_Player "I wasn't a very good student before coming here, thought this was a chance to fix that."
 
-        call change_Girl_stat(Rogue, "love", 5) from _call_change_Girl_stat_908
-        call change_Girl_stat(Rogue, "trust", 5) from _call_change_Girl_stat_909
+        call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_908
+        call change_Girl_stat(Rogue, "trust", 0) from _call_change_Girl_stat_909
     else:
         ch_Player "Sorry, I didn't get a chance to organize things yet. I got a bit distracted."
         ch_Rogue "Don't worry about it none, it'll only take a few minutes."
@@ -449,7 +449,7 @@ label day_two_tutoring_session:
                 
         $ Rogue.change_face("pleased1")
 
-        call change_Girl_stat(Rogue, "love", 5) from _call_change_Girl_stat_910
+        call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_910
 
         $ Rogue.change_face("happy")
 
@@ -472,7 +472,7 @@ label day_two_tutoring_session:
 
     ch_Rogue ". . . Yeah, exactly. Why don't ya try those practice questions real quick. . ."
 
-    call change_Girl_stat(Rogue, "desire", 5) from _call_change_Girl_stat_911
+    call change_Girl_stat(Rogue, "desire", 0) from _call_change_Girl_stat_911
 
     $ Rogue.eyes = "down"
 
@@ -587,7 +587,7 @@ label day_two_after_tutoring:
 
             $ Rogue.change_face("pleased2")
 
-            call change_Girl_stat(Rogue, "love", -5) from _call_change_Girl_stat_912
+            call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_912
 
             ch_Player "Okay, okay, we can give it a try."
         "Fine by me!":
@@ -597,7 +597,7 @@ label day_two_after_tutoring:
 
             ch_Rogue "Uhm. . . [Rogue.Player_petname], are you sure?"
 
-            call change_Girl_stat(Rogue, "trust", -5) from _call_change_Girl_stat_913
+            call change_Girl_stat(Rogue, "trust", 0) from _call_change_Girl_stat_913
 
             ch_Player "100\%."
         "This means a lot to you, doesn't it? Sure, I'm willing to try.":
@@ -605,7 +605,7 @@ label day_two_after_tutoring:
 
             ch_Rogue "Really?!?!"
 
-            call change_Girl_stat(Rogue, "love", 5) from _call_change_Girl_stat_914
+            call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_914
 
             ch_Player "Of course, it's worth a shot."
 
@@ -637,8 +637,8 @@ label day_two_after_tutoring:
 
             "When she realizes you aren't dying, her face lights up with pure joy."
 
-            call change_Girl_stat(Rogue, "love", 5) from _call_change_Girl_stat_915
-            call change_Girl_stat(Rogue, "desire", 5) from _call_change_Girl_stat_916
+            call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_915
+            call change_Girl_stat(Rogue, "desire", 0) from _call_change_Girl_stat_916
 
             pause 1.0
 
@@ -650,7 +650,7 @@ label day_two_after_tutoring:
             $ Rogue.change_face("surprised2", blush = 1)
             $ Rogue.right_arm_pose = 1
 
-            call change_Girl_stat(Rogue, "love", 5) from _call_change_Girl_stat_917
+            call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_917
 
             "[Rogue.name] lets go of your hand and stands up, looking quite flustered."
             
@@ -675,8 +675,8 @@ label day_two_after_tutoring:
             
             $ Rogue.change_face("furious")
             
-            call change_Girl_stat(Rogue, "love", -5) from _call_change_Girl_stat_918
-            call change_Girl_stat(Rogue, "trust", -5) from _call_change_Girl_stat_919
+            call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_918
+            call change_Girl_stat(Rogue, "trust", 0) from _call_change_Girl_stat_919
 
             ch_Rogue "Well, ah'm glad someone's havin' fun."
             "She grabs her things and walks out of your room in a huff."

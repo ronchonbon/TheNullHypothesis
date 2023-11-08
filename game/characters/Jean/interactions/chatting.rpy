@@ -122,7 +122,7 @@ label Jean_busy:
                 "I'm also great now that you're here.":
                     $ Jean.change_face("pleased2", blush = 1)  
 
-                    call change_Girl_stat(Jean, "love", 5) from _call_change_Girl_stat_217 
+                    call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_217 
                 "Could be worse.":
                     $ Jean.change_face("confused1")
                 "That's it? Whatever, never mind. . .":
@@ -132,7 +132,7 @@ label Jean_busy:
 
                     ch_Jean "Okay. . ."
 
-                    call change_Girl_stat(Jean, "love", -5) from _call_change_Girl_stat_218
+                    call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_218
 
     return
 
@@ -426,7 +426,7 @@ label Jean_ask_about_Rogue:
                     
                     ch_Jean "Good." 
                     
-                    call change_Girl_stat(Jean, "love", 5) from _call_change_Girl_stat_219
+                    call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_219
                 "I like telling her what to do. . . but I'm not a huge fan of you doing it to me. . .":
                     $ Jean.change_face("worried1") 
                     
@@ -440,7 +440,7 @@ label Jean_ask_about_Rogue:
                     
                     ch_Jean "The hell?" 
                     
-                    call change_Girl_stat(Jean, "love", -5) from _call_change_Girl_stat_220
+                    call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_220
         else:
             $ Jean.change_face("confused1") 
 
@@ -579,7 +579,7 @@ label Jean_ask_about_Laura:
 
                     ch_Jean "I'm glad you like it. . ." 
 
-                    call change_Girl_stat(Jean, "love", 5) from _call_change_Girl_stat_221
+                    call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_221
                 "I like when {i}you{/i} boss me around. . . but I'm trying to help her be. . . more normal.":
                     $ Jean.change_face("worried1") 
 
@@ -591,7 +591,7 @@ label Jean_ask_about_Laura:
 
                     $ Jean.change_face("angry1", eyes = "left") 
 
-                    call change_Girl_stat(Jean, "love", -5) from _call_change_Girl_stat_222
+                    call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_222
         else:
             $ Jean.change_face("confused1") 
 

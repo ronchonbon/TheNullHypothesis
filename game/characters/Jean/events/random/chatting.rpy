@@ -48,7 +48,7 @@ label Jean_chatting_study:
             ch_Jean "Aw. . ."
             ch_Jean "Fine, your loss."
 
-            call change_Girl_stat(Jean, "love", -5) from _call_change_Girl_stat_63
+            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_63
 
             $ Jean.History.update("Player_rejected_studying")
 
@@ -101,7 +101,7 @@ label Jean_chatting_training:
             ch_Jean "What the hell?"
             ch_Jean "Ass. . ."
 
-            call change_Girl_stat(Jean, "love", -5) from _call_change_Girl_stat_64
+            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_64
 
             $ Jean.History.update("Player_rejected_training")
 

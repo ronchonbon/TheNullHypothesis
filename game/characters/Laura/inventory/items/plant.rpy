@@ -6,7 +6,7 @@ label Laura_plant_shopping_accept:
 
         $ Laura.change_face("confused1")
 
-        call change_Girl_stat(Laura, "love", 10) from _call_change_Girl_stat_1473
+        call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_1473
     else:
         ch_Laura "A plant?"
 
@@ -23,7 +23,7 @@ label Laura_plant_shopping_accept:
 
         ch_Laura "Thank you."
 
-        call change_Girl_stat(Laura, "love", 20) from _call_change_Girl_stat_1474
+        call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_1474
 
     return True
 
@@ -44,7 +44,7 @@ label Laura_plant_gift_accept:
 
         $ Laura.change_face("confused1")
 
-        call change_Girl_stat(Laura, "love", 10) from _call_change_Girl_stat_1475
+        call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_1475
     else:
         ch_Laura "A plant?"
 
@@ -61,7 +61,7 @@ label Laura_plant_gift_accept:
 
         ch_Laura "Thank you."
 
-        call change_Girl_stat(Laura, "love", 20) from _call_change_Girl_stat_1476
+        call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_1476
 
     return True
 

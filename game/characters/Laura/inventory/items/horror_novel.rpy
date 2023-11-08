@@ -23,7 +23,7 @@ label Laura_horror_novel_shopping_accept:
 
         ch_Laura "Thank you. . ."
 
-        call change_Girl_stat(Laura, "love", 25) from _call_change_Girl_stat_1459
+        call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_1459
 
         return True
     else:
@@ -73,7 +73,7 @@ label Laura_horror_novel_gift_accept:
 
         ch_Laura "Thank you. . ."
 
-        call change_Girl_stat(Laura, "love", 25) from _call_change_Girl_stat_1460
+        call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_1460
 
         return True
     else:

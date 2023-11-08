@@ -20,8 +20,8 @@ label Laura_motorcycle_posters_shopping_accept:
 
     ch_Laura "I will put them up immediately." 
 
-    call change_Girl_stat(Laura, "love", 25) from _call_change_Girl_stat_1469
-    call change_Girl_stat(Laura, "trust", 10) from _call_change_Girl_stat_1470
+    call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_1469
+    call change_Girl_stat(Laura, "trust", 0) from _call_change_Girl_stat_1470
 
     return True
 
@@ -51,8 +51,8 @@ label Laura_motorcycle_posters_gift_accept:
 
     ch_Laura "I will put them up immediately." 
 
-    call change_Girl_stat(Laura, "love", 25) from _call_change_Girl_stat_1471
-    call change_Girl_stat(Laura, "trust", 10) from _call_change_Girl_stat_1472
+    call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_1471
+    call change_Girl_stat(Laura, "trust", 0) from _call_change_Girl_stat_1472
 
     return True
 

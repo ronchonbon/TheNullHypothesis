@@ -74,8 +74,8 @@ label Laura_chapter_one_season_one_first_study_session:
             
             $ Laura.change_face("suspicious1") 
             
-            call change_Girl_stat(Laura, "love", 5) from _call_change_Girl_stat_385 
-            call change_Girl_stat(Laura, "trust", 5) from _call_change_Girl_stat_386
+            call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_385 
+            call change_Girl_stat(Laura, "trust", 0) from _call_change_Girl_stat_386
         "C'mon, [Laura.name], do you really think class is such a waste of time?":
             $ Laura.change_face("angry1", eyes = "right")
 
@@ -89,7 +89,7 @@ label Laura_chapter_one_season_one_first_study_session:
             
             ch_Laura "That's why they're all so weak." 
             
-            call change_Girl_stat(Laura, "love", 10) from _call_change_Girl_stat_387
+            call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_387
         "Seriously, [Laura.name], are you trying to fail?":
             $ Laura.change_face("appalled1")
 
@@ -104,8 +104,8 @@ label Laura_chapter_one_season_one_first_study_session:
             
             ch_Laura "That's why everyone's so weak." 
             
-            call change_Girl_stat(Laura, "love", -5) from _call_change_Girl_stat_388 
-            call change_Girl_stat(Laura, "trust", 5) from _call_change_Girl_stat_389
+            call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_388 
+            call change_Girl_stat(Laura, "trust", 0) from _call_change_Girl_stat_389
 
     $ Laura.change_face("angry1", eyes = "right")
 
@@ -134,7 +134,7 @@ label Laura_chapter_one_season_one_first_study_session:
             
             ch_Laura "Now keep going, I didn't get that last part." 
             
-            call change_Girl_stat(Laura, "love", 10) from _call_change_Girl_stat_390
+            call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_390
         "I guess I can. . .":
             ch_Player "But I don't know if I'll be any good at teaching."
         
@@ -142,7 +142,7 @@ label Laura_chapter_one_season_one_first_study_session:
             ch_Laura "Now, continue." 
             ch_Laura "None of this makes sense." 
             
-            call change_Girl_stat(Laura, "love", 5) from _call_change_Girl_stat_391
+            call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_391
         "Can't you just pay more attention during lecture?":
             $ Laura.change_face("confused1") 
             
@@ -156,8 +156,8 @@ label Laura_chapter_one_season_one_first_study_session:
             
             ch_Laura "Now continue, I zoned out." 
             
-            call change_Girl_stat(Laura, "love", 5) from _call_change_Girl_stat_392 
-            call change_Girl_stat(Laura, "trust", -5) from _call_change_Girl_stat_393
+            call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_392 
+            call change_Girl_stat(Laura, "trust", 0) from _call_change_Girl_stat_393
 
     $ Laura.change_face("neutral")
 

@@ -53,8 +53,8 @@ label Rogue_chapter_one_season_two_first_training_session:
             
             $ Rogue.change_face("worried1", eyes = "down") 
             
-            call change_Girl_stat(Rogue, "love", 5) from _call_change_Girl_stat_678 
-            call change_Girl_stat(Rogue, "trust", 5) from _call_change_Girl_stat_679
+            call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_678 
+            call change_Girl_stat(Rogue, "trust", 0) from _call_change_Girl_stat_679
         "Not. . . great. It honestly shook me up pretty bad. Just trying not to think about it.": 
             $ Rogue.change_face("worried1", eyes = "down")
 
@@ -64,7 +64,7 @@ label Rogue_chapter_one_season_two_first_training_session:
             
             ch_Rogue "Ah was useless." 
             
-            call change_Girl_stat(Rogue, "love", 10) from _call_change_Girl_stat_680
+            call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_680
         "I'm fine. Angry, if anything, that I was so useless.":
             $ Rogue.change_face("worried2")
 
@@ -74,7 +74,7 @@ label Rogue_chapter_one_season_two_first_training_session:
             
             ch_Rogue "Ah might be dead. . . if not for you." 
             
-            call change_Girl_stat(Rogue, "trust", 20) from _call_change_Girl_stat_681
+            call change_Girl_stat(Rogue, "trust", 0) from _call_change_Girl_stat_681
 
     $ Rogue.change_face("worried1", eyes = "right")
 

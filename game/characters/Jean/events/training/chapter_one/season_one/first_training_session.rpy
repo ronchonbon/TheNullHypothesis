@@ -264,7 +264,7 @@ label Jean_chapter_one_season_one_first_training_session:
         menu:
             extend ""
             "You are pretty damn smart." if not smart:
-                call change_Girl_stat(Jean, "love", 5) from _call_change_Girl_stat_161
+                call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_161
                 
                 $ Jean.change_face("pleased2", blush = 1)
 
@@ -279,7 +279,7 @@ label Jean_chapter_one_season_one_first_training_session:
 
                 $ smart = True
             "Eventually? I guess you'll be helpful. . ." if not smart:
-                call change_Girl_stat(Jean, "love", -5) from _call_change_Girl_stat_162
+                call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_162
 
                 $ Jean.change_face("worried1")
 
@@ -307,7 +307,7 @@ label Jean_chapter_one_season_one_first_training_session:
 
                 $ chatting = False
             "Sure, I wouldn't mind the help." if smart and not control:
-                call change_Girl_stat(Jean, "love", -5) from _call_change_Girl_stat_163
+                call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_163
                 
                 $ Jean.change_face("angry1")
 
@@ -321,7 +321,7 @@ label Jean_chapter_one_season_one_first_training_session:
 
                 $ chatting = False
             "I wouldn't mind your help either." if smart and control:
-                call change_Girl_stat(Jean, "love", -5) from _call_change_Girl_stat_164
+                call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_164
                 
                 $ Jean.change_face("angry1")
 
@@ -364,8 +364,8 @@ label Jean_chapter_one_season_one_first_training_session:
         ch_Player "I don't have much choice but to get good with more mundane weapons and martial arts."
         ch_Player "[Laura.name] does a good job of hammering those lessons in. . . right into my bones. . ."
 
-        call change_Girl_stat(Jean, "love", 5) from _call_change_Girl_stat_165
-        call change_Girl_stat(Jean, "trust", 5) from _call_change_Girl_stat_166
+        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_165
+        call change_Girl_stat(Jean, "trust", 0) from _call_change_Girl_stat_166
 
         $ Jean.change_face("smirk1", eyes = "squint", blush = 1)
 
@@ -416,7 +416,7 @@ label Jean_chapter_one_season_one_first_training_session:
 
     "Without another word, she grabs your hand."
 
-    call change_Girl_stat(Jean, "desire", 5) from _call_change_Girl_stat_167
+    call change_Girl_stat(Jean, "desire", 0) from _call_change_Girl_stat_167
 
     $ Jean.change_face("surprised3", blush = 1)
 
@@ -432,7 +432,7 @@ label Jean_chapter_one_season_one_first_training_session:
 
     pause 1.5
 
-    call change_Girl_stat(Jean, "love", 5) from _call_change_Girl_stat_168
+    call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_168
 
     $ Jean.change_face("smirk2", blush = 2)
 
@@ -489,7 +489,7 @@ label Jean_chapter_one_season_one_first_training_session:
     ch_Player "Are you okay?"
     ch_Jean "I. . . am now. Thanks, [Player.first_name]."
 
-    call change_Girl_stat(Jean, "trust", 5) from _call_change_Girl_stat_169
+    call change_Girl_stat(Jean, "trust", 0) from _call_change_Girl_stat_169
 
     $ Jean.change_face("worried1", mouth = "frown", blush = 1)
 
@@ -503,7 +503,7 @@ label Jean_chapter_one_season_one_first_training_session:
 
             ch_Jean ". . . Thanks."
 
-            call change_Girl_stat(Jean, "love", 5) from _call_change_Girl_stat_170
+            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_170
 
             $ Jean.change_face("smirk2")
 
@@ -511,7 +511,7 @@ label Jean_chapter_one_season_one_first_training_session:
 
             $ Jean.blush = 2
         "Good thing I was here, someone might've gotten hurt.":
-            call change_Girl_stat(Jean, "love", -5) from _call_change_Girl_stat_171
+            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_171
 
             $ Jean.change_face("angry1", blush = 1)
 
@@ -579,8 +579,8 @@ label Jean_chapter_one_season_one_first_training_session_1A:
 
             ch_Player "I'll try my best."
 
-            call change_Girl_stat(Jean, "love", 5) from _call_change_Girl_stat_172
-            call change_Girl_stat(Jean, "trust", 5) from _call_change_Girl_stat_173
+            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_172
+            call change_Girl_stat(Jean, "trust", 0) from _call_change_Girl_stat_173
 
             ch_Jean "Thanks, [Player.first_name]. . ."
 
@@ -612,13 +612,13 @@ label Jean_chapter_one_season_one_first_training_session_1B:
     menu:
         extend ""
         "Uh, I guess. . .":
-            call change_Girl_stat(Jean, "love", -5) from _call_change_Girl_stat_174
+            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_174
 
             $ Jean.change_face("worried1")
 
             ch_Jean "You don't sound so happy about it. . ."
         "Thanks, [Jean.petname], I really appreciate it.":
-            call change_Girl_stat(Jean, "love", 5) from _call_change_Girl_stat_175
+            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_175
 
             $ Jean.change_face("happy", blush = 1)
 

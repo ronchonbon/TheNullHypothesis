@@ -53,7 +53,7 @@ label Rogue_locker_room_changing:
 
             "After making sure nobody else is around, [Rogue.name] gets right back to changing."
 
-            call change_Girl_stat(Rogue, "desire", 10) from _call_change_Girl_stat_598
+            call change_Girl_stat(Rogue, "desire", 0) from _call_change_Girl_stat_598
 
             call take_off_everything_but(Rogue, ["bra", "underwear"]) from _call_take_off_everything_but_9
 
@@ -103,7 +103,7 @@ label Rogue_locker_room_changing:
 
             "After making sure nobody else is around, [Rogue.name] gets right back to changing."
 
-            call change_Girl_stat(Rogue, "desire", 10) from _call_change_Girl_stat_599
+            call change_Girl_stat(Rogue, "desire", 0) from _call_change_Girl_stat_599
 
             call take_off_everything_but(Rogue, ["bra", "underwear"]) from _call_take_off_everything_but_10
 
@@ -151,7 +151,7 @@ label Rogue_locker_room_changing:
 
         "After making sure nobody else is around, [Rogue.name] gets right back to changing."
 
-        call change_Girl_stat(Rogue, "desire", 10) from _call_change_Girl_stat_600
+        call change_Girl_stat(Rogue, "desire", 0) from _call_change_Girl_stat_600
 
         call take_off_everything_but(Rogue, ["bra", "underwear"]) from _call_take_off_everything_but_11
 
@@ -193,7 +193,7 @@ label Rogue_locker_room_changing:
         ch_Rogue "Ah'm so sorry [Player.first_name]."
         ch_Rogue "Ah didn't mean to. . ."
 
-        call change_Girl_stat(Rogue, "desire", 10) from _call_change_Girl_stat_601
+        call change_Girl_stat(Rogue, "desire", 0) from _call_change_Girl_stat_601
 
         $ Rogue.change_face("worried1", eyes = "right", mouth = "lipbite", blush = 3)
 

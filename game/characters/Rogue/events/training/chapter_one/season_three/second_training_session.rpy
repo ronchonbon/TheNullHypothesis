@@ -38,17 +38,17 @@ label Rogue_chapter_one_season_three_second_training_session:
         "Of course I'm not mad.":
             $ Rogue.change_face("worried2") 
             
-            call change_Girl_stat(Rogue, "love", 5) from _call_change_Girl_stat_671 
-            call change_Girl_stat(Rogue, "trust", 5) from _call_change_Girl_stat_672
+            call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_671 
+            call change_Girl_stat(Rogue, "trust", 0) from _call_change_Girl_stat_672
         "Definitely not mad. Worried about you, if anything.": 
             $ Rogue.change_face("worried1", eyes = "down") 
             
-            call change_Girl_stat(Rogue, "love", 10) from _call_change_Girl_stat_673
+            call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_673
         "Just don't lie again and I'll be fine.":
             $ Rogue.change_face("worried1", eyes = "right")
 
-            call change_Girl_stat(Rogue, "love", -5) from _call_change_Girl_stat_674 
-            call change_Girl_stat(Rogue, "trust", 5) from _call_change_Girl_stat_675
+            call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_674 
+            call change_Girl_stat(Rogue, "trust", 0) from _call_change_Girl_stat_675
 
     $ Rogue.change_face("worried1")
 

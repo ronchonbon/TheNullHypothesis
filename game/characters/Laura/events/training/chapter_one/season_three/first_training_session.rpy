@@ -78,8 +78,8 @@ label Laura_chapter_one_season_three_first_training_session:
             ch_Laura "You have to get stronger." 
             ch_Laura "You will learn how to use it properly." 
             
-            call change_Girl_stat(Laura, "love", -5) from _call_change_Girl_stat_432 
-            call change_Girl_stat(Laura, "trust", 5) from _call_change_Girl_stat_433
+            call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_432 
+            call change_Girl_stat(Laura, "trust", 0) from _call_change_Girl_stat_433
         "No, but I sure as hell want to try them out.":
             ch_Player "It feels exhilarating." 
             
@@ -88,16 +88,16 @@ label Laura_chapter_one_season_three_first_training_session:
             ch_Laura "Do not let it cloud your judgment." 
             ch_Laura "You're not well trained enough to trust your instincts yet." 
             
-            call change_Girl_stat(Laura, "love", 5) from _call_change_Girl_stat_434 
-            call change_Girl_stat(Laura, "trust", -5) from _call_change_Girl_stat_435
+            call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_434 
+            call change_Girl_stat(Laura, "trust", 0) from _call_change_Girl_stat_435
         "Not yet, but I am kinda eager to figure them out.":
             $ Laura.change_face("angry1")
 
             ch_Laura "If you do what I say, you will." 
             ch_Laura "I won't let you stay this weak forever." 
             
-            call change_Girl_stat(Laura, "love", 5) from _call_change_Girl_stat_436 
-            call change_Girl_stat(Laura, "trust", 5) from _call_change_Girl_stat_437
+            call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_436 
+            call change_Girl_stat(Laura, "trust", 0) from _call_change_Girl_stat_437
 
     if Jean.History.check("trained_with_Player", tracker = "season"):
         ch_Laura "You didn't try while training with [Jean.name]?" 
@@ -135,13 +135,13 @@ label Laura_chapter_one_season_three_first_training_session:
             
             ch_Laura "You should be grateful." 
             
-            call change_Girl_stat(Laura, "trust", 5) from _call_change_Girl_stat_438
+            call change_Girl_stat(Laura, "trust", 0) from _call_change_Girl_stat_438
         "You think so? Sweet.":
             $ Laura.change_face("suspicious1")
 
             ch_Laura ". . ." 
             
-            call change_Girl_stat(Laura, "trust", -5) from _call_change_Girl_stat_439
+            call change_Girl_stat(Laura, "trust", 0) from _call_change_Girl_stat_439
 
     $ Laura.change_face("angry1")
 
@@ -175,7 +175,7 @@ label Laura_chapter_one_season_three_first_training_session:
             ch_Laura "I am." 
             ch_Laura "Stop stalling." 
 
-            call change_Girl_stat(Laura, "trust", 5) from _call_change_Girl_stat_440
+            call change_Girl_stat(Laura, "trust", 0) from _call_change_Girl_stat_440
         "Brace yourself.":
             pass
         "I'm the one who should be focused on survival?":
@@ -183,7 +183,7 @@ label Laura_chapter_one_season_three_first_training_session:
 
             "She just glares at you." 
             
-            call change_Girl_stat(Laura, "trust", -5) from _call_change_Girl_stat_441
+            call change_Girl_stat(Laura, "trust", 0) from _call_change_Girl_stat_441
 
     "As you try releasing your power, you realize how much of a death grip you've had on it."
     "Whether out of fear or ineptitude, your will has been clamping down on it with full force."

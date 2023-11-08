@@ -48,7 +48,7 @@ label Laura_rejects_hookup_threesome:
 
     $ Laura.change_face("furious", blush = 1)
 
-    call change_Girl_stat(Laura, "trust", -6) from _call_change_Girl_stat_462
+    call change_Girl_stat(Laura, "trust", 0) from _call_change_Girl_stat_462
 
     if len(Present) > 2:
         ch_Laura "{i}If{/i} they leave."

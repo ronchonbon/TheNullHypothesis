@@ -4,8 +4,8 @@ label Jean_plant_shopping_accept:
     if "plant1" in Jean.inventory.keys() or "plant2" in Jean.inventory.keys() or "plant3" in Jean.inventory.keys():
         ch_Jean "Aw, you got me some more plants?"
 
-        call change_Girl_stat(Jean, "love", 10) from _call_change_Girl_stat_1307
-        call change_Girl_stat(Jean, "trust", 5) from _call_change_Girl_stat_1308
+        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1307
+        call change_Girl_stat(Jean, "trust", 0) from _call_change_Girl_stat_1308
 
         $ Jean.change_face("worried1", mouth = "smirk")
     else:
@@ -24,8 +24,8 @@ label Jean_plant_shopping_accept:
 
         ch_Jean "But I appreciate the thought."
 
-        call change_Girl_stat(Jean, "love", 30) from _call_change_Girl_stat_1309
-        call change_Girl_stat(Jean, "trust", 10) from _call_change_Girl_stat_1310
+        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1309
+        call change_Girl_stat(Jean, "trust", 0) from _call_change_Girl_stat_1310
 
     return True
 
@@ -46,8 +46,8 @@ label Jean_plant_gift_accept:
     if "plant1" in Jean.inventory.keys() or "plant2" in Jean.inventory.keys() or "plant3" in Jean.inventory.keys():
         ch_Jean "Aw, you got me some more plants?"
 
-        call change_Girl_stat(Jean, "love", 10) from _call_change_Girl_stat_1311
-        call change_Girl_stat(Jean, "trust", 5) from _call_change_Girl_stat_1312
+        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1311
+        call change_Girl_stat(Jean, "trust", 0) from _call_change_Girl_stat_1312
 
         $ Jean.change_face("worried1", mouth = "smirk")
     else:
@@ -66,8 +66,8 @@ label Jean_plant_gift_accept:
 
         ch_Jean "But I appreciate the thought."
 
-        call change_Girl_stat(Jean, "love", 30) from _call_change_Girl_stat_1313
-        call change_Girl_stat(Jean, "trust", 10) from _call_change_Girl_stat_1314
+        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1313
+        call change_Girl_stat(Jean, "trust", 0) from _call_change_Girl_stat_1314
 
     return True
 

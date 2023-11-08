@@ -93,7 +93,7 @@ label Jean_disclosing_wants_to_date_others:
     # ch_Jean "And thanks for letting me know. . ."
     ch_Jean "Thanks for letting me know. . ."
 
-    call change_Girl_stat(Jean, "trust", 5) from _call_change_Girl_stat_949
+    call change_Girl_stat(Jean, "trust", 0) from _call_change_Girl_stat_949
 
     $ Jean.History.update("told_wants_multiple_girlfriends")
 
@@ -143,7 +143,7 @@ label Jean_disclosing_wants_to_date_Rogue:
     ch_Jean "Nope." 
     ch_Jean "And. . . thanks for asking." 
 
-    call change_Girl_stat(Jean, "trust", 5) from _call_change_Girl_stat_950
+    call change_Girl_stat(Jean, "trust", 0) from _call_change_Girl_stat_950
 
     $ Jean.knows_about.append(Rogue)
 
@@ -206,7 +206,7 @@ label Jean_disclosing_wants_to_date_Laura:
 
     ch_Jean "And. . . thanks for asking first." 
 
-    call change_Girl_stat(Jean, "trust", 5) from _call_change_Girl_stat_951
+    call change_Girl_stat(Jean, "trust", 0) from _call_change_Girl_stat_951
 
     $ Jean.knows_about.append(Laura)
     

@@ -74,7 +74,7 @@ label Jean_asked_on_date:
 
         $ Jean.change_face("smirk1")
 
-        call change_Girl_stat(Jean, "love", 5) from _call_change_Girl_stat_78
+        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_78
 
         ch_Jean ". . . just for my sake."
         ch_Player "You're welcome."
@@ -91,7 +91,7 @@ label Jean_asked_on_date:
 
         ch_Jean "But I really appreciate it."
 
-        call change_Girl_stat(Jean, "love", 5) from _call_change_Girl_stat_79
+        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_79
     else:
         ch_Jean "I just wanted to say thanks. . ."
         ch_Player "About what?"
@@ -113,15 +113,15 @@ label Jean_asked_on_date:
 
         ch_Jean "But I can tell you've also been working really hard to help me figure out my problem."
 
-        call change_Girl_stat(Jean, "love", 5) from _call_change_Girl_stat_80
+        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_80
 
         ch_Player "Of course, you're welcome."
         ch_Player "I was eager to learn about my own abilities. . ."
 
         $ Jean.change_face("pleased1", blush = 1)
         
-        call change_Girl_stat(Jean, "love", 5) from _call_change_Girl_stat_81
-        call change_Girl_stat(Jean, "trust", 5) from _call_change_Girl_stat_82
+        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_81
+        call change_Girl_stat(Jean, "trust", 0) from _call_change_Girl_stat_82
 
         ch_Player ". . . but there's no way I'd give up a chance to help you."
 
@@ -175,7 +175,7 @@ label Jean_asked_on_date:
 
                 ch_Jean "You've been helping me without expecting anything."
 
-                call change_Girl_stat(Jean, "love", 5) from _call_change_Girl_stat_83
+                call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_83
 
                 $ asked_date = True
             "Date? But you're my 'big sib.'" if not asked_big_sis and Jean.petname == "big sis'":
@@ -262,15 +262,15 @@ label Jean_asked_on_date_1B:
         "I agree. . .":
             $ Jean.change_face("smirk2", blush = 2)
 
-            call change_Girl_stat(Jean, "love", 5) from _call_change_Girl_stat_84
-            call change_Girl_stat(Jean, "trust", 5) from _call_change_Girl_stat_85
-            call change_Girl_stat(Jean, "desire", 5) from _call_change_Girl_stat_86
+            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_84
+            call change_Girl_stat(Jean, "trust", 0) from _call_change_Girl_stat_85
+            call change_Girl_stat(Jean, "desire", 0) from _call_change_Girl_stat_86
 
             ch_Jean "Good."
         "Isn't that a bit weird. . .":
             $ Jean.change_face("angry1")
 
-            call change_Girl_stat(Jean, "love", -5) from _call_change_Girl_stat_87
+            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_87
 
             ch_Jean "No. . ."
 
@@ -287,7 +287,7 @@ label Jean_asked_on_date_1C:
         "Please? I really want to go on that date.":
             $ Jean.change_face("smirk2", blush = 2)
 
-            call change_Girl_stat(Jean, "love", 5) from _call_change_Girl_stat_88
+            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_88
 
             ch_Jean "How can I say no to that. . ."
         "Come on, you know I didn't mean it like that. I'd really like to go on that date.":

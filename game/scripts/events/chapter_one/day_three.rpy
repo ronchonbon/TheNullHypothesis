@@ -85,8 +85,8 @@ label day_three_intro:
                 ch_Rogue "But it really is okay. You've only been around other mutants a few days, and your childhood was pretty normal."
                 ch_Player "I'll be more sensitive, promise."
 
-                call change_Girl_stat(Rogue, "love", 5) from _call_change_Girl_stat_890
-                call change_Girl_stat(Rogue, "trust", 5) from _call_change_Girl_stat_891
+                call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_890
+                call change_Girl_stat(Rogue, "trust", 0) from _call_change_Girl_stat_891
             "Accept her forgiveness":
                 $ Rogue.change_face("neutral")
 
@@ -386,8 +386,8 @@ label day_three_combat_lesson:
 
         $ Laura.change_face("angry1")
 
-        call change_Girl_stat(Laura, "love", 5) from _call_change_Girl_stat_892
-        call change_Girl_stat(Laura, "trust", 5) from _call_change_Girl_stat_893
+        call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_892
+        call change_Girl_stat(Laura, "trust", 0) from _call_change_Girl_stat_893
 
         ch_Laura "If you've developed any bad habits, I {i}will{/i} beat them out of you."
 
@@ -397,7 +397,7 @@ label day_three_combat_lesson:
 
         $ Laura.change_face("neutral")
 
-        call change_Girl_stat(Laura, "desire", 5) from _call_change_Girl_stat_894
+        call change_Girl_stat(Laura, "desire", 0) from _call_change_Girl_stat_894
     else:
         $ Laura.change_face("confused1")
 
@@ -436,9 +436,9 @@ label day_three_combat_lesson:
 
         ch_Player "Are you okay? I did say it would feel a bit weird."
 
-        call change_Girl_stat(Laura, "love", 5) from _call_change_Girl_stat_895
-        call change_Girl_stat(Laura, "trust", 5) from _call_change_Girl_stat_896
-        call change_Girl_stat(Laura, "desire", 5) from _call_change_Girl_stat_897
+        call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_895
+        call change_Girl_stat(Laura, "trust", 0) from _call_change_Girl_stat_896
+        call change_Girl_stat(Laura, "desire", 0) from _call_change_Girl_stat_897
 
         ch_Laura "That felt. . . {size=-5}dangerous{/size}."
     else:
@@ -446,8 +446,8 @@ label day_three_combat_lesson:
 
         ch_Laura "What was that?"
 
-        call change_Girl_stat(Laura, "love", -5) from _call_change_Girl_stat_898
-        call change_Girl_stat(Laura, "trust", -5) from _call_change_Girl_stat_899
+        call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_898
+        call change_Girl_stat(Laura, "trust", 0) from _call_change_Girl_stat_899
 
         ch_Player "Oh shit, sorry! I forgot to tell you touching me might be a bit weird. Can't really control my powers. . ."
         "[Laura.name] glares at you."
@@ -522,8 +522,8 @@ label day_three_combat_lesson:
             ch_Laura "Do you not even know your own limits?"
             ch_Laura "At least you have the willpower to go past them, unlike most of the people at this school."
 
-            call change_Girl_stat(Laura, "love", 5) from _call_change_Girl_stat_900
-            call change_Girl_stat(Laura, "trust", 5) from _call_change_Girl_stat_901
+            call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_900
+            call change_Girl_stat(Laura, "trust", 0) from _call_change_Girl_stat_901
         "You've hit your limit":
             $ Laura.change_face("angry1")
 
@@ -687,13 +687,13 @@ label day_three_meet_Jean:
         "Yeah, I'm okay. . . it is a lot to be honest.":
             $ Jean.change_face("sad") 
             
-            call change_Girl_stat(Jean, "love", 5) from _call_change_Girl_stat_902
+            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_902
         "Nah, I'm not really okay. . . but I'll live.":
             $ Jean.change_face("confused1") 
         "I'm okay, and it is a lot, but I'll adapt. I have to.":
             $ Jean.change_face("smirk2") 
             
-            call change_Girl_stat(Jean, "trust", 5) from _call_change_Girl_stat_903
+            call change_Girl_stat(Jean, "trust", 0) from _call_change_Girl_stat_903
 
     $ Jean.change_face("neutral")
 

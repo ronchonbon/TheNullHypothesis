@@ -53,7 +53,7 @@ label Jean_rejects_hookup_threesome:
 
     ch_Jean "What the hell, [Jean.Player_petname]."
 
-    call change_Girl_stat(Jean, "love", -6) from _call_change_Girl_stat_1598
+    call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1598
 
     $ Jean.change_face("suspicious1")
 

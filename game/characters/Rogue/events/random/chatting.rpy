@@ -47,7 +47,7 @@ label Rogue_chatting_study:
             ch_Rogue "Ah just. . ."
             ch_Rogue "Never mind. . ."
 
-            call change_Girl_stat(Rogue, "love", -5) from _call_change_Girl_stat_596
+            call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_596
 
             $ Rogue.History.update("Player_rejected_studying")
 
@@ -102,7 +102,7 @@ label Rogue_chatting_training:
             ch_Rogue "Wh- Oh. . ."
             ch_Rogue "Sorry. . ."
 
-            call change_Girl_stat(Rogue, "love", -5) from _call_change_Girl_stat_597
+            call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_597
 
             $ Rogue.History.update("Player_rejected_training")
 

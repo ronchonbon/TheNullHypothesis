@@ -75,8 +75,8 @@ label Laura_chapter_one_season_one_fourth_training_session:
 
             ch_Laura "Took you long enough." 
 
-            call change_Girl_stat(Laura, "love", 5) from _call_change_Girl_stat_423
-            call change_Girl_stat(Laura, "trust", 5) from _call_change_Girl_stat_424
+            call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_423
+            call change_Girl_stat(Laura, "trust", 0) from _call_change_Girl_stat_424
         "I guess my brain decided it didn't like getting hit so much. . .":
             $ Laura.change_face("confused1")
             
@@ -86,7 +86,7 @@ label Laura_chapter_one_season_one_fourth_training_session:
 
             ch_Laura "Took your brain long enough." 
 
-            call change_Girl_stat(Laura, "love", 5) from _call_change_Girl_stat_425 
+            call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_425 
         "Maybe things would go faster if you just went easier on me. . .":
             $ Laura.change_face("angry1")
 
@@ -96,7 +96,7 @@ label Laura_chapter_one_season_one_fourth_training_session:
 
             ch_Laura "You think someone will go easy when they're actually trying to kill you?"
 
-            call change_Girl_stat(Laura, "love", -5) from _call_change_Girl_stat_426 
+            call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_426 
 
     $ Laura.change_face("neutral")
 
