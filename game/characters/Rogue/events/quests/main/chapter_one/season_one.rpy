@@ -17,7 +17,7 @@ init python:
 
         objectives.update({"Train together to learn more about your abilities": ["Rogue.History.check('trained_with_Player', tracker = 'season')", 1]})
         
-        objectives.update({"Study together to catch up on your courses": ["Rogue.History.check('studied_with_Player', tracker = 'season')", 3]})
+        objectives.update({"Study together to catch up on your courses": ["Rogue.History.check('studied_with_Player', tracker = 'season')", 2]})
 
         optional_objectives = {}
 
