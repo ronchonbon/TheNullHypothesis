@@ -5,7 +5,7 @@ init python:
 
         conditions = [
             "Rogue in Partners",
-            "not Rogue.History.check('told_wants_multiple_girlfriends')",
+            "not Rogue.History.check('told_wants_multiple_partners')",
             "not EventScheduler.Events['Rogue_jealousy_flirted'].completed",
             "Rogue.History.check('cheated_on_date') or Rogue.History.check('cheated_on_relationship')",
             "Rogue.location != Player.location"]
@@ -79,24 +79,6 @@ label Rogue_jealousy_went_on_date:
 
     call send_Characters(Rogue, location = Player.home, behavior = False) from _call_send_Characters_269 
 
-    $ cheating_Character = None
-    $ cheating_date = 0
-
-    python:
-        for C in all_Characters:
-            if Player.History.check(f"cheated_on_Rogue_with_{C.tag}_date") and Player.History.check_when(f"cheated_on_Rogue_with_{C.tag}_date") > cheating_date:
-                cheating_Character = C
-                cheating_date = Player.History.check_when(f"cheated_on_Rogue_with_{C.tag}_date")
-
-            if Player.History.check(f"cheated_on_Rogue_with_{C.tag}_relationship") and Player.History.check_when(f"cheated_on_Rogue_with_{C.tag}_relationship") > cheating_date:
-                cheating_Character = C
-                cheating_date = Player.History.check_when(f"cheated_on_Rogue_with_{C.tag}_relationship")
-
-    if cheating_Character == Laura:
-        $ cheating_Character = "X-23"
-    elif cheating_Character == Jean:
-        $ cheating_Character = "Jean"
-
     $ Rogue.change_face("angry1", eyes = "right")
 
     ch_Player "What di-"
@@ -115,7 +97,20 @@ label Rogue_jealousy_went_on_date:
 
     $ Rogue.change_face("angry2")
 
-    ch_Rogue "Ah saw ya leavin' campus with [cheating_Character]."
+    $ cheating_Character = None
+    $ cheating_date = 0
+
+    python:
+        for C in all_Characters:
+            if Player.History.check(f"cheated_on_Rogue_with_{C.tag}_date") and Player.History.check_when(f"cheated_on_Rogue_with_{C.tag}_date") > cheating_date:
+                cheating_Character = C
+                cheating_date = Player.History.check_when(f"cheated_on_Rogue_with_{C.tag}_date")
+
+            if Player.History.check(f"cheated_on_Rogue_with_{C.tag}_relationship") and Player.History.check_when(f"cheated_on_Rogue_with_{C.tag}_relationship") > cheating_date:
+                cheating_Character = C
+                cheating_date = Player.History.check_when(f"cheated_on_Rogue_with_{C.tag}_relationship")
+
+    ch_Rogue "Ah saw ya leavin' campus with [cheating_Character.public_name]."
 
     $ Rogue.change_face("worried2")
 
@@ -219,7 +214,7 @@ init python:
 
         conditions = [
             "Rogue in Partners",
-            "not Rogue.History.check('told_wants_multiple_girlfriends')",
+            "not Rogue.History.check('told_wants_multiple_partners')",
             "not EventScheduler.Events['Rogue_jealousy_went_on_date'].completed",
             "Rogue.History.check('cheated_on_flirting_in_public') >= 3 and Rogue.History.permanent['cheated_on_flirting_in_public'][-3] > EventScheduler.Events['Rogue_boyfriend'].completed",
             "Rogue.location != Player.location",
@@ -454,7 +449,7 @@ label Rogue_jealousy_follow_up:
     ch_Rogue "Thanks. . . ah'll see you later, {i}boyfriend{/i}. . ."
     "She leaves."
 
-    $ Rogue.History.update("told_wants_multiple_girlfriends")
+    $ Rogue.History.update("told_wants_multiple_partners")
 
     call remove_Characters(Rogue) from _call_remove_Characters_297 
 
@@ -470,7 +465,7 @@ init python:
         conditions = [
             "Rogue in Partners",
             "Rogue.History.check('told_wants_multiple_girlfriend')",
-            "(Rogue.History.check_when('cheated_on_date') > max(Rogue.History.check_when('told_wants_multiple_girlfriends'), EventScheduler.Events['Rogue_jealousy_went_on_date_anyways'].completed, EventScheduler.Events['Rogue_jealousy_flirted_anyways'].completed)) or (Rogue.History.check_when('cheated_on_relationship') > max(Rogue.History.check_when('told_wants_multiple_girlfriends'), EventScheduler.Events['Rogue_jealousy_went_on_date_anyways'].completed, EventScheduler.Events['Rogue_jealousy_flirted_anyways'].completed))",
+            "(Rogue.History.check_when('cheated_on_date') > max(Rogue.History.check_when('told_wants_multiple_partners'), EventScheduler.Events['Rogue_jealousy_went_on_date_anyways'].completed, EventScheduler.Events['Rogue_jealousy_flirted_anyways'].completed)) or (Rogue.History.check_when('cheated_on_relationship') > max(Rogue.History.check_when('told_wants_multiple_partners'), EventScheduler.Events['Rogue_jealousy_went_on_date_anyways'].completed, EventScheduler.Events['Rogue_jealousy_flirted_anyways'].completed))",
             "Rogue.location != Player.location"]
             
         sleeping = True
@@ -566,22 +561,11 @@ label Rogue_jealousy_went_on_date_anyways:
                 cheating_Character = C
                 cheating_date = Player.History.check_when(f"cheated_on_Rogue_with_{C.tag}_relationship")
 
-    if cheating_Character == Laura:
-        $ cheating_Character = "X-23"
+    if cheating_Character in Rogue.knows_about:
+        ch_Rogue "So, you were already dating [cheating_Character.public_name] anyways?"
+    else:
+        ch_Rogue "Why wouldn't ya tell me you were interested in [cheating_Character.public_name]?"
 
-        if Laura in Rogue.knows_about:
-            ch_Rogue "So, you were already dating [cheating_Character] anyways?"
-        else:
-            ch_Rogue "Why wouldn't ya tell me you were interested in [cheating_Character]?"
-    elif cheating_Character == Jean:
-        $ cheating_Character = "Jean"
-
-        if Jean in Rogue.knows_about:
-            ch_Rogue "So, you were already dating [cheating_Character] anyways?"
-        else:
-            ch_Rogue "Why wouldn't ya tell me you were interested in [cheating_Character]?"
-
-    if cheating_Character not in Rogue.knows_about:
         $ Rogue.knows_about.append(cheating_Character)
 
     $ Rogue.change_face("worried1", eyes = "down")
@@ -618,7 +602,7 @@ init python:
         conditions = [
             "Rogue in Partners",
             "Rogue.History.check('told_wants_multiple_girlfriend')",
-            "Rogue.History.check('cheated_on_flirting_in_public') >= 3 and Rogue.History.permanent['cheated_on_flirting_in_public'][-3] > max(Rogue.History.check_when('told_wants_multiple_girlfriends'), EventScheduler.Events['Rogue_jealousy_went_on_date_anyways'].completed, EventScheduler.Events['Rogue_jealousy_flirted_anyways'].completed)",
+            "Rogue.History.check('cheated_on_flirting_in_public') >= 3 and Rogue.History.permanent['cheated_on_flirting_in_public'][-3] > max(Rogue.History.check_when('told_wants_multiple_partners'), EventScheduler.Events['Rogue_jealousy_went_on_date_anyways'].completed, EventScheduler.Events['Rogue_jealousy_flirted_anyways'].completed)",
             "Rogue.location != Player.location",
             "Player.location == Player.home"]
             
@@ -661,22 +645,11 @@ label Rogue_jealousy_flirted_anyways:
                 cheating_Character = C
                 cheating_date = Player.History.check_when(f"cheated_on_Rogue_with_{C.tag}_flirting_in_public")
 
-    if cheating_Character == Laura:
-        $ cheating_Character = "X-23"
+    if cheating_Character in Rogue.knows_about:
+        ch_Rogue "So, you were already dating [cheating_Character.public_name] anyways?"
+    else:
+        ch_Rogue "Why wouldn't ya tell me you were interested in [cheating_Character.public_name]?"
 
-        if Laura in Rogue.knows_about:
-            ch_Rogue "So, you were already dating [cheating_Character] anyways?"
-        else:
-            ch_Rogue "Why wouldn't ya tell me you were interested in [cheating_Character]?"
-    elif cheating_Character == Jean:
-        $ cheating_Character = "Jean"
-
-        if Jean in Rogue.knows_about:
-            ch_Rogue "So, you were already dating [cheating_Character] anyways?"
-        else:
-            ch_Rogue "Why wouldn't ya tell me you were interested in [cheating_Character]?"
-
-    if cheating_Character not in Rogue.knows_about:
         $ Rogue.knows_about.append(cheating_Character)
 
     $ Rogue.change_face("worried1", eyes = "down")

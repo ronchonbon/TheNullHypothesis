@@ -95,7 +95,7 @@ label chat(Character):
                 call expression f"{Character.tag}_chatting" pass (Character.chat_options[4]) from _call_expression_120
             "[Character.chat_options[4]] (locked)" if len(Character.chat_options) >= 5 and status:
                 pass
-            "Tell her you would like to date. . ." if not status and Character in Partners and Character.History.check("told_wants_multiple_girlfriends"):
+            "Tell her you would like to date. . ." if not status and Character in Partners and Character.History.check("told_wants_multiple_partners"):
                 menu:
                     "Tell her you would like to date. . ."
                     "[Rogue.name]" if Character != Rogue and Rogue not in Character.knows_about:
@@ -106,11 +106,11 @@ label chat(Character):
                         $ EventScheduler.Events[f"{Character.tag}_disclosing_wants_to_date_Jean"].start()
                     "Back":
                         pass
-            "Tell her you would like to date. . . (locked)" if status and Character in Partners and Character.History.check("told_wants_multiple_girlfriends"):
+            "Tell her you would like to date. . . (locked)" if status and Character in Partners and Character.History.check("told_wants_multiple_partners"):
                 pass
-            "Tell her you would like to date other people" if not status and Character in Partners and not Character.History.check("told_wants_multiple_girlfriends"):
+            "Tell her you would like to date other people" if not status and Character in Partners and not Character.History.check("told_wants_multiple_partners"):
                 $ EventScheduler.Events[f"{Character.tag}_disclosing_wants_to_date_others"].start()
-            "Tell her you would like to date other people (locked)" if status and Character in Partners and not Character.History.check("told_wants_multiple_girlfriends"):
+            "Tell her you would like to date other people (locked)" if status and Character in Partners and not Character.History.check("told_wants_multiple_partners"):
                 pass
             "Ask her to change her pubic hair" if not status and Character.History.check("seen_pussy") and not Character.customizable_pubes:
                 call expression f"{Character.tag}_pubic_hair_discussion" from _call_expression_121

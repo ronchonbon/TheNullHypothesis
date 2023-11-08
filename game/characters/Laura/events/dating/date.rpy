@@ -255,7 +255,7 @@ label Laura_date:
         for C in Partners:
             if C not in Player.date_planned.keys():
                 for other_C in Player.date_planned.keys():
-                    if not C.History.check("told_wants_multiple_girlfriends") or other_C not in C.knows_about:
+                    if not C.History.check("told_wants_multiple_partners") or other_C not in C.knows_about:
                         C.History.update("cheated_on_date")
 
                         if not Player.History.check(f"cheated_on_{C.tag}_with_{other_C.tag}_date", tracker = "recent"):

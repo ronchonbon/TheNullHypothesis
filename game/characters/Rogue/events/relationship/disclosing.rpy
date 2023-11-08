@@ -56,15 +56,10 @@ label Rogue_disclosing_wants_to_date_others:
     $ Rogue.change_face("worried1", mouth = "smirk")
 
     ch_Player "Of course."
-    # ch_Rogue "And ah sure as heck don't want more than one boyfriend. . ."
-
-    # $ Rogue.change_face("worried1", mouth = "lipbite")
-
-    # ch_Rogue "Just you, only you."
 
     call change_Girl_stat(Rogue, "trust", 0) from _call_change_Girl_stat_1141
 
-    $ Rogue.History.update("told_wants_multiple_girlfriends")
+    $ Rogue.History.update("told_wants_multiple_partners")
 
     $ ongoing_Event = False
 

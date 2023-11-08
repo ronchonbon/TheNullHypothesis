@@ -356,6 +356,7 @@ init -2 python:
         Jean = GirlClass("Jean", voice = ch_Jean)
 
         Jean.full_name = "Jean Grey"
+        Jean.public_name = "Jean"
         Jean.call_sign = "Marvel Girl"
 
         Jean.Player_petname = Player.first_name

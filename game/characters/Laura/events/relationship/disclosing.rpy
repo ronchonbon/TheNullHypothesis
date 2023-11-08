@@ -57,7 +57,7 @@ label Laura_disclosing_wants_to_date_others:
 
     call change_Girl_stat(Laura, "trust", 0) from _call_change_Girl_stat_642
 
-    $ Laura.History.update("told_wants_multiple_girlfriends")
+    $ Laura.History.update("told_wants_multiple_partners")
 
     $ ongoing_Event = False
 

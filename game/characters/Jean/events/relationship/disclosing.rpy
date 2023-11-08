@@ -82,20 +82,11 @@ label Jean_disclosing_wants_to_date_others:
     $ Jean.change_face("sly")
 
     ch_Jean "And they better not hog all of your attention."
-
-    # $ Jean.change_face("worried1", eyes = "right")
-
-    # ch_Jean "But. . ."
-
-    # $ Jean.change_face("worried1", mouth = "smirk")
-
-    # ch_Jean "You're the {i}only{/i} boyfriend I want."
-    # ch_Jean "And thanks for letting me know. . ."
     ch_Jean "Thanks for letting me know. . ."
 
     call change_Girl_stat(Jean, "trust", 0) from _call_change_Girl_stat_949
 
-    $ Jean.History.update("told_wants_multiple_girlfriends")
+    $ Jean.History.update("told_wants_multiple_partners")
 
     $ ongoing_Event = False
 

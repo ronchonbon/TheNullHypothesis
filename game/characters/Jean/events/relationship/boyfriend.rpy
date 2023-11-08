@@ -16,7 +16,7 @@ label Jean_boyfriend_trigger_part_one:
     python:
         for C in Partners:
             if C != Jean:
-                if not C.History.check("told_wants_multiple_girlfriends") or Jean not in C.knows_about:
+                if not C.History.check("told_wants_multiple_partners") or Jean not in C.knows_about:
                     C.History.update("cheated_on_relationship")
 
                     if not Player.History.check(f"cheated_on_{C.tag}_with_Jean_relationship", tracker = "recent"):
@@ -345,6 +345,21 @@ label Jean_boyfriend:
         $ Jean.change_face("worried1", mouth = "lipbite", blush = 1)
 
         ch_Jean "I want you to be my boyfriend."
+
+        if len(Partners) > 0:
+            $ Jean.change_face("worried1", eyes = “right”, mouth = "lipbite", blush = 1)
+
+            ch_Jean "And. . . I know you already have a girlfriend. . ."
+    
+            if len(Partners) > 2:
+                ch_Jean ". . . or a few.”
+            elif len(Partners) == 2:
+                ch_Jean ". . . or two."
+
+            $ Jean.change_face("worried1", mouth = "lipbite", blush = 1)
+
+            ch_Jean "So I get it’s a stretch, but I just couldn’t live with myself if I didn’t put this all out there, and ask anyway.”
+
         ". . ."
         ch_Jean "You can speak now. . ."
     else:
@@ -478,94 +493,145 @@ label Jean_boyfriend:
         $ Jean.change_face("worried1", blush = 1)
 
         ch_Jean "I want you to be my boyfriend."
+        
+        if len(Partners) > 0:
+            $ Jean.change_face("worried1", eyes = “right”, mouth = "lipbite", blush = 1)
+
+            ch_Jean "And. . . I know you already have a girlfriend. . ."
+    
+            if len(Partners) > 2:
+                ch_Jean ". . . or a few.”
+            elif len(Partners) == 2:
+                ch_Jean ". . . or two."
+
+            $ Jean.change_face("worried1", mouth = "lipbite", blush = 1)
+
+            ch_Jean "So I get it’s a stretch, but I just couldn’t live with myself if I didn’t put this all out there, and ask anyway.”
 
     $ Jean.change_face("happy", blush = 1)
 
     ch_Player "I really would like to be. . ."
 
-    menu:
-        "Tell her you're interested in multiple women":
-            $ Jean.change_face("perplexed")
-            
-            ch_Player "But. . ."
-            ch_Player "If we are going to be in a relationship, you should know. . ."
+    if len(Partners) > 0:
+        $ Jean.change_face("happy")
 
-            $ Jean.change_face("appalled3")
+        ch_Jean "You would?!”
 
-            ch_Player "I'm interested in having multiple girlfriends. . ."
-            ch_Jean "You're interested in what?!"
-            ch_Player ". . ."
+        $ Jean.change_face("worried1", mouth = "smirk", blush = 1)
 
-            $ Jean.change_face("appalled2")
+        ch_Player "Definitely.”
 
-            ch_Player "In having multiple girlfriends. . ."
+        $ Jean.change_face("worried1", eyes = “right”, mouth = "lipbite", blush = 1)
 
-            $ Jean.change_face("suspicious2")
+        ch_Jean "Well, good.”
 
-            ch_Player "I just wanted to make sure you knew. . . before we got more involved. . ."
+        $ Jean.change_face("confused1", mouth = "smirk", blush = 1)
 
-            $ Jean.change_face("suspicious2", eyes = "right")
+        ch_Jean "I mean it’s really not all that surprising you’d end up with more than one girlfriend.”
+        ch_Player "It’s not?”
 
-            ch_Jean "I guess it makes sense. . ."
+        $ Jean.change_face("sexy", eyes = “down”, blush = 1)
 
-            $ Jean.change_face("confused1", eyes = "squint")
+        ch_Jean "Like. . . just look at you. . .”
 
-            ch_Jean "I mean, look at you. . ."
+        $ Jean.change_face("confused1", eyes = “squint”, mouth = "smirk", blush = 1)
 
-            $ Jean.change_face("confused1", eyes = "down")
+        ch_Jean "It makes sense.”
 
-            pause 1.0
+        $ Jean.change_face("worried1", eyes = “right”, mouth = "smirk")
 
-            $ Jean.change_face("suspicious1")
+        ch_Jean "But, you better at least tell me before you try dating any additional girls."
+        ch_Player "I can do that."
 
-            ch_Jean "Hmm. . ."
+        $ Jean.change_face("confused1", mouth = "smirk")
 
-            $ Jean.change_face("neutral")
+        ch_Jean "I won't have anyone playing with my man's heart. . ."
 
-            ch_Jean "Fine, I'll let you have your fun. . ."
-            ch_Player "Fine?"
+        $ Jean.change_face("sly")
 
-            $ Jean.change_face("confused1")
+        ch_Jean "And all these other girlfriends better not hog all of your attention."
 
-            ch_Jean "But only under a few conditions."
+        python:
+            for C in Partners:
+                Jean.knows_about.append(C)
 
-            $ Jean.change_face("suspicious1")
+        $ Jean.History.update("told_wants_multiple_partners")
+    else:
+        menu:
+            "Tell her you're interested in multiple partners":
+                $ Jean.change_face("perplexed")
+                
+                ch_Player "But. . ."
+                ch_Player "If we are going to be in a relationship, you should know. . ."
 
-            ch_Jean "As long as your. . . 'other girls' know I'm the main one. . ."
+                $ Jean.change_face("appalled3")
 
-            $ Jean.change_face("worried2")
+                ch_Player "I'm interested in having multiple girlfriends. . ."
+                ch_Jean "You're interested in what?!"
+                ch_Player ". . ."
 
-            ch_Player "[Jean.name], I'm not just talking about having casual relationships with other girls. . ."
-            ch_Player "I mean to take my relationships with them as seriously as I do with ours."
+                $ Jean.change_face("appalled2")
 
-            $ Jean.change_face("worried1", eyes = "right")
+                ch_Player "In having multiple girlfriends. . ."
 
-            ch_Jean "Oh. . ."
+                $ Jean.change_face("suspicious2")
 
-            $ Jean.change_face("worried1", mouth = "smirk")
+                ch_Player "I just wanted to make sure you knew. . . before we got more involved. . ."
 
-            ch_Jean "Well, you better at least tell me before you try dating another girl."
-            ch_Player "I can do that."
+                $ Jean.change_face("suspicious2", eyes = "right")
 
-            $ Jean.change_face("confused1", mouth = "smirk")
+                ch_Jean "I guess it makes sense. . ."
 
-            ch_Jean "I won't have anyone playing with my man's heart. . ."
+                $ Jean.change_face("confused1", eyes = "squint")
 
-            $ Jean.change_face("sly")
+                ch_Jean "I mean, look at you. . ."
 
-            ch_Jean "And they better not hog all of your attention."
+                $ Jean.change_face("confused1", eyes = "down")
 
-            # $ Jean.change_face("worried1", eyes = "right")
+                pause 1.0
 
-            # ch_Jean "But. . ."
+                $ Jean.change_face("suspicious1")
 
-            # $ Jean.change_face("worried1", mouth = "smirk")
+                ch_Jean "Hmm. . ."
 
-            # ch_Jean "You're the {i}only{/i} boyfriend I want."
+                $ Jean.change_face("neutral")
 
-            $ Jean.History.update("told_wants_multiple_girlfriends")
-        "Don't say anything":
-            pass
+                ch_Jean "Fine, I'll let you have your fun. . ."
+                ch_Player "Fine?"
+
+                $ Jean.change_face("confused1")
+
+                ch_Jean "But only under a few conditions."
+
+                $ Jean.change_face("suspicious1")
+
+                ch_Jean "As long as your. . . 'other girls' know I'm the main one. . ."
+
+                $ Jean.change_face("worried2")
+
+                ch_Player "[Jean.name], I'm not just talking about having casual relationships with other girls. . ."
+                ch_Player "I mean to take my relationships with them as seriously as I do with ours."
+
+                $ Jean.change_face("worried1", eyes = "right")
+
+                ch_Jean "Oh. . ."
+
+                $ Jean.change_face("worried1", mouth = "smirk")
+
+                ch_Jean "Well, you better at least tell me before you try dating another girl."
+                ch_Player "I can do that."
+
+                $ Jean.change_face("confused1", mouth = "smirk")
+
+                ch_Jean "I won't have anyone playing with my man's heart. . ."
+
+                $ Jean.change_face("sly")
+
+                ch_Jean "And they better not hog all of your attention."
+
+                $ Jean.History.update("told_wants_multiple_partners")
+            "Don't say anything":
+                pass
 
     menu:
         extend ""
@@ -658,10 +724,6 @@ label Jean_boyfriend:
     $ Jean.History.update("kiss")
 
     call remove_Characters(Jean) from _call_remove_Characters_43
-
-    python:
-        for C in Partners:
-            Jean.knows_about.append(C)
 
     $ Partners.append(Jean)
 

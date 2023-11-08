@@ -146,7 +146,7 @@ label flirt(Character):
 
             python:
                 for C in Partners:
-                    if C != Character and (not C.History.check("told_wants_multiple_girlfriends") or Character not in C.knows_about):
+                    if C != Character and (not C.History.check("told_wants_multiple_partners") or Character not in C.knows_about):
                         C.History.update("cheated_on_flirting")
 
                         if not Player.History.check(f"cheated_on_{C.tag}_date", tracker = "recent"):

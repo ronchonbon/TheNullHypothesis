@@ -16,7 +16,7 @@ label Rogue_boyfriend_trigger_part_one:
     python:
         for C in Partners:
             if C != Rogue:
-                if not C.History.check("told_wants_multiple_girlfriends") or Rogue not in C.knows_about:
+                if not C.History.check("told_wants_multiple_partners") or Rogue not in C.knows_about:
                     C.History.update("cheated_on_relationship")
 
                     if not Player.History.check(f"cheated_on_{C.tag}_with_Rogue_relationship", tracker = "recent"):
@@ -285,6 +285,16 @@ label Rogue_boyfriend:
 
         ch_Rogue "Ah get it if ya don't want to take things further. . . with me. . ." 
 
+    if len(Partners) > 0:
+        $ Rogue.change_face("worried1", eyes = “right”, blush  = 2)
+
+        if len(Partners) == 1:
+            ch_Rogue "Ah know yer already datin’ [Partners[0].public_name], so ah reckon it was a long shot anyways. . ."
+        elif len(Partners) == 2:
+            ch_Rogue "Ah know yer already datin’ [Partners[0].public_name] and [Partners[1].public_name], so ah reckon it was a long shot anyways. . ."
+        else:
+            ch_Rogue "Ah know yer already datin’. . . a few others, so ah reckon it was a long shot anyways. . ."
+
     $ Rogue.change_face("worried1", blush = 1)
 
     ch_Player "[Rogue.name], take a deep breath." 
@@ -293,91 +303,118 @@ label Rogue_boyfriend:
 
     ch_Player "Don't worry. . . I do want to take things further." 
 
-    menu:
-        "Tell her you're interested in multiple women":
-            ch_Player "But, you should know. . ." 
+    if len(Partners) > 0:
+        $ Rogue.change_face("worried1", eyes = "right", mouth = "smirk")
 
-            $ Rogue.change_face("confused2")
+        ch_Rogue "Ah saw this comin'."
+        ch_Rogue "It ain't no secret that yer a real hot commodity 'round here."
 
-            ch_Player "I'm interested in having multiple girlfriends. . ."
+        $ Rogue.change_face("confused1", eyes = "right")
 
-            $ Rogue.change_face("worried1")
+        ch_Player "'Hot commodity'?"
+        ch_Rogue "Ya don't have to pretend 'round me, [Rogue.Player_petname]."
+        ch_Player "Wha-"
 
-            ch_Rogue "So. . . ya wanna date other girls, while also bein' with me?" 
+        $ Rogue.change_face("worried1", mouth = "smirk")
 
-            $ Rogue.change_face("worried1", eyes = "right")
+        ch_Rogue "Ah knew there was gonna be a ton of competition for ya."
+        ch_Rogue "You gettin’ a girlfriend or two. . . or three. . . was only a matter of time.”
+        ch_Rogue "Ah’m fine with it as long as ah get a piece of ya too. . .”
 
-            ch_Player "Yeah. . ."
+        $ Rogue.change_face("worried1", eyes = "right")
 
-            if Laura.History.check("went_on_date_with_Player"):
-                $ Rogue.change_face("worried1", eyes = "right", mouth = "smirk")
+        ch_Rogue "But, ah'd really appreciate it if you could tell me who you plan on datin', before you go after 'em."
 
-                ch_Rogue "Ah guess ah already knew that. . ."
-                ch_Player "You did?"
+        $ Rogue.change_face("worried1", mouth = "smirk")
 
-                $ Rogue.change_face("confused1", mouth = "smirk")
+        ch_Player "Of course."
 
-                ch_Rogue "Well yeah. . ."
-                ch_Rogue "Ya did tell [Laura.name] to talk to me about girl stuff after all." 
+        python:
+            for C in Partners:
+                Rogue.knows_about.append(C)
 
-                $ Rogue.change_face("confused1", eyes = "squint", mouth = "smirk")
+        $ Rogue.History.update("told_wants_multiple_partners")
+    else:
+        menu:
+            "Tell her you're interested in multiple partners":
+                ch_Player "But, you should know. . ." 
 
-                ch_Rogue "She talks about you a LOT."
-                ch_Rogue "More than anythin' else, ah reckon. . ."
+                $ Rogue.change_face("confused2")
 
-                $ Rogue.change_face("confused1", eyes = "squint", mouth = "smirk", blush = 1)
-
-                ch_Rogue "Specifically 'bout how much she liked kissin' you. . ."
-                ch_Player "Oh, yeah, that's right. . ."
+                ch_Player "I'm interested in having multiple girlfriends. . ."
 
                 $ Rogue.change_face("worried1")
 
-                ch_Player "So, you don't mind if I date her. . . as well as other girls, potentially?" 
+                ch_Rogue "So. . . ya wanna date other girls, while also bein' with me?" 
 
-                $ Rogue.change_face("worried1", mouth = "smirk")
+                $ Rogue.change_face("worried1", eyes = "right")
 
-                ch_Rogue "Ah don't. . ."
-            else:
+                ch_Player "Yeah. . ."
+
+                if Laura.History.check("went_on_date_with_Player"):
+                    $ Rogue.change_face("worried1", eyes = "right", mouth = "smirk")
+
+                    ch_Rogue "Ah guess ah already knew that. . ."
+                    ch_Player "You did?"
+
+                    $ Rogue.change_face("confused1", mouth = "smirk")
+
+                    ch_Rogue "Well yeah. . ."
+                    ch_Rogue "Ya did tell [Laura.name] to talk to me about girl stuff after all." 
+
+                    $ Rogue.change_face("confused1", eyes = "squint", mouth = "smirk")
+
+                    ch_Rogue "She talks about you a LOT."
+                    ch_Rogue "More than anythin' else, ah reckon. . ."
+
+                    $ Rogue.change_face("confused1", eyes = "squint", mouth = "smirk", blush = 1)
+
+                    ch_Rogue "Specifically 'bout how much she liked kissin' you. . ."
+                    ch_Player "Oh, yeah, that's right. . ."
+
+                    $ Rogue.change_face("worried1")
+
+                    ch_Player "So, you don't mind if I date her. . . as well as other people, potentially?" 
+
+                    $ Rogue.change_face("worried1", mouth = "smirk")
+
+                    ch_Rogue "Ah don't. . ."
+                else:
+                    $ Rogue.change_face("worried1", eyes = "right", mouth = "smirk")
+
+                    ch_Rogue "Ah guess ah don't really mind. . ." 
+
+                    $ Rogue.change_face("worried1", mouth = "smirk")
+
+                    ch_Player "You don't?"
+                    ch_Rogue "Ah don't."
+
                 $ Rogue.change_face("worried1", eyes = "right", mouth = "smirk")
 
-                ch_Rogue "Ah guess ah don't really mind. . ." 
+                ch_Rogue "Ah saw this comin' anyway."
+                ch_Rogue "It ain't no secret that yer a real hot commodity 'round here."
+
+                $ Rogue.change_face("confused1", eyes = "right")
+
+                ch_Player "'Hot commodity'?"
+                ch_Rogue "Ya don't have to pretend 'round me, [Rogue.Player_petname]."
+                ch_Player "Wha-"
 
                 $ Rogue.change_face("worried1", mouth = "smirk")
 
-                ch_Player "You don't?"
-                ch_Rogue "Ah don't."
+                ch_Rogue "You can have all the girlfriends ya want, so long as ya don't forget about me."
 
-            $ Rogue.change_face("worried1", eyes = "right", mouth = "smirk")
+                $ Rogue.change_face("worried1", eyes = "right")
 
-            ch_Rogue "Ah saw this comin' anyway."
-            ch_Rogue "It ain't no secret that yer a real hot commodity 'round here."
+                ch_Rogue "But, ah'd really appreciate it if you could tell me who you plan on datin' before you go after 'em."
 
-            $ Rogue.change_face("confused1", eyes = "right")
+                $ Rogue.change_face("worried1", mouth = "smirk")
 
-            ch_Player "'Hot commodity'?"
-            ch_Rogue "Ya don't have to pretend 'round me, [Rogue.Player_petname]."
-            ch_Player "Wha-"
+                ch_Player "Of course."
 
-            $ Rogue.change_face("worried1", mouth = "smirk")
-
-            ch_Rogue "You can have all the girlfriends ya want, so long as ya don't forget about me."
-
-            $ Rogue.change_face("worried1", eyes = "right")
-
-            ch_Rogue "But, ah'd really appreciate it if you could tell me who you plan on datin' before you go after 'em."
-
-            $ Rogue.change_face("worried1", mouth = "smirk")
-
-            ch_Player "Of course."
-            # ch_Rogue "And ah sure as heck don't want more than one boyfriend. . ."
-
-            # $ Rogue.change_face("worried1", mouth = "lipbite")
-
-            # ch_Rogue "Just you, only you."
-
-            $ Rogue.History.update("told_wants_multiple_girlfriends")
-        "Don't say anything":
-            pass
+                $ Rogue.History.update("told_wants_multiple_partners")
+            "Don't say anything":
+                pass
         
     $ Rogue.change_face("worried1", mouth = "smirk", blush = 1)
 
@@ -447,10 +484,6 @@ label Rogue_boyfriend:
     $ Rogue.History.update("kiss")
 
     call remove_Characters(Rogue) from _call_remove_Characters_188
-
-    python:
-        for C in Partners:
-            Rogue.knows_about.append(C)
 
     $ Partners.append(Rogue)
 

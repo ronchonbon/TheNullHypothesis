@@ -5,7 +5,7 @@ init python:
 
         conditions = [
             "Laura in Partners",
-            "not Laura.History.check('told_wants_multiple_girlfriends')",
+            "not Laura.History.check('told_wants_multiple_partners')",
             "not EventScheduler.Events['Laura_jealousy_flirted'].completed",
             "Laura.History.check('cheated_on_date') or Laura.History.check('cheated_on_relationship')",
             "Laura.location != Player.location"]
@@ -92,14 +92,9 @@ label Laura_jealousy_went_on_date:
                 cheating_Character = C
                 cheating_date = Player.History.check_when(f"cheated_on_Laura_with_{C.tag}_relationship")
 
-    if cheating_Character == Rogue:
-        $ cheating_Character = "Rogue"
-    elif cheating_Character == Jean:
-        $ cheating_Character = "Jean"
-
     $ Laura.change_face("suspicious2")
 
-    ch_Laura "You went on a date with [cheating_Character]."
+    ch_Laura "You went on a date with [cheating_Character.public_name]."
 
     $ Laura.change_face("suspicious1")
 
@@ -221,7 +216,7 @@ init python:
 
         conditions = [
             "Laura in Partners",
-            "not Laura.History.check('told_wants_multiple_girlfriends')",
+            "not Laura.History.check('told_wants_multiple_partners')",
             "not EventScheduler.Events['Laura_jealousy_went_on_date'].completed",
             "Laura.History.check('cheated_on_flirting_in_public') >= 3 and Laura.History.permanent['cheated_on_flirting_in_public'][-3] > EventScheduler.Events['Laura_boyfriend'].completed",
             "Laura.location != Player.location",
@@ -272,12 +267,7 @@ label Laura_jealousy_flirted:
                 cheating_Character = C
                 cheating_date = Player.History.check_when(f"cheated_on_Laura_with_{C.tag}_flirting_in_public")
 
-    if cheating_Character == Rogue:
-        $ cheating_Character = "Rogue"
-    elif cheating_Character == Jean:
-        $ cheating_Character = "Jean"
-
-    ch_Laura "You were flirting with [cheating_Character]."
+    ch_Laura "You were flirting with [cheating_Character.public_name]."
 
     $ Laura.change_face("angry2")
 
@@ -486,12 +476,9 @@ label Laura_jealousy_follow_up:
 
     $ Laura.History.update("kiss")
 
-    # $ Laura.change_face("sly", blush = 1)
-
-    # ch_Laura "Also, I'm only interested in having {i}one{/i} boyfriend."
     "With that, she leaves."
 
-    $ Laura.History.update("told_wants_multiple_girlfriends")
+    $ Laura.History.update("told_wants_multiple_partners")
 
     call remove_Characters(Laura) from _call_remove_Characters_245
 
@@ -507,7 +494,7 @@ init python:
         conditions = [
             "Laura in Partners",
             "Laura.History.check('told_wants_multiple_girlfriend')",
-            "(Laura.History.check_when('cheated_on_date') > max(Laura.History.check_when('told_wants_multiple_girlfriends'), EventScheduler.Events['Laura_jealousy_went_on_date_anyways'].completed, EventScheduler.Events['Laura_jealousy_flirted_anyways'].completed)) or (Laura.History.check_when('cheated_on_relationship') > max(Laura.History.check_when('told_wants_multiple_girlfriends'), EventScheduler.Events['Laura_jealousy_went_on_date_anyways'].completed, EventScheduler.Events['Laura_jealousy_flirted_anyways'].completed))",
+            "(Laura.History.check_when('cheated_on_date') > max(Laura.History.check_when('told_wants_multiple_partners'), EventScheduler.Events['Laura_jealousy_went_on_date_anyways'].completed, EventScheduler.Events['Laura_jealousy_flirted_anyways'].completed)) or (Laura.History.check_when('cheated_on_relationship') > max(Laura.History.check_when('told_wants_multiple_partners'), EventScheduler.Events['Laura_jealousy_went_on_date_anyways'].completed, EventScheduler.Events['Laura_jealousy_flirted_anyways'].completed))",
             "Laura.location != Player.location"]
             
         sleeping = True
@@ -593,22 +580,11 @@ label Laura_jealousy_went_on_date_anyways:
                 cheating_Character = C
                 cheating_date = Player.History.check_when(f"cheated_on_Laura_with_{C.tag}_relationship")
 
-    if cheating_Character == Rogue:
-        $ cheating_Character = "Rogue"
+    if cheating_Character in Laura.knows_about:
+        ch_Laura "So, you were already dating [cheating_Character.public_name] anyways?"
+    else:
+        ch_Laura "Why didn't you tell me you were planning on dating [cheating_Character]?"
 
-        if Rogue in Laura.knows_about:
-            ch_Laura "So, you were already dating [cheating_Character] anyways?"
-        else:
-            ch_Laura "Why didn't you tell me you were planning on dating [cheating_Character]?"
-    elif cheating_Character == Jean:
-        $ cheating_Character = "Jean"
-
-        if Jean in Laura.knows_about:
-            ch_Laura "So, you were already dating [cheating_Character] anyways?"
-        else:
-            ch_Laura "Why didn't you tell me you were planning on dating [cheating_Character]?"
-
-    if cheating_Character not in Laura.knows_about:
         $ Laura.knows_about.append(cheating_Character)
 
     $ Laura.change_face("furious")
@@ -645,7 +621,7 @@ init python:
         conditions = [
             "Laura in Partners",
             "Laura.History.check('told_wants_multiple_girlfriend')",
-            "Laura.History.check('cheated_on_flirting_in_public') >= 3 and Laura.History.permanent['cheated_on_flirting_in_public'][-3] > max(Laura.History.check_when('told_wants_multiple_girlfriends'), EventScheduler.Events['Laura_jealousy_went_on_date_anyways'].completed, EventScheduler.Events['Laura_jealousy_flirted_anyways'].completed)",
+            "Laura.History.check('cheated_on_flirting_in_public') >= 3 and Laura.History.permanent['cheated_on_flirting_in_public'][-3] > max(Laura.History.check_when('told_wants_multiple_partners'), EventScheduler.Events['Laura_jealousy_went_on_date_anyways'].completed, EventScheduler.Events['Laura_jealousy_flirted_anyways'].completed)",
             "Laura.location != Player.location",
             "Player.location in public_locations"]
             
@@ -697,22 +673,11 @@ label Laura_jealousy_flirted_anyways:
                 cheating_Character = C
                 cheating_date = Player.History.check_when(f"cheated_on_Laura_with_{C.tag}_flirting_in_public")
 
-    if cheating_Character == Rogue:
-        $ cheating_Character = "Rogue"
+    if cheating_Character in Laura.knows_about:
+        ch_Laura "So, you were already pursuing [cheating_Character.public_name] anyways?"
+    else:
+        ch_Laura "Why didn't you tell me you were planning on pursuing [cheating_Character.public_name]?"
 
-        if Rogue in Laura.knows_about:
-            ch_Laura "So, you were already pursuing [cheating_Character] anyways?"
-        else:
-            ch_Laura "Why didn't you tell me you were planning on pursuing [cheating_Character]?"
-    elif cheating_Character == Jean:
-        $ cheating_Character = "Jean"
-
-        if Jean in Laura.knows_about:
-            ch_Laura "So, you were already pursuing [cheating_Character] anyways?"
-        else:
-            ch_Laura "Why didn't you tell me you were planning on pursuing [cheating_Character]?"
-
-    if cheating_Character not in Laura.knows_about:
         $ Laura.knows_about.append(cheating_Character)
 
     $ Laura.change_face("furious")

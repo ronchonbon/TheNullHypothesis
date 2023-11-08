@@ -298,6 +298,7 @@ init -2 python:
         Ororo = GirlClass("Ororo", voice = ch_Ororo)
 
         Ororo.full_name = "Ororo Munroe"
+        Ororo.public_name = "Storm"
         Ororo.call_sign = "Storm"
 
         Ororo.Player_petname = Player.first_name

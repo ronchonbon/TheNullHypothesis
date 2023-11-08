@@ -5,7 +5,7 @@ init python:
 
         conditions = [
             "Jean in Partners",
-            "not Jean.History.check('told_wants_multiple_girlfriends')",
+            "not Jean.History.check('told_wants_multiple_partners')",
             "not EventScheduler.Events['Jean_jealousy_flirted'].completed",
             "Jean.History.check('cheated_on_date') >= 2 or Jean.History.check('cheated_on_relationship')",
             "Jean.location != Player.location"]
@@ -54,7 +54,7 @@ init python:
 
         conditions = [
             "Jean in Partners",
-            "not Jean.History.check('told_wants_multiple_girlfriends')",
+            "not Jean.History.check('told_wants_multiple_partners')",
             "not EventScheduler.Events['Jean_jealousy_flirted'].completed",
             "Jean.History.check('cheated_on_date') >= 2 or Jean.History.check('cheated_on_relationship')",
             "Jean.location != Player.location"]
@@ -130,6 +130,16 @@ label Jean_jealousy_went_on_date:
 
     call send_Characters(Jean, location = Player.home, behavior = False) from _call_send_Characters_236 
 
+    $ Jean.change_face("appalled3")
+
+    ch_Jean "What the actual fuck?!"
+
+    $ Jean.change_face("suspicious2")
+
+    ch_Player "Wha. . ."
+
+    $ Jean.change_face("suspicious2", blush = 1)
+
     $ cheating_Character = None
     $ cheating_date = 0
 
@@ -143,22 +153,7 @@ label Jean_jealousy_went_on_date:
                 cheating_Character = C
                 cheating_date = Player.History.check_when(f"cheated_on_Jean_with_{C.tag}_relationship")
 
-    if cheating_Character == Rogue:
-        $ cheating_Character = "Rogue"
-    elif cheating_Character == Laura:
-        $ cheating_Character = "X-23"
-
-    $ Jean.change_face("appalled3")
-
-    ch_Jean "What the actual fuck?!"
-
-    $ Jean.change_face("suspicious2")
-
-    ch_Player "Wha. . ."
-
-    $ Jean.change_face("suspicious2", blush = 1)
-
-    ch_Jean "I went to find you last night and saw you leave campus with [cheating_Character]."
+    ch_Jean "I went to find you last night and saw you leave campus with [cheating_Character.public_name]."
     ch_Jean "Don't play dumb."
 
     $ Jean.change_face("perplexed", blush = 1)
@@ -265,7 +260,7 @@ init python:
 
         conditions = [
             "Jean in Partners",
-            "not Jean.History.check('told_wants_multiple_girlfriends')",
+            "not Jean.History.check('told_wants_multiple_partners')",
             "not EventScheduler.Events['Jean_jealousy_went_on_date'].completed",
             "Jean.History.check('cheated_on_flirting_in_public') >= 4 and Jean.History.permanent['cheated_on_flirting_in_public'][-4] > EventScheduler.Events['Jean_boyfriend'].completed",
             "Jean.location != Player.location",
@@ -317,12 +312,7 @@ label Jean_jealousy_flirted:
                 cheating_Character = C
                 cheating_date = Player.History.check_when(f"cheated_on_Jean_with_{C.tag}_flirting_in_public")
 
-    if cheating_Character == Rogue:
-        $ cheating_Character = "Rogue"
-    elif cheating_Character == Laura:
-        $ cheating_Character = "X-23"
-
-    ch_Jean "I might not be able to sense your emotions, but I could sense [cheating_Character]'s."
+    ch_Jean "I might not be able to sense your emotions, but I could sense [cheating_Character.public_name]'s."
 
     $ Jean.change_face("perplexed", blush = 1)
 
@@ -545,7 +535,7 @@ label Jean_jealousy_follow_up:
     ch_Jean "Good. . . still {i}mine{/i}."
     "With that, she leaves."
 
-    $ Jean.History.update("told_wants_multiple_girlfriends")
+    $ Jean.History.update("told_wants_multiple_partners")
 
     call remove_Characters(Jean) from _call_remove_Characters_275 
 
@@ -561,7 +551,7 @@ init python:
         conditions = [
             "Jean in Partners",
             "Jean.History.check('told_wants_multiple_girlfriend')",
-            "(Jean.History.check_when('cheated_on_date') > max(Jean.History.check_when('told_wants_multiple_girlfriends'), EventScheduler.Events['Jean_jealousy_went_on_date_anyways'].completed, EventScheduler.Events['Jean_jealousy_flirted_anyways'].completed)) or (Jean.History.check_when('cheated_on_relationship') > max(Jean.History.check_when('told_wants_multiple_girlfriends'), EventScheduler.Events['Jean_jealousy_went_on_date_anyways'].completed, EventScheduler.Events['Jean_jealousy_flirted_anyways'].completed))",
+            "(Jean.History.check_when('cheated_on_date') > max(Jean.History.check_when('told_wants_multiple_partners'), EventScheduler.Events['Jean_jealousy_went_on_date_anyways'].completed, EventScheduler.Events['Jean_jealousy_flirted_anyways'].completed)) or (Jean.History.check_when('cheated_on_relationship') > max(Jean.History.check_when('told_wants_multiple_partners'), EventScheduler.Events['Jean_jealousy_went_on_date_anyways'].completed, EventScheduler.Events['Jean_jealousy_flirted_anyways'].completed))",
             "Jean.location != Player.location"]
             
         sleeping = True
@@ -649,22 +639,11 @@ label Jean_jealousy_went_on_date_anyways:
                 cheating_Character = C
                 cheating_date = Player.History.check_when(f"cheated_on_Jean_with_{C.tag}_relationship")
 
-    if cheating_Character == Rogue:
-        $ cheating_Character = "Rogue"
+    if cheating_Character in Jean.knows_about:
+        ch_Jean "So you were dating [cheating_Character.public_name] anyways?"
+    else:
+        ch_Jean "Why didn't you tell me you wanted to date [cheating_Character.public_name]?"
 
-        if Rogue in Jean.knows_about:
-            ch_Jean "So you were dating [cheating_Character] anyways?"
-        else:
-            ch_Jean "Why didn't you tell me you wanted to date [cheating_Character]?"
-    elif cheating_Character == Laura:
-        $ cheating_Character = "X-23"
-
-        if Laura in Jean.knows_about:
-            ch_Jean "So you were dating [cheating_Character] anyways?"
-        else:
-            ch_Jean "Why didn't you tell me you wanted to date [cheating_Character]?"
-
-    if cheating_Character not in Jean.knows_about:
         $ Jean.knows_about.append(cheating_Character)
 
     $ Jean.change_face("appalled1")
@@ -710,7 +689,7 @@ init python:
         conditions = [
             "Jean in Partners",
             "Jean.History.check('told_wants_multiple_girlfriend')",
-            "Jean.History.check('cheated_on_flirting_in_public') >= 4 and Jean.History.permanent['cheated_on_flirting_in_public'][-3] > max(Jean.History.check_when('told_wants_multiple_girlfriends'), EventScheduler.Events['Jean_jealousy_went_on_date_anyways'].completed, EventScheduler.Events['Jean_jealousy_flirted_anyways'].completed)",
+            "Jean.History.check('cheated_on_flirting_in_public') >= 4 and Jean.History.permanent['cheated_on_flirting_in_public'][-3] > max(Jean.History.check_when('told_wants_multiple_partners'), EventScheduler.Events['Jean_jealousy_went_on_date_anyways'].completed, EventScheduler.Events['Jean_jealousy_flirted_anyways'].completed)",
             "Jean.location != Player.location",
             "Player.location in public_locations"]
             
@@ -765,22 +744,11 @@ label Jean_jealousy_flirted_anyways:
                 cheating_Character = C
                 cheating_date = Player.History.check_when(f"cheated_on_Jean_with_{C.tag}_flirting_in_public")
 
-    if cheating_Character == Rogue:
-        $ cheating_Character = "Rogue"
+    if cheating_Character in Jean.knows_about:
+        ch_Jean "So, you were already flirting with [cheating_Character.public_name] anyways?"
+    else:
+        ch_Jean "Why the hell didn't you tell me you wanted to get with [cheating_Character.public_name]?"
 
-        if Rogue in Jean.knows_about:
-            ch_Jean "So, you were already flirting with [cheating_Character] anyways?"
-        else:
-            ch_Jean "Why the hell didn't you tell me you wanted to get with [cheating_Character]?"
-    elif cheating_Character == Laura:
-        $ cheating_Character = "X-23"
-
-        if Laura in Jean.knows_about:
-            ch_Jean "So, you were already flirting with [cheating_Character] anyways?"
-        else:
-            ch_Jean "Why the hell didn't you tell me you wanted to get with [cheating_Character]?"
-
-    if cheating_Character not in Jean.knows_about:
         $ Jean.knows_about.append(cheating_Character)
 
     $ Jean.change_face("furious1")

@@ -356,6 +356,7 @@ init -2 python:
         Rogue = GirlClass("Rogue", voice = ch_Rogue)
 
         Rogue.full_name = "???"
+        Rogue.public_name = "Rogue"
         Rogue.call_sign = "Rogue"
 
         Rogue.Player_petname = "hon'"

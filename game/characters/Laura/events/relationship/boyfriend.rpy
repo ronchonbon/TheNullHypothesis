@@ -16,7 +16,7 @@ label Laura_boyfriend_trigger_part_one:
     python:
         for C in Partners:
             if C != Laura:
-                if not C.History.check("told_wants_multiple_girlfriends") or Laura not in C.knows_about:
+                if not C.History.check("told_wants_multiple_partners") or Laura not in C.knows_about:
                     C.History.update("cheated_on_relationship")
 
                     if not Player.History.check(f"cheated_on_{C.tag}_with_Laura_relationship", tracker = "recent"):
@@ -342,84 +342,80 @@ label Laura_boyfriend:
 
     ch_Player "But. . ."
 
-    menu:
-        extend ""
-        "Tell her you're interested in multiple women":
-            $ Laura.change_face("confused1")
+    if len(Partners) > 0:
+        $ Laura.change_face("confused1", eyes = “squint", mouth = “smirk", blush = 1)
 
-            ch_Player "If we are going to be in a relationship, you should know. . ." 
-            ch_Player "I'm interested in having multiple girlfriends. . ." 
+        if len(Partners) == 1:
+            ch_Laura "Obviously I realize you are already in a relationship with [Partners[0].public_name]."
+        elif len(Partners) == 2:
+            ch_Laura "Obviously I realize you are already in a relationship with [Partners[0].public_name] and [Partners[1].public_name]."
+        else:
+            ch_Laura "Obviously I realize you are already in. . . a number of other relationships."
 
-            $ Laura.change_face("confused3")
+        $ Laura.change_face("neutral", blush = 1)
 
-            ch_Laura "Is this a common thing?" 
-            ch_Player "Not really. . ." 
+        ch_Laura “I do not care."
+        ch_Laura “I want you to be my boyfriend regardless."
 
-            $ Laura.change_face("confused1") 
+        $ Laura.change_face("confused1", blush = 1)
 
-            ch_Laura "Is this because you're the most attractive male at the Institute and are expecting other women to also want a relationship with you?"
-            ch_Player "No, I. . . wait, 'the most attractive'?"
+        $ Laura.change_face("smirk2", blush = 1)
 
-            $ Laura.change_face("neutral") 
+        ch_Laura "Good, then there is no issue."
 
-            ch_Laura "Yes, it's obvious."
-            ch_Player "Wh-"
-            ch_Laura "Regardless, I don't care."
-            ch_Player "You don't?"
-            ch_Laura "No." 
+        $ Laura.change_face("confused1", blush = 1)
 
-            $ Laura.change_face("smirk2")
+        ch_Player "You're really okay with me having multiple girlfriends?"
+        ch_Laura "Why wouldn't I be?"
+        ch_Laura "It is clear to everyone that you are the most attractive male at the Institute."
+        ch_Laura "Is it not expected for a man like you to have many women pursue him at once?"
+        ch_Player "No, I. . . wait, 'the most attractive'?"
 
-            ch_Laura "I only care that you're {i}mine{/i}." 
+        $ Laura.change_face("neutral") 
 
-            $ Laura.change_face("confused1", mouth = "smirk")
+        ch_Laura "Yes, it's obvious."
+        ch_Laura "Regardless, you know I don't care."
 
-            ch_Laura "As long as you're here when I want and {i}tell me who you plan on dating{/i}." 
-            ch_Player "I can do that."
+        $ Laura.change_face("smirk2")
 
-            # $ Laura.change_face("sly")
+        ch_Laura "I only care that you're {i}mine{/i}." 
 
-            # ch_Laura "And, I'm only interested in having {i}one{/i} boyfriend." 
+        $ Laura.change_face("confused1", mouth = "smirk")
 
-            $ Laura.History.update("told_wants_multiple_girlfriends")
-        "Never mind.":
-            if Rogue.History.check("went_on_date_with_Player") or Jean.History.check("went_on_date_with_Player"):
-                $ Laura.change_face("confused1", blush = 1)
+        ch_Laura "As long as you're here when I want and {i}tell me about any additional women you plan on dating{/i}." 
+        ch_Player "I can do that."
 
-                ch_Laura "Also, is a man having multiple 'girlfriends' common?"
-                ch_Player "Not really. . . wh-"
+        python:
+            for C in Partners:
+                Laura.knows_about.append(C)
 
-                $ Laura.change_face("neutral")
-
-                ch_Laura "It must be the fact that you're the most attractive male at the Institute, you are expecting other women to also want a relationship with you."
-                ch_Laura "I have seen you go on dates with other women already." 
-                
-                $ Laura.change_face("confused2")
-
-                ch_Player "No, I. . ."
-                ch_Player "What?!"
-                ch_Player "How did you know that?"
-                ch_Laura "That you are the most attractive male at the Institute?"
-
-                $ Laura.change_face("confused1", blush = 1)
-
-                ch_Laura "It is obvious. . ."
-                ch_Player "No. . . I meant about the other dates." 
-
-                $ Laura.change_face("confused1", mouth = "smirk", eyes = "squint", blush = 1)
-
-                ch_Laura "You are {i}very{/i} easy to keep track of."
-
+        $ Laura.History.update("told_wants_multiple_partners")
+    else:
+        menu:
+            extend ""
+            "Tell her you're interested in multiple partners":
                 $ Laura.change_face("confused1")
 
-                ch_Player "Well, to be honest, I am interested in having multiple girlfriends. . ."
-                ch_Player "I-"
+                ch_Player "If we are going to be in a relationship, you should know. . ." 
+                ch_Player "I'm interested in having multiple girlfriends. . ." 
 
-                $ Laura.change_face("neutral")
+                $ Laura.change_face("confused3")
 
-                ch_Laura "Fine."
-                ch_Player "Fine?"
-                ch_Laura "Yes, I don't care."
+                ch_Laura "Is this a common thing?" 
+                ch_Player "Not really. . ." 
+
+                $ Laura.change_face("confused1") 
+
+                ch_Laura "Is this because you're the most attractive male at the Institute and are expecting other women to also want a relationship with you?"
+                ch_Player "No, I. . . wait, 'the most attractive'?"
+
+                $ Laura.change_face("neutral") 
+
+                ch_Laura "Yes, it's obvious."
+                ch_Player "Wh-"
+                ch_Laura "Regardless, I don't care."
+                ch_Player "You don't?"
+                ch_Laura "No." 
 
                 $ Laura.change_face("smirk2")
 
@@ -430,13 +426,58 @@ label Laura_boyfriend:
                 ch_Laura "As long as you're here when I want and {i}tell me who you plan on dating{/i}." 
                 ch_Player "I can do that."
 
-                # $ Laura.change_face("sly")
+                $ Laura.History.update("told_wants_multiple_partners")
+            "Never mind.":
+                if Rogue.History.check("went_on_date_with_Player") or Jean.History.check("went_on_date_with_Player"):
+                    $ Laura.change_face("confused1", blush = 1)
 
-                # ch_Laura "And, I'm only interested in having {i}one{/i} boyfriend."
+                    ch_Laura "Also, is a man having multiple 'girlfriends' common?"
+                    ch_Player "Not really. . . wh-"
 
-                $ Laura.History.update("told_wants_multiple_girlfriends")
-            else:
-                pass
+                    $ Laura.change_face("neutral")
+
+                    ch_Laura "It must be the fact that you're the most attractive male at the Institute, you are expecting other women to also want a relationship with you."
+                    ch_Laura "I have seen you go on dates with other women already." 
+                    
+                    $ Laura.change_face("confused2")
+
+                    ch_Player "No, I. . ."
+                    ch_Player "What?!"
+                    ch_Player "How did you know that?"
+                    ch_Laura "That you are the most attractive male at the Institute?"
+
+                    $ Laura.change_face("confused1", blush = 1)
+
+                    ch_Laura "It is obvious. . ."
+                    ch_Player "No. . . I meant about the other dates." 
+
+                    $ Laura.change_face("confused1", mouth = "smirk", eyes = "squint", blush = 1)
+
+                    ch_Laura "You are {i}very{/i} easy to keep track of."
+
+                    $ Laura.change_face("confused1")
+
+                    ch_Player "Well, to be honest, I am interested in having multiple girlfriends. . ."
+                    ch_Player "I-"
+
+                    $ Laura.change_face("neutral")
+
+                    ch_Laura "Fine."
+                    ch_Player "Fine?"
+                    ch_Laura "Yes, I don't care."
+
+                    $ Laura.change_face("smirk2")
+
+                    ch_Laura "I only care that you're {i}mine{/i}." 
+
+                    $ Laura.change_face("confused1", mouth = "smirk")
+
+                    ch_Laura "As long as you're here when I want and {i}tell me who you plan on dating{/i}." 
+                    ch_Player "I can do that."
+
+                    $ Laura.History.update("told_wants_multiple_partners")
+                else:
+                    pass
     
     $ Laura.change_face("sexy", blush = 1)
 
@@ -572,10 +613,6 @@ label Laura_boyfriend:
     "Her room is currently pretty spartan - if she won't decorate it herself, maybe receiving things from you would change her mind."
 
     $ fade_in_from_black(0.4)
-
-    python:
-        for C in Partners:
-            Laura.knows_about.append(C)
 
     $ Partners.append(Laura)
 

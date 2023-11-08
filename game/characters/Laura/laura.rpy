@@ -356,6 +356,7 @@ init -2 python:
         Laura = GirlClass("Laura", voice = ch_Laura)
 
         Laura.full_name = "Laura Kinney"
+        Laura.public_name = "X-23"
         Laura.call_sign = "X-23"
 
         Laura.Player_petname = Player.first_name
