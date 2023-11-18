@@ -5,13 +5,26 @@ init python:
 
         conditions = [
             "Player.destination == Laura.home",
+
             "Laura.location == Laura.home and Rogue.location == Laura.home",
+
             "EventScheduler.Events['Laura_first_friend_part_two'].completed",
-            "EventScheduler.Events['Rogue_Laura_asks_about_masturbation'].completed"]
+            "EventScheduler.Events['Rogue_Laura_asks_about_masturbation'].completed",
+
+            "Laura.in_normal_mood()"]
 
         traveling = True
 
-        return EventClass(label, conditions, traveling = traveling)
+        markers = {
+            Laura.home: [
+                "Laura.location == Laura.home and Rogue.location == Laura.home",
+
+                "EventScheduler.Events['Laura_first_friend_part_two'].completed",
+                "EventScheduler.Events['Rogue_Laura_asks_about_masturbation'].completed",
+
+                "Laura.in_normal_mood()"]}
+
+        return EventClass(label, conditions, traveling = traveling, markers = markers)
 
 label Laura_Rogue_talking_about_masturbation:
     $ ongoing_Event = True

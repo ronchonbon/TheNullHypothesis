@@ -5,13 +5,17 @@ init python:
 
         conditions = [
             "Rogue in Partners",
+
             "approval_check(Rogue, threshold = Rogue_thresholds['love'])",
-            "EventScheduler.Events['Rogue_penultimate_quirk'].completed",
+
             "day - EventScheduler.Events['Rogue_penultimate_quirk'].completed >= 3",
-            "time_index != 2 or not Player.date_planned",
-            "Player.location == Player.home",
-            "Player.destination in public_locations",
-            "Rogue.History.check('quirk_encouraged') >= Rogue.History.check('quirk_discouraged')"]
+
+            "Rogue.History.check('quirk_encouraged') >= Rogue.History.check('quirk_discouraged')",
+
+            "Player.location == Player.home and Player.destination in public_locations",
+            "not Player.date_planned or time_index < 2",
+
+            "Rogue.is_in_normal_mood()"]
 
         traveling = True
 
@@ -95,12 +99,15 @@ init python:
 
         conditions = [
             "Rogue in Partners",
+
             "approval_check(Rogue, threshold = Rogue_thresholds['love'])",
-            "not Present",
-            "EventScheduler.Events['Rogue_penultimate_quirk'].completed",
+
             "day - EventScheduler.Events['Rogue_penultimate_quirk'].completed >= 3",
-            "Player.location == Player.home",
-            "Rogue.History.check('quirk_encouraged') < Rogue.History.check('quirk_discouraged')"]
+
+            "Rogue.History.check('quirk_encouraged') < Rogue.History.check('quirk_discouraged')",
+
+            "Player.location == Player.home and not Present",
+            "time_index != 2 or not Player.date_planned"]
 
         sleeping = True
 

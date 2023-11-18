@@ -4,10 +4,12 @@ init python:
         label = "Rogue_locker_room_changing"
 
         conditions = [
-            "day - EventScheduler.Events['Rogue_locker_room_changing'].completed > 0",
-            "Player.destination == 'bg_lockers'",
-            "Rogue.location == 'bg_lockers'",
-            "Rogue.changing"]
+            "Player.destination == 'bg_lockers' and Rogue.location == 'bg_lockers'",
+            "Rogue.changing",
+
+            "day - EventScheduler.Events['Rogue_locker_room_changing'].completed > 1",
+
+            "Rogue.is_in_normal_mood()"]
 
         traveling = True
 

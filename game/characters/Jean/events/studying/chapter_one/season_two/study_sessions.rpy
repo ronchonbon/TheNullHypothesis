@@ -5,6 +5,7 @@ init python:
 
         conditions = [
             "chapter == 1 and season == 2",
+            
             "Player.studying == Jean and Jean.studying"]
 
         priority = 99

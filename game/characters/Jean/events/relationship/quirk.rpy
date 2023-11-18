@@ -5,11 +5,14 @@ init python:
 
         conditions = [
             "Jean in Partners",
+
             "approval_check(Jean, threshold = [600, 550])",
-            "EventScheduler.Events['Jean_enjoying_being_girlfriend'].completed",
+
             "day - EventScheduler.Events['Jean_enjoying_being_girlfriend'].completed >= 3",
-            "Jean.location != Player.location",
-            "Player.location in public_locations"]
+
+            "Jean.location != Player.location and Player.location in public_locations",
+
+            "Jean.is_in_normal_mood()"]
 
         waiting = True
         traveling = True

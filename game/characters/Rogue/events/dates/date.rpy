@@ -7,8 +7,10 @@ init python:
 
         conditions = [
             "Rogue in Player.date_planned.keys() and 'primary' in Player.date_planned[Rogue]",
-            "time_index == 2",
-            "Rogue.History.check('went_on_date_with_Player') >= 1"]
+
+            "Rogue.History.check('went_on_date_with_Player') >= 1",
+
+            "time_index == 2"]
 
         waiting = True
         traveling = True

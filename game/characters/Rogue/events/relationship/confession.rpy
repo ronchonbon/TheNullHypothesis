@@ -5,8 +5,12 @@ init python:
 
         conditions = [
             "QuestPool.Quests['Rogue_friendship_Quest'].completed",
+
             "Rogue not in Present",
-            "weekday < 5"]
+
+            "weekday < 5",
+
+            "Rogue.is_in_normal_mood()"]
 
         sleeping = True
 
@@ -57,8 +61,8 @@ init python:
         label = "Rogue_confession_afternoon"
 
         conditions = [
-            "EventScheduler.Events['Rogue_confession_text'].completed",
             "day - EventScheduler.Events['Rogue_confession_text'].completed == 1",
+            
             "Player.destination not in [Player.home, 'bg_shower_Player'] or time_index == 2"]
 
         waiting = True

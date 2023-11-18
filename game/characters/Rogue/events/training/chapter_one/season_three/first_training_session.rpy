@@ -5,8 +5,11 @@ init python:
 
         conditions = [
             "chapter == 1 and season == 3",
+
             "Laura.History.check('trained_with_Player', tracker = 'season') or Jean.History.check('trained_with_Player', tracker = 'season')",
+            
             "not Rogue.History.check('trained_with_Player', tracker = 'season')",
+
             "Player.training == Rogue and Rogue.training"]
 
         priority = 99

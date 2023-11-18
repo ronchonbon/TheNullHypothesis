@@ -5,13 +5,28 @@ init python:
 
         conditions = [
             "Player.destination == Rogue.home",
+            
             "Rogue.location == Rogue.home and Laura.location == Rogue.home",
+            
             "EventScheduler.Events['Laura_first_friend_part_two'].completed",
-            "Laura.History.check('seen_Player_cock') and not Rogue.History.check('seen_Player_cock') and Laura in Partners and Rogue in Partners and Rogue in Laura.knows_about and Laura in Rogue.knows_about"]
+            
+            "Laura.History.check('seen_Player_cock') and not Rogue.History.check('seen_Player_cock') and Laura in Partners and Rogue in Partners and Rogue in Laura.knows_about and Laura in Rogue.knows_about",
+
+            "Rogue.in_normal_mood()"]
 
         traveling = True
 
-        return EventClass(label, conditions, traveling = traveling)
+        markers = {
+            Rogue.home: [
+                "Rogue.location == Rogue.home and Laura.location == Rogue.home",
+                
+                "EventScheduler.Events['Laura_first_friend_part_two'].completed",
+                
+                "Laura.History.check('seen_Player_cock') and not Rogue.History.check('seen_Player_cock') and Laura in Partners and Rogue in Partners and Rogue in Laura.knows_about and Laura in Rogue.knows_about",
+
+                "Rogue.in_normal_mood()"]}
+
+        return EventClass(label, conditions, traveling = traveling, markers = markers)
 
 label Rogue_Laura_asks_if_seen_penis:
     $ ongoing_Event = True

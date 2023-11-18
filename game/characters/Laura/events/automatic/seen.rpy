@@ -67,7 +67,7 @@ init python:
 label Laura_seen_pussy:
     if Laura.desired_pubes and Laura.pubes != Laura.desired_pubes:
         if (Laura.pubes == "hairy") or (Laura.pubes == "bush" and (not Laura.desired_pubes or Laura.desired_pubes in ["growing", "null", "strip", "triangle"])) or (Laura.pubes == "triangle" and (not Laura.desired_pubes or Laura.desired_pubes in ["growing", "null", "strip"])) or (Laura.pubes in ["growing", "null", "strip"] and not Laura.desired_pubes):
-            if Laura.pubes_growing or (EventScheduler.Events["Laura_seen_pussy"].completed and day - EventScheduler.Events["Laura_seen_pussy"].completed >= 4):
+            if Laura.pubes_growing or day - EventScheduler.Events["Laura_seen_pussy"].completed >= 4:
                 $ Laura.change_face("confused1", eyes = "down", blush = 1)
 
                 ch_Laura "Oh."

@@ -6,9 +6,11 @@ init python:
         label = "Laura_first_date"
 
         conditions = [
-            "Laura in Player.date_planned.keys()",
-            "time_index == 2",
-            "not Laura.History.check('went_on_date_with_Player')"]
+            "Laura in Player.date_planned.keys() and 'primary' in Player.date_planned[Laura]",
+
+            "not Laura.History.check('went_on_date_with_Player')",
+
+            "time_index == 2"]
 
         waiting = True
         traveling = True

@@ -4,15 +4,22 @@ init python:
         label = "Laura_texting_save_cum"
 
         conditions = [
-            "Laura.History.check('creampie') or Laura.History.check('swallow_cum') or Laura.History.check('anal_creampie')",
+            "renpy.random.random() > 0.9",
+
+            "Laura.quirk",
+
             "not Laura.timed_text_options",
+
+            "time_index < 2",
+            "not Player.History.check('orgasmed', tracker = 'daily')",
+
             "Player.location not in ['hold', Laura.location, Laura.destination]",
             "Player.destination not in [Laura.location, Laura.destination]",
-            "Laura.status['horny'] or Laura.status['nympho']",
-            "Laura.quirk",
-            "not Player.History.check('orgasmed', tracker = 'daily')",
-            "time_index < 2",
-            "renpy.random.random() > 0.9"]
+
+            "Laura.History.check('creampie') or Laura.History.check('swallow_cum') or Laura.History.check('anal_creampie')",
+
+            "Laura.is_in_normal_mood()",    
+            "Laura.status['horny'] or Laura.status['nympho']"]
 
         waiting = True
 

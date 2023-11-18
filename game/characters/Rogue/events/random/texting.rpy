@@ -4,20 +4,28 @@ init python:
         label = "Rogue_texting_study"
 
         conditions = [
+            "renpy.random.random() > 0.9",
+            
             "Rogue.studying",
+
             "not Rogue.timed_text_options",
-            "Rogue.History.check('studied_with_Player')",
-            "not Rogue.History.check('studied_with_Player', tracker = 'weekly')",
-            "time_index < 3 or approval_check(Rogue, threshold = 'talk_late')",
-            "Player.location not in ['hold', Rogue.location, Rogue.destination]",
-            "Player.destination not in [Rogue.location, Rogue.destination]",
+
             "not Rogue.History.check('said_no_to_study', tracker = 'recent')",
+            
             "not Rogue.History.check('Player_rejected_studying', tracker = 'daily') and not Rogue.History.check('Player_rejected_training', tracker = 'daily')",
+            
             "not EventScheduler.Events['Rogue_chatting_study'].completed or day - EventScheduler.Events['Rogue_chatting_study'].completed >= 5",
             "not EventScheduler.Events['Rogue_texting_study'].completed or day - EventScheduler.Events['Rogue_texting_study'].completed >= 5",
-            "not Rogue.status['miffed'] and not Rogue.status['mad'] and not Rogue.status['heartbroken'] and not Rogue.wants_alone_time",
-            "approval_check(Rogue, threshold = 'friendship')",
-            "renpy.random.random() > 0.9"]
+                 
+            "Player.location not in ['hold', Rogue.location, Rogue.destination]",
+            "Player.destination not in [Rogue.location, Rogue.destination]",
+                   
+            "Rogue.History.check('studied_with_Player') and not Rogue.History.check('studied_with_Player', tracker = 'weekly')",
+
+            "time_index < 3 or approval_check(Rogue, threshold = 'talk_late')",
+            
+            "Rogue.is_in_normal_mood()",
+            "approval_check(Rogue, threshold = 'friendship')"]
 
         repeatable = True
         automatic = True
@@ -68,20 +76,28 @@ init python:
         label = "Rogue_texting_training"
 
         conditions = [
+            "renpy.random.random() > 0.9",
+            
             "Rogue.training",
+
             "not Rogue.timed_text_options",
-            "Rogue.History.check('trained_with_Player')",
-            "not Rogue.History.check('trained_with_Player', tracker = 'weekly')",
-            "Player.location not in ['hold', Rogue.location, Rogue.destination]",
-            "Player.destination not in [Rogue.location, Rogue.destination]",
-            "time_index < 2",
+
             "not Rogue.History.check('said_no_to_training', tracker = 'recent')",
+            
             "not Rogue.History.check('Player_rejected_studying', tracker = 'daily') and not Rogue.History.check('Player_rejected_training', tracker = 'daily')",
+            
             "not EventScheduler.Events['Rogue_chatting_training'].completed or day - EventScheduler.Events['Rogue_chatting_training'].completed >= 5",
             "not EventScheduler.Events['Rogue_texting_training'].completed or day - EventScheduler.Events['Rogue_texting_training'].completed >= 5",
-            "not Rogue.status['miffed'] and not Rogue.status['mad'] and not Rogue.status['heartbroken'] and not Rogue.wants_alone_time",
-            "approval_check(Rogue, threshold = 'friendship')",
-            "renpy.random.random() > 0.9"]
+            
+            "Player.location not in ['hold', Rogue.location, Rogue.destination]",
+            "Player.destination not in [Rogue.location, Rogue.destination]",
+            
+            "Rogue.History.check('trained_with_Player') and not Rogue.History.check('trained_with_Player', tracker = 'weekly')",
+            
+            "time_index < 3",
+
+            "Rogue.is_in_normal_mood()",
+            "approval_check(Rogue, threshold = 'friendship')"]
 
         repeatable = True
         automatic = True
@@ -141,22 +157,31 @@ init python:
         label = "Rogue_texting_date"
 
         conditions = [
-            "not Rogue.timed_text_options",
-            "Player.location not in ['hold', Rogue.location, Rogue.destination]",
-            "Player.destination not in [Rogue.location, Rogue.destination]",
+            "renpy.random.random() > 0.9",
+            
             "not Player.date_planned",
             "2 not in Rogue.schedule.keys() and 3 not in Rogue.schedule.keys()",
             "2 not in Player.schedule.keys() and 3 not in Player.schedule.keys()",
-            "time_index < 2",
+            
+            "not Rogue.timed_text_options",
+            
             "not Rogue.History.check('said_no_to_date', tracker = 'recent')",
+            
             "not Rogue.History.check('Player_rejected_studying', tracker = 'daily') and not Rogue.History.check('Player_rejected_training', tracker = 'daily') and not Rogue.History.check('Player_rejected_date', tracker = 'weekly')",
-            "EventScheduler.Events['Rogue_first_date'].completed and day - EventScheduler.Events['Rogue_first_date'].completed >= 5",
-            "not EventScheduler.Events['Rogue_date'].completed or day - EventScheduler.Events['Rogue_date'].completed >= 5",
+            
             "not EventScheduler.Events['Rogue_chatting_date'].completed or day - EventScheduler.Events['Rogue_chatting_date'].completed >= 5",
             "not EventScheduler.Events['Rogue_texting_date'].completed or day - EventScheduler.Events['Rogue_texting_date'].completed >= 5",
-            "not Rogue.status['miffed'] and not Rogue.status['mad'] and not Rogue.status['heartbroken'] and not Rogue.wants_alone_time",
-            "approval_check(Rogue, threshold = 'dating')",
-            "renpy.random.random() > 0.9"]
+            
+            "Player.location not in ['hold', Rogue.location, Rogue.destination]",
+            "Player.destination not in [Rogue.location, Rogue.destination]",
+            
+            "day - EventScheduler.Events['Rogue_first_date'].completed >= 5",
+            "not EventScheduler.Events['Rogue_date'].completed or day - EventScheduler.Events['Rogue_date'].completed >= 5",
+            
+            "time_index < 2",
+
+            "Rogue.is_in_normal_mood()",
+            "approval_check(Rogue, threshold = 'dating')"]
 
         repeatable = True
         automatic = True
@@ -206,15 +231,21 @@ init python:
         label = "Rogue_texting_ask_to_masturbate"
 
         conditions = [
-            "Rogue.History.check('self_touch_pussy')",
+            "renpy.random.random() > 0.9",
+
+            "Rogue.quirk",
+
+            "Rogue.masturbating",
+
             "not Rogue.timed_text_options",
-            "not Rogue.status['miffed'] and not Rogue.status['mad'] and not Rogue.status['heartbroken'] and not Rogue.wants_alone_time",
+
             "Player.location not in ['hold', Rogue.location, Rogue.destination]",
             "Player.destination not in [Rogue.location, Rogue.destination]",
-            "Rogue.status['horny'] or Rogue.status['nympho']",
-            "Rogue.quirk",
-            "Rogue.masturbating",
-            "renpy.random.random() > 0.9"]
+                        
+            "Rogue.History.check('self_touch_pussy')",
+
+            "Rogue.is_in_normal_mood()",   
+            "Rogue.status['horny'] or Rogue.status['nympho']"]
 
         repeatable = True
         automatic = True

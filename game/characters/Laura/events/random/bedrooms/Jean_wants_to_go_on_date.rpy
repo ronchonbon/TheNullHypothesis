@@ -5,13 +5,28 @@ init python:
 
         conditions = [
             "Player.destination == Laura.home",
-            "Laura.location == Laura.home and Jean.location == Laura.home",
+
             "Laura in Partners and Jean in Partners",
-            "not Player.date_planned"]
+
+            "Laura.location == Laura.home and Jean.location == Laura.home",
+
+            "not Player.date_planned",
+
+            "Laura.in_normal_mood()"]
 
         traveling = True
 
-        return EventClass(label, conditions, traveling = traveling)
+        markers = {
+            Laura.home: [
+                "Laura in Partners and Jean in Partners",
+
+                "Laura.location == Laura.home and Jean.location == Laura.home",
+
+                "not Player.date_planned",
+
+                "Laura.in_normal_mood()"]}
+
+        return EventClass(label, conditions, traveling = traveling, markers = markers)
 
 label Laura_Jean_wants_to_go_on_date:
     $ ongoing_Event = True

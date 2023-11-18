@@ -5,9 +5,13 @@ init python:
 
         conditions = [
             "Jean in Partners",
+
             "not Jean.History.check('told_wants_multiple_partners')",
+
             "not EventScheduler.Events['Jean_jealousy_flirted'].completed",
+
             "Jean.History.check('cheated_on_date') >= 2 or Jean.History.check('cheated_on_relationship')",
+
             "Jean.location != Player.location"]
             
         sleeping = True
@@ -54,9 +58,13 @@ init python:
 
         conditions = [
             "Jean in Partners",
+
             "not Jean.History.check('told_wants_multiple_partners')",
+
             "not EventScheduler.Events['Jean_jealousy_flirted'].completed",
+
             "Jean.History.check('cheated_on_date') >= 2 or Jean.History.check('cheated_on_relationship')",
+
             "Jean.location != Player.location"]
             
         sleeping = True
@@ -260,11 +268,14 @@ init python:
 
         conditions = [
             "Jean in Partners",
+
             "not Jean.History.check('told_wants_multiple_partners')",
+
             "not EventScheduler.Events['Jean_jealousy_went_on_date'].completed",
+
             "Jean.History.check('cheated_on_flirting_in_public') >= 4 and Jean.History.permanent['cheated_on_flirting_in_public'][-4] > EventScheduler.Events['Jean_boyfriend'].completed",
-            "Jean.location != Player.location",
-            "Player.location in public_locations"]
+            
+            "Jean.location != Player.location and Player.location in public_locations"]
             
         flirting = True
 
@@ -412,9 +423,10 @@ init python:
 
         conditions = [
             "EventScheduler.Events['Jean_jealousy_went_on_date'].completed or EventScheduler.Events['Jean_jealousy_flirted'].completed",
-            "not Jean.status['mad']",
-            "Player.location == Player.home",
-            "not Present"]
+
+            "Jean.is_in_normal_mood()",
+
+            "Player.location == Player.home and not Present"]
             
         waking = True
 
@@ -550,8 +562,11 @@ init python:
 
         conditions = [
             "Jean in Partners",
+            
             "Jean.History.check('told_wants_multiple_girlfriend')",
+            
             "(Jean.History.check_when('cheated_on_date') > max(Jean.History.check_when('told_wants_multiple_partners'), EventScheduler.Events['Jean_jealousy_went_on_date_anyways'].completed, EventScheduler.Events['Jean_jealousy_flirted_anyways'].completed)) or (Jean.History.check_when('cheated_on_relationship') > max(Jean.History.check_when('told_wants_multiple_partners'), EventScheduler.Events['Jean_jealousy_went_on_date_anyways'].completed, EventScheduler.Events['Jean_jealousy_flirted_anyways'].completed))",
+            
             "Jean.location != Player.location"]
             
         sleeping = True
@@ -688,10 +703,12 @@ init python:
 
         conditions = [
             "Jean in Partners",
+            
             "Jean.History.check('told_wants_multiple_girlfriend')",
+            
             "Jean.History.check('cheated_on_flirting_in_public') >= 4 and Jean.History.permanent['cheated_on_flirting_in_public'][-3] > max(Jean.History.check_when('told_wants_multiple_partners'), EventScheduler.Events['Jean_jealousy_went_on_date_anyways'].completed, EventScheduler.Events['Jean_jealousy_flirted_anyways'].completed)",
-            "Jean.location != Player.location",
-            "Player.location in public_locations"]
+            
+            "Jean.location != Player.location and Player.location in public_locations"]
             
         flirting = True
 
@@ -783,9 +800,10 @@ init python:
 
         conditions = [
             "(EventScheduler.Events['Jean_jealousy_went_on_date_anyways'].completed and EventScheduler.Events['Jean_jealousy_went_on_date_anyways'].completed > EventScheduler.Events['Jean_jealousy_follow_up_again'].completed) or (EventScheduler.Events['Jean_jealousy_flirted_anyways'].completed and EventScheduler.Events['Jean_jealousy_flirted_anyways'].completed > EventScheduler.Events['Jean_jealousy_follow_up_again'].completed)",
-            "not Jean.status['mad']",
-            "Player.location == Player.home",
-            "not Present"]
+            
+            "Jean.is_in_normal_mood()",
+
+            "Player.location == Player.home and not Present"]
             
         waking = True
 

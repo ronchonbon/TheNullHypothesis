@@ -5,7 +5,9 @@ init python:
 
         conditions = [
             "chapter == 1 and season == 1",
+
             "Rogue.History.check('studied_with_Player', tracker = 'season') >= 2",
+            
             "Player.studying == Rogue and Rogue.studying"]
 
         priority = 99

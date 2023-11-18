@@ -5,11 +5,20 @@ init python:
 
         conditions = [
             "Player.destination == Laura.home",
-            "Laura.location == Laura.home and Rogue.location == Laura.home"]
+
+            "Laura.location == Laura.home and Rogue.location == Laura.home",
+
+            "Laura.in_normal_mood()"]
             
         traveling = True
 
-        return EventClass(label, conditions, traveling = traveling)
+        markers = {
+            Laura.home: [
+                "Laura.location == Laura.home and Rogue.location == Laura.home",
+
+                "Laura.in_normal_mood()"]}
+
+        return EventClass(label, conditions, traveling = traveling, markers = markers)
 
 label Laura_Rogue_explaining_body:
     $ ongoing_Event = True

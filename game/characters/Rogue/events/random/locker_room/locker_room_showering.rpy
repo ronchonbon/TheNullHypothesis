@@ -4,13 +4,18 @@ init python:
         label = "Rogue_locker_room_showering"
 
         conditions = [
-            "day - EventScheduler.Events['Rogue_locker_room_showering'].completed > 0",
-            "Player.location == 'bg_lockers'",
+            "renpy.random.random() > 0.75",
+
+            "Player.location == 'bg_lockers' and Player.showering",
+
+            "not Present",
+
+            "day - EventScheduler.Events['Rogue_locker_room_showering'].completed > 1",
+
             "Rogue.location not in ['hold', 'bg_lockers']",
             "Rogue.original_location != Player.location",
-            "Player.showering",
-            "not Present",
-            "renpy.random.random() > 0.75"]
+
+            "Rogue.is_in_normal_mood()"]
 
         repeatable = True
 

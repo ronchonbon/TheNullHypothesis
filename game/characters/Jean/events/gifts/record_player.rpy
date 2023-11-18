@@ -4,10 +4,11 @@ init python:
         label = "Jean_gifts_record_player"
 
         conditions = [
-            "'wholesome_romance_novel' in Jean.inventory.keys()",
-            "day - Jean.History.check_when('given_wholesome_romance_novel') >= 3",
-            "Player.location in public_locations",
-            "Jean.location != Player.location"]
+            "'wholesome_romance_novel' in Jean.inventory.keys() and day - Jean.History.check_when('given_wholesome_romance_novel') >= 3",
+            
+            "Jean.is_in_normal_mood()",
+            
+            "Player.location in public_locations and Jean.location != Player.location"]
 
         waiting = True
         traveling = True
@@ -21,7 +22,7 @@ label Jean_gifts_record_player:
 
     $ Jean.change_face("happy", blush = 1)
 
-    ch_Jean "Hey!."
+    ch_Jean "Hey!"
 
     $ petname = Jean.petname.capitalize()
 

@@ -5,12 +5,15 @@ init python:
 
         conditions = [
             "Rogue in Partners",
+
             "approval_check(Rogue, threshold = [525, 525])",
-            "EventScheduler.Events['Rogue_enjoying_being_girlfriend'].completed",
+            
             "day - EventScheduler.Events['Rogue_enjoying_being_girlfriend'].completed >= 3",
-            "Rogue.location != Player.location",
-            "Player.location in public_locations",
-            "not Player.date_planned or time_index < 2"]
+
+            "Rogue.location != Player.location and Player.location in public_locations",
+            "not Player.date_planned or time_index < 2",
+
+            "Rogue.is_in_normal_mood()"]
 
         waiting = True
         traveling = True

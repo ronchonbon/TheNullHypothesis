@@ -4,20 +4,28 @@ init python:
         label = "Jean_texting_study"
 
         conditions = [
+            "renpy.random.random() > 0.9",
+            
             "Jean.studying",
+
             "not Jean.timed_text_options",
-            "Jean.History.check('studied_with_Player')",
-            "not Jean.History.check('studied_with_Player', tracker = 'weekly')",
-            "time_index < 3 or approval_check(Jean, threshold = 'talk_late')",
-            "Player.location not in ['hold', Jean.location, Jean.destination]",
-            "Player.destination not in [Jean.location, Jean.destination]",
+
             "not Jean.History.check('said_no_to_study', tracker = 'recent')",
+            
             "not Jean.History.check('Player_rejected_studying', tracker = 'daily') and not Jean.History.check('Player_rejected_training', tracker = 'daily')",
+            
             "not EventScheduler.Events['Jean_chatting_study'].completed or day - EventScheduler.Events['Jean_chatting_study'].completed >= 5",
             "not EventScheduler.Events['Jean_texting_study'].completed or day - EventScheduler.Events['Jean_texting_study'].completed >= 5",
-            "not Jean.status['miffed'] and not Jean.status['mad'] and not Jean.status['heartbroken'] and not Jean.wants_alone_time",
-            "approval_check(Jean, threshold = 'friendship')",
-            "renpy.random.random() > 0.9"]
+                 
+            "Player.location not in ['hold', Jean.location, Jean.destination]",
+            "Player.destination not in [Jean.location, Jean.destination]",
+                   
+            "Jean.History.check('studied_with_Player') and not Jean.History.check('studied_with_Player', tracker = 'weekly')",
+
+            "time_index < 3 or approval_check(Jean, threshold = 'talk_late')",
+            
+            "Jean.is_in_normal_mood()",
+            "approval_check(Jean, threshold = 'friendship')"]
 
         repeatable = True
         automatic = True
@@ -69,20 +77,28 @@ init python:
         label = "Jean_texting_training"
 
         conditions = [
+            "renpy.random.random() > 0.9",
+            
             "Jean.training",
+
             "not Jean.timed_text_options",
-            "Jean.History.check('trained_with_Player')",
-            "not Jean.History.check('trained_with_Player', tracker = 'weekly')",
-            "Player.location not in ['hold', Jean.location, Jean.destination]",
-            "Player.destination not in [Jean.location, Jean.destination]",
-            "time_index < 2",
+
             "not Jean.History.check('said_no_to_training', tracker = 'recent')",
+            
             "not Jean.History.check('Player_rejected_studying', tracker = 'daily') and not Jean.History.check('Player_rejected_training', tracker = 'daily')",
+            
             "not EventScheduler.Events['Jean_chatting_training'].completed or day - EventScheduler.Events['Jean_chatting_training'].completed >= 5",
             "not EventScheduler.Events['Jean_texting_training'].completed or day - EventScheduler.Events['Jean_texting_training'].completed >= 5",
-            "not Jean.status['miffed'] and not Jean.status['mad'] and not Jean.status['heartbroken'] and not Jean.wants_alone_time",
-            "approval_check(Jean, threshold = 'friendship')",
-            "renpy.random.random() > 0.9"]
+            
+            "Player.location not in ['hold', Jean.location, Jean.destination]",
+            "Player.destination not in [Jean.location, Jean.destination]",
+            
+            "Jean.History.check('trained_with_Player') and not Jean.History.check('trained_with_Player', tracker = 'weekly')",
+            
+            "time_index < 3",
+
+            "Jean.is_in_normal_mood()",
+            "approval_check(Jean, threshold = 'friendship')"]
 
         repeatable = True
         automatic = True
@@ -142,22 +158,31 @@ init python:
         label = "Jean_texting_date"
 
         conditions = [
-            "not Jean.timed_text_options",
-            "Player.location not in ['hold', Jean.location, Jean.destination]",
-            "Player.destination not in [Jean.location, Jean.destination]",
+            "renpy.random.random() > 0.9",
+            
             "not Player.date_planned",
             "2 not in Jean.schedule.keys() and 3 not in Jean.schedule.keys()",
             "2 not in Player.schedule.keys() and 3 not in Player.schedule.keys()",
-            "time_index < 2",
+            
+            "not Jean.timed_text_options",
+            
             "not Jean.History.check('said_no_to_date', tracker = 'recent')",
+            
             "not Jean.History.check('Player_rejected_studying', tracker = 'daily') and not Jean.History.check('Player_rejected_training', tracker = 'daily') and not Jean.History.check('Player_rejected_date', tracker = 'weekly')",
-            "EventScheduler.Events['Jean_first_date'].completed and day - EventScheduler.Events['Jean_first_date'].completed >= 5",
-            "not EventScheduler.Events['Jean_date'].completed or day - EventScheduler.Events['Jean_date'].completed >= 5",
+            
             "not EventScheduler.Events['Jean_chatting_date'].completed or day - EventScheduler.Events['Jean_chatting_date'].completed >= 5",
             "not EventScheduler.Events['Jean_texting_date'].completed or day - EventScheduler.Events['Jean_texting_date'].completed >= 5",
-            "not Jean.status['miffed'] and not Jean.status['mad'] and not Jean.status['heartbroken'] and not Jean.wants_alone_time",
-            "approval_check(Jean, threshold = 'dating')",
-            "renpy.random.random() > 0.9"]
+            
+            "Player.location not in ['hold', Jean.location, Jean.destination]",
+            "Player.destination not in [Jean.location, Jean.destination]",
+            
+            "day - EventScheduler.Events['Jean_first_date'].completed >= 5",
+            "not EventScheduler.Events['Jean_date'].completed or day - EventScheduler.Events['Jean_date'].completed >= 5",
+            
+            "time_index < 2",
+
+            "Jean.is_in_normal_mood()",
+            "approval_check(Jean, threshold = 'dating')"]
 
         repeatable = True
         automatic = True
@@ -217,16 +242,23 @@ init python:
         label = "Jean_texting_summon_horny"
 
         conditions = [
-            "Jean.History.check('hookup')",
+            "renpy.random.random() > 0.9",
+
+            "Jean.quirk",
+
             "not Jean.timed_text_options",
+            
+            "not Jean.History.check('rejected_knock_on_door', tracker = 'recent')",
+            
+            "Jean.location in [Jean.home, Player.home]",
+
             "Player.location not in ['hold', Jean.location, Jean.destination]",
             "Player.destination not in [Jean.location, Jean.destination]",
-            "Jean.status['horny'] or Jean.status['nympho']",
-            "Jean.quirk",
-            "not Jean.History.check('rejected_knock_on_door', tracker = 'recent')",
-            "not Jean.status['miffed'] and not Jean.status['mad'] and not Jean.status['heartbroken'] and not Jean.wants_alone_time",
-            "Jean.location in [Jean.home, Player.home]",
-            "renpy.random.random() > 0.9"]
+
+            "Jean.History.check('hookup')",
+            
+            "Jean.is_in_normal_mood()",           
+            "Jean.status['horny'] or Jean.status['nympho']"]
 
         repeatable = True
         automatic = True

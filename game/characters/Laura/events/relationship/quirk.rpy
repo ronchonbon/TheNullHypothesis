@@ -5,12 +5,16 @@ init python:
 
         conditions = [
             "Laura in Partners",
+
             "approval_check(Laura, threshold = [550, 600])",
-            "EventScheduler.Events['Laura_enjoying_being_girlfriend'].completed",
+            
             "day - EventScheduler.Events['Laura_enjoying_being_girlfriend'].completed >= 3",
-            "Laura.location != Player.location",
-            "Player.location in public_locations",
-            "not Player.date_planned or time_index < 2"]
+
+            "Laura.location != Player.location and Player.location in public_locations",
+
+            "not Player.date_planned or time_index < 2",
+
+            "Laura.is_in_normal_mood()"]
 
         waiting = True
         traveling = True

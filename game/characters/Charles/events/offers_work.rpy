@@ -4,8 +4,8 @@ init python:
         label = "Charles_offers_work"
 
         conditions = [
-            "day > 4",
-            "time_index < 3",
+            "day > 4 and time_index < 3",
+
             "not Party"]
 
         traveling = True

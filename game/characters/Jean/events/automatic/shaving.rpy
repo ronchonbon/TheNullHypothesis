@@ -4,8 +4,9 @@ init python:
         label = "Jean_shaving"
 
         conditions = [
-            'Jean.pubes_to_shave or Jean.pubes_to_shave is None',
-            'Jean.location in bedrooms']
+            "Jean.pubes_to_shave or Jean.pubes_to_shave is None",
+            
+            "Jean.location in bedrooms"]
 
         repeatable = True
         automatic = True
@@ -41,7 +42,6 @@ init python:
         label = "Jean_grown_back"
 
         conditions = [
-            "EventScheduler.Events['Jean_growing_back'].completed",
             "day - EventScheduler.Events['Jean_growing_back'].completed >= 2"]
 
         repeatable = True

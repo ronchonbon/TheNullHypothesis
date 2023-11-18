@@ -67,7 +67,7 @@ init python:
 label Rogue_seen_pussy:
     if Rogue.desired_pubes and Rogue.pubes != Rogue.desired_pubes:
         if (Rogue.pubes == "hairy") or (Rogue.pubes == "bush" and (not Rogue.desired_pubes or Rogue.desired_pubes in ["growing", "null", "strip", "triangle"])) or (Rogue.pubes == "triangle" and (not Rogue.desired_pubes or Rogue.desired_pubes in ["growing", "null", "strip"])) or (Rogue.pubes in ["growing", "null", "strip"] and not Rogue.desired_pubes):
-            if Rogue.pubes_growing or (EventScheduler.Events["Rogue_seen_pussy"].completed and day - EventScheduler.Events["Rogue_seen_pussy"].completed >= 4):
+            if Rogue.pubes_growing or day - EventScheduler.Events["Rogue_seen_pussy"].completed >= 4:
                 if Rogue.quirk:
                     $ Rogue.change_face("worried1", mouth = "lipbite", blush = 1)
 

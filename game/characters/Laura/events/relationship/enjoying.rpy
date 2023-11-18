@@ -5,10 +5,14 @@ init python:
 
         conditions = [
             "Laura in Partners",
+            
             "approval_check(Laura, threshold = [275, 300])",
+
             "day - EventScheduler.Events['Laura_boyfriend'].completed >= 3",
-            "Player.location == Player.home",
-            "not Present"]
+
+            "Player.location == Player.home and not Present",
+
+            "Laura.is_in_normal_mood()"]
             
         waking = True
 

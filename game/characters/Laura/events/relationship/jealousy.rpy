@@ -5,9 +5,13 @@ init python:
 
         conditions = [
             "Laura in Partners",
+
             "not Laura.History.check('told_wants_multiple_partners')",
+            
             "not EventScheduler.Events['Laura_jealousy_flirted'].completed",
+            
             "Laura.History.check('cheated_on_date') or Laura.History.check('cheated_on_relationship')",
+            
             "Laura.location != Player.location"]
             
         sleeping = True
@@ -216,11 +220,14 @@ init python:
 
         conditions = [
             "Laura in Partners",
+            
             "not Laura.History.check('told_wants_multiple_partners')",
+            
             "not EventScheduler.Events['Laura_jealousy_went_on_date'].completed",
+            
             "Laura.History.check('cheated_on_flirting_in_public') >= 3 and Laura.History.permanent['cheated_on_flirting_in_public'][-3] > EventScheduler.Events['Laura_boyfriend'].completed",
-            "Laura.location != Player.location",
-            "Player.location in public_locations"]
+           
+            "Laura.location != Player.location and Player.location in public_locations"]
             
         flirting = True
 
@@ -382,9 +389,10 @@ init python:
 
         conditions = [
             "EventScheduler.Events['Laura_jealousy_went_on_date'].completed or EventScheduler.Events['Laura_jealousy_flirted'].completed",
-            "not Laura.status['mad']",
-            "Player.location == Player.home",
-            "not Present"]
+            
+            "Laura.is_in_normal_mood()",
+
+            "Player.location == Player.home and not Present"]
             
         waking = True
 
@@ -493,8 +501,11 @@ init python:
 
         conditions = [
             "Laura in Partners",
+            
             "Laura.History.check('told_wants_multiple_girlfriend')",
+            
             "(Laura.History.check_when('cheated_on_date') > max(Laura.History.check_when('told_wants_multiple_partners'), EventScheduler.Events['Laura_jealousy_went_on_date_anyways'].completed, EventScheduler.Events['Laura_jealousy_flirted_anyways'].completed)) or (Laura.History.check_when('cheated_on_relationship') > max(Laura.History.check_when('told_wants_multiple_partners'), EventScheduler.Events['Laura_jealousy_went_on_date_anyways'].completed, EventScheduler.Events['Laura_jealousy_flirted_anyways'].completed))",
+            
             "Laura.location != Player.location"]
             
         sleeping = True
@@ -620,10 +631,12 @@ init python:
 
         conditions = [
             "Laura in Partners",
+            
             "Laura.History.check('told_wants_multiple_girlfriend')",
+            
             "Laura.History.check('cheated_on_flirting_in_public') >= 3 and Laura.History.permanent['cheated_on_flirting_in_public'][-3] > max(Laura.History.check_when('told_wants_multiple_partners'), EventScheduler.Events['Laura_jealousy_went_on_date_anyways'].completed, EventScheduler.Events['Laura_jealousy_flirted_anyways'].completed)",
-            "Laura.location != Player.location",
-            "Player.location in public_locations"]
+            
+            "Laura.location != Player.location and Player.location in public_locations"]
             
         flirting = True
 
@@ -715,9 +728,10 @@ init python:
 
         conditions = [
             "(EventScheduler.Events['Laura_jealousy_went_on_date_anyways'].completed and EventScheduler.Events['Laura_jealousy_went_on_date_anyways'].completed > EventScheduler.Events['Laura_jealousy_follow_up_again'].completed) or (EventScheduler.Events['Laura_jealousy_flirted_anyways'].completed and EventScheduler.Events['Laura_jealousy_flirted_anyways'].completed > EventScheduler.Events['Laura_jealousy_follow_up_again'].completed)",
-            "not Laura.status['mad']",
-            "Player.location == Player.home",
-            "not Present"]
+            
+            "Laura.is_in_normal_mood()",
+
+            "Player.location == Player.home and not Present"]
             
         waking = True
 

@@ -4,8 +4,9 @@ init python:
         label = "Ororo_shaving"
 
         conditions = [
-            'Ororo.pubes_to_shave or Ororo.pubes_to_shave is None',
-            'Ororo.location in bedrooms']
+            "Ororo.pubes_to_shave or Ororo.pubes_to_shave is None",
+
+            "Ororo.location in bedrooms"]
 
         repeatable = True
         automatic = True

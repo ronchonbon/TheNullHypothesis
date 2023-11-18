@@ -101,9 +101,12 @@ init python:
 
         conditions = [
             "not EventScheduler.Events['Jean_boyfriend'].completed",
-            "EventScheduler.Events['Jean_boyfriend_trigger_part_one'].completed and day - EventScheduler.Events['Jean_boyfriend_trigger_part_one'].completed >= 4",
-            "Player.location in public_locations",
-            "Jean.location != Player.location"]
+
+            "day - EventScheduler.Events['Jean_boyfriend_trigger_part_one'].completed >= 4",
+            
+            "Player.location in public_locations and Jean.location != Player.location",
+
+            "Jean.is_in_normal_mood()"]
 
         waiting = True
         traveling = True

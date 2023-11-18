@@ -4,8 +4,13 @@ init python:
         label = "Rogue_hanging_out_with_Laura"
 
         conditions = [
+            "renpy.random.random() > 0.5",
+
             "Player.destination == Rogue.home",
-            "Rogue.location == Rogue.home and Laura.location == Rogue.home"]
+
+            "Rogue.location == Rogue.home and Laura.location == Rogue.home",
+
+            "Rogue.in_normal_mood()"]
 
         traveling = True
 

@@ -6,9 +6,11 @@ init python:
         label = "Rogue_first_date"
 
         conditions = [
-            "Rogue in Player.date_planned.keys()",
-            "time_index == 2",
-            "not Rogue.History.check('went_on_date_with_Player')"]
+            "Rogue in Player.date_planned.keys() and 'primary' in Player.date_planned[Rogue]",
+
+            "not Rogue.History.check('went_on_date_with_Player')",
+
+            "time_index == 2"]
 
         waiting = True
         traveling = True

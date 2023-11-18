@@ -4,10 +4,11 @@ init python:
         label = "Rogue_gifts_electric_guitar"
 
         conditions = [
-            "'acoustic_guitar' in Rogue.inventory.keys()",
-            "day - Rogue.History.check_when('given_acoustic_guitar') >= 3",
-            "Player.location in public_locations",
-            "Rogue.location != Player.location"]
+            "'acoustic_guitar' in Rogue.inventory.keys() and day - Rogue.History.check_when('given_acoustic_guitar') >= 3",
+            
+            "Rogue.is_in_normal_mood()",
+
+            "Player.location in public_locations and Rogue.location != Player.location"]
 
         waiting = True
         traveling = True

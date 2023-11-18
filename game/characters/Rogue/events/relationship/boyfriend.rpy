@@ -96,9 +96,12 @@ init python:
 
         conditions = [
             "not EventScheduler.Events['Rogue_boyfriend'].completed",
-            "EventScheduler.Events['Rogue_boyfriend_trigger_part_one'].completed and day - EventScheduler.Events['Rogue_boyfriend_trigger_part_one'].completed >= 4",
-            "Player.location in public_locations",
-            "Rogue.location != Player.location"]
+
+            "day - EventScheduler.Events['Rogue_boyfriend_trigger_part_one'].completed >= 4",
+            
+            "Player.location in public_locations and Rogue.location != Player.location",
+
+            "Rogue.is_in_normal_mood()"]
 
         waiting = True
 

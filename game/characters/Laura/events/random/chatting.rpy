@@ -4,17 +4,23 @@ init python:
         label = "Laura_chatting_study"
 
         conditions = [
-            "Laura.History.check('studied_with_Player')",
-            "not Laura.History.check('studied_with_Player', tracker = 'weekly')",
-            "time_index < 3 or approval_check(Laura, threshold = 'talk_late')",
-            "Player.location == Laura.location and Player.location in [Player.home, Laura.home]",
+            "renpy.random.random() > 0.75",
+            
             "not Laura.History.check('said_no_to_study', tracker = 'recent')",
+            
             "not Laura.History.check('Player_rejected_studying', tracker = 'daily') and not Laura.History.check('Player_rejected_training', tracker = 'daily')",
-            "not EventScheduler.Events['Laura_chatting_study'].completed or day - EventScheduler.Events['Laura_chatting_study'].completed >= 5",
-            "not EventScheduler.Events['Laura_texting_study'].completed or day - EventScheduler.Events['Laura_texting_study'].completed >= 5",
-            "not Laura.status['miffed'] and not Laura.status['mad'] and not Laura.status['heartbroken'] and not Laura.wants_alone_time",
-            "approval_check(Laura, threshold = 'friendship')",
-            "renpy.random.random() > 0.9"]
+            
+            "not EventScheduler.Events['Laura_chatting_study'].completed or day - EventScheduler.Events['Laura_chatting_study'].completed >= 3",
+            "not EventScheduler.Events['Laura_texting_study'].completed or day - EventScheduler.Events['Laura_texting_study'].completed >= 3",
+
+            "Player.location == Laura.location and Player.location in [Player.home, Laura.home]",
+
+            "Laura.History.check('studied_with_Player') and not Laura.History.check('studied_with_Player', tracker = 'weekly')",
+
+            "time_index < 3 or approval_check(Laura, threshold = 'talk_late')",
+
+            "Laura.is_in_normal_mood()",
+            "approval_check(Laura, threshold = 'friendship')"]
 
         waiting = True
 
@@ -59,17 +65,23 @@ init python:
         label = "Laura_chatting_training"
 
         conditions = [
-            "Laura.History.check('trained_with_Player')",
-            "not Laura.History.check('trained_with_Player', tracker = 'weekly')",
-            "time_index < 3",
-            "Player.location == Laura.location and Player.location == 'bg_danger'",
+            "renpy.random.random() > 0.9",
+
             "not Laura.History.check('said_no_to_training', tracker = 'recent')",
+            
             "not Laura.History.check('Player_rejected_studying', tracker = 'daily') and not Laura.History.check('Player_rejected_training', tracker = 'daily')",
+            
             "not EventScheduler.Events['Laura_chatting_training'].completed or day - EventScheduler.Events['Laura_chatting_training'].completed >= 5",
             "not EventScheduler.Events['Laura_texting_training'].completed or day - EventScheduler.Events['Laura_texting_training'].completed >= 5",
-            "not Laura.status['miffed'] and not Laura.status['mad'] and not Laura.status['heartbroken'] and not Laura.wants_alone_time",
-            "approval_check(Laura, threshold = 'friendship')",
-            "renpy.random.random() > 0.9"]
+            
+            "Player.location == Laura.location and Player.location == 'bg_danger'",
+
+            "Laura.History.check('trained_with_Player') and not Laura.History.check('trained_with_Player', tracker = 'weekly')",
+
+            "time_index < 3",
+
+            "Laura.is_in_normal_mood()",
+            "approval_check(Laura, threshold = 'friendship')"]
 
         waiting = True
 
@@ -113,20 +125,29 @@ init python:
         label = "Laura_chatting_date"
 
         conditions = [
-            "Laura.location == Player.location",
-            "not Player.date_planned",
+            "renpy.random.random() > 0.9"
+            
             "2 not in Laura.schedule.keys() and 3 not in Laura.schedule.keys()",
             "2 not in Player.schedule.keys() and 3 not in Player.schedule.keys()",
-            "time_index < 2",
+
+            "not Player.date_planned",
+
             "not Laura.History.check('said_no_to_date', tracker = 'recent')",
+            
             "not Laura.History.check('Player_rejected_studying', tracker = 'daily') and not Laura.History.check('Player_rejected_training', tracker = 'daily') and not Laura.History.check('Player_rejected_date', tracker = 'weekly')",
-            "EventScheduler.Events['Laura_first_date'].completed and day - EventScheduler.Events['Laura_first_date'].completed >= 5",
-            "not EventScheduler.Events['Laura_date'].completed or day - EventScheduler.Events['Laura_date'].completed >= 5",
+            
             "not EventScheduler.Events['Laura_chatting_date'].completed or day - EventScheduler.Events['Laura_chatting_date'].completed >= 5",
             "not EventScheduler.Events['Laura_texting_date'].completed or day - EventScheduler.Events['Laura_texting_date'].completed >= 5",
-            "not Laura.status['miffed'] and not Laura.status['mad'] and not Laura.status['heartbroken'] and not Laura.wants_alone_time",
-            "approval_check(Laura, threshold = 'dating')",
-            "renpy.random.random() > 0.9"]
+            
+            "Player.location == Laura.location",
+
+            "day - EventScheduler.Events['Laura_first_date'].completed >= 5",
+            "not EventScheduler.Events['Laura_date'].completed or day - EventScheduler.Events['Laura_date'].completed >= 5",
+
+            "time_index < 2",
+
+            "Laura.is_in_normal_mood()",
+            "approval_check(Laura, threshold = 'dating')"]
 
         waiting = True
 

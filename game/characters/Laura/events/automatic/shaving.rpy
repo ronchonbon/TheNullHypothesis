@@ -4,8 +4,9 @@ init python:
         label = "Laura_shaving"
 
         conditions = [
-            'Laura.pubes_to_shave or Laura.pubes_to_shave is None',
-            'Laura.location in bedrooms']
+            "Laura.pubes_to_shave or Laura.pubes_to_shave is None",
+
+            "Laura.location in bedrooms"]
 
         repeatable = True
         automatic = True

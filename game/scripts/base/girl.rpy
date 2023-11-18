@@ -925,3 +925,15 @@ init -2 python:
                 status = "horny"
 
             return status
+
+        def is_in_normal_mood(self):
+            if self.status["miffed"]:
+                return False
+            elif self.status["mad"]:
+                return False
+            elif self.status["heartbroken"]:
+                return False
+            elif self.wants_alone_time:
+                return False
+
+            return True

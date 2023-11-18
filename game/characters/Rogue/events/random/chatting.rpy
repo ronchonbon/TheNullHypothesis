@@ -4,17 +4,23 @@ init python:
         label = "Rogue_chatting_study"
 
         conditions = [
-            "Rogue.History.check('studied_with_Player')",
-            "not Rogue.History.check('studied_with_Player', tracker = 'weekly')",
-            "time_index < 3 or approval_check(Rogue, threshold = 'talk_late')",
-            "Player.location == Rogue.location and Player.location in [Player.home, Rogue.home]",
+            "renpy.random.random() > 0.75",
+            
             "not Rogue.History.check('said_no_to_study', tracker = 'recent')",
+            
             "not Rogue.History.check('Player_rejected_studying', tracker = 'daily') and not Rogue.History.check('Player_rejected_training', tracker = 'daily')",
-            "not EventScheduler.Events['Rogue_chatting_study'].completed or day - EventScheduler.Events['Rogue_chatting_study'].completed >= 5",
-            "not EventScheduler.Events['Rogue_texting_study'].completed or day - EventScheduler.Events['Rogue_texting_study'].completed >= 5",
-            "not Rogue.status['miffed'] and not Rogue.status['mad'] and not Rogue.status['heartbroken'] and not Rogue.wants_alone_time",
-            "approval_check(Rogue, threshold = 'friendship')",
-            "renpy.random.random() > 0.9"]
+            
+            "not EventScheduler.Events['Rogue_chatting_study'].completed or day - EventScheduler.Events['Rogue_chatting_study'].completed >= 3",
+            "not EventScheduler.Events['Rogue_texting_study'].completed or day - EventScheduler.Events['Rogue_texting_study'].completed >= 3",
+
+            "Player.location == Rogue.location and Player.location in [Player.home, Rogue.home]",
+
+            "Rogue.History.check('studied_with_Player') and not Rogue.History.check('studied_with_Player', tracker = 'weekly')",
+
+            "time_index < 3 or approval_check(Rogue, threshold = 'talk_late')",
+
+            "Rogue.is_in_normal_mood()",
+            "approval_check(Rogue, threshold = 'friendship')"]
 
         waiting = True
 
@@ -59,17 +65,23 @@ init python:
         label = "Rogue_chatting_training"
 
         conditions = [
-            "Rogue.History.check('trained_with_Player')",
-            "not Rogue.History.check('trained_with_Player', tracker = 'weekly')",
-            "time_index < 3",
-            "Player.location == Rogue.location and Player.location == 'bg_danger'",
+            "renpy.random.random() > 0.9",
+
             "not Rogue.History.check('said_no_to_training', tracker = 'recent')",
+            
             "not Rogue.History.check('Player_rejected_studying', tracker = 'daily') and not Rogue.History.check('Player_rejected_training', tracker = 'daily')",
+            
             "not EventScheduler.Events['Rogue_chatting_training'].completed or day - EventScheduler.Events['Rogue_chatting_training'].completed >= 5",
             "not EventScheduler.Events['Rogue_texting_training'].completed or day - EventScheduler.Events['Rogue_texting_training'].completed >= 5",
-            "not Rogue.status['miffed'] and not Rogue.status['mad'] and not Rogue.status['heartbroken'] and not Rogue.wants_alone_time",
-            "approval_check(Rogue, threshold = 'friendship')",
-            "renpy.random.random() > 0.9"]
+            
+            "Player.location == Rogue.location and Player.location == 'bg_danger'",
+
+            "Rogue.History.check('trained_with_Player') and not Rogue.History.check('trained_with_Player', tracker = 'weekly')",
+
+            "time_index < 3",
+
+            "Rogue.is_in_normal_mood()",
+            "approval_check(Rogue, threshold = 'friendship')"]
 
         waiting = True
 
@@ -114,20 +126,29 @@ init python:
         label = "Rogue_chatting_date"
 
         conditions = [
-            "Rogue.location == Player.location",
-            "not Player.date_planned",
+            "renpy.random.random() > 0.9"
+            
             "2 not in Rogue.schedule.keys() and 3 not in Rogue.schedule.keys()",
             "2 not in Player.schedule.keys() and 3 not in Player.schedule.keys()",
-            "time_index < 2",
+
+            "not Player.date_planned",
+
             "not Rogue.History.check('said_no_to_date', tracker = 'recent')",
+            
             "not Rogue.History.check('Player_rejected_studying', tracker = 'daily') and not Rogue.History.check('Player_rejected_training', tracker = 'daily') and not Rogue.History.check('Player_rejected_date', tracker = 'weekly')",
-            "EventScheduler.Events['Rogue_first_date'].completed and day - EventScheduler.Events['Rogue_first_date'].completed >= 5",
-            "not EventScheduler.Events['Rogue_date'].completed or day - EventScheduler.Events['Rogue_date'].completed >= 5",
+            
             "not EventScheduler.Events['Rogue_chatting_date'].completed or day - EventScheduler.Events['Rogue_chatting_date'].completed >= 5",
             "not EventScheduler.Events['Rogue_texting_date'].completed or day - EventScheduler.Events['Rogue_texting_date'].completed >= 5",
-            "not Rogue.status['miffed'] and not Rogue.status['mad'] and not Rogue.status['heartbroken'] and not Rogue.wants_alone_time",
-            "approval_check(Rogue, threshold = 'dating')",
-            "renpy.random.random() > 0.9"]
+            
+            "Player.location == Rogue.location",
+
+            "day - EventScheduler.Events['Rogue_first_date'].completed >= 5",
+            "not EventScheduler.Events['Rogue_date'].completed or day - EventScheduler.Events['Rogue_date'].completed >= 5",
+
+            "time_index < 2",
+
+            "Rogue.is_in_normal_mood()",
+            "approval_check(Rogue, threshold = 'dating')"]
 
         waiting = True
 

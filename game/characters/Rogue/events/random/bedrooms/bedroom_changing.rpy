@@ -4,10 +4,13 @@ init python:
         label = "Rogue_bedroom_changing"
 
         conditions = [
-            "day - EventScheduler.Events['Rogue_bedroom_changing'].completed > 0",
-            "Player.destination == Rogue.home",
-            "Rogue.location == Rogue.home",
-            "Rogue.changing"]
+            "Player.destination == Rogue.home and Rogue.location == Rogue.home",
+
+            "Rogue.changing",
+
+            "day - EventScheduler.Events['Rogue_bedroom_changing'].completed > 1",
+            
+            "Rogue.is_in_normal_mood()"]
 
         traveling = True
 

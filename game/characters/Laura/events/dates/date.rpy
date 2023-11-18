@@ -7,8 +7,10 @@ init python:
 
         conditions = [
             "Laura in Player.date_planned.keys() and 'primary' in Player.date_planned[Laura]",
-            "time_index == 2",
-            "Laura.History.check('went_on_date_with_Player') >= 1"]
+
+            "Laura.History.check('went_on_date_with_Player') >= 1",
+
+            "time_index == 2"]
 
         waiting = True
         traveling = True

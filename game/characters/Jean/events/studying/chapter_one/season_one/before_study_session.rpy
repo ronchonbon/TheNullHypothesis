@@ -5,10 +5,12 @@ init python:
 
         conditions = [
             "chapter == 1 and season == 1",
-            "Player.location in public_locations",
-            "not Jean.History.check('studied_with_Player', tracker = 'season')",
-            "EventScheduler.Events['Jean_back_from_mission'].completed",
+
             "day - EventScheduler.Events['Jean_back_from_mission'].completed > 3",
+
+            "not Jean.History.check('studied_with_Player', tracker = 'season')",
+
+            "Player.location in public_locations",
             "time_index == 2"]
 
         waiting = True
@@ -77,11 +79,13 @@ init python:
 
         conditions = [
             "chapter == 1 and season == 1",
-            "Player.location in public_locations",
+
+            "day - EventScheduler.Events['Jean_before_study_session_part_one'].completed > 0",
+
             "not Jean.History.check('studied_with_Player', tracker = 'season')",
             "Rogue.History.check('studied_with_Player', tracker = 'season') or Laura.History.check('studied_with_Player', tracker = 'season')",
-            "EventScheduler.Events['Jean_before_study_session_part_one'].completed",
-            "day - EventScheduler.Events['Jean_before_study_session_part_one'].completed > 0",
+            
+            "Player.location in public_locations",
             "time_index == 2"]
 
         waiting = True
@@ -173,10 +177,12 @@ init python:
 
         conditions = [
             "chapter == 1 and season == 1",
-            "Player.location in public_locations",
-            "not Jean.History.check('studied_with_Player', tracker = 'season')",
-            "EventScheduler.Events['Jean_before_study_session_part_two'].completed",
+
             "day - EventScheduler.Events['Jean_before_study_session_part_two'].completed > 3",
+
+            "not Jean.History.check('studied_with_Player', tracker = 'season')",
+            
+            "Player.location in public_locations",
             "time_index == 2"]
 
         waiting = True

@@ -4,10 +4,11 @@ init python:
         label = "Laura_gifts_motorcycle_helmet"
 
         conditions = [
-            "'motorcycle_helmet' in Laura.inventory.keys()",
-            "day - Laura.History.check_when('given_motorcycle_helmet') >= 3",
-            "Player.location in public_locations",
-            "Laura.location != Player.location"]
+            "'motorcycle_helmet' in Laura.inventory.keys() and day - Laura.History.check_when('given_motorcycle_helmet') >= 3",
+            
+            "Laura.is_in_normal_mood()",
+
+            "Player.location in public_locations and Laura.location != Player.location"]
 
         waiting = True
         traveling = True

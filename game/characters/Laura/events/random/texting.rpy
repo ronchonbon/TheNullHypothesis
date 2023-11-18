@@ -4,20 +4,28 @@ init python:
         label = "Laura_texting_study"
 
         conditions = [
+            "renpy.random.random() > 0.9",
+            
             "Laura.studying",
+
             "not Laura.timed_text_options",
-            "Laura.History.check('studied_with_Player')",
-            "not Laura.History.check('studied_with_Player', tracker = 'weekly')",
-            "time_index < 3 or approval_check(Laura, threshold = 'talk_late')",
-            "Player.location not in ['hold', Laura.location, Laura.destination]",
-            "Player.destination not in [Laura.location, Laura.destination]",
+
             "not Laura.History.check('said_no_to_study', tracker = 'recent')",
+            
             "not Laura.History.check('Player_rejected_studying', tracker = 'daily') and not Laura.History.check('Player_rejected_training', tracker = 'daily')",
+            
             "not EventScheduler.Events['Laura_chatting_study'].completed or day - EventScheduler.Events['Laura_chatting_study'].completed >= 5",
             "not EventScheduler.Events['Laura_texting_study'].completed or day - EventScheduler.Events['Laura_texting_study'].completed >= 5",
-            "not Laura.status['miffed'] and not Laura.status['mad'] and not Laura.status['heartbroken'] and not Laura.wants_alone_time",
-            "approval_check(Laura, threshold = 'friendship')",
-            "renpy.random.random() > 0.9"]
+                 
+            "Player.location not in ['hold', Laura.location, Laura.destination]",
+            "Player.destination not in [Laura.location, Laura.destination]",
+                   
+            "Laura.History.check('studied_with_Player') and not Laura.History.check('studied_with_Player', tracker = 'weekly')",
+
+            "time_index < 3 or approval_check(Laura, threshold = 'talk_late')",
+            
+            "Laura.is_in_normal_mood()",
+            "approval_check(Laura, threshold = 'friendship')"]
 
         repeatable = True
         automatic = True
@@ -70,20 +78,28 @@ init python:
         label = "Laura_texting_training"
 
         conditions = [
+            "renpy.random.random() > 0.9",
+            
             "Laura.training",
+
             "not Laura.timed_text_options",
-            "Laura.History.check('trained_with_Player')",
-            "not Laura.History.check('trained_with_Player', tracker = 'weekly')",
-            "Player.location not in ['hold', Laura.location, Laura.destination]",
-            "Player.destination not in [Laura.location, Laura.destination]",
-            "time_index < 2",
+
             "not Laura.History.check('said_no_to_training', tracker = 'recent')",
+            
             "not Laura.History.check('Player_rejected_studying', tracker = 'daily') and not Laura.History.check('Player_rejected_training', tracker = 'daily')",
+            
             "not EventScheduler.Events['Laura_chatting_training'].completed or day - EventScheduler.Events['Laura_chatting_training'].completed >= 5",
             "not EventScheduler.Events['Laura_texting_training'].completed or day - EventScheduler.Events['Laura_texting_training'].completed >= 5",
-            "not Laura.status['miffed'] and not Laura.status['mad'] and not Laura.status['heartbroken'] and not Laura.wants_alone_time",
-            "approval_check(Laura, threshold = 'friendship')",
-            "renpy.random.random() > 0.9"]
+            
+            "Player.location not in ['hold', Laura.location, Laura.destination]",
+            "Player.destination not in [Laura.location, Laura.destination]",
+            
+            "Laura.History.check('trained_with_Player') and not Laura.History.check('trained_with_Player', tracker = 'weekly')",
+            
+            "time_index < 3",
+
+            "Laura.is_in_normal_mood()",
+            "approval_check(Laura, threshold = 'friendship')"]
 
         repeatable = True
         automatic = True
@@ -138,22 +154,31 @@ init python:
         label = "Laura_texting_date"
 
         conditions = [
-            "not Laura.timed_text_options",
-            "Player.location not in ['hold', Laura.location, Laura.destination]",
-            "Player.destination not in [Laura.location, Laura.destination]",
+            "renpy.random.random() > 0.9",
+            
             "not Player.date_planned",
             "2 not in Laura.schedule.keys() and 3 not in Laura.schedule.keys()",
             "2 not in Player.schedule.keys() and 3 not in Player.schedule.keys()",
-            "time_index < 2",
+            
+            "not Laura.timed_text_options",
+            
             "not Laura.History.check('said_no_to_date', tracker = 'recent')",
+            
             "not Laura.History.check('Player_rejected_studying', tracker = 'daily') and not Laura.History.check('Player_rejected_training', tracker = 'daily') and not Laura.History.check('Player_rejected_date', tracker = 'weekly')",
-            "EventScheduler.Events['Laura_first_date'].completed and day - EventScheduler.Events['Laura_first_date'].completed >= 5",
-            "not EventScheduler.Events['Laura_date'].completed or day - EventScheduler.Events['Laura_date'].completed >= 5",
+            
             "not EventScheduler.Events['Laura_chatting_date'].completed or day - EventScheduler.Events['Laura_chatting_date'].completed >= 5",
             "not EventScheduler.Events['Laura_texting_date'].completed or day - EventScheduler.Events['Laura_texting_date'].completed >= 5",
-            "not Laura.status['miffed'] and not Laura.status['mad'] and not Laura.status['heartbroken'] and not Laura.wants_alone_time",
-            "approval_check(Laura, threshold = 'dating')",
-            "renpy.random.random() > 0.9"]
+            
+            "Player.location not in ['hold', Laura.location, Laura.destination]",
+            "Player.destination not in [Laura.location, Laura.destination]",
+            
+            "day - EventScheduler.Events['Laura_first_date'].completed >= 5",
+            "not EventScheduler.Events['Laura_date'].completed or day - EventScheduler.Events['Laura_date'].completed >= 5",
+            
+            "time_index < 2",
+
+            "Laura.is_in_normal_mood()",
+            "approval_check(Laura, threshold = 'dating')"]
 
         repeatable = True
         automatic = True

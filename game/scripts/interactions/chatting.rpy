@@ -68,34 +68,29 @@ label chat(Character):
 
     $ chatting = True
 
-    while chatting:        
-        if Character in all_Girls:
-            $ status = Character.get_status()
-        else:
-            $ status = None
-
+    while chatting:
         menu:
-            "[Character.chat_options[0]]" if len(Character.chat_options) >= 1 and not status:
+            "[Character.chat_options[0]]" if len(Character.chat_options) >= 1 and Character.is_in_normal_mood():
                 call expression f"{Character.tag}_chatting" pass (Character.chat_options[0]) from _call_expression_116
-            "[Character.chat_options[0]] (locked)" if len(Character.chat_options) >= 1 and status:
+            "[Character.chat_options[0]] (locked)" if len(Character.chat_options) >= 1 and not Character.is_in_normal_mood():
                 pass
-            "[Character.chat_options[1]]" if len(Character.chat_options) >= 2 and not status:
+            "[Character.chat_options[1]]" if len(Character.chat_options) >= 2 and Character.is_in_normal_mood():
                 call expression f"{Character.tag}_chatting" pass (Character.chat_options[1]) from _call_expression_117
-            "[Character.chat_options[1]] (locked)" if len(Character.chat_options) >= 2 and status:
+            "[Character.chat_options[1]] (locked)" if len(Character.chat_options) >= 2 and not Character.is_in_normal_mood():
                 pass
-            "[Character.chat_options[2]]" if len(Character.chat_options) >= 3 and not status:
+            "[Character.chat_options[2]]" if len(Character.chat_options) >= 3 and Character.is_in_normal_mood():
                 call expression f"{Character.tag}_chatting" pass (Character.chat_options[2]) from _call_expression_118
-            "[Character.chat_options[2]] (locked)" if len(Character.chat_options) >= 3 and status:
+            "[Character.chat_options[2]] (locked)" if len(Character.chat_options) >= 3 and not Character.is_in_normal_mood():
                 pass
-            "[Character.chat_options[3]]" if len(Character.chat_options) >= 4 and not status:
+            "[Character.chat_options[3]]" if len(Character.chat_options) >= 4 and Character.is_in_normal_mood():
                 call expression f"{Character.tag}_chatting" pass (Character.chat_options[3]) from _call_expression_119
-            "[Character.chat_options[3]] (locked)" if len(Character.chat_options) >= 4 and status:
+            "[Character.chat_options[3]] (locked)" if len(Character.chat_options) >= 4 and not Character.is_in_normal_mood():
                 pass
-            "[Character.chat_options[4]]" if len(Character.chat_options) >= 5 and not status:
+            "[Character.chat_options[4]]" if len(Character.chat_options) >= 5 and Character.is_in_normal_mood():
                 call expression f"{Character.tag}_chatting" pass (Character.chat_options[4]) from _call_expression_120
-            "[Character.chat_options[4]] (locked)" if len(Character.chat_options) >= 5 and status:
+            "[Character.chat_options[4]] (locked)" if len(Character.chat_options) >= 5 and not Character.is_in_normal_mood():
                 pass
-            "Tell her you would like to date. . ." if not status and Character in Partners and Character.History.check("told_wants_multiple_partners"):
+            "Tell her you would like to date. . ." if Character.is_in_normal_mood() and Character in Partners and Character.History.check("told_wants_multiple_partners"):
                 menu:
                     "Tell her you would like to date. . ."
                     "[Rogue.name]" if Character != Rogue and Rogue not in Character.knows_about:
@@ -106,15 +101,15 @@ label chat(Character):
                         $ EventScheduler.Events[f"{Character.tag}_disclosing_wants_to_date_Jean"].start()
                     "Back":
                         pass
-            "Tell her you would like to date. . . (locked)" if status and Character in Partners and Character.History.check("told_wants_multiple_partners"):
+            "Tell her you would like to date. . . (locked)" if Character in Partners and Character.History.check("told_wants_multiple_partners") and not Character.is_in_normal_mood():
                 pass
-            "Tell her you would like to date other people" if not status and Character in Partners and not Character.History.check("told_wants_multiple_partners"):
+            "Tell her you would like to date other people" if Character.is_in_normal_mood() and Character in Partners and not Character.History.check("told_wants_multiple_partners"):
                 $ EventScheduler.Events[f"{Character.tag}_disclosing_wants_to_date_others"].start()
-            "Tell her you would like to date other people (locked)" if status and Character in Partners and not Character.History.check("told_wants_multiple_partners"):
+            "Tell her you would like to date other people (locked)" if Character in Partners and not Character.History.check("told_wants_multiple_partners") and not Character.is_in_normal_mood():
                 pass
-            "Ask her to change her pubic hair" if not status and Character.History.check("seen_pussy") and not Character.customizable_pubes:
+            "Ask her to change her pubic hair" if Character.is_in_normal_mood() and Character.History.check("seen_pussy") and not Character.customizable_pubes:
                 call expression f"{Character.tag}_pubic_hair_discussion" from _call_expression_121
-            "Ask her to change her pubic hair (locked)" if status and Character.History.check("seen_pussy") and not Character.customizable_pubes:
+            "Ask her to change her pubic hair (locked)" if and Character.History.check("seen_pussy") and not Character.customizable_pubes and not Character.is_in_normal_mood():
                 pass
             "Ask on date" if Character in all_Girls and Player.cash >= 40 and not Player.date_planned and 2 not in Player.schedule.keys() and 3 not in Player.schedule.keys() and time_index < 3 and not Character.History.check("said_no_to_date", tracker = "daily") and Character.History.check("went_on_date_with_Player"):
                 call expression f"{Character.tag}_ask_on_date" from _call_expression_122
@@ -201,7 +196,7 @@ label chat(Character):
             #                     call expression f"{Character.tag}_busy" from _call_expression_139
 
             #         $ Character.History.update("asked_how_are_you")
-            "What do you think about. . . ?" if not status and Character in all_Girls:
+            "What do you think about. . . ?" if Character in all_Girls and Character.is_in_normal_mood():
                 menu:
                     "What do you think about. . . ?"
                     "[Rogue.name]?" if Character != Rogue and Rogue.History.check("met"):
@@ -212,7 +207,7 @@ label chat(Character):
                         call expression f"{Character.tag}_ask_about_Jean" from _call_expression_142
                     "Never mind.":
                         pass
-            "What do you think about. . . ? (locked)" if status and Character in all_Girls:
+            "What do you think about. . . ? (locked)" if Character in all_Girls and not Character.is_in_normal_mood():
                 pass
             "Dismiss" if Character.location == Player.location and (Character in all_Girls or Character == Kurt):
                 call dismiss(Character) from _call_dismiss

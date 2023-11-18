@@ -4,8 +4,9 @@ init python:
         label = "Rogue_shaving"
 
         conditions = [
-            'Rogue.pubes_to_shave or Rogue.pubes_to_shave is None',
-            'Rogue.location in bedrooms']
+            "Rogue.pubes_to_shave or Rogue.pubes_to_shave is None",
+
+            "Rogue.location in bedrooms"]
 
         repeatable = True
         automatic = True

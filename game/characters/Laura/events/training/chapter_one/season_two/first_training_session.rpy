@@ -5,7 +5,9 @@ init python:
 
         conditions = [
             "chapter == 1 and season == 2",
+            
             "not Laura.History.check('trained_with_Player', tracker = 'season')",
+
             "Player.training"]
 
         priority = 99

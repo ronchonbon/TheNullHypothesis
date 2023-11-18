@@ -5,10 +5,12 @@ init python:
 
         conditions = [
             "day > 4",
+            
             "((Player.location in bedrooms or Player.location in ['bg_girls_hallway', 'bg_hallway', 'bg_mall']) and Player.destination in ['bg_campus', 'bg_classroom', 'bg_danger', 'bg_pool', 'bg_lockers']) or ((Player.destination in bedrooms or Player.destination in ['bg_girls_hallway', 'bg_hallway', 'bg_mall']) and Player.location in ['bg_campus', 'bg_classroom', 'bg_danger', 'bg_pool', 'bg_lockers'])",
+            
             "not Party",
-            "time_index < 3",
-            "weather != 'rain'"]
+            
+            "time_index < 3 and weather != 'rain'"]
 
         traveling = True
 

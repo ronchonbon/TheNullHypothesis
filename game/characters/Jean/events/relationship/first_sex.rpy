@@ -5,11 +5,14 @@ init python:
 
         conditions = [
             "Jean in Partners",
+
             "approval_check(Jean, threshold = Jean_thresholds['sex'])",
-            "EventScheduler.Events['Jean_penultimate_quirk'].completed",
+            
             "day - EventScheduler.Events['Jean_penultimate_quirk'].completed >= 3",
-            "Player.location == Player.home",
-            "not Present"]
+
+            "Player.location == Player.home and not Present",
+
+            "Jean.is_in_normal_mood()"]
             
         sleeping = True
 

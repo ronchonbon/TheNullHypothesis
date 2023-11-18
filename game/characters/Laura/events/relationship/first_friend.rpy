@@ -5,8 +5,10 @@ init python:
 
         conditions = [
             "QuestPool.Quests['Laura_friendship_Quest'].completed",
-            "Player.location == Player.home",
-            "not Present"]
+
+            "Player.location == Player.home and not Present",
+
+            "Laura.is_in_normal_mood()"]
 
         waking = True
 
@@ -218,9 +220,12 @@ init python:
 
         conditions = [
             "EventScheduler.Events['Laura_first_friend_part_one'].completed",
-            "Laura.location != Player.location",
-            "not get_Present(location = Player.destination)",
-            "time_index >= 3"]
+            
+            "Laura.location != Player.location and not get_Present(location = Player.destination)",
+            
+            "time_index >= 3",
+
+            "Laura.is_in_normal_mood()"]
 
         waiting = True
         traveling = True
@@ -377,13 +382,17 @@ init python:
         label = "Laura_first_friend_part_three"
 
         conditions = [
-            "EventScheduler.Events['Laura_first_friend_part_two'].completed",
             "day - EventScheduler.Events['Laura_first_friend_part_two'].completed > 2",
+
             "approval_check(Laura, threshold = 'dating')",
+            
             "'bg_shower' not in Player.destination",
             "Player.destination not in bedrooms or 'bg_shower' not in Player.location",
             "not get_Present(location = Player.destination)",
-            "time_index >= 3"]
+            
+            "time_index >= 3",
+
+            "Laura.is_in_normal_mood()"]
 
         traveling = True
 

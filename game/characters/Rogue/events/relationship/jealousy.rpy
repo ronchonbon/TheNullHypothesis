@@ -5,9 +5,13 @@ init python:
 
         conditions = [
             "Rogue in Partners",
+
             "not Rogue.History.check('told_wants_multiple_partners')",
+
             "not EventScheduler.Events['Rogue_jealousy_flirted'].completed",
+
             "Rogue.History.check('cheated_on_date') or Rogue.History.check('cheated_on_relationship')",
+            
             "Rogue.location != Player.location"]
             
         sleeping = True
@@ -214,11 +218,14 @@ init python:
 
         conditions = [
             "Rogue in Partners",
+
             "not Rogue.History.check('told_wants_multiple_partners')",
+            
             "not EventScheduler.Events['Rogue_jealousy_went_on_date'].completed",
+            
             "Rogue.History.check('cheated_on_flirting_in_public') >= 3 and Rogue.History.permanent['cheated_on_flirting_in_public'][-3] > EventScheduler.Events['Rogue_boyfriend'].completed",
-            "Rogue.location != Player.location",
-            "Player.location == Player.home"]
+            
+            "Rogue.location != Player.location and Player.location == Player.home"]
             
         waking = True
 
@@ -347,9 +354,10 @@ init python:
 
         conditions = [
             "EventScheduler.Events['Rogue_jealousy_went_on_date'].completed or EventScheduler.Events['Rogue_jealousy_flirted'].completed",
-            "not Rogue.status['mad']",
-            "Player.location == Player.home",
-            "not Present"]
+            
+            "Rogue.is_in_normal_mood()",
+            
+            "Player.location == Player.home and not Present"]
             
         waking = True
 
@@ -464,8 +472,11 @@ init python:
 
         conditions = [
             "Rogue in Partners",
+            
             "Rogue.History.check('told_wants_multiple_girlfriend')",
+            
             "(Rogue.History.check_when('cheated_on_date') > max(Rogue.History.check_when('told_wants_multiple_partners'), EventScheduler.Events['Rogue_jealousy_went_on_date_anyways'].completed, EventScheduler.Events['Rogue_jealousy_flirted_anyways'].completed)) or (Rogue.History.check_when('cheated_on_relationship') > max(Rogue.History.check_when('told_wants_multiple_partners'), EventScheduler.Events['Rogue_jealousy_went_on_date_anyways'].completed, EventScheduler.Events['Rogue_jealousy_flirted_anyways'].completed))",
+            
             "Rogue.location != Player.location"]
             
         sleeping = True
@@ -601,10 +612,12 @@ init python:
 
         conditions = [
             "Rogue in Partners",
+            
             "Rogue.History.check('told_wants_multiple_girlfriend')",
+            
             "Rogue.History.check('cheated_on_flirting_in_public') >= 3 and Rogue.History.permanent['cheated_on_flirting_in_public'][-3] > max(Rogue.History.check_when('told_wants_multiple_partners'), EventScheduler.Events['Rogue_jealousy_went_on_date_anyways'].completed, EventScheduler.Events['Rogue_jealousy_flirted_anyways'].completed)",
-            "Rogue.location != Player.location",
-            "Player.location == Player.home"]
+            
+            "Rogue.location != Player.location and Player.location == Player.home"]
             
         waking = True
 
@@ -685,9 +698,10 @@ init python:
 
         conditions = [
             "(EventScheduler.Events['Rogue_jealousy_went_on_date_anyways'].completed and EventScheduler.Events['Rogue_jealousy_went_on_date_anyways'].completed > EventScheduler.Events['Rogue_jealousy_follow_up_again'].completed) or (EventScheduler.Events['Rogue_jealousy_flirted_anyways'].completed and EventScheduler.Events['Rogue_jealousy_flirted_anyways'].completed > EventScheduler.Events['Rogue_jealousy_follow_up_again'].completed)",
-            "not Rogue.status['mad']",
-            "Player.location == Player.home",
-            "not Present"]
+            
+            "Rogue.is_in_normal_mood()",
+            
+            "Player.location == Player.home and not Present"]
             
         waking = True
 

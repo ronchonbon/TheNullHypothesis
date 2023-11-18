@@ -4,11 +4,14 @@ init python:
         label = "Laura_bedroom_masturbating"
 
         conditions = [
-            "day - EventScheduler.Events['Laura_bedroom_masturbating'].completed > 0",
+            "Player.destination == Laura.home and Laura.location == Laura.home",
+
             "EventScheduler.Events['Rogue_Laura_asks_about_masturbation'].completed",
-            "Player.destination == Laura.home",
-            "Laura.location == Laura.home",
-            "Laura.masturbating"]
+            "Laura.masturbating",
+
+            "day - EventScheduler.Events['Laura_bedroom_masturbating'].completed > 1",
+            
+            "Laura.is_in_normal_mood()"]
 
         traveling = True
 

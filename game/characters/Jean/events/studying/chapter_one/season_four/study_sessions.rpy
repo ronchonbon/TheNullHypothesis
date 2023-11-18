@@ -5,7 +5,9 @@ init python:
 
         conditions = [
             "chapter == 1 and season == 4",
+
             "Jean.History.check('trained_with_Player', tracker = 'season') >= 1",
+            
             "Player.studying == Jean and Jean.studying"]
 
         priority = 99

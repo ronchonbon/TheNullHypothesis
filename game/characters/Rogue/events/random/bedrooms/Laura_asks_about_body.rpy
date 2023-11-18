@@ -5,12 +5,24 @@ init python:
 
         conditions = [
             "Player.destination == Rogue.home",
+            
             "Rogue.location == Rogue.home and Laura.location == Rogue.home",
-            "EventScheduler.Events['Laura_first_friend_part_two'].completed"]
+            
+            "EventScheduler.Events['Laura_first_friend_part_two'].completed",
+
+            "Rogue.in_normal_mood()"]
 
         traveling = True
 
-        return EventClass(label, conditions, traveling = traveling)
+        markers = {
+            Rogue.home: [
+                "Rogue.location == Rogue.home and Laura.location == Rogue.home",
+                
+                "EventScheduler.Events['Laura_first_friend_part_two'].completed",
+
+                "Rogue.in_normal_mood()"]}
+
+        return EventClass(label, conditions, traveling = traveling, markers = markers)
 
 label Rogue_Laura_asks_about_body:
     $ ongoing_Event = True

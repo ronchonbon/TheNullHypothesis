@@ -1,4 +1,4 @@
-init -1:
+init -4:
 
     default quick_location_1 = False
     default quick_location_2 = False
@@ -60,24 +60,24 @@ init -1:
         
     default available_locations = {}
 
-    define marked_locations = [
-        "bg_campus",
-        "bg_classroom",
-        "bg_danger",
-        "bg_entrance",
-        "bg_girls_hallway",
-        "bg_hallway",
-        "bg_Jean",
-        "bg_Kurt",
-        "bg_Laura",
-        "bg_mall",
-        "bg_movies",
-        "bg_Player",
-        "bg_pool",
-        "bg_Rogue",
-        "bg_lockers",
-        "bg_study",
-        "bg_Charles"]
+    default marked_locations = {
+        "bg_campus": [],
+        "bg_classroom": [],
+        "bg_danger": [],
+        "bg_entrance": [],
+        "bg_girls_hallway": [],
+        "bg_hallway": [],
+        "bg_Jean": [],
+        "bg_Kurt": [],
+        "bg_Laura": [],
+        "bg_mall": [],
+        "bg_movies": [],
+        "bg_Player": [],
+        "bg_pool": [],
+        "bg_Rogue": [],
+        "bg_lockers": [],
+        "bg_study": [],
+        "bg_Charles": []}
 
 init -1 python:
 
@@ -904,7 +904,7 @@ screen map_screen():
     if map_to_show:
         if current_subgroup:
             for possible_location in location_groups[current_group][current_subgroup]:
-                if possible_location in marked_locations:
+                if possible_location in marked_locations.keys():
                     button anchor (0.5, 0.5):
                         selected Player.location == possible_location
 
@@ -1018,6 +1018,9 @@ screen map_screen():
 
                                 if Player.location == possible_location:
                                     add At(f"images/interface/phone/icons/Player_{Player.background_color}.webp", map_icon) align (0.5, 0.5)
+
+                            if marked_locations[possible_location]:
+                                add At("images/interface/Player_menu/event_alert.webp", phone_icon) anchor (0.5, 0.0) pos (0.525, 0.25)
                         elif possible_location in ["bg_mall"]:
                             vbox anchor (0.5, 1.0) pos (0.55, 0.9) xysize (int(44*2*interface_sampling), int(100*2*interface_sampling)):
                                 for C in all_Characters:
@@ -1028,6 +1031,9 @@ screen map_screen():
 
                                 if Player.location == possible_location:
                                     add At(f"images/interface/phone/icons/Player_{Player.background_color}.webp", map_icon) align (0.5, 0.5)
+
+                            if marked_locations[possible_location]:
+                                add At("images/interface/Player_menu/event_alert.webp", phone_icon) anchor (0.5, 0.0) pos (0.55, 0.25)
                         else:
                             hbox anchor (0.5, 1.0) pos (0.5, 0.95):
                                 if possible_location in bedrooms:
@@ -1045,3 +1051,6 @@ screen map_screen():
 
                                 if Player.location == possible_location:
                                     add At(f"images/interface/phone/icons/Player_{Player.background_color}.webp", map_icon) align (0.5, 0.5)
+
+                            if marked_locations[possible_location]:
+                                add At("images/interface/Player_menu/event_alert.webp", phone_icon) anchor (0.5, 0.0) pos (0.5, 0.2)

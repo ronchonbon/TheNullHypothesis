@@ -5,10 +5,14 @@ init python:
 
         conditions = [
             "Rogue in Partners",
+
             "approval_check(Rogue, threshold = [275, 275])",
+
             "day - EventScheduler.Events['Rogue_boyfriend'].completed >= 3",
-            "Player.location == Player.home",
-            "not Present"]
+
+            "Player.location == Player.home and not Present",
+
+            "Rogue.is_in_normal_mood()"]
             
         waking = True
 

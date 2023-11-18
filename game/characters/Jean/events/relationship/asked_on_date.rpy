@@ -5,8 +5,12 @@ init python:
 
         conditions = [
             "QuestPool.Quests['Jean_friendship_Quest'].completed",
+
             "not get_Present(location = Player.destination)",
-            "time_index >= 3"]
+            
+            "time_index >= 3",
+
+            "Jean.is_in_normal_mood()"]
 
         waiting = True
         traveling = True

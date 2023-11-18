@@ -5,8 +5,10 @@ init python:
 
         conditions = [
             "Jean in Player.date_planned.keys() and 'primary' in Player.date_planned[Jean]",
-            "time_index == 2",
-            "Jean.History.check('went_on_date_with_Player') >= 1"]
+
+            "Jean.History.check('went_on_date_with_Player') >= 1",
+
+            "time_index == 2"]
 
         waiting = True
         traveling = True
