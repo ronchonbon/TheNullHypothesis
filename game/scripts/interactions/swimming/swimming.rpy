@@ -68,6 +68,16 @@ label actually_swim(swimming_Characters):
 
         call set_Character_Outfits(swimming_Characters, instant = False) from _call_set_Character_Outfits_18
 
+    $ temp_swimming_Characters = swimming_Characters[:]
+
+    while temp_swimming_Characters:
+        if temp_swimming_Characters[0].desire <= 50:
+            call change_Girl_stat(temp_swimming_Characters[0], "desire", 5) from _call_change_Girl_stat_1021
+        else:
+            call change_Girl_stat(temp_swimming_Characters[0], "desire", 60 - temp_swimming_Characters[0].desire) from _call_change_Girl_stat_1022
+
+        $ temp_swimming_Characters.remove(temp_swimming_Characters[0])
+
     if black_screen:
         $ fade_in_from_black(0.4)
 

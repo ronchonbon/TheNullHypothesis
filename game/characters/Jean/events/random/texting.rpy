@@ -266,6 +266,7 @@ label Jean_texting_summon_horny_response:
         
         hide screen phone_screen
 
+        call remove_everyone_but(Jean, location = Jean.location, fade = False)
         call set_the_scene(location = Jean.location) from _call_set_the_scene_41
 
         $ Jean.change_face("sexy", blush = 2)

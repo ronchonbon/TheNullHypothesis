@@ -1069,10 +1069,10 @@ label Jean_flirt_eb:
 
         $ Jean.change_face("sexy", blush = 2) 
 
-        ch_Player "That's it?"
-        ch_Jean "What, you thought a single 'please' would get you any more than that?"
+        if Player.stamina and Jean.stamina and len(Present) == 1:
+            ch_Player "That's it?"
+            ch_Jean "What, you thought a single 'please' would get you any more than that?"
 
-        if Player.stamina and Jean.stamina:
             menu:
                 extend ""
                 "Beg to make out with her":
@@ -1108,13 +1108,14 @@ label Jean_flirt_eb:
         $ Jean.change_face("kiss2", blush = 1) 
 
         "She pulls you in tight, and presses her lips against yours."
-        "Her tongue starts getting involved, and she doesn't seem to be slowing down at all."
 
-        call change_Girl_stat(Jean, "desire", 0) from _call_change_Girl_stat_1247 
+        if Player.stamina and Jean.stamina and len(Present) == 1:
+            "Her tongue starts getting involved, and she doesn't seem to be slowing down at all."
 
-        $ Jean.change_face("kiss2", blush = 2) 
+            call change_Girl_stat(Jean, "desire", 0) from _call_change_Girl_stat_1247 
 
-        if Player.stamina and Jean.stamina:
+            $ Jean.change_face("kiss2", blush = 2) 
+
             menu:
                 extend ""
                 "Make out with her":
@@ -1312,29 +1313,30 @@ label Jean_flirt_i:
 
         $ Jean.change_face("kiss2", blush = 2) 
 
-        "She holds you tight against her, and starts running her hands across your body." 
+        if Player.stamina and Jean.stamina and len(Present) == 1:
+            "She holds you tight against her, and starts running her hands across your body." 
 
-        call change_Girl_stat(Jean, "desire", 0) from _call_change_Girl_stat_1258
+            call change_Girl_stat(Jean, "desire", 0) from _call_change_Girl_stat_1258
 
-        "She starts involving her tongue, and doesn't seem intent on slowing down at all."
+            "She starts involving her tongue, and doesn't seem intent on slowing down at all."
 
-        menu:
-            extend ""
-            "Make out with her":
-                call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1259
-                call change_Girl_stat(Jean, "desire", 0) from _call_change_Girl_stat_1260
+            menu:
+                extend ""
+                "Make out with her":
+                    call change_Girl_stat(Jean, "love", 2) from _call_change_Girl_stat_1259
+                    call change_Girl_stat(Jean, "desire", 5) from _call_change_Girl_stat_1260
+                    
+                    $ Jean.History.update("hookup")
+                    $ Jean.History.update("makeout")
 
-                $ Jean.History.update("hookup")
-                $ Jean.History.update("makeout")
+                    $ Action = ActionClass("makeout", Player, Jean)
 
-                $ Action = ActionClass("makeout", Player, Jean)
+                    call start_Action(Action) from _call_start_Action_14
+                    call screen Action_screen(automatic = True)
+                "Pull away":
+                    $ Jean.change_face("confused1", mouth = "lipbite", blush = 1) 
 
-                call start_Action(Action) from _call_start_Action_14
-                call screen Action_screen(automatic = True)
-            "Pull away":
-                $ Jean.change_face("confused1", mouth = "lipbite", blush = 1) 
-
-                ch_Jean "What? Not in the mood?"
+                    ch_Jean "What? Not in the mood?"
     else:
         $ Jean.change_face("surprised2")
 

@@ -908,13 +908,8 @@ label continue_Actions:
                             unique_Actions.append(A)
 
         if ongoing_Actions:
-            $ temp_sex_Characters = Present[:]
-
-            call sex_faces(temp_sex_Characters) from _call_sex_faces
-
-            $ temp_sex_Characters = Present[:]
-
-            call sex_talk(temp_sex_Characters) from _call_sex_talk
+            $ sex_faces(Present[:])
+            $ sex_talk(Present[:])
 
             $ renpy.random.shuffle(unique_Actions)
 

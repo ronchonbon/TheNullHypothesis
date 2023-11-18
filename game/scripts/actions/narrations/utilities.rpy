@@ -1,92 +1,98 @@
-label sex_faces(Characters):
-    while Characters:
-        if not Characters[0].mouth_Actions:
-            if Characters[0] in [Rogue]:
-                if Characters[0].desire >= 90:
-                    $ Characters[0].change_face("worried2", mouth = "lipbite", blush = 3)
-                elif Characters[0].desire >= 75:
-                    $ Characters[0].change_face("worried1", mouth = "lipbite", blush = 3)
-                elif Characters[0].desire >= 50:
-                    $ Characters[0].change_face("sexy", blush = 2)
+init python:
+
+    def sex_faces(Characters):
+        global Rogue
+        global Laura
+        global Jean
+
+        for C in Characters:
+            if not C.mouth_Actions:
+                if C in [Rogue]:
+                    if C.desire >= 90:
+                        C.change_face("worried2", mouth = "lipbite", blush = 3)
+                    elif C.desire >= 75:
+                        C.change_face("worried1", mouth = "lipbite", blush = 3)
+                    elif C.desire >= 50:
+                        C.change_face("sexy", blush = 2)
+                    else:
+                        C.change_face("worried1", mouth = "smirk", blush = 1)
+                elif C in [Laura]:
+                    if C.desire >= 90:
+                        C.change_face("worried2", mouth = "lipbite", blush = 3)
+                    elif C.desire >= 75:
+                        C.change_face("sly", mouth = "lipbite", blush = 3)
+                    elif C.desire >= 50:
+                        C.change_face("sexy", blush = 2)
+                    else:
+                        C.change_face("sly", blush = 1)
+                elif C in [Jean]:
+                    if C.desire >= 90:
+                        C.change_face("worried2", mouth = "lipbite", blush = 3)
+                    elif C.desire >= 75:
+                        C.change_face("worried1", mouth = "lipbite", blush = 3)
+                    elif C.desire >= 50:
+                        C.change_face("sexy", blush = 2)
+                    else:
+                        C.change_face("confused1", mouth = "smirk", blush = 1)
+
+        return
+
+    def sex_talk(Characters):
+        global Rogue
+        global Laura
+        global Jean
+
+        for C in Characters:
+            if C in [Rogue]:
+                if C.mouth_Actions and ((C.mouth_Actions[0].animation_type == "blowjob" and C.mouth_Actions[0].mode == 3) or C.mouth_Actions[0].animation_type == "deepthroat"):
+                    dice_roll = renpy.random.randint(1, 2)
+
+                    if dice_roll == 1:
+                        renpy.say(C.voice, "*gag*")
+                    elif dice_roll == 2:
+                        renpy.say(C.voice, "*cough*")
                 else:
-                    $ Characters[0].change_face("worried1", mouth = "smirk", blush = 1)
-            elif Characters[0] in [Laura]:
-                if Characters[0].desire >= 90:
-                    $ Characters[0].change_face("worried2", mouth = "lipbite", blush = 3)
-                elif Characters[0].desire >= 75:
-                    $ Characters[0].change_face("sly", mouth = "lipbite", blush = 3)
-                elif Characters[0].desire >= 50:
-                    $ Characters[0].change_face("sexy", blush = 2)
+                    dice_roll = renpy.random.randint(1, 3)
+
+                    if dice_roll == 1:
+                        renpy.say(C.voice, "*gasp*")
+                    elif dice_roll == 2:
+                        renpy.say(C.voice, "Oh lord. . . [C.Player_petname], please don't stop.")
+                    elif dice_roll == 3:
+                        renpy.say(C.voice, "Mmmmh. . .")
+            elif C in [Laura]:
+                if C.mouth_Actions and C.mouth_Actions[0].animation_type in ["blowjob", "deepthroat"]:
+                    dice_roll = renpy.random.randint(1, 2)
+
+                    if dice_roll == 1:
+                        renpy.say(C.voice, "*gag*")
+                    elif dice_roll == 2:
+                        renpy.say(C.voice, "*cough*")
                 else:
-                    $ Characters[0].change_face("sly", blush = 1)
-            elif Characters[0] in [Jean]:
-                if Characters[0].desire >= 90:
-                    $ Characters[0].change_face("worried2", mouth = "lipbite", blush = 3)
-                elif Characters[0].desire >= 75:
-                    $ Characters[0].change_face("worried1", mouth = "lipbite", blush = 3)
-                elif Characters[0].desire >= 50:
-                    $ Characters[0].change_face("sexy", blush = 2)
+                    dice_roll = renpy.random.randint(1, 3)
+
+                    if dice_roll == 1:
+                        renpy.say(C.voice, "{i}Grrrrrr{/i}. . .")
+                    elif dice_roll == 2:
+                        renpy.say(C.voice, "Hnnng. . .")
+                    elif dice_roll == 3:
+                        renpy.say(C.voice, "Hmmm. . .")
+            elif C in [Jean]:
+                if C.mouth_Actions and C.mouth_Actions[0].animation_type in ["blowjob", "deepthroat"]:
+                    dice_roll = renpy.random.randint(1, 2)
+
+                    if dice_roll == 1:
+                        renpy.say(C.voice, "*gag*")
+                    elif dice_roll == 2:
+                        renpy.say(C.voice, "*cough*")
                 else:
-                    $ Characters[0].change_face("confused1", mouth = "smirk", blush = 1)
+                    dice_roll = renpy.random.randint(1, 3)
 
-        $ Characters.remove(Characters[0])
+                    if dice_roll == 1:
+                        renpy.say(C.voice, "Oh. . .")
+                    elif dice_roll == 2:
+                        renpy.say(C.voice, "*gasp*")
+                    elif dice_roll == 3:
+                        renpy.say(C.voice, "Mmmm, [C.Player_petname], keep going.")
 
-    return
-
-label sex_talk(Characters):
-    while Characters:
-        if Characters[0] in [Rogue]:
-            if Characters[0].mouth_Actions and ((Characters[0].mouth_Actions[0].animation_type == "blowjob" and Characters[0].mouth_Actions[0].mode == 3) or Characters[0].mouth_Actions[0].animation_type == "deepthroat"):
-                $ dice_roll = renpy.random.randint(1, 2)
-
-                if dice_roll == 1:
-                    $ renpy.say(Characters[0].voice, "*gag*")
-                elif dice_roll == 2:
-                    $ renpy.say(Characters[0].voice, "*cough*")
-            else:
-                $ dice_roll = renpy.random.randint(1, 3)
-
-                if dice_roll == 1:
-                    $ renpy.say(Characters[0].voice, "*gasp*")
-                elif dice_roll == 2:
-                    $ renpy.say(Characters[0].voice, "Oh lord. . . [Characters[0].Player_petname], please don't stop.")
-                elif dice_roll == 3:
-                    $ renpy.say(Characters[0].voice, "Mmmmh. . .")
-        elif Characters[0] in [Laura]:
-            if Characters[0].mouth_Actions and Characters[0].mouth_Actions[0].animation_type in ["blowjob", "deepthroat"]:
-                $ dice_roll = renpy.random.randint(1, 2)
-
-                if dice_roll == 1:
-                    $ renpy.say(Characters[0].voice, "*gag*")
-                elif dice_roll == 2:
-                    $ renpy.say(Characters[0].voice, "*cough*")
-            else:
-                $ dice_roll = renpy.random.randint(1, 3)
-
-                if dice_roll == 1:
-                    $ renpy.say(Characters[0].voice, "{i}Grrrrrr{/i}. . .")
-                elif dice_roll == 2:
-                    $ renpy.say(Characters[0].voice, "Hnnng. . .")
-                elif dice_roll == 3:
-                    $ renpy.say(Characters[0].voice, "Hmmm. . .")
-        elif Characters[0] in [Jean]:
-            if Characters[0].mouth_Actions and Characters[0].mouth_Actions[0].animation_type in ["blowjob", "deepthroat"]:
-                $ dice_roll = renpy.random.randint(1, 2)
-
-                if dice_roll == 1:
-                    $ renpy.say(Characters[0].voice, "*gag*")
-                elif dice_roll == 2:
-                    $ renpy.say(Characters[0].voice, "*cough*")
-            else:
-                $ dice_roll = renpy.random.randint(1, 3)
-
-                if dice_roll == 1:
-                    $ renpy.say(Characters[0].voice, "Oh. . .")
-                elif dice_roll == 2:
-                    $ renpy.say(Characters[0].voice, "*gasp*")
-                elif dice_roll == 3:
-                    $ renpy.say(Characters[0].voice, "Mmmm, [Characters[0].Player_petname], keep going.")
-            
-        $ Characters.remove(Characters[0])
-
-    return
+        return
