@@ -242,13 +242,13 @@ label set_Character_Outfits(Characters = None, instant = True):
                 else:
                     call change_Outfit(temp_Outfit_Characters[0], Outfit, instant = True) from _call_change_Outfit_45
 
-                    if temp_Outfit_Characters[0].showering and Player.location != temp_Outfit_Characters[0].destination:
-                        if renpy.random.random() > 0.5:
-                            $ temp_Outfit_Characters[0].showering = False
-                            $ temp_Outfit_Characters[0].wet = True
-
                 if temp_Outfit_Characters[0].showering and temp_Outfit_Characters[0].location == "nearby":
                     call try_on(temp_Outfit_Characters[0], temp_Outfit_Characters[0].Wardrobe.Clothes["towel"], instant = True) from _call_try_on_15
+                
+                if temp_Outfit_Characters[0].showering and Player.location not in [temp_Outfit_Characters[0].location, temp_Outfit_Characters[0].destination]:
+                    if renpy.random.random() > 0.5:
+                        $ temp_Outfit_Characters[0].showering = False
+                        $ temp_Outfit_Characters[0].wet = True
             elif temp_Outfit_Characters[0] in all_NPCs:
                 if temp_Outfit_Characters[0] == Kurt:
                     if temp_Outfit_Characters[0].training:

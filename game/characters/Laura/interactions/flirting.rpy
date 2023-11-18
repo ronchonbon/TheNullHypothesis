@@ -1112,12 +1112,12 @@ label Laura_flirt_eb:
 
         "After a quick kiss, you pull away." 
 
-        $ Laura.change_face("angry1", mouth = "lipbite", blush = 2) 
+        if Player.stamina and Laura.stamina and len(Present) == 1:
+            $ Laura.change_face("angry1", mouth = "lipbite", blush = 2) 
 
-        ch_Laura "That's it?"
-        ch_Laura "I wasn't done."
+            ch_Laura "That's it?"
+            ch_Laura "I wasn't done."
 
-        if Player.stamina and Laura.stamina:
             menu:
                 extend ""
                 "Let her do as she pleases":
@@ -1162,7 +1162,7 @@ label Laura_flirt_eb:
 
         $ Laura.change_face("kiss2", blush = 2)
 
-        if Player.stamina and Laura.stamina:
+        if Player.stamina and Laura.stamina and len(Present) == 1:
             menu:
                 extend ""
                 "Make out with her":
@@ -1342,27 +1342,28 @@ label Laura_flirt_i:
 
         "She turns, and doesn't hesitate to start kissing you." 
 
-        call change_Girl_stat(Laura, "desire", 5) from _call_change_Girl_stat_1402
+        if Player.stamina and Laura.stamina and len(Present) == 1:
+            call change_Girl_stat(Laura, "desire", 5) from _call_change_Girl_stat_1402
 
-        "Her grip on your ass tightens, and tongue starts getting involved." 
+            "Her grip on your ass tightens, and tongue starts getting involved." 
 
-        menu:
-            extend ""
-            "Make out with her":
-                call change_Girl_stat(Laura, "love", 2) from _call_change_Girl_stat_1403
-                call change_Girl_stat(Laura, "desire", 5) from _call_change_Girl_stat_1404
+            menu:
+                extend ""
+                "Make out with her":
+                    call change_Girl_stat(Laura, "love", 2) from _call_change_Girl_stat_1403
+                    call change_Girl_stat(Laura, "desire", 5) from _call_change_Girl_stat_1404
 
-                $ Laura.History.update("hookup")
-                $ Laura.History.update("makeout")
+                    $ Laura.History.update("hookup")
+                    $ Laura.History.update("makeout")
 
-                $ Action = ActionClass("makeout", Player, Laura)
+                    $ Action = ActionClass("makeout", Player, Laura)
 
-                call start_Action(Action) from _call_start_Action_17
-                call screen Action_screen(automatic = True)
-            "Pull away":
-                $ Laura.change_face("confused1", mouth = "lipbite", blush = 1) 
+                    call start_Action(Action) from _call_start_Action_17
+                    call screen Action_screen(automatic = True)
+                "Pull away":
+                    $ Laura.change_face("confused1", mouth = "lipbite", blush = 1) 
 
-                ch_Laura "You're done?"
+                    ch_Laura "You're done?"
     else:
         $ Laura.change_face("surprised2")
 

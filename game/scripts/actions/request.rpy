@@ -1,6 +1,8 @@
 label request_hookup(Character):
     $ Character_picker_disabled = True
 
+    $ Present = get_Present()
+
     $ NPCs_present = False
     
     python:
