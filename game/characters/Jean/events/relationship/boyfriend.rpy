@@ -345,18 +345,18 @@ label Jean_boyfriend:
         ch_Jean "I want you to be my boyfriend."
 
         if len(Partners) > 0:
-            $ Jean.change_face("worried1", eyes = “right”, mouth = "lipbite", blush = 1)
+            $ Jean.change_face("worried1", eyes = "right", mouth = "lipbite", blush = 1)
 
             ch_Jean "And. . . I know you already have a girlfriend. . ."
     
             if len(Partners) > 2:
-                ch_Jean ". . . or a few.”
+                ch_Jean ". . . or a few."
             elif len(Partners) == 2:
                 ch_Jean ". . . or two."
 
             $ Jean.change_face("worried1", mouth = "lipbite", blush = 1)
 
-            ch_Jean "So I get it’s a stretch, but I just couldn’t live with myself if I didn’t put this all out there, and ask anyway.”
+            ch_Jean "So I get it's a stretch, but I just couldn't live with myself if I didn't put this all out there, and ask anyway."
 
         ". . ."
         ch_Jean "You can speak now. . ."
@@ -493,18 +493,18 @@ label Jean_boyfriend:
         ch_Jean "I want you to be my boyfriend."
         
         if len(Partners) > 0:
-            $ Jean.change_face("worried1", eyes = “right”, mouth = "lipbite", blush = 1)
+            $ Jean.change_face("worried1", eyes = "right", mouth = "lipbite", blush = 1)
 
             ch_Jean "And. . . I know you already have a girlfriend. . ."
     
             if len(Partners) > 2:
-                ch_Jean ". . . or a few.”
+                ch_Jean ". . . or a few."
             elif len(Partners) == 2:
                 ch_Jean ". . . or two."
 
             $ Jean.change_face("worried1", mouth = "lipbite", blush = 1)
 
-            ch_Jean "So I get it’s a stretch, but I just couldn’t live with myself if I didn’t put this all out there, and ask anyway.”
+            ch_Jean "So I get it's a stretch, but I just couldn't live with myself if I didn't put this all out there, and ask anyway."
 
     $ Jean.change_face("happy", blush = 1)
 
@@ -513,30 +513,30 @@ label Jean_boyfriend:
     if len(Partners) > 0:
         $ Jean.change_face("happy")
 
-        ch_Jean "You would?!”
+        ch_Jean "You would?!"
 
         $ Jean.change_face("worried1", mouth = "smirk", blush = 1)
 
-        ch_Player "Definitely.”
+        ch_Player "Definitely."
 
-        $ Jean.change_face("worried1", eyes = “right”, mouth = "lipbite", blush = 1)
+        $ Jean.change_face("worried1", eyes = "right", mouth = "lipbite", blush = 1)
 
-        ch_Jean "Well, good.”
+        ch_Jean "Well, good."
 
         $ Jean.change_face("confused1", mouth = "smirk", blush = 1)
 
-        ch_Jean "I mean it’s really not all that surprising you’d end up with more than one girlfriend.”
-        ch_Player "It’s not?”
+        ch_Jean "I mean it's really not all that surprising you'd end up with more than one girlfriend."
+        ch_Player "It's not?"
 
-        $ Jean.change_face("sexy", eyes = “down”, blush = 1)
+        $ Jean.change_face("sexy", eyes = "down", blush = 1)
 
-        ch_Jean "Like. . . just look at you. . .”
+        ch_Jean "Like. . . just look at you. . ."
 
-        $ Jean.change_face("confused1", eyes = “squint”, mouth = "smirk", blush = 1)
+        $ Jean.change_face("confused1", eyes = "squint", mouth = "smirk", blush = 1)
 
-        ch_Jean "It makes sense.”
+        ch_Jean "It makes sense."
 
-        $ Jean.change_face("worried1", eyes = “right”, mouth = "smirk")
+        $ Jean.change_face("worried1", eyes = "right", mouth = "smirk")
 
         ch_Jean "But, you better at least tell me before you try dating any additional girls."
         ch_Player "I can do that."

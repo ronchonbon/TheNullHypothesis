@@ -4,7 +4,7 @@ init python:
         label = "Jean_before_study_session_part_one"
 
         conditions = [
-            "season == 1",
+            "chapter == 1 and season == 1",
             "Player.location in public_locations",
             "not Jean.History.check('studied_with_Player', tracker = 'season')",
             "EventScheduler.Events['Jean_back_from_mission'].completed",
@@ -76,7 +76,7 @@ init python:
         label = "Jean_before_study_session_part_two"
 
         conditions = [
-            "season == 1",
+            "chapter == 1 and season == 1",
             "Player.location in public_locations",
             "not Jean.History.check('studied_with_Player', tracker = 'season')",
             "Rogue.History.check('studied_with_Player', tracker = 'season') or Laura.History.check('studied_with_Player', tracker = 'season')",
@@ -172,7 +172,7 @@ init python:
         label = "Jean_before_study_session_part_three"
 
         conditions = [
-            "season == 1",
+            "chapter == 1 and season == 1",
             "Player.location in public_locations",
             "not Jean.History.check('studied_with_Player', tracker = 'season')",
             "EventScheduler.Events['Jean_before_study_session_part_two'].completed",

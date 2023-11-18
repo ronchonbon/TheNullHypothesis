@@ -72,15 +72,17 @@ label day_three_intro:
                 ch_Player "I really am sorry. I can't imagine how difficult it's been for you dealing with a power like that."
                 ch_Player "I've only had mine for a couple days and I can see now how lucky I got."
                 
+                call change_Girl_stat(Rogue, "love", medium_stat) from _call_change_Girl_stat_890
+                call change_Girl_stat(Rogue, "trust", large_stat) from _call_change_Girl_stat_891
+
                 $ Rogue.change_face("smirk2")
 
                 ch_Rogue "It {i}was{/i} kind of a jerk thing to do."
                 ch_Rogue "But it really is okay. You've only been around other mutants a few days, and your childhood was pretty normal."
                 ch_Player "I'll be more sensitive, promise."
-
-                call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_890
-                call change_Girl_stat(Rogue, "trust", 0) from _call_change_Girl_stat_891
             "Accept her forgiveness":
+                call change_Girl_stat(Rogue, "trust", -tiny_stat)
+
                 $ Rogue.change_face("neutral")
 
                 "Really?"

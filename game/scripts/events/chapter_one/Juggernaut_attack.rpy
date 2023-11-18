@@ -27,8 +27,7 @@ init python:
             "New Shop Items"]
 
         criteria = [
-            "chapter == 1",
-            "season == 1"]
+            "chapter == 1 and season == 1"]
 
         return QuestClass(name, string, Quest_type, chapter, description, objectives, optional_objectives, rewards, criteria)
 
@@ -1296,14 +1295,14 @@ label ch1_Juggernaut_attack:
 
     menu:
         extend ""
-        "Don't worry about me. I'd do it again in a heartbeat.":
+        "Don't worry about me. I'd do it again, no question.":
+            call change_Girl_stat(Rogue, "love", medium_stat) from _call_change_Girl_stat_855 
+            call change_Girl_stat(Rogue, "trust", medium_stat) from _call_change_Girl_stat_856
+
             $ Rogue.change_face("worried2", blush = 2) 
             
             ch_Player "Maybe if I was faster you wouldn't have gotten hurt in the first place." 
             
-            call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_855 
-            call change_Girl_stat(Rogue, "trust", 0) from _call_change_Girl_stat_856
-
             $ Rogue.change_face("sad", blush = 1) 
             
             ch_Rogue "Ah hope ya never have to again. . ." 
@@ -1312,22 +1311,22 @@ label ch1_Juggernaut_attack:
             
             ch_Rogue "And next time, ah'll be right there fightin' alongside ya."
         "It's not your fault.":
+            call change_Girl_stat(Rogue, "trust", medium_stat)
+
             $ Rogue.change_face("worried1", blush = 1) 
             
             ch_Player "Maybe if I was faster you wouldn't have gotten hurt in the first place." 
-            
-            call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_857
-
             ch_Rogue "Don't blame yerself." 
             
             $ Rogue.change_face("angry1", eyes = "right", blush = 1) 
             
             ch_Rogue "Next time, ah'll be right there fightin' alongside ya."
         "Yeah. . . it wasn't fun.":
+            call change_Girl_stat(Rogue, "love", -small_stat)
+
             $ Rogue.change_face("worried1", eyes = "down", blush = 1) 
             
             ch_Player "But we're both okay now." 
-
             ch_Rogue "Ah really am sorry. . ." 
             
             $ Rogue.change_face("worried1", blush = 1) 

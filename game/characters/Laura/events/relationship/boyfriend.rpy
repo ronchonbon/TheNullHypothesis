@@ -341,7 +341,7 @@ label Laura_boyfriend:
     ch_Player "But. . ."
 
     if len(Partners) > 0:
-        $ Laura.change_face("confused1", eyes = “squint", mouth = “smirk", blush = 1)
+        $ Laura.change_face("confused1", eyes = "squint", mouth = "smirk", blush = 1)
 
         if len(Partners) == 1:
             ch_Laura "Obviously I realize you are already in a relationship with [Partners[0].public_name]."
@@ -352,8 +352,8 @@ label Laura_boyfriend:
 
         $ Laura.change_face("neutral", blush = 1)
 
-        ch_Laura “I do not care."
-        ch_Laura “I want you to be my boyfriend regardless."
+        ch_Laura "I do not care."
+        ch_Laura "I want you to be my boyfriend regardless."
 
         $ Laura.change_face("confused1", blush = 1)
 

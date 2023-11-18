@@ -23,7 +23,6 @@ init python:
         rewards = ["What can any of us amount to without friendship?"]
 
         criteria = [
-            "chapter == 1",
-            "season == 1"]
+            "chapter == 1 and season == 1"]
 
         return QuestClass(name, string, Quest_type, chapter, description, objectives, optional_objectives, rewards, criteria)

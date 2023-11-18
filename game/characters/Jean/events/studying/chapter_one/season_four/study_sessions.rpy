@@ -4,7 +4,7 @@ init python:
         label = "Jean_chapter_one_season_four_study_sessions"
 
         conditions = [
-            "season == 4",
+            "chapter == 1 and season == 4",
             "Jean.History.check('trained_with_Player', tracker = 'season') >= 1",
             "Player.studying == Jean and Jean.studying"]
 

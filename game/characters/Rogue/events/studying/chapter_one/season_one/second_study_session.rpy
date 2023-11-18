@@ -4,7 +4,7 @@ init python:
         label = "Rogue_chapter_one_season_one_second_study_session"
 
         conditions = [
-            "season == 1",
+            "chapter == 1 and season == 1",
             "Rogue.History.check('studied_with_Player', tracker = 'season') == 1",
             "Player.studying == Rogue and Rogue.studying"]
 
@@ -45,6 +45,9 @@ label Rogue_chapter_one_season_one_second_study_session:
     menu:
         extend ""
         "Ya'know, you can touch my hands again if you want. . .":
+            call change_Girl_stat(Rogue, "love", medium_stat) from _call_change_Girl_stat_1072
+            call change_Girl_stat(Rogue, "trust", medium_stat)
+
             ch_Player "I don't mind." 
             
             $ Rogue.change_face("worried3", blush = 2) 
@@ -54,7 +57,6 @@ label Rogue_chapter_one_season_one_second_study_session:
             $ Rogue.change_face("worried1", eyes = "right", blush = 1)
 
             ch_Rogue "Ah'm. . . sorry, hon'." 
-            
             ch_Player "Nothing to be sorry about." 
             
             $ Rogue.change_face("worried1", blush = 1) 
@@ -62,9 +64,9 @@ label Rogue_chapter_one_season_one_second_study_session:
             ch_Rogue "But, did ya really mean it?" 
             
             ch_Rogue "Ya don't mind?" 
-            
-            call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_1072
         "Did you want to touch my hands again? Heh, they are nice right?":
+            call change_Girl_stat(Rogue, "love", medium_stat)
+            
             $ Rogue.change_face("worried3", blush = 2) 
             
             ch_Player "I should totally be a hand model." 
@@ -76,11 +78,13 @@ label Rogue_chapter_one_season_one_second_study_session:
             $ Rogue.change_face("worried1", blush = 1) 
             
             ch_Rogue "Ah'm sorry for starin'. . ." 
-            
             ch_Rogue "But you don't mind if ah touch?" 
             
             call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_1073
         "Really? You're staring at my hands again?":
+            call change_Girl_stat(Rogue, "love", -medium_stat)
+            call change_Girl_stat(Rogue, "trust", -small_stat)
+
             $ Rogue.change_face("worried3", blush = 2) 
             
             ch_Player "You want to touch them that badly?" 
@@ -92,12 +96,10 @@ label Rogue_chapter_one_season_one_second_study_session:
             
             $ Rogue.change_face("sad", eyes = "right", blush = 1) 
             
-            call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_1074
-
     menu:
         extend ""
         "I don't mind at all.":
-            call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_1075
+            call change_Girl_stat(Rogue, "love", small_stat) from _call_change_Girl_stat_1075
         "I guess it's fine.":
             ch_Player "You can touch them."
 

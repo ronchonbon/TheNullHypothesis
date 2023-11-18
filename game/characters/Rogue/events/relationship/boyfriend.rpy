@@ -284,14 +284,14 @@ label Rogue_boyfriend:
         ch_Rogue "Ah get it if ya don't want to take things further. . . with me. . ." 
 
     if len(Partners) > 0:
-        $ Rogue.change_face("worried1", eyes = “right”, blush  = 2)
+        $ Rogue.change_face("worried1", eyes = "right", blush  = 2)
 
         if len(Partners) == 1:
-            ch_Rogue "Ah know yer already datin’ [Partners[0].public_name], so ah reckon it was a long shot anyways. . ."
+            ch_Rogue "Ah know yer already datin' [Partners[0].public_name], so ah reckon it was a long shot anyways. . ."
         elif len(Partners) == 2:
-            ch_Rogue "Ah know yer already datin’ [Partners[0].public_name] and [Partners[1].public_name], so ah reckon it was a long shot anyways. . ."
+            ch_Rogue "Ah know yer already datin' [Partners[0].public_name] and [Partners[1].public_name], so ah reckon it was a long shot anyways. . ."
         else:
-            ch_Rogue "Ah know yer already datin’. . . a few others, so ah reckon it was a long shot anyways. . ."
+            ch_Rogue "Ah know yer already datin'. . . a few others, so ah reckon it was a long shot anyways. . ."
 
     $ Rogue.change_face("worried1", blush = 1)
 
@@ -316,8 +316,8 @@ label Rogue_boyfriend:
         $ Rogue.change_face("worried1", mouth = "smirk")
 
         ch_Rogue "Ah knew there was gonna be a ton of competition for ya."
-        ch_Rogue "You gettin’ a girlfriend or two. . . or three. . . was only a matter of time.”
-        ch_Rogue "Ah’m fine with it as long as ah get a piece of ya too. . .”
+        ch_Rogue "You gettin' a girlfriend or two. . . or three. . . was only a matter of time."
+        ch_Rogue "Ah'm fine with it as long as ah get a piece of ya too. . ."
 
         $ Rogue.change_face("worried1", eyes = "right")
 

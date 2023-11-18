@@ -4,7 +4,7 @@ init python:
         label = "Rogue_chapter_one_season_three_first_study_session"
 
         conditions = [
-            "season == 3",
+            "chapter == 1 and season == 3",
             "not Rogue.History.check('studied_with_Player', tracker = 'season')",
             "Player.studying == Rogue and Rogue.studying"]
 

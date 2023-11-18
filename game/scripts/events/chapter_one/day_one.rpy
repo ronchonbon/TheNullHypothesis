@@ -538,6 +538,8 @@ label meet_Rogue:
     menu:
         extend ""
         "Looks like the rumors are a bit exaggerated. Xavier seems to think my power only makes me impervious to other mutant powers.":
+            call change_Girl_stat(Rogue, "trust", medium_stat)
+
             $ Rogue.change_face("pleased2")
             
             ch_Rogue "Wow. . ."
@@ -546,9 +548,9 @@ label meet_Rogue:
 
             ch_Rogue "So. . . ya see, my ability allows me to absorb the memories, talents, and powers of those ah touch."
         "No, looks like my power only makes me immune to other powers. Why do you care?":
+            call change_Girl_stat(Rogue, "love", -medium_stat) from _call_change_Girl_stat_877
+            
             $ Rogue.change_face("worried2")
-
-            call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_877
 
             ch_Rogue "Because my ability has me absorb the memories, talents, and powers of those ah touch."
     
@@ -577,21 +579,24 @@ label meet_Rogue:
     menu:
         extend ""
         ". . . Yes, [Rogue.name] has just been telling me a little about the Institute.":
+            call change_Girl_stat(Rogue, "trust", medium_stat)
+            
             $ Rogue.change_face("pleased1", blush = 1)
         "Definitely! I can tell we're going to get along really well.":
+            call change_Girl_stat(Rogue, "love", medium_stat) from _call_change_Girl_stat_878
+            
             $ Rogue.change_face("surprised2", eyes = "down", blush = 1)
 
             "You glance at [Rogue.name]'s gloved hand as you say it."
 
             $ Rogue.History.update("Player_looked_at_glove")
-
-            call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_878
         "We are. Thank you very much, [Ororo.name], I'll make sure to study hard.":
+            call change_Girl_stat(Rogue, "trust", small_stat)
+            call change_Girl_stat(Ororo, "love", 0) from _call_change_Girl_stat_879
+
             $ Rogue.change_face("pleased1", blush = 1)
 
             $ Ororo.change_face("pleased1")
-
-            call change_Girl_stat(Ororo, "love", 0) from _call_change_Girl_stat_879
 
     pause 1.0
 

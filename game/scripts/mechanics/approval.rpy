@@ -1,5 +1,5 @@
 define massive_stat = 50
-define large_stat = 20
+define large_stat = 25
 define medium_stat = 10
 define small_stat = 5
 define tiny_stat = 1

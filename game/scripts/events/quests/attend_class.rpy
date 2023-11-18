@@ -19,8 +19,7 @@ init python:
         rewards = ["+10% on Love, Trust, and XP Gains for the Following Week"]
 
         criteria = [
-            "chapter == 1",
-            "season == 1"]
+            "chapter == 1 and season == 1"]
 
         resets = True
 

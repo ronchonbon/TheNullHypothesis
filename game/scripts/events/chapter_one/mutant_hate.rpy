@@ -31,8 +31,7 @@ init python:
             "New Shop Items"]
 
         criteria = [
-            "chapter == 1",
-            "season == 3"]
+            "chapter == 1 and season == 3"]
 
         return QuestClass(name, string, Quest_type, chapter, description, objectives, optional_objectives, rewards, criteria)
 

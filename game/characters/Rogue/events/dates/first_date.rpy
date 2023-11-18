@@ -357,7 +357,6 @@ label Rogue_first_date:
                 
                 ch_Rogue ". . . please." 
                 
-                call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_577 
                 call change_Girl_stat(Rogue, "desire", 0) from _call_change_Girl_stat_578 
                 
                 ch_Player "Here."
@@ -373,6 +372,8 @@ label Rogue_first_date:
                 ch_Rogue "Thanks, [Rogue.Player_petname]."
 
                 $ Rogue.History.update("quirk_discouraged")
+
+        call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_577 
     elif chosen_meal[Rogue] == "fried chicken" and not suggested_salad:
         ch_Rogue "For New York?"
 
@@ -393,8 +394,6 @@ label Rogue_first_date:
 
         ch_Rogue "It's real good."
         ch_Rogue "Ah'm so glad ah didn't get a salad. . ."
-
-        call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_580
 
     $ Rogue.change_face("smirk2")
 

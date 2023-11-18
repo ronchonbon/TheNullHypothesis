@@ -4,7 +4,7 @@ init python:
         label = "Laura_chapter_one_season_two_second_training_session"
 
         conditions = [
-            "season == 2",
+            "chapter == 1 and season == 2",
             "Laura.History.check('trained_with_Player', tracker = 'season') == 1",
             "Player.training == Laura and Laura.training"]
 

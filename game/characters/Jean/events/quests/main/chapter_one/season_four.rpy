@@ -24,7 +24,6 @@ init python:
         rewards = ["Increased Love and Trust Cap"]
 
         criteria = [
-            "chapter == 1",
-            "season == 4"]
+            "chapter == 1 and season == 4"]
 
         return QuestClass(name, string, Quest_type, chapter, description, objectives, optional_objectives, rewards, criteria)

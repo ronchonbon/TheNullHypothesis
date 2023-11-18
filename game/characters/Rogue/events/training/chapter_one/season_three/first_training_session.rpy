@@ -4,7 +4,7 @@ init python:
         label = "Rogue_chapter_one_season_three_first_training_session"
 
         conditions = [
-            "season == 3",
+            "chapter == 1 and season == 3",
             "Laura.History.check('trained_with_Player', tracker = 'season') or Jean.History.check('trained_with_Player', tracker = 'season')",
             "not Rogue.History.check('trained_with_Player', tracker = 'season')",
             "Player.training == Rogue and Rogue.training"]

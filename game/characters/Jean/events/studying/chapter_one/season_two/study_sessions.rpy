@@ -4,7 +4,7 @@ init python:
         label = "Jean_chapter_one_season_two_study_sessions"
 
         conditions = [
-            "season == 2",
+            "chapter == 1 and season == 2",
             "Player.studying == Jean and Jean.studying"]
 
         priority = 99
