@@ -10,8 +10,8 @@ init python:
             
             "not Laura.History.check('Player_rejected_studying', tracker = 'daily') and not Laura.History.check('Player_rejected_training', tracker = 'daily')",
             
-            "not EventScheduler.Events['Laura_chatting_study'].completed or day - EventScheduler.Events['Laura_chatting_study'].completed >= 3",
-            "not EventScheduler.Events['Laura_texting_study'].completed or day - EventScheduler.Events['Laura_texting_study'].completed >= 3",
+            "not EventScheduler.Events['Laura_chatting_study'].completed or day - EventScheduler.Events['Laura_chatting_study'].completed_when >= 3",
+            "not EventScheduler.Events['Laura_texting_study'].completed or day - EventScheduler.Events['Laura_texting_study'].completed_when >= 3",
 
             "Player.location == Laura.location and Player.location in [Player.home, Laura.home]",
 
@@ -71,8 +71,8 @@ init python:
             
             "not Laura.History.check('Player_rejected_studying', tracker = 'daily') and not Laura.History.check('Player_rejected_training', tracker = 'daily')",
             
-            "not EventScheduler.Events['Laura_chatting_training'].completed or day - EventScheduler.Events['Laura_chatting_training'].completed >= 5",
-            "not EventScheduler.Events['Laura_texting_training'].completed or day - EventScheduler.Events['Laura_texting_training'].completed >= 5",
+            "not EventScheduler.Events['Laura_chatting_training'].completed or day - EventScheduler.Events['Laura_chatting_training'].completed_when >= 5",
+            "not EventScheduler.Events['Laura_texting_training'].completed or day - EventScheduler.Events['Laura_texting_training'].completed_when >= 5",
             
             "Player.location == Laura.location and Player.location == 'bg_danger'",
 
@@ -136,13 +136,13 @@ init python:
             
             "not Laura.History.check('Player_rejected_studying', tracker = 'daily') and not Laura.History.check('Player_rejected_training', tracker = 'daily') and not Laura.History.check('Player_rejected_date', tracker = 'weekly')",
             
-            "not EventScheduler.Events['Laura_chatting_date'].completed or day - EventScheduler.Events['Laura_chatting_date'].completed >= 5",
-            "not EventScheduler.Events['Laura_texting_date'].completed or day - EventScheduler.Events['Laura_texting_date'].completed >= 5",
+            "not EventScheduler.Events['Laura_chatting_date'].completed or day - EventScheduler.Events['Laura_chatting_date'].completed_when >= 5",
+            "not EventScheduler.Events['Laura_texting_date'].completed or day - EventScheduler.Events['Laura_texting_date'].completed_when >= 5",
             
             "Player.location == Laura.location",
 
-            "day - EventScheduler.Events['Laura_first_date'].completed >= 5",
-            "not EventScheduler.Events['Laura_date'].completed or day - EventScheduler.Events['Laura_date'].completed >= 5",
+            "day - EventScheduler.Events['Laura_first_date'].completed_when >= 5",
+            "not EventScheduler.Events['Laura_date'].completed or day - EventScheduler.Events['Laura_date'].completed_when >= 5",
 
             "time_index < 2",
 

@@ -169,6 +169,7 @@ label Rogue_pubes_need_to_shave:
         $ Rogue.pubes_to_shave = Rogue.desired_pubes
 
     $ Rogue.pubes_to_grow = False
-    $ EventScheduler.Events["Rogue_growing_back"].completed = 0
+    
+    $ EventScheduler.Events["Rogue_growing_back"].completed_when = 1e8
 
     return

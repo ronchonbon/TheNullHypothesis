@@ -43,7 +43,7 @@ init python:
 
         conditions = [
             "EventScheduler.Events['Rogue_growing_back'].completed",
-            "day - EventScheduler.Events['Rogue_growing_back'].completed >= 2"]
+            "day - EventScheduler.Events['Rogue_growing_back'].completed_when >= 2"]
 
         repeatable = True
         automatic = True
@@ -51,12 +51,12 @@ init python:
         return EventClass(label, conditions, repeatable = repeatable, automatic = automatic)
 
 label Rogue_grown_back:
-    if day - EventScheduler.Events['Rogue_growing_back'].completed >= 7:
+    if day - EventScheduler.Events['Rogue_growing_back'].completed_when >= 7:
         $ Rogue.pubes_growing = False
         $ Rogue.pubes = Rogue.pubes_to_grow
         $ Rogue.pubes_to_grow = False
 
-        $ EventScheduler.Events["Rogue_growing_back"].completed = 0
+        $ EventScheduler.Events["Rogue_growing_back"].completed_when = 1e8
     else:
         $ Rogue.pubes_growing = True
 

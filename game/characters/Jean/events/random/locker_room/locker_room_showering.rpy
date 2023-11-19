@@ -10,7 +10,9 @@ init python:
 
             "not Present",
 
-            "day - EventScheduler.Events['Jean_locker_room_showering'].completed > 1",
+            "day - EventScheduler.Events['Jean_locker_room_showering'].completed_when > 1",
+
+            "time_index not in Jean.schedule.keys()",
 
             "Jean.location not in ['hold', 'bg_lockers']",
             "Jean.original_location != Player.location",

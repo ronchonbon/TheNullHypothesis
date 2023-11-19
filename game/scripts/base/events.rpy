@@ -32,7 +32,10 @@ init -3 python:
             self.markers = kwargs.get("markers", {})
 
             self.active = False
-            self.completed = 1e8
+
+            self.completed = False
+            self.completed_when = 1e8
+
             self.counter = 0
 
         def check_conditions(self):
@@ -68,11 +71,13 @@ init -3 python:
                 elif not met and self.label in marked_locations[marker_location]:
                     marked_locations[marker_location].remove(self.label)
 
+            return
+
         def start(self):
             global day
-            global ongoing_Event
-            
-            self.completed = day
+
+            self.completed = True
+            self.completed_when = day
 
             self.counter += 1
 
@@ -88,7 +93,16 @@ init -3 python:
             if Event.label not in self.Events.keys():
                 self.Events[Event.label] = Event
             else:
-                Event.completed = self.Events[Event.label].completed
+                if hasattr(self.Events[Event.label], "completed_when"):
+                    Event.completed_when = self.Events[Event.label].completed_when
+                else:
+                    if self.Events[Event.label].counter:
+                        Event.completed_when = self.Events[Event.label].completed
+
+                if self.Events[Event.label].counter:
+                    Event.completed = True
+
+                    Event.counter = self.Events[Event.label].counter
 
                 self.Events[Event.label] = Event
                 
@@ -101,6 +115,8 @@ init -3 python:
                 if not Event.completed or Event.repeatable:
                     Event.check_conditions()
                     Event.check_markers()
+                else:
+                    Event.active = False
 
             QuestPool.check_progress()
             register_Quests()

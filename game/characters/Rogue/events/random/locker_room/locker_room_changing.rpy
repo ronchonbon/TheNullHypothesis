@@ -7,7 +7,7 @@ init python:
             "Player.destination == 'bg_lockers' and Rogue.location == 'bg_lockers'",
             "Rogue.changing",
 
-            "day - EventScheduler.Events['Rogue_locker_room_changing'].completed > 1",
+            "day - EventScheduler.Events['Rogue_locker_room_changing'].completed_when > 1",
 
             "Rogue.is_in_normal_mood()"]
 

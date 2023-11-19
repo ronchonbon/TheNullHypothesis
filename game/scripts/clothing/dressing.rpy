@@ -193,7 +193,7 @@ label set_Outfit_flags(Character, Outfit = None, hypothetical = False):
                 if not hypothetical and not black_screen and renpy.showing(f"{Character.tag}_sprite"):
                     if not hidden and Character.location != "hold" and Character.location == Player.location:
                         if temp_parts[0] in ["bra", "breasts", "underwear", "ass", "pussy", "anus"]:
-                            if day - EventScheduler.Events[f"{Character.tag}_seen_{temp_parts[0]}"].completed != 0:
+                            if day - EventScheduler.Events[f"{Character.tag}_seen_{temp_parts[0]}"].completed_when != 0:
                                 $ EventScheduler.Events[f"{Character.tag}_seen_{temp_parts[0]}"].start()
 
                         $ Character.History.update(f"seen_{temp_parts[0]}")

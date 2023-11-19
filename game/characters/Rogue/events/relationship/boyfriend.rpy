@@ -97,7 +97,7 @@ init python:
         conditions = [
             "not EventScheduler.Events['Rogue_boyfriend'].completed",
 
-            "day - EventScheduler.Events['Rogue_boyfriend_trigger_part_one'].completed >= 4",
+            "day - EventScheduler.Events['Rogue_boyfriend_trigger_part_one'].completed_when >= 4",
             
             "Player.location in public_locations and Rogue.location != Player.location",
 

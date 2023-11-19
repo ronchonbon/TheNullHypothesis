@@ -43,7 +43,7 @@ init python:
 
         conditions = [
             "EventScheduler.Events['Ororo_growing_back'].completed",
-            "day - EventScheduler.Events['Ororo_growing_back'].completed >= 2"]
+            "day - EventScheduler.Events['Ororo_growing_back'].completed_when >= 2"]
 
         repeatable = True
         automatic = True
@@ -51,12 +51,12 @@ init python:
         return EventClass(label, conditions, repeatable = repeatable, automatic = automatic)
 
 label Ororo_grown_back:
-    if day - EventScheduler.Events['Ororo_growing_back'].completed >= 7:
+    if day - EventScheduler.Events['Ororo_growing_back'].completed_when >= 7:
         $ Ororo.pubes_growing = False
         $ Ororo.pubes = Ororo.pubes_to_grow
         $ Ororo.pubes_to_grow = False
 
-        $ EventScheduler.Events["Ororo_growing_back"].completed = 0
+        $ EventScheduler.Events["Ororo_growing_back"].completed_when = 1e8
     else:
         $ Ororo.pubes_growing = True
 

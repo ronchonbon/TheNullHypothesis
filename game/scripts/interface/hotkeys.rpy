@@ -28,7 +28,7 @@ screen hotkeys_screen():
             if Player.location != "bg_danger":
                 key "g" action Call("travel", "bg_danger")
 
-            if Player.schedule or Player.date_planned or (day - EventScheduler.Events["Rogue_confession_text"].completed == 1 and not EventScheduler.Events["Rogue_confession"].completed):
+            if Player.schedule or Player.date_planned or (day - EventScheduler.Events["Rogue_confession_text"].completed_when == 1 and not EventScheduler.Events["Rogue_confession"].completed):
                 key "q" action Show("say", who = None, what = "Maybe don't skip today.", hide_after = 5.0)
             else:
                 key "q" action Call("go_to_sleep", automatic = True, from_current = True)

@@ -727,7 +727,7 @@ init python:
         label = "Laura_jealousy_follow_up_again"
 
         conditions = [
-            "(EventScheduler.Events['Laura_jealousy_went_on_date_anyways'].completed and EventScheduler.Events['Laura_jealousy_went_on_date_anyways'].completed > EventScheduler.Events['Laura_jealousy_follow_up_again'].completed) or (EventScheduler.Events['Laura_jealousy_flirted_anyways'].completed and EventScheduler.Events['Laura_jealousy_flirted_anyways'].completed > EventScheduler.Events['Laura_jealousy_follow_up_again'].completed)",
+            "(EventScheduler.Events['Laura_jealousy_went_on_date_anyways'].completed and EventScheduler.Events['Laura_jealousy_went_on_date_anyways'].completed_when > EventScheduler.Events['Laura_jealousy_follow_up_again'].completed) or (EventScheduler.Events['Laura_jealousy_flirted_anyways'].completed and EventScheduler.Events['Laura_jealousy_flirted_anyways'].completed_when > EventScheduler.Events['Laura_jealousy_follow_up_again'].completed)",
             
             "Laura.is_in_normal_mood()",
 

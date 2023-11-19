@@ -42,7 +42,7 @@ init python:
         label = "Jean_grown_back"
 
         conditions = [
-            "day - EventScheduler.Events['Jean_growing_back'].completed >= 2"]
+            "day - EventScheduler.Events['Jean_growing_back'].completed_when >= 2"]
 
         repeatable = True
         automatic = True
@@ -50,12 +50,12 @@ init python:
         return EventClass(label, conditions, repeatable = repeatable, automatic = automatic)
 
 label Jean_grown_back:
-    if day - EventScheduler.Events["Jean_growing_back"].completed >= 7:
+    if day - EventScheduler.Events["Jean_growing_back"].completed_when >= 7:
         $ Jean.pubes_growing = False
         $ Jean.pubes = Jean.pubes_to_grow
         $ Jean.pubes_to_grow = False
 
-        $ EventScheduler.Events["Jean_growing_back"].completed = 0
+        $ EventScheduler.Events["Jean_growing_back"].completed_when = 1e8
     else:
         $ Jean.pubes_growing = True
 

@@ -102,7 +102,7 @@ init python:
         conditions = [
             "not EventScheduler.Events['Jean_boyfriend'].completed",
 
-            "day - EventScheduler.Events['Jean_boyfriend_trigger_part_one'].completed >= 4",
+            "day - EventScheduler.Events['Jean_boyfriend_trigger_part_one'].completed_when >= 4",
             
             "Player.location in public_locations and Jean.location != Player.location",
 

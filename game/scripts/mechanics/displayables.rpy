@@ -158,6 +158,8 @@ label hide_Character(Character, fade = True):
     if fade:
         with dissolve
 
+    $ Character.change_face()
+
     return
 
 label show_pose(Girl, pose, t = None, x = None, y = None, sprite_zoom = None, sprite_rotation = None, sprite_layer = None, color_transform = None, animation_transform = None, fade = False):

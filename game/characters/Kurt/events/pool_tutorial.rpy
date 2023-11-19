@@ -5,9 +5,11 @@ init python:
 
         conditions = [
             "Player.destination == 'bg_pool'",
-            "time_index < 3",
-            "not weather",
-            "Kurt.location != Player.location",
+
+            "time_index < 3 and not weather",
+
+            "Player.location not in [Kurt.location, Kurt.destination]",
+
             "not get_Present(location = 'bg_pool')"]
 
         traveling = True

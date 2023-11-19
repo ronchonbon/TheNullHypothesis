@@ -10,8 +10,8 @@ init python:
             
             "not Rogue.History.check('Player_rejected_studying', tracker = 'daily') and not Rogue.History.check('Player_rejected_training', tracker = 'daily')",
             
-            "not EventScheduler.Events['Rogue_chatting_study'].completed or day - EventScheduler.Events['Rogue_chatting_study'].completed >= 3",
-            "not EventScheduler.Events['Rogue_texting_study'].completed or day - EventScheduler.Events['Rogue_texting_study'].completed >= 3",
+            "not EventScheduler.Events['Rogue_chatting_study'].completed or day - EventScheduler.Events['Rogue_chatting_study'].completed_when >= 3",
+            "not EventScheduler.Events['Rogue_texting_study'].completed or day - EventScheduler.Events['Rogue_texting_study'].completed_when >= 3",
 
             "Player.location == Rogue.location and Player.location in [Player.home, Rogue.home]",
 
@@ -71,8 +71,8 @@ init python:
             
             "not Rogue.History.check('Player_rejected_studying', tracker = 'daily') and not Rogue.History.check('Player_rejected_training', tracker = 'daily')",
             
-            "not EventScheduler.Events['Rogue_chatting_training'].completed or day - EventScheduler.Events['Rogue_chatting_training'].completed >= 5",
-            "not EventScheduler.Events['Rogue_texting_training'].completed or day - EventScheduler.Events['Rogue_texting_training'].completed >= 5",
+            "not EventScheduler.Events['Rogue_chatting_training'].completed or day - EventScheduler.Events['Rogue_chatting_training'].completed_when >= 5",
+            "not EventScheduler.Events['Rogue_texting_training'].completed or day - EventScheduler.Events['Rogue_texting_training'].completed_when >= 5",
             
             "Player.location == Rogue.location and Player.location == 'bg_danger'",
 
@@ -137,13 +137,13 @@ init python:
             
             "not Rogue.History.check('Player_rejected_studying', tracker = 'daily') and not Rogue.History.check('Player_rejected_training', tracker = 'daily') and not Rogue.History.check('Player_rejected_date', tracker = 'weekly')",
             
-            "not EventScheduler.Events['Rogue_chatting_date'].completed or day - EventScheduler.Events['Rogue_chatting_date'].completed >= 5",
-            "not EventScheduler.Events['Rogue_texting_date'].completed or day - EventScheduler.Events['Rogue_texting_date'].completed >= 5",
+            "not EventScheduler.Events['Rogue_chatting_date'].completed or day - EventScheduler.Events['Rogue_chatting_date'].completed_when >= 5",
+            "not EventScheduler.Events['Rogue_texting_date'].completed or day - EventScheduler.Events['Rogue_texting_date'].completed_when >= 5",
             
             "Player.location == Rogue.location",
 
-            "day - EventScheduler.Events['Rogue_first_date'].completed >= 5",
-            "not EventScheduler.Events['Rogue_date'].completed or day - EventScheduler.Events['Rogue_date'].completed >= 5",
+            "day - EventScheduler.Events['Rogue_first_date'].completed_when >= 5",
+            "not EventScheduler.Events['Rogue_date'].completed or day - EventScheduler.Events['Rogue_date'].completed_when >= 5",
 
             "time_index < 2",
 

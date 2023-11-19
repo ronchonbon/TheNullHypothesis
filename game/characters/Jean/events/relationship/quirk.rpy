@@ -8,7 +8,7 @@ init python:
 
             "approval_check(Jean, threshold = [600, 550])",
 
-            "day - EventScheduler.Events['Jean_enjoying_being_girlfriend'].completed >= 3",
+            "day - EventScheduler.Events['Jean_enjoying_being_girlfriend'].completed_when >= 3",
 
             "Jean.location != Player.location and Player.location in public_locations",
 

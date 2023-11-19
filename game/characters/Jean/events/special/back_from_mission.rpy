@@ -4,7 +4,7 @@ init python:
         label = "Jean_back_from_mission"
 
         conditions = [
-            "day - EventScheduler.Events['Jean_leaving_for_mission'].completed > 2",
+            "day - EventScheduler.Events['Jean_leaving_for_mission'].completed_when > 2",
             
             "Player.location in ['bg_girls_hallway', 'bg_hallway'] or Player.location in bedrooms",
             "Player.destination not in ['bg_girls_hallway', 'bg_hallway'] and Player.destination not in bedrooms and 'bg_shower' not in Player.destination",

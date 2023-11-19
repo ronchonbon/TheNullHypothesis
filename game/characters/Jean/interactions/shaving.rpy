@@ -165,6 +165,7 @@ label Jean_pubes_need_to_shave:
         $ Jean.pubes_to_shave = Jean.desired_pubes
 
     $ Jean.pubes_to_grow = False
-    $ EventScheduler.Events["Jean_growing_back"].completed = 0
+    
+    $ EventScheduler.Events["Jean_growing_back"].completed_when = 1e8
 
     return

@@ -382,7 +382,7 @@ init python:
         label = "Laura_first_friend_part_three"
 
         conditions = [
-            "day - EventScheduler.Events['Laura_first_friend_part_two'].completed > 2",
+            "day - EventScheduler.Events['Laura_first_friend_part_two'].completed_when > 2",
 
             "approval_check(Laura, threshold = 'dating')",
             

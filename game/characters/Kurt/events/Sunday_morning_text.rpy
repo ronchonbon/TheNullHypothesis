@@ -5,7 +5,9 @@ init python:
 
         conditions = [
             "Kurt.History.check('texted_Sunday_morning', tracker = 'daily')",
-            "day - EventScheduler.Events['Kurt_Sunday_morning_text'].completed != 0",
+            
+            "day - EventScheduler.Events['Kurt_Sunday_morning_text'].completed_when != 0",
+            
             "time_index == 2"]
 
         repeatable = True

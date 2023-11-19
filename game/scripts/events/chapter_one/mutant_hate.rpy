@@ -144,7 +144,9 @@ label ch1_mutant_hate:
 
             ch_Kurt "Better to go in zee afternoon, I sink."
 
-        $ EventScheduler.Events["ch1_mutant_hate"].completed = 0
+        $ EventScheduler.Events["ch1_mutant_hate"].completed = False
+        $ EventScheduler.Events["ch1_mutant_hate"].completed_when = 1e8
+
         $ EventScheduler.Events["ch1_mutant_hate"].counter = 0
 
         $ phone_interactable = True

@@ -8,7 +8,7 @@ init python:
 
             "Rogue.changing",
 
-            "day - EventScheduler.Events['Rogue_bedroom_changing'].completed > 1",
+            "day - EventScheduler.Events['Rogue_bedroom_changing'].completed_when > 1",
             
             "Rogue.is_in_normal_mood()"]
 

@@ -10,7 +10,9 @@ init python:
 
             "not Present",
 
-            "day - EventScheduler.Events['Laura_locker_room_showering'].completed > 1",
+            "day - EventScheduler.Events['Laura_locker_room_showering'].completed_when > 1",
+
+            "time_index not in Laura.schedule.keys()",
 
             "Laura.location not in ['hold', 'bg_lockers']",
             "Laura.original_location != Player.location",

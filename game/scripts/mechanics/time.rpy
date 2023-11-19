@@ -242,6 +242,8 @@ label start_new_day(fast = False):
             
     $ Player.messy_bed = True
 
+    $ shower_steam = False
+
     $ update_messages = []
 
     $ temp_ignored_Girls = all_Girls[:]

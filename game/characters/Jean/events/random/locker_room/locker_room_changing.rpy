@@ -7,7 +7,7 @@ init python:
             "Player.destination == 'bg_lockers' and Jean.location == 'bg_lockers'",
             "Jean.changing",
 
-            "day - EventScheduler.Events['Jean_locker_room_changing'].completed > 1",
+            "day - EventScheduler.Events['Jean_locker_room_changing'].completed_when > 1",
 
             "Jean.is_in_normal_mood()"]
 

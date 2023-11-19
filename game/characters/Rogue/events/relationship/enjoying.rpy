@@ -8,7 +8,7 @@ init python:
 
             "approval_check(Rogue, threshold = [275, 275])",
 
-            "day - EventScheduler.Events['Rogue_boyfriend'].completed >= 3",
+            "day - EventScheduler.Events['Rogue_boyfriend'].completed_when >= 3",
 
             "Player.location == Player.home and not Present",
 

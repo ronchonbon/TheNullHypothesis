@@ -799,7 +799,7 @@ init python:
         label = "Jean_jealousy_follow_up_again"
 
         conditions = [
-            "(EventScheduler.Events['Jean_jealousy_went_on_date_anyways'].completed and EventScheduler.Events['Jean_jealousy_went_on_date_anyways'].completed > EventScheduler.Events['Jean_jealousy_follow_up_again'].completed) or (EventScheduler.Events['Jean_jealousy_flirted_anyways'].completed and EventScheduler.Events['Jean_jealousy_flirted_anyways'].completed > EventScheduler.Events['Jean_jealousy_follow_up_again'].completed)",
+            "(EventScheduler.Events['Jean_jealousy_went_on_date_anyways'].completed and EventScheduler.Events['Jean_jealousy_went_on_date_anyways'].completed_when > EventScheduler.Events['Jean_jealousy_follow_up_again'].completed) or (EventScheduler.Events['Jean_jealousy_flirted_anyways'].completed and EventScheduler.Events['Jean_jealousy_flirted_anyways'].completed_when > EventScheduler.Events['Jean_jealousy_follow_up_again'].completed)",
             
             "Jean.is_in_normal_mood()",
 

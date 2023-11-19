@@ -8,7 +8,7 @@ init python:
 
             "Laura.changing",
 
-            "day - EventScheduler.Events['Laura_bedroom_changing'].completed > 1",
+            "day - EventScheduler.Events['Laura_bedroom_changing'].completed_when > 1",
             
             "Laura.is_in_normal_mood()"]
 

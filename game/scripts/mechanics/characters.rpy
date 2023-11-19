@@ -188,8 +188,6 @@ label add_Characters(Characters, greetings = False, fade = True):
             C.destination = Player.location
             C.location = Player.location
 
-            C.change_face()
-
     call set_the_scene(greetings = greetings, fade = False, fade_Characters = fade) from _call_set_the_scene_325
 
     return
@@ -208,6 +206,8 @@ label remove_Characters(Characters = None, location = None, fade = True):
     python:
         for C in Characters:
             C.original_location = location
+
+            reset_behavior(C)
 
     $ temp_removing_Characters = Characters[:]
 

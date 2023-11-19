@@ -48,7 +48,8 @@ init python:
     config.detached_layers += ["comic_cutout1", "comic_cutout2", "comic_cutout3", "comic_cutout4"]
 
     config.rollback_enabled = True
-    config.hard_rollback_limit = 400
+    config.rollback_length = 512
+    config.hard_rollback_limit = 512
 
     config.keymap["rollback"].remove("mousedown_4")
 

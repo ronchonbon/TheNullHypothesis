@@ -8,7 +8,7 @@ init python:
 
             "approval_check(Rogue, threshold = Rogue_thresholds['love'])",
 
-            "day - EventScheduler.Events['Rogue_penultimate_quirk'].completed >= 3",
+            "day - EventScheduler.Events['Rogue_penultimate_quirk'].completed_when >= 3",
 
             "Rogue.History.check('quirk_encouraged') >= Rogue.History.check('quirk_discouraged')",
 
@@ -102,7 +102,7 @@ init python:
 
             "approval_check(Rogue, threshold = Rogue_thresholds['love'])",
 
-            "day - EventScheduler.Events['Rogue_penultimate_quirk'].completed >= 3",
+            "day - EventScheduler.Events['Rogue_penultimate_quirk'].completed_when >= 3",
 
             "Rogue.History.check('quirk_encouraged') < Rogue.History.check('quirk_discouraged')",
 

@@ -697,7 +697,7 @@ init python:
         label = "Rogue_jealousy_follow_up_again"
 
         conditions = [
-            "(EventScheduler.Events['Rogue_jealousy_went_on_date_anyways'].completed and EventScheduler.Events['Rogue_jealousy_went_on_date_anyways'].completed > EventScheduler.Events['Rogue_jealousy_follow_up_again'].completed) or (EventScheduler.Events['Rogue_jealousy_flirted_anyways'].completed and EventScheduler.Events['Rogue_jealousy_flirted_anyways'].completed > EventScheduler.Events['Rogue_jealousy_follow_up_again'].completed)",
+            "(EventScheduler.Events['Rogue_jealousy_went_on_date_anyways'].completed and EventScheduler.Events['Rogue_jealousy_went_on_date_anyways'].completed_when > EventScheduler.Events['Rogue_jealousy_follow_up_again'].completed) or (EventScheduler.Events['Rogue_jealousy_flirted_anyways'].completed and EventScheduler.Events['Rogue_jealousy_flirted_anyways'].completed_when > EventScheduler.Events['Rogue_jealousy_follow_up_again'].completed)",
             
             "Rogue.is_in_normal_mood()",
             

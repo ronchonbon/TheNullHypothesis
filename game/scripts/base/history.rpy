@@ -1,5 +1,7 @@
 init -3 python:
 
+    import copy
+
     class HistoryItemClass(object):
         def __init__(self):
             self.completed = []
@@ -9,6 +11,8 @@ init -3 python:
             self.event = {}
 
             self.recent = {}
+
+            self.last = {}
 
             self.daily = {}
 
@@ -69,6 +73,8 @@ init -3 python:
             return
 
         def increment(self):
+            self.last = copy.copy(self.recent)
+
             self.recent = {}
 
             if time_index == 0:

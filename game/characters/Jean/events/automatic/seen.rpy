@@ -67,7 +67,7 @@ init python:
 label Jean_seen_pussy:
     if Jean.desired_pubes and Jean.pubes != Jean.desired_pubes:
         if (Jean.pubes == "hairy") or (Jean.pubes == "bush" and (not Jean.desired_pubes or Jean.desired_pubes in ["growing", "null", "strip", "triangle"])) or (Jean.pubes == "triangle" and (not Jean.desired_pubes or Jean.desired_pubes in ["growing", "null", "strip"])) or (Jean.pubes in ["growing", "null", "strip"] and not Jean.desired_pubes):
-            if Jean.pubes_growing or day - EventScheduler.Events["Jean_seen_pussy"].completed >= 4:
+            if Jean.pubes_growing or day - EventScheduler.Events["Jean_seen_pussy"].completed_when >= 4:
                 if Jean.quirk:
                     $ Jean.change_face("sly", mouth = "lipbite", blush = 1)
 

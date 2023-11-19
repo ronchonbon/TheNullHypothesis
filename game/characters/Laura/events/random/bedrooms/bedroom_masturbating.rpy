@@ -9,7 +9,7 @@ init python:
             "EventScheduler.Events['Rogue_Laura_asks_about_masturbation'].completed",
             "Laura.masturbating",
 
-            "day - EventScheduler.Events['Laura_bedroom_masturbating'].completed > 1",
+            "day - EventScheduler.Events['Laura_bedroom_masturbating'].completed_when > 1",
             
             "Laura.is_in_normal_mood()"]
 

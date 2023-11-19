@@ -61,7 +61,7 @@ init python:
         label = "Rogue_confession_afternoon"
 
         conditions = [
-            "day - EventScheduler.Events['Rogue_confession_text'].completed == 1",
+            "day - EventScheduler.Events['Rogue_confession_text'].completed_when == 1",
             
             "Player.destination not in [Player.home, 'bg_shower_Player'] or time_index == 2"]
 

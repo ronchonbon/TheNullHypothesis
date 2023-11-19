@@ -5,8 +5,11 @@ init python:
 
         conditions = [
             "Player.level >= 2",
+
             "Player.location in public_locations",
-            "Kurt.location != Player.location",
+
+            "Player.location not in [Kurt.location, Kurt.destination]",
+
             "not get_Present(location = Player.destination)"]
 
         waiting = True

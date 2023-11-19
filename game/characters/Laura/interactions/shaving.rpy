@@ -180,6 +180,7 @@ label Laura_pubes_need_to_shave:
         $ Laura.pubes_to_shave = Laura.desired_pubes
 
     $ Laura.pubes_to_grow = False
-    $ EventScheduler.Events["Laura_growing_back"].completed = 0
+
+    $ EventScheduler.Events["Laura_growing_back"].completed_when = 1e8
 
     return

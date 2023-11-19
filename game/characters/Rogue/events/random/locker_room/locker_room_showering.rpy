@@ -10,7 +10,9 @@ init python:
 
             "not Present",
 
-            "day - EventScheduler.Events['Rogue_locker_room_showering'].completed > 1",
+            "day - EventScheduler.Events['Rogue_locker_room_showering'].completed_when > 1",
+
+            "time_index not in Rogue.schedule.keys()",
 
             "Rogue.location not in ['hold', 'bg_lockers']",
             "Rogue.original_location != Player.location",
