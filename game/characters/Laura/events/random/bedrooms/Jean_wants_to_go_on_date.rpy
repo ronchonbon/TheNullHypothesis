@@ -1,5 +1,36 @@
 init python:
 
+    def Laura_Jean_wants_to_go_on_date_setup():
+        label = "Laura_Jean_wants_to_go_on_date_setup"
+
+        conditions = [
+            "renpy.random.random() > 0.75",
+
+            "not EventScheduler.Events['Laura_Jean_wants_to_go_on_date'].completed",
+
+            "time_index not in Laura.schedule.keys()",
+            "time_index not in Jean.schedule.keys()",
+
+            "Laura in Partners and Jean in Partners",
+
+            "not Player.date_planned",
+
+            "Laura.is_in_normal_mood()",
+            "Jean.is_in_normal_mood()"]
+
+        repeatable = True
+        automatic = True
+
+        return EventClass(label, conditions, repeatable = repeatable, automatic = automatic)
+
+label Laura_Jean_wants_to_go_on_date_setup:
+    call send_Characters(Laura, Laura.home, behavior = False)
+    call send_Characters(Jean, Laura.home, behavior = False)
+
+    return
+
+init python:
+
     def Laura_Jean_wants_to_go_on_date():
         label = "Laura_Jean_wants_to_go_on_date"
 
@@ -12,7 +43,8 @@ init python:
 
             "not Player.date_planned",
 
-            "Laura.in_normal_mood()"]
+            "Laura.is_in_normal_mood()",
+            "Jean.is_in_normal_mood()"]
 
         traveling = True
 
@@ -24,7 +56,8 @@ init python:
 
                 "not Player.date_planned",
 
-                "Laura.in_normal_mood()"]}
+                "Laura.is_in_normal_mood()",
+                "Jean.is_in_normal_mood()"]}
 
         return EventClass(label, conditions, traveling = traveling, markers = markers)
 

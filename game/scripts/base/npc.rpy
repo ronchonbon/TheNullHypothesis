@@ -7,6 +7,7 @@ init -2 python:
             self.name = name
             self.names = [name]
             self.full_name = self.name
+            self.public_name = self.name
             self.call_sign = self.name
 
             self.database = {}

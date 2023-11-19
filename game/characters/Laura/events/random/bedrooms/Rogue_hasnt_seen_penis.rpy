@@ -1,5 +1,34 @@
 init python:
 
+    def Laura_Rogue_hasnt_seen_penis_setup():
+        label = "Laura_Rogue_hasnt_seen_penis_setup"
+
+        conditions = [
+            "renpy.random.random() > 0.75",
+
+            "not EventScheduler.Events['Laura_Rogue_hasnt_seen_penis'].completed",
+
+            "time_index not in Laura.schedule.keys()",
+            "time_index not in Rogue.schedule.keys()",
+
+            "Rogue.History.check('seen_Player_naked') and not Laura.History.check('seen_Player_naked') and Laura in Partners and Rogue in Partners and Rogue in Laura.knows_about and Laura in Rogue.knows_about",
+
+            "Laura.is_in_normal_mood()",
+            "Rogue.is_in_normal_mood()"]
+
+        repeatable = True
+        automatic = True
+
+        return EventClass(label, conditions, repeatable = repeatable, automatic = automatic)
+
+label Laura_Rogue_hasnt_seen_penis_setup:
+    call send_Characters(Laura, Laura.home, behavior = False)
+    call send_Characters(Rogue, Laura.home, behavior = False)
+
+    return
+
+init python:
+
     def Laura_Rogue_hasnt_seen_penis():
         label = "Laura_Rogue_hasnt_seen_penis"
 
@@ -10,7 +39,8 @@ init python:
 
             "Rogue.History.check('seen_Player_naked') and not Laura.History.check('seen_Player_naked') and Laura in Partners and Rogue in Partners and Rogue in Laura.knows_about and Laura in Rogue.knows_about",
 
-            "Laura.in_normal_mood()"]
+            "Laura.is_in_normal_mood()",
+            "Rogue.is_in_normal_mood()"]
 
         traveling = True
 
@@ -20,7 +50,8 @@ init python:
 
                 "Rogue.History.check('seen_Player_naked') and not Laura.History.check('seen_Player_naked') and Laura in Partners and Rogue in Partners and Rogue in Laura.knows_about and Laura in Rogue.knows_about",
 
-                "Laura.in_normal_mood()"]}
+                "Laura.is_in_normal_mood()",
+                "Rogue.is_in_normal_mood()"]}
 
         return EventClass(label, conditions, traveling = traveling, markers = markers)
 

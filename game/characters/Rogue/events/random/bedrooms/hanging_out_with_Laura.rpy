@@ -10,7 +10,8 @@ init python:
 
             "Rogue.location == Rogue.home and Laura.location == Rogue.home",
 
-            "Rogue.in_normal_mood()"]
+            "Rogue.is_in_normal_mood()",
+            "Laura.is_in_normal_mood()"]
 
         traveling = True
 

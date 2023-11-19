@@ -1,9 +1,13 @@
-label set_the_scene(location = None, show_Characters = True, show_Party = True, greetings = False, fade = True, fade_Characters = True):
+label set_the_scene(location = None, show_Characters = True, show_Party = True, greetings = False, fade = True, fade_Characters = True, silent = False):
     # $ temp_Character_picker_disabled = Character_picker_disabled
     # $ temp_belt_disabled = belt_disabled
 
     $ Character_picker_disabled = True
     $ belt_disabled = True
+
+    if silent:
+        $ fade = False
+        $ fade_Characters = False
     
     if fade and not black_screen:
         $ fade_to_black(0.4)
@@ -157,7 +161,7 @@ label set_the_scene(location = None, show_Characters = True, show_Party = True, 
         elif renpy.showing(f"{temp_Professor.tag}_sprite"):
             call hide_Character(temp_Professor, fade = fade_Characters) from _call_hide_Character_50
 
-    if black_screen:
+    if not silent and black_screen:
         $ fade_in_from_black(0.4)
 
     if greetings and traveling and Present:
@@ -221,10 +225,12 @@ label remove_Characters(Characters = None, location = None, fade = True):
 
             $ temp_removing_Characters[0].location = temp_removing_Characters[0].destination
 
+            call hide_Character(temp_removing_Characters[0], fade = fade)
+
         $ temp_removing_Characters.remove(temp_removing_Characters[0])
 
     if location == Player.location:
-        call set_the_scene(fade = False, fade_Characters = fade) from _call_set_the_scene_326
+        call set_the_scene(fade = False, fade_Characters = True) from _call_set_the_scene_326
     
     if Characters:
         call set_Character_Outfits(Characters) from _call_set_Character_Outfits_23

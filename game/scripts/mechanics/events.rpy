@@ -14,4 +14,6 @@ label check_for_Events(only_automatic = False, priority = False, waiting = False
             if not priority or selected_Event.priority:
                 call start_Event(selected_Event) from _call_start_Event_17
 
+    $ EventScheduler.update_conditions()
+
     return

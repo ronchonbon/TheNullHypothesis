@@ -1,5 +1,36 @@
 init python:
 
+    def Rogue_Laura_asks_about_Player_setup():
+        label = "Rogue_Laura_asks_about_Player_setup"
+
+        conditions = [
+            "renpy.random.random() > 0.75",
+
+            "not EventScheduler.Events['Rogue_Laura_asks_about_Player'].completed",
+
+            "time_index not in Rogue.schedule.keys()",
+            "time_index not in Laura.schedule.keys()",
+
+            "EventScheduler.Events['Laura_first_friend_part_two'].completed",
+            
+            "not Rogue in Partners and not Laura in Partners",
+
+            "Rogue.is_in_normal_mood()",
+            "Laura.is_in_normal_mood()"]
+
+        repeatable = True
+        automatic = True
+
+        return EventClass(label, conditions, repeatable = repeatable, automatic = automatic)
+
+label Rogue_Laura_asks_about_Player_setup:
+    call send_Characters(Rogue, Rogue.home, behavior = False)
+    call send_Characters(Laura, Rogue.home, behavior = False)
+
+    return
+
+init python:
+
     def Rogue_Laura_asks_about_Player():
         label = "Rogue_Laura_asks_about_Player"
 
@@ -12,7 +43,8 @@ init python:
             
             "not Rogue in Partners and not Laura in Partners",
 
-            "Rogue.in_normal_mood()"]
+            "Rogue.is_in_normal_mood()",
+            "Laura.is_in_normal_mood()"]
 
         traveling = True
 
@@ -24,7 +56,8 @@ init python:
                 
                 "not Rogue in Partners and not Laura in Partners",
 
-                "Rogue.in_normal_mood()"]}
+                "Rogue.is_in_normal_mood()",
+                "Laura.is_in_normal_mood()"]}
 
         return EventClass(label, conditions, traveling = traveling, markers = markers)
 

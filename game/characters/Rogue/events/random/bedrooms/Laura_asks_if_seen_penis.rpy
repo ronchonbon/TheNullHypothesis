@@ -1,5 +1,36 @@
 init python:
 
+    def Rogue_Laura_asks_if_seen_penis_setup():
+        label = "Rogue_Laura_asks_if_seen_penis_setup"
+
+        conditions = [
+            "renpy.random.random() > 0.75",
+
+            "not EventScheduler.Events['Rogue_Laura_asks_if_seen_penis'].completed",
+
+            "time_index not in Rogue.schedule.keys()",
+            "time_index not in Laura.schedule.keys()",
+
+            "EventScheduler.Events['Laura_first_friend_part_two'].completed",
+            
+            "Laura.History.check('seen_Player_cock') and not Rogue.History.check('seen_Player_cock') and Laura in Partners and Rogue in Partners and Rogue in Laura.knows_about and Laura in Rogue.knows_about",
+
+            "Rogue.is_in_normal_mood()",
+            "Laura.is_in_normal_mood()"]
+
+        repeatable = True
+        automatic = True
+
+        return EventClass(label, conditions, repeatable = repeatable, automatic = automatic)
+
+label Rogue_Laura_asks_if_seen_penis_setup:
+    call send_Characters(Rogue, Rogue.home, behavior = False)
+    call send_Characters(Laura, Rogue.home, behavior = False)
+
+    return
+
+init python:
+
     def Rogue_Laura_asks_if_seen_penis():
         label = "Rogue_Laura_asks_if_seen_penis"
 
@@ -12,7 +43,8 @@ init python:
             
             "Laura.History.check('seen_Player_cock') and not Rogue.History.check('seen_Player_cock') and Laura in Partners and Rogue in Partners and Rogue in Laura.knows_about and Laura in Rogue.knows_about",
 
-            "Rogue.in_normal_mood()"]
+            "Rogue.is_in_normal_mood()",
+            "Laura.is_in_normal_mood()"]
 
         traveling = True
 
@@ -24,7 +56,8 @@ init python:
                 
                 "Laura.History.check('seen_Player_cock') and not Rogue.History.check('seen_Player_cock') and Laura in Partners and Rogue in Partners and Rogue in Laura.knows_about and Laura in Rogue.knows_about",
 
-                "Rogue.in_normal_mood()"]}
+                "Rogue.is_in_normal_mood()",
+                "Laura.is_in_normal_mood()"]}
 
         return EventClass(label, conditions, traveling = traveling, markers = markers)
 

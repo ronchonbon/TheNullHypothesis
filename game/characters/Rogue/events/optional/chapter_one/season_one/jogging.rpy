@@ -11,10 +11,10 @@ init python:
             "Player.History.check('trained', tracker = 'last')",
             "not Rogue.History.check('trained_with_Player', tracker = 'last')",
 
-            "time_index not in Rogue.schedule.keys()",
-
             "Rogue.location not in ['hold', 'bg_lockers']",
             "Rogue.original_location != Player.location",
+
+            "time_index not in Rogue.schedule.keys()",
 
             "Rogue.is_in_normal_mood()"]
 
@@ -28,7 +28,9 @@ label Rogue_chapter_one_season_one_jogging:
     call remove_Characters(location = "bg_lockers")
     call set_the_scene(location = "bg_lockers")
 
-    "You head to the locker rooms after your session in the Danger Room."
+    call set_music
+
+    "You head to the lockers after your session in the Danger Room."
 
     $ Rogue.change_face("neutral", eyes = "down")
 
@@ -42,6 +44,11 @@ label Rogue_chapter_one_season_one_jogging:
             pass
         "Don't get involved":
             call remove_Characters(Rogue)
+
+            $ EventScheduler.Events["Rogue_chapter_one_season_one_jogging"].completed = False
+            $ EventScheduler.Events["Rogue_chapter_one_season_one_jogging"].completed_when = 1e8
+
+            $ EventScheduler.Events["Rogue_chapter_one_season_one_jogging"].counter = 0
 
             $ ongoing_Event = False
 

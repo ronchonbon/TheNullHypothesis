@@ -107,7 +107,8 @@ screen Player_menu():
         Hide("say"),
         Hide("phone_screen"),
         SetVariable("current_inventory_filter", "gifts"),
-        SetVariable("choice_disabled", True)]
+        SetVariable("choice_disabled", True),
+        Function(EventScheduler.update_conditions)]
     on "hide" action [
         SetVariable("giving_gift", False),
         SetVariable("current_inventory_Item", None),
@@ -665,6 +666,8 @@ screen journal_screen():
                     $ progress = eval(current_journal_Quest.objectives[objective][0])
                     $ target = current_journal_Quest.objectives[objective][1]
 
+                    $ objective = renpy.substitute(objective)
+
                     if current_journal_Quest.completed or progress > target:
                         $ progress = target
 
@@ -674,48 +677,59 @@ screen journal_screen():
 
                             color "#000000"
                     else:
-                        text objective + ": [progress]/[target]" anchor (0.5, 0.5) pos (0.5, 0.5):
+                        text "[objective]: [progress]/[target]" anchor (0.5, 0.5) pos (0.5, 0.5):
                             size 32
 
                             color "#000000"
                 else:
                     if eval(current_journal_Quest.objectives[objective][0]):
+                        $ objective = renpy.substitute(objective)
+
                         text "{s}[objective]{/s}" anchor (0.5, 0.5) pos (0.5, 0.5):
                             size 32
 
                             color "#000000"
                     else:
-                        text objective anchor (0.5, 0.5) pos (0.5, 0.5):
+                        $ objective = renpy.substitute(objective)
+
+                        text "[objective]" anchor (0.5, 0.5) pos (0.5, 0.5):
                             size 32
 
                             color "#000000"
 
             for optional_objective in current_journal_Quest.optional_objectives.keys():
+
                 if current_journal_Quest.optional_objectives[optional_objective][1]:
                     $ progress = eval(current_journal_Quest.optional_objectives[optional_objective][0])
                     $ target = current_journal_Quest.optional_objectives[optional_objective][1]
+
+                    $ optional_objective = renpy.substitute(optional_objective)
 
                     if current_journal_Quest.completed or progress > target:
                         $ progress = target
 
                     if progress == target:
-                        text "{s}[optional_objective]: [progress]/[target]{/s}" anchor (0.5, 0.5) pos (0.5, 0.5):
+                        text "{s}{i}[optional_objective]: [progress]/[target]{/i}{/s}" anchor (0.5, 0.5) pos (0.5, 0.5):
                             size 32
 
                             color "#000000"
                     else:
-                        text optional_objective + ": [progress]/[target]" anchor (0.5, 0.5) pos (0.5, 0.5):
+                        text "{i}[optional_objective]: [progress]/[target]{/i}" anchor (0.5, 0.5) pos (0.5, 0.5):
                             size 32
 
                             color "#000000"
                 else:
                     if eval(current_journal_Quest.optional_objectives[optional_objective][0]):
-                        text "{s}[optional_objective]{/s}" anchor (0.5, 0.5) pos (0.5, 0.5):
+                        $ optional_objective = renpy.substitute(optional_objective)
+
+                        text "{s}{i}[optional_objective]{/i}{/s}" anchor (0.5, 0.5) pos (0.5, 0.5):
                             size 32
 
                             color "#000000"
                     else:
-                        text optional_objective anchor (0.5, 0.5) pos (0.5, 0.5):
+                        $ optional_objective = renpy.substitute(optional_objective)
+
+                        text "{i}[optional_objective]{/i}" anchor (0.5, 0.5) pos (0.5, 0.5):
                             size 32
 
                             color "#000000"

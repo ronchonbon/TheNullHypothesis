@@ -66,10 +66,12 @@ init -3 python:
 
                         break
 
-                if met and self.label not in marked_locations[marker_location]:
-                    marked_locations[marker_location].append(self.label)
-                elif not met and self.label in marked_locations[marker_location]:
-                    marked_locations[marker_location].remove(self.label)
+                if marker_location in marked_locations.keys():
+                    if met and self.label not in marked_locations[marker_location]:
+                        marked_locations[marker_location].append(self.label)
+                else:
+                    if met and self.label not in marked_locations[eval(marker_location)]:
+                        marked_locations[eval(marker_location)].append(self.label)
 
             return
 
@@ -110,6 +112,11 @@ init -3 python:
 
         def update_conditions(self):
             global QuestPool
+            
+            global marked_locations
+
+            for marker_location in marked_locations.keys():
+                marked_locations[marker_location] = []
 
             for Event in self.Events.values():
                 if not Event.completed or Event.repeatable:

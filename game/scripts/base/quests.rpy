@@ -76,6 +76,12 @@ init -2 python:
 
                         break
 
+                for new_objective in Quest.optional_objectives.keys():
+                    if new_objective not in self.Quests[Quest.string].optional_objectives.keys():
+                        changed = True
+
+                        break
+
                 if not changed:
                     Quest.unlocked = self.Quests[Quest.string].unlocked
                     Quest.completed = self.Quests[Quest.string].completed

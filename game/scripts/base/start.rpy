@@ -55,11 +55,12 @@ label splashscreen:
     hide screen credits
 
     call screen disclaimer()
-    call screen seizure_warning()
 
     return
 
 label start:
+    call screen seizure_warning()
+    
     $ _skipping = False
 
     show expression "images/interface/main_menu/background.webp" as new_game_background:

@@ -38,15 +38,19 @@ init python:
             Laura_locker_room_changing(),
             Laura_locker_room_showering(),
 
+            Laura_Jean_wants_to_go_on_date_setup(),
             Laura_Jean_wants_to_go_on_date(),
+            Laura_Rogue_explaining_body_setup(),
             Laura_Rogue_explaining_body(),
+            Laura_Rogue_explaining_feelings_setup(),
             Laura_Rogue_explaining_feelings(),
+            Laura_Rogue_hasnt_seen_penis_setup(),
             Laura_Rogue_hasnt_seen_penis(),
+            Laura_Rogue_talking_about_masturbation_setup(),
             Laura_Rogue_talking_about_masturbation(),
 
             Laura_saving_cum(),
 
-            # Laura_gifts(),
             Laura_gifts_motorcycle_helmet(),
 
             Laura_chapter_one_season_one_first_study_session(),

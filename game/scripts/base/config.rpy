@@ -6,7 +6,7 @@ define config.idle_gc_count = 250
 init python:
 
     config.name = _("The Null Hypothesis")
-    config.version = "0.2b"
+    config.version = "0.3a"
 
     config.developer = "auto"
 

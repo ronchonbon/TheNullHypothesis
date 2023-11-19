@@ -74,6 +74,12 @@ init python:
             Rogue_chapter_one_season_four_training_sessions(),
 
             Rogue_chapter_one_season_one_jogging(),
+            Rogue_chapter_one_season_one_people_watching_setup(),
+            Rogue_chapter_one_season_one_people_watching(),
+            Rogue_chapter_one_season_one_standoffish_part_one_setup(),
+            Rogue_chapter_one_season_one_standoffish_part_one(),
+            Rogue_chapter_one_season_one_standoffish_part_two_setup(),
+            Rogue_chapter_one_season_one_standoffish_part_two(),
 
             Rogue_confession_text(),
             Rogue_confession_afternoon(),

@@ -286,7 +286,8 @@ label set_Character_Outfits(Characters = None, instant = True):
 
                             $ temp_Outfit_Characters[0].outfit = "casual"
 
-        $ temp_Outfit_Characters.remove(temp_Outfit_Characters[0])
+        if temp_Outfit_Characters:
+            $ temp_Outfit_Characters.remove(temp_Outfit_Characters[0])
 
     $ temp_Outfit_Characters = []
 

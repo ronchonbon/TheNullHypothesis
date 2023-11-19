@@ -1,5 +1,34 @@
 init python:
 
+    def Laura_Rogue_talking_about_masturbation_setup():
+        label = "Laura_Rogue_talking_about_masturbation_setup"
+
+        conditions = [
+            "renpy.random.random() > 0.75",
+
+            "not EventScheduler.Events['Laura_Rogue_talking_about_masturbation'].completed",
+
+            "time_index not in Laura.schedule.keys()",
+            "time_index not in Rogue.schedule.keys()",
+
+            "EventScheduler.Events['Laura_first_friend_part_two'].completed and EventScheduler.Events['Rogue_Laura_asks_about_masturbation'].completed",
+
+            "Laura.is_in_normal_mood()",
+            "Rogue.is_in_normal_mood()"]
+
+        repeatable = True
+        automatic = True
+
+        return EventClass(label, conditions, repeatable = repeatable, automatic = automatic)
+
+label Laura_Rogue_talking_about_masturbation_setup:
+    call send_Characters(Laura, Laura.home, behavior = False)
+    call send_Characters(Rogue, Laura.home, behavior = False)
+
+    return
+
+init python:
+
     def Laura_Rogue_talking_about_masturbation():
         label = "Laura_Rogue_talking_about_masturbation"
 
@@ -8,10 +37,10 @@ init python:
 
             "Laura.location == Laura.home and Rogue.location == Laura.home",
 
-            "EventScheduler.Events['Laura_first_friend_part_two'].completed",
-            "EventScheduler.Events['Rogue_Laura_asks_about_masturbation'].completed",
+            "EventScheduler.Events['Laura_first_friend_part_two'].completed and EventScheduler.Events['Rogue_Laura_asks_about_masturbation'].completed",
 
-            "Laura.in_normal_mood()"]
+            "Laura.is_in_normal_mood()",
+            "Rogue.is_in_normal_mood()"]
 
         traveling = True
 
@@ -19,10 +48,10 @@ init python:
             Laura.home: [
                 "Laura.location == Laura.home and Rogue.location == Laura.home",
 
-                "EventScheduler.Events['Laura_first_friend_part_two'].completed",
-                "EventScheduler.Events['Rogue_Laura_asks_about_masturbation'].completed",
+                "EventScheduler.Events['Laura_first_friend_part_two'].completed and EventScheduler.Events['Rogue_Laura_asks_about_masturbation'].completed",
 
-                "Laura.in_normal_mood()"]}
+                "Laura.is_in_normal_mood()",
+                "Rogue.is_in_normal_mood()"]}
 
         return EventClass(label, conditions, traveling = traveling, markers = markers)
 
