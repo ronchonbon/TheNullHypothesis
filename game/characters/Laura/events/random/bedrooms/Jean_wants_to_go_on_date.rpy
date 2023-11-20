@@ -24,8 +24,8 @@ init python:
         return EventClass(label, conditions, repeatable = repeatable, automatic = automatic)
 
 label Laura_Jean_wants_to_go_on_date_setup:
-    call send_Characters(Laura, Laura.home, behavior = False)
-    call send_Characters(Jean, Laura.home, behavior = False)
+    call send_Characters(Laura, Laura.home, behavior = False) from _call_send_Characters_303
+    call send_Characters(Jean, Laura.home, behavior = False) from _call_send_Characters_304
 
     return
 

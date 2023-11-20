@@ -76,7 +76,7 @@ label ask_to_train(Girl):
     if Girl in Present:
         ch_Player "Hey, [Girl.name], wanna train together?"
 
-        if status not in ["miffed", "mad", "heartbroken"] and not Girl.wants_alone_time and not Girl.History.check("trained_with_Player", tracker = "daily") and time_index < 3:
+        if Girl.is_in_normal_mood() and not Girl.History.check("trained_with_Player", tracker = "daily") and time_index < 3:
             call expression f"{Girl.tag}_accept_train" from _call_expression_346
         else:
             if Girl.History.check("said_no_to_training", tracker = "recent") >= 2:
@@ -119,7 +119,7 @@ label ask_to_train(Girl):
 
             return False
         else:
-            if time_index not in Girl.schedule.keys() and status not in ["miffed", "mad", "heartbroken"] and not Girl.wants_alone_time and not Girl.History.check("trained_with_Player", tracker = "daily"):
+            if time_index not in Girl.schedule.keys() and Girl.is_in_normal_mood() and not Girl.History.check("trained_with_Player", tracker = "daily"):
                 call expression f"{Girl.tag}_accept_train_text" from _call_expression_354
             else:
                 if Girl.History.check("said_no_to_training", tracker = "recent") >= 2:

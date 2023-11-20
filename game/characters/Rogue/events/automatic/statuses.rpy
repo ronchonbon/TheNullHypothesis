@@ -23,6 +23,10 @@ init python:
         return EventClass(label, conditions)
 
 label Rogue_became_mad:
+    if Rogue in Player.date_planned.keys():
+        ch_Rogue "Ah'd rather be alone tonight."
+
+        $ del Player.date_planned[Rogue]
 
     return
 
@@ -37,6 +41,10 @@ init python:
         return EventClass(label, conditions)
 
 label Rogue_became_heartbroken:
+    if Rogue in Player.date_planned.keys():
+        ch_Rogue "Ah. . . think we should cancel tonight. . ."
+
+        $ del Player.date_planned[Rogue]
 
     return
 

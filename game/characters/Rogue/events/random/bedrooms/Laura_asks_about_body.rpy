@@ -22,8 +22,8 @@ init python:
         return EventClass(label, conditions, repeatable = repeatable, automatic = automatic)
 
 label Rogue_Laura_asks_about_body_setup:
-    call send_Characters(Rogue, Rogue.home, behavior = False)
-    call send_Characters(Laura, Rogue.home, behavior = False)
+    call send_Characters(Rogue, Rogue.home, behavior = False) from _call_send_Characters_322
+    call send_Characters(Laura, Rogue.home, behavior = False) from _call_send_Characters_323
 
     return
 

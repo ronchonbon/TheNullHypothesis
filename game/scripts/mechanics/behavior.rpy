@@ -35,6 +35,8 @@ init python:
         global all_Characters
 
         global Party
+
+        global Player
         
         if not Characters:
             Characters = all_Characters[:]
@@ -51,6 +53,8 @@ init python:
             if C not in Party:
                 if time_index in C.schedule.keys():
                     C.destination = C.schedule[time_index][0]
+                elif time_index == 2 and C in Player.date_planned.keys():
+                    C.destination = C.home
                 else:
                     C.travel()
 

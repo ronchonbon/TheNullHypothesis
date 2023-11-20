@@ -225,7 +225,7 @@ label remove_Characters(Characters = None, location = None, fade = True):
 
             $ temp_removing_Characters[0].location = temp_removing_Characters[0].destination
 
-            call hide_Character(temp_removing_Characters[0], fade = fade)
+            call hide_Character(temp_removing_Characters[0], fade = fade) from _call_hide_Character_51
 
         $ temp_removing_Characters.remove(temp_removing_Characters[0])
 

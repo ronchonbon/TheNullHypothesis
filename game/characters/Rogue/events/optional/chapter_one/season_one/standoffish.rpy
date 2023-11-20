@@ -21,8 +21,8 @@ init python:
         return EventClass(label, conditions, repeatable = repeatable, automatic = automatic)
 
 label Rogue_chapter_one_season_one_standoffish_part_one_setup:
-    call send_Characters(Rogue, "bg_girls_hallway", behavior = False)
-    call send_Characters(Kurt, "bg_girls_hallway", behavior = False)
+    call send_Characters(Rogue, "bg_girls_hallway", behavior = False) from _call_send_Characters_316
+    call send_Characters(Kurt, "bg_girls_hallway", behavior = False) from _call_send_Characters_317
 
     return
 
@@ -43,7 +43,7 @@ init python:
         traveling = True
 
         markers = {
-            "Rogue.location": [
+            "bg_girls_hallway": [
                 "chapter == 1 and season == 1",
 
                 "Rogue.location == 'bg_girls_hallway' and Kurt.location == 'bg_girls_hallway'",
@@ -74,7 +74,7 @@ label Rogue_chapter_one_season_one_standoffish_part_one:
     ch_Rogue "Ah ain't like that, not at all. . ."
     ch_Rogue "Never will be."
 
-    call set_the_scene(location = "bg_girls_hallway", silent = True)
+    call set_the_scene(location = "bg_girls_hallway", silent = True) from _call_set_the_scene_390
 
     if Rogue.sprite_position[0] >= Kurt.sprite_position[0]:
         $ Rogue.change_face("confused1", eyes = "right")
@@ -83,7 +83,7 @@ label Rogue_chapter_one_season_one_standoffish_part_one:
         $ Rogue.change_face("confused1", eyes = "left")
         $ Kurt.change_face("sad", eyes = "right")
 
-    call set_the_scene(location = "bg_girls_hallway")
+    call set_the_scene(location = "bg_girls_hallway") from _call_set_the_scene_391
 
     $ Rogue.name = temp_Rogue_name
     $ Kurt.name = temp_Kurt_name
@@ -97,7 +97,7 @@ label Rogue_chapter_one_season_one_standoffish_part_one:
 
     pause 1.0
 
-    call Kurt_teleports_out
+    call Kurt_teleports_out from _call_Kurt_teleports_out_7
 
     pause 1.0
 
@@ -105,7 +105,7 @@ label Rogue_chapter_one_season_one_standoffish_part_one:
         "Approach [Rogue.name]":
             pass
         "Don't get involved":
-            call remove_Characters(Rogue)
+            call remove_Characters(Rogue) from _call_remove_Characters_329
 
             $ EventScheduler.Events["Rogue_chapter_one_season_one_standoffish_part_one"].completed = False
             $ EventScheduler.Events["Rogue_chapter_one_season_one_standoffish_part_one"].completed_when = 1e8
@@ -125,21 +125,21 @@ label Rogue_chapter_one_season_one_standoffish_part_one:
     menu:
         extend ""
         "Don't mean to pry, but is everything okay? I'm here if you wanna talk or even just vent.":
-            call change_Girl_stat(Rogue, "love", small_stat)
-            call change_Girl_stat(Rogue, "trust", small_stat)
+            call change_Girl_stat(Rogue, "love", small_stat) from _call_change_Girl_stat_190
+            call change_Girl_stat(Rogue, "trust", small_stat) from _call_change_Girl_stat_196
 
             $ Rogue.change_face("worried1", eyes = "right")
 
             ch_Rogue "Ah. . . just. . . reckon everythin' is not okay. . ."
         "Are you okay? That didn't seem like a happy conversation, so if you wanted someone else to talk to. . .":
-            call change_Girl_stat(Rogue, "love", small_stat)
-            call change_Girl_stat(Rogue, "trust", small_stat)
+            call change_Girl_stat(Rogue, "love", small_stat) from _call_change_Girl_stat_197
+            call change_Girl_stat(Rogue, "trust", small_stat) from _call_change_Girl_stat_209
 
             $ Rogue.change_face("worried1", mouth = "smirk")
 
             ch_Rogue "It. . . wasn't a very happy conversation. . ."
         "Something about you not getting along with people and pushing them away? What's up with that?":
-            call change_Girl_stat(Rogue, "love", -small_stat)
+            call change_Girl_stat(Rogue, "love", -small_stat) from _call_change_Girl_stat_215
 
             $ Rogue.change_face("worried1", eyes = "down")
 
@@ -170,9 +170,9 @@ label Rogue_chapter_one_season_one_standoffish_part_one:
     ch_Rogue "Let's not talk out here."
     ch_Rogue "Come with me to my room."
 
-    call remove_Characters(Rogue)
-    call set_the_scene(location = Rogue.home)
-    call send_Characters(Rogue, Rogue.home, behavior = False)
+    call remove_Characters(Rogue) from _call_remove_Characters_330
+    call set_the_scene(location = Rogue.home) from _call_set_the_scene_392
+    call send_Characters(Rogue, Rogue.home, behavior = False) from _call_send_Characters_318
 
     $ Rogue.change_face("worried2")
 
@@ -214,20 +214,20 @@ label Rogue_chapter_one_season_one_standoffish_part_one:
     menu:
         extend ""
         "I'm always happy to listen. Maybe I could give you a different perspective than you're used to, since I'm so new here.":
-            call change_Girl_stat(Rogue, "trust", medium_stat)
+            call change_Girl_stat(Rogue, "trust", medium_stat) from _call_change_Girl_stat_216
 
             $ Rogue.change_face("worried1", mouth = "smirk")
 
             ch_Rogue "Maybe you could, but as much as ah appreciate it, ah can't. . ."
         "I'm all ears if you're willing. Maybe my perspective could be useful.":
-            call change_Girl_stat(Rogue, "love", small_stat)
-            call change_Girl_stat(Rogue, "trust", medium_stat)
+            call change_Girl_stat(Rogue, "love", small_stat) from _call_change_Girl_stat_383
+            call change_Girl_stat(Rogue, "trust", medium_stat) from _call_change_Girl_stat_384
 
             $ Rogue.change_face("worried1", mouth = "smirk")
 
             ch_Rogue "Ah appreciate yer willingness, ah really do, but ah can't. . ."
         "Well, then give me the full story, I'm willing to listen. You can't expect people to understand your situation when they don't have all the information.":
-            call change_Girl_stat(Rogue, "love", -medium_stat)
+            call change_Girl_stat(Rogue, "love", -medium_stat) from _call_change_Girl_stat_394
 
             $ Rogue.change_face("worried1", eyes = "down")
 
@@ -274,7 +274,7 @@ init python:
         return EventClass(label, conditions, repeatable = repeatable, automatic = automatic)
 
 label Rogue_chapter_one_season_one_standoffish_part_two_setup:
-    call send_Characters(Rogue, "bg_classroom", behavior = "in_class")
+    call send_Characters(Rogue, "bg_classroom", behavior = "in_class") from _call_send_Characters_319
 
     return
 
@@ -316,7 +316,7 @@ init python:
 label Rogue_chapter_one_season_one_standoffish_part_two:
     $ ongoing_Event = True
 
-    call set_the_scene(location = "bg_classroom", show_Characters = False)
+    call set_the_scene(location = "bg_classroom", show_Characters = False) from _call_set_the_scene_393
 
     python:
         for C in Present:
@@ -328,7 +328,7 @@ label Rogue_chapter_one_season_one_standoffish_part_two:
 
     $ Rogue.change_face("angry1", eyes = "down")
 
-    call set_the_scene(location = "bg_classroom", fade = False)
+    call set_the_scene(location = "bg_classroom", fade = False) from _call_set_the_scene_394
 
     "You turn around and see [Rogue.name] with a cloudy expression on her face. . ."
 
@@ -351,20 +351,20 @@ label Rogue_chapter_one_season_one_standoffish_part_two:
     menu:
         extend ""
         "Did something happen? You looked pretty upset there before bumping into me.":
-            call change_Girl_stat(Rogue, "trust", small_stat)
+            call change_Girl_stat(Rogue, "trust", small_stat) from _call_change_Girl_stat_395
 
             $ Rogue.change_face("worried1", eyes = "right")
 
             ch_Rogue "Nothin' happened, don't worry. . ."
         "I'm fine, but are {i}you{/i} okay? You looked like someone just killed your cat. . .":
-            call change_Girl_stat(Rogue, "love", small_stat)
-            call change_Girl_stat(Rogue, "trust", small_stat)
+            call change_Girl_stat(Rogue, "love", small_stat) from _call_change_Girl_stat_396
+            call change_Girl_stat(Rogue, "trust", small_stat) from _call_change_Girl_stat_397
 
             $ Rogue.change_face("worried1", eyes = "right")
 
             ch_Rogue "Ah'm the same as ever. . ."
         "You sure? It looked like you just killed someone or something. . .":
-            call change_Girl_stat(Rogue, "love", -medium_stat)
+            call change_Girl_stat(Rogue, "love", -medium_stat) from _call_change_Girl_stat_403
             
             $ Rogue.change_face("worried2") 
             

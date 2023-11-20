@@ -100,8 +100,6 @@ label Jean_back_from_mission:
 
             $ Jean.change_face("smirk2")
 
-            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_111
-
             ch_Jean "I'm glad you feel the same way."
 
             $ Jean.change_face("happy")

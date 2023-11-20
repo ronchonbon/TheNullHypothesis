@@ -387,7 +387,7 @@ label day_two_tutoring_session:
         $ Rogue.change_face("smirk2")
         
         if Player.scholarship == "academic":
-            call change_Girl_stat(Rogue, "love", large_stat)
+            call change_Girl_stat(Rogue, "love", large_stat) from _call_change_Girl_stat_641
             
             ch_Player "I know how important it is to stay on top of my studies. Plus, I enjoy it."
             ch_Player "It helps. . . distract me. . ."
@@ -425,7 +425,7 @@ label day_two_tutoring_session:
                 ch_Rogue ". . . maybe you could play for me sometime."
                 ch_Player "Sounds like a deal."
             "Yeah. . . I like to draw. (artistic)":
-                call change_Girl_stat(Rogue, "love", medium_stat)
+                call change_Girl_stat(Rogue, "love", medium_stat) from _call_change_Girl_stat_657
                 
                 ch_Player "Doesn't seem like any of my supplies made it to the mansion with me, though. . ."
 
@@ -570,8 +570,8 @@ label day_two_after_tutoring:
     menu:
         extend ""
         "I don't know. . . I'm sorry, I'm just worried about getting hurt.":
-            call change_Girl_stat(Rogue, "love", -small_stat)
-            call change_Girl_stat(Rogue, "trust", small_stat)
+            call change_Girl_stat(Rogue, "love", -small_stat) from _call_change_Girl_stat_658
+            call change_Girl_stat(Rogue, "trust", small_stat) from _call_change_Girl_stat_659
 
             $ Rogue.change_face("sad")
 
@@ -582,8 +582,8 @@ label day_two_after_tutoring:
 
             ch_Player "Okay, okay, we can give it a try."
         "Fine by me!":
-            call change_Girl_stat(Rogue, "love", small_stat)
-            call change_Girl_stat(Rogue, "trust", -medium_stat)
+            call change_Girl_stat(Rogue, "love", small_stat) from _call_change_Girl_stat_660
+            call change_Girl_stat(Rogue, "trust", -medium_stat) from _call_change_Girl_stat_670
         
             "You stick your hand out for her to touch."
 
@@ -592,8 +592,8 @@ label day_two_after_tutoring:
             ch_Rogue "Uhm. . . [Rogue.Player_petname], are you sure?"
             ch_Player "100\%."
         "This means a lot to you, doesn't it? Sure, I'm willing to try.":
-            call change_Girl_stat(Rogue, "love", medium_stat)
-            call change_Girl_stat(Rogue, "trust", medium_stat)
+            call change_Girl_stat(Rogue, "love", medium_stat) from _call_change_Girl_stat_676
+            call change_Girl_stat(Rogue, "trust", medium_stat) from _call_change_Girl_stat_677
             
             $ Rogue.change_face("surprised2")
 
@@ -634,7 +634,7 @@ label day_two_after_tutoring:
 
             ch_Rogue "Do you feel alright?"
             
-            call change_Girl_stat(Rogue, "trust", medium_stat)
+            call change_Girl_stat(Rogue, "trust", medium_stat) from _call_change_Girl_stat_682
 
             ch_Player "I feel great. I'm holding hands with a beautiful girl, after all."
 

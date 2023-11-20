@@ -71,7 +71,7 @@ label ask_to_study(Girl):
     if Girl in Present:
         ch_Player "Wanna study together?"
 
-        if status not in ["miffed", "mad", "heartbroken"] and not Girl.wants_alone_time and not Girl.History.check("studied_with_Player", tracker = "daily"):
+        if Girl.is_in_normal_mood() and not Girl.History.check("studied_with_Player", tracker = "daily"):
             call expression f"{Girl.tag}_accept_study" from _call_expression_287
         else:
             if Girl.History.check("said_no_to_studying", tracker = "recent") >= 2:
@@ -115,7 +115,7 @@ label ask_to_study(Girl):
 
                 return False
         else:
-            if time_index not in Girl.schedule.keys() and status not in ["miffed", "mad", "heartbroken"] and not Girl.wants_alone_time and not Girl.History.check("studied_with_Player", tracker = "daily"):
+            if time_index not in Girl.schedule.keys() and Girl.is_in_normal_mood() and not Girl.History.check("studied_with_Player", tracker = "daily"):
                 call expression f"{Girl.tag}_accept_study_text" from _call_expression_296
             else:
                 if Girl.History.check("said_no_to_studying", tracker = "recent") >= 2:

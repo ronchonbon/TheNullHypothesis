@@ -292,7 +292,7 @@ label Rogue_texting_ask_to_masturbate_response:
         
         hide screen phone_screen
 
-        call remove_everyone_but(Rogue, location = Rogue.location, fade = False)
+        call remove_everyone_but(Rogue, location = Rogue.location, fade = False) from _call_remove_everyone_but_12
         call set_the_scene(location = Rogue.location) from _call_set_the_scene_199
 
         $ Rogue.change_face("manic", blush = 2)

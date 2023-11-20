@@ -37,7 +37,7 @@ label swim:
 label ask_to_swim(Girl):   
     $ status = Girl.get_status()
 
-    if status not in ["miffed", "mad", "heartbroken"] and not Girl.wants_alone_time and approval_check(Girl, threshold = "friendship") and (not time_index >= 3 or approval_check(Girl, threshold = "talk_late")):
+    if Girl.swimming_Outfit.name != Girl.indoor_Outfit.name and Girl.is_in_normal_mood() and approval_check(Girl, threshold = "friendship") and (not time_index >= 3 or approval_check(Girl, threshold = "talk_late")):
         call expression f"{Girl.tag}_accept_swim" from _call_expression_330
     else:
         if Girl.History.check("said_no_to_swimming", tracker = "recent") >= 2:

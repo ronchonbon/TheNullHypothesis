@@ -12,6 +12,8 @@
 
 *.bak
 
+*.json
+
 .vscode/
 
 game/images/

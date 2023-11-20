@@ -87,7 +87,7 @@ label Laura_saving_cum:
         if Player.History.check("orgasmed", tracker = "daily"):
             "You hope she was lying about being able to tell if you. . ."
 
-        call remove_Characters(location = Laura.home)
+        call remove_Characters(location = Laura.home) from _call_remove_Characters_322
         call send_Characters(Laura, Laura.home) from _call_send_Characters_102
         call set_the_scene(location = Laura.home) from _call_set_the_scene_119
 
@@ -96,7 +96,7 @@ label Laura_saving_cum:
         "As you enter, [Laura.name] stares at you intently."
         "Her nostrils flare as you get closer."  
     else:
-        call remove_everyone_but(Laura)
+        call remove_everyone_but(Laura) from _call_remove_everyone_but_10
 
         "[Laura.name] stares at you intently."
         "Her nostrils flare."  

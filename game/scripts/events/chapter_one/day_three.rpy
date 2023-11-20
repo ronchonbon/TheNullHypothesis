@@ -81,7 +81,7 @@ label day_three_intro:
                 ch_Rogue "But it really is okay. You've only been around other mutants a few days, and your childhood was pretty normal."
                 ch_Player "I'll be more sensitive, promise."
             "Accept her forgiveness":
-                call change_Girl_stat(Rogue, "trust", -tiny_stat)
+                call change_Girl_stat(Rogue, "trust", -tiny_stat) from _call_change_Girl_stat_640
 
                 $ Rogue.change_face("neutral")
 

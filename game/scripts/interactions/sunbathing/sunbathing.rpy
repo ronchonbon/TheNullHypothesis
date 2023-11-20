@@ -37,7 +37,7 @@ label sunbathe:
 label ask_to_sunbathe(Girl):   
     $ status = Girl.get_status()
 
-    if status not in ["miffed", "mad", "heartbroken"] and not Girl.wants_alone_time and approval_check(Girl, threshold = "dating"):
+    if Girl.is_in_normal_mood() and approval_check(Girl, threshold = "dating"):
         call expression f"{Girl.tag}_accept_sunbathe" from _call_expression_325
     else:
         if Girl.History.check("said_no_to_sunbathing", tracker = "recent") >= 2:

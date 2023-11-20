@@ -22,8 +22,8 @@ init python:
         return EventClass(label, conditions, repeatable = repeatable, automatic = automatic)
 
 label Laura_Rogue_explaining_feelings_setup:
-    call send_Characters(Laura, Laura.home, behavior = False)
-    call send_Characters(Rogue, Laura.home, behavior = False)
+    call send_Characters(Laura, Laura.home, behavior = False) from _call_send_Characters_307
+    call send_Characters(Rogue, Laura.home, behavior = False) from _call_send_Characters_308
 
     return
 

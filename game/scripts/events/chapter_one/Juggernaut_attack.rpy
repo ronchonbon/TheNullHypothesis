@@ -1311,7 +1311,7 @@ label ch1_Juggernaut_attack:
             
             ch_Rogue "And next time, ah'll be right there fightin' alongside ya."
         "It's not your fault.":
-            call change_Girl_stat(Rogue, "trust", medium_stat)
+            call change_Girl_stat(Rogue, "trust", medium_stat) from _call_change_Girl_stat_635
 
             $ Rogue.change_face("worried1", blush = 1) 
             
@@ -1322,7 +1322,7 @@ label ch1_Juggernaut_attack:
             
             ch_Rogue "Next time, ah'll be right there fightin' alongside ya."
         "Yeah. . . it wasn't fun.":
-            call change_Girl_stat(Rogue, "love", -small_stat)
+            call change_Girl_stat(Rogue, "love", -small_stat) from _call_change_Girl_stat_636
 
             $ Rogue.change_face("worried1", eyes = "down", blush = 1) 
             

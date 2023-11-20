@@ -538,7 +538,7 @@ label meet_Rogue:
     menu:
         extend ""
         "Looks like the rumors are a bit exaggerated. Xavier seems to think my power only makes me impervious to other mutant powers.":
-            call change_Girl_stat(Rogue, "trust", medium_stat)
+            call change_Girl_stat(Rogue, "trust", medium_stat) from _call_change_Girl_stat_637
 
             $ Rogue.change_face("pleased2")
             
@@ -579,7 +579,7 @@ label meet_Rogue:
     menu:
         extend ""
         ". . . Yes, [Rogue.name] has just been telling me a little about the Institute.":
-            call change_Girl_stat(Rogue, "trust", medium_stat)
+            call change_Girl_stat(Rogue, "trust", medium_stat) from _call_change_Girl_stat_638
             
             $ Rogue.change_face("pleased1", blush = 1)
         "Definitely! I can tell we're going to get along really well.":
@@ -591,7 +591,7 @@ label meet_Rogue:
 
             $ Rogue.History.update("Player_looked_at_glove")
         "We are. Thank you very much, [Ororo.name], I'll make sure to study hard.":
-            call change_Girl_stat(Rogue, "trust", small_stat)
+            call change_Girl_stat(Rogue, "trust", small_stat) from _call_change_Girl_stat_639
             call change_Girl_stat(Ororo, "love", 0) from _call_change_Girl_stat_879
 
             $ Rogue.change_face("pleased1", blush = 1)

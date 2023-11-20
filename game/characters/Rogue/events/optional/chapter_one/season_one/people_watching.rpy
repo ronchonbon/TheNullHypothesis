@@ -22,7 +22,7 @@ init python:
         return EventClass(label, conditions, repeatable = repeatable, automatic = automatic)
 
 label Rogue_chapter_one_season_one_people_watching_setup:
-    call send_Characters(Rogue, "bg_campus", behavior = False)
+    call send_Characters(Rogue, "bg_campus", behavior = False) from _call_send_Characters_315
 
     return
 
@@ -45,7 +45,7 @@ init python:
         traveling = True
 
         markers = {
-            "Rogue.location": [
+            "bg_campus": [
                 "chapter == 1 and season == 1",
 
                 "time_index < 3",
@@ -61,7 +61,7 @@ label Rogue_chapter_one_season_one_people_watching:
 
     $ Rogue.eyes = "left"
 
-    call set_the_scene(location = "bg_campus")
+    call set_the_scene(location = "bg_campus") from _call_set_the_scene_389
 
     "Walking across campus, you notice [Rogue.name] sitting alone on a bench near one of the footpaths, glancing at people as they walk past."
 
@@ -70,7 +70,7 @@ label Rogue_chapter_one_season_one_people_watching:
         "Approach [Rogue.name]":
             pass
         "Don't get involved":
-            call remove_Characters(Rogue)
+            call remove_Characters(Rogue) from _call_remove_Characters_327
 
             $ EventScheduler.Events["Rogue_chapter_one_season_one_people_watching"].completed = False
             $ EventScheduler.Events["Rogue_chapter_one_season_one_people_watching"].completed_when = 1e8
@@ -81,7 +81,7 @@ label Rogue_chapter_one_season_one_people_watching:
 
             return
 
-    call remove_everyone_but(Rogue)
+    call remove_everyone_but(Rogue) from _call_remove_everyone_but_11
 
     $ Rogue.change_face("neutral") 
 
@@ -138,20 +138,20 @@ label Rogue_chapter_one_season_one_people_watching:
     menu:
         extend ""
         "You sit alone to feel. . . less alone?":   
-            call change_Girl_stat(Rogue, "love", small_stat)
+            call change_Girl_stat(Rogue, "love", small_stat) from _call_change_Girl_stat_138
 
             $ Rogue.change_face("confused1", mouth = "smirk")
 
             ch_Rogue "Yeah, that's. . . that ain't exactly what ah mean."
         "Because you're surrounded by other people?":
-            call change_Girl_stat(Rogue, "love", medium_stat)
-            call change_Girl_stat(Rogue, "trust", medium_stat)
+            call change_Girl_stat(Rogue, "love", medium_stat) from _call_change_Girl_stat_140
+            call change_Girl_stat(Rogue, "trust", medium_stat) from _call_change_Girl_stat_141
 
             $ Rogue.change_face("confused1")
 
             ch_Rogue "Ah mean. . . kinda?"
         "Maybe being out is good for you then? Staying cooped up doesn't help anyone.":
-            call change_Girl_stat(Rogue, "trust", small_stat)
+            call change_Girl_stat(Rogue, "trust", small_stat) from _call_change_Girl_stat_159
 
             $ Rogue.change_face("angry1")
 
@@ -193,21 +193,21 @@ label Rogue_chapter_one_season_one_people_watching:
     menu:
         extend ""
         "I don't know if I exactly get it, but if it helps you, it can't be all bad, right?":
-            call change_Girl_stat(Rogue, "love", medium_stat)
-            call change_Girl_stat(Rogue, "trust", medium_stat)
+            call change_Girl_stat(Rogue, "love", medium_stat) from _call_change_Girl_stat_160
+            call change_Girl_stat(Rogue, "trust", medium_stat) from _call_change_Girl_stat_180
 
             $ Rogue.change_face("worried2")
 
             ch_Rogue ". . . really? That's. . . that's sweet of you to say so, thanks."
         "As long as you're not keeping detailed lists of what everyone's up to, I think it's okay.":
-            call change_Girl_stat(Rogue, "love", medium_stat)
+            call change_Girl_stat(Rogue, "love", medium_stat) from _call_change_Girl_stat_181
             
             $ Rogue.change_face("confused1", mouth = "smirk")
 
             ch_Rogue "Ha! Some of the stuff ah've heard, maybe ah should think about it!"
         "I've heard of worse coping mechanisms.":
-            call change_Girl_stat(Rogue, "love", small_stat)
-            call change_Girl_stat(Rogue, "trust", medium_stat)
+            call change_Girl_stat(Rogue, "love", small_stat) from _call_change_Girl_stat_182
+            call change_Girl_stat(Rogue, "trust", medium_stat) from _call_change_Girl_stat_183
 
             $ Rogue.change_face("worried1", mouth = "smirk")
 
@@ -224,7 +224,7 @@ label Rogue_chapter_one_season_one_people_watching:
 
     $ Rogue.change_face("neutral", eyes = "down")
 
-    call phone_buzz(times = 3)
+    call phone_buzz(times = 3) from _call_phone_buzz_11
 
     "You're stopped by the sound of [Rogue.name]'s phone going off in her pocket. She takes it out, looks at the screen, and hesitates."
 
@@ -249,7 +249,7 @@ label Rogue_chapter_one_season_one_people_watching:
     ch_Player "Sure, whenever you want."
     ch_Rogue "Thanks. Ah mean it."
 
-    call remove_Characters(Rogue)
+    call remove_Characters(Rogue) from _call_remove_Characters_328
 
     "She heads off and takes the call."
     "You can't hear what she's saying, but by the tone of her voice, it's not good."

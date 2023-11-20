@@ -697,42 +697,42 @@ screen journal_screen():
 
                             color "#000000"
 
-            for optional_objective in current_journal_Quest.optional_objectives.keys():
+            if hasattr(current_journal_Quest, "optional_objectives"):
+                for optional_objective in current_journal_Quest.optional_objectives.keys():
+                    if current_journal_Quest.optional_objectives[optional_objective][1]:
+                        $ progress = eval(current_journal_Quest.optional_objectives[optional_objective][0])
+                        $ target = current_journal_Quest.optional_objectives[optional_objective][1]
 
-                if current_journal_Quest.optional_objectives[optional_objective][1]:
-                    $ progress = eval(current_journal_Quest.optional_objectives[optional_objective][0])
-                    $ target = current_journal_Quest.optional_objectives[optional_objective][1]
-
-                    $ optional_objective = renpy.substitute(optional_objective)
-
-                    if current_journal_Quest.completed or progress > target:
-                        $ progress = target
-
-                    if progress == target:
-                        text "{s}{i}[optional_objective]: [progress]/[target]{/i}{/s}" anchor (0.5, 0.5) pos (0.5, 0.5):
-                            size 32
-
-                            color "#000000"
-                    else:
-                        text "{i}[optional_objective]: [progress]/[target]{/i}" anchor (0.5, 0.5) pos (0.5, 0.5):
-                            size 32
-
-                            color "#000000"
-                else:
-                    if eval(current_journal_Quest.optional_objectives[optional_objective][0]):
                         $ optional_objective = renpy.substitute(optional_objective)
 
-                        text "{s}{i}[optional_objective]{/i}{/s}" anchor (0.5, 0.5) pos (0.5, 0.5):
-                            size 32
+                        if current_journal_Quest.completed or progress > target:
+                            $ progress = target
 
-                            color "#000000"
+                        if progress == target:
+                            text "{s}{i}[optional_objective]: [progress]/[target]{/i}{/s}" anchor (0.5, 0.5) pos (0.5, 0.5):
+                                size 32
+
+                                color "#000000"
+                        else:
+                            text "{i}[optional_objective]: [progress]/[target]{/i}" anchor (0.5, 0.5) pos (0.5, 0.5):
+                                size 32
+
+                                color "#000000"
                     else:
-                        $ optional_objective = renpy.substitute(optional_objective)
+                        if eval(current_journal_Quest.optional_objectives[optional_objective][0]):
+                            $ optional_objective = renpy.substitute(optional_objective)
 
-                        text "{i}[optional_objective]{/i}" anchor (0.5, 0.5) pos (0.5, 0.5):
-                            size 32
+                            text "{s}{i}[optional_objective]{/i}{/s}" anchor (0.5, 0.5) pos (0.5, 0.5):
+                                size 32
 
-                            color "#000000"
+                                color "#000000"
+                        else:
+                            $ optional_objective = renpy.substitute(optional_objective)
+
+                            text "{i}[optional_objective]{/i}" anchor (0.5, 0.5) pos (0.5, 0.5):
+                                size 32
+
+                                color "#000000"
 
         text "REWARDS" anchor (0.0, 0.0) pos (0.37, 0.8):
             size 36

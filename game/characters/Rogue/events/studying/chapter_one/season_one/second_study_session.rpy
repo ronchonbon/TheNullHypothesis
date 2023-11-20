@@ -48,7 +48,7 @@ label Rogue_chapter_one_season_one_second_study_session:
         extend ""
         "Ya'know, you can touch my hands again if you want. . .":
             call change_Girl_stat(Rogue, "love", medium_stat) from _call_change_Girl_stat_1072
-            call change_Girl_stat(Rogue, "trust", medium_stat)
+            call change_Girl_stat(Rogue, "trust", medium_stat) from _call_change_Girl_stat_631
 
             ch_Player "I don't mind." 
             
@@ -67,7 +67,7 @@ label Rogue_chapter_one_season_one_second_study_session:
             
             ch_Rogue "Ya don't mind?" 
         "Did you want to touch my hands again? Heh, they are nice right?":
-            call change_Girl_stat(Rogue, "love", medium_stat)
+            call change_Girl_stat(Rogue, "love", medium_stat) from _call_change_Girl_stat_632
             
             $ Rogue.change_face("worried3", blush = 2) 
             
@@ -84,8 +84,8 @@ label Rogue_chapter_one_season_one_second_study_session:
             
             call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_1073
         "Really? You're staring at my hands again?":
-            call change_Girl_stat(Rogue, "love", -medium_stat)
-            call change_Girl_stat(Rogue, "trust", -small_stat)
+            call change_Girl_stat(Rogue, "love", -medium_stat) from _call_change_Girl_stat_633
+            call change_Girl_stat(Rogue, "trust", -small_stat) from _call_change_Girl_stat_634
 
             $ Rogue.change_face("worried3", blush = 2) 
             
