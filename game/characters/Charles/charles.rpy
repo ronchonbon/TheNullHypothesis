@@ -5,9 +5,9 @@ init -1:
     define Charles_color = "#1b867d"
     define ch_Charles = Character("[Charles.tag]")
 
-    define Charles_standing_anchor = [int(1168*character_sampling), int(993*character_sampling)]
-    define Charles_standing_height = 0.38
-    define Charles_standing_zoom = 0.295*character_adjustment
+    define Charles_standing_anchor = [int(1260*character_sampling), int(1792*character_sampling)]
+    define Charles_standing_height = 0.35
+    define Charles_standing_zoom = 0.35*character_adjustment
 
 init -2 python:
 

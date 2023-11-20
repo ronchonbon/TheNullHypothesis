@@ -311,47 +311,6 @@ layeredimage Jean_masturbation_breasts:
     if Jean.piercings["nipple"] in ["ring", "both"]:
         "characters/Jean/images/masturbation/nipple_piercings_ring.webp"
 
-    if Jean.Clothes["nipple_accessories"].string:
-        "characters/Jean/images/masturbation/nipple_accessories_[Jean.Clothes[nipple_accessories].string].webp"
-
-    if Jean.Clothes["bra"].string:
-        "characters/Jean/images/masturbation/bra_[Jean.Clothes[bra].string]_[Jean.Clothes[bra].state].webp"
-
-    if Jean.Clothes["bodysuit"].string:
-        "characters/Jean/images/masturbation/bodysuit_[Jean.Clothes[bodysuit].string]_[Jean.Clothes[bodysuit].state]_torso.webp"
-
-    if not Jean.piercings["belly"]:
-        Null()
-    elif Jean.Clothes["bodysuit"].string:
-        "characters/Jean/images/masturbation/belly_piercing_covered_[Jean.Clothes[bodysuit].string].webp"
-
-    if Jean.Clothes["top"].string:
-        "characters/Jean/images/masturbation/top_[Jean.Clothes[top].string]_[Jean.Clothes[top].state].webp"
-
-    if Jean.piercings["nipple"] not in ["barbell", "both"]:
-        Null()
-    elif Jean.Clothes["top"].string and Jean.Clothes["top"].state == 0:
-        "characters/Jean/images/masturbation/nipple_piercings_barbell_covered_[Jean.Clothes[top].string].webp"
-    elif Jean.Clothes["bodysuit"].string and Jean.Clothes["bodysuit"].state in [0, 2]:
-        "characters/Jean/images/masturbation/nipple_piercings_barbell_covered_[Jean.Clothes[bodysuit].string].webp"
-    elif Jean.Clothes["bra"].string and Jean.Clothes["bra"].state == 0:
-        "characters/Jean/images/masturbation/nipple_piercings_barbell_covered_[Jean.Clothes[bra].string].webp"
-
-    if Jean.piercings["nipple"] not in ["ring", "both"]:
-        Null()
-    elif Jean.Clothes["top"].string and Jean.Clothes["top"].state == 0:
-        "characters/Jean/images/masturbation/nipple_piercings_ring_covered_[Jean.Clothes[top].string].webp"
-    elif Jean.Clothes["bodysuit"].string and Jean.Clothes["bodysuit"].state in [0, 2]:
-        "characters/Jean/images/masturbation/nipple_piercings_ring_covered_[Jean.Clothes[bodysuit].string].webp"
-    elif Jean.Clothes["bra"].string and Jean.Clothes["bra"].state == 0:
-        "characters/Jean/images/masturbation/nipple_piercings_ring_covered_[Jean.Clothes[bra].string].webp"
-
-    if Jean.Clothes["hose"].string:
-        "characters/Jean/images/masturbation/hose_[Jean.Clothes[hose].string].webp"
-
-    if Jean.Clothes["towel"].string:
-        "characters/Jean/images/masturbation/towel_[Jean.Clothes[towel].string]_[Jean.Clothes[towel].state].webp"
-
     if Jean.spunk["breasts"]:
         "characters/Jean/images/masturbation/spunk_breasts.webp"
 
@@ -372,9 +331,6 @@ layeredimage Jean_masturbation_head:
 
     if Jean.blush:
             "characters/Jean/images/masturbation/blush[Jean.blush].webp"
-
-    if Jean.Clothes["makeup"].string:
-        "characters/Jean/images/masturbation/makeup_[Jean.Clothes[makeup].string].webp"
         
     if Jean.spunk["tongue"] and Jean.mouth in ["agape", "tongue"]:
         "characters/Jean/images/masturbation/spunk_tongue.webp"
@@ -402,14 +358,16 @@ layeredimage Jean_masturbation_head:
     offset (int(2787*sex_sampling), int(1333*sex_sampling))
     
 layeredimage Jean_masturbation_hair:
-    if Jean.wet or Jean.Clothes["hair"].string == "wet":
-        "characters/Jean/images/masturbation/hair_shadow_wet.webp"
-    else:
+    # if Jean.wet or Jean.Clothes["hair"].string == "wet":
+    #     "characters/Jean/images/masturbation/hair_shadow_wet.webp"
+    # else:
+    always:
         "characters/Jean/images/masturbation/hair_shadow_[Jean.Clothes[hair].string].webp"
 
-    if Jean.wet or Jean.Clothes["hair"].string == "wet":
-        "characters/Jean/images/masturbation/hair_wet.webp"
-    else:
+    # if Jean.wet or Jean.Clothes["hair"].string == "wet":
+    #     "characters/Jean/images/masturbation/hair_wet.webp"
+    # else:
+    always:
         "characters/Jean/images/masturbation/hair_[Jean.Clothes[hair].string].webp"
 
     if Jean.spunk["hair"]:
@@ -489,38 +447,8 @@ layeredimage Jean_masturbation_thighs:
     if Jean.remote_vibrator:
         "characters/Jean/images/masturbation/remote_vibrator.webp"
 
-    if Jean.Clothes["underwear"].string:
-        "characters/Jean/images/masturbation/underwear_[Jean.Clothes[underwear].string]_[Jean.Clothes[underwear].state].webp"
-
-    if Jean.Clothes["bodysuit"].string:
-        "characters/Jean/images/masturbation/bodysuit_[Jean.Clothes[bodysuit].string]_[Jean.Clothes[bodysuit].state]_thighs.webp"
-
-    if Jean.piercings["labia"] not in ["barbell", "both"]:
-        Null()
-    elif Jean.Clothes["bodysuit"].string and Jean.Clothes["bodysuit"].state in [0, 1]:
-        "characters/Jean/images/masturbation/labia_piercings_barbell_covered_[Jean.Clothes[bodysuit].string].webp"
-    elif Jean.Clothes["underwear"].string and Jean.Clothes["underwear"].state == 0:
-        "characters/Jean/images/masturbation/labia_piercings_barbell_covered_[Jean.Clothes[underwear].string].webp"
-
-    if Jean.piercings["labia"] not in ["ring", "both"]:
-        Null()
-    elif Jean.Clothes["bodysuit"].string and Jean.Clothes["bodysuit"].state in [0, 1]:
-        "characters/Jean/images/masturbation/labia_piercings_ring_covered_[Jean.Clothes[bodysuit].string].webp"
-    elif Jean.Clothes["underwear"].string and Jean.Clothes["underwear"].state == 0:
-        "characters/Jean/images/masturbation/labia_piercings_ring_covered_[Jean.Clothes[underwear].string].webp"
-
-    if not Jean.grool:
-        Null()
-    elif Jean.Clothes["underwear"].string:
-        "characters/Jean/images/masturbation/grool_[Jean.Clothes[underwear].string]_[Jean.Clothes[underwear].state].webp"
-    elif Jean.Clothes["bodysuit"].string:
-        "characters/Jean/images/masturbation/grool_[Jean.Clothes[bodysuit].string]_[Jean.Clothes[bodysuit].state].webp"
-
     if Jean.right_hand_Actions and Jean.right_hand_Actions[0].animation_type == "self_touch_pussy":
         "Jean_masturbation_right_hand_animation[Jean.right_hand_Actions[0].mode]"
-
-    if Jean.Clothes["socks"].string:
-        "characters/Jean/images/masturbation/socks_[Jean.Clothes[socks].string]_thighs.webp"
 
     if Jean.vagina_Actions:
         "Jean_masturbation_left_leg_animation[Jean.vagina_Actions[0].mode]"
@@ -659,9 +587,6 @@ layeredimage Jean_masturbation_left_leg:
     always:
         "characters/Jean/images/masturbation/left_leg.webp"
 
-    if Jean.Clothes["socks"].string:
-        "characters/Jean/images/masturbation/socks_[Jean.Clothes[socks].string]_left_leg.webp"
-
     if Jean.vagina_Actions:
         "Jean_masturbation_left_foot_animation[Jean.vagina_Actions[0].mode]"
     elif Jean.anus_Actions:
@@ -676,18 +601,12 @@ layeredimage Jean_masturbation_left_foot:
     always:
         "characters/Jean/images/masturbation/left_foot.webp"
 
-    if Jean.Clothes["socks"].string:
-        "characters/Jean/images/masturbation/socks_[Jean.Clothes[socks].string]_left_foot.webp"
-
     anchor (int(4232*sex_sampling), int(3466*sex_sampling))
     offset (int(4232*sex_sampling), int(3466*sex_sampling))
 
 layeredimage Jean_masturbation_right_leg:
     always:
         "characters/Jean/images/masturbation/right_leg.webp"
-
-    if Jean.Clothes["socks"].string:
-        "characters/Jean/images/masturbation/socks_[Jean.Clothes[socks].string]_right_leg.webp"
 
     if Jean.vagina_Actions:
         "Jean_masturbation_right_foot_animation[Jean.vagina_Actions[0].mode]"
@@ -702,9 +621,6 @@ layeredimage Jean_masturbation_right_leg:
 layeredimage Jean_masturbation_right_foot:
     always:
         "characters/Jean/images/masturbation/right_foot.webp"
-
-    if Jean.Clothes["socks"].string:
-        "characters/Jean/images/masturbation/socks_[Jean.Clothes[socks].string]_right_foot.webp"
 
     anchor (int(645*sex_sampling), int(3228*sex_sampling))
     offset (int(645*sex_sampling), int(3228*sex_sampling))

@@ -1,9 +1,9 @@
 init -1 python:
 
-    def Rogue_black_lace_panties():
-        name = "black lace panties"
+    def Rogue_green_lace_panties():
+        name = "green lace panties"
         short_name = "panties"
-        string = "black_lace_panties"
+        string = "green_lace_panties"
         
         Clothing_type = "underwear"
 
@@ -21,65 +21,21 @@ init -1 python:
         shame = [-2, 1000]
         
         available_states = {
-            "standing": [0, 1],
-            "doggy": [0, 1],
-            "hands_and_knees": [0, 1],
-            "masturbation": [0, 1],
-            "missionary": [0, 1]}
+            "standing": [0, 1]}
         undressed_states = {
-            "standing": 1,
-            "doggy": 1,
-            "hands_and_knees": 1,
-            "masturbation": 1,
-            "missionary": 1}
+            "standing": 1}
         
         covers = {
             "standing": {
-                "pussy": [0],
-                "anus": [0]},
-            "doggy": {
-                "pussy": [0],
-                "anus": [0]},
-            "hands_and_knees": {
-                "pussy": [0],
-                "anus": [0]},
-            "masturbation": {
-                "pussy": [0],
-                "anus": [0]},
-            "missionary": {
                 "pussy": [0],
                 "anus": [0]}}
         hides = {
             "standing": {
                 "pussy": [0],
-                "anus": [0]},
-            "doggy": {
-                "pussy": [0],
-                "anus": [0]},
-            "hands_and_knees": {
-                "pussy": [0],
-                "anus": [0]},
-            "masturbation": {
-                "pussy": [0],
-                "anus": [0]},
-            "missionary": {
-                "pussy": [0],
                 "anus": [0]}}
 
-        covered_by = {
-            "black_garterbelt": [0],
-            "black_jeans": [0, 1],
-            "black_shorts": [0, 1],
-            "black_tights": [0],
-            "pink_swimsuit": [0, 1],
-            "Rogue_suit": [0]}
-        blocked_by = {
-            "black_garterbelt": [0],
-            "black_jeans": [0, 1, 2],
-            "black_shorts": [0, 1, 2],
-            "black_tights": [0, 1],
-            "pink_swimsuit": [0, 1, 2, 3],
-            "Rogue_suit": [0]}
+        covered_by = {}
+        blocked_by = {}
 
         supports_breasts = False
         
@@ -97,7 +53,7 @@ init -1 python:
             supports_breasts = supports_breasts,
             incompatibilities = incompatibilities)
 
-label Rogue_black_lace_panties_shopping_accept:
+label Rogue_green_lace_panties_shopping_accept:
     $ Rogue.change_face("surprised2")
 
     pause 1.0
@@ -108,32 +64,32 @@ label Rogue_black_lace_panties_shopping_accept:
 
     return
 
-label Rogue_black_lace_panties_shopping_reject:
+label Rogue_green_lace_panties_shopping_reject:
     $ Rogue.change_face("perplexed")
 
     ch_Rogue "Ah can pick out mah own underwear, thanks."
 
     return
 
-label Rogue_black_lace_panties_gift_accept:
+label Rogue_green_lace_panties_gift_accept:
     $ Rogue.change_face("smirk2")
 
     ch_Rogue "Ah'll look good in those."
 
     return
 
-label Rogue_black_lace_panties_gift_reject:
+label Rogue_green_lace_panties_gift_reject:
     $ Rogue.change_face("worried1")
 
     ch_Rogue "Ah don't think that's appropriate. . ."
 
     return
 
-label Rogue_black_lace_panties_change_private_before:
+label Rogue_green_lace_panties_change_private_before:
 
     return
 
-label Rogue_black_lace_panties_change_private_after:
+label Rogue_green_lace_panties_change_private_after:
     $ Rogue.change_face("smirk2", eyes = "down")
 
     ch_Rogue "Don't mind wearin' these for you."
@@ -142,11 +98,11 @@ label Rogue_black_lace_panties_change_private_after:
 
     return
 
-label Rogue_black_lace_panties_change_public_before:
+label Rogue_green_lace_panties_change_public_before:
 
     return
 
-label Rogue_black_lace_panties_change_public_after:
+label Rogue_green_lace_panties_change_public_after:
     $ Rogue.change_face("smirk2")
 
     ch_Rogue "Ah do look good in 'em."

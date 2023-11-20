@@ -568,20 +568,20 @@ label day_three_combat_lesson:
     ch_Laura "'Normal,' huh."
     ch_Laura "We're done. You obviously can't continue."
 
-    $ Laura.left_arm_pose = 2
+    # $ Laura.left_arm_pose = 2
     $ Laura.blush = 0
 
     ch_Laura "Give me your phone."
     
-    $ Laura.left_arm_pose = 1
+    # $ Laura.left_arm_pose = 1
 
     pause 2.0
 
-    $ Laura.left_arm_pose = 2
+    # $ Laura.left_arm_pose = 2
 
     "You hand her your phone. She enters her number and hands it back."
     
-    $ Laura.left_arm_pose = 1
+    # $ Laura.left_arm_pose = 1
 
     ch_Laura "Text me when you're ready for the next session."
     "She briefly shows you how to train properly on your own, then leaves."
@@ -652,7 +652,7 @@ label day_three_meet_Jean:
     ch_Jean "Hey!"
     "You look around to see who it is."
 
-    call change_Outfit(Jean, Jean.Wardrobe.Outfits["Casual 1"], instant = True) from _call_change_Outfit_35
+    # call change_Outfit(Jean, Jean.Wardrobe.Outfits["Casual 1"], instant = True) from _call_change_Outfit_35
     
     call add_Characters(Jean) from _call_add_Characters_65
 

@@ -21,65 +21,21 @@ init -1 python:
         shame = [5, 15]
         
         available_states = {
-            "standing": [0, 1],
-            "doggy": [0, 1],
-            "hands_and_knees": [0, 1],
-            "masturbation": [0, 1],
-            "missionary": [0, 1]}
+            "standing": [0, 1]}
         undressed_states = {
-            "standing": 1,
-            "doggy": 1,
-            "hands_and_knees": 1,
-            "masturbation": 1,
-            "missionary": 1}
+            "standing": 1}
         
         covers = {
             "standing": {
-                "pussy": [0],
-                "anus": [0]},
-            "doggy": {
-                "pussy": [0],
-                "anus": [0]},
-            "hands_and_knees": {
-                "pussy": [0],
-                "anus": [0]},
-            "masturbation": {
-                "pussy": [0],
-                "anus": [0]},
-            "missionary": {
                 "pussy": [0],
                 "anus": [0]}}
         hides = {
             "standing": {
                 "pussy": [0],
-                "anus": [0]},
-            "doggy": {
-                "pussy": [0],
-                "anus": [0]},
-            "hands_and_knees": {
-                "pussy": [0],
-                "anus": [0]},
-            "masturbation": {
-                "pussy": [0],
-                "anus": [0]},
-            "missionary": {
-                "pussy": [0],
                 "anus": [0]}}
 
-        covered_by = {
-            "black_garterbelt": [0],
-            "black_jeans": [0, 1],
-            "black_shorts": [0, 1],
-            "black_tights": [0],
-            "pink_swimsuit": [0, 1],
-            "Rogue_suit": [0]}
-        blocked_by = {
-            "black_garterbelt": [0],
-            "black_jeans": [0, 1, 2],
-            "black_shorts": [0, 1, 2],
-            "black_tights": [0, 1],
-            "pink_swimsuit": [0, 1, 2, 3],
-            "Rogue_suit": [0]}
+        covered_by = {}
+        blocked_by = {}
 
         supports_breasts = False
         

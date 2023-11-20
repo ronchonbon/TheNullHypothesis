@@ -25,6 +25,56 @@ transform Kurt_standing_tail_animation:
 
         repeat
 
+transform Kurt_standing_right_arm_animation:
+    subpixel True
+    transform_anchor True
+    
+    pos (0.0, 0.0)
+    xzoom 1.0 yzoom 1.0
+    rotate 0.0
+
+    block:
+        block:
+            choice:
+                pause 2.0
+            choice:
+                pause 5.0
+            choice:
+                pause 10.0
+
+        block:
+            choice:
+                ease 2.0 rotate -2
+            choice:
+                ease 2.0 rotate 0
+
+        repeat
+
+transform Kurt_standing_left_arm_animation:
+    subpixel True
+    transform_anchor True
+    
+    pos (0.0, 0.0)
+    xzoom 1.0 yzoom 1.0
+    rotate 0.0
+
+    block:
+        block:
+            choice:
+                pause 2.0
+            choice:
+                pause 5.0
+            choice:
+                pause 10.0
+
+        block:
+            choice:
+                ease 2.0 rotate 0
+            choice:
+                ease 2.0 rotate 2
+
+        repeat
+
 transform Kurt_standing_head_animation:
     subpixel True
     transform_anchor True
@@ -54,7 +104,7 @@ image Kurt_sprite:
     contains:
         "Kurt_standing_temp"
 
-    xysize (int(2200*character_sampling), int(4000*character_sampling))
+    xysize (int(2500*character_sampling), int(4500*character_sampling))
 
 layeredimage Kurt_standing_temp:
     if Kurt.hovered:
@@ -63,30 +113,48 @@ layeredimage Kurt_standing_temp:
         "Kurt_standing"
 
 layeredimage Kurt_standing:
+    if Kurt.teleporting_out or Kurt.smoke or not Kurt.ground_shadow:
+        Null()
+    else:
+        "characters/Kurt/images/ground_shadow.webp"
+
     if Kurt.teleporting_out or Kurt.smoke or Kurt.tail_hidden:
         Null()
     else:
         At("Kurt_standing_tail", Kurt_standing_tail_animation)
 
-    if Kurt.teleporting_out or Kurt.smoke or Kurt.outfit not in ["winter", "coat", "suit_coat"]:
+    if Kurt.teleporting_out or Kurt.smoke:
         Null()
     else:
-        "characters/Kurt/images/coat_back.webp"
+        At("Kurt_standing_right_arm", Kurt_standing_right_arm_animation)
 
     if Kurt.teleporting_out or Kurt.smoke:
         Null()
     else:
         "characters/Kurt/images/body.webp"
 
-    if Kurt.teleporting_out or Kurt.smoke or not Kurt.outfit:
+    if Kurt.teleporting_out or Kurt.smoke:
         Null()
     else:
-        "characters/Kurt/images/outfit_[Kurt.outfit].webp"
+        "characters/Kurt/images/right_foot.webp"
 
     if Kurt.teleporting_out or Kurt.smoke:
         Null()
-    elif Kurt.outfit == "casual_hood":
-        "Kurt_standing_head"
+    else:
+        "characters/Kurt/images/left_foot.webp"
+
+    if Kurt.teleporting_out or Kurt.smoke:
+        Null()
+    else:
+        "characters/Kurt/images/left_arm_shadow.webp"
+
+    if Kurt.teleporting_out or Kurt.smoke:
+        Null()
+    else:
+        At("Kurt_standing_left_arm", Kurt_standing_left_arm_animation)
+
+    if Kurt.teleporting_out or Kurt.smoke:
+        Null()
     else:
         At("Kurt_standing_head", Kurt_standing_head_animation)
 
@@ -98,35 +166,39 @@ layeredimage Kurt_standing:
 image Kurt_standing_tail:
     "characters/Kurt/images/tail.webp"
     
-    anchor (int(1108*character_sampling), int(2331*character_sampling))
-    offset (int(1108*character_sampling), int(2331*character_sampling))
+    anchor (int(1250*character_sampling), int(2400*character_sampling))
+    offset (int(1250*character_sampling), int(2400*character_sampling))
+
+image Kurt_standing_right_arm:
+    "characters/Kurt/images/right_arm.webp"
+    
+    anchor (int(900*character_sampling), int(1630*character_sampling))
+    offset (int(900*character_sampling), int(1630*character_sampling))
+
+image Kurt_standing_left_arm:
+    "characters/Kurt/images/left_arm.webp"
+    
+    anchor (int(1615*character_sampling), int(1620*character_sampling))
+    offset (int(1615*character_sampling), int(1620*character_sampling))
 
 layeredimage Kurt_standing_head:
     always:
         "characters/Kurt/images/head.webp"
 
     always:
-        "characters/Kurt/images/mouth_[Kurt.mouth].webp"
-    
-    if Kurt.eyes in ["closed", "squint", "up"]:
-        "characters/Kurt/images/eyes_[Kurt.eyes].webp"
-    else:
-        "Kurt_blinking"
+        "characters/Kurt/images/mouth_neutral.webp"
 
     always:
-        "characters/Kurt/images/brows_[Kurt.brows].webp"
-            
-    if Kurt.outfit != "casual_hood":
-        "characters/Kurt/images/hair.webp"
+        "characters/Kurt/images/eyes_neutral.webp"
 
-    if Kurt.shadow and Kurt.outfit != "casual_hood":
-        "characters/Kurt/images/hair_shadow.webp"
+    always:
+        "characters/Kurt/images/brows_neutral.webp"
 
-    if Kurt.outfit == "casual_hood":
-        "characters/Kurt/images/hood.webp"
+    always:
+        "characters/Kurt/images/hair_quiff.webp"
 
-    anchor (int(1108*character_sampling), int(985*character_sampling))
-    offset (int(1108*character_sampling), int(985*character_sampling))
+    anchor (int(1250*character_sampling), int(1275*character_sampling))
+    offset (int(1250*character_sampling), int(1275*character_sampling))
 
 layeredimage Kurt_smoke:
     if Kurt.smoke:

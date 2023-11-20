@@ -293,9 +293,6 @@ layeredimage Rogue_masturbation_left_arm:
     always:
         "characters/Rogue/images/masturbation/left_arm.webp"
 
-    if Rogue.Clothes["bodysuit"].string == "pink_swimsuit":
-        "characters/Rogue/images/masturbation/bodysuit_pink_swimsuit_left_sleeve.webp"
-
     anchor (int(3344*sex_sampling), int(1534*sex_sampling))
     offset (int(3344*sex_sampling), int(1534*sex_sampling))
     
@@ -314,42 +311,6 @@ layeredimage Rogue_masturbation_breasts:
 
     if Rogue.piercings["nipple"] in ["ring", "both"]:
         "characters/Rogue/images/masturbation/nipple_piercings_ring.webp"
-
-    if Rogue.Clothes["nipple_accessories"].string:
-        "characters/Rogue/images/masturbation/nipple_accessories_[Rogue.Clothes[nipple_accessories].string].webp"
-
-    if Rogue.Clothes["bra"].string:
-        "characters/Rogue/images/masturbation/bra_[Rogue.Clothes[bra].string]_[Rogue.Clothes[bra].state].webp"
-
-    if Rogue.Clothes["bodysuit"].string:
-        "characters/Rogue/images/masturbation/bodysuit_[Rogue.Clothes[bodysuit].string]_[Rogue.Clothes[bodysuit].state]_torso.webp"
-
-    if Rogue.Clothes["top"].string:
-        "characters/Rogue/images/masturbation/top_[Rogue.Clothes[top].string]_[Rogue.Clothes[top].state].webp"
-
-    if Rogue.piercings["nipple"] not in ["barbell", "both"]:
-        Null()
-    elif Rogue.Clothes["top"].string and Rogue.Clothes["top"].state == 0:
-        "characters/Rogue/images/masturbation/nipple_piercings_barbell_covered_[Rogue.Clothes[top].string].webp"
-    elif Rogue.Clothes["bodysuit"].string and Rogue.Clothes["bodysuit"].state in [0, 2]:
-        "characters/Rogue/images/masturbation/nipple_piercings_barbell_covered_[Rogue.Clothes[bodysuit].string].webp"
-    elif Rogue.Clothes["bra"].string and Rogue.Clothes["bra"].state == 0:
-        "characters/Rogue/images/masturbation/nipple_piercings_barbell_covered_[Rogue.Clothes[bra].string].webp"
-
-    if Rogue.piercings["nipple"] not in ["ring", "both"]:
-        Null()
-    elif Rogue.Clothes["top"].string and Rogue.Clothes["top"].state == 0:
-        "characters/Rogue/images/masturbation/nipple_piercings_ring_covered_[Rogue.Clothes[top].string].webp"
-    elif Rogue.Clothes["bodysuit"].string and Rogue.Clothes["bodysuit"].state in [0, 2]:
-        "characters/Rogue/images/masturbation/nipple_piercings_ring_covered_[Rogue.Clothes[bodysuit].string].webp"
-    elif Rogue.Clothes["bra"].string and Rogue.Clothes["bra"].state == 0:
-        "characters/Rogue/images/masturbation/nipple_piercings_ring_covered_[Rogue.Clothes[bra].string].webp"
-
-    if Rogue.Clothes["hose"].string:
-        "characters/Rogue/images/masturbation/hose_[Rogue.Clothes[hose].string].webp"
-
-    if Rogue.Clothes["towel"].string:
-        "characters/Rogue/images/masturbation/towel_[Rogue.Clothes[towel].string]_[Rogue.Clothes[towel].state].webp"
 
     if Rogue.spunk["breasts"]:
         "characters/Rogue/images/masturbation/spunk_breasts.webp"
@@ -371,9 +332,6 @@ layeredimage Rogue_masturbation_head:
 
     if Rogue.blush:
             "characters/Rogue/images/masturbation/blush[Rogue.blush].webp"
-
-    if Rogue.Clothes["makeup"].string:
-        "characters/Rogue/images/masturbation/makeup_[Rogue.Clothes[makeup].string].webp"
         
     if Rogue.spunk["tongue"] and Rogue.mouth in ["agape", "tongue"]:
         "characters/Rogue/images/masturbation/spunk_tongue.webp"
@@ -398,9 +356,10 @@ layeredimage Rogue_masturbation_head:
     offset (int(2787*sex_sampling), int(1333*sex_sampling))
     
 layeredimage Rogue_masturbation_hair:
-    if Rogue.wet or Rogue.Clothes["hair"].string == "wet":
-        "characters/Rogue/images/masturbation/hair_wet.webp"
-    else:
+    # if Rogue.wet or Rogue.Clothes["hair"].string == "wet":
+    #     "characters/Rogue/images/masturbation/hair_wet.webp"
+    # else:
+    always:
         "characters/Rogue/images/masturbation/hair_[Rogue.Clothes[hair].string].webp"
 
     if Rogue.spunk["hair"]:
@@ -480,38 +439,8 @@ layeredimage Rogue_masturbation_thighs:
     if Rogue.remote_vibrator:
         "characters/Rogue/images/masturbation/remote_vibrator.webp"
 
-    if Rogue.Clothes["underwear"].string:
-        "characters/Rogue/images/masturbation/underwear_[Rogue.Clothes[underwear].string]_[Rogue.Clothes[underwear].state].webp"
-
-    if Rogue.Clothes["bodysuit"].string:
-        "characters/Rogue/images/masturbation/bodysuit_[Rogue.Clothes[bodysuit].string]_[Rogue.Clothes[bodysuit].state]_thighs.webp"
-
-    if Rogue.piercings["labia"] not in ["barbell", "both"]:
-        Null()
-    elif Rogue.Clothes["bodysuit"].string and Rogue.Clothes["bodysuit"].state in [0, 1]:
-        "characters/Rogue/images/masturbation/labia_piercings_barbell_covered_[Rogue.Clothes[bodysuit].string].webp"
-    elif Rogue.Clothes["underwear"].string and Rogue.Clothes["underwear"].state == 0:
-        "characters/Rogue/images/masturbation/labia_piercings_barbell_covered_[Rogue.Clothes[underwear].string].webp"
-
-    if Rogue.piercings["labia"] not in ["ring", "both"]:
-        Null()
-    elif Rogue.Clothes["bodysuit"].string and Rogue.Clothes["bodysuit"].state in [0, 1]:
-        "characters/Rogue/images/masturbation/labia_piercings_ring_covered_[Rogue.Clothes[bodysuit].string].webp"
-    elif Rogue.Clothes["underwear"].string and Rogue.Clothes["underwear"].state == 0:
-        "characters/Rogue/images/masturbation/labia_piercings_ring_covered_[Rogue.Clothes[underwear].string].webp"
-
-    if not Rogue.grool:
-        Null()
-    elif Rogue.Clothes["underwear"].string:
-        "characters/Rogue/images/masturbation/grool_[Rogue.Clothes[underwear].string]_[Rogue.Clothes[underwear].state].webp"
-    elif Rogue.Clothes["bodysuit"].string:
-        "characters/Rogue/images/masturbation/grool_[Rogue.Clothes[bodysuit].string]_[Rogue.Clothes[bodysuit].state].webp"
-
     if Rogue.right_hand_Actions and Rogue.right_hand_Actions[0].animation_type == "self_touch_pussy":
         "Rogue_masturbation_right_hand_animation[Rogue.right_hand_Actions[0].mode]"
-
-    if Rogue.Clothes["socks"].string:
-        "characters/Rogue/images/masturbation/socks_[Rogue.Clothes[socks].string]_thighs.webp"
 
     if Rogue.vagina_Actions:
         "Rogue_masturbation_left_leg_animation[Rogue.vagina_Actions[0].mode]"
@@ -650,9 +579,6 @@ layeredimage Rogue_masturbation_left_leg:
     always:
         "characters/Rogue/images/masturbation/left_leg.webp"
 
-    if Rogue.Clothes["socks"].string:
-        "characters/Rogue/images/masturbation/socks_[Rogue.Clothes[socks].string]_left_leg.webp"
-
     if Rogue.vagina_Actions:
         "Rogue_masturbation_left_foot_animation[Rogue.vagina_Actions[0].mode]"
     elif Rogue.anus_Actions:
@@ -667,18 +593,12 @@ layeredimage Rogue_masturbation_left_foot:
     always:
         "characters/Rogue/images/masturbation/left_foot.webp"
 
-    if Rogue.Clothes["socks"].string:
-        "characters/Rogue/images/masturbation/socks_[Rogue.Clothes[socks].string]_left_foot.webp"
-
     anchor (int(4232*sex_sampling), int(3466*sex_sampling))
     offset (int(4232*sex_sampling), int(3466*sex_sampling))
 
 layeredimage Rogue_masturbation_right_leg:
     always:
         "characters/Rogue/images/masturbation/right_leg.webp"
-
-    if Rogue.Clothes["socks"].string:
-        "characters/Rogue/images/masturbation/socks_[Rogue.Clothes[socks].string]_right_leg.webp"
 
     if Rogue.vagina_Actions:
         "Rogue_masturbation_right_foot_animation[Rogue.vagina_Actions[0].mode]"
@@ -693,9 +613,6 @@ layeredimage Rogue_masturbation_right_leg:
 layeredimage Rogue_masturbation_right_foot:
     always:
         "characters/Rogue/images/masturbation/right_foot.webp"
-
-    if Rogue.Clothes["socks"].string:
-        "characters/Rogue/images/masturbation/socks_[Rogue.Clothes[socks].string]_right_foot.webp"
 
     anchor (int(645*sex_sampling), int(3228*sex_sampling))
     offset (int(645*sex_sampling), int(3228*sex_sampling))

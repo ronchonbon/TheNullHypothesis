@@ -158,7 +158,7 @@ label Laura_chapter_one_season_four_first_training_session:
     ch_Laura "Then we will put it to the test."
     ch_Laura "I need to punch something right now. . ."
 
-    $ Laura.left_arm_pose = 2
+    # $ Laura.left_arm_pose = 2
 
     ch_Player "Exactly what I had in mind." 
 
@@ -223,7 +223,7 @@ label Laura_chapter_one_season_four_first_training_session:
     $ fade_in_from_black(0.4)
 
     $ Laura.change_face("angry1", mouth = "smile")
-    $ Laura.left_arm_pose = 1
+    # $ Laura.left_arm_pose = 1
 
     $ Player.power = 25
 

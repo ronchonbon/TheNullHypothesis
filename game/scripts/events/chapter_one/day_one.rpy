@@ -33,11 +33,11 @@ label day_one_intro:
     call send_Characters(Ororo, "hold") from _call_send_Characters_178
     call send_Characters(Charles, "hold") from _call_send_Characters_179
     
-    $ Rogue.Wardrobe.indoor_Outfit = Rogue.Wardrobe.Outfits["Casual 1"]
-    $ Rogue.Wardrobe.outdoor_Outfit = Rogue.Wardrobe.Outfits["Casual 1"]
+    # $ Rogue.Wardrobe.indoor_Outfit = Rogue.Wardrobe.Outfits["Casual 1"]
+    # $ Rogue.Wardrobe.outdoor_Outfit = Rogue.Wardrobe.Outfits["Casual 1"]
     
-    $ Ororo.Wardrobe.indoor_Outfit = Ororo.Wardrobe.Outfits["Casual 2"]
-    $ Ororo.Wardrobe.outdoor_Outfit = Ororo.Wardrobe.Outfits["Casual 2"]
+    # $ Ororo.Wardrobe.indoor_Outfit = Ororo.Wardrobe.Outfits["Casual 2"]
+    # $ Ororo.Wardrobe.outdoor_Outfit = Ororo.Wardrobe.Outfits["Casual 2"]
 
     call set_Character_Outfits from _call_set_Character_Outfits_8
 
@@ -559,7 +559,7 @@ label meet_Rogue:
     ch_Rogue "Thing is, it's more of a curse to tell ya the truth. Ah can't control it too well so touchin' someone could seriously harm them."
     ch_Rogue "Ah haven't been able to touch someone in a really long time. . ."
 
-    $ Rogue.left_arm_pose = 2
+    # $ Rogue.left_arm_pose = 2
 
     ch_Rogue "Do ya think maybe ah could. . ."
 
@@ -570,7 +570,7 @@ label meet_Rogue:
     call add_Characters(Ororo) from _call_add_Characters_54
 
     $ Rogue.change_face("surprised2", eyes = "right", blush = 1)
-    $ Rogue.left_arm_pose = 1
+    # $ Rogue.left_arm_pose = 1
 
     ch_Ororo "Here we are, [Player.first_name]. These are some textbooks and study guides you will need for class. I do hope you and Rogue are getting along." 
 
@@ -702,7 +702,7 @@ label meet_Laura:
 
     $ Laura.name = "X-23"
 
-    call change_Outfit(Laura, Laura.Wardrobe.Outfits["Hero (Chapter I)"], instant = True) from _call_change_Outfit_34
+    # call change_Outfit(Laura, Laura.Wardrobe.Outfits["Hero (Chapter I)"], instant = True) from _call_change_Outfit_34
     call add_Characters(Laura) from _call_add_Characters_58
 
     pause 1.0
@@ -958,7 +958,7 @@ label day_one_tour_farewell:
 
     ch_Ororo "It was a pleasure, [Player.first_name]."
 
-    $ Ororo.right_arm_pose = 2
+    # $ Ororo.right_arm_pose = 2
 
     "She reaches out to shake your hand."
 
@@ -987,7 +987,7 @@ label day_one_tour_farewell:
 
             ch_Ororo "Wow, that was. . . unexpected. I will see you when I return from my mission, [Player.first_name]."
 
-    $ Ororo.right_arm_pose = 1
+    # $ Ororo.right_arm_pose = 1
 
     pause 1.0
 

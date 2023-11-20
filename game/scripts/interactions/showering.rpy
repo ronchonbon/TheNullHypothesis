@@ -128,7 +128,7 @@ label take_a_shower:
         $ temp_showering_Girls = showering_Girls[:]
 
         while temp_showering_Girls:
-            call try_on(temp_showering_Girls[0], temp_showering_Girls[0].Wardrobe.Clothes["towel"]) from _call_try_on_14
+            # call try_on(temp_showering_Girls[0], temp_showering_Girls[0].Wardrobe.Clothes["towel"]) from _call_try_on_14
 
             $ temp_showering_Girls[0].showering = False
 

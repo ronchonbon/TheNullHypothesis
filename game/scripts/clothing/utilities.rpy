@@ -24,7 +24,7 @@ init python:
                 if Clothing.name:
                     Girl.give(Clothing)
 
-        exec(f"Girl.give({Girl.tag}_towel())")
+        # exec(f"Girl.give({Girl.tag}_towel())")
 
         if change:
             Girl.choose_Outfits()

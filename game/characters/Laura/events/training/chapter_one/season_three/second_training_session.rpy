@@ -84,7 +84,7 @@ label Laura_chapter_one_season_three_second_training_session:
     ch_Laura "Use your power again."
     ch_Laura "We will spar."
 
-    $ Laura.left_arm_pose = 2
+    # $ Laura.left_arm_pose = 2
 
     "The look in her eye doesn't give any room for negotiation."
     "You just brace yourself and let it out."
@@ -140,7 +140,7 @@ label Laura_chapter_one_season_three_second_training_session:
     "Whether it was her intention for you to learn this or not, the lesson sinks in. . ."
     "All the power in the world is worthless if you don't know how to use it."
 
-    $ Laura.left_arm_pose = 1
+    # $ Laura.left_arm_pose = 1
 
     $ fade_in_from_black(0.4)
 

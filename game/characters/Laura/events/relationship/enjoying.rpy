@@ -58,7 +58,7 @@ label Laura_enjoying_being_girlfriend:
 
     $ Laura.change_face("appalled3")
 
-    $ Laura.left_arm_pose = 2
+    # $ Laura.left_arm_pose = 2
 
     "Once she notices you, [Laura.name] jumps back in surprise, getting into a fighting stance."
 
@@ -66,7 +66,7 @@ label Laura_enjoying_being_girlfriend:
 
     ch_Laura "Sorry. . ."
 
-    $ Laura.left_arm_pose = 1
+    # $ Laura.left_arm_pose = 1
 
     ch_Laura "You surprised me."
     ch_Player "Me?"

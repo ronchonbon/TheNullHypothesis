@@ -206,7 +206,7 @@ label Jean_knocks_heartbroken(arriving_Characters):
 
             $ Jean.give(Jean_running_mascara())
 
-            call try_on(Jean, Jean.Wardrobe.Clothes["running mascara"]) from _call_try_on_3
+            # call try_on(Jean, Jean.Wardrobe.Clothes["running mascara"]) from _call_try_on_3
 
             call add_Characters(arriving_Characters) from _call_add_Characters_10
             
@@ -457,7 +457,7 @@ label Jean_greets_Player_knocking_heartbroken(welcoming_Characters):
 
         $ Jean.give(Jean_running_mascara())
 
-        call try_on(Jean, Jean.Wardrobe.Clothes["running mascara"]) from _call_try_on_4
+        # call try_on(Jean, Jean.Wardrobe.Clothes["running mascara"]) from _call_try_on_4
 
         call set_the_scene(location = "bg_girls_hallway") from _call_set_the_scene_66
 

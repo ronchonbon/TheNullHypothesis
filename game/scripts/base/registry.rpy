@@ -31,6 +31,20 @@ init python:
 
                 Clothing_list = eval(f"all_{C.tag}_Clothes()")
 
+                temp_Clothing_list = list(C.Wardrobe.Clothes.keys())
+
+                for I in temp_Clothing_list:
+                    found = False
+
+                    for I_A in Clothing_list:
+                        if I == I_A.name:
+                            found = True
+
+                            break
+
+                    if not found:
+                        del C.Wardrobe.Clothes[I]
+
                 for I in Clothing_list:
                     if I.name in C.Wardrobe.Clothes.keys() or "hair" in I.name:
                         if "hair" not in I.name:

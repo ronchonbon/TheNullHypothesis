@@ -303,27 +303,6 @@ layeredimage Jean_hands_and_knees_ass:
     always:
         "characters/Jean/images/hands_and_knees/ass.webp"
 
-    if Jean.tan_lines["bottom"]:
-        "characters/Jean/images/hands_and_knees/tan_lines_[Jean.tan_lines[bottom]].webp"
-
-    if Jean.tan_lines["full"]:
-        "characters/Jean/images/hands_and_knees/tan_lines_[Jean.tan_lines[full]]_ass.webp"
-
-    if Jean.Clothes["socks"].string:
-        "characters/Jean/images/hands_and_knees/socks_[Jean.Clothes[socks].string].webp"
-
-    if Jean.Clothes["hose"].string:
-        "characters/Jean/images/hands_and_knees/hose_[Jean.Clothes[hose].string].webp"
-
-    if Jean.Clothes["underwear"].string:
-        "characters/Jean/images/hands_and_knees/underwear_[Jean.Clothes[underwear].string]_[Jean.Clothes[underwear].state].webp"
-
-    if Jean.Clothes["bodysuit"].string:
-        "characters/Jean/images/hands_and_knees/bodysuit_[Jean.Clothes[bodysuit].string]_ass.webp"
-
-    if Jean.Clothes["towel"].string:
-        "characters/Jean/images/hands_and_knees/towel_[Jean.Clothes[towel].string]_ass.webp"
-
     if Jean.spunk["ass"]:
         "characters/Jean/images/hands_and_knees/spunk_ass.webp"
 
@@ -427,30 +406,6 @@ layeredimage Jean_hands_and_knees_breasts:
     if Jean.piercings["nipple"] in ["ring", "both"]:
         "characters/Jean/images/hands_and_knees/nipple_piercings_ring.webp"
 
-    if Jean.Clothes["nipple_accessories"].string:
-        "characters/Jean/images/hands_and_knees/nipple_accessories_[Jean.Clothes[nipple_accessories].string].webp"
-
-    if Jean.Clothes["bra"].string:
-        "characters/Jean/images/hands_and_knees/bra_[Jean.Clothes[bra].string]_[Jean.Clothes[bra].state].webp"
-
-    if Jean.Clothes["bodysuit"].string:
-        "characters/Jean/images/hands_and_knees/bodysuit_[Jean.Clothes[bodysuit].string]_[Jean.Clothes[bodysuit].state]_torso.webp"
-
-    if Jean.Clothes["top"].string:
-        "characters/Jean/images/hands_and_knees/top_[Jean.Clothes[top].string]_[Jean.Clothes[top].state].webp"
-
-    if not Jean.piercings["nipple"]:
-        Null()
-    elif Jean.Clothes["top"].string and Jean.Clothes["top"].state == 0:
-        "characters/Jean/images/hands_and_knees/nipple_piercings_covered_[Jean.Clothes[top].string].webp"
-    elif Jean.Clothes["bodysuit"].string and Jean.Clothes["bodysuit"].state == 0:
-        "characters/Jean/images/hands_and_knees/nipple_piercings_covered_[Jean.Clothes[bodysuit].string].webp"
-    elif Jean.Clothes["bra"].string and Jean.Clothes["bra"].state == 0:
-        "characters/Jean/images/hands_and_knees/nipple_piercings_covered_[Jean.Clothes[bra].string].webp"
-            
-    if Jean.Clothes["towel"].string:
-        "characters/Jean/images/hands_and_knees/towel_[Jean.Clothes[towel].string]_torso.webp"
-
     if Jean.spunk["breasts"]:
         "characters/Jean/images/hands_and_knees/spunk_breasts.webp"
 
@@ -524,15 +479,6 @@ layeredimage Jean_hands_and_knees_head:
     elif Jean.mouth_Actions[0].animation_type == "deepthroat":
         "characters/Jean/images/hands_and_knees/blush[Jean.blush]_deepthroat.webp"
 
-    if not Jean.Clothes["makeup"].string:
-        Null()
-    elif Player.orgasming == "cum_down_throat" and focused_Girl == Jean:
-        "characters/Jean/images/hands_and_knees/makeup_[Jean.Clothes[makeup].string]_deepthroat.webp"
-    elif (Player.orgasming and focused_Girl == Jean) or not Jean.mouth_Actions:
-        "characters/Jean/images/hands_and_knees/makeup_[Jean.Clothes[makeup].string].webp"
-    elif Jean.mouth_Actions[0].animation_type == "deepthroat":
-        "characters/Jean/images/hands_and_knees/makeup_[Jean.Clothes[makeup].string]_deepthroat.webp"
-
     if not Jean.spunk["chin"]:
         Null()
     elif Player.orgasming in ["cum_in_mouth", "cum_down_throat"] and focused_Girl == Jean:
@@ -589,26 +535,26 @@ layeredimage Jean_hands_and_knees_tongue:
     offset (int(2175*sex_sampling), int(1849*sex_sampling))
 
 layeredimage Jean_hands_and_knees_hair:
-    if (Jean.wet or Jean.Clothes["hair"].string == "wet") and Player.orgasming == "cum_down_throat" and focused_Girl == Jean:
-        "characters/Jean/images/hands_and_knees/hair_shadow_wet_deepthroat.webp"
-    elif (Jean.wet or Jean.Clothes["hair"].string == "wet") and Jean.mouth_Actions and Jean.mouth_Actions[0].animation_type == "deepthroat":
-        "characters/Jean/images/hands_and_knees/hair_shadow_wet_deepthroat.webp"
-    elif Jean.wet or Jean.Clothes["hair"].string == "wet":
-        "characters/Jean/images/hands_and_knees/hair_shadow_wet.webp"
-    elif Player.orgasming == "cum_down_throat" and focused_Girl == Jean:
+    # if (Jean.wet or Jean.Clothes["hair"].string == "wet") and Player.orgasming == "cum_down_throat" and focused_Girl == Jean:
+    #     "characters/Jean/images/hands_and_knees/hair_shadow_wet_deepthroat.webp"
+    # elif (Jean.wet or Jean.Clothes["hair"].string == "wet") and Jean.mouth_Actions and Jean.mouth_Actions[0].animation_type == "deepthroat":
+    #     "characters/Jean/images/hands_and_knees/hair_shadow_wet_deepthroat.webp"
+    # elif Jean.wet or Jean.Clothes["hair"].string == "wet":
+    #     "characters/Jean/images/hands_and_knees/hair_shadow_wet.webp"
+    if Player.orgasming == "cum_down_throat" and focused_Girl == Jean:
         "characters/Jean/images/hands_and_knees/hair_shadow_[Jean.Clothes[hair].string]_deepthroat.webp"
     elif Jean.mouth_Actions and Jean.mouth_Actions[0].animation_type == "deepthroat":
         "characters/Jean/images/hands_and_knees/hair_shadow_[Jean.Clothes[hair].string]_deepthroat.webp"
     else:
         "characters/Jean/images/hands_and_knees/hair_shadow_[Jean.Clothes[hair].string].webp"
 
-    if (Jean.wet or Jean.Clothes["hair"].string == "wet") and Player.orgasming == "cum_down_throat" and focused_Girl == Jean:
-        "characters/Jean/images/hands_and_knees/hair_wet_deepthroat.webp"
-    elif (Jean.wet or Jean.Clothes["hair"].string == "wet") and Jean.mouth_Actions and Jean.mouth_Actions[0].animation_type == "deepthroat":
-        "characters/Jean/images/hands_and_knees/hair_wet_deepthroat.webp"
-    elif Jean.wet or Jean.Clothes["hair"].string == "wet":
-        "characters/Jean/images/hands_and_knees/hair_wet.webp"
-    elif Player.orgasming == "cum_down_throat" and focused_Girl == Jean:
+    # if (Jean.wet or Jean.Clothes["hair"].string == "wet") and Player.orgasming == "cum_down_throat" and focused_Girl == Jean:
+    #     "characters/Jean/images/hands_and_knees/hair_wet_deepthroat.webp"
+    # elif (Jean.wet or Jean.Clothes["hair"].string == "wet") and Jean.mouth_Actions and Jean.mouth_Actions[0].animation_type == "deepthroat":
+    #     "characters/Jean/images/hands_and_knees/hair_wet_deepthroat.webp"
+    # elif Jean.wet or Jean.Clothes["hair"].string == "wet":
+    #     "characters/Jean/images/hands_and_knees/hair_wet.webp"
+    if Player.orgasming == "cum_down_throat" and focused_Girl == Jean:
         "characters/Jean/images/hands_and_knees/hair_[Jean.Clothes[hair].string]_deepthroat.webp"
     elif Jean.mouth_Actions and Jean.mouth_Actions[0].animation_type == "deepthroat":
         "characters/Jean/images/hands_and_knees/hair_[Jean.Clothes[hair].string]_deepthroat.webp"

@@ -31,7 +31,12 @@ init -2 python:
             self.eyes = "neutral"
             self.mouth = "neutral"
 
+            self.left_arm_pose = "neutral"
+            self.right_arm_pose = "neutral"
+            
             self.wet = False
+
+            self.ground_shadow = True
 
             self.home = f"bg_{self.tag}"
             self.destination = "hold"

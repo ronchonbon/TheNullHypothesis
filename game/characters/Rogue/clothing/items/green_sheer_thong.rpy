@@ -1,36 +1,38 @@
 init -1 python:
 
-    def Rogue_yellow_boots():
-        name = "yellow boots"
-        short_name = "boots"
-        string = "yellow_boots"
+    def Rogue_green_sheer_thong():
+        name = "green thong"
+        short_name = "thong"
+        string = "green_sheer_thong"
         
-        Clothing_type = "boots"
+        Clothing_type = "underwear"
 
-        shop_type = "clothing"
-        chapter = 0
-        season = 0
+        shop_type = "lingerie"
+        chapter = 1
+        season = 3
         
         thresholds = {
-            "accept": [0, 0],
-            "wear_in_private": [0, 0],
-            "wear_in_public": [0, 0]}
-
-        price = 0
-
-        shame = [0, 0]
+            "accept": [600, 600],
+            "wear_in_private": [600, 600],
+            "wear_in_public": [625, 625]}
+        
+        price = 4
+        
+        shame = [-2, 5]
         
         available_states = {
-            "standing": [0]}
+            "standing": [0, 1]}
         undressed_states = {
-            "standing": 0}
+            "standing": 1}
         
         covers = {
             "standing": {
-                "feet": [0]}}
+                "pussy": [0],
+                "anus": [0]}}
         hides = {
             "standing": {
-                "feet": [0]}}
+                "pussy": [0],
+                "anus": [0]}}
 
         covered_by = {}
         blocked_by = {}
@@ -51,40 +53,34 @@ init -1 python:
             supports_breasts = supports_breasts,
             incompatibilities = incompatibilities)
 
-label Rogue_yellow_boots_shopping_accept:
+label Rogue_green_sheer_thong_shopping_accept:
 
     return
 
-label Rogue_yellow_boots_shopping_reject:
+label Rogue_green_sheer_thong_shopping_reject:
 
     return
 
-label Rogue_yellow_boots_gift_accept:
+label Rogue_green_sheer_thong_gift_accept:
 
     return
 
-label Rogue_yellow_boots_gift_reject:
+label Rogue_green_sheer_thong_gift_reject:
 
     return
 
-label Rogue_yellow_boots_change_private_before:
+label Rogue_green_sheer_thong_change_private_before:
 
     return
 
-label Rogue_yellow_boots_change_private_after:
-    $ Rogue.change_face("smirk2")
-
-    ch_Rogue "Ah like 'em."
+label Rogue_green_sheer_thong_change_private_after:
 
     return
 
-label Rogue_yellow_boots_change_public_before:
+label Rogue_green_sheer_thong_change_public_before:
 
     return
 
-label Rogue_yellow_boots_change_public_after:
-    $ Rogue.change_face("smirk2")
-
-    ch_Rogue "Ah like 'em."
+label Rogue_green_sheer_thong_change_public_after:
 
     return

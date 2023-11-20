@@ -351,39 +351,6 @@ layeredimage Rogue_doggy_ass:
     elif Rogue.buttplug.string == "round_anal_plug":
         "characters/Rogue/images/doggy/buttplug_round.webp"
 
-    if Rogue.Clothes["socks"].string:
-        "characters/Rogue/images/doggy/socks_[Rogue.Clothes[socks].string]_ass.webp"
-
-    if Rogue.Clothes["underwear"].string:
-        "characters/Rogue/images/doggy/underwear_[Rogue.Clothes[underwear].string]_[Rogue.Clothes[underwear].state].webp"
-
-    if not Rogue.grool:
-        Null()
-    elif Rogue.Clothes["underwear"].string:
-        "characters/Rogue/images/doggy/grool_[Rogue.Clothes[underwear].string]_[Rogue.Clothes[underwear].state].webp"
-
-    if Rogue.Clothes["hose"].string:
-        "characters/Rogue/images/doggy/hose_[Rogue.Clothes[hose].string].webp"
-
-    if Rogue.Clothes["bodysuit"].string:
-        "characters/Rogue/images/doggy/bodysuit_[Rogue.Clothes[bodysuit].string]_[Rogue.Clothes[bodysuit].state]_ass.webp"
-
-    if Rogue.piercings["labia"] not in ["ring", "both"]:
-        Null()
-    elif Rogue.Clothes["bodysuit"].string and Rogue.Clothes["bodysuit"].state in [0, 1]:
-        "characters/Rogue/images/doggy/labia_piercings_ring_covered_[Rogue.Clothes[bodysuit].string].webp"
-    elif Rogue.Clothes["hose"].string and Rogue.Clothes["images"].state == 0:
-        "characters/Rogue/images/doggy/labia_piercings_ring_covered_[Rogue.Clothes[images].string].webp"
-    elif Rogue.Clothes["underwear"].string and Rogue.Clothes["underwear"].state == 0:
-        "characters/Rogue/images/doggy/labia_piercings_ring_covered_[Rogue.Clothes[underwear].string].webp"
-
-    if not Rogue.Clothes["towel"].string:
-        Null()
-    elif Rogue.right_hand_Actions and Rogue.right_hand_Actions[0].animation_type == "self_finger_ass":
-        "characters/Rogue/images/doggy/towel_[Rogue.Clothes[towel].string]_finger.webp"
-    else:
-        "characters/Rogue/images/doggy/towel_[Rogue.Clothes[towel].string].webp"
-
     if Rogue.spunk["ass"]:
         "characters/Rogue/images/doggy/spunk_ass.webp"
 
@@ -471,18 +438,12 @@ layeredimage Rogue_doggy_left_leg:
     always:
         "characters/Rogue/images/doggy/left_leg.webp"
 
-    if Rogue.Clothes["socks"].string:
-        "characters/Rogue/images/doggy/socks_[Rogue.Clothes[socks].string]_left_leg.webp"
-
     anchor (int(832*sex_sampling), int(2550*sex_sampling))
     offset (int(832*sex_sampling), int(2550*sex_sampling))
 
 layeredimage Rogue_doggy_right_leg:
     always:
         "characters/Rogue/images/doggy/right_leg.webp"
-
-    if Rogue.Clothes["socks"].string:
-        "characters/Rogue/images/doggy/socks_[Rogue.Clothes[socks].string]_right_leg.webp"
 
     anchor (int(3365*sex_sampling), int(2531*sex_sampling))
     offset (int(3365*sex_sampling), int(2531*sex_sampling))
@@ -537,27 +498,6 @@ layeredimage Rogue_doggy_torso:
     else:
         "characters/Rogue/images/doggy/tan_lines_[Rogue.tan_lines[full]]_torso.webp"
 
-    if not Rogue.Clothes["bra"].string:
-        Null()
-    elif Rogue.right_hand_Actions and Rogue.right_hand_Actions[0].animation_type == "self_finger_ass":
-        "characters/Rogue/images/doggy/bra_[Rogue.Clothes[bra].string]_[Rogue.Clothes[bra].state]_finger.webp"
-    else:
-        "characters/Rogue/images/doggy/bra_[Rogue.Clothes[bra].string]_[Rogue.Clothes[bra].state].webp"
-
-    if not Rogue.Clothes["bodysuit"].string:
-        Null()
-    elif Rogue.right_hand_Actions and Rogue.right_hand_Actions[0].animation_type == "self_finger_ass":
-        "characters/Rogue/images/doggy/bodysuit_[Rogue.Clothes[bodysuit].string]_torso_finger.webp"
-    else:
-        "characters/Rogue/images/doggy/bodysuit_[Rogue.Clothes[bodysuit].string]_torso.webp"
-
-    if not Rogue.Clothes["top"].string:
-        Null()
-    elif Rogue.right_hand_Actions and Rogue.right_hand_Actions[0].animation_type == "self_finger_ass":
-        "characters/Rogue/images/doggy/top_[Rogue.Clothes[top].string]_[Rogue.Clothes[top].state]_finger.webp"
-    else:
-        "characters/Rogue/images/doggy/top_[Rogue.Clothes[top].string]_[Rogue.Clothes[top].state].webp"
-
     if Player.orgasming and focused_Girl == Rogue:
         "Rogue_doggy_hair_animation0"
     elif Player.cock_Actions and Rogue in Player.cock_Actions[0].Targets:
@@ -571,9 +511,6 @@ layeredimage Rogue_doggy_torso:
 layeredimage Rogue_doggy_right_arm:
     always:
         "characters/Rogue/images/doggy/right_arm.webp"
-
-    if Rogue.Clothes["bodysuit"].string == "pink_swimsuit":
-        "characters/Rogue/images/doggy/bodysuit_pink_swimsuit_right_sleeve.webp"
 
     anchor (int(2525*sex_sampling), int(1128*sex_sampling))
     offset (int(2525*sex_sampling), int(1128*sex_sampling))
@@ -599,9 +536,6 @@ layeredimage Rogue_doggy_head:
 
     if Rogue.blush:
             "characters/Rogue/images/doggy/blush[Rogue.blush].webp"
-
-    if Rogue.Clothes["makeup"].string:
-        "characters/Rogue/images/doggy/makeup_[Rogue.Clothes[makeup].string].webp"
         
     if Rogue.spunk["tongue"] and Rogue.mouth in ["agape", "tongue"]:
         "characters/Rogue/images/doggy/spunk_tongue.webp"
@@ -628,9 +562,6 @@ layeredimage Rogue_doggy_right_arm_self_finger_ass:
     always:
         "characters/Rogue/images/doggy/right_arm_finger.webp"
 
-    if Rogue.Clothes["bodysuit"].string == "pink_swimsuit":
-        "characters/Rogue/images/doggy/bodysuit_pink_swimsuit_right_sleeve_finger.webp"
-
     anchor (int(1474*sex_sampling), int(1200*sex_sampling))
     offset (int(1474*sex_sampling), int(1200*sex_sampling))
     
@@ -641,14 +572,16 @@ image Rogue_doggy_left_arm:
     offset (int(1474*sex_sampling), int(1200*sex_sampling))
 
 layeredimage Rogue_doggy_hair:
-    if Rogue.wet or Rogue.Clothes["hair"].string == "wet":
-        "characters/Rogue/images/doggy/hair_shadow_wet.webp"
-    else:
+    # if Rogue.wet or Rogue.Clothes["hair"].string == "wet":
+    #     "characters/Rogue/images/doggy/hair_shadow_wet.webp"
+    # else:
+    always:
         "characters/Rogue/images/doggy/hair_shadow_[Rogue.Clothes[hair].string].webp"
 
-    if Rogue.wet or Rogue.Clothes["hair"].string == "wet":
-        "characters/Rogue/images/doggy/hair_wet.webp"
-    else:
+    # if Rogue.wet or Rogue.Clothes["hair"].string == "wet":
+    #     "characters/Rogue/images/doggy/hair_wet.webp"
+    # else:
+    always:
         "characters/Rogue/images/doggy/hair_[Rogue.Clothes[hair].string].webp"
 
     if Rogue.spunk["hair"]:
@@ -725,9 +658,6 @@ image Rogue_doggy_vibrator:
 layeredimage Rogue_doggy_right_forearm_self_finger_ass:
     always:
         "characters/Rogue/images/doggy/right_forearm_finger.webp"
-
-    if Rogue.Clothes["bodysuit"].string == "pink_swimsuit":
-        "characters/Rogue/images/doggy/bodysuit_pink_swimsuit_right_forearm_sleeve_finger.webp"
 
     always:
         "characters/Rogue/images/doggy/right_forearm_finger_shadow.webp"

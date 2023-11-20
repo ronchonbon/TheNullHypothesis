@@ -611,7 +611,7 @@ label Rogue_first_date:
 
     $ Rogue.give(Rogue_running_mascara())
 
-    call try_on(Rogue, Rogue.Wardrobe.Clothes["running mascara"]) from _call_try_on_9
+    # call try_on(Rogue, Rogue.Wardrobe.Clothes["running mascara"]) from _call_try_on_9
 
     pause 1.0
 

@@ -164,7 +164,7 @@ label Laura_chapter_one_season_three_first_training_session:
 
     ch_Laura "I am ready."
 
-    $ Laura.left_arm_pose = 2
+    # $ Laura.left_arm_pose = 2
 
     ch_Laura "When you activate it, the fight will start."
     ch_Laura "Just focus on survival."
@@ -243,7 +243,7 @@ label Laura_chapter_one_season_three_first_training_session:
 
     "[Laura.name] stops herself mid-punch, as you nearly fall down, your power suddenly no longer active."
 
-    $ Laura.left_arm_pose = 1
+    # $ Laura.left_arm_pose = 1
 
     $ Laura.change_face("confused1")
 

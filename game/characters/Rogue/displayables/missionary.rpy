@@ -330,39 +330,6 @@ layeredimage Rogue_missionary_thighs:
     if Rogue.remote_vibrator:
         "characters/Rogue/images/missionary/remote_vibrator.webp"
 
-    if Rogue.Clothes["socks"].string:
-        "characters/Rogue/images/missionary/socks_[Rogue.Clothes[socks].string]_thighs.webp"
-
-    if Rogue.Clothes["underwear"].string:
-        "characters/Rogue/images/missionary/underwear_[Rogue.Clothes[underwear].string]_[Rogue.Clothes[underwear].state].webp"
-
-    if Rogue.Clothes["bodysuit"].string:
-        "characters/Rogue/images/missionary/bodysuit_[Rogue.Clothes[bodysuit].string]_[Rogue.Clothes[bodysuit].state]_thighs.webp"
-
-    if Rogue.piercings["labia"] not in ["barbell", "both"]:
-        Null()
-    elif Rogue.Clothes["bodysuit"].string and Rogue.Clothes["bodysuit"].state in [0, 1]:
-        "characters/Rogue/images/missionary/labia_piercings_barbell_covered_[Rogue.Clothes[bodysuit].string].webp"
-    elif Rogue.Clothes["underwear"].string and Rogue.Clothes["underwear"].state == 0:
-        "characters/Rogue/images/missionary/labia_piercings_barbell_covered_[Rogue.Clothes[underwear].string].webp"
-
-    if Rogue.piercings["labia"] not in ["ring", "both"]:
-        Null()
-    elif Rogue.Clothes["bodysuit"].string and Rogue.Clothes["bodysuit"].state in [0, 1]:
-        "characters/Rogue/images/missionary/labia_piercings_ring_covered_[Rogue.Clothes[bodysuit].string].webp"
-    elif Rogue.Clothes["underwear"].string and Rogue.Clothes["underwear"].state == 0:
-        "characters/Rogue/images/missionary/labia_piercings_ring_covered_[Rogue.Clothes[underwear].string].webp"
-
-    if not Rogue.grool:
-        Null()
-    elif Rogue.Clothes["underwear"].string:
-        "characters/Rogue/images/missionary/grool_[Rogue.Clothes[underwear].string]_[Rogue.Clothes[underwear].state].webp"
-    elif Rogue.Clothes["bodysuit"].string:
-        "characters/Rogue/images/missionary/grool_[Rogue.Clothes[bodysuit].string]_[Rogue.Clothes[bodysuit].state].webp"
-
-    if Rogue.Clothes["towel"].string:
-        "characters/Rogue/images/missionary/towel_[Rogue.Clothes[towel].string]_[Rogue.Clothes[towel].state].webp"
-
     if Player.orgasming and focused_Girl == Rogue:
         Null()
     elif not Rogue.anus_Actions or Rogue.anus_Actions[0].animation_type != "finger_ass":
@@ -531,18 +498,12 @@ layeredimage Rogue_missionary_left_arm:
     always:
         "characters/Rogue/images/missionary/left_arm.webp"
 
-    if Rogue.Clothes["bodysuit"].string == "pink_swimsuit":
-        "characters/Rogue/images/missionary/bodysuit_pink_swimsuit_left_sleeve.webp"
-
     anchor (int(2712*sex_sampling), int(1289*sex_sampling))
     offset (int(2712*sex_sampling), int(1289*sex_sampling))
     
 layeredimage Rogue_missionary_right_arm:
     always:
         "characters/Rogue/images/missionary/right_arm.webp"
-
-    if Rogue.Clothes["bodysuit"].string == "pink_swimsuit":
-        "characters/Rogue/images/missionary/bodysuit_pink_swimsuit_right_sleeve.webp"
 
     anchor (int(1830*sex_sampling), int(1241*sex_sampling))
     offset (int(1830*sex_sampling), int(1241*sex_sampling))
@@ -553,9 +514,6 @@ layeredimage Rogue_missionary_right_arm_self_touch_pussy:
 
     always:
         "characters/Rogue/images/missionary/right_arm_finger.webp"
-
-    if Rogue.Clothes["bodysuit"].string == "pink_swimsuit":
-        "characters/Rogue/images/missionary/bodysuit_pink_swimsuit_right_sleeve_finger.webp"
 
     anchor (int(1808*sex_sampling), int(1244*sex_sampling))
     offset (int(1808*sex_sampling), int(1244*sex_sampling))
@@ -575,29 +533,6 @@ layeredimage Rogue_missionary_breasts:
 
     if Rogue.piercings["nipple"] in ["ring", "both"]:
         "characters/Rogue/images/missionary/nipple_piercings_ring.webp"
-
-    if Rogue.Clothes["nipple_accessories"].string:
-        "characters/Rogue/images/missionary/nipple_accessories_[Rogue.Clothes[nipple_accessories].string].webp"
-
-    if Rogue.Clothes["bra"].string:
-        "characters/Rogue/images/missionary/bra_[Rogue.Clothes[bra].string]_[Rogue.Clothes[bra].state].webp"
-
-    if Rogue.Clothes["bodysuit"].string:
-        "characters/Rogue/images/missionary/bodysuit_[Rogue.Clothes[bodysuit].string]_[Rogue.Clothes[bodysuit].state]_torso.webp"
-
-    if Rogue.piercings["nipple"] not in ["barbell", "both"]:
-        Null()
-    elif Rogue.Clothes["bodysuit"].string and Rogue.Clothes["bodysuit"].state in [0, 2]:
-        "characters/Rogue/images/missionary/nipple_piercings_barbell_covered_[Rogue.Clothes[bodysuit].string].webp"
-    elif Rogue.Clothes["bra"].string and Rogue.Clothes["bra"].state == 0:
-        "characters/Rogue/images/missionary/nipple_piercings_barbell_covered_[Rogue.Clothes[bra].string].webp"
-
-    if Rogue.piercings["nipple"] not in ["ring", "both"]:
-        Null()
-    elif Rogue.Clothes["bodysuit"].string and Rogue.Clothes["bodysuit"].state in [0, 2]:
-        "characters/Rogue/images/missionary/nipple_piercings_ring_covered_[Rogue.Clothes[bodysuit].string].webp"
-    elif Rogue.Clothes["bra"].string and Rogue.Clothes["bra"].state == 0:
-        "characters/Rogue/images/missionary/nipple_piercings_ring_covered_[Rogue.Clothes[bra].string].webp"
 
     if Rogue.spunk["breasts"]:
         "characters/Rogue/images/missionary/spunk_breasts.webp"
@@ -619,9 +554,6 @@ layeredimage Rogue_missionary_head:
 
     if Rogue.blush:
             "characters/Rogue/images/missionary/blush[Rogue.blush].webp"
-
-    if Rogue.Clothes["makeup"].string:
-        "characters/Rogue/images/missionary/makeup_[Rogue.Clothes[makeup].string].webp"
         
     if Rogue.spunk["tongue"] and Rogue.mouth in ["agape", "tongue"]:
         "characters/Rogue/images/missionary/spunk_tongue.webp"
@@ -646,14 +578,16 @@ layeredimage Rogue_missionary_head:
     offset (int(2299*sex_sampling), int(1031*sex_sampling))
     
 layeredimage Rogue_missionary_hair:
-    if Rogue.wet or Rogue.Clothes["hair"].string == "wet":
-        "characters/Rogue/images/missionary/hair_shadow_wet.webp"
-    else:
+    # if Rogue.wet or Rogue.Clothes["hair"].string == "wet":
+    #     "characters/Rogue/images/missionary/hair_shadow_wet.webp"
+    # else:
+    always:
         "characters/Rogue/images/missionary/hair_shadow_[Rogue.Clothes[hair].string].webp"
 
-    if Rogue.wet or Rogue.Clothes["hair"].string == "wet":
-        "characters/Rogue/images/missionary/hair_wet.webp"
-    else:
+    # if Rogue.wet or Rogue.Clothes["hair"].string == "wet":
+    #     "characters/Rogue/images/missionary/hair_wet.webp"
+    # else:
+    always:
         "characters/Rogue/images/missionary/hair_[Rogue.Clothes[hair].string].webp"
 
     if Rogue.spunk["hair"]:
@@ -702,18 +636,12 @@ layeredimage Rogue_missionary_right_forearm_self_touch_pussy:
     always:
         "characters/Rogue/images/missionary/right_forearm_finger.webp"
 
-    if Rogue.Clothes["bodysuit"].string == "pink_swimsuit":
-        "characters/Rogue/images/missionary/bodysuit_pink_swimsuit_right_forearm_sleeve_finger.webp"
-
     anchor (int(1512*sex_sampling), int(1832*sex_sampling))
     offset (int(1512*sex_sampling), int(1832*sex_sampling))
     
 layeredimage Rogue_missionary_left_leg:
     always:
         "characters/Rogue/images/missionary/left_leg.webp"
-
-    if Rogue.Clothes["socks"].string:
-        "characters/Rogue/images/missionary/socks_[Rogue.Clothes[socks].string]_left_leg.webp"
 
     if Player.orgasming and focused_Girl == Rogue:
         "Rogue_missionary_left_foot_animation0"
@@ -729,18 +657,12 @@ layeredimage Rogue_missionary_left_foot:
     always:
         "characters/Rogue/images/missionary/left_foot.webp"
 
-    if Rogue.Clothes["socks"].string:
-        "characters/Rogue/images/missionary/socks_[Rogue.Clothes[socks].string]_left_foot.webp"
-
     anchor (int(3240*sex_sampling), int(4002*sex_sampling))
     offset (int(3240*sex_sampling), int(4002*sex_sampling))
     
 layeredimage Rogue_missionary_right_leg:
     always:
         "characters/Rogue/images/missionary/right_leg.webp"
-
-    if Rogue.Clothes["socks"].string:
-        "characters/Rogue/images/missionary/socks_[Rogue.Clothes[socks].string]_right_leg.webp"
 
     if Player.orgasming and focused_Girl == Rogue:
         "Rogue_missionary_right_foot_animation0"
@@ -755,9 +677,6 @@ layeredimage Rogue_missionary_right_leg:
 layeredimage Rogue_missionary_right_foot:
     always:
         "characters/Rogue/images/missionary/right_foot.webp"
-
-    if Rogue.Clothes["socks"].string:
-        "characters/Rogue/images/missionary/socks_[Rogue.Clothes[socks].string]_right_foot.webp"
 
     anchor (int(967*sex_sampling), int(3809*sex_sampling))
     offset (int(967*sex_sampling), int(3809*sex_sampling))

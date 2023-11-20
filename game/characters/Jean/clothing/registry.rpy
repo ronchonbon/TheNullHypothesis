@@ -2,75 +2,11 @@ init python:
 
     def all_Jean_Clothes():
         Clothes = [
-            Jean_black_balconette_bra(),
-            Jean_black_cage_bra(),
-            Jean_black_garterbelt(),
-            Jean_black_pants(),
-            Jean_black_shirt(),
-            Jean_black_socks(),
-            Jean_black_stockings(),
-            Jean_black_tape(),
-            Jean_black_thong(),
-            Jean_black_trenchcoat(),
-            Jean_blue_athletic_shorts(),
-            Jean_blue_boots(),
-            Jean_blue_gauntlets(),
-            Jean_blue_gloves(),
-            Jean_blue_lace_bra(),
-            Jean_blue_lace_panties(),
-            Jean_blue_mask(),
-            Jean_blue_nighty(),
-            Jean_blue_pleated_skirt(),
-            Jean_college_shirt(),
-            Jean_denim_jacket(),
-            Jean_Jean_belt(),
-            Jean_Jean_suit(),
-            Jean_khaki_pants(),
-            Jean_long_hair(),
-            Jean_maroon_scarf(),
-            Jean_messy_hair(),
-            Jean_pink_boyshorts(),
-            Jean_pink_bra(),
-            Jean_pink_panties(),
-            Jean_pink_shirt(),
-            Jean_puffy_jacket(),
-            Jean_red_corset(),
-            Jean_red_swimsuit(),
-            Jean_running_mascara(),
-            Jean_sleeked_hair(),
-            Jean_towel(),
-            Jean_wet_hair(),
-            Jean_white_cami(),
-            Jean_white_hat(),
-            Jean_white_necklace(),
-            Jean_white_sweater(),
-            Jean_yellow_bikini_bottoms(),
-            Jean_yellow_bikini_top(),
-            Jean_yellow_dress(),
-            Jean_yellow_sports_bra()]
+            Jean_long_hair()]
 
         return Clothes
 
     def Jean_shopping_list():
-        Clothes = [
-            Jean_black_balconette_bra(),
-            Jean_black_cage_bra(),
-            Jean_black_garterbelt(),
-            Jean_black_pants(),
-            Jean_black_shirt(),
-            Jean_black_stockings(),
-            Jean_black_tape(),
-            Jean_black_thong(),
-            Jean_black_trenchcoat(),
-            Jean_blue_athletic_shorts(),
-            Jean_blue_lace_bra(),
-            Jean_blue_lace_panties(),
-            Jean_blue_nighty(),
-            Jean_pink_boyshorts(),
-            Jean_red_corset(),
-            Jean_white_cami(),
-            Jean_yellow_bikini_bottoms(),
-            Jean_yellow_bikini_top(),
-            Jean_yellow_dress()]
+        Clothes = []
 
         return Clothes

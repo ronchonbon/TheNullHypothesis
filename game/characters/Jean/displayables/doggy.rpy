@@ -308,12 +308,6 @@ layeredimage Jean_doggy_ass:
     else:
         "Jean_doggy_anus_[Jean.anus_Actions[0].animation_type]_animation[Jean.anus_Actions[0].mode]"
 
-    if Jean.tan_lines["bottom"]:
-        "characters/Jean/images/doggy/tan_lines_[Jean.tan_lines[bottom]].webp"
-
-    if Jean.tan_lines["full"]:
-        "characters/Jean/images/doggy/tan_lines_[Jean.tan_lines[full]]_ass.webp"
-
     if Player.orgasming == "creampie" and focused_Girl == Jean:
         "Jean_doggy_creampie"
     elif not Jean.creampie["pussy"]:
@@ -350,35 +344,6 @@ layeredimage Jean_doggy_ass:
         "characters/Jean/images/doggy/buttplug_heart.webp"
     elif Jean.buttplug.string == "round_anal_plug":
         "characters/Jean/images/doggy/buttplug_round.webp"
-
-    if Jean.Clothes["socks"].string:
-        "characters/Jean/images/doggy/socks_[Jean.Clothes[socks].string]_ass.webp"
-
-    if Jean.Clothes["underwear"].string:
-        "characters/Jean/images/doggy/underwear_[Jean.Clothes[underwear].string]_[Jean.Clothes[underwear].state].webp"
-
-    if not Jean.grool:
-        Null()
-    elif Jean.Clothes["underwear"].string:
-        "characters/Jean/images/doggy/grool_[Jean.Clothes[underwear].string]_[Jean.Clothes[underwear].state].webp"
-
-    if Jean.piercings["labia"] not in ["ring", "both"]:
-        Null()
-    elif Jean.Clothes["underwear"].string and Jean.Clothes["underwear"].state == 0:
-        "characters/Jean/images/doggy/labia_piercings_ring_covered_[Jean.Clothes[underwear].string].webp"
-
-    if Jean.Clothes["hose"].string:
-        "characters/Jean/images/doggy/hose_[Jean.Clothes[hose].string].webp"
-
-    if Jean.Clothes["bodysuit"].string:
-        "characters/Jean/images/doggy/bodysuit_[Jean.Clothes[bodysuit].string]_[Jean.Clothes[bodysuit].state]_ass.webp"
-
-    if not Jean.Clothes["towel"].string:
-        Null()
-    elif Jean.right_hand_Actions and Jean.right_hand_Actions[0].animation_type == "self_finger_ass":
-        "characters/Jean/images/doggy/towel_[Jean.Clothes[towel].string]_finger.webp"
-    else:
-        "characters/Jean/images/doggy/towel_[Jean.Clothes[towel].string].webp"
 
     if Jean.spunk["ass"]:
         "characters/Jean/images/doggy/spunk_ass.webp"
@@ -467,18 +432,12 @@ layeredimage Jean_doggy_left_leg:
     always:
         "characters/Jean/images/doggy/left_leg.webp"
 
-    if Jean.Clothes["socks"].string:
-        "characters/Jean/images/doggy/socks_[Jean.Clothes[socks].string]_left_leg.webp"
-
     anchor (int(832*sex_sampling), int(2550*sex_sampling))
     offset (int(832*sex_sampling), int(2550*sex_sampling))
 
 layeredimage Jean_doggy_right_leg:
     always:
         "characters/Jean/images/doggy/right_leg.webp"
-
-    if Jean.Clothes["socks"].string:
-        "characters/Jean/images/doggy/socks_[Jean.Clothes[socks].string]_right_leg.webp"
 
     anchor (int(3365*sex_sampling), int(2531*sex_sampling))
     offset (int(3365*sex_sampling), int(2531*sex_sampling))
@@ -518,41 +477,6 @@ layeredimage Jean_doggy_torso:
         "Jean_doggy_left_arm_animation[Player.cock_Actions[0].mode]"
     else:
         "Jean_doggy_left_arm_animation0"
-
-    if not Jean.tan_lines["top"]:
-        Null()
-    elif Jean.right_hand_Actions and Jean.right_hand_Actions[0].animation_type == "self_finger_ass":
-        "characters/Jean/images/doggy/tan_lines_[Jean.tan_lines[top]]_finger.webp"
-    else:
-        "characters/Jean/images/doggy/tan_lines_[Jean.tan_lines[top]].webp"
-
-    if not Jean.tan_lines["full"]:
-        Null()
-    elif Jean.right_hand_Actions and Jean.right_hand_Actions[0].animation_type == "self_finger_ass":
-        "characters/Jean/images/doggy/tan_lines_[Jean.tan_lines[full]]_torso_finger.webp"
-    else:
-        "characters/Jean/images/doggy/tan_lines_[Jean.tan_lines[full]]_torso.webp"
-
-    if not Jean.Clothes["bra"].string:
-        Null()
-    elif Jean.right_hand_Actions and Jean.right_hand_Actions[0].animation_type == "self_finger_ass":
-        "characters/Jean/images/doggy/bra_[Jean.Clothes[bra].string]_[Jean.Clothes[bra].state]_finger.webp"
-    else:
-        "characters/Jean/images/doggy/bra_[Jean.Clothes[bra].string]_[Jean.Clothes[bra].state].webp"
-
-    if not Jean.Clothes["bodysuit"].string:
-        Null()
-    elif Jean.right_hand_Actions and Jean.right_hand_Actions[0].animation_type == "self_finger_ass":
-        "characters/Jean/images/doggy/bodysuit_[Jean.Clothes[bodysuit].string]_torso_finger.webp"
-    else:
-        "characters/Jean/images/doggy/bodysuit_[Jean.Clothes[bodysuit].string]_torso.webp"
-
-    if not Jean.Clothes["top"].string:
-        Null()
-    elif Jean.right_hand_Actions and Jean.right_hand_Actions[0].animation_type == "self_finger_ass":
-        "characters/Jean/images/doggy/top_[Jean.Clothes[top].string]_[Jean.Clothes[top].state]_finger.webp"
-    else:
-        "characters/Jean/images/doggy/top_[Jean.Clothes[top].string]_[Jean.Clothes[top].state].webp"
 
     if Player.orgasming and focused_Girl == Jean:
         "Jean_doggy_hair_animation0"
@@ -594,9 +518,6 @@ layeredimage Jean_doggy_head:
 
     if Jean.blush:
             "characters/Jean/images/doggy/blush[Jean.blush].webp"
-
-    if Jean.Clothes["makeup"].string:
-        "characters/Jean/images/doggy/makeup_[Jean.Clothes[makeup].string].webp"
         
     if Jean.spunk["tongue"] and Jean.mouth in ["agape", "tongue"]:
         "characters/Jean/images/doggy/spunk_tongue.webp"
@@ -614,9 +535,10 @@ layeredimage Jean_doggy_head:
     offset (int(1945*sex_sampling), int(940*sex_sampling))
 
 layeredimage Jean_doggy_hair_front:
-    if Jean.wet:
-        "characters/Jean/images/doggy/hair_front_wet.webp"
-    else:
+    # if Jean.wet or Jean.Clothes["hair"].string == "wet":
+    #     "characters/Jean/images/doggy/hair_front_wet.webp"
+    # else:
+    always:
         "characters/Jean/images/doggy/hair_front_[Jean.Clothes[hair].string].webp"
 
     anchor (int(1945*sex_sampling), int(940*sex_sampling))
@@ -635,14 +557,16 @@ image Jean_doggy_left_arm:
     offset (int(1474*sex_sampling), int(1200*sex_sampling))
 
 layeredimage Jean_doggy_hair:
-    if Jean.wet or Jean.Clothes["hair"].string == "wet":
-        "characters/Jean/images/doggy/hair_shadow_wet.webp"
-    else:
+    # if Jean.wet or Jean.Clothes["hair"].string == "wet":
+    #     "characters/Jean/images/doggy/hair_shadow_wet.webp"
+    # else:
+    always:
         "characters/Jean/images/doggy/hair_shadow_[Jean.Clothes[hair].string].webp"
 
-    if Jean.wet or Jean.Clothes["hair"].string == "wet":
-        "characters/Jean/images/doggy/hair_wet.webp"
-    else:
+    # if Jean.wet or Jean.Clothes["hair"].string == "wet":
+    #     "characters/Jean/images/doggy/hair_wet.webp"
+    # else:
+    always:
         "characters/Jean/images/doggy/hair_[Jean.Clothes[hair].string].webp"
 
     if Jean.spunk["hair"]:

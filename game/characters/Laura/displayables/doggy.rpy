@@ -358,35 +358,6 @@ layeredimage Laura_doggy_ass:
     elif Player.cock_Actions and Laura in Player.cock_Actions[0].Targets:
         "characters/Laura/images/doggy/male_right_arm_shadow.webp"
 
-    if Laura.Clothes["socks"].string:
-        "characters/Laura/images/doggy/socks_[Laura.Clothes[socks].string]_ass.webp"
-
-    if Laura.Clothes["underwear"].string:
-        "characters/Laura/images/doggy/underwear_[Laura.Clothes[underwear].string]_[Laura.Clothes[underwear].state].webp"
-
-    if not Laura.grool:
-        Null()
-    elif Laura.Clothes["underwear"].string:
-        "characters/Laura/images/doggy/grool_[Laura.Clothes[underwear].string]_[Laura.Clothes[underwear].state].webp"
-
-    if Laura.piercings["labia"] not in ["ring", "both"]:
-        Null()
-    elif Laura.Clothes["underwear"].string and Laura.Clothes["underwear"].state == 0:
-        "characters/Laura/images/doggy/labia_piercings_ring_covered_[Laura.Clothes[underwear].string].webp"
-
-    if Laura.Clothes["hose"].string:
-        "characters/Laura/images/doggy/hose_[Laura.Clothes[hose].string].webp"
-
-    if Laura.Clothes["bodysuit"].string:
-        "characters/Laura/images/doggy/bodysuit_[Laura.Clothes[bodysuit].string]_[Laura.Clothes[bodysuit].state]_ass.webp"
-
-    if not Laura.Clothes["towel"].string:
-        Null()
-    elif Laura.right_hand_Actions and Laura.right_hand_Actions[0].animation_type == "self_finger_ass":
-        "characters/Laura/images/doggy/towel_[Laura.Clothes[towel].string]_finger.webp"
-    else:
-        "characters/Laura/images/doggy/towel_[Laura.Clothes[towel].string].webp"
-
     if Laura.spunk["ass"]:
         "characters/Laura/images/doggy/spunk_ass.webp"
 
@@ -474,18 +445,12 @@ layeredimage Laura_doggy_left_leg:
     always:
         "characters/Laura/images/doggy/left_leg.webp"
 
-    if Laura.Clothes["socks"].string:
-        "characters/Laura/images/doggy/socks_[Laura.Clothes[socks].string]_left_leg.webp"
-
     anchor (int(832*sex_sampling), int(2550*sex_sampling))
     offset (int(832*sex_sampling), int(2550*sex_sampling))
 
 layeredimage Laura_doggy_right_leg:
     always:
         "characters/Laura/images/doggy/right_leg.webp"
-
-    if Laura.Clothes["socks"].string:
-        "characters/Laura/images/doggy/socks_[Laura.Clothes[socks].string]_right_leg.webp"
 
     anchor (int(3365*sex_sampling), int(2531*sex_sampling))
     offset (int(3365*sex_sampling), int(2531*sex_sampling))
@@ -540,27 +505,6 @@ layeredimage Laura_doggy_torso:
     else:
         "characters/Laura/images/doggy/tan_lines_[Laura.tan_lines[full]]_torso.webp"
 
-    if not Laura.Clothes["bra"].string:
-        Null()
-    elif Laura.right_hand_Actions and Laura.right_hand_Actions[0].animation_type == "self_finger_ass":
-        "characters/Laura/images/doggy/bra_[Laura.Clothes[bra].string]_[Laura.Clothes[bra].state]_finger.webp"
-    else:
-        "characters/Laura/images/doggy/bra_[Laura.Clothes[bra].string]_[Laura.Clothes[bra].state].webp"
-
-    if not Laura.Clothes["bodysuit"].string:
-        Null()
-    elif Laura.right_hand_Actions and Laura.right_hand_Actions[0].animation_type == "self_finger_ass":
-        "characters/Laura/images/doggy/bodysuit_[Laura.Clothes[bodysuit].string]_torso_finger.webp"
-    else:
-        "characters/Laura/images/doggy/bodysuit_[Laura.Clothes[bodysuit].string]_torso.webp"
-
-    if not Laura.Clothes["top"].string:
-        Null()
-    elif Laura.right_hand_Actions and Laura.right_hand_Actions[0].animation_type == "self_finger_ass":
-        "characters/Laura/images/doggy/top_[Laura.Clothes[top].string]_[Laura.Clothes[top].state]_finger.webp"
-    else:
-        "characters/Laura/images/doggy/top_[Laura.Clothes[top].string]_[Laura.Clothes[top].state].webp"
-
     if Player.orgasming and focused_Girl == Laura:
         "Laura_doggy_hair_animation0"
     elif Player.cock_Actions and Laura in Player.cock_Actions[0].Targets:
@@ -574,9 +518,6 @@ layeredimage Laura_doggy_torso:
 layeredimage Laura_doggy_right_arm:
     always:
         "characters/Laura/images/doggy/right_arm.webp"
-
-    if Laura.Clothes["bodysuit"].string == "leather_teddy":
-        "characters/Laura/images/doggy/bodysuit_leather_teddy_right_sleeve.webp"
 
     anchor (int(2525*sex_sampling), int(1128*sex_sampling))
     offset (int(2525*sex_sampling), int(1128*sex_sampling))
@@ -602,9 +543,6 @@ layeredimage Laura_doggy_head:
 
     if Laura.blush:
             "characters/Laura/images/doggy/blush[Laura.blush].webp"
-
-    if Laura.Clothes["makeup"].string:
-        "characters/Laura/images/doggy/makeup_[Laura.Clothes[makeup].string].webp"
         
     if Laura.spunk["tongue"] and Laura.mouth in ["agape", "tongue"]:
         "characters/Laura/images/doggy/spunk_tongue.webp"
@@ -631,9 +569,6 @@ layeredimage Laura_doggy_right_arm_self_finger_ass:
     always:
         "characters/Laura/images/doggy/right_arm_finger.webp"
 
-    if Laura.Clothes["bodysuit"].string == "leather_teddy":
-        "characters/Laura/images/doggy/bodysuit_leather_teddy_right_sleeve_finger.webp"
-
     anchor (int(1474*sex_sampling), int(1200*sex_sampling))
     offset (int(1474*sex_sampling), int(1200*sex_sampling))
     
@@ -644,14 +579,16 @@ image Laura_doggy_left_arm:
     offset (int(1474*sex_sampling), int(1200*sex_sampling))
 
 layeredimage Laura_doggy_hair:
-    if Laura.wet or Laura.Clothes["hair"].string == "wet":
-        "characters/Laura/images/doggy/hair_shadow_wet.webp"
-    else:
+    # if Laura.wet or Laura.Clothes["hair"].string == "wet":
+    #     "characters/Laura/images/doggy/hair_shadow_wet.webp"
+    # else:
+    always:
         "characters/Laura/images/doggy/hair_shadow_[Laura.Clothes[hair].string].webp"
 
-    if Laura.wet or Laura.Clothes["hair"].string == "wet":
-        "characters/Laura/images/doggy/hair_wet.webp"
-    else:
+    # if Laura.wet or Laura.Clothes["hair"].string == "wet":
+    #     "characters/Laura/images/doggy/hair_wet.webp"
+    # else:
+    always:
         "characters/Laura/images/doggy/hair_[Laura.Clothes[hair].string].webp"
 
     if Laura.spunk["hair"]:
@@ -728,9 +665,6 @@ image Laura_doggy_vibrator:
 layeredimage Laura_doggy_right_forearm_self_finger_ass:
     always:
         "characters/Laura/images/doggy/right_forearm_finger.webp"
-
-    if Laura.Clothes["bodysuit"].string == "leather_teddy":
-        "characters/Laura/images/doggy/bodysuit_leather_teddy_right_forearm_sleeve_finger.webp"
 
     always:
         "characters/Laura/images/doggy/right_arm_finger_shadow.webp"

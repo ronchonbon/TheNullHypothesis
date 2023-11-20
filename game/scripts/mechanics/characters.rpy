@@ -157,7 +157,7 @@ label set_the_scene(location = None, show_Characters = True, show_Party = True, 
         $ color_transform = get_color_transform(location = Player.location)
 
         if temp_Professor.location == Player.location:
-            call show_Character(temp_Professor, sprite_anchor = [eval(f"{temp_Professor.tag}_standing_anchor")[0], 1.0], x = 0.4215, y = 0.72, sprite_zoom = 0.3*eval(f"{temp_Professor.tag}_standing_zoom"), sprite_layer = 3, color_transform = color_transform, fade = fade_Characters) from _call_show_Character_15
+            call show_Character(temp_Professor, sprite_anchor = [eval(f"{temp_Professor.tag}_standing_anchor")[0], 1.0], x = 0.39, y = 0.69, sprite_zoom = 0.3*eval(f"{temp_Professor.tag}_standing_zoom"), sprite_layer = 3, color_transform = color_transform, fade = fade_Characters) from _call_show_Character_15
         elif renpy.showing(f"{temp_Professor.tag}_sprite"):
             call hide_Character(temp_Professor, fade = fade_Characters) from _call_hide_Character_50
 

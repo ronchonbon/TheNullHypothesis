@@ -414,7 +414,7 @@ label Jean_chapter_one_season_one_first_training_session:
     "She seems to struggle with something for a second."
     ch_Jean "I'm sure."
 
-    $ Jean.right_arm_pose = 2
+    # $ Jean.right_arm_pose = 2
 
     "Without another word, she grabs your hand."
 
@@ -486,7 +486,7 @@ label Jean_chapter_one_season_one_first_training_session:
     "She holds on tightly for another moment, then finally starts to relax."
     "She lets go."
 
-    $ Jean.right_arm_pose = 1
+    # $ Jean.right_arm_pose = 1
 
     ch_Player "Are you okay?"
     ch_Jean "I. . . am now. Thanks, [Player.first_name]."

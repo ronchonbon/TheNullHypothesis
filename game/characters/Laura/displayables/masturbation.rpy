@@ -293,9 +293,6 @@ layeredimage Laura_masturbation_left_arm:
     always:
         "characters/Laura/images/masturbation/left_arm.webp"
 
-    if Laura.Clothes["bodysuit"].string == "leather_teddy":
-        "characters/Laura/images/masturbation/bodysuit_leather_teddy_left_sleeve.webp"
-
     anchor (int(3344*sex_sampling), int(1534*sex_sampling))
     offset (int(3344*sex_sampling), int(1534*sex_sampling))
     
@@ -314,47 +311,6 @@ layeredimage Laura_masturbation_breasts:
 
     if Laura.piercings["nipple"] in ["ring", "both"]:
         "characters/Laura/images/masturbation/nipple_piercings_ring.webp"
-
-    if Laura.Clothes["nipple_accessories"].string:
-        "characters/Laura/images/masturbation/nipple_accessories_[Laura.Clothes[nipple_accessories].string].webp"
-
-    if Laura.Clothes["bra"].string:
-        "characters/Laura/images/masturbation/bra_[Laura.Clothes[bra].string]_[Laura.Clothes[bra].state].webp"
-
-    if Laura.Clothes["bodysuit"].string:
-        "characters/Laura/images/masturbation/bodysuit_[Laura.Clothes[bodysuit].string]_[Laura.Clothes[bodysuit].state]_torso.webp"
-
-    if not Laura.piercings["belly"]:
-        Null()
-    elif Laura.Clothes["bodysuit"].string:
-        "characters/Laura/images/masturbation/belly_piercing_covered_[Laura.Clothes[bodysuit].string].webp"
-
-    if Laura.Clothes["top"].string:
-        "characters/Laura/images/masturbation/top_[Laura.Clothes[top].string]_[Laura.Clothes[top].state].webp"
-
-    if Laura.piercings["nipple"] not in ["barbell", "both"]:
-        Null()
-    elif Laura.Clothes["top"].string and Laura.Clothes["top"].state == 0:
-        "characters/Laura/images/masturbation/nipple_piercings_barbell_covered_[Laura.Clothes[top].string].webp"
-    elif Laura.Clothes["bodysuit"].string and Laura.Clothes["bodysuit"].state in [0, 2]:
-        "characters/Laura/images/masturbation/nipple_piercings_barbell_covered_[Laura.Clothes[bodysuit].string].webp"
-    elif Laura.Clothes["bra"].string and Laura.Clothes["bra"].string not in ["blackred_corset"] and Laura.Clothes["bra"].state == 0:
-        "characters/Laura/images/masturbation/nipple_piercings_barbell_covered_[Laura.Clothes[bra].string].webp"
-
-    if Laura.piercings["nipple"] not in ["ring", "both"]:
-        Null()
-    elif Laura.Clothes["top"].string and Laura.Clothes["top"].state == 0:
-        "characters/Laura/images/masturbation/nipple_piercings_ring_covered_[Laura.Clothes[top].string].webp"
-    elif Laura.Clothes["bodysuit"].string and Laura.Clothes["bodysuit"].state in [0, 2]:
-        "characters/Laura/images/masturbation/nipple_piercings_ring_covered_[Laura.Clothes[bodysuit].string].webp"
-    elif Laura.Clothes["bra"].string and Laura.Clothes["bra"].string not in ["blackred_corset"] and Laura.Clothes["bra"].state == 0:
-        "characters/Laura/images/masturbation/nipple_piercings_ring_covered_[Laura.Clothes[bra].string].webp"
-
-    if Laura.Clothes["hose"].string:
-        "characters/Laura/images/masturbation/hose_[Laura.Clothes[hose].string].webp"
-
-    if Laura.Clothes["towel"].string:
-        "characters/Laura/images/masturbation/towel_[Laura.Clothes[towel].string]_[Laura.Clothes[towel].state].webp"
 
     if Laura.spunk["breasts"]:
         "characters/Laura/images/masturbation/spunk_breasts.webp"
@@ -376,9 +332,6 @@ layeredimage Laura_masturbation_head:
 
     if Laura.blush:
             "characters/Laura/images/masturbation/blush[Laura.blush].webp"
-
-    if Laura.Clothes["makeup"].string:
-        "characters/Laura/images/masturbation/makeup_[Laura.Clothes[makeup].string].webp"
         
     if Laura.spunk["tongue"] and Laura.mouth in ["agape", "tongue"]:
         "characters/Laura/images/masturbation/spunk_tongue.webp"
@@ -403,14 +356,16 @@ layeredimage Laura_masturbation_head:
     offset (int(2787*sex_sampling), int(1333*sex_sampling))
     
 layeredimage Laura_masturbation_hair:
-    if Laura.wet or Laura.Clothes["hair"].string == "wet":
-        "characters/Laura/images/masturbation/hair_shadow_wet.webp"
-    else:
+    # if Laura.wet or Laura.Clothes["hair"].string == "wet":
+    #     "characters/Laura/images/masturbation/hair_shadow_wet.webp"
+    # else:
+    always:
         "characters/Laura/images/masturbation/hair_shadow_[Laura.Clothes[hair].string].webp"
 
-    if Laura.wet or Laura.Clothes["hair"].string == "wet":
-        "characters/Laura/images/masturbation/hair_wet.webp"
-    else:
+    # if Laura.wet or Laura.Clothes["hair"].string == "wet":
+    #     "characters/Laura/images/masturbation/hair_wet.webp"
+    # else:
+    always:
         "characters/Laura/images/masturbation/hair_[Laura.Clothes[hair].string].webp"
 
     if Laura.spunk["hair"]:
@@ -490,38 +445,8 @@ layeredimage Laura_masturbation_thighs:
     if Laura.remote_vibrator:
         "characters/Laura/images/masturbation/remote_vibrator.webp"
 
-    if Laura.Clothes["underwear"].string:
-        "characters/Laura/images/masturbation/underwear_[Laura.Clothes[underwear].string]_[Laura.Clothes[underwear].state].webp"
-
-    if Laura.Clothes["bodysuit"].string:
-        "characters/Laura/images/masturbation/bodysuit_[Laura.Clothes[bodysuit].string]_[Laura.Clothes[bodysuit].state]_thighs.webp"
-
-    if Laura.piercings["labia"] not in ["barbell", "both"]:
-        Null()
-    elif Laura.Clothes["bodysuit"].string and Laura.Clothes["bodysuit"].state in [0, 1]:
-        "characters/Laura/images/masturbation/labia_piercings_barbell_covered_[Laura.Clothes[bodysuit].string].webp"
-    elif Laura.Clothes["underwear"].string and Laura.Clothes["underwear"].state == 0:
-        "characters/Laura/images/masturbation/labia_piercings_barbell_covered_[Laura.Clothes[underwear].string].webp"
-
-    if Laura.piercings["labia"] not in ["ring", "both"]:
-        Null()
-    elif Laura.Clothes["bodysuit"].string and Laura.Clothes["bodysuit"].state in [0, 1]:
-        "characters/Laura/images/masturbation/labia_piercings_ring_covered_[Laura.Clothes[bodysuit].string].webp"
-    elif Laura.Clothes["underwear"].string and Laura.Clothes["underwear"].state == 0:
-        "characters/Laura/images/masturbation/labia_piercings_ring_covered_[Laura.Clothes[underwear].string].webp"
-
-    if not Laura.grool:
-        Null()
-    elif Laura.Clothes["underwear"].string:
-        "characters/Laura/images/masturbation/grool_[Laura.Clothes[underwear].string]_[Laura.Clothes[underwear].state].webp"
-    elif Laura.Clothes["bodysuit"].string:
-        "characters/Laura/images/masturbation/grool_[Laura.Clothes[bodysuit].string]_[Laura.Clothes[bodysuit].state].webp"
-
     if Laura.right_hand_Actions and Laura.right_hand_Actions[0].animation_type == "self_touch_pussy":
         "Laura_masturbation_right_hand_animation[Laura.right_hand_Actions[0].mode]"
-
-    if Laura.Clothes["socks"].string:
-        "characters/Laura/images/masturbation/socks_[Laura.Clothes[socks].string]_thighs.webp"
 
     if Laura.vagina_Actions:
         "Laura_masturbation_left_leg_animation[Laura.vagina_Actions[0].mode]"
@@ -660,9 +585,6 @@ layeredimage Laura_masturbation_left_leg:
     always:
         "characters/Laura/images/masturbation/left_leg.webp"
 
-    if Laura.Clothes["socks"].string:
-        "characters/Laura/images/masturbation/socks_[Laura.Clothes[socks].string]_left_leg.webp"
-
     if Laura.vagina_Actions:
         "Laura_masturbation_left_foot_animation[Laura.vagina_Actions[0].mode]"
     elif Laura.anus_Actions:
@@ -677,18 +599,12 @@ layeredimage Laura_masturbation_left_foot:
     always:
         "characters/Laura/images/masturbation/left_foot.webp"
 
-    if Laura.Clothes["socks"].string:
-        "characters/Laura/images/masturbation/socks_[Laura.Clothes[socks].string]_left_foot.webp"
-
     anchor (int(4232*sex_sampling), int(3466*sex_sampling))
     offset (int(4232*sex_sampling), int(3466*sex_sampling))
 
 layeredimage Laura_masturbation_right_leg:
     always:
         "characters/Laura/images/masturbation/right_leg.webp"
-
-    if Laura.Clothes["socks"].string:
-        "characters/Laura/images/masturbation/socks_[Laura.Clothes[socks].string]_right_leg.webp"
 
     if Laura.vagina_Actions:
         "Laura_masturbation_right_foot_animation[Laura.vagina_Actions[0].mode]"
@@ -703,9 +619,6 @@ layeredimage Laura_masturbation_right_leg:
 layeredimage Laura_masturbation_right_foot:
     always:
         "characters/Laura/images/masturbation/right_foot.webp"
-
-    if Laura.Clothes["socks"].string:
-        "characters/Laura/images/masturbation/socks_[Laura.Clothes[socks].string]_right_foot.webp"
 
     anchor (int(645*sex_sampling), int(3228*sex_sampling))
     offset (int(645*sex_sampling), int(3228*sex_sampling))

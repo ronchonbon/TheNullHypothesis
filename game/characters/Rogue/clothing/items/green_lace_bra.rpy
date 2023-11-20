@@ -1,24 +1,24 @@
 init -1 python:
 
-    def Rogue_green_bikini_top():
-        name = "green bikini top"
-        short_name = "bikini top"
-        string = "green_bikini_top"
+    def Rogue_green_lace_bra():
+        name = "green lace bra"
+        short_name = "bra"
+        string = "green_lace_bra"
         
         Clothing_type = "bra"
 
-        shop_type = "clothing"
+        shop_type = "lingerie"
         chapter = 1
-        season = 2
+        season = 1
         
         thresholds = {
-            "accept": [250, 250],
-            "wear_in_private": [250, 250],
-            "wear_in_public": [275, 275]}
+            "accept": [200, 200],
+            "wear_in_private": [200, 200],
+            "wear_in_public": [225, 225]}
         
-        price = 3
+        price = 5
         
-        shame = [5, 15]
+        shame = [5, 1000]
         
         available_states = {
             "standing": [0, 1]}
@@ -51,62 +51,54 @@ init -1 python:
             supports_breasts = supports_breasts,
             incompatibilities = incompatibilities)
 
-label Rogue_green_bikini_top_shopping_accept:
+label Rogue_green_lace_bra_shopping_accept:
     $ Rogue.change_face("pleased2")
 
-    ch_Rogue "Ah do like the green. . ."
+    ch_Rogue "You think ah'd look good in somethin' like that?"
 
     return
 
-label Rogue_green_bikini_top_shopping_reject:
+label Rogue_green_lace_bra_shopping_reject:
     $ Rogue.change_face("worried1")
 
-    ch_Rogue "Ah'm not really comfortable with you pickin' out bikinis for me. . ."
+    ch_Rogue "Ah'm not really comfortable with you pickin' out bras for me."
 
     return
 
-label Rogue_green_bikini_top_gift_accept:
-    $ Rogue.change_face("worried1")
+label Rogue_green_lace_bra_gift_accept:
+    $ Rogue.change_face("sexy")
 
-    pause 1.0
-
-    $ Rogue.change_face("smirk2")
-
-    ch_Rogue "It is nice. . ."
+    ch_Rogue "If yer lucky, ah'll wear it for ya sometime."
 
     return
 
-label Rogue_green_bikini_top_gift_reject:
+label Rogue_green_lace_bra_gift_reject:
     $ Rogue.change_face("surprised2")
 
-    pause 1.0
-
-    $ Rogue.change_face("confused1")
-
-    ch_Rogue "Why would you try giftin' me a bikini. . ."
+    ch_Rogue "Ah think it's a bit too soon for gifts like that. . ."
 
     return
 
-label Rogue_green_bikini_top_change_private_before:
-
-    return
-
-label Rogue_green_bikini_top_change_private_after:
+label Rogue_green_lace_bra_change_private_before:
     $ Rogue.change_face("worried1", eyes = "down")
 
-    ch_Rogue "A bit skimpy. . . but ah like the green."
+    ch_Rogue "A bit skimpy. . . but if it's only you. . ."
 
     $ Rogue.eyes = "neutral"
 
     return
 
-label Rogue_green_bikini_top_change_public_before:
+label Rogue_green_lace_bra_change_private_after:
 
     return
 
-label Rogue_green_bikini_top_change_public_after:
+label Rogue_green_lace_bra_change_public_before:
+
+    return
+
+label Rogue_green_lace_bra_change_public_after:
     $ Rogue.change_face("smirk2")
 
-    ch_Rogue "Ya like the look?"
+    ch_Rogue "Ah like how it makes em' look too."
 
     return

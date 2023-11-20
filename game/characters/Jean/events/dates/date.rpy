@@ -1083,8 +1083,8 @@ label Jean_date_dinner_sex_sex:
 
     $ choice_disabled = False
 
-    if renpy.random.random() > 0.5:
-        call try_on(Jean, Jean.Wardrobe.Clothes["messy hair"]) from _call_try_on
+    # if renpy.random.random() > 0.5:
+    #     call try_on(Jean, Jean.Wardrobe.Clothes["messy hair"]) from _call_try_on
 
     call change_Outfit(Jean, Jean.Wardrobe.Outfits[Jean.Outfit.name]) from _call_change_Outfit_24
     

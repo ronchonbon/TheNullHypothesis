@@ -1,24 +1,24 @@
 init -1 python:
 
-    def Rogue_green_athletic_shorts():
-        name = "green athletic shorts"
-        short_name = "shorts"
-        string = "green_athletic_shorts"
-
-        Clothing_type = "pants"
+    def Rogue_greenblack_boyshorts():
+        name = "green-and-black boyshorts"
+        short_name = "boyshorts"
+        string = "greenblack_boyshorts"
+        
+        Clothing_type = "underwear"
 
         shop_type = "clothing"
         chapter = 1
         season = 2
-
+        
         thresholds = {
-            "accept": [175, 175],
-            "wear_in_private": [175, 175],
-            "wear_in_public": [200, 200]}
-
-        price = 2
-
-        shame = [5, 5]
+            "accept": [225, 225],
+            "wear_in_private": [225, 225],
+            "wear_in_public": [250, 250]}
+        
+        price = 3
+        
+        shame = [-10, 10]
         
         available_states = {
             "standing": [0, 1]}
@@ -27,13 +27,11 @@ init -1 python:
         
         covers = {
             "standing": {
-                "underwear": [0],
                 "ass": [0],
                 "pussy": [0],
                 "anus": [0]}}
         hides = {
             "standing": {
-                "underwear": [0],
                 "ass": [0],
                 "pussy": [0],
                 "anus": [0]}}
@@ -42,9 +40,9 @@ init -1 python:
         blocked_by = {}
 
         supports_breasts = False
-
+        
         incompatibilities = []
-
+        
         return ClothingClass(
             Rogue, 
             name, short_name, string, Clothing_type, 
@@ -57,52 +55,56 @@ init -1 python:
             supports_breasts = supports_breasts,
             incompatibilities = incompatibilities)
 
-label Rogue_green_athletic_shorts_shopping_accept:
+label Rogue_greenblack_boyshorts_shopping_accept:
     $ Rogue.change_face("pleased2")
 
-    ch_Rogue "Some comfy shorts? Good call."
+    ch_Rogue "Ah love 'em!"
 
     return
 
-label Rogue_green_athletic_shorts_shopping_reject:
+label Rogue_greenblack_boyshorts_shopping_reject:
+    $ Rogue.change_face("perplexed")
+
+    ch_Rogue "Ah can buy my own clothes, thank you."
+
+    return
+
+label Rogue_greenblack_boyshorts_gift_accept:
+    $ Rogue.change_face("surprised2")
+
+    ch_Rogue "Oh, thank you!"
+
+    return
+
+label Rogue_greenblack_boyshorts_gift_reject:
     $ Rogue.change_face("worried1")
 
-    ch_Rogue "Ah can pick out my own clothes, thank you."
+    ch_Rogue "No thank you, [Player.first_name]."
 
     return
 
-label Rogue_green_athletic_shorts_gift_accept:
-    $ Rogue.change_face("pleased2")
-
-    ch_Rogue "These look comfy. . ."
+label Rogue_greenblack_boyshorts_change_private_before:
 
     return
 
-label Rogue_green_athletic_shorts_gift_reject:
-    $ Rogue.change_face("worried1")
+label Rogue_greenblack_boyshorts_change_private_after:
+    $ Rogue.change_face("pleased2", eyes = "down")
 
-    ch_Rogue "Ah can buy out my own shorts, thank you."
+    ch_Rogue "So comfy!"
 
-    return
-
-label Rogue_green_athletic_shorts_change_private_before:
+    $ Rogue.eyes = "neutral"
 
     return
 
-label Rogue_green_athletic_shorts_change_private_after:
-    $ Rogue.change_face("worried1")
-
-    ch_Rogue "Are they {i}too{/i} short?"
+label Rogue_greenblack_boyshorts_change_public_before:
 
     return
 
-label Rogue_green_athletic_shorts_change_public_before:
+label Rogue_greenblack_boyshorts_change_public_after:
+    $ Rogue.change_face("pleased2", eyes = "down")
 
-    return
+    ch_Rogue "These are some of my favorites."
 
-label Rogue_green_athletic_shorts_change_public_after:
-    $ Rogue.change_face("worried1")
-
-    ch_Rogue "Are they {i}too{/i} short?"
+    $ Rogue.eyes = "neutral"
 
     return

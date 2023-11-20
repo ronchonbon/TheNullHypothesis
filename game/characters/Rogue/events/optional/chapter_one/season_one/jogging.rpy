@@ -22,7 +22,7 @@ init python:
         return EventClass(label, conditions, repeatable = repeatable, automatic = automatic)
 
 label Rogue_chapter_one_season_one_jogging_setup:
-    call send_Characters(Rogue, "bg_lockers", behavior = "changing")
+    call send_Characters(Rogue, "bg_lockers", behavior = "changing") from _call_send_Characters_328
 
     return
 

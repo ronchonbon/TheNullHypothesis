@@ -422,11 +422,11 @@ label clean_cum_mess(Girl):
     return
 
 label clean_cum(Girl):
-    if Girl in [Laura]:
-        $ Girl.left_arm_pose = 2
+    # if Girl in [Laura]:
+    #     $ Girl.left_arm_pose = 2
 
-    if Girl in [Rogue, Jean, Ororo]:
-        $ Girl.right_arm_pose = 2
+    # if Girl in [Rogue, Jean, Ororo]:
+    #     $ Girl.right_arm_pose = 2
 
     pause 0.5
 
@@ -441,20 +441,20 @@ label clean_cum(Girl):
 
     $ Girl.spunk["hand"] = False
 
-    if Girl in [Laura]:
-        $ Girl.left_arm_pose = 1
+    # if Girl in [Laura]:
+    #     $ Girl.left_arm_pose = 1
 
-    if Girl in [Rogue, Jean, Ororo]:
-        $ Girl.right_arm_pose = 1
+    # if Girl in [Rogue, Jean, Ororo]:
+    #     $ Girl.right_arm_pose = 1
 
     return
 
 label swallow_cum(Girl):
-    if Girl in [Laura]:
-        $ Girl.left_arm_pose = 2
+    # if Girl in [Laura]:
+    #     $ Girl.left_arm_pose = 2
 
-    if Girl in [Rogue, Jean, Ororo]:
-        $ Girl.right_arm_pose = 2
+    # if Girl in [Rogue, Jean, Ororo]:
+    #     $ Girl.right_arm_pose = 2
 
     pause 0.5
 
@@ -484,10 +484,10 @@ label swallow_cum(Girl):
 
     $ Girl.change_face("sexy")
 
-    if Girl in [Laura]:
-        $ Girl.left_arm_pose = 1
+    # if Girl in [Laura]:
+    #     $ Girl.left_arm_pose = 1
 
-    if Girl in [Rogue, Jean, Ororo]:
-        $ Girl.right_arm_pose = 1
+    # if Girl in [Rogue, Jean, Ororo]:
+    #     $ Girl.right_arm_pose = 1
 
     return

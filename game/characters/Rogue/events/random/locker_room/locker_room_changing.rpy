@@ -187,7 +187,7 @@ label Rogue_locker_room_changing:
 
         ch_Rogue "*gasp*"
 
-        call try_on(Rogue, Rogue.Wardrobe.Clothes["towel"]) from _call_try_on_10
+        # call try_on(Rogue, Rogue.Wardrobe.Clothes["towel"]) from _call_try_on_10
 
         $ Rogue.change_face("worried1", mouth = "lipbite", blush = 2)
 

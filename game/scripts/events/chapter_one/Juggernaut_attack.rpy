@@ -1507,9 +1507,9 @@ label ch1_Juggernaut_attack:
     "As you're getting ready to finally go to bed, someone knocks on your door."
     "Too tired to even see who it is, you let them in."
 
-    $ Ororo.right_arm_pose = 2
+    # $ Ororo.right_arm_pose = 2
 
-    call change_Outfit(Ororo, Ororo.Wardrobe.Outfits["Hero (Chapter I)"], instant = True) from _call_change_Outfit_28
+    # call change_Outfit(Ororo, Ororo.Wardrobe.Outfits["Hero (Chapter I)"], instant = True) from _call_change_Outfit_28
     call add_Characters(Ororo) from _call_add_Characters_49
 
     $ Ororo.change_face("worried1")
@@ -1517,7 +1517,7 @@ label ch1_Juggernaut_attack:
     ch_Player "Professor?!"
     ch_Ororo "I apologize for bothering you at such a late hour. . ."
 
-    $ Ororo.right_arm_pose = 1
+    # $ Ororo.right_arm_pose = 1
     $ Ororo.change_face("worried1", eyes = "down")
 
     pause 1.0
@@ -1719,7 +1719,7 @@ label ch1_Juggernaut_attack_path_1A:
     ch_Player "Shit! [Rogue.name]!" 
     "You finally shake out of the stupor and dash over to her."
 
-    call change_Outfit(Laura, Laura.Wardrobe.Outfits["Hero (Chapter I)"], instant = True) from _call_change_Outfit_29
+    # call change_Outfit(Laura, Laura.Wardrobe.Outfits["Hero (Chapter I)"], instant = True) from _call_change_Outfit_29
 
     call show_Character(Laura, x = stage_far_far_right, sprite_layer = 16, color_transform = red_lights, fade = False) from _call_show_Character_3
 
@@ -1735,7 +1735,7 @@ label ch1_Juggernaut_attack_path_1A:
 
     "She notices [Rogue.name]."
 
-    $ Laura.left_arm_pose = 2
+    # $ Laura.left_arm_pose = 2
 
     pause 0.2
 
@@ -1820,7 +1820,7 @@ label ch1_Juggernaut_attack_path_1A:
 
     pause 0.5
     
-    $ Laura.left_arm_pose = 1
+    # $ Laura.left_arm_pose = 1
 
     ch_Laura "[Player.first_name]!"
     "It feels like somebody just stabbed you in the side while simultaneously hitting you in the head with a baseball bat."
@@ -2166,7 +2166,7 @@ label ch1_Juggernaut_attack_path_1B:
 
     "You start running, full tilt, at [Cain.name]'s back."
 
-    call change_Outfit(Laura, Laura.Wardrobe.Outfits["Hero (Chapter I)"], instant = True) from _call_change_Outfit_30
+    # call change_Outfit(Laura, Laura.Wardrobe.Outfits["Hero (Chapter I)"], instant = True) from _call_change_Outfit_30
 
     call show_Character(Laura, x = stage_far_far_right, sprite_layer = 16, color_transform = red_lights, fade = False) from _call_show_Character_4
 
@@ -2182,7 +2182,7 @@ label ch1_Juggernaut_attack_path_1B:
 
     "She notices [Rogue.name]."
 
-    $ Laura.left_arm_pose = 2
+    # $ Laura.left_arm_pose = 2
 
     pause 0.2
 
@@ -2272,7 +2272,7 @@ label ch1_Juggernaut_attack_path_1B:
 
     pause 0.5
     
-    $ Laura.left_arm_pose = 1
+    # $ Laura.left_arm_pose = 1
 
     $ Laura.change_face("worried2")
 

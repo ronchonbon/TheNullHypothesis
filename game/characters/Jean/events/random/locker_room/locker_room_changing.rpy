@@ -199,7 +199,7 @@ label Jean_locker_room_changing:
 
         ch_Jean "[temp]?!"
 
-        call try_on(Jean, Jean.Wardrobe.Clothes["towel"]) from _call_try_on_2
+        # call try_on(Jean, Jean.Wardrobe.Clothes["towel"]) from _call_try_on_2
 
         $ Jean.change_face("worried1", mouth = "smirk", blush = 2)
 

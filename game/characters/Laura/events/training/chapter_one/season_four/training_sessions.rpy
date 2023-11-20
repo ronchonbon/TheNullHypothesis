@@ -30,7 +30,7 @@ label Laura_chapter_one_season_four_training_sessions:
         ch_Laura "Need to save your power so I can get a good workout in."
         "The warm up still isn't particularly light, but you're used to that by now."
 
-        $ Laura.left_arm_pose = 2
+        # $ Laura.left_arm_pose = 2
 
         "She seems eager to get to the fighting, so you don't waste any time."
 
@@ -57,7 +57,7 @@ label Laura_chapter_one_season_four_training_sessions:
         $ fade_in_from_black(0.4)
 
         $ Laura.change_face("smirk2")
-        $ Laura.left_arm_pose = 1
+        # $ Laura.left_arm_pose = 1
 
         ch_Player "*huff* That was better. . . *huff* right?" 
         ch_Laura "Than last time? Yes."
@@ -100,7 +100,7 @@ label Laura_chapter_one_season_four_training_sessions:
         ch_Player "*huff* But. . . *huff*"
 
         $ Laura.change_face("suspicious1")
-        $ Laura.left_arm_pose = 2
+        # $ Laura.left_arm_pose = 2
 
         "[Laura.name] doesn't leave you much choice, as she pounces before you're even able to activate the power."
         "She doesn't slow down for you at all, and you take a few solid hits just trying to react."
@@ -164,7 +164,7 @@ label Laura_chapter_one_season_four_training_sessions:
         $ fade_in_from_black(0.4)
 
         $ Laura.change_face("confused1")
-        $ Laura.left_arm_pose = 1
+        # $ Laura.left_arm_pose = 1
 
         "The after effects seem to be particularly potent today."
         ch_Player "*huff* That felt quick. . . *huff*"

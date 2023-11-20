@@ -6,6 +6,16 @@ transform Charles_chair_head_animation:
     xzoom 1.0 yzoom 1.0
     rotate 0.0
 
+    block:
+        pause 2.0
+        ease 2.0 rotate -1
+        pause 5.0
+        ease 2.0 rotate 0
+        pause 10.0
+        ease 2.0 rotate 1
+
+        repeat
+
 transform Charles_chair_psychic_animation:
     subpixel True
     transform_anchor True
@@ -55,23 +65,36 @@ layeredimage Charles_chair_temp:
     xysize (int(2500*character_sampling), int(4000*character_sampling))
 
 layeredimage Charles_chair:
+    if Charles.ground_shadow:
+        "characters/Charles/images/ground_shadow.webp"
+
     always:
         "characters/Charles/images/body.webp"
+
+    always:
+        "characters/Charles/images/arms_shadow.webp"
+
+    always:
+        "characters/Charles/images/arms.webp"
+
+    always:
+        "characters/Charles/images/head_shadow.webp"
 
     always:
         At("Charles_chair_head", Charles_chair_head_animation)
 
 layeredimage Charles_chair_head:
     always:
-        "characters/Charles/images/mouth_[Charles.mouth].webp"
-
-    if Charles.eyes in ["closed", "squint", "up"]:
-        "characters/Charles/images/eyes_[Charles.eyes].webp"
-    else:
-        "Charles_blinking"
+        "characters/Charles/images/head.webp"
 
     always:
-        "characters/Charles/images/brows_[Charles.brows].webp"
+        "characters/Charles/images/mouth_happy.webp"
+
+    always:
+        "characters/Charles/images/eyes_neutral.webp"
+
+    always:
+        "characters/Charles/images/brows_neutral.webp"
 
     if Charles.psychic and Charles.activating_psychic:
         At("Charles_chair_psychic", Charles_chair_activating_psychic_animation)
@@ -80,14 +103,14 @@ layeredimage Charles_chair_head:
     elif Charles.deactivating_psychic:
         At("Charles_chair_psychic", Charles_chair_deactivating_psychic_animation)
 
-    anchor (int(1090*character_sampling), int(920*character_sampling))
-    offset (int(1090*character_sampling), int(920*character_sampling))
+    anchor (int(1200*character_sampling), int(1770*character_sampling))
+    offset (int(1200*character_sampling), int(1770*character_sampling))
 
 image Charles_chair_psychic:
     "characters/Charles/images/psychic.webp"
 
-    anchor (int(1147*character_sampling), int(600*character_sampling))
-    offset (int(1147*character_sampling), int(600*character_sampling))
+    anchor (int(1225*character_sampling), int(1500*character_sampling))
+    offset (int(1225*character_sampling), int(1500*character_sampling))
 
 image Charles_blinking:
     "characters/Charles/images/eyes_[Charles.eyes].webp"

@@ -37,7 +37,7 @@ label Jean_leaving_for_mission:
 
     "You look around to see [Jean.name] running towards you."
 
-    call change_Outfit(Jean, Jean.Wardrobe.Outfits["Casual 2"], instant = True) from _call_change_Outfit_4
+    # call change_Outfit(Jean, Jean.Wardrobe.Outfits["Casual 2"], instant = True) from _call_change_Outfit_4
 
     call add_Characters(Jean) from _call_add_Characters_3
 

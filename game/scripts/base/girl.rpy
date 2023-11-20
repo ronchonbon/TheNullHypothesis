@@ -56,8 +56,8 @@ init -2 python:
             self.mouth = "neutral"
             self.blush = 0
 
-            self.left_arm_pose = 1
-            self.right_arm_pose = 1
+            self.left_arm_pose = "neutral"
+            self.right_arm_pose = "neutral"
 
             self.pubes = None
             self.default_pubes = None
@@ -90,6 +90,8 @@ init -2 python:
             self.buttplug_size = None
 
             self.remote_vibrator = False
+
+            self.ground_shadow = True
 
             self.home = f"bg_{self.tag}"
             self.destination = "hold"

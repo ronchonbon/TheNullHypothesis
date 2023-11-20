@@ -5,6 +5,11 @@ label travel(destination):
     $ Character_picker_disabled = True
     $ belt_disabled = True
 
+    python:
+        for C in all_Characters:
+            if C.location == "nearby":
+                C.location = Player.location
+
     $ Player.destination = destination
     
     if Player.destination in public_locations and Party:

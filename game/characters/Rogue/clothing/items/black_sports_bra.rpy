@@ -1,13 +1,13 @@
 init -1 python:
 
-    def Ororo_wet_hair():
-        name = "wet hair"
-        short_name = "hair"
-        string = "wet"
+    def Rogue_black_sports_bra():
+        name = "black sports bra"
+        short_name = "bra"
+        string = "black_sports_bra"
         
-        Clothing_type = "hair"
+        Clothing_type = "bra"
 
-        shop_type = "salon"
+        shop_type = "clothing"
         chapter = 0
         season = 0
         
@@ -18,27 +18,29 @@ init -1 python:
         
         price = 0
         
-        shame = [0, 0]
+        shame = [-5, 10]
         
         available_states = {
-            "standing": [0]}
+            "standing": [0, 1]}
         undressed_states = {
-            "standing": 0}
+            "standing": 1}
         
         covers = {
-            "standing": {}}
+            "standing": {
+                "breasts": [0]}}
         hides = {
-            "standing": {}}
+            "standing": {
+                "breasts": [0]}}
 
         covered_by = {}
         blocked_by = {}
 
-        supports_breasts = False
+        supports_breasts = True
         
         incompatibilities = []
         
         return ClothingClass(
-            Ororo, 
+            Rogue, 
             name, short_name, string, Clothing_type, 
             shop_type, chapter, season,
             thresholds,
@@ -49,34 +51,36 @@ init -1 python:
             supports_breasts = supports_breasts,
             incompatibilities = incompatibilities)
 
-label Ororo_wet_hair_shopping_accept:
+label Rogue_black_sports_bra_shopping_accept:
 
     return
 
-label Ororo_wet_hair_shopping_reject:
+label Rogue_black_sports_bra_shopping_reject:
 
     return
 
-label Ororo_wet_hair_gift_accept:
+label Rogue_black_sports_bra_gift_accept:
 
     return
 
-label Ororo_wet_hair_gift_reject:
+label Rogue_black_sports_bra_gift_reject:
 
     return
 
-label Ororo_wet_hair_change_private_before:
+label Rogue_black_sports_bra_change_private_before:
+    ch_Rogue "Ah do like the support. . ."
 
     return
 
-label Ororo_wet_hair_change_private_after:
+label Rogue_black_sports_bra_change_private_after:
 
     return
 
-label Ororo_wet_hair_change_public_before:
+label Rogue_black_sports_bra_change_public_before:
+    ch_Rogue "Ah do like the support. . ."
 
     return
 
-label Ororo_wet_hair_change_public_after:
+label Rogue_black_sports_bra_change_public_after:
 
     return

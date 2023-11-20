@@ -394,7 +394,7 @@ label update_Laura:
     return
 
 label Laura_unsheathes_claws:
-    $ Laura.left_arm_pose = 2
+    # $ Laura.left_arm_pose = 2
 
     pause 0.2
 
@@ -433,6 +433,6 @@ label Laura_sheathes_claws:
 
     pause 0.5
     
-    $ Laura.left_arm_pose = 1
+    # $ Laura.left_arm_pose = 1
     
     return

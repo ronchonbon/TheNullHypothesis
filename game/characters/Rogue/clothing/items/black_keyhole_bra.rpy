@@ -21,72 +21,23 @@ init -1 python:
         shame = [5, 1000]
         
         available_states = {
-            "standing": [0, 1],
-            "doggy": [0, 1],
-            "hands_and_knees": [0, 1],
-            "masturbation": [0, 1],
-            "missionary": [0, 1]}
+            "standing": [0, 1]}
         undressed_states = {
-            "standing": 1,
-            "doggy": 1,
-            "hands_and_knees": 1,
-            "masturbation": 1,
-            "missionary": 1}
+            "standing": 1}
         
         covers = {
             "standing": {
-                "breasts": [0]},
-            "doggy": {
-                "breasts": [0]},
-            "hands_and_knees": {
-                "breasts": [0]},
-            "masturbation": {
-                "breasts": [0]},
-            "missionary": {
                 "breasts": [0]}}
         hides = {
             "standing": {
-                "breasts": [0]},
-            "doggy": {
-                "breasts": [0]},
-            "hands_and_knees": {
-                "breasts": [0]},
-            "masturbation": {
-                "breasts": [0]},
-            "missionary": {
                 "breasts": [0]}}
 
-        covered_by = {
-            "black_fishnet_top": [0],
-            "black_top": [0],
-            "brown_jacket": [0],
-            "green_dress": [0],
-            "green_mesh_top": [0],
-            "green_nighty": [0],
-            "NIN_shirt": [0],
-            "pink_swimsuit": [0],
-            "plaid_coat": [0],
-            "Rogue_suit": [0],
-            "sweater_dress": [0, 2],
-            "towel": [0]}
-        blocked_by = {
-            "black_fishnet_top": [0, 1],
-            "black_top": [0, 1],
-            "brown_jacket": [0, 1],
-            "green_dress": [0],
-            "green_mesh_top": [0, 1],
-            "green_nighty": [0],
-            "NIN_shirt": [0, 1],
-            "pink_swimsuit": [0, 1],
-            "plaid_coat": [0, 1],
-            "Rogue_suit": [0],
-            "sweater_dress": [0, 2],
-            "towel": [0]}
+        covered_by = {}
+        blocked_by = {}
 
         supports_breasts = True
         
-        incompatibilities = [
-            "pink_swimsuit"]
+        incompatibilities = []
         
         return ClothingClass(
             Rogue, 

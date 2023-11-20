@@ -309,21 +309,6 @@ layeredimage Rogue_hands_and_knees_ass:
     if Rogue.tan_lines["full"]:
         "characters/Rogue/images/hands_and_knees/tan_lines_[Rogue.tan_lines[full]]_ass.webp"
 
-    if Rogue.Clothes["socks"].string:
-        "characters/Rogue/images/hands_and_knees/socks_[Rogue.Clothes[socks].string].webp"
-
-    if Rogue.Clothes["hose"].string:
-        "characters/Rogue/images/hands_and_knees/hose_[Rogue.Clothes[hose].string].webp"
-
-    if Rogue.Clothes["underwear"].string:
-        "characters/Rogue/images/hands_and_knees/underwear_[Rogue.Clothes[underwear].string]_[Rogue.Clothes[underwear].state].webp"
-
-    if Rogue.Clothes["bodysuit"].string:
-        "characters/Rogue/images/hands_and_knees/bodysuit_[Rogue.Clothes[bodysuit].string]_ass.webp"
-
-    if Rogue.Clothes["towel"].string:
-        "characters/Rogue/images/hands_and_knees/towel_[Rogue.Clothes[towel].string]_ass.webp"
-
     if Rogue.spunk["ass"]:
         "characters/Rogue/images/hands_and_knees/spunk_ass.webp"
 
@@ -398,9 +383,6 @@ layeredimage Rogue_hands_and_knees_right_arm:
     else:
         "characters/Rogue/images/hands_and_knees/right_arm.webp"
 
-    if Rogue.Clothes["bodysuit"].string == "pink_swimsuit":
-        "characters/Rogue/images/hands_and_knees/bodysuit_pink_swimsuit_right_sleeve.webp"
-
     anchor (int(1484*sex_sampling), int(2004*sex_sampling))
     offset (int(1484*sex_sampling), int(2004*sex_sampling))
 
@@ -430,25 +412,6 @@ layeredimage Rogue_hands_and_knees_breasts:
     if Rogue.piercings["nipple"] in ["ring", "both"]:
         "characters/Rogue/images/hands_and_knees/nipple_piercings_ring.webp"
 
-    if Rogue.Clothes["nipple_accessories"].string:
-        "characters/Rogue/images/hands_and_knees/nipple_accessories_[Rogue.Clothes[nipple_accessories].string].webp"
-
-    if Rogue.Clothes["bra"].string:
-        "characters/Rogue/images/hands_and_knees/bra_[Rogue.Clothes[bra].string]_[Rogue.Clothes[bra].state].webp"
-
-    if Rogue.Clothes["bodysuit"].string:
-        "characters/Rogue/images/hands_and_knees/bodysuit_[Rogue.Clothes[bodysuit].string]_[Rogue.Clothes[bodysuit].state]_torso.webp"
-
-    if not Rogue.piercings["nipple"]:
-        Null()
-    elif Rogue.Clothes["bodysuit"].string and Rogue.Clothes["bodysuit"].state == 0:
-        "characters/Rogue/images/hands_and_knees/nipple_piercings_covered_[Rogue.Clothes[bodysuit].string].webp"
-    elif Rogue.Clothes["bra"].string and Rogue.Clothes["bra"].state == 0:
-        "characters/Rogue/images/hands_and_knees/nipple_piercings_covered_[Rogue.Clothes[bra].string].webp"
-            
-    if Rogue.Clothes["towel"].string:
-        "characters/Rogue/images/hands_and_knees/towel_[Rogue.Clothes[towel].string]_torso.webp"
-
     if Rogue.spunk["breasts"]:
         "characters/Rogue/images/hands_and_knees/spunk_breasts.webp"
 
@@ -458,9 +421,6 @@ layeredimage Rogue_hands_and_knees_breasts:
 layeredimage Rogue_hands_and_knees_right_forearm:
     always:
         "characters/Rogue/images/hands_and_knees/right_forearm_fondle.webp"
-
-    if Rogue.Clothes["bodysuit"].string == "pink_swimsuit":
-        "characters/Rogue/images/hands_and_knees/bodysuit_pink_swimsuit_right_forearm_sleeve_fondle.webp"
 
     anchor (int(990*sex_sampling), int(2877*sex_sampling))
     offset (int(990*sex_sampling), int(2877*sex_sampling))
@@ -526,15 +486,6 @@ layeredimage Rogue_hands_and_knees_head:
     elif Rogue.mouth_Actions[0].animation_type == "deepthroat":
         "characters/Rogue/images/hands_and_knees/blush[Rogue.blush]_deepthroat.webp"
 
-    if not Rogue.Clothes["makeup"].string:
-        Null()
-    elif Player.orgasming == "cum_down_throat" and focused_Girl == Rogue:
-        "characters/Rogue/images/hands_and_knees/makeup_[Rogue.Clothes[makeup].string]_deepthroat.webp"
-    elif (Player.orgasming and focused_Girl == Rogue) or not Rogue.mouth_Actions:
-        "characters/Rogue/images/hands_and_knees/makeup_[Rogue.Clothes[makeup].string].webp"
-    elif Rogue.mouth_Actions[0].animation_type == "deepthroat":
-        "characters/Rogue/images/hands_and_knees/makeup_[Rogue.Clothes[makeup].string]_deepthroat.webp"
-
     if not Rogue.spunk["chin"]:
         Null()
     elif Player.orgasming in ["cum_in_mouth", "cum_down_throat"] and focused_Girl == Rogue:
@@ -588,13 +539,13 @@ layeredimage Rogue_hands_and_knees_tongue:
     offset (int(2175*sex_sampling), int(1849*sex_sampling))
 
 layeredimage Rogue_hands_and_knees_hair:
-    if (Rogue.wet or Rogue.Clothes["hair"].string == "wet") and Player.orgasming == "cum_down_throat" and focused_Girl == Rogue:
-        "characters/Rogue/images/hands_and_knees/hair_wet_deepthroat.webp"
-    elif (Rogue.wet or Rogue.Clothes["hair"].string == "wet") and Rogue.mouth_Actions and Rogue.mouth_Actions[0].animation_type == "deepthroat":
-        "characters/Rogue/images/hands_and_knees/hair_wet_deepthroat.webp"
-    elif Rogue.wet or Rogue.Clothes["hair"].string == "wet":
-        "characters/Rogue/images/hands_and_knees/hair_wet.webp"
-    elif Player.orgasming == "cum_down_throat" and focused_Girl == Rogue:
+    # if (Rogue.wet or Rogue.Clothes["hair"].string == "wet") and Player.orgasming == "cum_down_throat" and focused_Girl == Rogue:
+    #     "characters/Rogue/images/hands_and_knees/hair_wet_deepthroat.webp"
+    # elif (Rogue.wet or Rogue.Clothes["hair"].string == "wet") and Rogue.mouth_Actions and Rogue.mouth_Actions[0].animation_type == "deepthroat":
+    #     "characters/Rogue/images/hands_and_knees/hair_wet_deepthroat.webp"
+    # elif Rogue.wet or Rogue.Clothes["hair"].string == "wet":
+    #     "characters/Rogue/images/hands_and_knees/hair_wet.webp"
+    if Player.orgasming == "cum_down_throat" and focused_Girl == Rogue:
         "characters/Rogue/images/hands_and_knees/hair_[Rogue.Clothes[hair].string]_deepthroat.webp"
     elif Rogue.mouth_Actions and Rogue.mouth_Actions[0].animation_type == "deepthroat":
         "characters/Rogue/images/hands_and_knees/hair_[Rogue.Clothes[hair].string]_deepthroat.webp"
@@ -652,9 +603,6 @@ image Rogue_hands_and_knees_mask_deepthroat:
 layeredimage Rogue_hands_and_knees_hand:
     always:
         "characters/Rogue/images/hands_and_knees/hand.webp"
-
-    if Rogue.Clothes["bodysuit"].string == "pink_swimsuit":
-        "characters/Rogue/images/hands_and_knees/bodysuit_pink_swimsuit_left_hand_sleeve.webp"
 
     anchor (int(2816*sex_sampling), int(2651*sex_sampling))
     offset (int(2816*sex_sampling), int(2651*sex_sampling))

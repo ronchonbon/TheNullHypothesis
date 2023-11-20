@@ -890,7 +890,7 @@ label ch1_Sentinel_attack:
     "She looks you up and down."
     ch_Cecilia "X-23 is currently still recovering from the most recent 'session'."
 
-    call change_Outfit(Jean, Jean.Wardrobe.Outfits["Casual 1"], instant = True) from _call_change_Outfit_31
+    # call change_Outfit(Jean, Jean.Wardrobe.Outfits["Casual 1"], instant = True) from _call_change_Outfit_31
 
     $ color_transform = get_color_transform(location = Player.location)
 
@@ -1096,7 +1096,7 @@ label ch1_Sentinel_attack:
     ch_Rogue "[temp]? Can ah come in?"
     ch_Player "[Rogue.name]? Absolutely."
 
-    call change_Outfit(Rogue, Rogue.Wardrobe.Outfits["Casual 1"], instant = True) from _call_change_Outfit_32
+    # call change_Outfit(Rogue, Rogue.Wardrobe.Outfits["Casual 1"], instant = True) from _call_change_Outfit_32
 
     $ color_transform = get_color_transform(location = Player.location)
 
@@ -1341,8 +1341,8 @@ label ch1_Sentinel_attack:
 
     "The door is violently swung open, and a fuming [Laura.name] appears."
 
-    call change_Outfit(Laura, Laura.Wardrobe.Outfits["Casual 1"], instant = True) from _call_change_Outfit_33
-    call try_on(Laura, Laura.Wardrobe.Clothes["messy hair"]) from _call_try_on_12
+    # call change_Outfit(Laura, Laura.Wardrobe.Outfits["Casual 1"], instant = True) from _call_change_Outfit_33
+    # call try_on(Laura, Laura.Wardrobe.Clothes["messy hair"]) from _call_try_on_12
 
     $ color_transform = get_color_transform(location = Player.location)
 
