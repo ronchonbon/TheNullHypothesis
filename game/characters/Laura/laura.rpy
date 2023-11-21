@@ -5,18 +5,18 @@ init -1:
     define Laura_color = "#bca10a"
     define ch_Laura = Character("[Laura.tag]")
 
-    define Laura_standing_anchor = [int(686*character_sampling), int(669*character_sampling)]
+    define Laura_standing_anchor = [int(1220*character_sampling), int(1510*character_sampling)]
     define Laura_standing_height = 0.305
-    define Laura_standing_zoom = 0.31*character_adjustment
-    define Laura_standing_neck_position = [int(765*character_sampling), int(765*character_sampling)]
-    define Laura_standing_left_breast_position = [int(824*character_sampling), int(1217*character_sampling)]
-    define Laura_standing_right_breast_position = [int(454*character_sampling), int(1239*character_sampling)]
-    define Laura_standing_left_nipple_position = [int(815*character_sampling), int(1170*character_sampling)]
-    define Laura_standing_right_nipple_position = [int(418*character_sampling), int(1184*character_sampling)]
-    define Laura_standing_thigh_position = [int(566*character_sampling), int(2874*character_sampling)]
-    define Laura_standing_thigh_higher_position = [int(583*character_sampling), int(2509*character_sampling)]
-    define Laura_standing_ass_position = [int(756*character_sampling), int(2107*character_sampling)]
-    define Laura_standing_pussy_position = [int(695*character_sampling), int(2275*character_sampling)]
+    define Laura_standing_zoom = 0.35*character_adjustment
+    define Laura_standing_neck_position = [int(1305*character_sampling), int(1575*character_sampling)]
+    define Laura_standing_left_breast_position = [int(1330*character_sampling), int(1980*character_sampling)]
+    define Laura_standing_right_breast_position = [int(1040*character_sampling), int(1985*character_sampling)]
+    define Laura_standing_left_nipple_position = [int(1335*character_sampling), int(1930*character_sampling)]
+    define Laura_standing_right_nipple_position = [int(1000*character_sampling), int(1930*character_sampling)]
+    define Laura_standing_thigh_position = [int(1090*character_sampling), int(3090*character_sampling)]
+    define Laura_standing_thigh_higher_position = [int(1125*character_sampling), int(2880*character_sampling)]
+    define Laura_standing_ass_position = [int(1450*character_sampling), int(2640*character_sampling)]
+    define Laura_standing_pussy_position = [int(1215*character_sampling), int(2770*character_sampling)]
 
     define Laura_masturbation_anchor = [int(2704*sex_sampling), int(1262*sex_sampling)]
     define Laura_masturbation_height = 0.225

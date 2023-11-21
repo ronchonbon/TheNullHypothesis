@@ -2,7 +2,7 @@ init python:
 
     def all_Jean_Clothes():
         Clothes = [
-            Jean_long_hair()]
+            Jean_straight_hair()]
 
         return Clothes
 

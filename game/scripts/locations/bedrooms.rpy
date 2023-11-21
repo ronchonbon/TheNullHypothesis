@@ -144,25 +144,26 @@ label Girl_room:
         if selected_Event:
             call start_Event(selected_Event) from _call_start_Event_15
 
-    if current_bedroom not in Present:
-        if Player.destination != Player.location:
-            if "bg_shower" not in Player.location:
-                if current_bedroom.wants_alone_time:
-                    "She wants some alone time. Let's just come back later."
+    if Player.destination != Player.location:
+        if current_bedroom not in Present:
+            if Player.destination != Player.location:
+                if "bg_shower" not in Player.location:
+                    if current_bedroom.wants_alone_time:
+                        "She wants some alone time. Let's just come back later."
 
-                    call travel("bg_girls_hallway") from _call_travel_13
-                else:
-                    call Player_knocks(current_bedroom) from _call_Player_knocks
-    elif current_bedroom.History.check("not_invited_in", tracker = "recent"):
-        "Sounds like she wants you to stay outside."
+                        call travel("bg_girls_hallway") from _call_travel_13
+                    else:
+                        call Player_knocks(current_bedroom) from _call_Player_knocks
+        elif current_bedroom.History.check("not_invited_in", tracker = "recent"):
+            "Sounds like she wants you to stay outside."
 
-        call travel("bg_girls_hallway") from _call_travel_38
-    elif not approval_check(current_bedroom, threshold = "friendship"):
-        call expression f"{current_bedroom.tag}_not_invited_in" from _call_expression_128
+            call travel("bg_girls_hallway") from _call_travel_38
+        elif not approval_check(current_bedroom, threshold = "friendship"):
+            call expression f"{current_bedroom.tag}_not_invited_in" from _call_expression_128
 
-        $ current_bedroom.History.update("not_invited_in")
+            $ current_bedroom.History.update("not_invited_in")
 
-        call travel("bg_girls_hallway") from _call_travel_39
+            call travel("bg_girls_hallway") from _call_travel_39
 
     if Player.destination != Player.location:
         if "bg_shower" in Player.location:

@@ -47,6 +47,8 @@ transform Kurt_standing_right_arm_animation:
                 ease 2.0 rotate -2
             choice:
                 ease 2.0 rotate 0
+            choice:
+                ease 2.0 rotate 2
 
         repeat
 
@@ -68,6 +70,8 @@ transform Kurt_standing_left_arm_animation:
                 pause 10.0
 
         block:
+            choice:
+                ease 2.0 rotate -2
             choice:
                 ease 2.0 rotate 0
             choice:

@@ -605,25 +605,151 @@ screen head_screen(Girl):
                         
                         null width 85
 
-            # if config.developer:
-            #     $ faces = [
-            #         "neutral", "angry1", "angry2", "appalled1", "appalled2", "appalled3", 
-            #         "confused1", "confused2", "confused3", "devious",
-            #         "furious", "happy", "kiss1", "kiss2", "manic",
-            #         "perplexed", "pleased1", "pleased2", "sad",
-            #         "sexy", "sly", "smirk1", "smirk2", "surprised1", "surprised2", "surprised3",
-            #         "suspicious1", "suspicious2", "worried1", "worried2", "worried3", "worried4"]
+            if True:
+                $ brows = [
+                    "neutral", "cocked", "furrowed", "raised", "wink", "worried"]
 
-            #     for face in faces:
-            #         hbox align (0.5, 0.5):
-            #             button xysize (411, 85) xalign 0.5:
-            #                 idle_background "images/interface/wardrobe/clothing_idle.webp" hover_background "images/interface/wardrobe/clothing.webp" selected_background "images/interface/wardrobe/clothing_selected.webp"
+                for brow in brows:
+                    hbox align (0.5, 0.5):
+                        spacing 5
 
-            #                 action Function(Girl.change_face, face)
+                        null width 85
 
-            #                 text f"face_{face}" align (0.5, 0.5) size 36
+                        button xysize (411, 85) xalign 0.5:
+                            idle_background "images/interface/wardrobe/clothing_idle.webp" hover_background "images/interface/wardrobe/clothing.webp" selected_background "images/interface/wardrobe/clothing_selected.webp"
 
-            #             null width 85
+                            action SetField(Girl, "brows", brow)
+
+                            text f"brows: {brow}" align (0.5, 0.5) size 36
+
+                        null width 85
+
+                $ eyes = [
+                    "neutral", "blink1", "blink2", "closed", "down", "left", "right", "sexy", "squint", "up", "wide", "wink"]
+
+                for eye in eyes:
+                    hbox align (0.5, 0.5):
+                        spacing 5
+
+                        null width 85
+
+                        button xysize (411, 85) xalign 0.5:
+                            idle_background "images/interface/wardrobe/clothing_idle.webp" hover_background "images/interface/wardrobe/clothing.webp" selected_background "images/interface/wardrobe/clothing_selected.webp"
+
+                            action SetField(Girl, "eyes", eye)
+
+                            text f"eyes: {eye}" align (0.5, 0.5) size 36
+
+                        null width 85
+
+                $ mouths = [
+                    "neutral", "agape", "frown", "happy", "kiss", "lipbite", "open", "smile", "smirk", "tongue"]
+
+                for mouth in mouths:
+                    hbox align (0.5, 0.5):
+                        spacing 5
+
+                        null width 85
+
+                        button xysize (411, 85) xalign 0.5:
+                            idle_background "images/interface/wardrobe/clothing_idle.webp" hover_background "images/interface/wardrobe/clothing.webp" selected_background "images/interface/wardrobe/clothing_selected.webp"
+
+                            action SetField(Girl, "mouth", mouth)
+
+                            text f"mouth: {mouth}" align (0.5, 0.5) size 36
+
+                        null width 85
+
+                $ faces = [
+                    "neutral", "angry1", "angry2", "appalled1", "appalled2", "appalled3", 
+                    "confused1", "confused2", "confused3", "devious",
+                    "furious", "happy", "kiss1", "kiss2", "manic",
+                    "perplexed", "pleased1", "pleased2", "sad",
+                    "sexy", "sly", "smirk1", "smirk2", "surprised1", "surprised2", "surprised3",
+                    "suspicious1", "suspicious2", "worried1", "worried2", "worried3", "worried4"]
+
+                for face in faces:
+                    hbox align (0.5, 0.5):
+                        spacing 5
+
+                        null width 85
+
+                        button xysize (411, 85) xalign 0.5:
+                            idle_background "images/interface/wardrobe/clothing_idle.webp" hover_background "images/interface/wardrobe/clothing.webp" selected_background "images/interface/wardrobe/clothing_selected.webp"
+
+                            action Function(Girl.change_face, face)
+
+                            text f"face: {face}" align (0.5, 0.5) size 36
+
+                        null width 85
+
+                if Girl in [Rogue]:
+                    $ left_arm_poses = [
+                        "bra", "crossed", "extended", "fight", "fist", "grope", "hip", "neutral", "rub_neck", "touch_ass"]
+                elif Girl in [Laura]:
+                    $ left_arm_poses = [
+                        "bra", "claws", "crossed", "extended", "fight", "fist", "grope", "hip", "neutral", "touch_ass", "X"]
+                elif Girl in [Jean]:
+                    $ left_arm_poses = [
+                        "bra", "extended", "fight", "fist", "grope", "hip", "neutral", "psychic1", "psychic2", "rub_neck", "touch_ass"]
+
+                for left_arm_pose in left_arm_poses:
+                    hbox align (0.5, 0.5):
+                        spacing 5
+
+                        null width 85
+
+                        button xysize (411, 85) xalign 0.5:
+                            idle_background "images/interface/wardrobe/clothing_idle.webp" hover_background "images/interface/wardrobe/clothing.webp" selected_background "images/interface/wardrobe/clothing_selected.webp"
+
+                            if left_arm_pose == "crossed":
+                                action [
+                                    SetField(Girl, "left_arm_pose", left_arm_pose),
+                                    SetField(Girl, "right_arm_pose", left_arm_pose)]
+                            elif Girl.right_arm_pose == "crossed":
+                                action [
+                                    SetField(Girl, "left_arm_pose", left_arm_pose),
+                                    SetField(Girl, "right_arm_pose", "neutral")]
+                            else:
+                                action SetField(Girl, "left_arm_pose", left_arm_pose)
+
+                            text f"left arm: {left_arm_pose}" align (0.5, 0.5) size 36
+
+                        null width 85
+
+                if Girl in [Rogue]:
+                    $ right_arm_poses = [
+                        "bra", "crossed", "extended", "fight", "fist", "hip", "neutral", "touch_pussy"]
+                elif Girl in [Laura]:
+                    $ right_arm_poses = [
+                        "bra", "claws", "extended", "fight", "fist", "hip", "neutral", "touch_pussy", "X"]
+                elif Girl in [Jean]:
+                    $ right_arm_poses = [
+                        "bra", "extended", "fight", "fist", "hip", "neutral", "psychic1", "psychic2", "touch_pussy"]
+
+                for right_arm_pose in right_arm_poses:
+                    hbox align (0.5, 0.5):
+                        spacing 5
+
+                        null width 85
+
+                        button xysize (411, 85) xalign 0.5:
+                            idle_background "images/interface/wardrobe/clothing_idle.webp" hover_background "images/interface/wardrobe/clothing.webp" selected_background "images/interface/wardrobe/clothing_selected.webp"
+
+                            if right_arm_pose == "crossed":
+                                action [
+                                    SetField(Girl, "left_arm_pose", right_arm_pose),
+                                    SetField(Girl, "right_arm_pose", right_arm_pose)]
+                            elif Girl.left_arm_pose == "crossed":
+                                action [
+                                    SetField(Girl, "left_arm_pose", "neutral"),
+                                    SetField(Girl, "right_arm_pose", right_arm_pose)]
+                            else:
+                                action SetField(Girl, "right_arm_pose", right_arm_pose)
+
+                            text f"right arm: {right_arm_pose}" align (0.5, 0.5) size 36
+
+                        null width 85
 
     vbar value YScrollValue("head_screen_viewport") anchor (0.5, 0.0) pos (0.875, 0.288) xysize (22, 575):
         base_bar Frame("images/interface/wardrobe/scrollbar.webp")

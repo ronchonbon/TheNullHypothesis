@@ -1,9 +1,9 @@
 init -1 python:
 
-    def Jean_long_hair():
-        name = "long hair"
+    def Jean_straight_hair():
+        name = "straight hair"
         short_name = "hair"
-        string = "long"
+        string = "straight"
         
         Clothing_type = "hair"
 
@@ -65,34 +65,34 @@ init -1 python:
             supports_breasts = supports_breasts,
             incompatibilities = incompatibilities)
 
-label Jean_long_hair_shopping_accept:
+label Jean_straight_hair_shopping_accept:
 
     return
 
-label Jean_long_hair_shopping_reject:
+label Jean_straight_hair_shopping_reject:
 
     return
 
-label Jean_long_hair_gift_accept:
+label Jean_straight_hair_gift_accept:
 
     return
 
-label Jean_long_hair_gift_reject:
+label Jean_straight_hair_gift_reject:
 
     return
 
-label Jean_long_hair_change_private_before:
+label Jean_straight_hair_change_private_before:
 
     return
 
-label Jean_long_hair_change_private_after:
+label Jean_straight_hair_change_private_after:
 
     return
 
-label Jean_long_hair_change_public_before:
+label Jean_straight_hair_change_public_before:
 
     return
 
-label Jean_long_hair_change_public_after:
+label Jean_straight_hair_change_public_after:
 
     return

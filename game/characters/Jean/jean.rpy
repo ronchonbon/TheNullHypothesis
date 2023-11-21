@@ -5,18 +5,18 @@ init -1:
     define Jean_color = "#d92912"
     define ch_Jean = Character("[Jean.tag]")
     
-    define Jean_standing_anchor = [int(820*character_sampling), int(714*character_sampling)]
+    define Jean_standing_anchor = [int(1260*character_sampling), int(1330*character_sampling)]
     define Jean_standing_height = 0.28
-    define Jean_standing_zoom = 0.355*character_adjustment
-    define Jean_standing_neck_position = [int(880*character_sampling), int(783*character_sampling)]
-    define Jean_standing_left_breast_position = [int(905*character_sampling), int(1259*character_sampling)]
-    define Jean_standing_right_breast_position = [int(565*character_sampling), int(1258*character_sampling)]
-    define Jean_standing_left_nipple_position = [int(908*character_sampling), int(1204*character_sampling)]
-    define Jean_standing_right_nipple_position = [int(536*character_sampling), int(1203*character_sampling)]
-    define Jean_standing_thigh_position = [int(1052*character_sampling), int(2650*character_sampling)]
-    define Jean_standing_thigh_higher_position = [int(922*character_sampling), int(2200*character_sampling)]
-    define Jean_standing_ass_position = [int(749*character_sampling), int(2019*character_sampling)]
-    define Jean_standing_pussy_position = [int(726*character_sampling), int(2180*character_sampling)]
+    define Jean_standing_zoom = 0.35*character_adjustment
+    define Jean_standing_neck_position = [int(1310*character_sampling), int(1410*character_sampling)]
+    define Jean_standing_left_breast_position = [int(1340*character_sampling), int(1840*character_sampling)]
+    define Jean_standing_right_breast_position = [int(1020*character_sampling), int(1850*character_sampling)]
+    define Jean_standing_left_nipple_position = [int(1340*character_sampling), int(1780*character_sampling)]
+    define Jean_standing_right_nipple_position = [int(990*character_sampling), int(1790*character_sampling)]
+    define Jean_standing_thigh_position = [int(1150*character_sampling), int(3040*character_sampling)]
+    define Jean_standing_thigh_higher_position = [int(1075*character_sampling), int(2760*character_sampling)]
+    define Jean_standing_ass_position = [int(1050*character_sampling), int(2600*character_sampling)]
+    define Jean_standing_pussy_position = [int(1200*character_sampling), int(2680*character_sampling)]
 
     define Jean_masturbation_anchor = [int(2704*sex_sampling), int(1262*sex_sampling)]
     define Jean_masturbation_height = 0.225

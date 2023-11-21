@@ -25,7 +25,10 @@ init python:
                         setattr(C, attribute, test.__dict__[attribute])
 
                 if game_started:
-                    set_default_Outfits(C, change = False)
+                    if C.location == Player.location:
+                        set_default_Outfits(C, change = False)
+                    else:
+                        set_default_Outfits(C, change = True)
                 else:
                     set_default_Outfits(C, change = True)
 

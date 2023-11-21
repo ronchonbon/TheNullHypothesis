@@ -5,18 +5,18 @@ init -1:
     define Rogue_color = "#2ca05aff"
     define ch_Rogue = Character("[Rogue.tag]")
     
-    define Rogue_standing_anchor = [int(1011*character_sampling), int(520*character_sampling)]
+    define Rogue_standing_anchor = [int(1260*character_sampling), int(1300*character_sampling)]
     define Rogue_standing_height = 0.25
-    define Rogue_standing_zoom = 0.325*character_adjustment
-    define Rogue_standing_neck_position = [int(1109*character_sampling), int(570*character_sampling)]
-    define Rogue_standing_left_breast_position = [int(1074*character_sampling), int(1192*character_sampling)]
-    define Rogue_standing_right_breast_position = [int(721*character_sampling), int(1174*character_sampling)]
-    define Rogue_standing_left_nipple_position = [int(1077*character_sampling), int(1139*character_sampling)]
-    define Rogue_standing_right_nipple_position = [int(689*character_sampling), int(1128*character_sampling)]
-    define Rogue_standing_thigh_position = [int(1150*character_sampling), int(2462*character_sampling)]
-    define Rogue_standing_thigh_higher_position = [int(1140*character_sampling), int(2211*character_sampling)]
-    define Rogue_standing_ass_position = [int(1128*character_sampling), int(1929*character_sampling)]
-    define Rogue_standing_pussy_position = [int(1032*character_sampling), int(1897*character_sampling)]
+    define Rogue_standing_zoom = 0.35*character_adjustment
+    define Rogue_standing_neck_position = [int(1340*character_sampling), int(1370*character_sampling)]
+    define Rogue_standing_left_breast_position = [int(1320*character_sampling), int(1855*character_sampling)]
+    define Rogue_standing_right_breast_position = [int(1015*character_sampling), int(1840*character_sampling)]
+    define Rogue_standing_left_nipple_position = [int(1320*character_sampling), int(1800*character_sampling)]
+    define Rogue_standing_right_nipple_position = [int(970*character_sampling), int(1800*character_sampling)]
+    define Rogue_standing_thigh_position = [int(1350*character_sampling), int(2930*character_sampling)]
+    define Rogue_standing_thigh_higher_position = [int(1380*character_sampling), int(2640*character_sampling)]
+    define Rogue_standing_ass_position = [int(1450*character_sampling), int(2500*character_sampling)]
+    define Rogue_standing_pussy_position = [int(1225*character_sampling), int(2550*character_sampling)]
 
     define Rogue_masturbation_anchor = [int(2704*sex_sampling), int(1262*sex_sampling)]
     define Rogue_masturbation_height = 0.225

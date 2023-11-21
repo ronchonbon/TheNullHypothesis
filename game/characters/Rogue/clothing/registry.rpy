@@ -7,6 +7,7 @@ init python:
             Rogue_black_cage_thong(),
             Rogue_black_keyhole_bra(),
             Rogue_black_sports_bra(),
+            Rogue_black_tanktop(),
             Rogue_green_lace_bra(),
             Rogue_green_lace_panties(),
             Rogue_green_bikini_bottoms(),
