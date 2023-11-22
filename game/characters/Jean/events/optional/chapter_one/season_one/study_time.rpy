@@ -26,7 +26,7 @@ init python:
         return EventClass(label, conditions, repeatable = repeatable, automatic = automatic)
 
 label Jean_chapter_one_season_one_study_time_setup:
-    call remove_Characters(location = "bg_classroom")
+    call remove_Characters(location = "bg_classroom") from _call_remove_Characters_337
     call send_Characters(Jean, "bg_classroom", behavior = "studying") from _call_send_Characters_332
     
     return
@@ -81,7 +81,7 @@ label Jean_chapter_one_season_one_study_time:
 
     $ Jean.change_face("neutral", eyes = "down")
 
-    call set_the_scene(location = "bg_classroom")
+    call set_the_scene(location = "bg_classroom") from _call_set_the_scene_400
 
     "Peering through the doorway, you see [Jean.name] studying at a desk."
     "She's looking back and forth between a textbook and her own notes, highlighting passages and scribbling things down."
@@ -207,21 +207,21 @@ label Jean_chapter_one_season_one_study_time:
     menu:
         extend ""
         "Well, as long as you're not pushing yourself harder than you can take.":
-            call change_Girl_stat(Jean, "love", medium_stat)
-            call change_Girl_stat(Jean, "trust", small_stat)
+            call change_Girl_stat(Jean, "love", medium_stat) from _call_change_Girl_stat_164
+            call change_Girl_stat(Jean, "trust", small_stat) from _call_change_Girl_stat_165
             
             $ Jean.change_face("worried1", mouth = "smirk", eyes = "right")
 
             ch_Jean "I mean, I probably am, but I can catch up on sleep when all this is over, right?"
         "That's crazy, you do this all the time?":
-            call change_Girl_stat(Jean, "love", small_stat)
+            call change_Girl_stat(Jean, "love", small_stat) from _call_change_Girl_stat_166
             
             $ Jean.change_face("worried1", mouth = "smirk")
 
             ch_Jean "It's the sacrifice we have to pay for the top grade."
         "I think you're the only person I've ever met who willingly spends time in class when they don't have to.":
-            call change_Girl_stat(Jean, "love", small_stat)
-            call change_Girl_stat(Jean, "trust", small_stat)
+            call change_Girl_stat(Jean, "love", small_stat) from _call_change_Girl_stat_167
+            call change_Girl_stat(Jean, "trust", small_stat) from _call_change_Girl_stat_168
             
             $ Jean.change_face("confused1", mouth = "smirk")
 
@@ -248,7 +248,7 @@ label Jean_chapter_one_season_one_study_time:
 
     "Looking back as you leave, you see [Jean.name] with her head buried in the textbook again, looking every bit as stressed as she did before you arrived."
 
-    call move_location("bg_hallway")
+    call move_location("bg_hallway") from _call_move_location_60
 
     $ ongoing_Event = False
 

@@ -25,7 +25,7 @@ init python:
         return EventClass(label, conditions, repeatable = repeatable, automatic = automatic)
 
 label Rogue_chapter_one_season_one_standoffish_part_one_setup:
-    call remove_Characters(location = "bg_girls_hallway")
+    call remove_Characters(location = "bg_girls_hallway") from _call_remove_Characters_342
     call send_Characters(Rogue, "bg_girls_hallway", behavior = False) from _call_send_Characters_316
     call send_Characters(Kurt, "bg_girls_hallway", behavior = False) from _call_send_Characters_317
 

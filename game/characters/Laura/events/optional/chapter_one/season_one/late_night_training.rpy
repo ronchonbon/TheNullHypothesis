@@ -106,7 +106,7 @@ label Laura_chapter_one_season_one_late_night_training:
     $ Laura.right_claw = True
 
     # call try_on(Laura, Laura.Wardrobe.Clothes["messy hair"], instant = True)
-    call set_the_scene(location = "bg_danger")
+    call set_the_scene(location = "bg_danger") from _call_set_the_scene_401
 
     "You see [Laura.name] beating the hell out of a swarm of combat dummies."
 
@@ -163,7 +163,7 @@ label Laura_chapter_one_season_one_late_night_training:
     $ Laura.change_face("suspicious1")
     $ Laura.change_arms("neutral")
 
-    call Laura_sheathes_claws
+    call Laura_sheathes_claws from _call_Laura_sheathes_claws
 
     "As she finishes off the latest wave, she pauses, turns around and locks eyes with you."
     "She's drenched in sweat, her hair plastered to her face and neck. Her general disheveled look suggests she's been training hard and that she's been here for a while." 
@@ -183,21 +183,21 @@ label Laura_chapter_one_season_one_late_night_training:
     menu:
         extend ""
         "What are you doing here so late? I take it you can't settle either?":
-            call change_Girl_stat(Laura, "love", small_stat)
-            call change_Girl_stat(Laura, "trust", small_stat)
+            call change_Girl_stat(Laura, "love", small_stat) from _call_change_Girl_stat_852
+            call change_Girl_stat(Laura, "trust", small_stat) from _call_change_Girl_stat_853
 
             $ Laura.change_face("neutral")
 
             ch_Laura "I simply had the opportunity for an extended training session. I took it."
         "I know people say you practically live down here, but you haven't actually moved in, have you?":
-            call change_Girl_stat(Laura, "love", -small_stat)
+            call change_Girl_stat(Laura, "love", -small_stat) from _call_change_Girl_stat_854
             
             $ Laura.change_face("suspicious1")
 
             ch_Laura "No. Apparently the Danger Room and associated areas have no provisions for long-term habitation, except in a dire emergency."
         "Everything okay? Looks like you've been in here a while.":
-            call change_Girl_stat(Laura, "love", medium_stat)
-            call change_Girl_stat(Laura, "trust", small_stat)
+            call change_Girl_stat(Laura, "love", medium_stat) from _call_change_Girl_stat_857
+            call change_Girl_stat(Laura, "trust", small_stat) from _call_change_Girl_stat_881
 
             $ Laura.change_face("confused3", blush = 1) 
             
@@ -239,7 +239,7 @@ label Laura_chapter_one_season_one_late_night_training:
     
     "You head back upstairs feeling like you've learned something about [Laura.name] tonight. You're not sure what, exactly, but you think you've seen a side of her that no one else has."
 
-    call move_location("bg_hallway")
+    call move_location("bg_hallway") from _call_move_location_61
 
     $ ongoing_Event = False
 

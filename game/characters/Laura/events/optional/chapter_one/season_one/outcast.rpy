@@ -77,7 +77,7 @@ label Laura_chapter_one_season_one_outcast:
 
     $ Laura.change_face("neutral", eyes = "left") 
 
-    call set_the_scene(location = "bg_classroom")
+    call set_the_scene(location = "bg_classroom") from _call_set_the_scene_403
 
     "Upon entering the classroom, you see a curious sight."
     "[Laura.name] is seated at the desk, but while most other students are packed in next to each other, nobody is sitting within 10 feet of her."
@@ -126,8 +126,8 @@ label Laura_chapter_one_season_one_outcast:
     menu:
         extend ""
         "Not sure why it would, I think I enjoy your company. Always know where I stand when it comes to you.":
-            call change_Girl_stat(Laura, "love", medium_stat)
-            call change_Girl_stat(Laura, "trust", medium_stat)
+            call change_Girl_stat(Laura, "love", medium_stat) from _call_change_Girl_stat_905
+            call change_Girl_stat(Laura, "trust", medium_stat) from _call_change_Girl_stat_906
 
             $ Laura.change_face("confused3")
 
@@ -137,8 +137,8 @@ label Laura_chapter_one_season_one_outcast:
             
             ch_Laura "I see. . ."
         "I mean you are a bit intimidating, but that doesn't make me uncomfortable. I appreciate your bluntness.":
-            call change_Girl_stat(Laura, "love", small_stat)
-            call change_Girl_stat(Laura, "trust", medium_stat)
+            call change_Girl_stat(Laura, "love", small_stat) from _call_change_Girl_stat_907
+            call change_Girl_stat(Laura, "trust", medium_stat) from _call_change_Girl_stat_909
             
             $ Laura.change_face("confused1")
 
@@ -148,7 +148,7 @@ label Laura_chapter_one_season_one_outcast:
             
             ch_Laura "I see. . ."
         "Nope. Is that what this is about? You think you make everyone uncomfortable? I can see why they might be, but it doesn't bother me.":
-            call change_Girl_stat(Laura, "love", -small_stat)
+            call change_Girl_stat(Laura, "love", -small_stat) from _call_change_Girl_stat_911
             
             $ Laura.change_face("confused1")
 
@@ -165,11 +165,11 @@ label Laura_chapter_one_season_one_outcast:
     
     $ fade_to_black(0.4)
 
-    call expression f"chapter_{chapter}_season_{season}_class_narrations"
+    call expression f"chapter_{chapter}_season_{season}_class_narrations" from _call_expression_85
 
     pause 2.0
 
-    call after_class
+    call after_class from _call_after_class
     
     $ fade_in_from_black(0.4)
 
@@ -211,7 +211,7 @@ label Laura_chapter_one_season_one_outcast:
     ch_Laura "Thank you. . ."
     ch_Laura "Bye."
 
-    call remove_Characters(Laura)
+    call remove_Characters(Laura) from _call_remove_Characters_340
 
     $ Laura.schedule[time_index + 1] = [Laura.home, "studying"]
 

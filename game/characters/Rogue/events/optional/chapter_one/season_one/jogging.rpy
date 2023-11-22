@@ -68,7 +68,7 @@ init python:
 label Rogue_chapter_one_season_one_jogging:
     $ ongoing_Event = True
 
-    call remove_Characters(location = "bg_lockers")
+    call remove_Characters(location = "bg_lockers") from _call_remove_Characters_341
     call set_the_scene(location = "bg_lockers") from _call_set_the_scene_387
 
     $ Rogue.change_face("sad", eyes = "down")

@@ -325,8 +325,8 @@ label ch1_Juggernaut_attack:
     menu:
         extend ""
         "I think [Rogue.name] might be in trouble, I need to find her.":
-            call change_Girl_stat(Laura, "love", medium_stat)
-            call change_Girl_stat(Laura, "trust", small_stat)
+            call change_Girl_stat(Laura, "love", medium_stat) from _call_change_Girl_stat_1080
+            call change_Girl_stat(Laura, "trust", small_stat) from _call_change_Girl_stat_1086
 
             ch_Player "She always picks up her phone." 
             ch_Laura "Part of being a friend is to tell you when you're being an idiot, right?" 
@@ -335,7 +335,7 @@ label ch1_Juggernaut_attack:
             ch_Player "I'm sorry, but I'm going. She's our friend too."
             ch_Player "I might be able to help, they won't be expecting my power."
         "I'm not going to sit around - I'll be fine. With all the training you've put me through, I can handle it.":
-            call change_Girl_stat(Laura, "trust", -small_stat)
+            call change_Girl_stat(Laura, "trust", -small_stat) from _call_change_Girl_stat_1087
 
             ch_Laura "You're being an idiot." 
             ch_Laura "Scenarios are nothing like the real thing." 
@@ -955,8 +955,8 @@ label ch1_Juggernaut_attack:
     menu:
         extend ""
         "I'd still do it all over again, I had to help [Rogue.name].":
-            call change_Girl_stat(Laura, "love", medium_stat)
-            call change_Girl_stat(Laura, "trust", medium_stat)
+            call change_Girl_stat(Laura, "love", medium_stat) from _call_change_Girl_stat_1587
+            call change_Girl_stat(Laura, "trust", medium_stat) from _call_change_Girl_stat_1588
 
             $ Laura.change_face("angry1", eyes = "right") 
             
@@ -967,7 +967,7 @@ label ch1_Juggernaut_attack:
             
             ch_Laura "Then I'll have to keep an even closer eye on you."
         "Yeah. . . I don't know what I was thinking.":
-            call change_Girl_stat(Laura, "love", small_stat)
+            call change_Girl_stat(Laura, "love", small_stat) from _call_change_Girl_stat_1589
 
             $ Laura.change_face("suspicious2") 
             
@@ -981,7 +981,7 @@ label ch1_Juggernaut_attack:
             
             ch_Laura "Next time, just stay behind me."
         "Oh come on, I'm fine!":
-            call change_Girl_stat(Laura, "trust", -small_stat)
+            call change_Girl_stat(Laura, "trust", -small_stat) from _call_change_Girl_stat_1590
 
             $ Laura.change_face("suspicious2") 
             
@@ -1107,7 +1107,7 @@ label ch1_Juggernaut_attack:
         menu:
             extend ""
             "No, you can. . . I just wasn't expecting it. (encourage_quirk)":
-                call change_Girl_stat(Jean, "love", medium_stat)
+                call change_Girl_stat(Jean, "love", medium_stat) from _call_change_Girl_stat_1591
                 
                 $ Jean.change_face("worried2", mouth = "lipbite", blush = 2)
 
@@ -1155,8 +1155,8 @@ label ch1_Juggernaut_attack:
                 
                 ch_Player "Eventually I snapped out of it, but maybe if I acted sooner things would've been different."
                 
-                call change_Girl_stat(Jean, "love", medium_stat)
-                call change_Girl_stat(Jean, "trust", small_stat)
+                call change_Girl_stat(Jean, "love", medium_stat) from _call_change_Girl_stat_1592
+                call change_Girl_stat(Jean, "trust", small_stat) from _call_change_Girl_stat_1593
 
                 ch_Jean "I'm glad she's okay." 
                 ch_Jean "But she was already hurt by the time you got there." 
@@ -1170,8 +1170,8 @@ label ch1_Juggernaut_attack:
                 
                 ch_Jean "Once my power cooperates. . ."
             "Maybe if I tried helping Colossus instead, things would've been different.":
-                call change_Girl_stat(Jean, "love", small_stat)
-                call change_Girl_stat(Jean, "trust", -small_stat)
+                call change_Girl_stat(Jean, "love", small_stat) from _call_change_Girl_stat_1594
+                call change_Girl_stat(Jean, "trust", -small_stat) from _call_change_Girl_stat_1595
                 
                 $ Jean.change_face("angry1")
                 
@@ -1194,8 +1194,8 @@ label ch1_Juggernaut_attack:
                 ch_Player "She was unconscious, looked hurt pretty bad." 
                 ch_Player "I couldn't just stand around." 
                 
-                call change_Girl_stat(Jean, "love", medium_stat)
-                call change_Girl_stat(Jean, "trust", medium_stat)
+                call change_Girl_stat(Jean, "love", medium_stat) from _call_change_Girl_stat_1596
+                call change_Girl_stat(Jean, "trust", medium_stat) from _call_change_Girl_stat_1597
 
                 $ Jean.change_face("sad") 
 
@@ -1205,7 +1205,7 @@ label ch1_Juggernaut_attack:
                 
                 ch_Player "I tried nullifying the big guy, but it didn't work for some reason. . ."
             "When I got there, sure the guy looked big, but I thought I could just nullify him.":
-                call change_Girl_stat(Jean, "trust", -medium_stat)
+                call change_Girl_stat(Jean, "trust", -medium_stat) from _call_change_Girl_stat_1602
 
                 $ Jean.change_face("appalled1") 
                 

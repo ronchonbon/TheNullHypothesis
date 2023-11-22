@@ -78,12 +78,12 @@ label Jean_chapter_one_season_one_exam_freakout:
             if C != Jean:
                 C.location = "nearby"
 
-    call set_the_scene(location = "bg_classroom", show_Characters = False)
+    call set_the_scene(location = "bg_classroom", show_Characters = False) from _call_set_the_scene_54
 
     "You walk through the class room doors to see many more people than you were expecting."
     "Some seem to have just arrived, like you, but others are packing their things and hastily heading for the door."
     
-    call set_the_scene(location = "bg_classroom", fade = False)
+    call set_the_scene(location = "bg_classroom", fade = False) from _call_set_the_scene_55
 
     "You spot [Jean.name] sitting at a desk with her head in her hands before getting up to leave herself."
 
@@ -94,7 +94,7 @@ label Jean_chapter_one_season_one_exam_freakout:
         "Leave her to her thoughts":
             "You keep your distance."
 
-            call remove_Characters(Jean)
+            call remove_Characters(Jean) from _call_remove_Characters_320
 
             $ EventScheduler.Events["Jean_chapter_one_season_one_exam_freakout"].completed = False
             $ EventScheduler.Events["Jean_chapter_one_season_one_exam_freakout"].completed_when = 1e8
@@ -130,21 +130,21 @@ label Jean_chapter_one_season_one_exam_freakout:
     menu:
         extend ""
         "But why are you stressed? The exam's over - knowing you, you probably aced it.":
-            call change_Girl_stat(Jean, "love", medium_stat)
-            call change_Girl_stat(Jean, "trust", small_stat)
+            call change_Girl_stat(Jean, "love", medium_stat) from _call_change_Girl_stat_107
+            call change_Girl_stat(Jean, "trust", small_stat) from _call_change_Girl_stat_108
 
             $ Jean.change_face("angry1", eyes = "right")
 
             ch_Jean "UGH! Not this time I didn't. . ."
         "Don't worry, no hard feelings. I'm sure you aced the exam anyway.":
-            call change_Girl_stat(Jean, "love", large_stat)
+            call change_Girl_stat(Jean, "love", large_stat) from _call_change_Girl_stat_109
             
             $ Jean.change_face("angry1", mouth = "smirk", eyes = "right")
 
             ch_Jean "Ha, yeah right. This time was different. . ."
         "It's fine I guess, not like it's my fault. You probably aced the exam anyway.":
-            call change_Girl_stat(Jean, "love", -small_stat)
-            call change_Girl_stat(Jean, "trust", small_stat)
+            call change_Girl_stat(Jean, "love", -small_stat) from _call_change_Girl_stat_110
+            call change_Girl_stat(Jean, "trust", small_stat) from _call_change_Girl_stat_111
             
             $ Jean.change_face("confused1", mouth = "smirk")
 
@@ -202,23 +202,23 @@ label Jean_chapter_one_season_one_exam_freakout:
     menu:
         extend ""
         "I care much more about taking your mind off things than some lecture.":
-            call change_Girl_stat(Jean, "love", medium_stat)
-            call change_Girl_stat(Jean, "trust", medium_stat)
+            call change_Girl_stat(Jean, "love", medium_stat) from _call_change_Girl_stat_112
+            call change_Girl_stat(Jean, "trust", medium_stat) from _call_change_Girl_stat_113
             
             $ Jean.change_face("worried3")
 
             ch_Jean "You. . . do?"
         "Really, it's okay. I just wanna hang out with you for a bit.":
-            call change_Girl_stat(Jean, "love", medium_stat)
-            call change_Girl_stat(Jean, "trust", small_stat)
+            call change_Girl_stat(Jean, "love", medium_stat) from _call_change_Girl_stat_114
+            call change_Girl_stat(Jean, "trust", small_stat) from _call_change_Girl_stat_115
             
             $ Jean.change_face("worried3")
 
             ch_Jean "Are you sure?" 
             ch_Player "Yep."
         "I mean look at you, you're holding on by a thread. You need a distraction.":
-            call change_Girl_stat(Jean, "love", -small_stat)
-            call change_Girl_stat(Jean, "trust", medium_stat)
+            call change_Girl_stat(Jean, "love", -small_stat) from _call_change_Girl_stat_116
+            call change_Girl_stat(Jean, "trust", medium_stat) from _call_change_Girl_stat_131
             
             $ Jean.change_face("worried3") 
             
@@ -244,9 +244,9 @@ label Jean_chapter_one_season_one_exam_freakout:
 
     pause 1.0
 
-    call remove_Characters(location = "bg_campus")
-    call set_the_scene(location = "bg_campus")
-    call send_Characters(Jean, "bg_campus", behavior = False)
+    call remove_Characters(location = "bg_campus") from _call_remove_Characters_323
+    call set_the_scene(location = "bg_campus") from _call_set_the_scene_395
+    call send_Characters(Jean, "bg_campus", behavior = False) from _call_send_Characters_57
 
     $ Jean.change_face("neutral", eyes = "right")
 
@@ -257,9 +257,9 @@ label Jean_chapter_one_season_one_exam_freakout:
 
     pause 1.0
 
-    call remove_Characters(location = "bg_mall")
-    call set_the_scene(location = "bg_mall")
-    call send_Characters(Jean, "bg_mall", behavior = False)
+    call remove_Characters(location = "bg_mall") from _call_remove_Characters_333
+    call set_the_scene(location = "bg_mall") from _call_set_the_scene_396
+    call send_Characters(Jean, "bg_mall", behavior = False) from _call_send_Characters_58
 
     $ Jean.change_face("happy")
 
@@ -284,9 +284,9 @@ label Jean_chapter_one_season_one_exam_freakout:
 
     "You spend a while just walking and talking with [Jean.name]. She seems much less stressed - almost like she's enjoying herself - by the time you make it back to campus."
 
-    call remove_Characters(location = "bg_campus")
-    call set_the_scene(location = "bg_campus")
-    call send_Characters(Jean, "bg_campus", behavior = False)
+    call remove_Characters(location = "bg_campus") from _call_remove_Characters_334
+    call set_the_scene(location = "bg_campus") from _call_set_the_scene_397
+    call send_Characters(Jean, "bg_campus", behavior = False) from _call_send_Characters_59
 
     $ Jean.change_face("smirk2")
 
@@ -310,7 +310,7 @@ label Jean_chapter_one_season_one_exam_freakout:
     ch_Jean "Thanks, I {i}really{/i} appreciate it."
     ch_Jean "I'm gonna go read a book or something now, see you later!"
 
-    call remove_Characters(Jean)
+    call remove_Characters(Jean) from _call_remove_Characters_335
 
     $ clock = 0
 

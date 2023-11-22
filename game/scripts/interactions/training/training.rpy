@@ -184,7 +184,7 @@ label actually_train(Girl):
         if clock > 0 or time_index == 3:
             $ fade_in_from_black(0.4)
 
-    call after_training
+    call after_training from _call_after_training
     call check_for_Events(only_automatic = True) from _call_check_for_Events_21
     call move_location(Player.location) from _call_move_location_52
 

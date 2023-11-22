@@ -520,7 +520,7 @@ label day_three_combat_lesson:
 
             ch_Player "*huff*. . . I. . . don't think I can keep going. . . *huff*"            
             
-            call change_Girl_stat(Laura, "trust", -small_stat)
+            call change_Girl_stat(Laura, "trust", -small_stat) from _call_change_Girl_stat_1603
             
             ch_Laura "That's it? Why is every student at this school so weak?"
             
@@ -679,15 +679,15 @@ label day_three_meet_Jean:
     menu:
         extend ""
         "Yeah, I'm okay. . . it is a lot to be honest.":
-            call change_Girl_stat(Jean, "love", medium_stat)
+            call change_Girl_stat(Jean, "love", medium_stat) from _call_change_Girl_stat_1607
 
             $ Jean.change_face("sad")
         "Nah, I'm not really okay. . . but I'll live.":
-            call change_Girl_stat(Jean, "trust", small_stat)
+            call change_Girl_stat(Jean, "trust", small_stat) from _call_change_Girl_stat_1608
 
             $ Jean.change_face("confused1") 
         "I'm okay, and it is a lot, but I'll adapt. I have to.":
-            call change_Girl_stat(Jean, "trust", medium_stat)
+            call change_Girl_stat(Jean, "trust", medium_stat) from _call_change_Girl_stat_1609
 
             $ Jean.change_face("smirk2") 
 

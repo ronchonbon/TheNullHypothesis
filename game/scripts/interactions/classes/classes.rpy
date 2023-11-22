@@ -250,7 +250,7 @@ label take_class:
     if not black_screen:
         $ fade_to_black(0.4)
 
-    call after_class
+    call after_class from _call_after_class_1
     call check_for_Events(only_automatic = True) from _call_check_for_Events_16
     call move_location(Player.location) from _call_move_location_48
 
