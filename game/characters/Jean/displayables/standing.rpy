@@ -135,14 +135,14 @@ layeredimage Jean_standing:
     else:
         At("Jean_standing_hair_back", Jean_standing_head_animation)
 
-    if Jean.left_arm_pose in ["bra", "rub_neck", "touch_ass"]:
-        "characters/Jean/images/standing/left_forearm_[Jean.left_arm_pose].webp"
+    if Jean.left_arm in ["bra", "rub_neck", "touch_ass"]:
+        "characters/Jean/images/standing/left_forearm_[Jean.left_arm].webp"
 
-    if Jean.right_arm_pose not in ["bra", "extended", "fight", "fist", "hip", "neutral", "psychic1", "psychic2", "touch_pussy"]:
+    if Jean.right_arm not in ["bra", "extended", "fight", "fist", "hip", "neutral", "psychic1", "psychic2", "touch_pussy"]:
         Null()
     elif renpy.get_screen("Wardrobe_screen"):
         "Jean_standing_right_arm"
-    elif Jean.right_arm_pose == "neutral":
+    elif Jean.right_arm == "neutral":
         At("Jean_standing_right_arm", Jean_standing_right_arm_animation)
     else:
         "Jean_standing_right_arm"
@@ -150,29 +150,29 @@ layeredimage Jean_standing:
     always:
         "Jean_standing_body"
 
-    if Jean.left_arm_pose in ["fist", "hip", "neutral"]:
-        "characters/Jean/images/standing/left_arm_[Jean.left_arm_pose]_shadow.webp"
+    if Jean.left_arm in ["fist", "hip", "neutral"]:
+        "characters/Jean/images/standing/left_arm_[Jean.left_arm]_shadow.webp"
 
-    if Jean.left_arm_pose not in ["bra", "extended", "fight", "fist", "grope", "hip", "neutral", "psychic1", "psychic2", "rub_neck", "touch_ass"]:
+    if Jean.left_arm not in ["bra", "extended", "fight", "fist", "grope", "hip", "neutral", "psychic1", "psychic2", "rub_neck", "touch_ass"]:
         Null()
     elif renpy.get_screen("Wardrobe_screen"):
         "Jean_standing_left_arm"
-    elif Jean.left_arm_pose == "neutral":
+    elif Jean.left_arm == "neutral":
         At("Jean_standing_left_arm", Jean_standing_left_arm_animation)
     else:
         "Jean_standing_left_arm"
 
-    if Jean.right_arm_pose in ["hip", "touch_pussy"]:
-        "characters/Jean/images/standing/right_forearm_[Jean.right_arm_pose]_shadow.webp"
+    if Jean.right_arm in ["hip", "touch_pussy"]:
+        "characters/Jean/images/standing/right_forearm_[Jean.right_arm]_shadow.webp"
 
-    if Jean.right_arm_pose in ["hip", "touch_pussy"]:
-        "characters/Jean/images/standing/right_forearm_[Jean.right_arm_pose].webp"
+    if Jean.right_arm in ["hip", "touch_pussy"]:
+        "characters/Jean/images/standing/right_forearm_[Jean.right_arm].webp"
 
-    if Jean.left_arm_pose in ["grope"]:
-        "characters/Jean/images/standing/left_forearm_[Jean.left_arm_pose]_shadow.webp"
+    if Jean.left_arm in ["grope"]:
+        "characters/Jean/images/standing/left_forearm_[Jean.left_arm]_shadow.webp"
 
-    if Jean.left_arm_pose in ["grope"]:
-        "characters/Jean/images/standing/left_forearm_[Jean.left_arm_pose].webp"
+    if Jean.left_arm in ["grope"]:
+        "characters/Jean/images/standing/left_forearm_[Jean.left_arm].webp"
 
     always:
         "characters/Jean/images/standing/head_shadow.webp"
@@ -192,11 +192,11 @@ layeredimage Jean_standing:
     else:
         At("Jean_standing_head", Jean_standing_head_animation)
 
-    if Jean.right_arm_pose in ["fight", "extended", "psychic1"]:
-        "characters/Jean/images/standing/right_forearm_[Jean.right_arm_pose].webp"
+    if Jean.right_arm in ["fight", "extended", "psychic1"]:
+        "characters/Jean/images/standing/right_forearm_[Jean.right_arm].webp"
 
-    if Jean.left_arm_pose in ["fight", "psychic1", "psychic2"]:
-        "characters/Jean/images/standing/left_forearm_[Jean.left_arm_pose].webp"
+    if Jean.left_arm in ["fight", "psychic1", "psychic2"]:
+        "characters/Jean/images/standing/left_forearm_[Jean.left_arm].webp"
 
     if not Player.left_hand_Actions or Jean not in Player.left_hand_Actions[0].Targets:
         Null()
@@ -292,7 +292,7 @@ image Jean_standing_psychic:
 
 layeredimage Jean_standing_right_arm:
     always:
-        "characters/Jean/images/standing/right_arm_[Jean.right_arm_pose].webp"
+        "characters/Jean/images/standing/right_arm_[Jean.right_arm].webp"
 
     anchor (int(1070*character_sampling), int(1590*character_sampling))
     offset (int(1070*character_sampling), int(1590*character_sampling))
@@ -318,7 +318,7 @@ layeredimage Jean_standing_body:
 
 layeredimage Jean_standing_left_arm:
     always:
-        "characters/Jean/images/standing/left_arm_[Jean.left_arm_pose].webp"
+        "characters/Jean/images/standing/left_arm_[Jean.left_arm].webp"
 
     anchor (int(1600*character_sampling), int(1550*character_sampling))
     offset (int(1600*character_sampling), int(1550*character_sampling))

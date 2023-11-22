@@ -99,7 +99,7 @@ label Laura_chapter_one_season_three_training_sessions:
 
         $ Laura.change_face("angry1")
 
-        # $ Laura.left_arm_pose = 2
+        # $ Laura.left_arm = 2
 
         "[Laura.name] indicates for you to keep going and has you shadow her while she demonstrates various techniques and physical feats."
         "You have no idea how much time passes like this, just parroting whatever she shows you."
@@ -119,7 +119,7 @@ label Laura_chapter_one_season_three_training_sessions:
         $ Player.power = 0
 
         $ Laura.change_face("neutral")
-        # $ Laura.left_arm_pose = 1
+        # $ Laura.left_arm = 1
 
         ch_Player "*huff* How long was that? *huff*"
         ch_Laura "Substantially longer than when we spar." 

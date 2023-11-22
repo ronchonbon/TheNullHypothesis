@@ -95,11 +95,7 @@ init -3 python:
             if Event.label not in self.Events.keys():
                 self.Events[Event.label] = Event
             else:
-                if hasattr(self.Events[Event.label], "completed_when"):
-                    Event.completed_when = self.Events[Event.label].completed_when
-                else:
-                    if self.Events[Event.label].counter:
-                        Event.completed_when = self.Events[Event.label].completed
+                Event.completed_when = self.Events[Event.label].completed_when
 
                 if self.Events[Event.label].counter:
                     Event.completed = True

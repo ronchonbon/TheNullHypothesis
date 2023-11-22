@@ -125,14 +125,14 @@ layeredimage Laura_standing:
     else:
         At("Laura_standing_hair_back", Laura_standing_head_animation)
 
-    if Laura.left_arm_pose in ["bra", "touch_ass"]:
-        "characters/Laura/images/standing/left_forearm_[Laura.left_arm_pose].webp"
+    if Laura.left_arm in ["bra", "touch_ass"]:
+        "characters/Laura/images/standing/left_forearm_[Laura.left_arm].webp"
 
-    if Laura.right_arm_pose not in ["bra", "claws", "crossed", "extended", "fight", "fist", "hip", "neutral", "touch_pussy", "X"]:
+    if Laura.right_arm not in ["bra", "claws", "crossed", "extended", "fight", "fist", "hip", "neutral", "touch_pussy", "X"]:
         Null()
     elif renpy.get_screen("Wardrobe_screen"):
         "Laura_standing_right_arm"
-    elif Laura.right_arm_pose == "neutral":
+    elif Laura.right_arm == "neutral":
         At("Laura_standing_right_arm", Laura_standing_right_arm_animation)
     else:
         "Laura_standing_right_arm"
@@ -140,23 +140,23 @@ layeredimage Laura_standing:
     always:
         "Laura_standing_body"
 
-    if Laura.left_arm_pose in ["hip"]:
-        "characters/Laura/images/standing/left_arm_[Laura.left_arm_pose]_shadow.webp"
+    if Laura.left_arm in ["hip"]:
+        "characters/Laura/images/standing/left_arm_[Laura.left_arm]_shadow.webp"
 
-    if Laura.left_arm_pose not in ["bra", "claws", "crossed", "extended", "fight", "fist", "grope", "hip", "neutral", "touch_ass", "X"]:
+    if Laura.left_arm not in ["bra", "claws", "crossed", "extended", "fight", "fist", "grope", "hip", "neutral", "touch_ass", "X"]:
         Null()
     elif renpy.get_screen("Wardrobe_screen"):
         "Laura_standing_left_arm"
-    elif Laura.left_arm_pose == "neutral":
+    elif Laura.left_arm == "neutral":
         At("Laura_standing_left_arm", Laura_standing_left_arm_animation)
     else:
         "Laura_standing_left_arm"
 
-    if Laura.right_arm_pose in ["hip", "touch_pussy"]:
-        "characters/Laura/images/standing/right_forearm_[Laura.right_arm_pose]_shadow.webp"
+    if Laura.right_arm in ["hip", "touch_pussy"]:
+        "characters/Laura/images/standing/right_forearm_[Laura.right_arm]_shadow.webp"
 
-    if Laura.right_arm_pose in ["extended", "hip", "touch_pussy"]:
-        "characters/Laura/images/standing/right_forearm_[Laura.right_arm_pose].webp"
+    if Laura.right_arm in ["extended", "hip", "touch_pussy"]:
+        "characters/Laura/images/standing/right_forearm_[Laura.right_arm].webp"
 
     always:
         "characters/Laura/images/standing/head_shadow.webp"
@@ -176,17 +176,17 @@ layeredimage Laura_standing:
     else:
         At("Laura_standing_head", Laura_standing_head_animation)
 
-    if Laura.left_arm_pose in ["rub_neck"]:
-        "characters/Laura/images/standing/left_arm_[Laura.left_arm_pose]_shadow.webp"
+    if Laura.left_arm in ["rub_neck"]:
+        "characters/Laura/images/standing/left_arm_[Laura.left_arm]_shadow.webp"
 
-    if Laura.left_arm_pose in ["rub_neck"]:
-        "characters/Laura/images/standing/left_arm_[Laura.left_arm_pose].webp"
+    if Laura.left_arm in ["rub_neck"]:
+        "characters/Laura/images/standing/left_arm_[Laura.left_arm].webp"
 
-    if Laura.right_arm_pose in ["fight", "X"]:
-        "characters/Laura/images/standing/right_forearm_[Laura.right_arm_pose].webp"
+    if Laura.right_arm in ["fight", "X"]:
+        "characters/Laura/images/standing/right_forearm_[Laura.right_arm].webp"
 
-    if Laura.left_arm_pose in ["fight", "X"]:
-        "characters/Laura/images/standing/left_forearm_[Laura.left_arm_pose].webp"
+    if Laura.left_arm in ["fight", "X"]:
+        "characters/Laura/images/standing/left_forearm_[Laura.left_arm].webp"
 
     if not Player.left_hand_Actions or Laura not in Player.left_hand_Actions[0].Targets:
         Null()
@@ -238,7 +238,7 @@ layeredimage Laura_standing_hair_back:
 
 layeredimage Laura_standing_right_arm:
     always:
-        "characters/Laura/images/standing/right_arm_[Laura.right_arm_pose].webp"
+        "characters/Laura/images/standing/right_arm_[Laura.right_arm].webp"
 
     anchor (int(1075*character_sampling), int(1760*character_sampling))
     offset (int(1075*character_sampling), int(1760*character_sampling))
@@ -259,15 +259,15 @@ layeredimage Laura_standing_body:
     always:
         "characters/Laura/images/standing/breasts.webp"
 
-    if Laura.left_arm_pose == "grope":
+    if Laura.left_arm == "grope":
         "characters/Laura/images/standing/breasts_grope_shadow.webp"
 
-    if Laura.left_arm_pose == "grope":
+    if Laura.left_arm == "grope":
         "characters/Laura/images/standing/breasts_grope.webp"
 
 layeredimage Laura_standing_left_arm:
     always:
-        "characters/Laura/images/standing/left_arm_[Laura.left_arm_pose].webp"
+        "characters/Laura/images/standing/left_arm_[Laura.left_arm].webp"
 
     anchor (int(1575*character_sampling), int(1725*character_sampling))
     offset (int(1575*character_sampling), int(1725*character_sampling))

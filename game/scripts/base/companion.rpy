@@ -56,8 +56,8 @@ init -2 python:
             self.mouth = "neutral"
             self.blush = 0
 
-            self.left_arm_pose = "neutral"
-            self.right_arm_pose = "neutral"
+            self.left_arm = "neutral"
+            self.right_arm = "neutral"
 
             self.pubes = None
             self.default_pubes = None
@@ -224,542 +224,10 @@ init -2 python:
             mouth = kwargs.get("mouth", None)
             blush = kwargs.get("blush", 0)
 
-            if self.tag == "Rogue":
-                if face == "neutral":
-                    self.brows = "neutral"
-                    self.eyes = "neutral"
-                    self.mouth = "neutral"
-                elif face == "angry1":
-                    self.brows = "furrowed"
-                    self.eyes = "neutral"
-                    self.mouth = "neutral"
-                elif face == "angry2":
-                    self.brows = "furrowed"
-                    self.eyes = "neutral"
-                    self.mouth = "happy"
-                elif face == "appalled1":
-                    self.brows = "furrowed"
-                    self.eyes = "wide"
-                    self.mouth = "neutral"
-                elif face == "appalled2":
-                    self.brows = "furrowed"
-                    self.eyes = "wide"
-                    self.mouth = "open"
-                elif face == "appalled3":
-                    self.brows = "furrowed"
-                    self.eyes = "wide"
-                    self.mouth = "agape"
-                elif face == "confused1":
-                    self.brows = "cocked"
-                    self.eyes = "neutral"
-                    self.mouth = "neutral"
-                elif face == "confused2":
-                    self.brows = "cocked"
-                    self.eyes = "wide"
-                    self.mouth = "neutral"
-                elif face == "confused3":
-                    self.brows = "cocked"
-                    self.eyes = "wide"
-                    self.mouth = "agape"
-                elif face == "devious":
-                    self.brows = "neutral"
-                    self.eyes = "squint"
-                    self.mouth = "smile"
-                elif face == "furious":
-                    self.brows = "furrowed"
-                    self.eyes = "neutral"
-                    self.mouth = "frown"
-                elif face == "happy":
-                    self.brows = "neutral"
-                    self.eyes = "neutral"
-                    self.mouth = "smile"
-                elif face == "kiss1":
-                    self.brows = "worried"
-                    self.eyes = "closed"
-                    self.mouth = "kiss"
-                elif face == "kiss2":
-                    self.brows = "neutral"
-                    self.eyes = "closed"
-                    self.mouth = "kiss"
-                elif face == "manic":
-                    self.brows = "worried"
-                    self.eyes = "wide"
-                    self.mouth = "open"
+            self.brows, self.eyes, self.mouth, self.blush = eval(f"{self.tag}_faces('{face}')")
 
-                    if not blush:
-                        blush = 1
-                elif face == "perplexed":
-                    self.brows = "cocked"
-                    self.eyes = "wide"
-                    self.mouth = "open"
-                elif face == "pleased1":
-                    self.brows = "raised"
-                    self.eyes = "neutral"
-                    self.mouth = "smirk"
-                elif face == "pleased2":
-                    self.brows = "raised"
-                    self.eyes = "wide"
-                    self.mouth = "smirk"
-                elif face == "sad":
-                    self.brows = "worried"
-                    self.eyes = "neutral"
-                    self.mouth = "frown"
-                elif face == "sexy":
-                    self.brows = "neutral"
-                    self.eyes = "sexy"
-                    self.mouth = "lipbite"
-                elif face == "sly":
-                    self.brows = "neutral"
-                    self.eyes = "squint"
-                    self.mouth = "smirk"
-                elif face == "smirk1":
-                    self.brows = "neutral"
-                    self.eyes = "neutral"
-                    self.mouth = "happy"
-                elif face == "smirk2":
-                    self.brows = "neutral"
-                    self.eyes = "neutral"
-                    self.mouth = "smirk"
-                elif face == "surprised1":
-                    self.brows = "raised"
-                    self.eyes = "neutral"
-                    self.mouth = "open"
-                elif face == "surprised2":
-                    self.brows = "raised"
-                    self.eyes = "wide"
-                    self.mouth = "open"
-                elif face == "surprised3":
-                    self.brows = "raised"
-                    self.eyes = "wide"
-                    self.mouth = "agape"
-                elif face == "suspicious1":
-                    self.brows = "furrowed"
-                    self.eyes = "squint"
-                    self.mouth = "neutral"
-                elif face == "suspicious2":
-                    self.brows = "furrowed"
-                    self.eyes = "squint"
-                    self.mouth = "frown"
-                elif face == "worried1":
-                    self.brows = "worried"
-                    self.eyes = "neutral"
-                    self.mouth = "neutral"
-                elif face == "worried2":
-                    self.brows = "worried"
-                    self.eyes = "wide"
-                    self.mouth = "neutral"
-                elif face == "worried3":
-                    self.brows = "worried"
-                    self.eyes = "wide"
-                    self.mouth = "open"
-                elif face == "worried4":
-                    self.brows = "worried"
-                    self.eyes = "wide"
-                    self.mouth = "agape"
-                else:
-                    renpy.say(None, "Something went wrong with a face here.")
-            elif self.tag == "Laura":
-                if face == "neutral":
-                    self.brows = "neutral"
-                    self.eyes = "neutral"
-                    self.mouth = "neutral"
-                elif face == "angry1":
-                    self.brows = "furrowed"
-                    self.eyes = "neutral"
-                    self.mouth = "neutral"
-                elif face == "angry2":
-                    self.brows = "furrowed"
-                    self.eyes = "neutral"
-                    self.mouth = "happy"
-                elif face == "appalled1":
-                    self.brows = "furrowed"
-                    self.eyes = "wide"
-                    self.mouth = "neutral"
-                elif face == "appalled2":
-                    self.brows = "furrowed"
-                    self.eyes = "wide"
-                    self.mouth = "happy"
-                elif face == "appalled3":
-                    self.brows = "furrowed"
-                    self.eyes = "wide"
-                    self.mouth = "open"
-                elif face == "confused1":
-                    self.brows = "cocked"
-                    self.eyes = "neutral"
-                    self.mouth = "neutral"
-                elif face == "confused2":
-                    self.brows = "cocked"
-                    self.eyes = "wide"
-                    self.mouth = "neutral"
-                elif face == "confused3":
-                    self.brows = "cocked"
-                    self.eyes = "wide"
-                    self.mouth = "open"
-                elif face == "devious":
-                    self.brows = "neutral"
-                    self.eyes = "squint"
-                    self.mouth = "smile"
-                elif face == "furious":
-                    self.brows = "furrowed"
-                    self.eyes = "neutral"
-                    self.mouth = "frown"
-                elif face == "happy":
-                    self.brows = "neutral"
-                    self.eyes = "neutral"
-                    self.mouth = "smile"
-                elif face == "kiss1":
-                    self.brows = "worried"
-                    self.eyes = "closed"
-                    self.mouth = "kiss"
-                elif face == "kiss2":
-                    self.brows = "neutral"
-                    self.eyes = "closed"
-                    self.mouth = "kiss"
-                elif face == "manic":
-                    self.brows = "worried"
-                    self.eyes = "wide"
-                    self.mouth = "smile"
-
-                    if not blush:
-                        blush = 1
-                elif face == "perplexed":
-                    self.brows = "cocked"
-                    self.eyes = "wide"
-                    self.mouth = "neutral"
-                elif face == "pleased1":
-                    self.brows = "raised"
-                    self.eyes = "neutral"
-                    self.mouth = "smirk"
-                elif face == "pleased2":
-                    self.brows = "raised"
-                    self.eyes = "wide"
-                    self.mouth = "smirk"
-                elif face == "sad":
-                    self.brows = "worried"
-                    self.eyes = "neutral"
-                    self.mouth = "frown"
-                elif face == "sexy":
-                    self.brows = "neutral"
-                    self.eyes = "sexy"
-                    self.mouth = "lipbite"
-                elif face == "sly":
-                    self.brows = "neutral"
-                    self.eyes = "squint"
-                    self.mouth = "smirk"
-                elif face == "smirk1":
-                    self.brows = "neutral"
-                    self.eyes = "neutral"
-                    self.mouth = "happy"
-                elif face == "smirk2":
-                    self.brows = "neutral"
-                    self.eyes = "neutral"
-                    self.mouth = "smirk"
-                elif face == "surprised1":
-                    self.brows = "raised"
-                    self.eyes = "neutral"
-                    self.mouth = "neutral"
-                elif face == "surprised2":
-                    self.brows = "raised"
-                    self.eyes = "wide"
-                    self.mouth = "neutral"
-                elif face == "surprised3":
-                    self.brows = "raised"
-                    self.eyes = "wide"
-                    self.mouth = "open"
-                elif face == "suspicious1":
-                    self.brows = "furrowed"
-                    self.eyes = "squint"
-                    self.mouth = "neutral"
-                elif face == "suspicious2":
-                    self.brows = "furrowed"
-                    self.eyes = "squint"
-                    self.mouth = "frown"
-                elif face == "worried1":
-                    self.brows = "worried"
-                    self.eyes = "neutral"
-                    self.mouth = "neutral"
-                elif face == "worried2":
-                    self.brows = "worried"
-                    self.eyes = "wide"
-                    self.mouth = "neutral"
-                elif face == "worried3":
-                    self.brows = "worried"
-                    self.eyes = "wide"
-                    self.mouth = "happy"
-                elif face == "worried4":
-                    self.brows = "worried"
-                    self.eyes = "wide"
-                    self.mouth = "open"
-                else:
-                    renpy.say(None, "Something went wrong with a face here.")
-            elif self.tag == "Jean":
-                if face == "neutral":
-                    self.brows = "neutral"
-                    self.eyes = "neutral"
-                    self.mouth = "neutral"
-                elif face == "angry1":
-                    self.brows = "furrowed"
-                    self.eyes = "neutral"
-                    self.mouth = "neutral"
-                elif face == "angry2":
-                    self.brows = "furrowed"
-                    self.eyes = "neutral"
-                    self.mouth = "happy"
-                elif face == "appalled1":
-                    self.brows = "furrowed"
-                    self.eyes = "wide"
-                    self.mouth = "neutral"
-                elif face == "appalled2":
-                    self.brows = "furrowed"
-                    self.eyes = "wide"
-                    self.mouth = "open"
-                elif face == "appalled3":
-                    self.brows = "furrowed"
-                    self.eyes = "wide"
-                    self.mouth = "agape"
-                elif face == "confused1":
-                    self.brows = "cocked"
-                    self.eyes = "neutral"
-                    self.mouth = "neutral"
-                elif face == "confused2":
-                    self.brows = "cocked"
-                    self.eyes = "wide"
-                    self.mouth = "neutral"
-                elif face == "confused3":
-                    self.brows = "cocked"
-                    self.eyes = "wide"
-                    self.mouth = "agape"
-                elif face == "devious":
-                    self.brows = "neutral"
-                    self.eyes = "squint"
-                    self.mouth = "smile"
-                elif face == "furious":
-                    self.brows = "furrowed"
-                    self.eyes = "neutral"
-                    self.mouth = "frown"
-                elif face == "happy":
-                    self.brows = "neutral"
-                    self.eyes = "neutral"
-                    self.mouth = "smile"
-                elif face == "kiss1":
-                    self.brows = "worried"
-                    self.eyes = "closed"
-                    self.mouth = "kiss"
-                elif face == "kiss2":
-                    self.brows = "neutral"
-                    self.eyes = "closed"
-                    self.mouth = "kiss"
-                elif face == "manic":
-                    self.brows = "worried"
-                    self.eyes = "wide"
-                    self.mouth = "smile"
-
-                    if not blush:
-                        blush = 1
-                elif face == "perplexed":
-                    self.brows = "cocked"
-                    self.eyes = "wide"
-                    self.mouth = "open"
-                elif face == "pleased1":
-                    self.brows = "raised"
-                    self.eyes = "neutral"
-                    self.mouth = "smirk"
-                elif face == "pleased2":
-                    self.brows = "raised"
-                    self.eyes = "wide"
-                    self.mouth = "smirk"
-                elif face == "sad":
-                    self.brows = "worried"
-                    self.eyes = "neutral"
-                    self.mouth = "frown"
-                elif face == "sexy":
-                    self.brows = "neutral"
-                    self.eyes = "sexy"
-                    self.mouth = "lipbite"
-                elif face == "sly":
-                    self.brows = "neutral"
-                    self.eyes = "squint"
-                    self.mouth = "smirk"
-                elif face == "smirk1":
-                    self.brows = "neutral"
-                    self.eyes = "neutral"
-                    self.mouth = "happy"
-                elif face == "smirk2":
-                    self.brows = "neutral"
-                    self.eyes = "neutral"
-                    self.mouth = "smirk"
-                elif face == "surprised1":
-                    self.brows = "raised"
-                    self.eyes = "neutral"
-                    self.mouth = "open"
-                elif face == "surprised2":
-                    self.brows = "raised"
-                    self.eyes = "wide"
-                    self.mouth = "open"
-                elif face == "surprised3":
-                    self.brows = "raised"
-                    self.eyes = "wide"
-                    self.mouth = "agape"
-                elif face == "suspicious1":
-                    self.brows = "furrowed"
-                    self.eyes = "squint"
-                    self.mouth = "neutral"
-                elif face == "suspicious2":
-                    self.brows = "furrowed"
-                    self.eyes = "squint"
-                    self.mouth = "frown"
-                elif face == "worried1":
-                    self.brows = "worried"
-                    self.eyes = "neutral"
-                    self.mouth = "neutral"
-                elif face == "worried2":
-                    self.brows = "worried"
-                    self.eyes = "wide"
-                    self.mouth = "neutral"
-                elif face == "worried3":
-                    self.brows = "worried"
-                    self.eyes = "wide"
-                    self.mouth = "open"
-                elif face == "worried4":
-                    self.brows = "worried"
-                    self.eyes = "wide"
-                    self.mouth = "agape"
-            elif self.tag == "Ororo":
-                if face == "neutral":
-                    self.brows = "neutral"
-                    self.eyes = "neutral"
-                    self.mouth = "neutral"
-                elif face == "angry1":
-                    self.brows = "furrowed"
-                    self.eyes = "neutral"
-                    self.mouth = "neutral"
-                elif face == "angry2":
-                    self.brows = "furrowed"
-                    self.eyes = "neutral"
-                    self.mouth = "happy"
-                elif face == "appalled1":
-                    self.brows = "furrowed"
-                    self.eyes = "wide"
-                    self.mouth = "neutral"
-                elif face == "appalled2":
-                    self.brows = "furrowed"
-                    self.eyes = "wide"
-                    self.mouth = "open"
-                elif face == "appalled3":
-                    self.brows = "furrowed"
-                    self.eyes = "wide"
-                    self.mouth = "agape"
-                elif face == "confused1":
-                    self.brows = "cocked"
-                    self.eyes = "neutral"
-                    self.mouth = "neutral"
-                elif face == "confused2":
-                    self.brows = "cocked"
-                    self.eyes = "wide"
-                    self.mouth = "neutral"
-                elif face == "confused3":
-                    self.brows = "cocked"
-                    self.eyes = "wide"
-                    self.mouth = "agape"
-                elif face == "devious":
-                    self.brows = "neutral"
-                    self.eyes = "squint"
-                    self.mouth = "smile"
-                elif face == "furious":
-                    self.brows = "furrowed"
-                    self.eyes = "neutral"
-                    self.mouth = "frown"
-                elif face == "happy":
-                    self.brows = "neutral"
-                    self.eyes = "neutral"
-                    self.mouth = "smile"
-                elif face == "kiss1":
-                    self.brows = "worried"
-                    self.eyes = "closed"
-                    self.mouth = "kiss"
-                elif face == "kiss2":
-                    self.brows = "neutral"
-                    self.eyes = "closed"
-                    self.mouth = "kiss"
-                elif face == "manic":
-                    self.brows = "worried"
-                    self.eyes = "wide"
-                    self.mouth = "smile"
-
-                    if not blush:
-                        blush = 1
-                elif face == "perplexed":
-                    self.brows = "cocked"
-                    self.eyes = "wide"
-                    self.mouth = "open"
-                elif face == "pleased1":
-                    self.brows = "raised"
-                    self.eyes = "neutral"
-                    self.mouth = "smirk"
-                elif face == "pleased2":
-                    self.brows = "raised"
-                    self.eyes = "wide"
-                    self.mouth = "smirk"
-                elif face == "sad":
-                    self.brows = "worried"
-                    self.eyes = "neutral"
-                    self.mouth = "frown"
-                elif face == "sexy":
-                    self.brows = "neutral"
-                    self.eyes = "sexy"
-                    self.mouth = "lipbite"
-                elif face == "sly":
-                    self.brows = "neutral"
-                    self.eyes = "squint"
-                    self.mouth = "smirk"
-                elif face == "smirk1":
-                    self.brows = "neutral"
-                    self.eyes = "neutral"
-                    self.mouth = "happy"
-                elif face == "smirk2":
-                    self.brows = "neutral"
-                    self.eyes = "neutral"
-                    self.mouth = "smirk"
-                elif face == "surprised1":
-                    self.brows = "raised"
-                    self.eyes = "neutral"
-                    self.mouth = "open"
-                elif face == "surprised2":
-                    self.brows = "raised"
-                    self.eyes = "wide"
-                    self.mouth = "open"
-                elif face == "surprised3":
-                    self.brows = "raised"
-                    self.eyes = "wide"
-                    self.mouth = "agape"
-                elif face == "suspicious1":
-                    self.brows = "furrowed"
-                    self.eyes = "squint"
-                    self.mouth = "neutral"
-                elif face == "suspicious2":
-                    self.brows = "furrowed"
-                    self.eyes = "squint"
-                    self.mouth = "frown"
-                elif face == "worried1":
-                    self.brows = "worried"
-                    self.eyes = "neutral"
-                    self.mouth = "neutral"
-                elif face == "worried2":
-                    self.brows = "worried"
-                    self.eyes = "wide"
-                    self.mouth = "neutral"
-                elif face == "worried3":
-                    self.brows = "worried"
-                    self.eyes = "wide"
-                    self.mouth = "open"
-                elif face == "worried4":
-                    self.brows = "worried"
-                    self.eyes = "wide"
-                    self.mouth = "agape"
-                else:
-                    renpy.say(None, "Something went wrong with a face here.")
-
-            self.blush = blush
+            if blush:
+                self.blush = blush
 
             if brows:
                 self.brows = brows
@@ -774,25 +242,58 @@ init -2 python:
 
         def default_face(self):
             if self.status["miffed"] or self.status["mad"]:
-                face = "angry1"
+                face = "neutral"
             elif self.status["heartbroken"]:
-                face = "sad"
+                face = "neutral"
             elif self.status["horny"]:
-                face = "sexy"
+                face = "neutral"
             elif self.status["nympho"]:
-                face = "manic"
+                face = "neutral"
             # elif approval_check(self, threshold = "love"):
-            #     face = "happy"
+            #     face = "neutral"
             else:
                 face = "neutral"
 
             return face
 
+        def change_arms(self, pose = None, **kwargs):
+            pose = self.default_arms() if not pose else pose
+
+            left_arm = kwargs.get("left_arm", None)
+            right_arm = kwargs.get("right_arm", None)
+
+            self.left_arm, self.right_arm = eval(f"{self.tag}_arms('{pose}')")
+
+            if left_arm:
+                self.left_arm = left_arm
+
+            if right_arm:
+                self.right_arm = right_arm
+
+            if self.left_arm == "crossed" or self.right_arm == "crossed":
+                self.left_arm = "crossed"
+                self.right_arm = "crossed"
+
+            return
+
+        def default_arms(self):
+            if self.status["miffed"] or self.status["mad"]:
+                pose = "neutral"
+            elif self.status["heartbroken"]:
+                pose = "neutral"
+            elif self.status["horny"]:
+                pose = "neutral"
+            elif self.status["nympho"]:
+                pose = "neutral"
+            # elif approval_check(self, threshold = "love"):
+            #     pose = "neutral"
+            else:
+                pose = "neutral"
+
+            return pose
+
         def travel(self):
             global Player
-
-            global weather
-            global snow_left
 
             if self.location != "hold":
                 if self.behavior in ["training", "swimming"]:
@@ -806,39 +307,7 @@ init -2 python:
                 elif time_index == 0 and self.location == Player.location and renpy.random.random() > 0.5:
                     self.destination = Player.location
                 else:
-                    possible_locations = []
-
-                    possible_locations.append(self.home)
-
-                    if time_index < 3 and weather != "rain":
-                        possible_locations.append("bg_campus")
-
-                    if time_index < 2 and weekday < 5:
-                        possible_locations.append("bg_classroom")
-                        possible_locations.append("bg_classroom")
-
-                    if time_index < 3 and self.location != "bg_lockers" and not self.History.check("trained_with_Player", tracker = "daily"):
-                        possible_locations.append("bg_danger")
-
-                    if time_index < 3:
-                        if time_index == 2:
-                            if temperature[time_index] > 22 and not weather and snow_left == 0:
-                                possible_locations.append("bg_pool")
-
-                            possible_locations.append("bg_mall")
-                        elif weekday > 4:
-                            if temperature[time_index] > 22 and not weather and snow_left == 0:
-                                possible_locations.append("bg_pool")
-
-                            possible_locations.append("bg_mall")
-
-                    if day > 3:
-                        if (self in Partners or self.status["nympho"] or approval_check(self, threshold = "love")) and renpy.random.random() > 0.85:
-                            if (Player.location not in bedrooms or Player.location == Player.home) and (Player.location != "bg_shower_Player" or self.has_keys_to_Players_room):
-                                possible_locations.append(Player.location)
-
-                            if self.has_keys_to_Players_room:
-                                possible_locations.append(Player.home)
+                    possible_locations = eval(f"{self.tag}_locations()")
 
                     self.destination = renpy.random.choice(possible_locations)
 

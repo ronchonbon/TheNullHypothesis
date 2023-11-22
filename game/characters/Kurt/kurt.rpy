@@ -41,6 +41,80 @@ init -2 python:
 
         return Kurt
 
+    def Kurt_faces(face):
+        if face == "neutral":
+            mouth = "neutral"
+            brows = "neutral"
+            eyes = "neutral"
+        elif face == "angry":
+            brows = "furrowed"
+            eyes = "neutral"
+            mouth = "frown"
+        elif face == "confused":
+            brows = "furrowed"
+            eyes = "squint"
+            mouth = "neutral"
+        elif face == "happy":
+            brows = "neutral"
+            eyes = "neutral"
+            mouth = "smile"
+        elif face == "sad":
+            brows = "neutral"
+            eyes = "neutral"
+            mouth = "frown"
+        elif face == "stunned":
+            brows = "neutral"
+            eyes = "up"
+            mouth = "neutral"
+        elif face == "surprised":
+            brows = "raised"
+            eyes = "wide"
+            mouth = "neutral"
+        else:
+            renpy.say(None, "Something went wrong with a face here.")
+
+            return "neutral", "neutral", "neutral"
+
+        return brows, eyes, mouth
+
+    def Kurt_arms(pose):
+        return "neutral", "neutral"
+
+    def Kurt_locations():
+        global weekday
+        global time_index
+
+        global weather
+        global snow_left
+        
+        possible_locations = []
+
+        possible_locations.append(Kurt.home)
+
+        if time_index < 2 and weekday < 5:
+            possible_locations.append("bg_classroom")
+            possible_locations.append("bg_classroom")
+                
+        if time_index < 3 and weather != "rain":
+            possible_locations.append("bg_campus")
+
+        if time_index < 3:
+            possible_locations.append("bg_danger")
+
+        if time_index < 3:
+            if time_index == 2:
+                if temperature[time_index] > 22 and not weather and snow_left == 0:
+                    possible_locations.append("bg_pool")
+
+                possible_locations.append("bg_mall")
+            elif weekday > 4:
+                if temperature[time_index] > 22 and not weather and snow_left == 0:
+                    possible_locations.append("bg_pool")
+
+                possible_locations.append("bg_mall")
+
+        return possible_locations
+
 label update_Kurt:
     $ Kurt.sprite_anchor = Kurt_standing_anchor
     $ Kurt.sprite_position[1] = Kurt_standing_height

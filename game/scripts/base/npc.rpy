@@ -31,8 +31,8 @@ init -2 python:
             self.eyes = "neutral"
             self.mouth = "neutral"
 
-            self.left_arm_pose = "neutral"
-            self.right_arm_pose = "neutral"
+            self.left_arm = "neutral"
+            self.right_arm = "neutral"
             
             self.wet = False
 
@@ -70,40 +70,13 @@ init -2 python:
             self.temp = None
 
         def change_face(self, face = "neutral", **kwargs):
+            face = self.default_face() if not face else face
+
             brows = kwargs.get("brows", None)
             eyes = kwargs.get("eyes", None)
             mouth = kwargs.get("mouth", None)
 
-            if face == "neutral":
-                self.mouth = "neutral"
-                self.brows = "neutral"
-                self.eyes = "neutral"
-            elif face == "angry":
-                self.brows = "furrowed"
-                self.eyes = "neutral"
-                self.mouth = "frown"
-            elif face == "confused":
-                self.brows = "furrowed"
-                self.eyes = "squint"
-                self.mouth = "neutral"
-            elif face == "happy":
-                self.brows = "neutral"
-                self.eyes = "neutral"
-                self.mouth = "smile"
-            elif face == "sad":
-                self.brows = "neutral"
-                self.eyes = "neutral"
-                self.mouth = "frown"
-            elif face == "stunned":
-                self.brows = "neutral"
-                self.eyes = "up"
-                self.mouth = "neutral"
-            elif face == "surprised":
-                self.brows = "raised"
-                self.eyes = "wide"
-                self.mouth = "neutral"
-            else:
-                renpy.say(None, "Something went wrong with a face here.")
+            self.brows, self.eyes, self.mouth = eval(f"{self.tag}_faces('{face}')")
 
             if brows:
                 self.brows = brows
@@ -116,45 +89,29 @@ init -2 python:
 
             return
 
+        def change_arms(self, pose = None, **kwargs):
+            pose = self.default_arms() if not pose else pose
+
+            left_arm = kwargs.get("left_arm", None)
+            right_arm = kwargs.get("right_arm", None)
+
+            self.left_arm, self.right_arm = eval(f"{self.tag}_arms('{pose}')")
+
+            if left_arm:
+                self.left_arm = left_arm
+
+            if right_arm:
+                self.right_arm = right_arm
+
+            if self.left_arm == "crossed" or self.right_arm == "crossed":
+                self.left_arm = "crossed"
+                self.right_arm = "crossed"
+
+            return
+
         def travel(self):
-            global weather
-            global snow_left
-
             if self.location != "hold":
-                possible_locations = []
-
-                possible_locations.append(self.home)
-
-                if time_index < 2 and weekday < 5:
-                    possible_locations.append("bg_classroom")
-                    possible_locations.append("bg_classroom")
-                
-                if self.tag == "Charles":
-                    if time_index < 3:
-                        possible_locations.append("bg_study")
-
-                        if time_index == 2:
-                            self.destination = "bg_study"
-
-                            return
-                elif self.tag == "Kurt":
-                    if time_index < 3 and weather != "rain":
-                        possible_locations.append("bg_campus")
-
-                    if time_index < 3:
-                        possible_locations.append("bg_danger")
-
-                    if time_index < 3:
-                        if time_index == 2:
-                            if temperature[time_index] > 22 and not weather and snow_left == 0:
-                                possible_locations.append("bg_pool")
-
-                            possible_locations.append("bg_mall")
-                        elif weekday > 4:
-                            if temperature[time_index] > 22 and not weather and snow_left == 0:
-                                possible_locations.append("bg_pool")
-
-                            possible_locations.append("bg_mall")
+                possible_locations = eval(f"{self.tag}_locations()")
 
                 self.destination = renpy.random.choice(possible_locations)
 

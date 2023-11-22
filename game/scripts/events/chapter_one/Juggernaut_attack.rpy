@@ -1507,7 +1507,7 @@ label ch1_Juggernaut_attack:
     "As you're getting ready to finally go to bed, someone knocks on your door."
     "Too tired to even see who it is, you let them in."
 
-    # $ Ororo.right_arm_pose = 2
+    # $ Ororo.right_arm = 2
 
     # call change_Outfit(Ororo, Ororo.Wardrobe.Outfits["Hero (Chapter I)"], instant = True) from _call_change_Outfit_28
     call add_Characters(Ororo) from _call_add_Characters_49
@@ -1517,7 +1517,7 @@ label ch1_Juggernaut_attack:
     ch_Player "Professor?!"
     ch_Ororo "I apologize for bothering you at such a late hour. . ."
 
-    # $ Ororo.right_arm_pose = 1
+    # $ Ororo.right_arm = 1
     $ Ororo.change_face("worried1", eyes = "down")
 
     pause 1.0
@@ -1735,7 +1735,7 @@ label ch1_Juggernaut_attack_path_1A:
 
     "She notices [Rogue.name]."
 
-    # $ Laura.left_arm_pose = 2
+    # $ Laura.left_arm = 2
 
     pause 0.2
 
@@ -1820,7 +1820,8 @@ label ch1_Juggernaut_attack_path_1A:
 
     pause 0.5
     
-    # $ Laura.left_arm_pose = 1
+    $ Laura.change_face("worried2")
+    $ Laura.change_arms("neutral")
 
     ch_Laura "[Player.first_name]!"
     "It feels like somebody just stabbed you in the side while simultaneously hitting you in the head with a baseball bat."
@@ -2182,7 +2183,7 @@ label ch1_Juggernaut_attack_path_1B:
 
     "She notices [Rogue.name]."
 
-    # $ Laura.left_arm_pose = 2
+    # $ Laura.left_arm = 2
 
     pause 0.2
 
@@ -2272,9 +2273,8 @@ label ch1_Juggernaut_attack_path_1B:
 
     pause 0.5
     
-    # $ Laura.left_arm_pose = 1
-
     $ Laura.change_face("worried2")
+    $ Laura.change_arms("neutral")
 
     "You're too busy laying on the floor with a splitting headache, vision swimming, gasping for air."
     "Feels like you broke a rib or two when you hit the wall. . ."

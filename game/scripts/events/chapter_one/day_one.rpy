@@ -559,7 +559,7 @@ label meet_Rogue:
     ch_Rogue "Thing is, it's more of a curse to tell ya the truth. Ah can't control it too well so touchin' someone could seriously harm them."
     ch_Rogue "Ah haven't been able to touch someone in a really long time. . ."
 
-    # $ Rogue.left_arm_pose = 2
+    # $ Rogue.left_arm = 2
 
     ch_Rogue "Do ya think maybe ah could. . ."
 
@@ -570,7 +570,7 @@ label meet_Rogue:
     call add_Characters(Ororo) from _call_add_Characters_54
 
     $ Rogue.change_face("surprised2", eyes = "right", blush = 1)
-    # $ Rogue.left_arm_pose = 1
+    # $ Rogue.left_arm = 1
 
     ch_Ororo "Here we are, [Player.first_name]. These are some textbooks and study guides you will need for class. I do hope you and Rogue are getting along." 
 
@@ -958,7 +958,7 @@ label day_one_tour_farewell:
 
     ch_Ororo "It was a pleasure, [Player.first_name]."
 
-    # $ Ororo.right_arm_pose = 2
+    # $ Ororo.right_arm = 2
 
     "She reaches out to shake your hand."
 
@@ -987,7 +987,7 @@ label day_one_tour_farewell:
 
             ch_Ororo "Wow, that was. . . unexpected. I will see you when I return from my mission, [Player.first_name]."
 
-    # $ Ororo.right_arm_pose = 1
+    # $ Ororo.right_arm = 1
 
     pause 1.0
 

@@ -161,7 +161,7 @@ label Laura_chapter_one_season_two_first_training_session:
 
     $ Laura.change_face("neutral")
 
-    # $ Laura.left_arm_pose = 2
+    # $ Laura.left_arm = 2
 
     "Again, she's silent, but you recognize her fighting stance when you see it."
 
@@ -171,7 +171,7 @@ label Laura_chapter_one_season_two_first_training_session:
     "This is less of a training session and more a trial by fire."
     "She pushes your meager skills to the limit and, by now, the fatigue is starting to build up."
 
-    # $ Laura.left_arm_pose = 1
+    # $ Laura.left_arm = 1
 
     $ fade_in_from_black(0.4)
 

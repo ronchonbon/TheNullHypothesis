@@ -684,16 +684,16 @@ screen head_screen(Girl):
                         null width 85
 
                 if Girl in [Rogue]:
-                    $ left_arm_poses = [
+                    $ left_arms = [
                         "bra", "crossed", "extended", "fight", "fist", "grope", "hip", "neutral", "rub_neck", "touch_ass"]
                 elif Girl in [Laura]:
-                    $ left_arm_poses = [
+                    $ left_arms = [
                         "bra", "claws", "crossed", "extended", "fight", "fist", "grope", "hip", "neutral", "touch_ass", "X"]
                 elif Girl in [Jean]:
-                    $ left_arm_poses = [
+                    $ left_arms = [
                         "bra", "extended", "fight", "fist", "grope", "hip", "neutral", "psychic1", "psychic2", "rub_neck", "touch_ass"]
 
-                for left_arm_pose in left_arm_poses:
+                for left_arm in left_arms:
                     hbox align (0.5, 0.5):
                         spacing 5
 
@@ -702,32 +702,32 @@ screen head_screen(Girl):
                         button xysize (411, 85) xalign 0.5:
                             idle_background "images/interface/wardrobe/clothing_idle.webp" hover_background "images/interface/wardrobe/clothing.webp" selected_background "images/interface/wardrobe/clothing_selected.webp"
 
-                            if left_arm_pose == "crossed":
+                            if left_arm == "crossed":
                                 action [
-                                    SetField(Girl, "left_arm_pose", left_arm_pose),
-                                    SetField(Girl, "right_arm_pose", left_arm_pose)]
-                            elif Girl.right_arm_pose == "crossed":
+                                    SetField(Girl, "left_arm", left_arm),
+                                    SetField(Girl, "right_arm", left_arm)]
+                            elif Girl.right_arm == "crossed":
                                 action [
-                                    SetField(Girl, "left_arm_pose", left_arm_pose),
-                                    SetField(Girl, "right_arm_pose", "neutral")]
+                                    SetField(Girl, "left_arm", left_arm),
+                                    SetField(Girl, "right_arm", "neutral")]
                             else:
-                                action SetField(Girl, "left_arm_pose", left_arm_pose)
+                                action SetField(Girl, "left_arm", left_arm)
 
-                            text f"left arm: {left_arm_pose}" align (0.5, 0.5) size 36
+                            text f"left arm: {left_arm}" align (0.5, 0.5) size 36
 
                         null width 85
 
                 if Girl in [Rogue]:
-                    $ right_arm_poses = [
+                    $ right_arms = [
                         "bra", "crossed", "extended", "fight", "fist", "hip", "neutral", "touch_pussy"]
                 elif Girl in [Laura]:
-                    $ right_arm_poses = [
+                    $ right_arms = [
                         "bra", "claws", "extended", "fight", "fist", "hip", "neutral", "touch_pussy", "X"]
                 elif Girl in [Jean]:
-                    $ right_arm_poses = [
+                    $ right_arms = [
                         "bra", "extended", "fight", "fist", "hip", "neutral", "psychic1", "psychic2", "touch_pussy"]
 
-                for right_arm_pose in right_arm_poses:
+                for right_arm in right_arms:
                     hbox align (0.5, 0.5):
                         spacing 5
 
@@ -736,18 +736,18 @@ screen head_screen(Girl):
                         button xysize (411, 85) xalign 0.5:
                             idle_background "images/interface/wardrobe/clothing_idle.webp" hover_background "images/interface/wardrobe/clothing.webp" selected_background "images/interface/wardrobe/clothing_selected.webp"
 
-                            if right_arm_pose == "crossed":
+                            if right_arm == "crossed":
                                 action [
-                                    SetField(Girl, "left_arm_pose", right_arm_pose),
-                                    SetField(Girl, "right_arm_pose", right_arm_pose)]
-                            elif Girl.left_arm_pose == "crossed":
+                                    SetField(Girl, "left_arm", right_arm),
+                                    SetField(Girl, "right_arm", right_arm)]
+                            elif Girl.left_arm == "crossed":
                                 action [
-                                    SetField(Girl, "left_arm_pose", "neutral"),
-                                    SetField(Girl, "right_arm_pose", right_arm_pose)]
+                                    SetField(Girl, "left_arm", "neutral"),
+                                    SetField(Girl, "right_arm", right_arm)]
                             else:
-                                action SetField(Girl, "right_arm_pose", right_arm_pose)
+                                action SetField(Girl, "right_arm", right_arm)
 
-                            text f"right arm: {right_arm_pose}" align (0.5, 0.5) size 36
+                            text f"right arm: {right_arm}" align (0.5, 0.5) size 36
 
                         null width 85
 

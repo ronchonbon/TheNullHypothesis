@@ -101,14 +101,14 @@ layeredimage Rogue_standing:
     else:
         At("Rogue_standing_hair_back", Rogue_standing_head_animation)
 
-    if Rogue.left_arm_pose in ["bra", "touch_ass"]:
-        "characters/Rogue/images/standing/left_forearm_[Rogue.left_arm_pose].webp"
+    if Rogue.left_arm in ["bra", "touch_ass"]:
+        "characters/Rogue/images/standing/left_forearm_[Rogue.left_arm].webp"
 
-    if Rogue.right_arm_pose not in ["bra", "crossed", "extended", "fight", "fist", "hip", "neutral", "touch_pussy"]:
+    if Rogue.right_arm not in ["bra", "crossed", "extended", "fight", "fist", "hip", "neutral", "touch_pussy"]:
         Null()
     elif renpy.get_screen("Wardrobe_screen"):
         "Rogue_standing_right_arm"
-    elif Rogue.right_arm_pose == "neutral":
+    elif Rogue.right_arm == "neutral":
         At("Rogue_standing_right_arm", Rogue_standing_right_arm_animation)
     else:
         "Rogue_standing_right_arm"
@@ -116,14 +116,14 @@ layeredimage Rogue_standing:
     always:
         "Rogue_standing_body"
 
-    if Rogue.right_arm_pose in ["hip", "touch_pussy"]:
-        "characters/Rogue/images/standing/right_forearm_[Rogue.right_arm_pose]_shadow.webp"
+    if Rogue.right_arm in ["hip", "touch_pussy"]:
+        "characters/Rogue/images/standing/right_forearm_[Rogue.right_arm]_shadow.webp"
 
-    if Rogue.right_arm_pose in ["fight", "hip", "touch_pussy"]:
-        "characters/Rogue/images/standing/right_forearm_[Rogue.right_arm_pose].webp"
+    if Rogue.right_arm in ["fight", "hip", "touch_pussy"]:
+        "characters/Rogue/images/standing/right_forearm_[Rogue.right_arm].webp"
 
-    if Rogue.left_arm_pose in ["fight", "grope", "rub_neck"]:
-        "characters/Rogue/images/standing/left_forearm_[Rogue.left_arm_pose].webp"
+    if Rogue.left_arm in ["fight", "grope", "rub_neck"]:
+        "characters/Rogue/images/standing/left_forearm_[Rogue.left_arm].webp"
 
     always:
         "characters/Rogue/images/standing/head_shadow.webp"
@@ -192,7 +192,7 @@ image Rogue_standing_hair_back:
 
 layeredimage Rogue_standing_right_arm:
     always:
-        "characters/Rogue/images/standing/right_arm_[Rogue.right_arm_pose].webp"
+        "characters/Rogue/images/standing/right_arm_[Rogue.right_arm].webp"
     
     anchor (int(1075*character_sampling), int(1545*character_sampling))
     offset (int(1075*character_sampling), int(1545*character_sampling))
@@ -213,83 +213,83 @@ layeredimage Rogue_standing_body:
     always:
         "characters/Rogue/images/standing/left_foot.webp"
 
-    if Rogue.left_arm_pose in ["crossed"]:
-        "characters/Rogue/images/standing/left_arm_[Rogue.left_arm_pose]_shadow.webp"
+    if Rogue.left_arm in ["crossed"]:
+        "characters/Rogue/images/standing/left_arm_[Rogue.left_arm]_shadow.webp"
 
-    if Rogue.left_arm_pose in ["crossed", "grope"]:
-        "characters/Rogue/images/standing/left_arm_[Rogue.left_arm_pose].webp"
+    if Rogue.left_arm in ["crossed", "grope"]:
+        "characters/Rogue/images/standing/left_arm_[Rogue.left_arm].webp"
 
-    if Rogue.left_arm_pose == "crossed" and Rogue.right_arm_pose == "crossed":
+    if Rogue.left_arm == "crossed" and Rogue.right_arm == "crossed":
         "characters/Rogue/images/standing/breasts_crossed_shadow.webp"
     elif Rogue.breasts_supported:
         "characters/Rogue/images/standing/breasts_supported_shadow.webp"
     else:
         "characters/Rogue/images/standing/breasts_shadow.webp"
 
-    if Rogue.left_arm_pose == "crossed" and Rogue.right_arm_pose == "crossed":
+    if Rogue.left_arm == "crossed" and Rogue.right_arm == "crossed":
         "characters/Rogue/images/standing/breasts_crossed.webp"
     elif Rogue.breasts_supported:
         "characters/Rogue/images/standing/breasts_supported.webp"
     else:
         "characters/Rogue/images/standing/breasts.webp"
 
-    if Rogue.left_arm_pose == "grope":
+    if Rogue.left_arm == "grope":
         "characters/Rogue/images/standing/breasts_grope.webp"
 
-    if Rogue.left_arm_pose == "crossed" and Rogue.right_arm_pose == "crossed":
+    if Rogue.left_arm == "crossed" and Rogue.right_arm == "crossed":
         Null()
-    elif Rogue.left_arm_pose == "grope" and Rogue.Clothes["bra"].state == 1:
+    elif Rogue.left_arm == "grope" and Rogue.Clothes["bra"].state == 1:
         "characters/Rogue/images/standing/bra_[Rogue.Clothes[bra].string]_mid_1_grope_shadow.webp"
     elif Rogue.Clothes["bra"].string:
         "characters/Rogue/images/standing/bra_[Rogue.Clothes[bra].string]_mid_[Rogue.Clothes[bra].state]_shadow.webp"
 
-    if Rogue.left_arm_pose == "crossed" and Rogue.right_arm_pose == "crossed":
+    if Rogue.left_arm == "crossed" and Rogue.right_arm == "crossed":
         Null()
-    elif Rogue.left_arm_pose == "grope" and Rogue.Clothes["bra"].state == 1:
+    elif Rogue.left_arm == "grope" and Rogue.Clothes["bra"].state == 1:
         "characters/Rogue/images/standing/bra_[Rogue.Clothes[bra].string]_mid_1_grope.webp"
     elif Rogue.Clothes["bra"].string:
         "characters/Rogue/images/standing/bra_[Rogue.Clothes[bra].string]_mid_[Rogue.Clothes[bra].state].webp"
 
-    if Rogue.left_arm_pose in ["fist", "hip", "rub_neck"]:
-        "characters/Rogue/images/standing/left_arm_[Rogue.left_arm_pose]_shadow.webp"
+    if Rogue.left_arm in ["fist", "hip", "rub_neck"]:
+        "characters/Rogue/images/standing/left_arm_[Rogue.left_arm]_shadow.webp"
 
-    if Rogue.left_arm_pose != "neutral":
+    if Rogue.left_arm != "neutral":
         Null()
     elif Rogue.thighs_covered:
-        "characters/Rogue/images/standing/left_arm_[Rogue.left_arm_pose]_shadow_neutral.webp"
+        "characters/Rogue/images/standing/left_arm_[Rogue.left_arm]_shadow_neutral.webp"
     else:
-        "characters/Rogue/images/standing/left_arm_[Rogue.left_arm_pose]_shadow_body.webp"
+        "characters/Rogue/images/standing/left_arm_[Rogue.left_arm]_shadow_body.webp"
 
-    if Rogue.left_arm_pose not in ["bra", "extended", "fight", "fist", "grope", "hip", "neutral", "rub_neck", "touch_ass"]:
+    if Rogue.left_arm not in ["bra", "extended", "fight", "fist", "grope", "hip", "neutral", "rub_neck", "touch_ass"]:
         Null()
     elif renpy.get_screen("Wardrobe_screen"):
         "Rogue_standing_left_arm"
-    elif Rogue.left_arm_pose == "neutral":
+    elif Rogue.left_arm == "neutral":
         At("Rogue_standing_left_arm", Rogue_standing_left_arm_animation)
     else:
         "Rogue_standing_left_arm"
         
     if not Rogue.Clothes["bra"].string:
         Null()
-    elif Rogue.left_arm_pose == "crossed" and Rogue.right_arm_pose == "crossed":
+    elif Rogue.left_arm == "crossed" and Rogue.right_arm == "crossed":
         "characters/Rogue/images/standing/bra_[Rogue.Clothes[bra].string]_[Rogue.Clothes[bra].state]_crossed_shadow.webp"
-    elif Rogue.left_arm_pose == "grope" and Rogue.Clothes["bra"].state == 1:
+    elif Rogue.left_arm == "grope" and Rogue.Clothes["bra"].state == 1:
         "characters/Rogue/images/standing/bra_[Rogue.Clothes[bra].string]_1_grope_shadow.webp"
     else:
         "characters/Rogue/images/standing/bra_[Rogue.Clothes[bra].string]_[Rogue.Clothes[bra].state]_shadow.webp"
 
     if not Rogue.Clothes["bra"].string:
         Null()
-    elif Rogue.left_arm_pose == "crossed" and Rogue.right_arm_pose == "crossed":
+    elif Rogue.left_arm == "crossed" and Rogue.right_arm == "crossed":
         "characters/Rogue/images/standing/bra_[Rogue.Clothes[bra].string]_[Rogue.Clothes[bra].state]_crossed.webp"
-    elif Rogue.left_arm_pose == "grope" and Rogue.Clothes["bra"].state == 1:
+    elif Rogue.left_arm == "grope" and Rogue.Clothes["bra"].state == 1:
         "characters/Rogue/images/standing/bra_[Rogue.Clothes[bra].string]_1_grope.webp"
     else:
         "characters/Rogue/images/standing/bra_[Rogue.Clothes[bra].string]_[Rogue.Clothes[bra].state].webp"
 
 layeredimage Rogue_standing_left_arm:
     always:
-        "characters/Rogue/images/standing/left_arm_[Rogue.left_arm_pose].webp"
+        "characters/Rogue/images/standing/left_arm_[Rogue.left_arm].webp"
 
     anchor (int(1590*character_sampling), int(1530*character_sampling))
     offset (int(1590*character_sampling), int(1530*character_sampling))

@@ -1001,8 +1001,8 @@ label stop_all_Actions(close_interface = False, automatic = False):
                 if Player.location == C.home:
                     C.clothes_on_floor = False
 
-            C.left_arm_pose = "neutral"
-            C.right_arm_pose = "neutral"
+            C.left_arm = "neutral"
+            C.right_arm = "neutral"
 
             C.change_face()
 

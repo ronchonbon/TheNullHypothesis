@@ -489,7 +489,7 @@ label day_two_tutoring_session:
 
     ch_Player "Haven't heard of it. Honestly, I barely know how to work this fancy phone."
     
-    # $ Rogue.right_arm_pose = 2
+    # $ Rogue.right_arm = 2
     $ Rogue.change_face("smirk2")
 
     ch_Rogue "Gimme, ah'll set up an account for you."
@@ -498,7 +498,7 @@ label day_two_tutoring_session:
 
     "You hand her your new phone."
     
-    # $ Rogue.right_arm_pose = 1
+    # $ Rogue.right_arm = 1
 
     pause 1.0
 
@@ -520,11 +520,11 @@ label day_two_tutoring_session:
 
     ch_Rogue "Done. Ah added myself as your friend and also put my number in there in case you get any questions while studyin'."
 
-    # $ Rogue.right_arm_pose = 2
+    # $ Rogue.right_arm = 2
 
     pause 1.0
 
-    # $ Rogue.right_arm_pose = 1
+    # $ Rogue.right_arm = 1
     $ Rogue.change_face("smirk2")
 
     ch_Player "Thanks, [Rogue.name]. I appreciate it."
@@ -541,7 +541,7 @@ label day_two_after_tutoring:
     "[Rogue.name] looks conflicted about what to say next.{p}Finally, she caves."
 
     if Rogue.History.check("Player_looked_at_glove"):
-        # $ Rogue.left_arm_pose = 2
+        # $ Rogue.left_arm = 2
 
         ch_Rogue "Ah know you realized what ah was meanin' to ask when we first met. . ."
         
@@ -555,7 +555,7 @@ label day_two_after_tutoring:
 
         ch_Rogue "Ahwasjustwonderin'if\nmaybeahcouldtrytouchin'\nyousinceyou'reimmune\nanditwon'thurtyou."    
     else:
-        # $ Rogue.left_arm_pose = 2
+        # $ Rogue.left_arm = 2
 
         ch_Rogue "So ah told you how my power works when we first met. . ."
         ch_Player "Right."
@@ -565,7 +565,7 @@ label day_two_after_tutoring:
         ch_Rogue "Ah was just wonderin'. . .{p}{size=-5}if maybe{/size}. . .{p}{size=-10}ah could try touchin' you{/size}. . ."
 
     $ Rogue.change_face("worried1", mouth = "lipbite", blush = 1)
-    # $ Rogue.left_arm_pose = 1
+    # $ Rogue.left_arm = 1
 
     menu:
         extend ""
@@ -605,7 +605,7 @@ label day_two_after_tutoring:
     ch_Rogue "Thank you!"
 
     $ Rogue.change_face("smirk2")
-    # $ Rogue.right_arm_pose = 2
+    # $ Rogue.right_arm = 2
 
     pause 1.0
 
@@ -641,7 +641,7 @@ label day_two_after_tutoring:
             call change_Girl_stat(Rogue, "love", large_stat) from _call_change_Girl_stat_915
 
             $ Rogue.change_face("surprised2", blush = 1)
-            # $ Rogue.right_arm_pose = 1
+            # $ Rogue.right_arm = 1
 
             "[Rogue.name] lets go of your hand and stands up, looking quite flustered."
             
@@ -655,7 +655,7 @@ label day_two_after_tutoring:
             "She packs up and leaves in a hurry."
         "Make her jump by faking convulsions. Pranks are funny, right?":
             $ Rogue.change_face("worried4")
-            # $ Rogue.right_arm_pose = 1
+            # $ Rogue.right_arm = 1
 
             "[Rogue.name] looks horrified and immediately removes her hand."
 

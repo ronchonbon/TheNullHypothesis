@@ -158,8 +158,8 @@ label hide_Character(Character, fade = True):
     if fade:
         with dissolve
 
-    $ Character.left_arm_pose = "neutral"
-    $ Character.right_arm_pose = "neutral"
+    $ Character.left_arm = "neutral"
+    $ Character.right_arm = "neutral"
 
     $ Character.change_face()
 
