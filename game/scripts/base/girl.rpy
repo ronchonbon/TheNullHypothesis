@@ -174,20 +174,9 @@ init -2 python:
             self.likes = {}
             self.knows_about = []
 
-            self.waking_up = False
-            self.studying = False
-            self.in_class = False
-            self.training = False
-            self.on_date = False
-            self.teaching = False
-            self.swimming = False
-            self.sunbathing = False
-            self.showering = False
-            self.getting_ready_for_bed = False
-            self.sleeping = False
-            self.changing = False
-            self.masturbating = False
-            self.having_sex = False
+            self.behavior = None
+            self.behavior_Partners = []
+            
             self.orgasming = False
             
             self.wants_alone_time = 0
@@ -806,7 +795,7 @@ init -2 python:
             global snow_left
 
             if self.location != "hold":
-                if self.training or self.swimming:
+                if self.behavior in ["training", "swimming"]:
                     self.destination = "bg_lockers"
 
                     if time_index < 3 and time_index not in self.schedule.keys():

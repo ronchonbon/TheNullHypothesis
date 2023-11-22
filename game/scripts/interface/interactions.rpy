@@ -22,7 +22,7 @@ screen Character_picker():
 
     if not black_screen and not Action_screen_showing and Character_picker_active and sandbox and not ongoing_Event and not Character_picker_disabled:
         for C in Present:
-            if not C.teaching:
+            if C.behavior != "teaching":
                 if C in all_Girls and renpy.showing(f"{C.tag}_sprite standing"):
                     button anchor (C.sprite_anchor[0], C.sprite_anchor[1]) pos (C.sprite_position[0], C.sprite_position[1]):
                         background None

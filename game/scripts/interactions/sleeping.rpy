@@ -9,7 +9,7 @@ label get_ready_for_bed:
 
     $ Party = []
 
-    $ Player.getting_ready_for_bed = True
+    $ Player.behavior = "getting_ready_for_bed"
 
     $ selected_Event = EventScheduler.choose_Event(getting_ready_for_bed = True)
 
@@ -53,21 +53,16 @@ label go_to_sleep(automatic = False):
     python:
         for C in Present:
             if C in all_Girls:
-                temp_sleepover_Characters.append(C)
+                C.History.update("sleepover")
 
-    while temp_sleepover_Characters:
-        $ temp_sleepover_Characters[0].History.update("sleepover")
-
-        $ temp_sleepover_Characters[0].getting_ready_for_bed = True
-
-        $ temp_sleepover_Characters.remove(temp_sleepover_Characters[0])
+                C.behavior = "getting_ready_for_bed"
 
     call set_Character_Outfits(instant = False) from _call_set_Character_Outfits_13
 
     if Present:
         pause 2.0
 
-    $ Player.getting_ready_for_bed = False
+    $ Player.behavior = None
 
     if not automatic:
         $ lights_on = False
@@ -85,34 +80,26 @@ label go_to_sleep(automatic = False):
 
     python:
         for C in all_Characters:
-            C.sleeping = True
+            C.behavior = "sleeping"
 
-    $ Player.sleeping = True
+    $ Player.behavior = "sleeping"
 
     call check_for_Events(sleeping = True) from _call_check_for_Events_1
 
-    python:
-        for C in all_Characters:
-            C.sleeping = False
-
-    $ Player.sleeping = False
+    $ reset_behavior()
 
     $ lights_on = True
 
     if time_index >= 3:
         python:
             for C in all_Characters:
-                C.waking_up = True
+                C.behavior = "waking_up"
 
-        $ Player.waking_up = True
+        $ Player.behavior = "waking_up"
         
         call wait_around(fade = False) from _call_wait_around_2
 
-        python:
-            for C in all_Characters:
-                C.waking_up = False
-
-        $ Player.waking_up = False
+        $ reset_behavior()
 
     if black_screen:
         $ fade_in_from_black(0.4)

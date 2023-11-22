@@ -60,16 +60,8 @@ init -2 python:
             
             self.inventory = {}
 
-            self.waking_up = False
-            self.studying = False
-            self.in_class = False
-            self.training = False
-            self.teaching = False
-            self.swimming = False
-            self.sunbathing = False
-            self.showering = False
-            self.getting_ready_for_bed = False
-            self.sleeping = False
+            self.behavior = None
+            self.behavior_Partners = []
 
             self.wants_alone_time = 0
             

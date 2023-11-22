@@ -418,6 +418,7 @@ label Laura_first_friend_part_three:
     $ Laura.change_face("angry1")
 
     $ reset_behavior(Laura)
+    
     call set_Character_Outfits(Laura) from _call_set_Character_Outfits_3
 
     call show_Character(Laura, x = stage_center, sprite_layer = 6, fade = False) from _call_show_Character_1

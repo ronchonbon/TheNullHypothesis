@@ -87,7 +87,7 @@ label Characters_arrive(arriving_Characters, invited = False, greetings = True, 
                     $ Character_picker_active = False
                     $ belt_disabled = True
 
-            if verb and not grouped_Characters[0].teaching:
+            if verb and grouped_Characters[0].behavior != "teaching":
                 if not invited:
                     if grouped_Characters[0] in all_Girls:    
                         $ status = grouped_Characters[0].get_status()

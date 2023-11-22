@@ -269,14 +269,14 @@ label Laura_text_good_morning_nympho:
     call receive_text(Laura, "Why aren't you in my bed") from _call_receive_text_381
     call receive_text(Laura, "Now I need to do it on my own. . .") from _call_receive_text_382
 
-    $ Laura.masturbating = True
+    $ Laura.behavior = "masturbating"
 
     call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_515
 
     return
 
 label Laura_text_goodnight:
-    if Laura.training:
+    if Laura.behavior == "training":
         $ dice_roll = renpy.random.randint(1, 3)
     else:
         $ dice_roll = renpy.random.randint(1, 2)
@@ -356,7 +356,7 @@ label Laura_text_goodnight_horny:
     call receive_text(Laura, "But you didn't") from _call_receive_text_407
     call receive_text(Laura, "Never mind, I'll do it myself") from _call_receive_text_408
 
-    $ Laura.masturbating = True
+    $ Laura.behavior = "masturbating"
 
     call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_521
 

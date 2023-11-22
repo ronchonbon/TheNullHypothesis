@@ -8,7 +8,7 @@ init python:
             
             "Laura.History.check('trained_with_Player', tracker = 'season') == 1",
 
-            "Player.training == Laura and Laura.training"]
+            "Player.behavior == 'training' and Laura in Player.behavior_Partners and Laura.behavior == 'training'"]
 
         priority = 99
 

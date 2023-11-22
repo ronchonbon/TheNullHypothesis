@@ -554,7 +554,7 @@ label Jean_greets_Player_knocking_nympho(welcoming_Characters):
     return True
 
 label Jean_greets_Player_knocking_reject(welcoming_Characters):
-    if Jean.showering:
+    if Jean.behavior == "showering":
         $ dice_roll = renpy.random.randint(1, 3)
     else:
         $ dice_roll = renpy.random.randint(1, 2)
@@ -575,9 +575,7 @@ label Jean_greets_Player_knocking_reject(welcoming_Characters):
         ch_Jean "I'm about to take a shower." 
         ch_Jean "Come by later!"
 
-        $ reset_behavior(Jean)
-
-        $ Jean.showering = True
+        $ Jean.behavior = "showering"
     elif dice_roll == 3:
         "You hear water running as you walk up to the door." 
         "You knock a couple times, but she probably can't hear you from the shower." 

@@ -118,7 +118,7 @@ label show_Character(Character, t = None, sprite_anchor = None, x = None, y = No
     if not renpy.showing(f"{Character.tag}_sprite standing") or different or color_transform or animation_transform:
         $ renpy.hide(f"{Character.tag}_sprite")
         
-        if t is not None and not black_screen and not Character.teaching:
+        if t is not None and not black_screen and not Character.behavior == "teaching":
             $ transform_list = [
                 change_sprite_anchor(Character.sprite_anchor[0], Character.sprite_anchor[1]),
                 zoom_sprite(Character.sprite_zoom, t = t),

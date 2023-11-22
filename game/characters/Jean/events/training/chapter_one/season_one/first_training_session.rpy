@@ -8,7 +8,7 @@ init python:
 
             "not Jean.History.check('trained_with_Player', tracker = 'season')",
             
-            "Player.training == Jean and Jean.training"]
+            "Player.behavior == 'training' and Jean in Player.behavior_Partners and Jean.behavior == 'training'"]
 
         priority = 99
 
@@ -161,9 +161,10 @@ label Jean_chapter_one_season_one_first_training_session_chat:
 
         $ Jean.change_face("smirk2")
 
-        $ Jean.training = True
+        $ Jean.behavior = "training"
 
-        $ Player.training = Jean
+        $ Player.behavior = "training"
+        $ Player.behavior_Partners = [Jean]
 
         call set_Character_Outfits(Jean, instant = False) from _call_set_Character_Outfits_1
 

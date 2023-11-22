@@ -10,7 +10,7 @@ init python:
             
             "not Rogue.History.check('trained_with_Player', tracker = 'season')",
 
-            "Player.training == Rogue and Rogue.training"]
+            "Player.behavior == 'training' and Rogue in Player.behavior_Partners and Rogue.behavior == 'training'"]
 
         priority = 99
 
@@ -197,7 +197,7 @@ label Rogue_chapter_one_season_four_first_training_session:
 
     "You quickly wash off and change out of your workout clothes."
 
-    $ Player.showering = True
+    $ Player.behavior = "showering"
     $ shower_steam = True
 
     $ Player.sweat = 0
@@ -213,7 +213,7 @@ label Rogue_chapter_one_season_four_first_training_session:
 
     pause 2.0
 
-    $ Player.showering = False
+    $ Player.behavior = None
 
     $ fade_in_from_black(0.4)
 

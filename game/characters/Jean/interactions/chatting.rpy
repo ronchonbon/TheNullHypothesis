@@ -11,7 +11,7 @@ label Jean_chatting(line):
     return
 
 label Jean_busy:
-    if Jean.in_class:
+    if Jean.behavior == "in_class":
         $ Jean.change_face(eyes = "down") 
 
         pause 1.0
@@ -23,7 +23,7 @@ label Jean_busy:
         $ Jean.change_face("smirk2") 
 
         ch_Jean "Sorry, busy with class work right now." 
-    elif Jean.training:
+    elif Jean.behavior == "training":
         $ dice_roll = renpy.random.randint(1, 2)
 
         if dice_roll == 1:
@@ -55,7 +55,7 @@ label Jean_busy:
                     $ Jean.change_face("confused1")
 
                     $ Jean.History.update("Player_rejected_training")
-    elif Jean.studying:
+    elif Jean.behavior == "studying":
         $ dice_roll = renpy.random.randint(1, 2)
 
         if dice_roll == 1:

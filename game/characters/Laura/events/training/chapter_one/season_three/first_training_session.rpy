@@ -8,7 +8,7 @@ init python:
 
             "not Laura.History.check('trained_with_Player', tracker = 'season')",
             
-            "Player.training"]
+            "Player.behavior == 'training'"]
 
         priority = 99
 
@@ -19,9 +19,12 @@ label Laura_chapter_one_season_three_first_training_session:
 
     $ Laura.change_face("furious")
     
-    if Player.training != Laura:
-        if Player.training in all_Girls:
-            "You're about to start training with [Player.training.name] when a shiver crawls up your spine."
+    if Laura not in Player.behavior_Partners:
+        if Player.behavior_Partners:
+            if len(Player.behavior_Partners) == 1:
+                "You're about to start training with [Player.behavior_Partners[0].name] when a shiver crawls up your spine."
+            else:
+                "You're about to start training when a shiver crawls up your spine."
         else:
             "You're about to start training when a shiver crawls up your spine."
         
@@ -44,7 +47,8 @@ label Laura_chapter_one_season_three_first_training_session:
         
         $ Laura.change_face("furious")
 
-        $ Player.training = Laura
+        $ Player.behavior = "training"
+        $ Player.behavior_Partners = [Laura]
 
         call remove_everyone_but(Laura) from _call_remove_everyone_but_3
 

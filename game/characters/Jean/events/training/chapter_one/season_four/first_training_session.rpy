@@ -8,7 +8,7 @@ init python:
 
             "not Jean.History.check('trained_with_Player', tracker = 'season')",
             
-            "Player.training"]
+            "Player.behavior == 'training'"]
 
         priority = 99
 
@@ -17,7 +17,7 @@ init python:
 label Jean_chapter_one_season_four_first_training_session:
     $ ongoing_Event = True
     
-    if Player.training != Jean:
+    if Jean not in Player.behavior_Partners:
         "You want to train, but after everything that's happened, you have to change up the status quo."
         "Nearly beating people to death has a way of changing one's perspective on things."
         "You need to consult [Jean.name] and learn to control how strongly your power expresses itself."
@@ -25,7 +25,8 @@ label Jean_chapter_one_season_four_first_training_session:
 
         call send_Characters(Jean, "bg_danger", behavior = "training") from _call_send_Characters_56
 
-        $ Player.training = Jean
+        $ Player.behavior = "training"
+        $ Player.behavior_Partners = [Jean]
 
         call remove_everyone_but(Jean) from _call_remove_everyone_but
 

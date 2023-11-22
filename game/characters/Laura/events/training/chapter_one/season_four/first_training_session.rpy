@@ -10,7 +10,7 @@ init python:
 
             "not Laura.History.check('trained_with_Player', tracker = 'season')",
             
-            "Player.training"]
+            "Player.behavior == 'training'"]
 
         priority = 99
 
@@ -19,7 +19,7 @@ init python:
 label Laura_chapter_one_season_four_first_training_session:
     $ ongoing_Event = True
     
-    if Player.training != Laura:
+    if Laura not in Player.behavior_Partners:
         "You're still not ready to train on your own."
         "[Laura.name] will want to hear about the progress you've been making with [Jean.name]."
         "As if summoned by your thoughts, you hear footsteps approaching from behind."
@@ -32,7 +32,7 @@ label Laura_chapter_one_season_four_first_training_session:
             ch_Laura "I didn't mean for you to start anyways."
             ch_Laura "Fine, I'm here."
 
-        $ Player.training = Laura
+        $ Player.behavior_Partners = [Laura]
 
         call remove_everyone_but(Laura) from _call_remove_everyone_but_2
 

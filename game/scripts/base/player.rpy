@@ -99,23 +99,13 @@ init -3 python:
                 "cock",
                 "balls"]
 
-            self.having_sex = False
             self.orgasming = None
 
             self.orgasm_control = False
-            
-            self.waking_up = False
-            self.studying = False
-            self.in_class = False
-            self.teaching = False
-            self.training = False
-            self.on_date = False
-            self.swimming = False
-            self.sunbathing = False
-            self.showering = False
-            self.getting_ready_for_bed = False
-            self.sleeping = False
 
+            self.behavior = None
+            self.behavior_Partners = []
+            
             self.schedule = {}
             self.date_planned = {}
 

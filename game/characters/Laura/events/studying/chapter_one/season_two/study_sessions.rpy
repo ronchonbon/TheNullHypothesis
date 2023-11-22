@@ -8,7 +8,7 @@ init python:
             
             "Laura.History.check('studied_with_Player', tracker = 'season') >= 1",
 
-            "Player.studying == Laura and Laura.studying"]
+            "Player.behavior == 'studying' and Laura in Player.behavior_Partners and Laura.behavior == 'studying'"]
 
         priority = 99
         repeatable = True

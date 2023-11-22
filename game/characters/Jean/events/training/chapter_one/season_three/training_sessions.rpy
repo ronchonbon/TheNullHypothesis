@@ -8,7 +8,7 @@ init python:
             
             "Jean.History.check('trained_with_Player', tracker = 'season') >= 2",
 
-            "Player.training == Jean and Jean.training"]
+            "Player.behavior == 'training' and Jean in Player.behavior_Partners and Jean.behavior == 'training'"]
 
         priority = 99
         repeatable = True

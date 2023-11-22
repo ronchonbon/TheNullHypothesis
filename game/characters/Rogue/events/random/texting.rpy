@@ -6,7 +6,7 @@ init python:
         conditions = [
             "renpy.random.random() > 0.9",
             
-            "Rogue.studying",
+            "Rogue.behavior == 'studying'",
 
             "not Rogue.timed_text_options",
 
@@ -78,7 +78,7 @@ init python:
         conditions = [
             "renpy.random.random() > 0.9",
             
-            "Rogue.training",
+            "Rogue.behavior == 'training'",
 
             "not Rogue.timed_text_options",
 
@@ -235,7 +235,7 @@ init python:
 
             "Rogue.quirk",
 
-            "Rogue.masturbating",
+            "Rogue.behavior == 'masturbating'",
 
             "not Rogue.timed_text_options",
 
@@ -263,7 +263,7 @@ label Rogue_texting_ask_to_masturbate:
 
     $ Rogue.timed_text_options.update({"Rogue_texting_ask_to_masturbate": ["not allowed. maybe I'll come take care of you later", "yes, you're allowed. but only if you say please", "you're not allowed, because I'm about to head over and take care of you myself"]})
 
-    $ Rogue.masturbating = False
+    $ Rogue.behavior = None
 
     return
 
@@ -284,9 +284,7 @@ label Rogue_texting_ask_to_masturbate_response:
         call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_609
             
         if Rogue.location in [Rogue.home, Player.home]:
-            $ reset_behavior(Rogue)
-
-            $ Rogue.masturbating = True
+            $ Rogue.behavior = "masturbating"
     elif Rogue.text_history[-1][1] == temp[2]:
         call receive_text(Rogue, "Lord, please do") from _call_receive_text_486
         

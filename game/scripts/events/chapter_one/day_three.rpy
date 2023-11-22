@@ -312,7 +312,7 @@ label day_three_take_shower:
 
     "You take a quick shower."
 
-    $ Player.showering = True
+    $ Player.behavior = "showering"
     $ shower_steam = True
             
     pause 5.0
@@ -321,7 +321,7 @@ label day_three_take_shower:
 
     pause 2.0
 
-    $ Player.showering = False
+    $ Player.behavior = None
 
     $ time_index = 2
     

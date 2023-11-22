@@ -38,7 +38,7 @@ label Laura_follow_temporary:
     return
 
 label Laura_follow_busy:
-    if Laura.training:
+    if Laura.behavior == "training":
         $ Laura.change_face("confused1")
 
         ch_Laura "Why?"
@@ -46,12 +46,12 @@ label Laura_follow_busy:
         $ Laura.change_face("neutral")
 
         ch_Laura "No, I'm in the middle of training."
-    elif Laura.studying:
+    elif Laura.behavior == "studying":
         $ Laura.change_face("neutral")
 
         ch_Laura "Not leaving."
         ch_Laura "I'm busy."
-    elif Laura.in_class:
+    elif Laura.behavior == "in_class":
         $ Laura.change_face("angry1")
 
         ch_Laura "I wish I could skip this shitty class. . ."

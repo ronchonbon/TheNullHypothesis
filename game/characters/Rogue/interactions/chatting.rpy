@@ -8,12 +8,12 @@ label Rogue_chatting(line):
     return
 
 label Rogue_busy:
-    if Rogue.in_class:
+    if Rogue.behavior == "in_class":
         $ Rogue.change_face("worried1")
 
         ch_Rogue "Ah shoulda studied more. . ." 
         ch_Rogue "Wish ah could chat with ya."
-    elif Rogue.training:
+    elif Rogue.behavior == "training":
         $ dice_roll = renpy.random.randint(1, 2)
 
         if dice_roll == 1:

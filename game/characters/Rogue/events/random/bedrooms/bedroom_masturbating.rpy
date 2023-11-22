@@ -6,7 +6,7 @@ init python:
         conditions = [
             "Player.destination == Rogue.home and Rogue.location == Rogue.home",
 
-            "Rogue.masturbating",
+            "Rogue.behavior == 'masturbating'",
 
             "day - EventScheduler.Events['Rogue_bedroom_masturbating'].completed_when > 1",
             

@@ -5,29 +5,22 @@ init python:
     def reset_behavior(Characters = None):
         global all_Characters
 
+        global Player
+
         if not Characters:
             Characters = all_Characters[:]
+
+            Characters.append(Player)
         elif Characters == Player:
             Characters = [Characters]
         elif Characters in all_Characters:
             Characters = [Characters]
 
         for C in Characters:
-            C.waking_up = False
-            C.studying = False
-            C.in_class = False
-            C.training = False
-            C.teaching = False
-            C.on_date = False
-            C.swimming = False
-            C.sunbathing = False
-            C.showering = False
-            C.getting_ready_for_bed = False
-            C.sleeping = False
+            C.behavior = None
 
-            if C in all_Girls:
-                C.changing = False
-                C.masturbating = False
+            if C == Player:
+                C.behavior_Partners = []
 
         return
     
@@ -112,63 +105,63 @@ init python:
 
             if clock > 0:
                 if time_index in C.schedule.keys():
-                    setattr(C, C.schedule[time_index][1], True)
+                    C.behavior = C.schedule[time_index][1]
                 elif C.destination in bedrooms:
                     if C.destination in C.home and time_index == 3:
-                        C.getting_ready_for_bed = True
+                        C.behavior = "getting_ready_for_bed"
                     elif C in all_Girls and C.destination != Player.location:
                         dice_roll = renpy.random.random()
 
                         if len(Characters_present) == 1 and dice_roll > 0.9 - 0.01*C.desire:
                             if C == Laura and not EventScheduler.Events["Rogue_Laura_asks_about_masturbation"].completed:
-                                C.changing = True
+                                C.behavior = "changing"
                             else:
-                                C.masturbating = True
+                                C.behavior = "masturbating"
                         elif len(Characters_present) == 1 and dice_roll > 0.5:
-                            C.changing = True
+                            C.behavior = "changing"
                     elif C in Students:
-                        C.studying = True
+                        C.behavior = "studying"
                 elif C.destination == "bg_classroom" and time_index in [0, 1]:
                     if C in Students:
-                        C.in_class = True
+                        C.behavior = "in_class"
                     elif C in Professors:
-                        C.teaching = True
+                        C.behavior = "teaching"
 
                         for P in Professors:
-                            if P != C and P.teaching:
+                            if P != C and P.behavior == "teaching":
                                 while C.location == "bg_classroom":
                                     set_Character_locations(C)
                                     set_Character_behavior(C)
 
                                 break
                 elif C.destination == "bg_danger" and time_index < 3:
-                    C.training = True
+                    C.behavior = "training"
                 elif C.destination == "bg_pool" and time_index < 3:
                     if renpy.random.random() > 0.5 and temperature[time_index] > 25:
-                        C.swimming = True
+                        C.behavior = "swimming"
                     else:
-                        C.sunbathing = True
+                        C.behavior = "sunbathing"
                 elif C.destination == "bg_lockers" or "bg_shower" in C.destination:
                     dice_roll = renpy.random.random()
 
                     if C.destination == "bg_shower" or dice_roll > 0.5: 
-                        C.showering = True
+                        C.behavior = "showering"
                     else:
-                        C.changing = True    
+                        C.behavior = "changing"
             else:
                 if C.destination == "bg_lockers" or "bg_shower" in C.destination:
                     dice_roll = renpy.random.random()
 
                     if C.destination == "bg_shower" or dice_roll > 0.5: 
-                        C.showering = True
+                        C.behavior = "showering"
                     else:
-                        C.changing = True
+                        C.behavior = "changing"
                 elif C.destination in C.home and time_index == 3:
-                    C.getting_ready_for_bed = True
+                    C.behavior = "getting_ready_for_bed"
 
-        if C.teaching:
+        if C.behavior == "teaching":
             C.schedule[time_index] = [C.destination, "teaching"]
-        elif C.in_class:
+        elif C.behavior == "in_class":
             C.schedule[time_index] = [C.destination, "in_class"]
 
         return
@@ -192,15 +185,15 @@ label set_Character_Outfits(Characters = None, instant = True):
                 if temp_Outfit_Characters[0].location != Player.location:
                     $ temp_Outfit_Characters[0].wet = False
                 
-                if temp_Outfit_Characters[0].on_date:
+                if temp_Outfit_Characters[0].behavior == "on_date":
                     $ Outfit = temp_Outfit_Characters[0].Wardrobe.date_Outfit
-                elif (temp_Outfit_Characters[0].sleeping or temp_Outfit_Characters[0].getting_ready_for_bed) and (Player.location != temp_Outfit_Characters[0].destination or approval_check(temp_Outfit_Characters[0], threshold = "sleepover")):
+                elif (temp_Outfit_Characters[0].behavior == "sleeping" or temp_Outfit_Characters[0].behavior == "getting_ready_for_bed") and (Player.location != temp_Outfit_Characters[0].destination or approval_check(temp_Outfit_Characters[0], threshold = "sleepover")):
                     $ Outfit = temp_Outfit_Characters[0].Wardrobe.sleeping_Outfit
-                elif temp_Outfit_Characters[0].training:
+                elif temp_Outfit_Characters[0].behavior == "training":
                     $ Outfit = temp_Outfit_Characters[0].Wardrobe.gym_Outfit
-                elif temp_Outfit_Characters[0].swimming or temp_Outfit_Characters[0].sunbathing:
+                elif temp_Outfit_Characters[0].behavior in ["swimming", "sunbathing"]:
                     $ Outfit = temp_Outfit_Characters[0].Wardrobe.swimming_Outfit
-                elif temp_Outfit_Characters[0].destination == "bg_lockers" and temp_Outfit_Characters[0].showering:
+                elif temp_Outfit_Characters[0].destination == "bg_lockers" and temp_Outfit_Characters[0].behavior == "showering":
                     if Player.location == "bg_lockers":
                         if temp_Outfit_Characters[0].location == "bg_danger":
                             $ Outfit = temp_Outfit_Characters[0].Wardrobe.gym_Outfit
@@ -214,14 +207,14 @@ label set_Character_Outfits(Characters = None, instant = True):
                             $ Outfit = temp_Outfit_Characters[0].Wardrobe.indoor_Outfit
                     else:
                         $ Outfit = temp_Outfit_Characters[0].Wardrobe.swimming_Outfit
-                elif temp_Outfit_Characters[0].destination == "bg_lockers" and temp_Outfit_Characters[0].changing:
+                elif temp_Outfit_Characters[0].destination == "bg_lockers" and temp_Outfit_Characters[0].behavior == "changing":
                     if temp_Outfit_Characters[0].location == "bg_danger":
                         $ Outfit = temp_Outfit_Characters[0].Wardrobe.gym_Outfit
                     elif temp_Outfit_Characters[0].location == "bg_pool":
                         $ Outfit = temp_Outfit_Characters[0].Wardrobe.swimming_Outfit
                     else:
                         $ Outfit = temp_Outfit_Characters[0].Wardrobe.indoor_Outfit
-                elif "bg_shower" in temp_Outfit_Characters[0].destination and temp_Outfit_Characters[0].showering:
+                elif "bg_shower" in temp_Outfit_Characters[0].destination and temp_Outfit_Characters[0].behavior == "showering":
                     $ Outfit = temp_Outfit_Characters[0].Wardrobe.Outfits["Nude"]
                 elif temp_Outfit_Characters[0].destination in ["bg_campus", "bg_pool"]:
                     $ Outfit = temp_Outfit_Characters[0].Wardrobe.outdoor_Outfit
@@ -250,16 +243,16 @@ label set_Character_Outfits(Characters = None, instant = True):
                         call change_Outfit(temp_Outfit_Characters[0], Outfit, instant = True) from _call_change_Outfit_45
 
                 if temp_Outfit_Characters:
-                    # if temp_Outfit_Characters[0].showering and temp_Outfit_Characters[0].location == "nearby":
+                    # if temp_Outfit_Characters[0].behavior == "showering" and temp_Outfit_Characters[0].location == "nearby":
                     #     call try_on(temp_Outfit_Characters[0], temp_Outfit_Characters[0].Wardrobe.Clothes["towel"], instant = True) from _call_try_on_15
                     
-                    if temp_Outfit_Characters[0].showering and Player.location not in [temp_Outfit_Characters[0].location, temp_Outfit_Characters[0].destination]:
+                    if temp_Outfit_Characters[0].behavior == "showering" and Player.location not in [temp_Outfit_Characters[0].location, temp_Outfit_Characters[0].destination]:
                         if renpy.random.random() > 0.5:
-                            $ temp_Outfit_Characters[0].showering = False
+                            $ temp_Outfit_Characters[0].behavior = None
                             $ temp_Outfit_Characters[0].wet = True
             elif temp_Outfit_Characters[0] in all_NPCs:
                 if temp_Outfit_Characters[0] == Kurt:
-                    if temp_Outfit_Characters[0].training:
+                    if temp_Outfit_Characters[0].behavior == "training":
                         if temperature[0] < 10 and temp_Outfit_Characters[0].destination in ["bg_campus", "bg_pool"]:
                             if renpy.showing(f"{temp_Outfit_Characters[0].tag}_sprite") and not black_screen and not instant and temp_Outfit_Characters[0].outfit != "suit_coat":
                                 $ fade_to_black(0.4)

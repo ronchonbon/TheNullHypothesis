@@ -22,7 +22,7 @@ label Rogue_reject_study_asked_twice:
     return
 
 label Rogue_accept_study_text:
-    if Rogue.studying:
+    if Rogue.behavior == "studying":
         $ Rogue.schedule[time_index] = [Rogue.home, "studying"]
 
         call receive_text(Rogue, "Was already studying in my room") from _call_receive_text_494
@@ -39,7 +39,7 @@ label Rogue_accept_study_text:
             
             call set_the_scene(location = Rogue.location) from _call_set_the_scene_225
         elif Rogue.text_history[-1][1] == temp[1]:
-            $ Player.studying = False
+            $ Player.behavior = None
     else:
         call receive_text(Rogue, "Always down to study with ya") from _call_receive_text_496
         call receive_text(Rogue, "Omw!") from _call_receive_text_497

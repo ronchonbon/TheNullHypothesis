@@ -229,12 +229,12 @@ label find_a_seat:
 label take_class:            
     $ Character_picker_disabled = True
     $ belt_disabled = True
-
-    $ Player.in_class = True
     
     python:
         for C in Present:
-            C.in_class = True
+            C.behavior = "in_class"
+
+    $ Player.behavior = "in_class"
 
     $ selected_Event = EventScheduler.choose_Event()
 
@@ -256,9 +256,9 @@ label take_class:
 
     python:
         for C in Present:
-            if C.in_class:
+            if C.behavior == "in_class":
                 C.History.update("attended_class")
-            elif C.teaching:
+            elif C.behavior == "teaching":
                 C.History.update("taught_class")
             
     $ gained_XP = int(20*Player.stat_modifier*Player.max_stamina)

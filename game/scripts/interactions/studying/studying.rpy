@@ -2,17 +2,12 @@ label study_session:
     $ Character_picker_disabled = True
     $ belt_disabled = True
 
-    $ Player.studying = True
-    $ Player.training = False
+    $ Player.behavior = "studying"
 
     $ studying_Girl = None
 
     menu:
         "Study on your own":
-            python:
-                for C in Present:
-                    C.studying = False
-                    
             $ _return = True
         "Study with [Rogue.name]" if not Rogue.History.check("studied_with_Player", tracker = "daily") and Rogue in Present and not Rogue.History.check("said_no_to_studying", tracker = "recent") > 2:
             call ask_to_study(Rogue) from _call_ask_to_study
@@ -51,13 +46,12 @@ label study_session:
             return
 
     if _return:
-        if Player.training:
+        if Player.behavior == "training":
             call actually_train(studying_Girl) from _call_actually_train_9
-        elif Player.studying:
+        elif Player.behavior == "studying":
             call actually_study(studying_Girl) from _call_actually_study_12
     else:
-        $ Player.studying = False
-        $ Player.training = False
+        $ reset_behavior(Player)
 
     if not renpy.get_screen("phone_screen"):
         $ Character_picker_disabled = False
@@ -146,11 +140,10 @@ label actually_study(Girl):
     hide screen phone_screen
 
     if Girl:
-        $ Player.studying = Girl
+        $ Player.behavior = "studying" 
+        $ Player.behavior_Partners = [Girl]
 
-        $ reset_behavior(Girl)
-
-        $ Girl.studying = True
+        $ Girl.behavior = "studying"
 
     if black_screen:
         $ fade_in_from_black(0.4)
@@ -188,20 +181,22 @@ label actually_study(Girl):
             $ fade_in_from_black(0.4)
 
 label after_studying:
-    if Player.studying in all_Girls:
-        $ Player.studying.History.update("studied_with_Player")
-        $ Player.studying.studying = False
+    if Player.behavior_Partners:
+        python:
+            for C in Player.behavior_Partners:
+                C.History.update("studied_with_Player")
+                C.behavior = None
 
-        $ gained_XP = int(10*Player.studying.stat_modifier)
-        $ Player.studying.XP += gained_XP
+                gained_XP = int(10*C.stat_modifier)
+                C.XP += gained_XP
 
-        if time_index in Player.studying.schedule.keys() and Player.studying.schedule[time_index][1] == "studying":
-            $ del Player.studying.schedule[time_index]
-        
-        $ update_messages.append("{color=%s}%s{/color} gained {color=%s}%s XP{/color} from {color=%s}Studying{/color}" % (eval(f"{Player.studying.tag}_color"), Player.studying.name, "#feba00", gained_XP, "#feba00"))
+                if time_index in C.schedule.keys() and C.schedule[time_index][1] == "studying":
+                    del C.schedule[time_index]
+                
+                update_messages.append("{color=%s}%s{/color} gained {color=%s}%s XP{/color} from {color=%s}Studying{/color}" % (eval(f"{C.tag}_color"), C.name, "#feba00", gained_XP, "#feba00"))
 
     $ Player.History.update("studied")
-    $ Player.studying = False
+    $ Player.behavior = None
 
     $ gained_XP = int(10*Player.stat_modifier)
     $ Player.XP += gained_XP

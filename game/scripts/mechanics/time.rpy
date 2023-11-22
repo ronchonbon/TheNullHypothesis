@@ -8,21 +8,21 @@ init python:
 
         for C in Characters:
             if C in all_Girls:
-                if C.studying or C.in_class or C.teaching or C.training:
+                if C.behavior in ["studying", "in_class", "teaching", "training"]:
                     if C.location != Player.location:
-                        if C.studying:
+                        if C.behavior == "studying":
                             C.XP += 10*C.stat_modifier
 
                             C.History.update("studied")
-                        elif C.in_class:
+                        elif C.behavior == "in_class":
                             C.XP += 20*C.stat_modifier*C.max_stamina
 
                             C.History.update("attended_class")
-                        elif C.teaching:
+                        elif C.behavior == "teaching":
                             C.XP += 20*C.stat_modifier*C.max_stamina
 
                             C.History.update("taught_class")
-                        elif C.training:
+                        elif C.behavior == "training":
                             C.XP += 10*C.stat_modifier
 
                             C.History.update("trained")
@@ -35,7 +35,7 @@ init python:
                             if C not in other_C.likes.keys():
                                 other_C.likes[C] = 0
                                 
-                            if other_C.location == C.location and (other_C.studying or other_C.in_class or other_C.teaching or other_C.training):
+                            if other_C.location == C.location and other_C.behavior in ["studying", "in_class", "teaching", "training"]:
                                 C.likes[other_C] += 5
                                 other_C.likes[C] += 5
 
@@ -157,7 +157,7 @@ label wait_around(fade = True, silent = False, Events = True):
         if black_screen:
             $ fade_in_from_black(0.4)
 
-        if Player.waking_up:
+        if Player.behavior == "waking_up":
             call check_for_Events(waking = True) from _call_check_for_Events_2
         
         $ leaving_Characters, arriving_Characters = set_Character_locations()
@@ -166,7 +166,7 @@ label wait_around(fade = True, silent = False, Events = True):
 
         python:
             for C in Professors:
-                if C.teaching:
+                if C.behavior == "teaching":
                     was_teaching = C
 
     $ set_Character_behavior()

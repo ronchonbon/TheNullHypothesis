@@ -117,13 +117,13 @@ label Kurt_chatting(line):
     return
 
 label Kurt_busy:
-    if Kurt.in_class:
+    if Kurt.behavior == "in_class":
         $ Kurt.change_face("neutral") 
         
         ch_Kurt "Not good." 
         ch_Kurt "I vill never get used to zese lectures." 
         ch_Kurt "Vish I could just 'port avay."
-    elif Kurt.training:
+    elif Kurt.behavior == "training":
         $ Kurt.change_face("happy") 
 
         ch_Kurt "Good, sanks." 

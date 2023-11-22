@@ -7,7 +7,7 @@ init python:
             "Player.destination == Laura.home and Laura.location == Laura.home",
 
             "EventScheduler.Events['Rogue_Laura_asks_about_masturbation'].completed",
-            "Laura.masturbating",
+            "Laura.behavior == 'masturbating'",
 
             "day - EventScheduler.Events['Laura_bedroom_masturbating'].completed_when > 1",
             

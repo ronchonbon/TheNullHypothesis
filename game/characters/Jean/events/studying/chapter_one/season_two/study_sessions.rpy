@@ -6,7 +6,7 @@ init python:
         conditions = [
             "chapter == 1 and season == 2",
             
-            "Player.studying == Jean and Jean.studying"]
+            "Player.behavior == 'studying' and Jean in Player.behavior_Partners and Jean.behavior == 'studying'"]
 
         priority = 99
         repeatable = True

@@ -8,7 +8,7 @@ init python:
 
             "not Jean.History.check('studied_with_Player', tracker = 'season')",
             
-            "Player.studying == Jean and Jean.studying"]
+            "Player.behavior == 'studying' and Jean in Player.behavior_Partners and Jean.behavior == 'studying'"]
 
         priority = 99
 

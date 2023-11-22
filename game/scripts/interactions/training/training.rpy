@@ -2,8 +2,7 @@ label train:
     $ Character_picker_disabled = True
     $ belt_disabled = True
 
-    $ Player.studying = False
-    $ Player.training = True
+    $ Player.behavior = "training"
 
     $ training_Girl = None
 
@@ -13,8 +12,6 @@ label train:
 
             while temp_training_Characters:
                 call remove_Characters(temp_training_Characters[0]) from _call_remove_Characters_237
-                
-                $ temp_training_Characters[0].training = False
 
                 $ temp_training_Characters.remove(temp_training_Characters[0])
 
@@ -56,13 +53,12 @@ label train:
             return
 
     if _return:
-        if Player.studying:
+        if Player.behavior == "studying":
             call actually_study(training_Girl) from _call_actually_study_13
-        elif Player.training:
+        elif Player.behavior == "training":
             call actually_train(training_Girl) from _call_actually_train_10
     else:
-        $ Player.studying = False
-        $ Player.training = False
+        $ reset_behavior(Player)
 
     if not renpy.get_screen("phone_screen"):
         $ Character_picker_disabled = False
@@ -150,11 +146,10 @@ label actually_train(Girl):
     hide screen phone_screen
 
     if Girl:
-        $ Player.training = Girl
+        $ Player.behavior = "training"
+        $ Player.behavior_Partners = [Girl]
 
-        $ reset_behavior(Girl)
-
-        $ Girl.training = True
+        $ Girl.behavior = "training"
 
     if black_screen:
         $ fade_in_from_black(0.4)
@@ -190,21 +185,23 @@ label actually_train(Girl):
             $ fade_in_from_black(0.4)
 
 label after_training:
-    if Player.training in all_Girls:
-        $ Player.training.History.update("trained_with_Player")
-        $ Player.training.training = False
+    if Player.behavior_Partners:
+        python:
+            for C in Player.behavior_Partners:
+                C.History.update("trained_with_Player")
+                C.behavior = None
 
-        $ gained_XP = int(10*Player.training.stat_modifier)
-        $ Player.training.XP += gained_XP
+                gained_XP = int(10*C.stat_modifier)
+                C.XP += gained_XP
 
-        if time_index in Player.training.schedule.keys() and Player.training.schedule[time_index][1] == "training":
-            $ del Player.training.schedule[time_index]
-        
-        $ update_messages.append("{color=%s}%s{/color} gained {color=%s}%s XP{/color} from {color=%s}Training{/color}" % (eval(f"{Player.training.tag}_color"), Player.training.name, "#feba00", gained_XP, "#feba00"))
+                if time_index in C.schedule.keys() and C.schedule[time_index][1] == "training":
+                    del C.schedule[time_index]
+                
+                update_messages.append("{color=%s}%s{/color} gained {color=%s}%s XP{/color} from {color=%s}Training{/color}" % (eval(f"{C.tag}_color"), C.name, "#feba00", gained_XP, "#feba00"))
 
     $ Player.History.update("trained")
-    $ Player.training = False
-    $ Player.sweaty = True
+    $ Player.behavior = None
+    $ Player.sweat += 1
     
     $ gained_XP = int(10*Player.stat_modifier)
     $ Player.XP += gained_XP

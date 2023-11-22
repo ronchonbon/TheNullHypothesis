@@ -8,7 +8,7 @@ init python:
             
             "Rogue.History.check('trained_with_Player', tracker = 'season') >= 1",
 
-            "Player.training == Rogue and Rogue.training"]
+            "Player.behavior == 'training' and Rogue in Player.behavior_Partners and Rogue.behavior == 'training'"]
 
         priority = 99
         repeatable = True

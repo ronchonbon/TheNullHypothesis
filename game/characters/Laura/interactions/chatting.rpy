@@ -5,14 +5,14 @@ label Laura_chatting(line):
     return
 
 label Laura_busy:
-    if Laura.in_class:
+    if Laura.behavior == "in_class":
         $ Laura.change_face("angry1") 
 
         ch_Laura "Bored out of my mind." 
         ch_Laura "I'm busy trying not to pay attention, just find me in the Danger Room later if you have something to say." 
 
         $ Laura.change_face("angry1", eyes = "right")
-    elif Laura.training:
+    elif Laura.behavior == "training":
         $ dice_roll = renpy.random.randint(1, 2)
 
         if dice_roll == 1:
@@ -48,7 +48,7 @@ label Laura_busy:
                     $ Laura.change_face("confused1", eyes = "squint")
 
                     $ Laura.History.update("Player_rejected_studying")
-    elif Laura.studying:
+    elif Laura.behavior == "studying":
         $ dice_roll = renpy.random.randint(1, 2)
 
         if dice_roll == 1:

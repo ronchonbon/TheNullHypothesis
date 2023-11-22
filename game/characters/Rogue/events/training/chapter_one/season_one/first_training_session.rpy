@@ -8,7 +8,7 @@ init python:
 
             "not Rogue.History.check('trained_with_Player', tracker = 'season')",
             
-            "Player.training == Rogue and Rogue.training"]
+            "Player.behavior == 'training' and Rogue in Player.behavior_Partners and Rogue.behavior == 'training'"]
 
         priority = 99
 

@@ -50,11 +50,11 @@ label Jean_follow_temporary:
     return
 
 label Jean_follow_busy:
-    if Jean.training:
+    if Jean.behavior == "training":
         $ Jean.change_face("confused1")
 
         ch_Jean "Kinda in the middle of training. . ."
-    elif Jean.studying:
+    elif Jean.behavior == "studying":
         $ Jean.change_face("confused1")
 
         ch_Jean "No, sorry. . . I was planning on studying."
@@ -62,7 +62,7 @@ label Jean_follow_busy:
         $ Jean.change_face("neutral")
 
         ch_Jean "You're welcome to join though. . ."
-    elif Jean.in_class:
+    elif Jean.behavior == "in_class":
         $ Jean.change_face("perplexed")
 
         ch_Jean "Like I would skip class. . ."

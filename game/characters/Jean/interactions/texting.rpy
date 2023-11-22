@@ -267,7 +267,7 @@ label Jean_text_good_morning_nympho:
     return
 
 label Jean_text_goodnight:
-    if Jean.studying:
+    if Jean.behavior == "studying":
         $ dice_roll = renpy.random.randint(1, 3)
     else:
         $ dice_roll = renpy.random.randint(1, 2)

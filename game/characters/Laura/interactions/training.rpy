@@ -61,7 +61,7 @@ label Laura_reject_train_asked_twice:
     return
 
 label Laura_accept_train_text:
-    if Laura.studying and Laura.History.check("studied_with_Player") and day - Laura.History.check_when("studied_with_Player") > 4:
+    if Laura.behavior == "studying" and Laura.History.check("studied_with_Player") and day - Laura.History.check_when("studied_with_Player") > 4:
         $ Laura.schedule[time_index] = [Laura.home, "studying"]
 
         call receive_text(Laura, "Can't") from _call_receive_text_436
@@ -79,9 +79,10 @@ label Laura_accept_train_text:
             
             call set_the_scene(location = Laura.location) from _call_set_the_scene_151
 
-            $ Player.studying = Laura
-
-        $ Player.training = False
+            $ Player.behavior = "studying"
+            $ Player.behavior_Partners = [Laura]
+        else:
+            $ Player.behavior = None
     else:
         $ dice_roll = renpy.random.randint(1, 3)
 

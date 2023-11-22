@@ -5,7 +5,7 @@ init python:
 
         conditions = [
             "Player.destination == 'bg_lockers' and Rogue.location == 'bg_lockers'",
-            "Rogue.changing",
+            "Rogue.behavior == 'changing'",
 
             "day - EventScheduler.Events['Rogue_locker_room_changing'].completed_when > 1",
 
@@ -70,8 +70,7 @@ label Rogue_locker_room_changing:
 
             pause 2.0
 
-            $ Rogue.changing = False
-            $ Rogue.showering = True
+            $ Rogue.behavior = "showering"
 
             call set_Character_Outfits(Rogue, instant = False) from _call_set_Character_Outfits_4
 

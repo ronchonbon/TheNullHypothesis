@@ -39,7 +39,7 @@ init python:
             "time_index == 2",
             
             "Rogue.location == 'bg_lockers'",
-            "Rogue.changing",
+            "Rogue.behavior == 'changing'",
 
             "Rogue.is_in_normal_mood()"]
 
@@ -52,7 +52,7 @@ init python:
                 "time_index == 2",
                 
                 "Rogue.location == 'bg_lockers'",
-                "Rogue.changing",
+                "Rogue.behavior == 'changing'",
 
                 "Rogue.is_in_normal_mood()"]}
 

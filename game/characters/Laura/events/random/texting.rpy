@@ -6,7 +6,7 @@ init python:
         conditions = [
             "renpy.random.random() > 0.9",
             
-            "Laura.studying",
+            "Laura.behavior == 'studying'",
 
             "not Laura.timed_text_options",
 
@@ -80,7 +80,7 @@ init python:
         conditions = [
             "renpy.random.random() > 0.9",
             
-            "Laura.training",
+            "Laura.behavior == 'training'",
 
             "not Laura.timed_text_options",
 

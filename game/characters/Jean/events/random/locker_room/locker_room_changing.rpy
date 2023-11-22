@@ -5,7 +5,7 @@ init python:
 
         conditions = [
             "Player.destination == 'bg_lockers' and Jean.location == 'bg_lockers'",
-            "Jean.changing",
+            "Jean.behavior == 'changing'",
 
             "day - EventScheduler.Events['Jean_locker_room_changing'].completed_when > 1",
 
@@ -72,8 +72,7 @@ label Jean_locker_room_changing:
 
             pause 2.0
 
-            $ Jean.changing = False
-            $ Jean.showering = True
+            $ Jean.behavior = "showering"
 
             call set_Character_Outfits(Jean, instant = False) from _call_set_Character_Outfits
 

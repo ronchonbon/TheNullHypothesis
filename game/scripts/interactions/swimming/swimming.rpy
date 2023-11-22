@@ -2,7 +2,7 @@ label swim:
     $ Character_picker_disabled = True
     $ belt_disabled = True
 
-    $ Player.swimming = True
+    $ Player.behavior = "swimming"
     
     $ temp_swimming_Characters = Present[:]
 
@@ -62,9 +62,7 @@ label actually_swim(swimming_Characters):
     if swimming_Characters:
         python:
             for C in swimming_Characters:
-                reset_behavior(C)
-
-                C.swimming = True
+                C.behavior = "swimming"
 
         call set_Character_Outfits(swimming_Characters, instant = False) from _call_set_Character_Outfits_18
 
@@ -111,7 +109,7 @@ label after_swimming:
         python:
             for C in swimming_Characters:
                 C.History.update("swam_with_Player")
-                C.swimming = False
+                C.behavior = None
 
                 for other_C in swimming_Characters:
                     if other_C != C:
@@ -125,7 +123,7 @@ label after_swimming:
                         other_C.likes[C] += 10
 
     $ Player.History.update("swam")
-    $ Player.swimming = False
+    $ Player.behavior = None
     $ Player.chlorine += 1
 
     call check_for_Events(only_automatic = True) from _call_check_for_Events_20

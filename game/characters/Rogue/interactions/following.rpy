@@ -47,11 +47,11 @@ label Rogue_follow_temporary:
 label Rogue_follow_busy:
     $ Rogue.change_face("worried1")
 
-    if Rogue.training:
+    if Rogue.behavior == "training":
         ch_Rogue "Ah really gotta finish this training session. . ."
-    elif Rogue.studying or Rogue.masturbating or Rogue.changing or Rogue.showering:
+    elif Rogue.behavior in ["studying", "changing", "showering", "masturbating"]:
         ch_Rogue "Ah can't. . . ah got stuff to do, ah'm sorry."
-    elif Rogue.in_class:
+    elif Rogue.behavior == "in_class":
         ch_Rogue "Sorry. . . ah really can't be skippin' class."
     else:
         ch_Rogue "Sorry [Rogue.Player_petname], ah'm busy."

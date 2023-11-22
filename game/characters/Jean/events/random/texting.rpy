@@ -6,7 +6,7 @@ init python:
         conditions = [
             "renpy.random.random() > 0.9",
             
-            "Jean.studying",
+            "Jean.behavior == 'studying'",
 
             "not Jean.timed_text_options",
 
@@ -79,7 +79,7 @@ init python:
         conditions = [
             "renpy.random.random() > 0.9",
             
-            "Jean.training",
+            "Jean.behavior == 'training'",
 
             "not Jean.timed_text_options",
 

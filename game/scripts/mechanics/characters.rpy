@@ -54,7 +54,7 @@ label set_the_scene(location = None, show_Characters = True, show_Party = True, 
             temp_NPCs = []
 
             for C in Present:
-                if C.teaching and C.location == "bg_classroom":
+                if C.behavior == "teaching" and C.location == "bg_classroom":
                     temp_Professor = C
                 else:
                     if C in all_Girls and C != focused_Girl:
@@ -77,7 +77,7 @@ label set_the_scene(location = None, show_Characters = True, show_Party = True, 
             temp_NPCs = []
 
             for C in Party:
-                if C.teaching and C.location == "bg_classroom":
+                if C.behavior == "teaching" and C.location == "bg_classroom":
                     temp_Professor = C
                 else:
                     if C in all_Girls and C != focused_Girl:
@@ -144,7 +144,7 @@ label set_the_scene(location = None, show_Characters = True, show_Party = True, 
 
             $ temp_Characters.remove(temp_Characters[0])
 
-        if focused_Girl and not focused_Girl.teaching:
+        if focused_Girl and not focused_Girl.behavior == "teaching":
             if focused_Girl.location == Player.location:
                 if number_of_NPCs == 0 or (number_of_NPCs > 0 and number_of_Girls > 1):
                     call show_Character(focused_Girl, sprite_anchor = eval(f"{focused_Girl.tag}_standing_anchor"), x = stage_center, y = eval(f"{focused_Girl.tag}_standing_height"), sprite_layer = 6, color_transform = color_transform, fade = fade_Characters) from _call_show_Character_13
@@ -286,7 +286,7 @@ label send_Characters(Characters, location, behavior = None, farewells = False, 
         if behavior:
             python:
                 for C in Characters:
-                    setattr(C, behavior, True)
+                    C.behavior = behavior
 
     if leaving_Characters:
         call Characters_leave(leaving_Characters, farewells = farewells, fade = fade) from _call_Characters_leave_6

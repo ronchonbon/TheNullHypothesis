@@ -18,7 +18,7 @@ label Rogue_accept_train:
     return
 
 label Rogue_reject_train:
-    if Rogue.training:
+    if Rogue.behavior == "training":
         $ dice_roll = renpy.random.randint(1, 3)
     else:
         $ dice_roll = renpy.random.randint(1, 2)

@@ -10,7 +10,7 @@ label take_a_shower:
             if G.location == Player.location:
                 if Player.location == "bg_lockers" and time_index in G.schedule and (G.schedule[time_index] == ["bg_lockers", "showering"] or G.schedule[time_index] == ["bg_lockers", "changing"]):
                     showering_Girls.append(G)
-                elif G.showering and Player.location == "bg_lockers" and approval_check(G, threshold = "friendship"):
+                elif G.behavior == "showering" and Player.location == "bg_lockers" and approval_check(G, threshold = "friendship"):
                     showering_Girls.append(G)
                 elif "bg_shower" in Player.location and approval_check(G, threshold = "see_pussy"):
                     showering_Girls.append(G)
@@ -38,7 +38,7 @@ label take_a_shower:
 
         python:
             for C in showering_Girls:
-                C.showering = True
+                C.behavior = "showering"
 
         if Player.location == "bg_lockers":
             call set_Character_Outfits(showering_Girls, instant = False) from _call_set_Character_Outfits_12
@@ -74,7 +74,7 @@ label take_a_shower:
 
         pause 1.0
 
-    $ Player.showering = True
+    $ Player.behavior = "showering"
     $ shower_steam = True
 
     $ Player.sweat = 0
@@ -107,13 +107,13 @@ label take_a_shower:
     if selected_Event:
         call start_Event(selected_Event) from _call_start_Event_9
 
-        $ Player.showering = False
+        $ Player.behavior = None
     else:
         $ fade_to_black(0.4)
 
         pause 2.0
 
-        $ Player.showering = False
+        $ Player.behavior = None
 
         $ fade_in_from_black(0.4)
 
@@ -130,7 +130,7 @@ label take_a_shower:
         while temp_showering_Girls:
             # call try_on(temp_showering_Girls[0], temp_showering_Girls[0].Wardrobe.Clothes["towel"]) from _call_try_on_14
 
-            $ temp_showering_Girls[0].showering = False
+            $ temp_showering_Girls[0].behavior = None
 
             if time_index in temp_showering_Girls[0].schedule.keys() and temp_showering_Girls[0].schedule[time_index][1] == "showering":
                 $ del temp_showering_Girls[0].schedule[time_index]

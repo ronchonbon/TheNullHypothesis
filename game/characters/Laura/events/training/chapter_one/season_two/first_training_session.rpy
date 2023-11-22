@@ -8,7 +8,7 @@ init python:
             
             "not Laura.History.check('trained_with_Player', tracker = 'season')",
 
-            "Player.training"]
+            "Player.behavior == 'training'"]
 
         priority = 99
 
@@ -17,7 +17,7 @@ init python:
 label Laura_chapter_one_season_two_first_training_session:
     $ ongoing_Event = True
     
-    if Player.training != Laura:
+    if Laura not in Player.behavior_Partners:
         call send_Characters(Laura, "bg_danger", behavior = "training") from _call_send_Characters_117
         
         $ Laura.change_face("angry1")
@@ -25,7 +25,7 @@ label Laura_chapter_one_season_two_first_training_session:
         if Laura.History.check("said_no_to_training", tracker = "recent"):
             ch_Laura "So you were just going to train without me?"
         else:
-            if Player.training in all_Girls:
+            if Player.behavior_Partners:
                 ch_Laura "Were you about to train without me?"
             else:
                 ch_Laura "Were you about to train on your own?"
@@ -36,7 +36,8 @@ label Laura_chapter_one_season_two_first_training_session:
 
         ch_Laura "Absolutely not."
 
-        $ Player.training = Laura
+        $ Player.behavior = "training"
+        $ Player.behavior_Partners = [Laura]
 
         call remove_everyone_but(Laura) from _call_remove_everyone_but_4
 

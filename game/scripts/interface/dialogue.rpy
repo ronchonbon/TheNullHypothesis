@@ -51,7 +51,7 @@ screen say(who, what, two_window = False, hide_after = None):
         $ name = C.name
 
         if renpy.showing(f"{C.tag}_sprite") and not say_obscured:
-            if C.teaching:
+            if C.behavior == "teaching":
                 $ dialogue_anchor = [0.0, 0.0]
                 $ dialogue_position = [C.sprite_position[0] - 0.02, C.sprite_position[1] - 0.4]
             elif C.sprite_position[0] < stage_far_far_right and C.position not in ["doggy", "masturbation", "missionary"]:

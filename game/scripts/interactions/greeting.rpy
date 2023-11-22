@@ -22,7 +22,7 @@ label Characters_greet_Player(greeting_Characters):
                 call expression f"{sorted_Characters[0].tag}_greets_Player_relationship" from _call_expression_246
             else:
                 call expression f"{sorted_Characters[0].tag}_greets_Player" from _call_expression_247
-        elif not sorted_Characters[0].teaching:
+        elif sorted_Characters[0].behavior != "teaching":
             call expression f"{sorted_Characters[0].tag}_greets_Player" from _call_expression_248
 
         $ sorted_Characters.remove(sorted_Characters[0])

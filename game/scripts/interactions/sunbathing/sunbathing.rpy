@@ -2,7 +2,7 @@ label sunbathe:
     $ Character_picker_disabled = True
     $ belt_disabled = True
 
-    $ Player.sunbathing = True
+    $ Player.behavior = "sunbathing"
     
     $ temp_sunbathing_Characters = Present[:]
 
@@ -64,9 +64,7 @@ label actually_sunbathe(sunbathing_Characters):
 
         python:
             for C in sunbathing_Characters:
-                reset_behavior(C)
-
-                C.sunbathing = True
+                C.behavior = "sunbathing"
 
         call set_Character_Outfits(sunbathing_Characters, instant = False) from _call_set_Character_Outfits_17
 
@@ -108,7 +106,7 @@ label after_sunbathing:
                     C.History.update("tan_lines_bottom")
 
                 C.History.update("tanned_with_Player")
-                C.sunbathing = False
+                C.behavior = None
 
                 for other_C in sunbathing_Characters:
                     if other_C != C:
@@ -122,7 +120,7 @@ label after_sunbathing:
                         other_C.likes[C] += 10
 
     $ Player.History.update("sunbathed")
-    $ Player.sunbathing = False
+    $ Player.behavior = None
 
     call check_for_Events(only_automatic = True) from _call_check_for_Events_19
     call move_location(Player.location) from _call_move_location_50

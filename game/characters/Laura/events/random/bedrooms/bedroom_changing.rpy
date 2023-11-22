@@ -6,7 +6,7 @@ init python:
         conditions = [
             "Player.destination == Laura.home and Laura.location == Laura.home",
 
-            "Laura.changing",
+            "Laura.behavior == 'changing'",
 
             "day - EventScheduler.Events['Laura_bedroom_changing'].completed_when > 1",
             
