@@ -79,6 +79,13 @@ init python:
             Laura_chapter_one_season_four_first_training_session(),
             Laura_chapter_one_season_four_training_sessions(),
 
+            Laura_chapter_one_season_one_on_edge_setup(),
+            Laura_chapter_one_season_one_on_edge(),
+            Laura_chapter_one_season_one_late_night_training_setup(),
+            Laura_chapter_one_season_one_late_night_training(),
+            Laura_chapter_one_season_one_outcast_setup(),
+            Laura_chapter_one_season_one_outcast(),
+
             Laura_first_friend_part_one(),
             Laura_first_friend_part_two(),
             Laura_first_friend_part_three(),

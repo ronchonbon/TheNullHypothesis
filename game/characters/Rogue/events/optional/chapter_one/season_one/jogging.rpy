@@ -34,6 +34,8 @@ init python:
         label = "Rogue_chapter_one_season_one_jogging"
 
         conditions = [
+            "Player.destination == 'bg_lockers'",
+
             "chapter == 1 and season == 1",
 
             "time_index == 2",
@@ -76,9 +78,9 @@ label Rogue_chapter_one_season_one_jogging:
 
     menu:
         extend ""
-        "Approach [Rogue.name]":
+        "Ask [Rogue.name] where she's headed":
             pass
-        "Don't get involved":
+        "Let her do her thing":
             call remove_Characters(Rogue) from _call_remove_Characters_324
 
             $ EventScheduler.Events["Rogue_chapter_one_season_one_jogging"].completed = False

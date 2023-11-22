@@ -70,11 +70,9 @@ label Rogue_chapter_one_season_one_people_watching:
 
     menu:
         extend ""
-        "Approach [Rogue.name]":
+        "See what [Rogue.name]'s up to":
             pass
-        "Don't get involved":
-            call remove_Characters(Rogue) from _call_remove_Characters_327
-
+        "Mind your own business":
             $ EventScheduler.Events["Rogue_chapter_one_season_one_people_watching"].completed = False
             $ EventScheduler.Events["Rogue_chapter_one_season_one_people_watching"].completed_when = 1e8
 

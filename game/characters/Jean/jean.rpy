@@ -113,11 +113,11 @@ init -1:
         "footjob": [800, 775],
 
         "striptease": [375, 350],
-        "Jean_touch_pussy": [400, 375],
-        "Jean_finger_ass": [400, 375],
-        "Jean_vibrator": [650, 625],
-        "Jean_dildo_pussy": [775, 750],
-        "Jean_dildo_ass": [875, 850],
+        "self_touch_pussy": [400, 375],
+        "self_finger_ass": [400, 375],
+        "self_vibrator": [650, 625],
+        "self_dildo_pussy": [775, 750],
+        "self_dildo_ass": [875, 850],
         "jerk_off": [475, 490],
         
         "grind_pussy": [675, 650],
@@ -243,11 +243,11 @@ init -1:
         "footjob": ["Jean in Partners"],
 
         "striptease": ["Jean in Partners"],
-        "Jean_touch_pussy": ["Jean in Partners"],
-        "Jean_finger_ass": ["Jean in Partners"],
-        "Jean_vibrator": ["Jean in Partners"],
-        "Jean_dildo_pussy": ["Jean in Partners", "EventScheduler.Events['Jean_first_sex_part_two'].completed"],
-        "Jean_dildo_ass": ["Jean in Partners", "EventScheduler.Events['Jean_first_sex_part_two'].completed"],
+        "self_touch_pussy": ["Jean in Partners"],
+        "self_finger_ass": ["Jean in Partners"],
+        "self_vibrator": ["Jean in Partners"],
+        "self_dildo_pussy": ["Jean in Partners", "EventScheduler.Events['Jean_first_sex_part_two'].completed"],
+        "self_dildo_ass": ["Jean in Partners", "EventScheduler.Events['Jean_first_sex_part_two'].completed"],
         "jerk_off": ["Jean in Partners"],
         
         "grind_pussy": ["Jean in Partners"],

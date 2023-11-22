@@ -113,11 +113,11 @@ init -1:
         "footjob": [760, 760],
 
         "striptease": [400, 400],
-        "Rogue_touch_pussy": [525, 525],
-        "Rogue_finger_ass": [525, 525],
-        "Rogue_vibrator": [700, 700],
-        "Rogue_dildo_pussy": [950, 950],
-        "Rogue_dildo_ass": [950, 950],
+        "self_touch_pussy": [525, 525],
+        "self_finger_ass": [525, 525],
+        "self_vibrator": [700, 700],
+        "self_dildo_pussy": [950, 950],
+        "self_dildo_ass": [950, 950],
         "jerk_off": [525, 525],
         
         "grind_pussy": [800, 775],
@@ -243,11 +243,11 @@ init -1:
         "footjob": ["Rogue in Partners"],
 
         "striptease": ["Rogue in Partners"],
-        "Rogue_touch_pussy": ["Rogue in Partners"],
-        "Rogue_finger_ass": ["Rogue in Partners"],
-        "Rogue_vibrator": ["Rogue in Partners"],
-        "Rogue_dildo_pussy": ["Rogue in Partners", "EventScheduler.Events['Rogue_first_sex'].completed"],
-        "Rogue_dildo_ass": ["Rogue in Partners", "EventScheduler.Events['Rogue_first_sex'].completed"],
+        "self_touch_pussy": ["Rogue in Partners"],
+        "self_finger_ass": ["Rogue in Partners"],
+        "self_vibrator": ["Rogue in Partners"],
+        "self_dildo_pussy": ["Rogue in Partners", "EventScheduler.Events['Rogue_first_sex'].completed"],
+        "self_dildo_ass": ["Rogue in Partners", "EventScheduler.Events['Rogue_first_sex'].completed"],
         "jerk_off": ["Rogue in Partners"],
         
         "grind_pussy": ["Rogue in Partners"],

@@ -113,11 +113,11 @@ init -1:
         "footjob": [700, 775],
 
         "striptease": [175, 225],
-        "Laura_touch_pussy": [250, 325],
-        "Laura_finger_ass": [250, 325],
-        "Laura_vibrator": [550, 625],
-        "Laura_dildo_pussy": [750, 850],
-        "Laura_dildo_ass": [875, 925],
+        "self_touch_pussy": [250, 325],
+        "self_finger_ass": [250, 325],
+        "self_vibrator": [550, 625],
+        "self_dildo_pussy": [750, 850],
+        "self_dildo_ass": [875, 925],
         "jerk_off": [500, 575],
         
         "grind_pussy": [750, 825],
@@ -243,11 +243,11 @@ init -1:
         "footjob": ["Laura in Partners"],
 
         "striptease": ["Laura in Partners"],
-        "Laura_touch_pussy": ["Laura in Partners"],
-        "Laura_finger_ass": ["Laura in Partners"],
-        "Laura_vibrator": ["Laura in Partners"],
-        "Laura_dildo_pussy": ["Laura in Partners", "EventScheduler.Events['Laura_first_sex_part_two'].completed"],
-        "Laura_dildo_ass": ["Laura in Partners", "EventScheduler.Events['Laura_first_sex_part_two'].completed"],
+        "self_touch_pussy": ["Laura in Partners"],
+        "self_finger_ass": ["Laura in Partners"],
+        "self_vibrator": ["Laura in Partners"],
+        "self_dildo_pussy": ["Laura in Partners", "EventScheduler.Events['Laura_first_sex_part_two'].completed"],
+        "self_dildo_ass": ["Laura in Partners", "EventScheduler.Events['Laura_first_sex_part_two'].completed"],
         "jerk_off": ["Laura in Partners"],
         
         "grind_pussy": ["Laura in Partners"],

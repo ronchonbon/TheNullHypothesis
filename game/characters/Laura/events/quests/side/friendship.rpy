@@ -14,7 +14,11 @@ init python:
         objectives = {
             "Gain Love": ["Laura.love", Laura_thresholds["dating"][0]],
 
-            "Gain Trust": ["Laura.trust", Laura_thresholds["dating"][1]]}
+            "Gain Trust": ["Laura.trust", Laura_thresholds["dating"][1]],
+            
+            "Run into her training late at night": ["EventScheduler.Events['Laura_chapter_one_season_one_late_night_training'].completed", None],
+            
+            "Sit next to her in class": ["EventScheduler.Events['Laura_chapter_one_season_one_outcast'].completed", None]}
 
         optional_objectives = {}
 

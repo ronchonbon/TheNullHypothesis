@@ -107,7 +107,11 @@ label Rogue_chapter_one_season_one_standoffish_part_one:
         "Approach [Rogue.name]":
             pass
         "Don't get involved":
-            call remove_Characters(Rogue) from _call_remove_Characters_329
+            "[Rogue.name] lingers a little bit before walking to her room and shutting the door."
+
+            call send_Characters(Rogue, Rogue.home, behavior = False) from _call_remove_Characters_329
+
+            $ Rogue.wants_alone_time = 1
 
             $ EventScheduler.Events["Rogue_chapter_one_season_one_standoffish_part_one"].completed = False
             $ EventScheduler.Events["Rogue_chapter_one_season_one_standoffish_part_one"].completed_when = 1e8

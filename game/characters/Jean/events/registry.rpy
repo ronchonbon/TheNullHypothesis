@@ -68,6 +68,13 @@ init python:
             Jean_chapter_one_season_four_first_training_session(),
             Jean_chapter_one_season_four_training_sessions(),
 
+            Jean_chapter_one_season_one_study_time_setup(),
+            Jean_chapter_one_season_one_study_time(),
+            Jean_chapter_one_season_one_exam_freakout_setup(),
+            Jean_chapter_one_season_one_exam_freakout(),
+            Jean_chapter_one_season_one_friendless_setup(),
+            Jean_chapter_one_season_one_friendless(),
+
             Jean_leaving_for_mission(),
             Jean_back_from_mission(),
             Jean_asked_on_date(),

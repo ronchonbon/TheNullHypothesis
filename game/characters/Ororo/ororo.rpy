@@ -70,11 +70,11 @@ init -1:
         "footjob": [1000, 1000],
 
         "striptease": [1000, 1000],
-        "Ororo_touch_pussy": [1000, 1000],
-        "Ororo_finger_ass": [1000, 1000],
-        "Ororo_vibrator": [1000, 1000],
-        "Ororo_dildo_pussy": [1000, 1000],
-        "Ororo_dildo_ass": [1000, 1000],
+        "self_touch_pussy": [1000, 1000],
+        "self_finger_ass": [1000, 1000],
+        "self_vibrator": [1000, 1000],
+        "self_dildo_pussy": [1000, 1000],
+        "self_dildo_ass": [1000, 1000],
         "jerk_off": [1000, 1000],
         
         "grind_pussy": [1000, 1000],
@@ -200,11 +200,11 @@ init -1:
         "footjob": ["Ororo in Partners"],
 
         "striptease": ["Ororo in Partners"],
-        "Ororo_touch_pussy": ["Ororo in Partners"],
-        "Ororo_finger_ass": ["Ororo in Partners"],
-        "Ororo_vibrator": ["Ororo in Partners"],
-        "Ororo_dildo_pussy": ["Ororo in Partners", "EventScheduler.Events['Ororo_first_sex'].completed"],
-        "Ororo_dildo_ass": ["Ororo in Partners", "EventScheduler.Events['Ororo_first_sex'].completed"],
+        "self_touch_pussy": ["Ororo in Partners"],
+        "self_finger_ass": ["Ororo in Partners"],
+        "self_vibrator": ["Ororo in Partners"],
+        "self_dildo_pussy": ["Ororo in Partners", "EventScheduler.Events['Ororo_first_sex'].completed"],
+        "self_dildo_ass": ["Ororo in Partners", "EventScheduler.Events['Ororo_first_sex'].completed"],
         "jerk_off": ["Ororo in Partners"],
         
         "grind_pussy": ["Ororo in Partners"],
