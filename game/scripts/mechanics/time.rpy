@@ -2,12 +2,12 @@ init python:
 
     def reset_Characters_at_end_of_period(Characters = None):
         global all_Characters
-        global all_Girls
+        global all_Companions
 
         Characters = all_Characters[:] if not Characters else Characters
 
         for C in Characters:
-            if C in all_Girls:
+            if C in all_Companions:
                 if C.behavior in ["studying", "in_class", "teaching", "training"]:
                     if C.location != Player.location:
                         if C.behavior == "studying":
@@ -27,7 +27,7 @@ init python:
 
                             C.History.update("trained")
 
-                    for other_C in all_Girls:
+                    for other_C in all_Companions:
                         if other_C != C:
                             if other_C not in C.likes.keys():
                                 C.likes[other_C] = 0
@@ -57,7 +57,7 @@ init python:
 
     def reset_Characters_at_end_of_day(Characters = None):
         global all_Characters
-        global all_Girls
+        global all_Companions
         global all_NPCs
 
         global EventScheduler
@@ -67,7 +67,7 @@ init python:
         Characters = all_Characters[:] if not Characters else Characters
 
         for C in Characters:
-            if C in all_Girls:
+            if C in all_Companions:
                 for status in ["miffed", "mad", "heartbroken", "horny", "nympho"]:
                     C.status[status] -= 1 if C.status[status] > 0 else 0
 
@@ -134,7 +134,7 @@ label wait_around(fade = True, silent = False, Events = True):
         $ Player.stamina += 1 if Player.stamina < Player.max_stamina else 0
 
         python:
-            for G in all_Girls:
+            for G in all_Companions:
                 G.messy_bed = False
                 
         $ Player.messy_bed = False
@@ -237,7 +237,7 @@ label start_new_day(fast = False):
     $ Player.stamina = Player.max_stamina
 
     python:
-        for G in all_Girls:
+        for G in all_Companions:
             G.messy_bed = True
             
     $ Player.messy_bed = True
@@ -246,15 +246,15 @@ label start_new_day(fast = False):
 
     $ update_messages = []
 
-    $ temp_ignored_Girls = all_Girls[:]
+    $ temp_ignored_Companions = all_Companions[:]
 
-    while temp_ignored_Girls:
-        if temp_ignored_Girls[0].timed_text_options:
-            $ temp_ignored_Girls[0].timed_text_options = {}
+    while temp_ignored_Companions:
+        if temp_ignored_Companions[0].timed_text_options:
+            $ temp_ignored_Companions[0].timed_text_options = {}
 
-            call change_Girl_stat(temp_ignored_Girls[0], "love", -5) from _call_change_Girl_stat_1038
+            call change_Girl_stat(temp_ignored_Companions[0], "love", -5) from _call_change_Girl_stat_1038
 
-        $ temp_ignored_Girls.remove(temp_ignored_Girls[0])
+        $ temp_ignored_Companions.remove(temp_ignored_Companions[0])
 
     $ clock = Player.max_stamina
     

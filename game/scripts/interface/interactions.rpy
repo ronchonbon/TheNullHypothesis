@@ -23,7 +23,7 @@ screen Character_picker():
     if not black_screen and not Action_screen_showing and Character_picker_active and sandbox and not ongoing_Event and not Character_picker_disabled:
         for C in Present:
             if C.behavior != "teaching":
-                if C in all_Girls and renpy.showing(f"{C.tag}_sprite standing"):
+                if C in all_Companions and renpy.showing(f"{C.tag}_sprite standing"):
                     button anchor (C.sprite_anchor[0], C.sprite_anchor[1]) pos (C.sprite_position[0], C.sprite_position[1]):
                         background None
                         
@@ -70,7 +70,7 @@ screen interactions_screen(Character):
 
     if not interactions_screen_disabled:
         frame anchor (0.5, 1.0) pos (0.5, 0.75):
-            if Character in all_Girls:
+            if Character in all_Companions:
                 background "images/interface/interactions/base_Girl.webp"
 
                 xysize (758, 179)
@@ -84,7 +84,7 @@ screen interactions_screen(Character):
                 xysize (758, 125)
 
             hbox xysize (680, 80):
-                if Character in all_Girls:
+                if Character in all_Companions:
                     anchor (0.7, 0.5) pos (0.7, 0.7)
 
                     imagebutton:

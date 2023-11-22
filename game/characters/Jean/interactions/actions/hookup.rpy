@@ -44,7 +44,7 @@ label Jean_rejects_hookup_threesome:
 
     python:
         for G in Present:
-            if G in all_Girls and G != Jean:
+            if G in all_Companions and G != Jean:
                 G.change_face("suspicious1", blush = 1)
 
     pause 1.0

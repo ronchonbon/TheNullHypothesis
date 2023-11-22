@@ -353,7 +353,7 @@ init -1:
 init -2 python:
 
     def create_Rogue():
-        Rogue = GirlClass("Rogue", voice = ch_Rogue)
+        Rogue = CompanionClass("Rogue", voice = ch_Rogue)
 
         Rogue.full_name = "???"
         Rogue.public_name = "Rogue"
@@ -373,10 +373,10 @@ init -2 python:
         Sprites.append(Rogue)
 
         all_Characters.append(Rogue)
-        all_Girls.append(Rogue)
+        all_Companions.append(Rogue)
         Students.append(Rogue)
 
-        ch1_Girls.append(Rogue)
+        ch1_Companions.append(Rogue)
 
         bedrooms.append(Rogue.home)
 

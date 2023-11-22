@@ -2,7 +2,7 @@ init python:
      
     def get_Present(location = None):
         global all_Characters
-        global all_Girls
+        global all_Companions
 
         global Player
 
@@ -22,14 +22,14 @@ init python:
                     Present.remove(C)
                     
         if focused_Girl not in Present:
-            randomized_present_Girls = []
+            randomized_present_Companions = []
 
             for C in Present:
-                if C in all_Girls:
-                    randomized_present_Girls.append(C)
+                if C in all_Companions:
+                    randomized_present_Companions.append(C)
 
-            if randomized_present_Girls:
-                focused_Girl = renpy.random.choice(randomized_present_Girls)
+            if randomized_present_Companions:
+                focused_Girl = renpy.random.choice(randomized_present_Companions)
                         
         return Present
 

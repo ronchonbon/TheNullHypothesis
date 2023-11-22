@@ -38,7 +38,7 @@ init python:
     def register_Items():
         global shop_inventory
 
-        global all_Girls
+        global all_Companions
 
         global Player
 
@@ -56,7 +56,7 @@ init python:
                     shop_inventory[I.shop_type][I.string] = I
                     unrestricted_shop_inventory[I.shop_type][I.string] = I
 
-        for C in all_Girls:
+        for C in all_Companions:
             Items = eval(f"{C.tag}_special_Items()")
 
             for I in Items:

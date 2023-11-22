@@ -20,9 +20,9 @@ label day_one_intro:
 
     $ sandbox = False
 
-    $ active_Girls.append(Ororo)
-    $ active_Girls.append(Rogue)
-    $ active_Girls.append(Laura)
+    $ active_Companions.append(Ororo)
+    $ active_Companions.append(Rogue)
+    $ active_Companions.append(Laura)
 
     $ active_NPCs.append(Charles)
 
@@ -1039,7 +1039,7 @@ label day_one_end:
     call send_Characters(Ororo, "hold") from _call_send_Characters_190
     call send_Characters(Charles, "hold") from _call_send_Characters_191
 
-    $ active_Girls.remove(Ororo)
+    $ active_Companions.remove(Ororo)
 
     $ reset_behavior()
     

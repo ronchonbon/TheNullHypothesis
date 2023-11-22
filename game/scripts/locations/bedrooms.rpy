@@ -22,17 +22,17 @@ label girls_hallway:
                 call wait_around from _call_wait_around_5
                 
         menu(menu_location = "bg_girls_hallway"):
-            "Enter [Rogue.name]'s room" if Rogue in active_Girls and Rogue in Present:
+            "Enter [Rogue.name]'s room" if Rogue in active_Companions and Rogue in Present:
                 call travel(Rogue) from _call_travel_4
-            "Knock on [Rogue.name]'s room" if Rogue in active_Girls and Rogue not in Present:
+            "Knock on [Rogue.name]'s room" if Rogue in active_Companions and Rogue not in Present:
                 call travel(Rogue) from _call_travel_5
-            "Enter [Laura.name]'s room" if Laura in active_Girls and Laura in Present:
+            "Enter [Laura.name]'s room" if Laura in active_Companions and Laura in Present:
                 call travel(Laura) from _call_travel_6
-            "Knock on [Laura.name]'s room" if Laura in active_Girls and Laura not in Present:
+            "Knock on [Laura.name]'s room" if Laura in active_Companions and Laura not in Present:
                 call travel(Laura) from _call_travel_35
-            "Enter [Jean.name]'s room" if Jean in active_Girls and Jean in Present:
+            "Enter [Jean.name]'s room" if Jean in active_Companions and Jean in Present:
                 call travel(Jean) from _call_travel_36
-            "Knock on [Jean.name]'s room" if Jean in active_Girls and Jean not in Present:
+            "Knock on [Jean.name]'s room" if Jean in active_Companions and Jean not in Present:
                 call travel(Jean) from _call_travel_37
             "Your hallway":
                 call travel("bg_hallway") from _call_travel_7

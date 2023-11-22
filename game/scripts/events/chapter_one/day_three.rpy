@@ -756,7 +756,7 @@ label day_three_end:
 
 
     python:
-        for C in all_Girls:
+        for C in all_Companions:
             C.love = 1000
             C.trust = 1000
             

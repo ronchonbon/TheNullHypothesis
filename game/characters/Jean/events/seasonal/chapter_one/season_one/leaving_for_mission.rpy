@@ -23,7 +23,7 @@ label Jean_leaving_for_mission:
 
     $ temp_destination = Player.destination
 
-    $ active_Girls.append(Jean)
+    $ active_Companions.append(Jean)
     $ unlocked_locations.update({Jean.home: "renpy.call('travel', Jean)"})
 
     $ check_predicted_images()

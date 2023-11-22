@@ -6,7 +6,7 @@ init python:
         for C in Characters:
             for other_C in Characters:
                 if C != other_C:
-                    if C in all_Girls:
+                    if C in all_Companions:
                         if other_C not in C.likes.keys():
                             C.likes[other_C] = 0
 
@@ -30,7 +30,7 @@ init python:
     def find_Friends(Character):
         Friends = []
 
-        for C in all_Girls:
+        for C in all_Companions:
             if C != Character:
                 if C not in Character.likes.keys():
                     Character.likes[C] = 0

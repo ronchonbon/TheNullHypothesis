@@ -14,7 +14,7 @@ label study_session:
 
             if _return:
                 $ studying_Girl = Rogue
-        "Invite [Rogue.name] to study" if not Rogue.History.check("studied_with_Player", tracker = "daily") and Rogue in Contacts and Rogue in active_Girls and Rogue not in Present and Rogue.location != "hold" and Player.location not in [Laura.home, Jean.home] and not Rogue.History.check("said_no_to_studying", tracker = "recent") > 2 and not Rogue.History.check("said_goodnight", tracker = "recent"):
+        "Invite [Rogue.name] to study" if not Rogue.History.check("studied_with_Player", tracker = "daily") and Rogue in Contacts and Rogue in active_Companions and Rogue not in Present and Rogue.location != "hold" and Player.location not in [Laura.home, Jean.home] and not Rogue.History.check("said_no_to_studying", tracker = "recent") > 2 and not Rogue.History.check("said_goodnight", tracker = "recent"):
             call ask_to_study(Rogue) from _call_ask_to_study_1
 
             if _return:
@@ -24,7 +24,7 @@ label study_session:
 
             if _return:
                 $ studying_Girl = Laura
-        "Invite [Laura.name] to study" if not Laura.History.check("studied_with_Player", tracker = "daily") and Laura in Contacts and Laura in active_Girls and Laura not in Present and Laura.location != "hold" and Player.location not in [Rogue.home, Jean.home] and not Laura.History.check("said_no_to_studying", tracker = "recent") > 2 and not Laura.History.check("said_goodnight", tracker = "recent"):
+        "Invite [Laura.name] to study" if not Laura.History.check("studied_with_Player", tracker = "daily") and Laura in Contacts and Laura in active_Companions and Laura not in Present and Laura.location != "hold" and Player.location not in [Rogue.home, Jean.home] and not Laura.History.check("said_no_to_studying", tracker = "recent") > 2 and not Laura.History.check("said_goodnight", tracker = "recent"):
             call ask_to_study(Laura) from _call_ask_to_study_3
 
             if _return:
@@ -34,7 +34,7 @@ label study_session:
 
             if _return:
                 $ studying_Girl = Jean
-        "Invite [Jean.name] to study" if not Jean.History.check("studied_with_Player", tracker = "daily") and Jean in Contacts and Jean in active_Girls and Jean not in Present and Jean.location != "hold" and Player.location not in [Rogue.home, Laura.home] and not Jean.History.check("said_no_to_studying", tracker = "recent") > 2 and not Jean.History.check("said_goodnight", tracker = "recent"):
+        "Invite [Jean.name] to study" if not Jean.History.check("studied_with_Player", tracker = "daily") and Jean in Contacts and Jean in active_Companions and Jean not in Present and Jean.location != "hold" and Player.location not in [Rogue.home, Laura.home] and not Jean.History.check("said_no_to_studying", tracker = "recent") > 2 and not Jean.History.check("said_goodnight", tracker = "recent"):
             call ask_to_study(Jean) from _call_ask_to_study_5
 
             if _return:

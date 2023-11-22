@@ -4,7 +4,7 @@ init python:
         label = "Event_label"
 
         conditions = [
-            "Rogue in active_Girls",
+            "Rogue in active_Companions",
             "Rogue.love >= 45"]
 
         chatting = True

@@ -353,7 +353,7 @@ init -1:
 init -2 python:
 
     def create_Jean():
-        Jean = GirlClass("Jean", voice = ch_Jean)
+        Jean = CompanionClass("Jean", voice = ch_Jean)
 
         Jean.full_name = "Jean Grey"
         Jean.public_name = "Jean"
@@ -380,10 +380,10 @@ init -2 python:
         Sprites.append(Jean)
 
         all_Characters.append(Jean)
-        all_Girls.append(Jean)
+        all_Companions.append(Jean)
         Students.append(Jean)
 
-        ch1_Girls.append(Jean)
+        ch1_Companions.append(Jean)
 
         bedrooms.append(Jean.home)
 

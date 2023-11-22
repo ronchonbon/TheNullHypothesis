@@ -713,19 +713,19 @@ screen text_screen():
                         else:
                             text_options.insert(0, text)
 
-                if current_phone_Character in all_Girls and time_index < 2 and current_phone_Character not in Player.date_planned.keys() and not current_phone_Character.History.check("said_no_to_date", tracker = "recent") and current_phone_Character.History.check("went_on_date_with_Player"):
+                if current_phone_Character in all_Companions and time_index < 2 and current_phone_Character not in Player.date_planned.keys() and not current_phone_Character.History.check("said_no_to_date", tracker = "recent") and current_phone_Character.History.check("went_on_date_with_Player"):
                     $ text_options.insert(0, "want to go on a date tonight?")
 
-                if current_phone_Character in all_Girls and current_phone_Character.History.check("said_no_to_summon", tracker = "recent") < 3 and not current_phone_Character.History.check("said_no_to_studying", tracker = "recent") and not current_phone_Character.History.check("said_no_to_training", tracker = "recent") and not current_phone_Character.History.check('rejected_knock_on_door', tracker = 'recent'):
+                if current_phone_Character in all_Companions and current_phone_Character.History.check("said_no_to_summon", tracker = "recent") < 3 and not current_phone_Character.History.check("said_no_to_studying", tracker = "recent") and not current_phone_Character.History.check("said_no_to_training", tracker = "recent") and not current_phone_Character.History.check('rejected_knock_on_door', tracker = 'recent'):
                     $ text_options.insert(0, "wanna come over?")
 
                 if not current_phone_Character.History.check("sent_how_are_you_text", tracker = "daily"):
-                    if current_phone_Character in all_Girls:
+                    if current_phone_Character in all_Companions:
                         $ text_options.insert(0, "how are you?")
                     elif current_phone_Character in [Kurt]:
                         $ text_options.insert(0, "how's it going?")
 
-                if current_phone_Character in all_Girls:
+                if current_phone_Character in all_Companions:
                     if time_index == 0:
                         if not current_phone_Character.History.check("talked_with_Player", tracker = "daily") and not current_phone_Character.History.check("texted_with_Player", tracker = "daily"):
                             $ text_options.insert(0, "good morning!")
@@ -1172,7 +1172,7 @@ screen humhum_choice_screen():
             draggable True
             mousewheel True
 
-            for G in active_Girls:
+            for G in active_Companions:
                 imagebutton align (0.5, 0.5):
                     idle At(f"images/interface/phone/icons/{G.tag}_idle.webp", phone_icon) hover At(f"images/interface/phone/icons/{G.tag}.webp", phone_icon)
                     

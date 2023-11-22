@@ -52,7 +52,7 @@ label go_to_sleep(automatic = False):
 
     python:
         for C in Present:
-            if C in all_Girls:
+            if C in all_Companions:
                 C.History.update("sleepover")
 
                 C.behavior = "getting_ready_for_bed"
@@ -132,7 +132,7 @@ label sleepover(Characters):
     $ also_leaving = False
 
     while temp_sleeping_Characters:
-        if temp_sleeping_Characters[0] in all_Girls:    
+        if temp_sleeping_Characters[0] in all_Companions:    
             $ status = temp_sleeping_Characters[0].get_status()
 
             if status:

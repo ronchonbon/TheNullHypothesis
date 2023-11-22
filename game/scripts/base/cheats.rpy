@@ -16,7 +16,7 @@ label enter_cheat_code(code):
                 $ Girl = None
 
                 python:
-                    for G in all_Girls:
+                    for G in all_Companions:
                         if G.tag == parsed_code[1]:
                             Girl = G
                 
@@ -38,19 +38,19 @@ label enter_cheat_code(code):
                 $ Girl = None
 
                 python:
-                    for G in all_Girls:
+                    for G in all_Companions:
                         if G.tag == parsed_code[1]:
                             Girl = G
 
                 if Girl:
                     call change_Girl_stat(Girl, parsed_code[2], int(parsed_code[3])) from _call_change_Girl_stat_834
     elif parsed_code[0] == "max" and parsed_code[1] == "Girl" and parsed_code[2] == "stats":
-        $ temp_Girls = active_Girls[:]
+        $ temp_Companions = active_Companions[:]
 
-        while temp_Girls:
-            call change_Girl_stat(temp_Girls[0], "love", 1000) from _call_change_Girl_stat_835
-            call change_Girl_stat(temp_Girls[0], "trust", 1000) from _call_change_Girl_stat_836
+        while temp_Companions:
+            call change_Girl_stat(temp_Companions[0], "love", 1000) from _call_change_Girl_stat_835
+            call change_Girl_stat(temp_Companions[0], "trust", 1000) from _call_change_Girl_stat_836
 
-            $ temp_Girls.remove(temp_Girls[0])
+            $ temp_Companions.remove(temp_Companions[0])
 
     return

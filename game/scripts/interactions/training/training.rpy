@@ -21,7 +21,7 @@ label train:
 
             if _return:
                 $ training_Girl = Rogue
-        "Invite [Rogue.name] to train" if not Rogue.History.check("trained_with_Player", tracker = "daily") and Rogue in Contacts and Rogue in active_Girls and Rogue not in Present and Rogue.location != "hold" and not Rogue.History.check("said_no_to_training", tracker = "recent") > 2 and not Rogue.History.check("said_goodnight", tracker = "recent"):
+        "Invite [Rogue.name] to train" if not Rogue.History.check("trained_with_Player", tracker = "daily") and Rogue in Contacts and Rogue in active_Companions and Rogue not in Present and Rogue.location != "hold" and not Rogue.History.check("said_no_to_training", tracker = "recent") > 2 and not Rogue.History.check("said_goodnight", tracker = "recent"):
             call ask_to_train(Rogue) from _call_ask_to_train_1
 
             if _return:
@@ -31,7 +31,7 @@ label train:
 
             if _return:
                 $ training_Girl = Laura
-        "Invite [Laura.name] to train" if not Laura.History.check("trained_with_Player", tracker = "daily") and Laura in Contacts and Laura in active_Girls and Laura not in Present and Laura.location != "hold" and not Laura.History.check("said_no_to_training", tracker = "recent") > 2 and not Laura.History.check("said_goodnight", tracker = "recent"):
+        "Invite [Laura.name] to train" if not Laura.History.check("trained_with_Player", tracker = "daily") and Laura in Contacts and Laura in active_Companions and Laura not in Present and Laura.location != "hold" and not Laura.History.check("said_no_to_training", tracker = "recent") > 2 and not Laura.History.check("said_goodnight", tracker = "recent"):
             call ask_to_train(Laura) from _call_ask_to_train_3
 
             if _return:
@@ -41,7 +41,7 @@ label train:
 
             if _return:
                 $ training_Girl = Jean
-        "Invite [Jean.name] to train" if not Jean.History.check("trained_with_Player", tracker = "daily") and Jean in Contacts and Jean in active_Girls and Jean not in Present and Jean.location != "hold" and not Jean.History.check("said_no_to_training", tracker = "recent") > 2 and not Jean.History.check("said_goodnight", tracker = "recent"):
+        "Invite [Jean.name] to train" if not Jean.History.check("trained_with_Player", tracker = "daily") and Jean in Contacts and Jean in active_Companions and Jean not in Present and Jean.location != "hold" and not Jean.History.check("said_no_to_training", tracker = "recent") > 2 and not Jean.History.check("said_goodnight", tracker = "recent"):
             call ask_to_train(Jean) from _call_ask_to_train_5
 
             if _return:

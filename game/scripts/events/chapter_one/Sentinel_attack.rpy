@@ -1702,7 +1702,7 @@ label ch1_Sentinel_attack:
     $ Player.schedule = {}
 
     python:
-        for C in all_Girls:
+        for C in all_Companions:
             C.wants_alone_time = 0
             C.schedule = {}
 

@@ -333,7 +333,7 @@ screen buy_gift_screen(Girls, Item, discount = False):
                     $ quantities = 0
 
                 for G in Girls:
-                    if G in all_Girls and Item.string not in G.inventory.keys() and (not Item.Owner or Item.Owner == G):
+                    if G in all_Companions and Item.string not in G.inventory.keys() and (not Item.Owner or Item.Owner == G):
                         textbutton f"{G.name}":
                             action [
                                 Hide("buy_gift_screen"),
@@ -404,7 +404,7 @@ screen piercings_screen(Girls, Piercing, discount = False):
                     size 36
 
                 for G in Girls:
-                    if G in all_Girls:
+                    if G in all_Companions:
                         if Piercing.string not in G.inventory.keys():
                             textbutton f"{G.name}":
                                 action Call("give_Girl_piercing", G, Piercing, mall = True, discounted = discount, from_current = True)

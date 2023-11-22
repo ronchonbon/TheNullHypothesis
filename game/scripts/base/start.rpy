@@ -153,7 +153,7 @@ label get_ready:
             if f"bg_{C.tag}" in bedrooms:
                 renpy.start_predict(f"characters/{C.tag}/images/bedroom/*.webp")
 
-            if C in all_Girls:
+            if C in all_Companions:
                 if C.left_arm_pose in [0, 1]:
                     C.left_arm_pose = "neutral"
                 

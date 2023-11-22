@@ -119,14 +119,14 @@ label Player_orgasms:
                         
                         return
 
-                if climax_choice not in all_Girls and climax_choice != "floor":
+                if climax_choice not in all_Companions and climax_choice != "floor":
                     call ask_Girl_for_cumshot(focused_Girl, climax_choice) from _call_ask_Girl_for_cumshot
                 else:
                     $ _return = "floor"
 
     $ choice_disabled = True
 
-    if not has_ejaculation_control or climax_choice in all_Girls:
+    if not has_ejaculation_control or climax_choice in all_Companions:
         call expression f"{focused_Girl.tag}_decides_cumshot" from _call_expression_39
 
     if _return:
@@ -396,10 +396,10 @@ label clean_cum_mess(Girl):
 
         $ choice_disabled = True
                 
-        if clean_up_choice not in all_Girls:
+        if clean_up_choice not in all_Companions:
             call ask_Girl_for_clean_up(Girl, clean_up_choice) from _call_ask_Girl_for_clean_up
 
-        if clean_up_choice in all_Girls or not _return:
+        if clean_up_choice in all_Companions or not _return:
             call expression f"{Girl.tag}_decides_clean_cum" from _call_expression_54
 
             $ clean_up_choice = _return

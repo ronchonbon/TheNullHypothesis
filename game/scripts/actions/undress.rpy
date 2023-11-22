@@ -319,7 +319,7 @@ label ask_to_undress(Character):
                 $ Player.clothes_on_floor = True
             elif Player.location in bedrooms:
                 python:
-                    for C in active_Girls:
+                    for C in active_Companions:
                         if Player.location == C.home:
                             C.clothes_on_floor = True
 

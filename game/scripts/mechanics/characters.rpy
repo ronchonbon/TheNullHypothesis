@@ -47,20 +47,20 @@ label set_the_scene(location = None, show_Characters = True, show_Party = True, 
     
     if show_Characters and Present:
         python:
-            number_of_Girls = 0
+            number_of_Companions = 0
             number_of_NPCs = 0
 
-            temp_Girls = []
+            temp_Companions = []
             temp_NPCs = []
 
             for C in Present:
                 if C.behavior == "teaching" and C.location == "bg_classroom":
                     temp_Professor = C
                 else:
-                    if C in all_Girls and C != focused_Girl:
-                        number_of_Girls += 1
+                    if C in all_Companions and C != focused_Girl:
+                        number_of_Companions += 1
 
-                        temp_Girls.append(C)
+                        temp_Companions.append(C)
                     elif C in all_NPCs:
                         number_of_NPCs += 1
 
@@ -70,20 +70,20 @@ label set_the_scene(location = None, show_Characters = True, show_Party = True, 
                     C.wet = True
     elif show_Party and Party:
         python:
-            number_of_Girls = 0
+            number_of_Companions = 0
             number_of_NPCs = 0
 
-            temp_Girls = []
+            temp_Companions = []
             temp_NPCs = []
 
             for C in Party:
                 if C.behavior == "teaching" and C.location == "bg_classroom":
                     temp_Professor = C
                 else:
-                    if C in all_Girls and C != focused_Girl:
-                        number_of_Girls += 1
+                    if C in all_Companions and C != focused_Girl:
+                        number_of_Companions += 1
 
-                        temp_Girls.append(C)
+                        temp_Companions.append(C)
                     elif C in all_NPCs:
                         number_of_NPCs += 1
 
@@ -93,16 +93,16 @@ label set_the_scene(location = None, show_Characters = True, show_Party = True, 
                     C.wet = True
 
     if (show_Characters and Present) or (show_Party and Party):
-        if number_of_Girls:
-            if number_of_Girls > 2:
-                $ Girl_offset = (stage_far_far_right - stage_center)/number_of_Girls
+        if number_of_Companions:
+            if number_of_Companions > 2:
+                $ Girl_offset = (stage_far_far_right - stage_center)/number_of_Companions
             else:
-                $ Girl_offset = (stage_far_right - stage_center)/number_of_Girls
+                $ Girl_offset = (stage_far_right - stage_center)/number_of_Companions
 
-            $ total_Girl_offset = Girl_offset*number_of_Girls
+            $ total_Girl_offset = Girl_offset*number_of_Companions
 
         if number_of_NPCs:
-            if number_of_Girls or (focused_Girl and focused_Girl.location == Player.location):
+            if number_of_Companions or (focused_Girl and focused_Girl.location == Player.location):
                 $ NPC_offset = (stage_center - stage_far_left)/number_of_NPCs
 
                 if number_of_NPCs > 1:
@@ -117,21 +117,21 @@ label set_the_scene(location = None, show_Characters = True, show_Party = True, 
                 else:
                     $ total_NPC_offset = 0
 
-        $ temp_Girls.sort(key = get_sprite_position)
+        $ temp_Companions.sort(key = get_sprite_position)
                 
-        if focused_Girl in temp_Girls:
-            $ temp_Girls.remove(focused_Girl)
+        if focused_Girl in temp_Companions:
+            $ temp_Companions.remove(focused_Girl)
 
         $ temp_NPCs.sort(key = get_sprite_position)
         $ temp_NPCs.reverse()
 
-        $ temp_Characters = temp_NPCs + temp_Girls
+        $ temp_Characters = temp_NPCs + temp_Companions
 
         $ color_transform = get_color_transform(location = Player.location)
 
         while temp_Characters:
             if temp_Characters[0].location == Player.location:
-                if temp_Characters[0] in all_Girls:
+                if temp_Characters[0] in all_Companions:
                     call show_Character(temp_Characters[0], sprite_anchor = eval(f"{temp_Characters[0].tag}_standing_anchor"), x = stage_center + total_Girl_offset, y = eval(f"{temp_Characters[0].tag}_standing_height"), sprite_layer = 5, color_transform = color_transform, fade = fade_Characters) from _call_show_Character_11
 
                     $ total_Girl_offset -= Girl_offset
@@ -146,7 +146,7 @@ label set_the_scene(location = None, show_Characters = True, show_Party = True, 
 
         if focused_Girl and not focused_Girl.behavior == "teaching":
             if focused_Girl.location == Player.location:
-                if number_of_NPCs == 0 or (number_of_NPCs > 0 and number_of_Girls > 1):
+                if number_of_NPCs == 0 or (number_of_NPCs > 0 and number_of_Companions > 1):
                     call show_Character(focused_Girl, sprite_anchor = eval(f"{focused_Girl.tag}_standing_anchor"), x = stage_center, y = eval(f"{focused_Girl.tag}_standing_height"), sprite_layer = 6, color_transform = color_transform, fade = fade_Characters) from _call_show_Character_13
                 else:
                     call show_Character(focused_Girl, sprite_anchor = eval(f"{focused_Girl.tag}_standing_anchor"), x = stage_right, y = eval(f"{focused_Girl.tag}_standing_height"), sprite_layer = 6, color_transform = color_transform, fade = fade_Characters) from _call_show_Character_14
@@ -321,8 +321,8 @@ label displace_Characters(Characters):
                 C.location = C.destination
 
         for C in Characters:
-            if C in all_Girls:
-                for other_C in active_Girls:
+            if C in all_Companions:
+                for other_C in active_Companions:
                     if C != other_C and other_C.location not in ["hold", Player.location]:
                         if C not in other_C.likes.keys():
                             other_C.likes[C] = 0

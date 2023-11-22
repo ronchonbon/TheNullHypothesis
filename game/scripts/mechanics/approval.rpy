@@ -116,9 +116,9 @@ label change_Girl_stat(Girl, flavor, update, alternate_values = None):
 
             $ update = int(update)
 
-            $ list_of_Girls = eval(f"ch{chapter}_Girls")
+            $ list_of_Companions = eval(f"ch{chapter}_Companions")
 
-            if Girl in list_of_Girls:
+            if Girl in list_of_Companions:
                 $ update = max_stats[season - 1] - stat if stat + update >= max_stats[season - 1] else update
             else:
                 $ update = 1000 - stat if stat + update >= 1000 else update

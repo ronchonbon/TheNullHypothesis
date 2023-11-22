@@ -1350,7 +1350,7 @@ label ch1_mutant_hate:
     $ Player.schedule = {}
 
     python:
-        for C in all_Girls:
+        for C in all_Companions:
             C.wants_alone_time = 0
             C.schedule = {}
 

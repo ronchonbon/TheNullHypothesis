@@ -3,7 +3,7 @@ init python:
     def check_predicted_images():
         global all_Characters
         global Sprites
-        global active_Girls
+        global active_Companions
 
         temp = renpy.list_files()
         file_list = []
@@ -14,12 +14,12 @@ init python:
 
         for C in all_Characters:
             if C in Sprites:
-                if C in active_Girls:
+                if C in active_Companions:
                     predict_images(C, file_list)
                 elif C in active_NPCs:
                     renpy.start_predict(f"characters/{C.tag}/images/*.webp")
                 else:
-                    if C in all_Girls:
+                    if C in all_Companions:
                         renpy.stop_predict(f"characters/{C.tag}/images/standing/*.webp")
                         renpy.stop_predict(f"characters/{C.tag}/images/doggy/*.webp")
                         renpy.stop_predict(f"characters/{C.tag}/images/hands_and_knees/*.webp")

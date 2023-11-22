@@ -11,7 +11,7 @@ label Characters_greet_Player(greeting_Characters):
     $ sorted_Characters = sort_Characters_by_approval(greeting_Characters[:])[:]
 
     while sorted_Characters:
-        if sorted_Characters[0] in all_Girls and approval_check(sorted_Characters[0], threshold = "friendship"):
+        if sorted_Characters[0] in all_Companions and approval_check(sorted_Characters[0], threshold = "friendship"):
             $ status = sorted_Characters[0].get_status()
                 
             if status:

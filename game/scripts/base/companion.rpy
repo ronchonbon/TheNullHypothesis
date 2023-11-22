@@ -2,7 +2,7 @@ init -2 python:
 
     import copy
 
-    class GirlClass(object):
+    class CompanionClass(object):
         def __init__(self, name, **properties):
             self.tag = name
 

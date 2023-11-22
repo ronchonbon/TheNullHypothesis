@@ -2,7 +2,7 @@ init python:
 
     def register_Characters():
         global all_Characters
-        global all_Girls
+        global all_Companions
 
         global chapter
         global season
@@ -16,13 +16,17 @@ init python:
             if attribute not in Player.__dict__.keys():
                 setattr(Player, attribute, test.__dict__[attribute])
 
+        del test
+
         for C in all_Characters:
-            if C in all_Girls:
-                test = eval(f"GirlClass('{C.tag}', voice = ch_{C.tag}, love = 0, trust = 0, desire = 0)")
+            if C in all_Companions:
+                test = eval(f"CompanionClass('{C.tag}', voice = ch_{C.tag}, love = 0, trust = 0, desire = 0)")
 
                 for attribute in test.__dict__.keys():
                     if attribute not in C.__dict__.keys():
                         setattr(C, attribute, test.__dict__[attribute])
+
+                del test
 
                 if game_started:
                     if C.location == Player.location:

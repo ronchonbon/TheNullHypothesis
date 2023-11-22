@@ -295,7 +295,7 @@ init -1:
 init -2 python:
 
     def create_Ororo():
-        Ororo = GirlClass("Ororo", voice = ch_Ororo)
+        Ororo = CompanionClass("Ororo", voice = ch_Ororo)
 
         Ororo.full_name = "Ororo Munroe"
         Ororo.public_name = "Storm"
@@ -318,7 +318,7 @@ init -2 python:
         Sprites.append(Ororo)
         
         all_Characters.append(Ororo)
-        all_Girls.append(Ororo)
+        all_Companions.append(Ororo)
         Professors.append(Ororo)
 
         return Ororo

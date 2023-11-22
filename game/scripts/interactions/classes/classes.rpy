@@ -25,7 +25,7 @@ label find_a_seat:
         menu:
             extend ""
             "Sit next to [temp_seated_Characters[0].name]":
-                if temp_seated_Characters[0] in all_Girls:
+                if temp_seated_Characters[0] in all_Companions:
                     $ focused_Girl = temp_seated_Characters[0]
 
                 if not renpy.showing(f"{temp_seated_Characters[0].tag}_sprite"):
@@ -46,7 +46,7 @@ label find_a_seat:
             menu:
                 extend ""
                 "Sit next to [temp_seated_Characters[0].name]":
-                    if temp_seated_Characters[0] in all_Girls:
+                    if temp_seated_Characters[0] in all_Companions:
                         $ focused_Girl = temp_seated_Characters[0]
 
                     $ temp_seated_Characters[1].location = "nearby"
@@ -56,7 +56,7 @@ label find_a_seat:
                         
                         call Characters_greet_Player(temp_seated_Characters[0]) from _call_Characters_greet_Player_1
                 "Sit next to [temp_seated_Characters[1].name]":
-                    if temp_seated_Characters[1] in all_Girls:
+                    if temp_seated_Characters[1] in all_Companions:
                         $ focused_Girl = temp_seated_Characters[1]
 
                     $ temp_seated_Characters[0].location = "nearby"
@@ -68,7 +68,7 @@ label find_a_seat:
                 "Sit between them":
                     $ sorted_Characters = sort_Characters_by_approval(temp_seated_Characters[:])[:]
 
-                    if sorted_Characters[0] in all_Girls:
+                    if sorted_Characters[0] in all_Companions:
                         $ focused_Girl = sorted_Characters[0]
 
                     if not renpy.showing(f"{sorted_Characters[0].tag}_sprite") or not renpy.showing(f"{sorted_Characters[1].tag}_sprite"):
@@ -89,7 +89,7 @@ label find_a_seat:
             menu:
                 extend ""
                 "Sit next to [temp_seated_Characters[0].name]":
-                    if temp_seated_Characters[0] in all_Girls:
+                    if temp_seated_Characters[0] in all_Companions:
                         $ focused_Girl = temp_seated_Characters[0]
 
                     $ temp_seated_Characters[1].location = "nearby"
@@ -99,7 +99,7 @@ label find_a_seat:
                         
                         call Characters_greet_Player(temp_seated_Characters[0]) from _call_Characters_greet_Player_4
                 "Sit next to [temp_seated_Characters[1].name]":
-                    if temp_seated_Characters[1] in all_Girls:
+                    if temp_seated_Characters[1] in all_Companions:
                         $ focused_Girl = temp_seated_Characters[1]
 
                     $ temp_seated_Characters[0].location = "nearby"
@@ -123,7 +123,7 @@ label find_a_seat:
             menu:
                 extend ""
                 "Sit next to [temp_seated_Characters[0].name]":
-                    if temp_seated_Characters[0] in all_Girls:
+                    if temp_seated_Characters[0] in all_Companions:
                         $ focused_Girl = temp_seated_Characters[0]
 
                     $ temp_seated_Characters[1].location = "nearby"
@@ -134,7 +134,7 @@ label find_a_seat:
                         
                         call Characters_greet_Player(temp_seated_Characters[0]) from _call_Characters_greet_Player_6
                 "Sit next to [temp_seated_Characters[1].name]":
-                    if temp_seated_Characters[1] in all_Girls:
+                    if temp_seated_Characters[1] in all_Companions:
                         $ focused_Girl = temp_seated_Characters[1]
 
                     $ temp_seated_Characters[0].location = "nearby"
@@ -145,7 +145,7 @@ label find_a_seat:
                         
                         call Characters_greet_Player(temp_seated_Characters[1]) from _call_Characters_greet_Player_7
                 "Sit next to [temp_seated_Characters[2].name]":
-                    if temp_seated_Characters[2] in all_Girls:
+                    if temp_seated_Characters[2] in all_Companions:
                         $ focused_Girl = temp_seated_Characters[2]
 
                     $ temp_seated_Characters[0].location = "nearby"
@@ -158,7 +158,7 @@ label find_a_seat:
                 "Sit in the middle of the group":
                     $ sorted_Characters = sort_Characters_by_approval(temp_seated_Characters[:])[:]
 
-                    if sorted_Characters[0] in all_Girls:
+                    if sorted_Characters[0] in all_Companions:
                         $ focused_Girl = sorted_Characters[0]
 
                     if not renpy.showing(f"{sorted_Characters[0].tag}_sprite") or not renpy.showing(f"{sorted_Characters[1].tag}_sprite") or not renpy.showing(f"{sorted_Characters[2].tag}_sprite"):
@@ -180,7 +180,7 @@ label find_a_seat:
             menu:
                 extend ""
                 "Sit next to [temp_seated_Characters[0].name]":
-                    if temp_seated_Characters[0] in all_Girls:
+                    if temp_seated_Characters[0] in all_Companions:
                         $ focused_Girl = temp_seated_Characters[0]
 
                     $ temp_seated_Characters[1].location = "nearby"
@@ -191,7 +191,7 @@ label find_a_seat:
                         
                         call Characters_greet_Player(temp_seated_Characters[0]) from _call_Characters_greet_Player_10
                 "Sit next to [temp_seated_Characters[1].name]":
-                    if temp_seated_Characters[1] in all_Girls:
+                    if temp_seated_Characters[1] in all_Companions:
                         $ focused_Girl = temp_seated_Characters[1]
 
                     $ temp_seated_Characters[0].location = "nearby"
@@ -202,7 +202,7 @@ label find_a_seat:
                         
                         call Characters_greet_Player(temp_seated_Characters[1]) from _call_Characters_greet_Player_11
                 "Sit next to [temp_seated_Characters[2].name]":
-                    if temp_seated_Characters[2] in all_Girls:
+                    if temp_seated_Characters[2] in all_Companions:
                         $ focused_Girl = temp_seated_Characters[2]
 
                     $ temp_seated_Characters[0].location = "nearby"

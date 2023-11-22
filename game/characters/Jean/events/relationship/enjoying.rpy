@@ -38,7 +38,7 @@ label Jean_enjoying_being_girlfriend:
     $ temp_Characters.remove(Jean)
 
     while temp_Characters:
-        if temp_Characters[0] in all_Girls:
+        if temp_Characters[0] in all_Companions:
             $ temp_Characters[0].change_face("confused2")
         else:
             $ temp_Characters[0].change_face("confused")

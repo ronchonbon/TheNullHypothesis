@@ -52,7 +52,7 @@ label refresh_season_content:
         $ mall_damage = False
 
     python:
-        for C in all_Girls:
+        for C in all_Companions:
             C.possible_Actions = []
 
             for Action_type in all_Action_types:
@@ -68,15 +68,15 @@ label refresh_season_content:
     if not game_started:
         call set_Character_Outfits from _call_set_Character_Outfits_10
     else:
-        $ temp_resetting_Outfits_Girls = all_Girls[:]
+        $ temp_resetting_Outfits_Companions = all_Companions[:]
 
-        while temp_resetting_Outfits_Girls:
-            if temp_resetting_Outfits_Girls[0].location != Player.location:
-                call set_Character_Outfits(temp_resetting_Outfits_Girls[0]) from _call_set_Character_Outfits_22
+        while temp_resetting_Outfits_Companions:
+            if temp_resetting_Outfits_Companions[0].location != Player.location:
+                call set_Character_Outfits(temp_resetting_Outfits_Companions[0]) from _call_set_Character_Outfits_22
 
-            $ temp_resetting_Outfits_Girls.remove(temp_resetting_Outfits_Girls[0])
+            $ temp_resetting_Outfits_Companions.remove(temp_resetting_Outfits_Companions[0])
 
-    $ temp_refreshing_Characters = all_Girls[:]
+    $ temp_refreshing_Characters = all_Companions[:]
 
     while temp_refreshing_Characters:
         $ temp_all_Outfits = list(temp_refreshing_Characters[0].Wardrobe.Outfits.values())[:]

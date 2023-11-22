@@ -279,14 +279,14 @@ layeredimage background:
         
     if Player.location != "bg_lockers":
         Null()
-    elif Player.behavior = "showering":
+    elif Player.behavior == "showering":
         "images/backgrounds/base/bg_lockers_running.webp"
     else:
         "images/backgrounds/base/bg_lockers.webp"
         
     if Player.location not in ["bg_shower_Player", "bg_shower_Rogue", "bg_shower_Laura", "bg_shower_Jean"]:
         Null()
-    elif Player.behavior = "showering":
+    elif Player.behavior == "showering":
         "images/backgrounds/base/bg_shower_running.webp"
     else:
         "images/backgrounds/base/bg_shower.webp"

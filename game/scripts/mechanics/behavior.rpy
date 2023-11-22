@@ -52,8 +52,8 @@ init python:
                     C.travel()
 
         for C in traveling_Characters:
-            if C in all_Girls and "hold" not in [C.location, C.destination] and time_index not in C.schedule.keys():
-                for other_C in active_Girls:
+            if C in all_Companions and "hold" not in [C.location, C.destination] and time_index not in C.schedule.keys():
+                for other_C in active_Companions:
                     if C != other_C and "hold" not in [other_C.location, other_C.destination]:
                         if C not in other_C.likes.keys():
                             other_C.likes[C] = 0
@@ -78,7 +78,7 @@ init python:
 
     def set_Character_behavior(Characters = None):
         global all_Characters
-        global all_Girls
+        global all_Companions
         global Students
         global Professors
 
@@ -109,7 +109,7 @@ init python:
                 elif C.destination in bedrooms:
                     if C.destination in C.home and time_index == 3:
                         C.behavior = "getting_ready_for_bed"
-                    elif C in all_Girls and C.destination != Player.location:
+                    elif C in all_Companions and C.destination != Player.location:
                         dice_roll = renpy.random.random()
 
                         if len(Characters_present) == 1 and dice_roll > 0.9 - 0.01*C.desire:
@@ -181,7 +181,7 @@ label set_Character_Outfits(Characters = None, instant = True):
 
     while len(temp_Outfit_Characters) > 1:
         if time_index > 0 or temp_Outfit_Characters[0].destination not in bedrooms:
-            if temp_Outfit_Characters[0] in all_Girls:
+            if temp_Outfit_Characters[0] in all_Companions:
                 if temp_Outfit_Characters[0].location != Player.location:
                     $ temp_Outfit_Characters[0].wet = False
                 

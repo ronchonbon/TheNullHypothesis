@@ -6,7 +6,7 @@ init python:
         conditions = [
             "renpy.random.random() > 0.75",
 
-            "Player.location == 'bg_lockers' and Player.behavior = 'showering'",
+            "Player.location == 'bg_lockers' and Player.behavior == 'showering'",
 
             "not Present",
 

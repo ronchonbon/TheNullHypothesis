@@ -276,21 +276,21 @@ label review_Outfit(Girl):
 label debrief_Outfit_change(Girls, instant = False):
     call set_music from _call_set_music
     
-    if Girls in all_Girls:
+    if Girls in all_Companions:
         $ Girls = [Girls]
 
     if renpy.get_screen("shop_screen"):
         call set_Character_Outfits(Girls, instant = instant) from _call_set_Character_Outfits_7
 
     if not renpy.get_screen("shop_screen") and changed_pubes:
-        $ temp_shaving_Girls = []
+        $ temp_shaving_Companions = []
 
         python:
             for G in Girls:
                 if G.pubes != G.desired_pubes:
-                    temp_shaving_Girls.append(G)
+                    temp_shaving_Companions.append(G)
 
-        call Girls_will_shave(temp_shaving_Girls) from _call_Girls_will_shave
+        call Girls_will_shave(temp_shaving_Companions) from _call_Companions_will_shave
 
         $ changed_pubes = False
 

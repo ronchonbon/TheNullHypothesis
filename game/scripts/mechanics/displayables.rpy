@@ -140,7 +140,7 @@ label show_Character(Character, t = None, sprite_anchor = None, x = None, y = No
         if animation_transform:
             $ transform_list.append(animation_transform)
 
-        if Character in all_Girls:
+        if Character in all_Companions:
             $ renpy.show(f"{Character.tag}_sprite standing", at_list = transform_list, zorder = Character.sprite_layer, tag = f"{Character.tag}_sprite")
         else:
             $ renpy.show(f"{Character.tag}_sprite", at_list = transform_list, zorder = Character.sprite_layer, tag = f"{Character.tag}_sprite")

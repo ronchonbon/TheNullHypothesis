@@ -19,17 +19,17 @@ label Characters_arrive(arriving_Characters, invited = False, greetings = True, 
 
         if greetings:
             python:
-                in_Girls_bedroom = False
+                in_Companions_bedroom = False
 
                 for C in grouped_Characters:
                     if Player.location == C.home:
-                        in_Girls_bedroom = True
+                        in_Companions_bedroom = True
 
             if invited or Player.location != Player.home:
                 $ verb = "arrives"
 
                 if Player.location in bedrooms or "bg_shower" in Player.location:
-                    if in_Girls_bedroom:
+                    if in_Companions_bedroom:
                         if len(grouped_Characters) > 1:
                             "You hear some voices chatting outside the door, followed by the turn of the doorknob."
                         else:
@@ -43,7 +43,7 @@ label Characters_arrive(arriving_Characters, invited = False, greetings = True, 
                             "You hear a quick knock at the door."
 
                 if "bg_shower" in Player.location:
-                    if in_Girls_bedroom or grouped_Characters[0].has_keys_to_Players_room:
+                    if in_Companions_bedroom or grouped_Characters[0].has_keys_to_Players_room:
                         "You hear them enter the room."
 
                         python:
@@ -89,7 +89,7 @@ label Characters_arrive(arriving_Characters, invited = False, greetings = True, 
 
             if verb and grouped_Characters[0].behavior != "teaching":
                 if not invited:
-                    if grouped_Characters[0] in all_Girls:    
+                    if grouped_Characters[0] in all_Companions:    
                         $ status = grouped_Characters[0].get_status()
                             
                         if status:
@@ -105,7 +105,7 @@ label Characters_arrive(arriving_Characters, invited = False, greetings = True, 
                 else:
                     call expression f"{grouped_Characters[0].tag}_simple_greeting" from _call_expression_364
 
-                if grouped_Characters[0] in all_Girls and grouped_Characters[0].location == Player.location:
+                if grouped_Characters[0] in all_Companions and grouped_Characters[0].location == Player.location:
                     $ Characters_to_greet = []
 
                     python:
@@ -114,7 +114,7 @@ label Characters_arrive(arriving_Characters, invited = False, greetings = True, 
                                 Characters_to_greet.append(C)
                                 
                     while Characters_to_greet:
-                        if Characters_to_greet[0] in all_Girls:
+                        if Characters_to_greet[0] in all_Companions:
                             call expression f"{grouped_Characters[0].tag}_greets_{Characters_to_greet[0].tag}" from _call_expression_365
 
                         $ Characters_to_greet.remove(Characters_to_greet[0])
@@ -164,7 +164,7 @@ label Characters_leave(leaving_Characters, farewells = True, fade = True):
         $ grouped_Characters = group_Characters(temp_leaving_Characters)
 
         if farewells:
-            if grouped_Characters[0] in all_Girls:  
+            if grouped_Characters[0] in all_Companions:  
                 $ status = grouped_Characters[0].get_status()
                     
                 if status:
@@ -189,7 +189,7 @@ label Characters_leave(leaving_Characters, farewells = True, fade = True):
             $ temp_hiding_Characters = temp_grouped_Characters[:]
 
             while temp_hiding_Characters:
-                if temp_hiding_Characters[0] in all_Girls:
+                if temp_hiding_Characters[0] in all_Companions:
                     if sandbox and not ongoing_Event and not temp_hiding_Characters[0].Outfit.wear_in_public and not (temp_hiding_Characters[0].Outfit.activewear and temp_hiding_Characters[0].destination in ["bg_danger", "bg_lockers"]) and not (temp_hiding_Characters[0].Outfit.swimwear and temp_hiding_Characters[0].destination in ["bg_pool"]):                       
                         call set_Character_Outfits(temp_hiding_Characters[0], instant = False) from _call_set_Character_Outfits_21
 

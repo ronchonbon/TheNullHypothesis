@@ -353,7 +353,7 @@ init -1:
 init -2 python:
 
     def create_Laura():
-        Laura = GirlClass("Laura", voice = ch_Laura)
+        Laura = CompanionClass("Laura", voice = ch_Laura)
 
         Laura.full_name = "Laura Kinney"
         Laura.public_name = "X-23"
@@ -377,10 +377,10 @@ init -2 python:
         Sprites.append(Laura)
 
         all_Characters.append(Laura)
-        all_Girls.append(Laura)
+        all_Companions.append(Laura)
         Students.append(Laura)
 
-        ch1_Girls.append(Laura)
+        ch1_Companions.append(Laura)
 
         bedrooms.append(Laura.home)
 

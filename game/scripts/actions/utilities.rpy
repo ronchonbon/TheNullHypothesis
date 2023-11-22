@@ -859,7 +859,7 @@ label start_Action(Action):
                 if not C.History.check(Action.Action_type, tracker = "recent"):
                     C.History.update(Action.Action_type)
 
-                if C in all_Girls:
+                if C in all_Companions:
                     if C.History.check(Action.Action_type) % 10 == 1:
                         if Action.Action_type == "deepthroat" and C in Action.Actors:
                             C.throat_training += 1 if C.throat_training < 4 else 0
@@ -899,7 +899,7 @@ label continue_Actions:
                     if Action not in unique_Actions:
                         unique_Actions.append(A)
 
-            for G in active_Girls:
+            for G in active_Companions:
                 for O in G.all_Organs:
                     Actions = getattr(G, f"{O}_Actions")
 
@@ -924,7 +924,7 @@ label continue_Actions:
         $ temp_sex_Characters = Present[:]
 
         while temp_sex_Characters:            
-            if temp_sex_Characters[0] in all_Girls and temp_sex_Characters[0].desire >= 100 and not temp_sex_Characters[0].orgasm_control:
+            if temp_sex_Characters[0] in all_Companions and temp_sex_Characters[0].desire >= 100 and not temp_sex_Characters[0].orgasm_control:
                 call Character_orgasms(temp_sex_Characters[0]) from _call_Character_orgasms
                 
                 return
@@ -947,24 +947,24 @@ label stop_all_Actions(close_interface = False, automatic = False):
     $ belt_hidden = True
     $ Character_picker_disabled = True
 
-    $ temp_Girls = Present[:]
+    $ temp_Companions = Present[:]
 
     python:
         for C in all_NPCs:
-            if C in temp_Girls:
-                temp_Girls.remove(C)
+            if C in temp_Companions:
+                temp_Companions.remove(C)
 
     $ color_transform = get_color_transform(location = Player.location)
 
-    while temp_Girls:
-        $ stop_Actions(temp_Girls[0])
+    while temp_Companions:
+        $ stop_Actions(temp_Companions[0])
 
         if not automatic:
-            call show_Character(temp_Girls[0], color_transform = color_transform) from _call_show_Character_2
+            call show_Character(temp_Companions[0], color_transform = color_transform) from _call_show_Character_2
 
-        $ temp_Girls[0].Lovers = {}
+        $ temp_Companions[0].Lovers = {}
 
-        $ temp_Girls.remove(temp_Girls[0])
+        $ temp_Companions.remove(temp_Companions[0])
 
     $ stop_Actions(Player)
 
@@ -997,7 +997,7 @@ label stop_all_Actions(close_interface = False, automatic = False):
 
     python:
         for C in Present:
-            if C in all_Girls:
+            if C in all_Companions:
                 if Player.location == C.home:
                     C.clothes_on_floor = False
 

@@ -93,7 +93,7 @@ label summon(Character):
     return
 
 label dismiss(Character):
-    if Character in all_Girls:
+    if Character in all_Companions:
         if approval_check(Character, threshold = "follow") and Player.location != Character.home:
             call expression f"{Character.tag}_dismiss_accept" from _call_expression_319
 

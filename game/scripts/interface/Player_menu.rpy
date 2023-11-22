@@ -230,7 +230,7 @@ screen database_screen():
 
                 focus_mask True
         
-        if current_database_Character in all_Girls or current_database_Character in all_NPCs:
+        if current_database_Character in all_Companions or current_database_Character in all_NPCs:
             add At(f"images/interface/phone/photos/{current_database_Character.tag}.webp", database_photo) anchor (0.0, 0.0) pos (0.33, 0.24)
         elif current_database_Character == Player:
             add At("Player_portrait", database_photo) anchor (0.0, 0.0) pos (0.33, 0.24)

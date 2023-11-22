@@ -26,7 +26,7 @@ label level_up:
         $ Player.XP = Player.XP_goal
 
     python:
-        for C in all_Girls:
+        for C in all_Companions:
             if C.level < max_level[chapter - 1] and C.XP >= C.XP_goal:
                 C.level += 1
 
