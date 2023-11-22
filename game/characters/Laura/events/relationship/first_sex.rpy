@@ -78,7 +78,7 @@ label Laura_first_sex_part_one:
     $ Laura.change_face("angry1", eyes = "right", mouth = "lipbite", blush = 1)
 
     ch_Laura "But I've been told a discussion is required beforehand."
-    ch_Laura "By Dr. Reyes, and Rogue as well."
+    ch_Laura "By [Cecilia.public_name], and [Rogue.public_name] as well."
     ch_Player "[Cecilia.name], the doctor?"
     ch_Player "And poor [Rogue.name]. . ."
 

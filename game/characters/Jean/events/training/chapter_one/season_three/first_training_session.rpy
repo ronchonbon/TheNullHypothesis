@@ -150,7 +150,7 @@ label Jean_chapter_one_season_three_first_training_session:
 
     $ Jean.change_face("confused1", mouth = "smirk")
 
-    ch_Jean "I think you should see X-23 about training the new thing. . ."
+    ch_Jean "I think you should see [Laura.public_name] about training the new thing. . ."
     ch_Player "Probably for the best."
     ch_Player "Here, let me try."
 

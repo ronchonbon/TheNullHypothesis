@@ -4,7 +4,7 @@ init python:
         label = "Laura_chapter_one_season_one_outcast_setup"
 
         conditions = [
-            "Laura.location != Player.location",
+            "Laura.location not in ['hold', Player.location]",
 
             "renpy.random.random() > 0.75",
 
@@ -51,6 +51,8 @@ init python:
 
         markers = {
             "bg_classroom": [
+                "Player.location != 'bg_classroom'",
+
                 "chapter == 1 and season == 1",
 
                 "weekday < 5 and time_index < 2",
@@ -66,6 +68,21 @@ init python:
 label Laura_chapter_one_season_one_outcast:
     $ ongoing_Event = True
 
+    $ Present = get_Present(location = "bg_classroom")
+    
+    python:
+        for C in Present:
+            if C != Laura:
+                C.location = "nearby"
+
+    $ Laura.change_face("neutral", eyes = "left") 
+
+    call set_the_scene(location = "bg_classroom")
+
+    "Upon entering the classroom, you see a curious sight."
+    "[Laura.name] is seated at the desk, but while most other students are packed in next to each other, nobody is sitting within 10 feet of her."
+    "She doesn't seem to notice, but hushed conversation around the room tells you the others are very aware of her presence."
+
     menu:
         extend ""
         "Sit next to [Laura.name]":
@@ -80,11 +97,125 @@ label Laura_chapter_one_season_one_outcast:
 
             $ EventScheduler.Events["Laura_chapter_one_season_one_outcast"].counter = 0
 
-            $ ongoing_Event = False
-
             call move_location(Player.home) from _call_move_location_59
 
+            $ ongoing_Event = False
+
             return
+
+    "As you approach, you notice a tension in her shoulders. . . maybe she is aware of the situation around her. . ."
+    "Pushing past all the looks you get from other students, you move to sit down right next to her."
+
+    $ Laura.change_face("confused1")
+
+    ch_Player "Is this seat taken?"
+    ch_Laura ". . ."
+
+    $ Laura.change_face("confused1", eyes = "squint")
+
+    ch_Laura "No. . ."
+    "You sit down, and the tension in [Laura.name]'s muscles only increases."
+    ch_Laura "Why?"
+    ch_Player "Why. . . ?"
+
+    $ Laura.change_face("suspicious1")
+
+    ch_Laura "You are sitting next to me."
+    ch_Laura "Does that not make you uncomfortable?"
+
+    menu:
+        extend ""
+        "Not sure why it would, I think I enjoy your company. Always know where I stand when it comes to you.":
+            call change_Girl_stat(Laura, "love", medium_stat)
+            call change_Girl_stat(Laura, "trust", medium_stat)
+
+            $ Laura.change_face("confused3")
+
+            ch_Laura "You. . . enjoy it?" 
+            
+            $ Laura.change_face("confused1", eyes = "right") 
+            
+            ch_Laura "I see. . ."
+        "I mean you are a bit intimidating, but that doesn't make me uncomfortable. I appreciate your bluntness.":
+            call change_Girl_stat(Laura, "love", small_stat)
+            call change_Girl_stat(Laura, "trust", medium_stat)
+            
+            $ Laura.change_face("confused1")
+
+            ch_Laura "Oh." 
+            
+            $ Laura.change_face("confused1", eyes = "right") 
+            
+            ch_Laura "I see. . ."
+        "Nope. Is that what this is about? You think you make everyone uncomfortable? I can see why they might be, but it doesn't bother me.":
+            call change_Girl_stat(Laura, "love", -small_stat)
+            
+            $ Laura.change_face("confused1")
+
+            ch_Laura ". . ." 
+            
+            $ Laura.change_face("angry1", eyes = "right")
+
+            pause 1.0
+
+    $ Laura.change_face("neutral", eyes = "right")
+
+    "[Laura.name] remains silent as class begins, and she doesn't say another word for the remainder of class."
+    "Although, you do notice some of the tension is gone from her shoulders, and she seems a bit more relaxed."
+    
+    $ fade_to_black(0.4)
+
+    call expression f"chapter_{chapter}_season_{season}_class_narrations"
+
+    pause 2.0
+
+    call after_class
+    
+    $ fade_in_from_black(0.4)
+
+    $ Laura.change_face("neutral")
+
+    "You pack up your things, but before you stand. . ."
+
+    $ Laura.change_face("neutral", eyes = "right")
+
+    ch_Laura "Everyone else always keeps their distance."
+
+    $ Laura.change_face("confused1")
+
+    ch_Player "Wait, even someone like [Kurt.name]?"
+    ch_Player "He seems like literally everyone's friend."
+    ch_Laura "He is polite to me, but I can see it in his eyes. . ."
+    ch_Laura ". . . the tension and fear when we interact."
+
+    $ Laura.change_face("angry1", eyes = "right")
+
+    ch_Player "Fear?"
+    ch_Laura "There are rumors about the things I've done before coming here."
+    "You notice how she doesn't try to refute any of them. . ."
+    ch_Laura "They have ideas about how dangerous I am."
+    ch_Laura "I have overheard some call me a 'feral killing machine.'"
+
+    $ Laura.change_face("neutral")
+
+    ch_Player "What the hell? That's-"
+    ch_Laura "It is fine."
+
+    $ Laura.change_face("neutral", eyes = "right")
+
+    ch_Laura "An expected reaction from them. . ."
+
+    $ Laura.change_face("smirk1", eyes = "right")
+
+    ch_Laura "I did not mind you sitting next to me."
+    ch_Laura "Thank you. . ."
+    ch_Laura "Bye."
+
+    call remove_Characters(Laura)
+
+    $ Laura.schedule[time_index + 1] = [Laura.home, "studying"]
+
+    ch_Player "Bye. . ."
 
     $ ongoing_Event = False
 

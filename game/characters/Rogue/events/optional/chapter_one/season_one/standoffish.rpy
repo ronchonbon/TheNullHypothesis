@@ -4,7 +4,7 @@ init python:
         label = "Rogue_chapter_one_season_one_standoffish_part_one_setup"
 
         conditions = [
-            "Rogue.location != Player.location",
+            "Rogue.location not in ['hold', Player.location]",
 
             "renpy.random.random() > 0.75",
 
@@ -15,6 +15,8 @@ init python:
 
             "chapter == 1 and season == 1",
 
+            "day > 6",
+
             "Rogue.is_in_normal_mood()"]
 
         repeatable = True
@@ -23,6 +25,7 @@ init python:
         return EventClass(label, conditions, repeatable = repeatable, automatic = automatic)
 
 label Rogue_chapter_one_season_one_standoffish_part_one_setup:
+    call remove_Characters(location = "bg_girls_hallway")
     call send_Characters(Rogue, "bg_girls_hallway", behavior = False) from _call_send_Characters_316
     call send_Characters(Kurt, "bg_girls_hallway", behavior = False) from _call_send_Characters_317
 
@@ -38,7 +41,10 @@ init python:
 
             "chapter == 1 and season == 1",
 
+            "day > 6",
+
             "Rogue.location == 'bg_girls_hallway' and Kurt.location == 'bg_girls_hallway'",
+            "len(get_Present(location = 'bg_girls_hallway')) == 2",
 
             "Rogue.is_in_normal_mood()"]
 
@@ -46,9 +52,14 @@ init python:
 
         markers = {
             "bg_girls_hallway": [
+                "Player.location != 'bg_girls_hallway'",
+
                 "chapter == 1 and season == 1",
 
+                "day > 6",
+
                 "Rogue.location == 'bg_girls_hallway' and Kurt.location == 'bg_girls_hallway'",
+                "len(get_Present(location = 'bg_girls_hallway')) == 2",
 
                 "Rogue.is_in_normal_mood()"]}
 
@@ -260,7 +271,7 @@ init python:
         label = "Rogue_chapter_one_season_one_standoffish_part_two_setup"
 
         conditions = [
-            "Rogue.location != Player.location",
+            "Rogue.location not in ['hold', Player.location]",
             
             "renpy.random.random() > 0.75",
 
@@ -308,7 +319,9 @@ init python:
         traveling = True
 
         markers = {
-            "Rogue.location": [
+            "bg_classroom": [
+                "Player.location != 'bg_classroom'",
+
                 "chapter == 1 and season == 1",
 
                 "weekday < 5 and time_index < 2",
@@ -336,7 +349,7 @@ label Rogue_chapter_one_season_one_standoffish_part_two:
 
     $ Rogue.change_face("angry1", eyes = "down")
 
-    call set_the_scene(location = "bg_classroom", fade = False) from _call_set_the_scene_394
+    call set_the_scene(location = "bg_classroom", fade_Characters = False, fade = False) from _call_set_the_scene_394
 
     "You turn around and see [Rogue.name] with a cloudy expression on her face. . ."
 
@@ -389,7 +402,7 @@ label Rogue_chapter_one_season_one_standoffish_part_two:
 
     $ Rogue.change_face("sad", eyes = "down", mouth = "smirk")
 
-    ch_Rogue "Reckon ah've just got a terminal case of 'restin' bitch face'."
+    ch_Rogue "Reckon ah've just got a terminal case of 'restin' bitch face.'"
     ch_Player "Nah, that can't be right."
 
     $ Rogue.change_face("worried1", mouth = "smirk")

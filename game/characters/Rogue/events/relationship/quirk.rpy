@@ -243,13 +243,20 @@ init python:
 
         conditions = [
             "Rogue in Partners",
+            
             "approval_check(Rogue, threshold = [825, 825])",
+            
             "not EventScheduler.Events['Rogue_penultimate_quirk_discouraged'].completed",
             "EventScheduler.Events['Rogue_penultimate_penultimate_quirk'].completed",
+            
             "day - EventScheduler.Events['Rogue_penultimate_penultimate_quirk'].completed_when >= 3",
-            "Rogue.location != Player.location",
-            "Player.location == Player.home",
-            "Rogue.History.check('quirk_encouraged') >= Rogue.History.check('quirk_discouraged')"]
+            
+            "Rogue.History.check('quirk_encouraged') >= Rogue.History.check('quirk_discouraged')",
+            
+            "Rogue.location != Player.location and Player.location == Player.home",
+            "not Player.date_planned or time_index < 2",
+
+            "Rogue.is_in_normal_mood()"]
 
         sleeping = True
 
@@ -373,13 +380,20 @@ init python:
 
         conditions = [
             "Rogue in Partners",
+            
             "approval_check(Rogue, threshold = [825, 825])",
+            
             "not EventScheduler.Events['Rogue_penultimate_quirk_encouraged'].completed",
             "EventScheduler.Events['Rogue_penultimate_penultimate_quirk'].completed",
+            
             "day - EventScheduler.Events['Rogue_penultimate_penultimate_quirk'].completed_when >= 3",
-            "Rogue.location != Player.location",
-            "Player.location in public_locations",
-            "Rogue.History.check('quirk_encouraged') < Rogue.History.check('quirk_discouraged')"]
+            
+            "Rogue.History.check('quirk_encouraged') < Rogue.History.check('quirk_discouraged')",
+            
+            "Rogue.location != Player.location and Player.location in public_locations",
+            "not Player.date_planned or time_index < 2",
+
+            "Rogue.is_in_normal_mood()"]
 
         waiting = True
         traveling = True

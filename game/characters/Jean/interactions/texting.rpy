@@ -76,9 +76,6 @@ label Jean_texting(message):
     if message == "wanna come over?":
         call summon(Jean) from _call_summon
 
-    if message == "I'm ready for that training session":
-        call Jean_chapter_one_season_one_first_training_session_text from _call_Jean_chapter_one_season_one_first_training_session_text
-
     if message in ["want to go on a date tonight?", "free tonight for that date?"]:
         call Jean_text_ask_on_date from _call_Jean_text_ask_on_date
 

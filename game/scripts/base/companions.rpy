@@ -300,9 +300,9 @@ init -2 python:
                     self.destination = "bg_lockers"
 
                     if time_index < 3 and time_index not in self.schedule.keys():
-                        if renpy.random.random() > 0.5:
+                        if renpy.random.random() > 0.66:
                             self.schedule[time_index + 1] = ["bg_lockers", "showering"]
-                        else:
+                        elif renpy.random.random() > 0.33:
                             self.schedule[time_index + 1] = ["bg_lockers", "changing"]
                 elif time_index == 0 and self.location == Player.location and renpy.random.random() > 0.5:
                     self.destination = Player.location

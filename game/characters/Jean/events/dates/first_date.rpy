@@ -757,9 +757,11 @@ label Jean_first_date:
     $ Player.History.update("went_on_date")
     $ Player.date_planned = {}
 
+    jump go_to_sleep
+
     $ ongoing_Event = False
 
-    jump go_to_sleep
+    return
 
 label Jean_first_date_path_1A:
     $ Jean.change_face("confused2", mouth = "smirk") 

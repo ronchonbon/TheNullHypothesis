@@ -69,6 +69,9 @@ label Laura_chapter_one_season_one_fourth_training_session:
     menu:
         extend ""
         "You're probably the best fighter on campus. . . I had to learn something eventually.":
+            call change_Girl_stat(Laura, "love", medium_stat)
+            call change_Girl_stat(Laura, "trust", medium_stat)
+            
             $ Laura.change_face("surprised1")
 
             pause 1.0
@@ -76,10 +79,10 @@ label Laura_chapter_one_season_one_fourth_training_session:
             $ Laura.change_face("smirk2")
 
             ch_Laura "Took you long enough." 
-
-            call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_423
-            call change_Girl_stat(Laura, "trust", 0) from _call_change_Girl_stat_424
         "I guess my brain decided it didn't like getting hit so much. . .":
+            call change_Girl_stat(Laura, "love", -small_stat)
+            call change_Girl_stat(Laura, "trust", small_stat)
+
             $ Laura.change_face("confused1")
             
             pause 1.0
@@ -87,9 +90,10 @@ label Laura_chapter_one_season_one_fourth_training_session:
             $ Laura.change_face("smirk2")
 
             ch_Laura "Took your brain long enough." 
-
-            call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_425 
         "Maybe things would go faster if you just went easier on me. . .":
+            call change_Girl_stat(Laura, "love", -medium_stat)
+            call change_Girl_stat(Laura, "trust", small_stat)
+
             $ Laura.change_face("angry1")
 
             pause 1.0
@@ -97,8 +101,6 @@ label Laura_chapter_one_season_one_fourth_training_session:
             $ Laura.change_face("furious")
 
             ch_Laura "You think someone will go easy when they're actually trying to kill you?"
-
-            call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_426 
 
     $ Laura.change_face("neutral")
 

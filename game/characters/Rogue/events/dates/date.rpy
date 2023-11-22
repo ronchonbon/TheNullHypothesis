@@ -289,14 +289,14 @@ label Rogue_date:
     $ Player.History.update("went_on_date")
     $ Player.date_planned = {}
 
-    $ ongoing_Event = False
-
     $ clock = 0
 
     if Rogue.location == Player.location:
         jump go_to_sleep
     # else:
     #     call move_location(Player.location) from _call_move_location_25
+
+    $ ongoing_Event = False
 
     return
 

@@ -49,12 +49,12 @@ label Jean_before_study_session_part_one:
 
             $ Jean.History.update("Player_rejected_studying")
         "Nah, I'm good.":
+            call change_Girl_stat(Jean, "love", -small_stat) from _call_change_Girl_stat_129
+
             $ Jean.change_face("confused1")
 
             ch_Jean "Really?" 
             
-            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_129
-
             $ Jean.History.update("Player_rejected_studying")
 
     $ Jean.change_face("worried1", eyes = "right", mouth = "smirk")
@@ -129,11 +129,11 @@ label Jean_before_study_session_part_two:
 
             $ Jean.History.update("Player_rejected_studying")
         "Not particularly.":
+            call change_Girl_stat(Jean, "love", -small_stat) from _call_change_Girl_stat_130
+
             $ Jean.change_face("confused1")
 
             ch_Jean "Oh really?" 
-            
-            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_130
 
             $ Jean.History.update("Player_rejected_studying")
 
@@ -150,9 +150,9 @@ label Jean_before_study_session_part_two:
         $ studied_with_Laura_on = 0
 
     if studied_with_Rogue_on >= studied_with_Laura_on:
-        ch_Jean "{size=-5}But you'll study with Rogue, huh{/size}. . ."
+        ch_Jean "{size=-5}But you'll study with [Rogue.public_name], huh{/size}. . ."
     else:
-        ch_Jean "{size=-5}But you'll study with X-23, huh{/size}. . ."
+        ch_Jean "{size=-5}But you'll study with [Laura.public_name], huh{/size}. . ."
 
     $ Jean.change_face("confused1")
 

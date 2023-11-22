@@ -1,10 +1,4 @@
 label Characters_greet_Player(greeting_Characters):
-    $ temp_Character_picker_disabled = Character_picker_disabled
-    $ temp_belt_disabled = belt_disabled
-
-    $ Character_picker_disabled = True
-    $ belt_disabled = True
-
     if greeting_Characters in all_Characters:
         $ greeting_Characters = [greeting_Characters]
 
@@ -26,8 +20,5 @@ label Characters_greet_Player(greeting_Characters):
             call expression f"{sorted_Characters[0].tag}_greets_Player" from _call_expression_248
 
         $ sorted_Characters.remove(sorted_Characters[0])
-
-    $ Character_picker_disabled = temp_Character_picker_disabled
-    $ belt_disabled = temp_belt_disabled
 
     return

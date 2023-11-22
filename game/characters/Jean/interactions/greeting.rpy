@@ -346,7 +346,7 @@ label Jean_greets_Laura:
     if Jean in Partners and Laura in Partners:
         $ Jean.change_face("neutral", eyes = Jean_eyes)
 
-        ch_Jean "X-23."
+        ch_Jean "[Laura.public_name]."
         ch_Jean "You better not be having too much fun with [Player.first_name]."
         
         $ Laura.change_face("smirk2", eyes = Laura_eyes)
@@ -362,28 +362,28 @@ label Jean_greets_Laura:
 
             $ Jean.change_face("sly", eyes = Jean_eyes)
 
-            ch_Jean "Hey, X-23."
+            ch_Jean "Hey, [Laura.public_name]."
             ch_Laura "Hi."
         elif dice_roll == 2:
             "[Jean.name] loops her arm around yours."
             ch_Jean "Oh!"
-            ch_Jean "Hey, X-23."
+            ch_Jean "Hey, [Laura.public_name]."
             ch_Jean "Didn't see you there."
             ch_Laura "Right. . ."
     elif Laura in Partners:
         "[Laura.name] gets in between you and [Jean.name]."
-        ch_Jean "X-23. . ."
+        ch_Jean "[Laura.public_name]. . ."
         ch_Jean "Getting close with [Player.first_name]?"
     else:
         $ dice_roll = renpy.random.randint(1, 2)
 
         if dice_roll == 1:
-            ch_Jean "Hey, X-23."
+            ch_Jean "Hey, [Laura.public_name]."
             ch_Jean "Come find me later."
             ch_Laura "Why?"
             ch_Jean "{size=-5}Because you almost failed the last exam{/size}. . ."
         elif dice_roll == 2:
-            ch_Jean "Oh, hey X-23."
+            ch_Jean "Oh, hey [Laura.public_name]."
             ch_Laura "Hi."
 
     $ Jean.eyes = "neutral"

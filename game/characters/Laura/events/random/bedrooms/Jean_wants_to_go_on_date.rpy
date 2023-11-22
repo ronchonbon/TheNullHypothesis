@@ -4,8 +4,8 @@ init python:
         label = "Laura_Jean_wants_to_go_on_date_setup"
 
         conditions = [
-            "Laura.location != Player.location",
-            "Jean.location != Player.location",
+            "Laura.location not in ['hold', Player.location]",
+            "Jean.location not in ['hold', Player.location]",
 
             "renpy.random.random() > 0.75",
 
@@ -53,6 +53,8 @@ init python:
 
         markers = {
             Laura.home: [
+                "Player.location != Laura.home",
+
                 "Laura in Partners and Jean in Partners",
 
                 "Laura.location == Laura.home and Jean.location == Laura.home",

@@ -4,8 +4,8 @@ init python:
         label = "Rogue_Laura_asks_about_masturbation_setup"
 
         conditions = [
-            "Rogue.location != Player.location",
-            "Laura.location != Player.location",
+            "Rogue.location not in ['hold', Player.location]",
+            "Laura.location not in ['hold', Player.location]",
             
             "renpy.random.random() > 0.75",
 
@@ -49,6 +49,8 @@ init python:
 
         markers = {
             Rogue.home: [
+                "Player.location != Rogue.home",
+                
                 "Rogue.location == Rogue.home and Laura.location == Rogue.home",
                 
                 "EventScheduler.Events['Laura_first_friend_part_two'].completed",

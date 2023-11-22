@@ -4,7 +4,7 @@ init python:
         label = "Rogue_chapter_one_season_one_jogging_setup"
 
         conditions = [
-            "Rogue.location != Player.location",
+            "Rogue.location not in ['hold', Player.location]",
 
             "renpy.random.random() > 0.75",
 
@@ -15,6 +15,7 @@ init python:
             "chapter == 1 and season == 1",
 
             "time_index == 2",
+            "weather != 'rain'",    
 
             "Rogue.is_in_normal_mood()"]
 
@@ -39,6 +40,7 @@ init python:
             "chapter == 1 and season == 1",
 
             "time_index == 2",
+            "weather != 'rain'",    
             
             "Rogue.location == 'bg_lockers'",
             "Rogue.behavior == 'changing'",
@@ -49,9 +51,12 @@ init python:
 
         markers = {
             "bg_lockers": [
+                "Player.location != 'bg_lockers'",
+
                 "chapter == 1 and season == 1",
 
                 "time_index == 2",
+                "weather != 'rain'",    
                 
                 "Rogue.location == 'bg_lockers'",
                 "Rogue.behavior == 'changing'",
@@ -63,18 +68,14 @@ init python:
 label Rogue_chapter_one_season_one_jogging:
     $ ongoing_Event = True
 
-    call remove_Characters(location = "bg_lockers") from _call_remove_Characters_323
+    call remove_Characters(location = "bg_lockers")
     call set_the_scene(location = "bg_lockers") from _call_set_the_scene_387
 
-    call set_music from _call_set_music_16
-
-    "You head to the lockers after your session in the Danger Room."
-
-    $ Rogue.change_face("neutral", eyes = "down")
+    $ Rogue.change_face("sad", eyes = "down")
 
     call send_Characters(Rogue, "bg_lockers", behavior = "training") from _call_send_Characters_313
 
-    "On the way in, you notice [Rogue.name] exiting the room looking dejected."
+    "On the way into the locker rooms, you notice [Rogue.name] exiting with a dejected look on her face."
 
     menu:
         extend ""
@@ -175,7 +176,7 @@ label Rogue_chapter_one_season_one_jogging:
 
     $ Rogue.change_face("smirk2")
 
-    "You talk to Rogue for a little longer and make more formal plans to go running."
+    "You talk to [Rogue.name] for a little longer and make more formal plans to go running."
     "With that done, [Rogue.name] heads off, looking a little more upbeat than she did before."
 
     call remove_Characters(Rogue) from _call_remove_Characters_326

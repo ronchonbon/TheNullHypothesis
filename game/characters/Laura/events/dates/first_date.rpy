@@ -336,7 +336,7 @@ label Laura_first_date:
 
     $ Laura.change_face("neutral")
 
-    ch_Laura "Storm did show me one of those television shows. . ."
+    ch_Laura "[Ororo.public_name] did show me one of those television shows. . ."
 
     $ Laura.change_face("neutral", eyes = "right")
 

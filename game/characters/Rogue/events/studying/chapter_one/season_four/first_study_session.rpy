@@ -89,7 +89,7 @@ label Rogue_chapter_one_season_four_first_study_session:
 
     ch_Rogue "And ah'm not talkin' about what happened to me."
     ch_Rogue "Ah mean all the terrible stuff you've had to go through." 
-    ch_Rogue "Prof. X thinks it's all so important, but maybe X-23 had the right idea. . ."
+    ch_Rogue "Prof. X thinks it's all so important, but maybe [Laura.public_name] had the right idea. . ."
 
     $ Rogue.change_face("worried1")
 

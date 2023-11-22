@@ -51,8 +51,6 @@ label Laura_bedroom_changing:
         ch_Laura "I'm busy."
         ch_Laura "Go away."
 
-        $ ongoing_Event = False
-
         $ Laura.wants_alone_time = 1
         
         call move_location("bg_girls_hallway") from _call_move_location_18

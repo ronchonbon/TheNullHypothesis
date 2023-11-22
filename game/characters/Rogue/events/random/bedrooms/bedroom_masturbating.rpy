@@ -55,8 +55,6 @@ label Rogue_bedroom_masturbating:
         ch_Rogue "{size=-5}Oh lord{/size}. . . you didn't hear nothin', right?"
         ch_Rogue "Ah mean, sorry, ah'm busy. . . could ya come by later?"
 
-        $ ongoing_Event = False
-
         $ Rogue.wants_alone_time = 1
         
         call move_location("bg_girls_hallway") from _call_move_location_29

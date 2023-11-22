@@ -761,7 +761,11 @@ label ch1_Sentinel_attack:
     ". . ."
     ch_Piotr "It looks like he is still breathing."
     ch_Piotr "Bozhe moi!"
-    ch_Logan "Careful bub, make sure nobody but X-23 'n I get near 'em."
+    ch_Logan "Careful bub, make sure nobody but [Laura.public_name] 'n I get near 'em."
+
+    $ Piotr.name = "Colossus"
+    $ Logan.name = "Logan"
+
     "You feel weightless."
     ch_Laura "{i}Grrrrrrrrr{/i}. . . if you're not careful, I will kill you."
     "That last voice sounded like [Laura.temp]. . ."
@@ -770,7 +774,7 @@ label ch1_Sentinel_attack:
 
     call knock_on_door(times = 2) from _call_knock_on_door_27
 
-    ch_Cecilia "X-23, put some clothes on, we're coming in to evaluate him. . ."
+    ch_Cecilia "[Laura.public_name], put some clothes on, we're coming in to evaluate him. . ."
     ". . . was that the doctor?"
     ch_Laura "One minute."
 
@@ -783,11 +787,11 @@ label ch1_Sentinel_attack:
         ". . . [Rogue.name]?"
 
     if Jean.love >= 125 or Rogue.love >= 125:
-        ch_Cecilia "{i}Ahem{/i}. . . you know exactly why X-23 can be the only one." 
+        ch_Cecilia "{i}Ahem{/i}. . . you know exactly why [Laura.public_name] can be the only one." 
 
     ". . ."
     "More time passes."
-    ch_Cecilia "X-23, you have to recover at some point!"
+    ch_Cecilia "[Laura.public_name], you have to recover at some point!"
     ch_Laura "{i}Just{/i}. . . {i}a little while{/i}. . . {i}longer{/i}. . ."
     ". . ."
     ". . . . . ."
@@ -882,13 +886,13 @@ label ch1_Sentinel_attack:
     ch_Player "Holy shit. . . did I hurt anyone?!"
     ch_Cecilia "No, don't worry."
     ch_Cecilia "It wasn't so rapid that they weren't able to get away."
-    ch_Cecilia "Logan and X-23 were able to carry you back to the Institute, thanks to their regenerative ability."
+    ch_Cecilia "Logan and [Laura.public_name] were able to carry you back to the Institute, thanks to their regenerative ability."
     ch_Cecilia "During that process, we noticed your condition visibly improve as you seemed to feed off of their strength."
-    ch_Cecilia "When X-23 realized this fact, she took it upon herself to hasten your recovery for the past 6 weeks."
+    ch_Cecilia "When [Laura.public_name] realized this fact, she took it upon herself to hasten your recovery for the past 6 weeks."
     ch_Player "Holy shit. . ."
     ch_Cecilia "It seems to have been effective, considering your current state."
     "She looks you up and down."
-    ch_Cecilia "X-23 is currently still recovering from the most recent 'session'."
+    ch_Cecilia "[Laura.public_name] is currently still recovering from the most recent 'session'."
 
     # call change_Outfit(Jean, Jean.Wardrobe.Outfits["Casual 1"], instant = True) from _call_change_Outfit_31
 
@@ -954,7 +958,7 @@ label ch1_Sentinel_attack:
 
     call Jean_deactivate_psychic from _call_Jean_deactivate_psychic_33
 
-    "As soon as it does, you see Jean physically recoil, and the presence disappears."
+    "As soon as it does, you see [Jean.name] physically recoil, and the presence disappears."
 
     $ Jean.change_face("worried1", mouth = "smirk")
 
@@ -1238,7 +1242,7 @@ label ch1_Sentinel_attack:
     $ Rogue.change_face("smirk2")
 
     ch_Rogue "Alright, ah can't keep ya all to myself."
-    ch_Rogue "I'm sure X-23 would appreciate knowin' yer awake."
+    ch_Rogue "I'm sure [Laura.public_name] would appreciate knowin' yer awake."
 
     $ Rogue.change_face("worried1", mouth = "lipbite", blush = 1)
 

@@ -4,8 +4,8 @@ init python:
         label = "Rogue_Laura_asks_about_body_setup"
 
         conditions = [
-            "Rogue.location != Player.location",
-            "Laura.location != Player.location",
+            "Rogue.location not in ['hold', Player.location]",
+            "Laura.location not in ['hold', Player.location]",
 
             "renpy.random.random() > 0.75",
 
@@ -49,6 +49,8 @@ init python:
 
         markers = {
             Rogue.home: [
+                "Player.location != Rogue.home",
+
                 "Rogue.location == Rogue.home and Laura.location == Rogue.home",
                 
                 "EventScheduler.Events['Laura_first_friend_part_two'].completed",
@@ -92,7 +94,7 @@ label Rogue_Laura_asks_about_body:
     $ Rogue.change_face("surprised2", blush = 1)
     $ Laura.change_face("perplexed")
 
-    ch_Rogue "Ah was just havin' a chat with X-23."
+    ch_Rogue "Ah was just havin' a chat with [Laura.public_name]."
     
     $ Laura.change_face("neutral")
 

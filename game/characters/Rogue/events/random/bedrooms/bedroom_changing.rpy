@@ -48,8 +48,6 @@ label Rogue_bedroom_changing:
         ch_Rogue "Ah'm not. . . decent right now."
         ch_Rogue "Could ya come back later?"
 
-        $ ongoing_Event = False
-
         $ Rogue.wants_alone_time = 1
         
         call move_location("bg_girls_hallway") from _call_move_location_28

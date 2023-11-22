@@ -367,7 +367,8 @@ init -2 python:
         Laura.pubes = Laura.default_pubes
         Laura.desired_pubes = Laura.default_pubes
 
-        Laura.claws = False
+        Laura.left_claw = False
+        Laura.right_claw = False
         Laura.unsheathing_claws = False
         Laura.sheathing_claws = False
 
@@ -627,12 +628,17 @@ label update_Laura:
 
     return
 
-label Laura_unsheathes_claws:
-    $ Laura.change_arms("claws")
-
+label Laura_unsheathes_claws(hand = "both"):
     pause 0.2
 
-    $ Laura.claws = True
+    if hand == "both":
+        $ Laura.left_claw = True
+        $ Laura.right_claw = True
+    elif hand == "left":
+        $ Laura.left_claw = True
+    elif hand == "right":
+        $ Laura.right_claw = True
+
     $ Laura.unsheathing_claws = True
 
     show expression "images/effects/snikt.webp" as snikt onlayer effects:
@@ -649,8 +655,15 @@ label Laura_unsheathes_claws:
 
     return
 
-label Laura_sheathes_claws:
-    $ Laura.claws = False
+label Laura_sheathes_claws(hand = "both"):
+    if hand == "both":
+        $ Laura.left_claw = False
+        $ Laura.right_claw = False
+    elif hand == "left":
+        $ Laura.left_claw = False
+    elif hand == "right":
+        $ Laura.right_claw = False
+
     $ Laura.sheathing_claws = True
 
     show expression "images/effects/snakt.webp" as snakt onlayer effects:
@@ -666,7 +679,5 @@ label Laura_sheathes_claws:
     $ Laura.sheathing_claws = False
 
     pause 0.5
-    
-    $ Laura.change_arms("neutral")
     
     return

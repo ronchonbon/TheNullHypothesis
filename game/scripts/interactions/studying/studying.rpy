@@ -180,6 +180,12 @@ label actually_study(Girl):
         if clock > 0 or time_index == 3:
             $ fade_in_from_black(0.4)
 
+    call after_studying
+    call check_for_Events(only_automatic = True) from _call_check_for_Events_18
+    call move_location(Player.location) from _call_move_location_47
+
+    return
+
 label after_studying:
     if Player.behavior_Partners:
         python:
@@ -202,8 +208,5 @@ label after_studying:
     $ Player.XP += gained_XP
 
     $ update_messages.append("{color=%s}%s{/color} gained {color=%s}%s XP{/color} from {color=%s}Studying{/color}" % ("#feba00", Player.first_name, "#feba00", gained_XP, "#feba00"))
-
-    call check_for_Events(only_automatic = True) from _call_check_for_Events_18
-    call move_location(Player.location) from _call_move_location_47
 
     return

@@ -349,7 +349,7 @@ label Rogue_ask_about_Laura:
         else:
             $ Rogue.change_face("smirk2")
 
-            ch_Rogue "About X-23?" 
+            ch_Rogue "About [Laura.public_name]?" 
             ch_Rogue "Ah know you two are gettin' super close." 
 
             $ Rogue.change_face("worried1")    
@@ -417,7 +417,7 @@ label Rogue_ask_about_Laura:
         elif dice_roll == 3:
             $ Rogue.change_face("confused1")  
 
-            ch_Rogue "About X-23?" 
+            ch_Rogue "About [Laura.public_name]?" 
 
             $ Rogue.change_face("worried1") 
 

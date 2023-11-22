@@ -47,7 +47,7 @@ label Jean_back_from_mission:
     $ Jean.change_face("neutral")
 
     ch_Charles "Good morning, [Player.first_name]. It seems you two are already acquainted."
-    ch_Charles "While on mission, Jean and her team were ambushed. The incident bore striking similarities to the events that led to your arrival here."
+    ch_Charles "While on mission, [Jean.public_name] and her team were ambushed. The incident bore striking similarities to the events that led to your arrival here."
     
     $ Jean.change_face("worried1")
     
@@ -59,24 +59,26 @@ label Jean_back_from_mission:
     menu:
         extend ""
         "That sounds great! I'm happy to help [Jean.name], and I've been eager to learn how to use my powers.":
-            ch_Player "Everyone around here is so capable, I want to be able to help out as well."
+            call change_Girl_stat(Jean, "love", medium_stat)
+            call change_Girl_stat(Jean, "trust", medium_stat)
 
             $ Jean.change_face("smirk2", blush = 1)
 
-            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_107
-            call change_Girl_stat(Jean, "trust", 0) from _call_change_Girl_stat_108
+            ch_Player "Everyone around here is so capable, I want to be able to help out as well."
 
             $ Jean.History.update("Player_happy_to_help")
         "An excuse to spend more time with [Jean.name]? Count me in.":
-            $ Jean.change_face("confused1")
+            call change_Girl_stat(Jean, "love", small_stat)
+            call change_Girl_stat(Jean, "trust", -small_stat)
 
-            call change_Girl_stat(Jean, "trust", 0) from _call_change_Girl_stat_109
+            $ Jean.change_face("confused1")
 
             $ Jean.History.update("Player_wants_excuse_to_spend_time_together")
         "To be honest, I still don't know how I feel about having powers. But if it helps [Jean.name], then I'll do it.":
-            $ Jean.change_face("sad")
+            call change_Girl_stat(Jean, "love", -small_stat)
+            call change_Girl_stat(Jean, "trust", small_stat)
 
-            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_110
+            $ Jean.change_face("sad")
 
             $ Jean.History.update("Player_is_worried_about_being_a_mutant")
 
@@ -137,6 +139,8 @@ label Jean_back_from_mission:
     menu:
         extend ""
         "So. . . I'll be your 'little bro''?":
+            call change_Girl_stat(Jean, "love", medium_stat)
+            
             $ Jean.change_face("surprised2", blush = 1)
 
             ch_Jean "Haha, yeah. I guess so. . ."
@@ -150,10 +154,8 @@ label Jean_back_from_mission:
             pause 1.0
 
             $ Jean.blush = 0
-
-            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_112
         "Heh, I guess so.":
-            pass
+            call change_Girl_stat(Jean, "love", small_stat)
 
     $ Jean.change_face("smirk2")
 
@@ -164,11 +166,11 @@ label Jean_back_from_mission:
         "Yes, please.":
             ch_Player "That would be great, I'll need all the help I can get to catch up."
 
+            call change_Girl_stat(Jean, "love", medium_stat)
+            call change_Girl_stat(Jean, "trust", small_stat)
+            
             $ Jean.blush = 1
             
-            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_113
-            call change_Girl_stat(Jean, "desire", 0) from _call_change_Girl_stat_114
-
             ch_Jean "Can you. . . say that again. . ."
             ch_Player "Uh. . . that would be great. . ."
             ch_Jean "No, the first part."
@@ -176,15 +178,15 @@ label Jean_back_from_mission:
 
             $ Jean.change_face("surprised2", blush = 2)
             
-            call change_Girl_stat(Jean, "desire", 0) from _call_change_Girl_stat_115
-
             "[Jean.name] stares at you for a second before snapping out of it."
         "That would be great.":
             ch_Player "I'll take all the help I can get in order to catch up."
 
+            call change_Girl_stat(Jean, "love", small_stat)
+            
             $ Jean.change_face("happy")
 
-            ch_Jean "Happy to help!."
+            ch_Jean "Happy to help!"
 
             $ Jean.change_face("surprised2", blush = 1)
 
@@ -202,13 +204,16 @@ label Jean_back_from_mission:
     menu:
         extend ""
         "I really appreciate that.":
-            $ Jean.blush = 1
+            call change_Girl_stat(Jean, "love", small_stat)
+            call change_Girl_stat(Jean, "trust", medium_stat)
 
-            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_116
+            $ Jean.blush = 1
 
             ch_Player "Thanks, [Jean.name]."
             ch_Jean "Of course!"
         "You don't have to go out of your way. . .":
+            call change_Girl_stat(Jean, "love", -small_stat)
+
             ch_Player "But, thanks, [Jean.name]."
 
     ch_Jean "Just let me know when you wanna start working on our powers. Take my number so you can shoot me a text."
@@ -221,9 +226,6 @@ label Jean_back_from_mission:
     "You continue along your way."
 
     $ Contacts.append(Jean)
-
-    $ Jean.chat_options.insert(0, "Ready for that training session?")
-    $ Jean.text_options.insert(0, "I'm ready for that training session")
 
     $ ongoing_Event = False
 

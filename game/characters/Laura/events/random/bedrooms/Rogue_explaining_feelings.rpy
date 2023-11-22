@@ -4,8 +4,8 @@ init python:
         label = "Laura_Rogue_explaining_feelings_setup"
 
         conditions = [
-            "Laura.location != Player.location",
-            "Rogue.location != Player.location",
+            "Laura.location not in ['hold', Player.location]",
+            "Rogue.location not in ['hold', Player.location]",
             
             "renpy.random.random() > 0.75",
 
@@ -49,6 +49,8 @@ init python:
 
         markers = {
             Laura.home: [
+                "Player.location != Laura.home",
+                
                 "Laura.location == Laura.home and Rogue.location == Laura.home",
 
                 "EventScheduler.Events['Laura_first_friend_part_two'].completed and not EventScheduler.Events['Laura_first_friend_part_three'].completed",
@@ -90,12 +92,12 @@ label Laura_Rogue_explaining_feelings:
     ch_Player "[Laura.name]? It's me."
     ch_Rogue "Sorry, [Player.first_name]."
     ch_Rogue "Could ya come back later?"
-    ch_Rogue "X-23 and ah were havin' a chat. . ."
-
-    $ ongoing_Event = False
+    ch_Rogue "[Laura.public_name] and ah were havin' a chat. . ."
 
     $ Laura.wants_alone_time = 1
         
     call move_location("bg_girls_hallway") from _call_move_location_16
+
+    $ ongoing_Event = False
 
     return

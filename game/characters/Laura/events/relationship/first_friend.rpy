@@ -74,7 +74,7 @@ label Laura_first_friend_part_one:
             "Why me?" if not asked_why_me:
                 $ Laura.change_face("neutral", blush = 1)
 
-                ch_Laura "Other than Storm, I've interacted with you the most."
+                ch_Laura "Other than [Ororo.public_name], I've interacted with you the most."
                 ch_Laura "You're still weak, but at least you show some fortitude."
 
                 $ Laura.eyes = "down"
@@ -181,7 +181,7 @@ label Laura_first_friend_part_one_1B:
 
     $ Laura.change_face("angry1")
 
-    ch_Laura "I never knew anyone on the outside before, and Storm tried to help."
+    ch_Laura "I never knew anyone on the outside before, and [Ororo.public_name] tried to help."
     ch_Laura "Even after I tried to kill. . ."
 
     $ Laura.change_face("worried1")
@@ -318,7 +318,7 @@ label Laura_first_friend_part_two:
 
     call receive_call(Rogue, dialogue = "As you're getting ready for bed, you get another call on your phone.") from _call_receive_call_1
     
-    ch_Rogue "Hon', why did X-23 march into my room and demand ah be her friend?"
+    ch_Rogue "Hon', why did [Laura.public_name] march into my room and demand ah be her friend?"
     ch_Player "Heh, sorry about that."
     ch_Player "She had some questions about stuff that I thought might be better discussed with another girl. . ."
     ch_Player "She can be a bit rough around the edges, but she means well."
@@ -458,7 +458,7 @@ label Laura_first_friend_part_three:
 
     $ Laura.change_face("neutral", eyes = "right", blush = 1)
 
-    ch_Laura "I talked to Rogue as you suggested, about. . . {i}things{/i}."
+    ch_Laura "I talked to [Rogue.public_name] as you suggested, about. . . {i}things{/i}."
 
     $ Laura.eyes = "neutral"
 

@@ -25,7 +25,8 @@ init python:
 
         optional_objectives.update({"Hang out together on the front lawn": ["EventScheduler.Events['Rogue_chapter_one_season_one_people_watching'].completed", None]})
 
-        optional_objectives.update({"Bump into each other in the hallway": ["EventScheduler.Events['Rogue_chapter_one_season_one_standoffish_part_one'].completed", None]})
+        if day > 5:
+            optional_objectives.update({"Bump into each other in the hallway": ["EventScheduler.Events['Rogue_chapter_one_season_one_standoffish_part_one'].completed", None]})
 
         if EventScheduler.Events["Rogue_chapter_one_season_one_standoffish_part_one"].completed:
             optional_objectives.update({"Bump into each other in the classroom": ["EventScheduler.Events['Rogue_chapter_one_season_one_standoffish_part_two'].completed", None]})

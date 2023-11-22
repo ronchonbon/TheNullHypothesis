@@ -214,13 +214,13 @@ label ch1_Juggernaut_attack:
     menu:
         extend ""
         "We both know that's not a good idea. You're more than powerful enough, but the instability. . .":
-            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_837
-            call change_Girl_stat(Jean, "trust", 0) from _call_change_Girl_stat_838
+            call change_Girl_stat(Jean, "love", small_stat) from _call_change_Girl_stat_837
+            call change_Girl_stat(Jean, "trust", medium_stat) from _call_change_Girl_stat_838
         "[temp], are you sure. . . ? What if you lose control again?":
-            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_839
+            call change_Girl_stat(Jean, "love", -small_stat) from _call_change_Girl_stat_839
         "Don't act all confident, you need to face reality. You and I both know you're not stable enough for that.":
-            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_840  
-            call change_Girl_stat(Jean, "trust", 0) from _call_change_Girl_stat_841
+            call change_Girl_stat(Jean, "love", -medium_stat) from _call_change_Girl_stat_840  
+            call change_Girl_stat(Jean, "trust", small_stat) from _call_change_Girl_stat_841
 
     $ Jean.change_face("angry1") 
 
@@ -325,19 +325,17 @@ label ch1_Juggernaut_attack:
     menu:
         extend ""
         "I think [Rogue.name] might be in trouble, I need to find her.":
-            ch_Player "She always picks up her phone." 
-            
-            call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_842
-            call change_Girl_stat(Laura, "trust", 0) from _call_change_Girl_stat_843
+            call change_Girl_stat(Laura, "love", medium_stat)
+            call change_Girl_stat(Laura, "trust", small_stat)
 
+            ch_Player "She always picks up her phone." 
             ch_Laura "Part of being a friend is to tell you when you're being an idiot, right?" 
             ch_Player "Ha! Now you're getting it." 
             ch_Laura "You're still weak, you'll just get yourself hurt." 
             ch_Player "I'm sorry, but I'm going. She's our friend too."
             ch_Player "I might be able to help, they won't be expecting my power."
         "I'm not going to sit around - I'll be fine. With all the training you've put me through, I can handle it.":
-            call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_844 
-            call change_Girl_stat(Laura, "trust", 0) from _call_change_Girl_stat_845
+            call change_Girl_stat(Laura, "trust", -small_stat)
 
             ch_Laura "You're being an idiot." 
             ch_Laura "Scenarios are nothing like the real thing." 
@@ -935,7 +933,7 @@ label ch1_Juggernaut_attack:
 
     ch_Laura "You idiot, what were you thinking?!" 
     ch_Laura "I'm never letting you out of my sight again."
-    ch_Player "X-23. . . can't. . . breathe. . ."
+    ch_Player "[Laura.name]. . . can't. . . breathe. . ."
 
     $ Laura.change_face("angry1", blush = 2)
 
@@ -957,18 +955,20 @@ label ch1_Juggernaut_attack:
     menu:
         extend ""
         "I'd still do it all over again, I had to help [Rogue.name].":
+            call change_Girl_stat(Laura, "love", medium_stat)
+            call change_Girl_stat(Laura, "trust", medium_stat)
+
             $ Laura.change_face("angry1", eyes = "right") 
             
             ch_Player "She's our friend, remember?"
             ch_Player "And don't tell me you weren't getting ready to fight that behemoth in order to protect me." 
-            
-            call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_846 
-            call change_Girl_stat(Laura, "trust", 0) from _call_change_Girl_stat_847
 
             $ Laura.change_face("furious", blush = 1) 
             
             ch_Laura "Then I'll have to keep an even closer eye on you."
         "Yeah. . . I don't know what I was thinking.":
+            call change_Girl_stat(Laura, "love", small_stat)
+
             $ Laura.change_face("suspicious2") 
             
             ch_Player "But [Rogue.name] is our friend, I couldn't just run away." 
@@ -976,13 +976,13 @@ label ch1_Juggernaut_attack:
             $ Laura.change_face("angry1", eyes = "right") 
             
             ch_Player "And don't tell me you weren't ready to fight that behemoth in order to protect me." 
-            
-            call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_848
 
             $ Laura.change_face("furious", blush = 1) 
             
             ch_Laura "Next time, just stay behind me."
         "Oh come on, I'm fine!":
+            call change_Girl_stat(Laura, "trust", -small_stat)
+
             $ Laura.change_face("suspicious2") 
             
             ch_Player "I was gonna help [Rogue.name] either way." 
@@ -990,9 +990,6 @@ label ch1_Juggernaut_attack:
             $ Laura.change_face("angry1", eyes = "right") 
             
             ch_Player "And don't tell me you weren't getting ready to fight that behemoth in order to protect me." 
-            
-            call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_849 
-            call change_Girl_stat(Laura, "trust", 0) from _call_change_Girl_stat_850
 
             $ Laura.change_face("furious", blush = 1) 
             
@@ -1110,6 +1107,8 @@ label ch1_Juggernaut_attack:
         menu:
             extend ""
             "No, you can. . . I just wasn't expecting it. (encourage_quirk)":
+                call change_Girl_stat(Jean, "love", medium_stat)
+                
                 $ Jean.change_face("worried2", mouth = "lipbite", blush = 2)
 
                 pause 1.0
@@ -1118,8 +1117,6 @@ label ch1_Juggernaut_attack:
                 
                 ch_Jean "Good. . ." 
                 
-                call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_851
-
                 $ Jean.Player_petname = "little bro'"
 
                 $ Jean.History.update("quirk_encouraged")
@@ -1157,6 +1154,10 @@ label ch1_Juggernaut_attack:
                 $ Jean.change_face("sad") 
                 
                 ch_Player "Eventually I snapped out of it, but maybe if I acted sooner things would've been different."
+                
+                call change_Girl_stat(Jean, "love", medium_stat)
+                call change_Girl_stat(Jean, "trust", small_stat)
+
                 ch_Jean "I'm glad she's okay." 
                 ch_Jean "But she was already hurt by the time you got there." 
                 
@@ -1169,6 +1170,9 @@ label ch1_Juggernaut_attack:
                 
                 ch_Jean "Once my power cooperates. . ."
             "Maybe if I tried helping Colossus instead, things would've been different.":
+                call change_Girl_stat(Jean, "love", small_stat)
+                call change_Girl_stat(Jean, "trust", -small_stat)
+                
                 $ Jean.change_face("angry1")
                 
                 ch_Jean "No, [Jean.Player_petname]." 
@@ -1190,25 +1194,25 @@ label ch1_Juggernaut_attack:
                 ch_Player "She was unconscious, looked hurt pretty bad." 
                 ch_Player "I couldn't just stand around." 
                 
+                call change_Girl_stat(Jean, "love", medium_stat)
+                call change_Girl_stat(Jean, "trust", medium_stat)
+
                 $ Jean.change_face("sad") 
-                
-                call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_852 
-                call change_Girl_stat(Jean, "trust", 0) from _call_change_Girl_stat_853
-                
+
                 ch_Jean "I'm glad she's okay." 
                 
                 $ Jean.change_face("worried1") 
                 
                 ch_Player "I tried nullifying the big guy, but it didn't work for some reason. . ."
             "When I got there, sure the guy looked big, but I thought I could just nullify him.":
+                call change_Girl_stat(Jean, "trust", -medium_stat)
+
                 $ Jean.change_face("appalled1") 
                 
                 ch_Player "It didn't really work out for some reason. . ." 
                 
                 $ Jean.change_face("angry1") 
                 
-                call change_Girl_stat(Jean, "trust", 0) from _call_change_Girl_stat_854
-
                 $ temp = Jean.Player_petname.capitalize()
 
                 ch_Jean "[temp]. . . you are SUCH an idiot!" 
@@ -1739,7 +1743,8 @@ label ch1_Juggernaut_attack_path_1A:
 
     pause 0.2
 
-    $ Laura.claws = True
+    $ Laura.left_claws = True
+    $ Laura.right_claws = True
     $ Laura.unsheathing_claws = True
 
     show expression "images/effects/snikt.webp" as snikt onlayer effects:
@@ -1803,7 +1808,8 @@ label ch1_Juggernaut_attack_path_1A:
     "One chunk hits you, {i}hard{/i}, glancing off of your ribcage."
     "Another, smaller one, hits you in the head."
 
-    $ Laura.claws = False
+    $ Laura.left_claws = False
+    $ Laura.right_claws = False
     $ Laura.sheathing_claws = True
 
     show expression "images/effects/snakt.webp" as snakt onlayer effects:
@@ -2060,7 +2066,7 @@ label ch1_Juggernaut_attack_path_1A:
 
     with small_screenshake
 
-    "A furious Storm descends from the sky."
+    "A furious [Ororo.name] descends from the sky."
     ch_Cain "FUCK OFF!"
 
     hide Laura onlayer master
@@ -2187,7 +2193,8 @@ label ch1_Juggernaut_attack_path_1B:
 
     pause 0.2
 
-    $ Laura.claws = True
+    $ Laura.left_claws = True
+    $ Laura.right_claws = True
     $ Laura.unsheathing_claws = True
 
     show expression "images/effects/snikt.webp" as snikt onlayer effects:
@@ -2256,7 +2263,8 @@ label ch1_Juggernaut_attack_path_1B:
 
     "[Piotr.name] manages to get a hit in thanks to you, but to very little effect."
 
-    $ Laura.claws = False
+    $ Laura.left_claws = False
+    $ Laura.right_claws = False
     $ Laura.sheathing_claws = True
 
     show expression "images/effects/snakt.webp" as snakt onlayer effects:
@@ -2514,7 +2522,7 @@ label ch1_Juggernaut_attack_path_1B:
 
     with small_screenshake
 
-    "A furious Storm descends from the sky."
+    "A furious [Ororo.name] descends from the sky."
     "You use the distraction to crawl the last few feet to [Rogue.name] and grab onto her."
     ch_Player "[Laura.name], drag us!"
     "Yelling like that just makes your head hurt like hell. . . and feel like you're about to throw up."

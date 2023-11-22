@@ -35,7 +35,7 @@ label Laura_pubic_hair_discussion:
             $ Laura.change_face("smirk1", blush = 1)
 
             ch_Laura "Might as well try it out. . ."
-            ch_Laura "I'll just ask Rogue how to do it."
+            ch_Laura "I'll just ask [Rogue.public_name] how to do it."
 
             $ Laura.customizable_pubes = True
         else:

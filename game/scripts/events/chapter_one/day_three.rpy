@@ -381,8 +381,7 @@ label day_three_combat_lesson:
 
         $ Laura.change_face("angry1")
 
-        call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_892
-        call change_Girl_stat(Laura, "trust", 0) from _call_change_Girl_stat_893
+        call change_Girl_stat(Laura, "love", large_stat) from _call_change_Girl_stat_892
 
         ch_Laura "If you've developed any bad habits, I {i}will{/i} beat them out of you."
 
@@ -391,8 +390,6 @@ label day_three_combat_lesson:
         pause 1.0
 
         $ Laura.change_face("neutral")
-
-        call change_Girl_stat(Laura, "desire", 0) from _call_change_Girl_stat_894
     else:
         $ Laura.change_face("confused1")
 
@@ -431,9 +428,8 @@ label day_three_combat_lesson:
 
         ch_Player "Are you okay? I did say it would feel a bit weird."
 
-        call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_895
-        call change_Girl_stat(Laura, "trust", 0) from _call_change_Girl_stat_896
-        call change_Girl_stat(Laura, "desire", 0) from _call_change_Girl_stat_897
+        call change_Girl_stat(Laura, "love", small_stat) from _call_change_Girl_stat_895
+        call change_Girl_stat(Laura, "trust", small_stat) from _call_change_Girl_stat_896
 
         ch_Laura "That felt. . . {size=-5}dangerous{/size}."
     else:
@@ -441,8 +437,7 @@ label day_three_combat_lesson:
 
         ch_Laura "What was that?"
 
-        call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_898
-        call change_Girl_stat(Laura, "trust", 0) from _call_change_Girl_stat_899
+        call change_Girl_stat(Laura, "trust", -medium_stat) from _call_change_Girl_stat_899
 
         ch_Player "Oh shit, sorry! I forgot to tell you touching me might be a bit weird. Can't really control my powers. . ."
         "[Laura.name] glares at you."
@@ -515,16 +510,20 @@ label day_three_combat_lesson:
 
             ch_Laura "That's it?"
             ch_Laura "Do you not even know your own limits?"
-            ch_Laura "At least you have the willpower to go past them, unlike most of the people at this school."
 
-            call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_900
-            call change_Girl_stat(Laura, "trust", 0) from _call_change_Girl_stat_901
+            call change_Girl_stat(Laura, "love", small_stat) from _call_change_Girl_stat_900
+            call change_Girl_stat(Laura, "trust", medium_stat) from _call_change_Girl_stat_901
+            
+            ch_Laura "At least you have the willpower to go past them, unlike most of the people at this school."
         "You've hit your limit":
             $ Laura.change_face("angry1")
 
-            ch_Player "*huff*. . . I. . . don't think I can keep going. . . *huff*"
+            ch_Player "*huff*. . . I. . . don't think I can keep going. . . *huff*"            
+            
+            call change_Girl_stat(Laura, "trust", -small_stat)
+            
             ch_Laura "That's it? Why is every student at this school so weak?"
-
+            
     ch_Player "Really?!"
     ch_Player "I don't know what kind of hellish training you must've been put through, but any normal person would be exhausted after all of that. . ."
     ch_Player "I swear, I almost died like 5 times over." 
@@ -680,15 +679,19 @@ label day_three_meet_Jean:
     menu:
         extend ""
         "Yeah, I'm okay. . . it is a lot to be honest.":
-            $ Jean.change_face("sad") 
-            
-            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_902
+            call change_Girl_stat(Jean, "love", medium_stat)
+
+            $ Jean.change_face("sad")
         "Nah, I'm not really okay. . . but I'll live.":
+            call change_Girl_stat(Jean, "trust", small_stat)
+
             $ Jean.change_face("confused1") 
         "I'm okay, and it is a lot, but I'll adapt. I have to.":
+            call change_Girl_stat(Jean, "trust", medium_stat)
+
             $ Jean.change_face("smirk2") 
-            
-            call change_Girl_stat(Jean, "trust", 0) from _call_change_Girl_stat_903
+
+    pause 1.0
 
     $ Jean.change_face("neutral")
 
@@ -750,20 +753,6 @@ label day_three_end:
 
     if black_screen:
         $ fade_in_from_black(0.4)
-
-
-
-
-
-    python:
-        for C in all_Companions:
-            C.love = 1000
-            C.trust = 1000
-            
-            Partners.append(C)
-
-
-
 
     call move_location(Player.home) from _call_move_location_37
 

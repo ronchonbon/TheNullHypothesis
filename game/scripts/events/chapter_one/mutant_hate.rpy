@@ -1360,9 +1360,9 @@ label ch1_mutant_hate:
 
     $ season_completed = False
 
-    $ ongoing_Event = False
-
     call move_location(Player.home) from _call_move_location_38
+
+    $ ongoing_Event = False
 
     return
 

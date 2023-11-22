@@ -1,6 +1,6 @@
 label set_the_scene(location = None, show_Characters = True, show_Party = True, greetings = False, fade = True, fade_Characters = True, silent = False):
-    # $ temp_Character_picker_disabled = Character_picker_disabled
-    # $ temp_belt_disabled = belt_disabled
+    $ temp_Character_picker_disabled = Character_picker_disabled
+    $ temp_belt_disabled = belt_disabled
 
     $ Character_picker_disabled = True
     $ belt_disabled = True
@@ -175,11 +175,11 @@ label set_the_scene(location = None, show_Characters = True, show_Party = True, 
         if temp_Characters:
             call Characters_greet_Player(temp_Characters) from _call_Characters_greet_Player_13
 
-    # $ Character_picker_disabled = temp_Character_picker_disabled
-    # $ belt_disabled = temp_belt_disabled
+    $ Character_picker_disabled = temp_Character_picker_disabled
+    $ belt_disabled = temp_belt_disabled
 
-    $ Character_picker_disabled = False
-    $ belt_disabled = False
+    # $ Character_picker_disabled = False
+    # $ belt_disabled = False
 
     return
 

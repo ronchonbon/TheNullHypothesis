@@ -101,7 +101,7 @@ init python:
 
             "day - EventScheduler.Events['Laura_boyfriend_trigger_part_one'].completed_when >= 4",
             
-            "Player.location in public_locations and Laura.location != Player.location",
+            "Player.location in public_locations and Laura.location not in ['hold', Player.location]",
 
             "Laura.is_in_normal_mood()"]
 
@@ -310,7 +310,7 @@ label Laura_boyfriend:
 
     $ Laura.change_face("neutral")
 
-    ch_Player "Even Storm, or Logan?"
+    ch_Player "Even [Ororo.name] or [Logan.name]?"
     ch_Laura "Yes. . . fought them the first time we met. . ." 
 
     $ Laura.change_face("angry1")
@@ -623,9 +623,9 @@ label Laura_boyfriend:
         for chat_option in temp:
             if "girlfriend" in chat_option:
                 Laura.chat_options.remove(chat_option)
-                
-    $ ongoing_Event = False
 
     call move_location(Player.location) from _call_move_location_39
+                
+    $ ongoing_Event = False
 
     return

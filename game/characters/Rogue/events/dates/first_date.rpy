@@ -734,9 +734,11 @@ label Rogue_first_date:
     $ Player.History.update("went_on_date")
     $ Player.date_planned = {}
 
+    jump go_to_sleep
+
     $ ongoing_Event = False
 
-    jump go_to_sleep
+    return
 
 label Rogue_first_date_path_1A:
     "The story is about a struggling writer who can't find any passion or inspiration for his stories."

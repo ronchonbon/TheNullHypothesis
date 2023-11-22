@@ -4,8 +4,8 @@ init python:
         label = "Laura_Rogue_hasnt_seen_penis_setup"
 
         conditions = [
-            "Laura.location != Player.location",
-            "Rogue.location != Player.location",
+            "Laura.location not in ['hold', Player.location]",
+            "Rogue.location not in ['hold', Player.location]",
             
             "renpy.random.random() > 0.75",
 
@@ -49,6 +49,8 @@ init python:
 
         markers = {
             Laura.home: [
+                "Player.location != Laura.home",
+                
                 "Laura.location == Laura.home and Rogue.location == Laura.home",
 
                 "Rogue.History.check('seen_Player_naked') and not Laura.History.check('seen_Player_naked') and Laura in Partners and Rogue in Partners and Rogue in Laura.knows_about and Laura in Rogue.knows_about",

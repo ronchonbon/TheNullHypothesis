@@ -8,7 +8,7 @@ init python:
 
             "Rogue not in Present",
 
-            "weekday < 5",
+            "weekday < 4",
 
             "Rogue.is_in_normal_mood()"]
 

@@ -28,6 +28,9 @@ label Jean_chapter_one_season_one_fourth_training_session:
     menu:
         extend ""
         "But you have been making progress, that's all that matters.":
+            call change_Girl_stat(Jean, "love", medium_stat)
+            call change_Girl_stat(Jean, "trust", small_stat)
+
             $ Jean.change_face("worried1") 
             
             ch_Player "Like you said to me last time, these things can take a while." 
@@ -42,10 +45,10 @@ label Jean_chapter_one_season_one_fourth_training_session:
             ch_Jean "And you've been a big help, thanks." 
             
             $ Jean.change_face("smirk2") 
-            
-            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_176 
-            call change_Girl_stat(Jean, "trust", 0) from _call_change_Girl_stat_177
         "I'm sure it'll work out. . .":
+            call change_Girl_stat(Jean, "love", small_stat)
+            call change_Girl_stat(Jean, "trust", small_stat)
+
             $ Jean.change_face("worried1", eyes = "right")
 
             ch_Jean "Yeah. . ." 
@@ -60,9 +63,10 @@ label Jean_chapter_one_season_one_fourth_training_session:
             ch_Jean "Thanks." 
             
             $ Jean.change_face("smirk2") 
-            
-            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_178
         "Yeah. . . I'd be worried too.":
+            call change_Girl_stat(Jean, "love", -medium_stat)
+            call change_Girl_stat(Jean, "trust", -small_stat)
+
             $ Jean.change_face("angry1", eyes = "right")
 
             ch_Jean "That's not very reassuring. . ." 
@@ -72,8 +76,6 @@ label Jean_chapter_one_season_one_fourth_training_session:
             ch_Jean "Whatever." 
             ch_Jean "I'll figure it out." 
             
-            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_179
-
     $ Jean.change_face("smirk1")
 
     ch_Jean "Alright, time to get warmed up."

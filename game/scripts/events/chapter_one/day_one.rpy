@@ -725,7 +725,7 @@ label meet_Laura:
         ch_Laura "And he looks well built."
         ch_Laura "Interesting."
 
-        call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_880
+        call change_Girl_stat(Laura, "love", medium_stat) from _call_change_Girl_stat_880
     else:
         ch_Laura "He looks reasonably well-built."
     
@@ -745,7 +745,7 @@ label meet_Laura:
 
     ch_Laura "Oh. . . so his muscles are just for show?"
     "[Ororo.name] gives [Laura.name] a pointed look."
-    ch_Ororo "X-23, what did I say about. . ."
+    ch_Ororo "[Laura.public_name], what did I say about. . ."
 
     $ Laura.change_face("neutral", eyes = "squint")
 
@@ -818,8 +818,6 @@ label meet_Laura:
 
                 $ Laura.change_face("neutral")
 
-                call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_881
-
                 $ asked_costume = True
             "What kind of powers do you have?" if not asked_powers:
                 call meet_Laura_1A from _call_meet_Laura_1A
@@ -837,7 +835,7 @@ label meet_Laura:
 
                 $ Laura.change_face("neutral")
 
-                call change_Girl_stat(Laura, "trust", 0) from _call_change_Girl_stat_882
+                call change_Girl_stat(Laura, "trust", medium_stat) from _call_change_Girl_stat_882
 
                 $ Laura.History.update("was_warned_about_Player_power")
 
@@ -854,8 +852,6 @@ label meet_Laura:
                 $ Laura.change_face("suspicious1")
 
                 ch_Laura "You've been physically conditioned, but apparently not martially trained."
-
-                call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_883
 
                 $ asked_heartrate = True
             "Anyway. . . I should probably go catch up with [Ororo.name].":
@@ -886,7 +882,7 @@ label meet_Laura_1A:
 
     menu:
         "Whoa! Sick!":
-            call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_884
+            call change_Girl_stat(Laura, "love", small_stat) from _call_change_Girl_stat_884
 
             $ Laura.change_face("smirk2")
 
@@ -894,13 +890,13 @@ label meet_Laura_1A:
         "Damn, those look wicked sharp.":
             ch_Laura "They are."
         "Doesn't that hurt?":
+            call change_Girl_stat(Laura, "love", -small_stat) from _call_change_Girl_stat_885
+
             $ Laura.change_face("neutral", eyes = "squint")
 
             ch_Laura "For someone like you, maybe."
 
             $ Laura.change_face("neutral")
-            
-            call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_885
 
     call Laura_sheathes_claws from _call_Laura_sheathes_claws_5
 
@@ -924,7 +920,7 @@ label day_one_tour_farewell:
 
     $ Ororo.change_face("smirk1")
 
-    ch_Ororo "Please don't think unkindly of X-23, I know she can come off as a bit abrasive."
+    ch_Ororo "Please don't think unkindly of [Laura.public_name], I know she can come off as a bit abrasive."
     
     $ Ororo.change_face("worried1")
     

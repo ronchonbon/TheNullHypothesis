@@ -1009,8 +1009,8 @@ label stop_all_Actions(close_interface = False, automatic = False):
     if Player.location == Player.home:
         $ Player.clothes_on_floor = False
 
-    if black_screen:
-        $ fade_in_from_black(0.4)
+    # if black_screen:
+    #     $ fade_in_from_black(0.4)
 
     $ belt_hidden = False
     $ Character_picker_disabled = False

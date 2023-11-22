@@ -104,7 +104,7 @@ init python:
 
             "day - EventScheduler.Events['Jean_boyfriend_trigger_part_one'].completed_when >= 4",
             
-            "Player.location in public_locations and Jean.location != Player.location",
+            "Player.location in public_locations and Jean.location not in ['hold', Player.location]",
 
             "Jean.is_in_normal_mood()"]
 

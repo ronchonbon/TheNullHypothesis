@@ -14,168 +14,6 @@ init python:
 
         return EventClass(label, conditions, priority = priority)
 
-label Jean_chapter_one_season_one_first_training_session_text:
-    if Player.location == Jean.location:
-        ch_Jean "I'm right here you know."
-
-        hide screen phone_screen
-
-        call Jean_chapter_one_season_one_first_training_session_chat from _call_Jean_chapter_one_season_one_first_training_session_chat
-    else:
-        $ phone_interactable = False
-
-        if time_index > 2:
-            call receive_text(Jean, "It's pretty late") from _call_receive_text_49
-            call receive_text(Jean, "Maybe tomorrow") from _call_receive_text_50
-
-            $ phone_interactable = True
-
-            $ Jean.History.update("said_no_to_training")
-    
-            return
-        
-        $ ongoing_Event = True
-        
-        $ clock -= 1
-
-        if Player.location != "bg_danger":
-            call receive_text(Jean, "Okayy <3") from _call_receive_text_51
-            call receive_text(Jean, "I'll be in the Danger Room") from _call_receive_text_52
-            call send_text(Jean, "on my way!") from _call_send_text_6
-            call receive_text(Jean, "It's gonna be fun!") from _call_receive_text_53
-
-            hide screen phone_screen
-
-            $ fade_to_black(0.4)
-            
-            $ Player.location = "traveling"
-
-            call remove_Characters(location = "traveling") from _call_remove_Characters_320
-
-            call receive_text(Jean, "You're excited right?") from _call_receive_text_54
-            call receive_text(Jean, "Haha woops") from _call_receive_text_55
-            call receive_text(Jean, "You're probably busy walking") from _call_receive_text_56
-
-            "As you make your way to the Danger Room, you feel your phone buzz several times."
-
-            $ fade_in_from_black(0.4)
-
-            call open_texts(Jean) from _call_open_texts_3
-            call receive_text(Jean, "Don't mind meee") from _call_receive_text_57
-            call receive_text(Jean, "Just waiting here. . .") from _call_receive_text_58
-
-            pause
-
-            hide screen phone_screen
-
-            "You pick up the pace."
-
-            call send_Characters(Jean, "bg_danger", behavior = "training") from _call_send_Characters_57
-            call set_the_scene(location = "bg_danger") from _call_set_the_scene_54
-
-            $ Jean.change_face("happy")
-
-            ch_Jean "Finally!"
-            ch_Player "Sorry for making you wait. . ."
-
-            $ Jean.change_face("smirk2")
-
-            ch_Jean "It's fine, you probably had a hard time finding your way."
-            ch_Player "Uh. . . was there a faster way to get here? I think it only took me a couple minutes."
-
-            $ Jean.change_face("confused1")
-
-            pause 1.0
-
-            $ Jean.change_face("surprised1")
-
-            ch_Jean "It took you 5 whole minutes!"
-
-            $ Jean.change_face("smirk1")
-
-            ch_Jean "Don't worry, you get a pass this time."
-            ch_Jean "Now, let's get started."
-        else:
-            call receive_text(Jean, "Okayy") from _call_receive_text_59
-            call receive_text(Jean, "Meet me in the Danger Room") from _call_receive_text_60
-            call send_text(Jean, "I'm already here") from _call_send_text_7
-            call send_text(Jean, "I'll just do some stretches while I wait") from _call_send_text_8
-            call receive_text(Jean, "Noooo </3") from _call_receive_text_61
-            call receive_text(Jean, "We gotta warm up togetherrrr") from _call_receive_text_62
-            call receive_text(Jean, "Tell me you didn't start yet?") from _call_receive_text_63
-            call send_text(Jean, "okay, okay, I'll wait") from _call_send_text_9
-            call receive_text(Jean, "Great, I'll be quick <3") from _call_receive_text_64
-
-            hide screen phone_screen
-        
-            "You mess with your phone while waiting for [Jean.name]."
-
-            $ Jean.change_face("confused1")
-
-            call send_Characters(Jean, "bg_danger", behavior = "training") from _call_send_Characters_58
-
-            ch_Jean "You didn't start without me, right?"
-            ch_Player "I didn't!"
-
-            $ Jean.change_face("smirk2")
-
-            ch_Jean "Good, now we can warm up."
-
-        $ Jean.History.update("trained_with_Player")
-
-        $ EventScheduler.Events["Jean_chapter_one_season_one_first_training_session"].start()
-
-    return
-
-label Jean_chapter_one_season_one_first_training_session_chat:
-    if time_index > 2:
-        ch_Jean "It's pretty late, maybe tomorrow?"
-
-        $ Jean.History.update("said_no_to_training")
-
-        return
-        
-    $ ongoing_Event = True
-        
-    $ clock -= 1
-
-    if Player.location != "bg_danger":
-        if len(Jean.text_history) > 0 and Jean.text_history[-1][1] == "I'm ready for that training session":
-            ch_Jean "So, ready to head over?"
-        else:
-            ch_Jean "Okay! Let's head over to the Danger Room?"
-        
-        hide screen phone_screen
-
-        call send_Characters(Jean, "bg_danger", behavior = "training") from _call_send_Characters_59
-        call set_the_scene(location = "bg_danger") from _call_set_the_scene_55
-
-        ch_Jean "Now, let's get started."
-    else:
-        if len(Jean.text_history) > 0 and Jean.text_history[-1][1] == "I'm ready for that training session":
-            ch_Jean "So, ready?"
-        else:
-            ch_Jean "Sweet!"
-        
-        hide screen phone_screen
-
-        $ Jean.change_face("smirk2")
-
-        $ Jean.behavior = "training"
-
-        $ Player.behavior = "training"
-        $ Player.behavior_Partners = [Jean]
-
-        call set_Character_Outfits(Jean, instant = False) from _call_set_Character_Outfits_1
-
-        ch_Jean "C'mon, let's warm up together."
-
-    $ Jean.History.update("trained_with_Player")
-
-    $ EventScheduler.Events["Jean_chapter_one_season_one_first_training_session"].start()
-
-    return
-
 label Jean_chapter_one_season_one_first_training_session:
     $ ongoing_Event = True
 
@@ -267,7 +105,8 @@ label Jean_chapter_one_season_one_first_training_session:
         menu:
             extend ""
             "You are pretty damn smart." if not smart:
-                call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_161
+                call change_Girl_stat(Jean, "love", medium_stat)
+                call change_Girl_stat(Jean, "trust", small_stat)
                 
                 $ Jean.change_face("pleased2", blush = 1)
 
@@ -282,7 +121,7 @@ label Jean_chapter_one_season_one_first_training_session:
 
                 $ smart = True
             "Eventually? I guess you'll be helpful. . ." if not smart:
-                call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_162
+                call change_Girl_stat(Jean, "love", -medium_stat)
 
                 $ Jean.change_face("worried1")
 
@@ -310,7 +149,7 @@ label Jean_chapter_one_season_one_first_training_session:
 
                 $ chatting = False
             "Sure, I wouldn't mind the help." if smart and not control:
-                call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_163
+                call change_Girl_stat(Jean, "love", -small_stat)
                 
                 $ Jean.change_face("angry1")
 
@@ -323,9 +162,7 @@ label Jean_chapter_one_season_one_first_training_session:
                 ch_Player "Sorry, I am. . . thrilled."
 
                 $ chatting = False
-            "I wouldn't mind your help either." if smart and control:
-                call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_164
-                
+            "I wouldn't mind your help either." if smart and control:                
                 $ Jean.change_face("angry1")
 
                 ch_Jean "Wouldn't mind?"
@@ -358,6 +195,8 @@ label Jean_chapter_one_season_one_first_training_session:
         "However, all the beatdowns from training with [Laura.name] weren't for nothing."
         "You have a long way to go, but you're a quick learner and it's obvious you've been training."
 
+        call change_Girl_stat(Jean, "love", small_stat)
+        
         $ Jean.change_face("pleased2")
 
         $ fade_in_from_black(0.4)
@@ -366,9 +205,6 @@ label Jean_chapter_one_season_one_first_training_session:
         ch_Player "I figured I'd have to make up for my lack of offense somehow."
         ch_Player "I don't have much choice but to get good with more mundane weapons and martial arts."
         ch_Player "[Laura.name] does a good job of hammering those lessons in. . . right into my bones. . ."
-
-        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_165
-        call change_Girl_stat(Jean, "trust", 0) from _call_change_Girl_stat_166
 
         $ Jean.change_face("smirk1", eyes = "squint", blush = 1)
 
@@ -419,8 +255,6 @@ label Jean_chapter_one_season_one_first_training_session:
 
     "Without another word, she grabs your hand."
 
-    call change_Girl_stat(Jean, "desire", 0) from _call_change_Girl_stat_167
-
     $ Jean.change_face("surprised3", blush = 1)
 
     "She shudders and her eyes widen."
@@ -434,8 +268,6 @@ label Jean_chapter_one_season_one_first_training_session:
     "She stares at you."
 
     pause 1.5
-
-    call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_168
 
     $ Jean.change_face("smirk2", blush = 2)
 
@@ -492,8 +324,6 @@ label Jean_chapter_one_season_one_first_training_session:
     ch_Player "Are you okay?"
     ch_Jean "I. . . am now. Thanks, [Player.first_name]."
 
-    call change_Girl_stat(Jean, "trust", 0) from _call_change_Girl_stat_169
-
     $ Jean.change_face("worried1", mouth = "frown", blush = 1)
 
     ch_Jean "I. . . probably could've reined that in on my own."
@@ -502,11 +332,11 @@ label Jean_chapter_one_season_one_first_training_session:
     menu:
         extend ""
         "I'm glad you're not hurt.":
+            call change_Girl_stat(Jean, "love", small_stat)
+                        
             $ Jean.change_face("neutral", blush = 1)
 
             ch_Jean ". . . Thanks."
-
-            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_170
 
             $ Jean.change_face("smirk2")
 
@@ -514,8 +344,8 @@ label Jean_chapter_one_season_one_first_training_session:
 
             $ Jean.blush = 2
         "Good thing I was here, someone might've gotten hurt.":
-            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_171
-
+            call change_Girl_stat(Jean, "trust", -small_stat)
+            
             $ Jean.change_face("angry1", blush = 1)
 
             pause 1.0
@@ -541,13 +371,10 @@ label Jean_chapter_one_season_one_first_training_session:
     ch_Player "See ya, [Jean.name]."
 
     call remove_Characters(Jean) from _call_remove_Characters_52
-
-    $ Jean.chat_options.remove("Ready for that training session?")
-    $ Jean.text_options.remove("I'm ready for that training session")
     
     $ ongoing_Event = False
 
-    jump after_training
+    return
 
 label Jean_chapter_one_season_one_first_training_session_1A:
     $ Jean.change_face("sad")
@@ -578,13 +405,12 @@ label Jean_chapter_one_season_one_first_training_session_1A:
         "I want to help however I can.":
             ch_Player "I know I'm new to all this, but I don't care."
 
+            call change_Girl_stat(Jean, "love", medium_stat)
+            call change_Girl_stat(Jean, "trust", small_stat)
+
             $ Jean.change_face("pleased1", blush = 1)
 
             ch_Player "I'll try my best."
-
-            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_172
-            call change_Girl_stat(Jean, "trust", 0) from _call_change_Girl_stat_173
-
             ch_Jean "Thanks, [Player.first_name]. . ."
 
             $ Jean.change_face("sly")
@@ -595,6 +421,9 @@ label Jean_chapter_one_season_one_first_training_session_1A:
 
             ch_Jean "It's for your own good."
         "I don't know if I can be of much help.":
+            call change_Girl_stat(Jean, "love", small_stat)
+            call change_Girl_stat(Jean, "trust", -small_stat)
+            
             $ Jean.change_face("sad")
 
             ch_Player "This is all still really new to me."
@@ -615,13 +444,14 @@ label Jean_chapter_one_season_one_first_training_session_1B:
     menu:
         extend ""
         "Uh, I guess. . .":
-            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_174
-
+            call change_Girl_stat(Jean, "love", -medium_stat)
+            
             $ Jean.change_face("worried1")
 
             ch_Jean "You don't sound so happy about it. . ."
         "Thanks, [Jean.petname], I really appreciate it.":
-            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_175
+            call change_Girl_stat(Jean, "love", medium_stat)
+            call change_Girl_stat(Jean, "trust", small_stat)
 
             $ Jean.change_face("happy", blush = 1)
 

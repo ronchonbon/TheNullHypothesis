@@ -1,6 +1,6 @@
 label Characters_arrive(arriving_Characters, invited = False, greetings = True, fade = True):
     $ temp_Character_picker_active = Character_picker_active
-    $ temp_belt_disabled = belt_disabled
+    $ temp_temp_belt_disabled = belt_disabled
 
     $ Character_picker_active = False
     $ belt_disabled = True
@@ -139,13 +139,13 @@ label Characters_arrive(arriving_Characters, invited = False, greetings = True, 
                 temp_arriving_Characters.remove(C)
                 
     $ Character_picker_active = temp_Character_picker_active
-    $ belt_disabled = temp_belt_disabled
+    $ belt_disabled = temp_temp_belt_disabled
 
     return
 
 label Characters_leave(leaving_Characters, farewells = True, fade = True):
     $ temp_Character_picker_active = Character_picker_active
-    $ temp_belt_disabled = belt_disabled
+    $ temp_temp_belt_disabled = belt_disabled
 
     $ Character_picker_active = False
     $ belt_disabled = True
@@ -214,6 +214,6 @@ label Characters_leave(leaving_Characters, farewells = True, fade = True):
         call move_location("bg_girls_hallway") from _call_move_location_57
 
     $ Character_picker_active = temp_Character_picker_active
-    $ belt_disabled = temp_belt_disabled
+    $ belt_disabled = temp_temp_belt_disabled
 
     return

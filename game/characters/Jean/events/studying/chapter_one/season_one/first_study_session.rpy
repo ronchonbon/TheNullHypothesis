@@ -66,17 +66,19 @@ label Jean_chapter_one_season_one_first_study_session:
     menu:
         extend ""
         "You know exactly where to look. . . amazing.":
+            call change_Girl_stat(Jean, "love", medium_stat)
+            call change_Girl_stat(Jean, "trust", small_stat)
+
             $ Jean.change_face("pleased2") 
             
             pause 1.0 
             
             $ Jean.change_face("smirk2", eyes = "right")
 
-            ch_Jean "You think so?" 
-            
-            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_131 
-            call change_Girl_stat(Jean, "trust", 0) from _call_change_Girl_stat_132
+            ch_Jean "You think so?"
         "Holy shit. . . are you a genius or something?":
+            call change_Girl_stat(Jean, "love", large_stat)    
+
             $ Jean.change_face("smirk2", eyes = "right") 
             
             pause 1.0 
@@ -84,9 +86,9 @@ label Jean_chapter_one_season_one_first_study_session:
             $ Jean.change_face("sly") 
 
             ch_Jean "Well. . . a few people have told me my IQ is pretty high. . ." 
-            
-            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_133
         "What the hell. . . is your entire life just spent studying and memorizing. . . ?":
+            call change_Girl_stat(Jean, "love", -medium_stat)    
+
             $ Jean.change_face("appalled1") 
             
             pause 1.0 
@@ -97,8 +99,6 @@ label Jean_chapter_one_season_one_first_study_session:
             ch_Jean "Of course not. . ." 
             ch_Jean "I. . . do other things. . ." 
             
-            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_134
-
     $ Jean.change_face("worried1")
 
     ch_Jean "I just. . . take my studies really seriously. . . ya'know?"

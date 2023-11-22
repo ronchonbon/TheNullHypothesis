@@ -354,8 +354,8 @@ label Rogue_first_sex:
 
     "You fall asleep together, more connected than ever."
 
-    $ ongoing_Event = False
-
     jump go_to_sleep
+
+    $ ongoing_Event = False
 
     return

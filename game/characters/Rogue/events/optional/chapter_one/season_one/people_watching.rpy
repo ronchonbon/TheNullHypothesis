@@ -4,7 +4,7 @@ init python:
         label = "Rogue_chapter_one_season_one_people_watching_setup"
 
         conditions = [
-            "Rogue.location != Player.location",
+            "Rogue.location not in ['hold', Player.location]",
             
             "renpy.random.random() > 0.75",
 
@@ -15,6 +15,7 @@ init python:
             "chapter == 1 and season == 1",
 
             "time_index < 3",
+            "weather != 'rain'",    
 
             "Rogue.is_in_normal_mood()"]
 
@@ -40,8 +41,10 @@ init python:
             "chapter == 1 and season == 1",
 
             "time_index < 3",
+            "weather != 'rain'",    
 
-            "Rogue.location == 'bg_campus' and len(get_Present(location = 'bg_campus')) == 1",
+            "Rogue.location == 'bg_campus'",
+            "len(get_Present(location = 'bg_campus')) == 1",
 
             "Rogue.is_in_normal_mood()"]
 
@@ -49,11 +52,15 @@ init python:
 
         markers = {
             "bg_campus": [
+                "Player.location != 'bg_campus'",
+
                 "chapter == 1 and season == 1",
 
                 "time_index < 3",
+                "weather != 'rain'",    
 
-                "Rogue.location == 'bg_campus' and len(get_Present(location = 'bg_campus')) == 1",
+                "Rogue.location == 'bg_campus'",
+                "len(get_Present(location = 'bg_campus')) == 1",
 
                 "Rogue.is_in_normal_mood()"]}
 

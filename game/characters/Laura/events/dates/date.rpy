@@ -264,14 +264,14 @@ label Laura_date:
     $ Player.History.update("went_on_date")
     $ Player.date_planned = {}
 
-    $ ongoing_Event = False
-
     $ clock = 0
 
     if Laura.location == Player.location:
         jump go_to_sleep
     # else:
     #     call move_location(Player.location) from _call_move_location_13
+
+    $ ongoing_Event = False
 
     return
 

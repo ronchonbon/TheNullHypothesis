@@ -285,26 +285,26 @@ label Rogue_greets_Laura:
 
         if dice_roll == 1:
             "[Rogue.name] moves in between you and [Laura.name]."
-            ch_Rogue "Howdy, X-23."
+            ch_Rogue "Howdy, [Laura.public_name]."
             ch_Laura "Hi."
         elif dice_roll == 2:
             "[Rogue.name] brushes up against you."
             ch_Rogue "Oh!"
-            ch_Rogue "Hey, X-23."
+            ch_Rogue "Hey, [Laura.public_name]."
             ch_Laura ". . ."
     elif Laura in Partners:
         "[Laura.name] gets in between you and [Rogue.name]."
-        ch_Rogue "Oh, hey X-23. . ."
+        ch_Rogue "Oh, hey [Laura.public_name]. . ."
     else:
         $ dice_roll = renpy.random.randint(1, 2)
 
         if dice_roll == 1:
-            ch_Rogue "Hey, X-23."
+            ch_Rogue "Hey, [Laura.public_name]."
             ch_Rogue "How ya doin'?"
             ch_Laura "Good."
             ch_Rogue "Glad to hear. . ."
         elif dice_roll == 2:
-            ch_Rogue "Oh, howdy, X-23."
+            ch_Rogue "Oh, howdy, [Laura.public_name]."
             ch_Laura "Hello."
 
     $ Rogue.eyes = "neutral"

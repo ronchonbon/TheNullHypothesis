@@ -4,8 +4,8 @@ init python:
         label = "Laura_Rogue_talking_about_masturbation_setup"
 
         conditions = [
-            "Laura.location != Player.location",
-            "Rogue.location != Player.location",
+            "Laura.location not in ['hold', Player.location]",
+            "Rogue.location not in ['hold', Player.location]",
             
             "renpy.random.random() > 0.75",
 
@@ -49,6 +49,8 @@ init python:
 
         markers = {
             Laura.home: [
+                "Player.location != Laura.home",
+                
                 "Laura.location == Laura.home and Rogue.location == Laura.home",
 
                 "EventScheduler.Events['Laura_first_friend_part_two'].completed and EventScheduler.Events['Rogue_Laura_asks_about_masturbation'].completed",
@@ -92,13 +94,12 @@ label Laura_Rogue_talking_about_masturbation:
     ch_Rogue "We're a bit busy. . ."
 
     $ Laura.name = Laura.temp
+    $ Laura.wants_alone_time = 1
 
     $ Rogue.name = Rogue.temp
 
-    $ ongoing_Event = False
-
-    $ Laura.wants_alone_time = 1
-        
     call move_location("bg_girls_hallway") from _call_move_location_17
+
+    $ ongoing_Event = False
 
     return

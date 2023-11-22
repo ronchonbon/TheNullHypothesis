@@ -1,7 +1,4 @@
 label Jean_chatting(line):
-    if line == "Ready for that training session?":
-        call Jean_chapter_one_season_one_first_training_session_chat from _call_Jean_chapter_one_season_one_first_training_session_chat_1
-
     if "girlfriend" in line:
         $ EventScheduler.Events["Jean_boyfriend_trigger_part_two"].start()
 
@@ -595,7 +592,7 @@ label Jean_ask_about_Laura:
         else:
             $ Jean.change_face("confused1") 
 
-            ch_Jean "About X-23?" 
+            ch_Jean "About [Laura.public_name]?" 
 
             $ Jean.change_face("confused1", eyes = "left") 
 
@@ -678,7 +675,7 @@ label Jean_ask_about_Laura:
         if dice_roll == 1:
             $ Jean.change_face("confused1") 
 
-            ch_Jean "X-23?" 
+            ch_Jean "[Laura.public_name]?" 
             ch_Jean "She's. . ." 
 
             $ Jean.change_face("worried1")

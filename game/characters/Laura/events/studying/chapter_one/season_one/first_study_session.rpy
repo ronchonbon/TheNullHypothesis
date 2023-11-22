@@ -65,20 +65,22 @@ label Laura_chapter_one_season_one_first_study_session:
     menu:
         extend ""
         "I know you think class is a waste of time, but it's important in its own way.":
+            call change_Girl_stat(Laura, "love", medium_stat)
+            call change_Girl_stat(Laura, "trust", small_stat)
+
             $ Laura.change_face("angry1")
 
             ch_Laura "Everyone keeps telling me that." 
             
             $ Laura.change_face("angry1", eyes = "right") 
             
-            ch_Laura "Especially Storm. . ." 
+            ch_Laura "Especially [Ororo.public_name]. . ." 
             ch_Laura "How is it not obvious that focusing on 'studying' is why everyone's so weak. . ." 
             
             $ Laura.change_face("suspicious1") 
-            
-            call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_385 
-            call change_Girl_stat(Laura, "trust", 0) from _call_change_Girl_stat_386
         "C'mon, [Laura.name], do you really think class is such a waste of time?":
+            call change_Girl_stat(Laura, "love", medium_stat)
+            
             $ Laura.change_face("angry1", eyes = "right")
 
             ch_Laura "It is." 
@@ -90,9 +92,9 @@ label Laura_chapter_one_season_one_first_study_session:
             $ Laura.change_face("furious") 
             
             ch_Laura "That's why they're all so weak." 
-            
-            call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_387
         "Seriously, [Laura.name], are you trying to fail?":
+            call change_Girl_stat(Laura, "love", -medium_stat)
+
             $ Laura.change_face("appalled1")
 
             ch_Laura "{i}Grrrrrr{/i}. . . no." 
@@ -106,12 +108,9 @@ label Laura_chapter_one_season_one_first_study_session:
             
             ch_Laura "That's why everyone's so weak." 
             
-            call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_388 
-            call change_Girl_stat(Laura, "trust", 0) from _call_change_Girl_stat_389
-
     $ Laura.change_face("angry1", eyes = "right")
 
-    ch_Laura "Still. . . Storm would be disappointed if I fail." 
+    ch_Laura "Still. . . [Ororo.public_name] would be disappointed if I fail." 
 
     $ Laura.change_face("angry1")
 
@@ -124,6 +123,9 @@ label Laura_chapter_one_season_one_first_study_session:
     menu:
         extend ""
         "I'll try my best.":
+            call change_Girl_stat(Laura, "love", medium_stat)
+            call change_Girl_stat(Laura, "trust", small_stat)
+
             $ Laura.change_face("surprised1") 
             
             ch_Player "It does actually help me understand things better when teaching someone else." 
@@ -135,17 +137,18 @@ label Laura_chapter_one_season_one_first_study_session:
             $ Laura.change_face("neutral") 
             
             ch_Laura "Now keep going, I didn't get that last part." 
-            
-            call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_390
-        "I guess I can. . .":
+        "I guess I can. . .":            
+            call change_Girl_stat(Laura, "love", small_stat)
+            call change_Girl_stat(Laura, "trust", small_stat)
+
             ch_Player "But I don't know if I'll be any good at teaching."
         
             ch_Laura "You've already proven competent enough." 
             ch_Laura "Now, continue." 
             ch_Laura "None of this makes sense." 
-            
-            call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_391
         "Can't you just pay more attention during lecture?":
+            call change_Girl_stat(Laura, "trust", -small_stat)
+            
             $ Laura.change_face("confused1") 
             
             ch_Player "I don't really want to have to learn everything, while also teaching it to you. . ." 
@@ -158,9 +161,6 @@ label Laura_chapter_one_season_one_first_study_session:
             
             ch_Laura "Now continue, I zoned out." 
             
-            call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_392 
-            call change_Girl_stat(Laura, "trust", 0) from _call_change_Girl_stat_393
-
     $ Laura.change_face("neutral")
 
     "You spend the next few hours going through each lecture, trying your best to teach every topic covered in class so far."

@@ -96,9 +96,9 @@ label Charles_offers_work:
     $ Charles.gives_work = True
     $ Charles.has_jobs = True
 
-    $ ongoing_Event = False
-
     if Player.location != temp_destination:
         call move_location(temp_destination) from _call_move_location
+
+    $ ongoing_Event = False
 
     return
