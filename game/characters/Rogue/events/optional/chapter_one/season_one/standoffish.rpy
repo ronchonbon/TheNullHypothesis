@@ -4,6 +4,8 @@ init python:
         label = "Rogue_chapter_one_season_one_standoffish_part_one_setup"
 
         conditions = [
+            "Rogue.location != Player.location",
+
             "renpy.random.random() > 0.75",
 
             "not EventScheduler.Events['Rogue_chapter_one_season_one_standoffish_part_one'].completed",
@@ -254,6 +256,8 @@ init python:
         label = "Rogue_chapter_one_season_one_standoffish_part_two_setup"
 
         conditions = [
+            "Rogue.location != Player.location",
+            
             "renpy.random.random() > 0.75",
 
             "not EventScheduler.Events['Rogue_chapter_one_season_one_standoffish_part_two'].completed",

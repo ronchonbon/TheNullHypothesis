@@ -4,6 +4,8 @@ init python:
         label = "Rogue_chapter_one_season_one_people_watching_setup"
 
         conditions = [
+            "Rogue.location != Player.location",
+            
             "renpy.random.random() > 0.75",
 
             "not EventScheduler.Events['Rogue_chapter_one_season_one_people_watching'].completed",
@@ -22,6 +24,7 @@ init python:
         return EventClass(label, conditions, repeatable = repeatable, automatic = automatic)
 
 label Rogue_chapter_one_season_one_people_watching_setup:
+    call remove_Characters(location = "bg_campus") from _call_remove_Characters_331
     call send_Characters(Rogue, "bg_campus", behavior = False) from _call_send_Characters_315
 
     return
@@ -38,7 +41,7 @@ init python:
 
             "time_index < 3",
 
-            "Rogue.location == 'bg_campus'",
+            "Rogue.location == 'bg_campus' and len(get_Present(location = 'bg_campus')) == 1",
 
             "Rogue.is_in_normal_mood()"]
 
@@ -50,7 +53,7 @@ init python:
 
                 "time_index < 3",
 
-                "Rogue.location == 'bg_campus'",
+                "Rogue.location == 'bg_campus' and len(get_Present(location = 'bg_campus')) == 1",
 
                 "Rogue.is_in_normal_mood()"]}
 

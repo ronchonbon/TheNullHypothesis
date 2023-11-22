@@ -204,7 +204,7 @@ label Jean_knocks_heartbroken(arriving_Characters):
             ch_Jean "Please. . ." 
             "You go over and open the door." 
 
-            $ Jean.give(Jean_running_mascara())
+            # $ Jean.give(Jean_running_mascara())
 
             # call try_on(Jean, Jean.Wardrobe.Clothes["running mascara"]) from _call_try_on_3
 
@@ -455,7 +455,7 @@ label Jean_greets_Player_knocking_heartbroken(welcoming_Characters):
         ch_Jean "*sniffle* [Jean.Player_petname]?" 
         ch_Jean "You can come in." 
 
-        $ Jean.give(Jean_running_mascara())
+        # $ Jean.give(Jean_running_mascara())
 
         # call try_on(Jean, Jean.Wardrobe.Clothes["running mascara"]) from _call_try_on_4
 

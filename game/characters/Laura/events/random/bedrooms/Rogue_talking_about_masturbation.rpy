@@ -4,6 +4,9 @@ init python:
         label = "Laura_Rogue_talking_about_masturbation_setup"
 
         conditions = [
+            "Laura.location != Player.location",
+            "Rogue.location != Player.location",
+            
             "renpy.random.random() > 0.75",
 
             "not EventScheduler.Events['Laura_Rogue_talking_about_masturbation'].completed",

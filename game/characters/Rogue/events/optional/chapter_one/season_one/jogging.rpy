@@ -4,6 +4,8 @@ init python:
         label = "Rogue_chapter_one_season_one_jogging_setup"
 
         conditions = [
+            "Rogue.location != Player.location",
+
             "renpy.random.random() > 0.75",
 
             "not EventScheduler.Events['Rogue_chapter_one_season_one_jogging'].completed",
@@ -37,7 +39,7 @@ init python:
             "time_index == 2",
             
             "Rogue.location == 'bg_lockers'",
-            "Rogue.behavior == 'changing'",
+            "Rogue.changing",
 
             "Rogue.is_in_normal_mood()"]
 
@@ -50,7 +52,7 @@ init python:
                 "time_index == 2",
                 
                 "Rogue.location == 'bg_lockers'",
-                "Rogue.behavior == 'changing'",
+                "Rogue.changing",
 
                 "Rogue.is_in_normal_mood()"]}
 

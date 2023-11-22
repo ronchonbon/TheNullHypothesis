@@ -4,6 +4,9 @@ init python:
         label = "Laura_Rogue_hasnt_seen_penis_setup"
 
         conditions = [
+            "Laura.location != Player.location",
+            "Rogue.location != Player.location",
+            
             "renpy.random.random() > 0.75",
 
             "not EventScheduler.Events['Laura_Rogue_hasnt_seen_penis'].completed",

@@ -751,6 +751,20 @@ label day_three_end:
     if black_screen:
         $ fade_in_from_black(0.4)
 
+
+
+
+
+    python:
+        for C in all_Girls:
+            C.love = 1000
+            C.trust = 1000
+            
+            Partners.append(C)
+
+
+
+
     call move_location(Player.home) from _call_move_location_37
 
     return
