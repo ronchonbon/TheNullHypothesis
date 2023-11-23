@@ -194,6 +194,42 @@ label Jean_asked_on_date:
                 call Jean_asked_on_date_1D from _call_Jean_asked_on_date_1D
 
                 $ chatting = False
+            "Do you think we could keep things the way they are? I really care about you a lot, but I'm not ready to be more than friends.":
+                call change_Girl_stat(Jean, "love", -medium_stat) from _call_change_Girl_stat_1610
+                call change_Girl_stat(Jean, "trust", medium_stat) from _call_change_Girl_stat_1611
+                
+                $ Jean.change_face("appalled1")
+
+                pause 1.0
+
+                $ Jean.change_face("worried1", eyes = "right")
+
+                ch_Jean "I. . . yeah, that's fine I guess. . ."
+
+                $ Jean.change_face("worried1", mouth = "smirk")
+
+                ch_Jean "Just let me know if anything changes."
+                ch_Jean "{i}Ahem{/i}. . ."
+
+                $ Jean.change_face("worried1", eyes = "right")
+
+                pause 1.0
+
+                call remove_Characters(Jean) from _call_remove_Characters_343
+
+                $ Jean.platonic = True
+
+                pause 1.0
+                
+                call wait_around(silent = True) from _call_wait_around_30
+
+                $ ongoing_Event = False
+
+                return
+
+    label Jean_more_than_friends:
+
+    $ ongoing_Event = True
 
     $ Jean.change_face("smirk1", blush = 1)
 

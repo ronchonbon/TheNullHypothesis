@@ -59,8 +59,8 @@ label splashscreen:
     return
 
 label start:
-    call screen seizure_warning()
-    
+    $ save_name = "Prologue"
+
     $ _skipping = False
 
     show expression "images/interface/main_menu/background.webp" as new_game_background:
@@ -77,29 +77,9 @@ label start:
         offset (1556, 399)
         zoom 0.5
 
+    $ renpy.pause(0.2, hard = True)
+
     play music "sounds/music/Almost an Ending.ogg" fadeout 1.0 if_changed
-
-    $ first_name = renpy.input("What is your first name?", default = "John", length = 10)
-    $ first_name = first_name.strip()
-
-    if not first_name:
-        $ first_name = "John"
-
-    $ last_name = renpy.input("What is your last name?", default = "Doe", length = 15)
-    $ last_name = last_name.strip()
-
-    if not last_name:
-        $ last_name = "Doe"
-
-    $ Player.first_name = first_name
-    $ Player.last_name = last_name
-    $ Player.full_name = f"{first_name} {last_name}"
-
-    $ save_name = Player.full_name + "\nPrologue"
-
-    $ Jean.Player_petname = Player.first_name
-    $ Laura.Player_petname = Player.first_name
-    $ Ororo.Player_petname = Player.first_name
 
     $ Clothes = default_Player_Clothes()
 

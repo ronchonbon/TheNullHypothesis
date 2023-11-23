@@ -146,7 +146,7 @@ label Laura_chapter_one_season_one_on_edge:
             ch_Laura "No. At least, not on this occasion."
         "Was it anything worth worrying about?":
             call change_Girl_stat(Laura, "love", medium_stat) from _call_change_Girl_stat_894
-            call change_Girl_stat(Laura, "trust", small_stat) from _call_change_Girl_stat_897
+            call change_Girl_stat(Laura, "trust", medium_stat) from _call_change_Girl_stat_897
 
             $ Laura.change_face("neutral", eyes = "right") 
             

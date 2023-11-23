@@ -134,11 +134,11 @@ screen Player_customization_screen(scholarship = False):
 
                     for color in ["black", "blue", "green", "red", "white"]:
                         imagebutton:
+                            idle f"images/interface/Player_customization/skin_{color}.webp" hover f"images/interface/Player_customization/skin_{color}.webp"
+
                             selected_background "Player_customization_selector"
 
                             selected Player.skin_color == color
-
-                            idle f"images/interface/Player_customization/skin_{color}.webp" hover f"images/interface/Player_customization/skin_{color}.webp"
 
                             action SetVariable("Player.skin_color", color)
 
@@ -220,11 +220,11 @@ screen Player_customization_screen(scholarship = False):
 
                     for color in ["black", "blond", "blue", "brown", "green", "red"]:
                         imagebutton:
+                            idle f"images/interface/Player_customization/hair_{color}.webp" hover f"images/interface/Player_customization/hair_{color}.webp"
+
                             selected_background "Player_customization_selector"
 
                             selected Player.hair_color == color
-
-                            idle f"images/interface/Player_customization/hair_{color}.webp" hover f"images/interface/Player_customization/hair_{color}.webp"
 
                             action SetVariable("Player.hair_color", color)
             elif current_customization_tab == "clothing":
@@ -266,11 +266,11 @@ screen Player_customization_screen(scholarship = False):
 
                     for background_color in ["purple", "blue", "green", "grey", "orange", "red"]:
                         imagebutton:
+                            idle f"images/interface/Player_customization/background_{background_color}.webp" hover f"images/interface/Player_customization/background_{background_color}.webp"
+
                             selected_background "Player_customization_selector"
 
                             selected Player.background_color == background_color
-
-                            idle f"images/interface/Player_customization/background_{background_color}.webp" hover f"images/interface/Player_customization/background_{background_color}.webp"
 
                             action SetVariable("Player.background_color", background_color)
 
@@ -316,3 +316,5 @@ screen Player_customization_screen(scholarship = False):
                 action None
 
             focus_mask True
+            
+    use quick_menu

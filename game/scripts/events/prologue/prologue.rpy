@@ -36,7 +36,55 @@ label prologue:
     "The world's population of mutants - individuals born with the X-Gene, which can give rise to superhuman abilities - grows everyday."
     "Tensions between mutants and non-mutants are at an all-time high."
     "A team of mutant heroes known as the X-Men fight against threats to the tenuous peace between human and mutantkind."
+
+    show expression "images/backgrounds/ch0/bg_ch0_lecture_closed.webp" as bg_ch0:
+        subpixel True
+        transform_anchor True
+
+        align (0.5, 0.5)
+        zoom background_adjustment
+
     "As a young college student, however, a geopolitical inter-species power struggle is a little outside your worldview."
+
+    $ Amahl.name = "Prof. Farouk"
+
+    ch_Amahl "Good morning, class."
+    ch_Amahl "I do hope you have all been keeping up with the assigned readings: we will start things off today with a pop quiz!"
+    "A chorus of groans echoes through the lecture hall - apparently many of your fellow classmates have in fact not been keeping up with the assigned readings."
+    ch_Amahl "Yes, yes, enough whining. Pass the papers to the back row, quickly now."
+    "A quiz eventually makes its way back to you. . ."
+
+    call screen test_screen()
+
+    if not first_name:
+        $ first_name = "John"
+
+    if not last_name:
+        $ last_name = "Doe"
+
+    $ first_name = first_name.strip()
+    $ last_name = last_name.strip()
+
+    $ Player.first_name = first_name
+    $ Player.last_name = last_name
+    $ Player.full_name = f"{first_name} {last_name}"
+
+    $ save_name = Player.full_name + "\nPrologue"
+
+    $ Jean.Player_petname = Player.first_name
+    $ Laura.Player_petname = Player.first_name
+    $ Ororo.Player_petname = Player.first_name
+
+    "After answering all the questions, you pass the paper back to the front of the lecture hall. That wasn't too difficult. . . right?"
+
+    $ black_screen = True
+
+    show black_screen onlayer effects
+
+    $ fade_to_black(0.4)
+
+    "Apparently [Amahl.name] did not choose mercy today: the lecture is just as dry and painful as usual."
+    "After listening to him enjoy his own voice for a while, you decide to distract yourself by watching the news."
 
     show expression "images/backgrounds/ch0/bg_ch0_lecture_blurred.webp" as bg_ch0:
         subpixel True
@@ -45,7 +93,8 @@ label prologue:
         align (0.5, 0.5)
         zoom background_adjustment
 
-    "At least, until you decided to distract yourself from your morning lecture by watching the news."
+    $ fade_in_from_black(0.4)
+        
     ch_reporter "We're now speaking with our guest and renowned psychiatrist, Dr. Samson."
     ch_reporter "It's a pleasure to have you with us today."
     ch_Samson "Thank you for inviting me."
@@ -58,8 +107,6 @@ label prologue:
 
     "You feel a sharp pain radiate throughout your body, followed by a sudden bout of nausea. " with small_screenshake
     ch_Player "What the fuck???"
-
-    $ Amahl.name = "Prof. Farouk"
 
     show expression "images/backgrounds/ch0/bg_ch0_lecture.webp" as bg_ch0:
         subpixel True
@@ -89,10 +136,6 @@ label prologue:
     "Shit, now you've done it. . ."
 
     $ Player.power = 0
-
-    $ black_screen = True
-
-    show black_screen onlayer effects
 
     $ fade_to_black(0.4)
 

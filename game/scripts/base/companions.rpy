@@ -25,6 +25,8 @@ init -2 python:
             self.XP = 0
             self.XP_goal = 200
 
+            self.platonic = False
+
             self.love = properties.get("love", 0)
             self.trust = properties.get("trust", 0)
 

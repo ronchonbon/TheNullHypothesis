@@ -175,8 +175,10 @@ label day_one_intro:
     ch_Charles "However, I believe Mr. Farouk has been watching you for some time already."
     
     $ Charles.change_face("neutral")
+
+    $ Amahl.name = "Farouk"
     
-    ch_Player "Farouk??? That was him???"
+    ch_Player "[Amahl.name]??? That was him???"
     ch_Player "Jesus, I thought he was just a normal shitty professor. Not something. . . evil."
     ch_Charles "Mr. Farouk is cunning, he has a history of subversion and deceit. Do not take him lightly."
     ch_Charles "I am uncertain why he has developed an interest in you specifically, but I assure you, you will be safe while at my Institute."
@@ -192,10 +194,14 @@ label day_one_intro:
 
     menu:
         extend ""
-        "Hold on, if Farouk wants me. . . Do you think he'd go after my family too?!":
+        "Hold on, if [Amahl.name] wants me. . . do you think he'd go after my family too?!":
             ch_Charles "Fear not, [Player.first_name]."
             ch_Charles "We are keeping a close eye on your family to ensure their safety."
             ch_Charles "We possess the means to protect them if it becomes necessary."
+        "Never thought I'd say it, but thank god I don't have any family. Who knows what [Amahl.name] would do in order to get to me.":
+            ch_Charles "True: it may prove to your benefit in this particular circumstance."
+
+            $ Player.has_family = False
         "Fuck. . .":
             pass
 
@@ -252,7 +258,7 @@ label day_one_intro:
 
     menu:
         extend ""
-        "But what about my family. . . ?":
+        "But what about my family. . . ?" if Player.has_family:
             $ Charles.change_face("neutral", mouth = "frown")
 
             ch_Charles "I am afraid you might only put them in harm's way by going back home."
@@ -854,7 +860,7 @@ label meet_Laura:
                 ch_Laura "You've been physically conditioned, but apparently not martially trained."
 
                 $ asked_heartrate = True
-            "Anyway. . . I should probably go catch up with [Ororo.name].":
+            "Anyways. . . I should probably go catch up with [Ororo.name].":
                 $ Laura.change_face("neutral")
 
                 ch_Laura "You should. Be back here in two days so we can start."

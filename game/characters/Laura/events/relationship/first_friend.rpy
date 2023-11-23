@@ -42,13 +42,18 @@ label Laura_first_friend_part_one:
 
     ch_Laura "It's been made clear through our combat lessons that my upbringing was very. . . non-standard."
 
-    $ Laura.change_face("confused1")
+    if Player.has_family:
+        $ Laura.change_face("confused1")
 
-    ch_Laura "You've talked about having 'family' and so-called 'friends.'"
+        ch_Laura "You've talked about 'family' and so-called 'friends.'"
 
-    $ Laura.change_face("angry1")
+        $ Laura.change_face("angry1")
 
-    ch_Laura "I was researching those terms, but I still don't understand. . ."
+        ch_Laura "I was researching those terms, but I still don't understand. . ."
+    else:
+        $ Laura.change_face("confused1")
+
+        ch_Laura "I've never understood what it means to have a 'friend.'"
     
     $ Laura.change_face("smirk1")
 
@@ -557,6 +562,35 @@ label Laura_first_friend_part_three:
 
                 $ said_crush = True
                 $ chatting = False
+            "I think I know where this is going. . . Do you think we could keep things the way they are? I really care about you a lot, but I'm not ready to be more than friends.":
+                call change_Girl_stat(Laura, "love", -medium_stat) from _call_change_Girl_stat_1612
+                call change_Girl_stat(Laura, "trust", medium_stat) from _call_change_Girl_stat_1613
+
+                $ Laura.change_face("confused2")
+
+                pause 1.0
+
+                $ Laura.change_face("confused1", eyes = "squint")
+
+                ch_Laura "Fine. . ."
+                ch_Laura "You will not be forced, and I will be patient."
+                ch_Laura "Inform me when the circumstances change. . ."
+
+                call remove_Characters(Laura) from _call_remove_Characters_344
+
+                $ Laura.platonic = True
+
+                pause 1.0
+                
+                call wait_around(silent = True) from _call_wait_around_31
+
+                $ ongoing_Event = False
+
+                return
+
+    label Laura_more_than_friends:
+
+    $ ongoing_Event = True
 
     $ Laura.change_face("smirk1")
 
@@ -574,14 +608,17 @@ label Laura_first_friend_part_three:
     $ Laura.change_face("neutral")
 
     ch_Player "Okay, okay, I will."
-    ch_Laura "That is all."
-    ch_Laura "Goodnight."
-
-    call remove_Characters(Laura) from _call_remove_Characters_110
 
     $ Laura.text_options.insert(0, "ready for that date?")
-    
-    call get_ready_for_bed from _call_get_ready_for_bed_1
+
+    if not Laura.platonic:
+        ch_Laura "That is all."
+        ch_Laura "Goodnight."
+
+        call remove_Characters(Laura) from _call_remove_Characters_110
+        call get_ready_for_bed from _call_get_ready_for_bed_1
+    else:
+        $ Laura.platonic = False
 
     $ ongoing_Event = False
     

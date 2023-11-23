@@ -553,8 +553,12 @@ label day_three_combat_lesson:
 
     $ Laura.change_face("confused1", mouth = "frown")
 
-    ch_Player "I mean for fuck's sake! I grew up in a normal home, had a loving family, and had normal friends."
-    ch_Player "Never once did I worry about getting killed. . . until these past few days. . ."
+    if Player.has_family:
+        ch_Player "I mean for fuck's sake! I grew up in a normal home, had a loving family, and had normal friends."
+        ch_Player "Never once did I worry about getting killed. . . until these past few days. . ."
+    else:
+        ch_Player "I mean for fuck's sake! I've had a mostly normal life!"
+        ch_Player "Never once have I worried about getting killed. . . until these past few days. . ."
 
     $ Laura.change_face("angry1", eyes = "squint")
 

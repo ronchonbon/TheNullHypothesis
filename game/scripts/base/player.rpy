@@ -24,6 +24,7 @@ init -3 python:
             self.stat_modifier = 1.0
 
             self.scholarship = None
+            self.has_family = True
 
             self.desire = 0
 

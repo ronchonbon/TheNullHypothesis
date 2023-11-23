@@ -125,7 +125,7 @@ label Jean_chapter_one_season_one_friendless:
 
     $ Jean.change_face("worried1", eyes = "left")
 
-    ch_Player "Yea. . . they weren't being very subtle."
+    ch_Player "Yeah. . . they weren't being very subtle."
     ch_Player "Friends of yours?"
 
     $ Jean.change_face("worried1")

@@ -127,7 +127,9 @@ label Jean_back_from_mission:
         
         $ Jean.change_face("sad")
         
-        ch_Player "I'm just worried about my family. . ."
+        if Player.has_family:
+            ch_Player "I'm just worried about my family. . ."
+    
         ch_Jean "Yeah. . . I get it. Trust me, we've all been there."
 
         $ Jean.change_face("smirk1")

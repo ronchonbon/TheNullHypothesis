@@ -23,6 +23,7 @@ init python:
         rewards = ["You'll never know if you don't go for it"]
 
         criteria = [
-            "EventScheduler.Events['Rogue_confession'].completed"]
+            "EventScheduler.Events['Rogue_confession'].completed",
+            "not Rogue.platonic"]
 
         return QuestClass(name, string, Quest_type, chapter, description, objectives, optional_objectives, rewards, criteria)

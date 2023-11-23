@@ -403,14 +403,16 @@ label Rogue_confession:
             call change_Girl_stat(Rogue, "love", medium_stat) from _call_change_Girl_stat_618
             call change_Girl_stat(Rogue, "trust", medium_stat) from _call_change_Girl_stat_404
 
-            ch_Player "I hope my family's doing alright. . ."
+            if Player.has_family:
+                ch_Player "I hope my family's doing alright. . ."
         "Sure beats the food I got back home.":
             ch_Player "At least there's a plus side to all of this. . ."
         "Still not as good as. . . back home.":
             call change_Girl_stat(Rogue, "love", medium_stat) from _call_change_Girl_stat_421
             call change_Girl_stat(Rogue, "trust", medium_stat) from _call_change_Girl_stat_422
 
-            ch_Player "I still miss my mom's cooking sometimes."
+            if Player.has_family:
+                ch_Player "I still miss my mom's cooking sometimes."
 
     $ Rogue.change_face("sad", blush = 0)
 
@@ -595,8 +597,16 @@ label Rogue_confession:
                 $ Rogue.change_face("happy", blush = 1)
 
                 $ chatting = False
+            "Do you think we could keep things the way they are? I really care about you a lot, but I'm not ready to be more than friends.": 
+                call Rogue_confession_2D from _call_Rogue_confession_2D
+
+                return
 
     $ Rogue.change_face("neutral")
+
+    label Rogue_more_than_friends:
+
+    $ ongoing_Event = True
 
     ch_Player "So, how about a proper date then?"
 
@@ -608,18 +618,22 @@ label Rogue_confession:
 
     ch_Rogue "Ah'd like that."
     ch_Rogue "Just text me whenever you're ready to head out."
-    ch_Rogue "Ah'll see ya later, hon'."
-    ch_Player "See ya."
-
-    call remove_Characters(Rogue) from _call_remove_Characters_196
-
-    "You spot a bit more confidence in her step than usual."
-
-    pause 1.0
-    
-    call wait_around(silent = True) from _call_wait_around_1
 
     $ Rogue.text_options.insert(0, "want to go on that date tonight?")
+
+    if not Rogue.platonic:
+        ch_Rogue "Ah'll see ya later, hon'."
+        ch_Player "See ya."
+
+        call remove_Characters(Rogue) from _call_remove_Characters_196
+
+        "You spot a bit more confidence in her step than usual."
+
+        pause 1.0
+        
+        call wait_around(silent = True) from _call_wait_around_1
+    else:
+        $ Rogue.platonic = False
 
     $ ongoing_Event = False
 
@@ -771,6 +785,10 @@ label Rogue_confession_2B:
             $ Rogue.change_face("perplexed")
 
             ch_Player "I like you too."
+        "Do you think we could keep things the way they are? I really care about you a lot, but I'm not ready to be more than friends.": 
+            call Rogue_confession_2D from _call_Rogue_confession_2D_1
+
+            return
 
     return
 
@@ -795,5 +813,38 @@ label Rogue_confession_2C:
             call change_Girl_stat(Rogue, "trust", medium_stat) from _call_change_Girl_stat_630
 
             $ Rogue.change_face("smirk2")
+        ". . .":
+            call change_Girl_stat(Rogue, "love", -small_stat) from _call_change_Girl_stat_1614
+
+            $ Rogue.change_face("worried1")
+
+    return
+
+label Rogue_confession_2D:
+    call change_Girl_stat(Rogue, "love", -medium_stat) from _call_change_Girl_stat_1615
+    call change_Girl_stat(Rogue, "trust", medium_stat) from _call_change_Girl_stat_1616
+
+    $ Rogue.change_face("worried2")
+
+    pause 1.0
+
+    $ Rogue.change_face("worried1", eyes = "right")
+
+    ch_Rogue "Sure. . ."
+
+    $ Rogue.change_face("worried1", mouth = "smirk")
+
+    ch_Rogue "Ah don't want ya to do somethin' yer not ready for."
+    ch_Rogue "Just let me know if ya change yer mind. . ."
+
+    call remove_Characters(Rogue) from _call_remove_Characters_345
+
+    $ Rogue.platonic = True
+
+    pause 1.0
+    
+    call wait_around(silent = True) from _call_wait_around_32
+
+    $ ongoing_Event = False
 
     return

@@ -282,9 +282,10 @@ screen home_screen():
                     action ToggleVariable("input_cheats")
 
                 if input_cheats:
-                    input id "input" value VariableInputValue("current_input", default = True) anchor (0.0, 0.5) pos (0.13, 0.58):
-                        size 30
+                    input id "cheat_input" value VariableInputValue("current_input", default = True) anchor (0.0, 0.5) pos (0.13, 0.58):
                         color "#000000"
+                        
+                        size 30
 
                         length 25
 

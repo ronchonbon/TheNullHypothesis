@@ -46,7 +46,7 @@ label day_two_intro:
 
     menu:
         extend ""
-        "Too good, that bed is amazing. I'm just worried about what my family must be thinking right now. I feel a bit guilty.":
+        "Too good, that bed is amazing. I'm just worried about what my family must be thinking right now. I feel a bit guilty." if Player.has_family:
             call change_Girl_stat(Rogue, "trust", medium_stat) from _call_change_Girl_stat_904
             
             $ Rogue.change_face("worried1")
