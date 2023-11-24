@@ -1,9 +1,9 @@
 init -1 python:
 
-    def Rogue_green_sheer_thong():
+    def Rogue_green_thong():
         name = "green thong"
         short_name = "thong"
-        string = "green_sheer_thong"
+        string = "green_thong"
         
         Clothing_type = "underwear"
 
@@ -53,34 +53,34 @@ init -1 python:
             supports_breasts = supports_breasts,
             incompatibilities = incompatibilities)
 
-label Rogue_green_sheer_thong_shopping_accept:
+label Rogue_green_thong_shopping_accept:
 
     return
 
-label Rogue_green_sheer_thong_shopping_reject:
+label Rogue_green_thong_shopping_reject:
 
     return
 
-label Rogue_green_sheer_thong_gift_accept:
+label Rogue_green_thong_gift_accept:
 
     return
 
-label Rogue_green_sheer_thong_gift_reject:
+label Rogue_green_thong_gift_reject:
 
     return
 
-label Rogue_green_sheer_thong_change_private_before:
+label Rogue_green_thong_change_private_before:
 
     return
 
-label Rogue_green_sheer_thong_change_private_after:
+label Rogue_green_thong_change_private_after:
 
     return
 
-label Rogue_green_sheer_thong_change_public_before:
+label Rogue_green_thong_change_public_before:
 
     return
 
-label Rogue_green_sheer_thong_change_public_after:
+label Rogue_green_thong_change_public_after:
 
     return

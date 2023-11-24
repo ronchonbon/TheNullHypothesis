@@ -22,7 +22,7 @@ label Laura_locker_room_changing:
 
     call remove_Characters(location = "bg_lockers") from _call_remove_Characters_311
     call send_Characters(Laura, "bg_lockers", behavior = "changing") from _call_send_Characters_288
-    call change_Outfit(Laura, Laura.Wardrobe.gym_Outfit, instant = True) from _call_change_Outfit_9
+    call change_Outfit(Laura, Laura.Wardrobe.superhero_Outfit, instant = True) from _call_change_Outfit_9
     call set_the_scene(location = "bg_lockers") from _call_set_the_scene_117
 
     if Laura in Partners:

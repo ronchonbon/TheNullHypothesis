@@ -59,6 +59,9 @@ label save_new_Outfit(Girl, name, color, flags):
 
     if flags["activewear"]:
         $ new_Outfit.activewear = True
+
+    if flags["superwear"]:
+        $ new_Outfit.superwear = True
         
     if flags["swimwear"]:
         $ new_Outfit.swimwear = True
@@ -78,8 +81,8 @@ label save_new_Outfit(Girl, name, color, flags):
     $ new_Outfit.Outfit_type = "custom"
     $ new_Outfit.color = color
 
-    if new_Outfit.wear_in_public or new_Outfit.activewear or new_Outfit.swimwear:
-        if (not new_Outfit.wear_in_public and (new_Outfit.activewear or new_Outfit.swimwear) and approval_check(Girl, threshold = 2.5*new_Outfit.shame, extra_condition = "new_Outfit")) or approval_check(Girl, threshold = 4.0*new_Outfit.shame, extra_condition = "new_Outfit"):
+    if new_Outfit.wear_in_public or new_Outfit.activewear or new_Outfit.superwear or new_Outfit.swimwear:
+        if (not new_Outfit.wear_in_public and (new_Outfit.activewear or new_Outfit.superwear or new_Outfit.swimwear) and approval_check(Girl, threshold = 2.5*new_Outfit.shame, extra_condition = "new_Outfit")) or approval_check(Girl, threshold = 4.0*new_Outfit.shame, extra_condition = "new_Outfit"):
             call expression f"{Girl.tag}_accept_public_Outfit" pass (Outfit = new_Outfit) from _call_expression_103
 
             if name in Girl.Wardrobe.Outfits.keys():
@@ -169,6 +172,11 @@ label edit_Outfit(Girl, Outfit, name, color, flags):
         $ Outfit.activewear = True
     else:
         $ Outfit.activewear = False
+
+    if flags["superwear"]:
+        $ Outfit.superwear = True
+    else:
+        $ Outfit.superwear = False
         
     if flags["swimwear"]:
         $ Outfit.swimwear = True
@@ -243,7 +251,7 @@ label review_Outfit(Girl):
 
         $ flag = are_Characters_in_Partners(Present)
 
-        if Girl.Outfit.wear_in_public or (Girl.Outfit.activewear and Player.location == "bg_danger") or (Girl.Outfit.swimwear and Player.location == "bg_pool") or (Girl.Outfit.sleepwear and Player.location in bedrooms and flag):
+        if Girl.Outfit.wear_in_public or ((Girl.Outfit.activewear or Girl.Outfit.superwear) and Player.location == "bg_danger") or (Girl.Outfit.swimwear and Player.location == "bg_pool") or (Girl.Outfit.sleepwear and Player.location in bedrooms and flag):
             pass
         elif approval_check(Girl, threshold = 4.0*Girl.Outfit.shame):
             call expression f"{Girl.tag}_accept_public_Outfit" pass (Outfit = Girl.Outfit) from _call_expression_112
@@ -253,7 +261,7 @@ label review_Outfit(Girl):
             call expression f"{Girl.tag}_reject_public_Outfit" pass (Outfit = Girl.Outfit) from _call_expression_129
 
             call set_Character_Outfits(Girl) from _call_set_Character_Outfits_28
-        elif (Girl.Outfit.activewear and Player.location != "bg_danger") or (Girl.Outfit.swimwear and Player.location != "bg_pool") or (Girl.Outfit.sleepwear and Player.location not in bedrooms):
+        elif ((Girl.Outfit.activewear or Girl.Outfit.superwear) and Player.location != "bg_danger") or (Girl.Outfit.swimwear and Player.location != "bg_pool") or (Girl.Outfit.sleepwear and Player.location not in bedrooms):
             call expression f"{Girl.tag}_reject_contextual_Outfit" pass (Outfit = Girl.Outfit) from _call_expression_111
 
             call set_Character_Outfits(Girl) from _call_set_Character_Outfits_5

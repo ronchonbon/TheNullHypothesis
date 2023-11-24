@@ -190,13 +190,13 @@ label set_Character_Outfits(Characters = None, instant = True):
                 elif (temp_Outfit_Characters[0].behavior == "sleeping" or temp_Outfit_Characters[0].behavior == "getting_ready_for_bed") and (Player.location != temp_Outfit_Characters[0].destination or approval_check(temp_Outfit_Characters[0], threshold = "sleepover")):
                     $ Outfit = temp_Outfit_Characters[0].Wardrobe.sleeping_Outfit
                 elif temp_Outfit_Characters[0].behavior == "training":
-                    $ Outfit = temp_Outfit_Characters[0].Wardrobe.gym_Outfit
+                    $ Outfit = temp_Outfit_Characters[0].Wardrobe.superhero_Outfit
                 elif temp_Outfit_Characters[0].behavior in ["swimming", "sunbathing"]:
                     $ Outfit = temp_Outfit_Characters[0].Wardrobe.swimming_Outfit
                 elif temp_Outfit_Characters[0].destination == "bg_lockers" and temp_Outfit_Characters[0].behavior == "showering":
                     if Player.location == "bg_lockers":
                         if temp_Outfit_Characters[0].location == "bg_danger":
-                            $ Outfit = temp_Outfit_Characters[0].Wardrobe.gym_Outfit
+                            $ Outfit = temp_Outfit_Characters[0].Wardrobe.superhero_Outfit
                         elif temp_Outfit_Characters[0].location == "bg_pool":
                             $ Outfit = temp_Outfit_Characters[0].Wardrobe.swimming_Outfit
                         elif temp_Outfit_Characters[0].location == "bg_lockers":
@@ -209,7 +209,7 @@ label set_Character_Outfits(Characters = None, instant = True):
                         $ Outfit = temp_Outfit_Characters[0].Wardrobe.swimming_Outfit
                 elif temp_Outfit_Characters[0].destination == "bg_lockers" and temp_Outfit_Characters[0].behavior == "changing":
                     if temp_Outfit_Characters[0].location == "bg_danger":
-                        $ Outfit = temp_Outfit_Characters[0].Wardrobe.gym_Outfit
+                        $ Outfit = temp_Outfit_Characters[0].Wardrobe.superhero_Outfit
                     elif temp_Outfit_Characters[0].location == "bg_pool":
                         $ Outfit = temp_Outfit_Characters[0].Wardrobe.swimming_Outfit
                     else:

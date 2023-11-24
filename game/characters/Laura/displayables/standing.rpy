@@ -158,9 +158,6 @@ layeredimage Laura_standing:
     if Laura.right_arm in ["extended", "hip", "touch_pussy"]:
         "characters/Laura/images/standing/right_forearm_[Laura.right_arm].webp"
 
-    always:
-        "characters/Laura/images/standing/head_shadow.webp"
-
     if not Player.left_hand_Actions or Laura not in Player.left_hand_Actions[0].Targets:
         Null()
     elif Player.left_hand_Actions[0].animation_type == "choke":
@@ -275,15 +272,20 @@ layeredimage Laura_standing_left_arm:
 layeredimage Laura_standing_head:
     always:
         "characters/Laura/images/standing/head.webp"
-    
-    always:
-        "characters/Laura/images/standing/mouth_happy.webp"
 
     always:
-        "characters/Laura/images/standing/eyes_neutral.webp"
+        "characters/Laura/images/standing/mouth_[Laura.mouth].webp"
+
+    if Laura.eyes in ["closed", "down", "left", "right", "squint", "wink", "up"]:
+        "characters/Laura/images/standing/eyes_[Laura.eyes].webp"
+    else:
+        "Laura_standing_blinking"
 
     always:
-        "characters/Laura/images/standing/brows_neutral.webp"
+        "characters/Laura/images/standing/brows_[Laura.brows].webp"
+
+    if Laura.blush:
+        "characters/Laura/images/standing/blush[Laura.blush].webp"
 
     # if Laura.Clothes["face_outer_accessory"].string:
     #     Null()

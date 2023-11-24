@@ -22,7 +22,7 @@ label Rogue_locker_room_changing:
 
     call remove_Characters(location = "bg_lockers") from _call_remove_Characters_312
     call send_Characters(Rogue, "bg_lockers", behavior = "changing") from _call_send_Characters_289
-    call change_Outfit(Rogue, Rogue.Wardrobe.gym_Outfit, instant = True) from _call_change_Outfit_15
+    call change_Outfit(Rogue, Rogue.Wardrobe.superhero_Outfit, instant = True) from _call_change_Outfit_15
     call set_the_scene(location = "bg_lockers") from _call_set_the_scene_196
 
     if Rogue in Partners:

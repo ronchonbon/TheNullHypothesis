@@ -19,7 +19,7 @@ screen test_screen():
 
     add "images/interface/test/test.webp" align (0.5, 0.5)
 
-    frame anchor (0.0, 0.5) pos (0.41, 0.15) xysize (int(400*interface_sampling), int(70*interface_sampling)):
+    frame anchor (0.0, 0.5) pos (0.41, 0.145) xysize (int(400*interface_sampling), int(70*interface_sampling)):
         background None
 
         input id "first_name_input" value first_name_value xalign 1.0:
@@ -29,7 +29,7 @@ screen test_screen():
 
             length 10
     
-    frame anchor (0.0, 0.5) pos (0.41, 0.1905) xysize (int(400*interface_sampling), int(70*interface_sampling)):
+    frame anchor (0.0, 0.5) pos (0.41, 0.185) xysize (int(400*interface_sampling), int(70*interface_sampling)):
         background None
 
         input id "last_name_input" value last_name_value xalign 1.0:

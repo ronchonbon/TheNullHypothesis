@@ -52,6 +52,12 @@ label day_two_intro:
             $ Rogue.change_face("worried1")
           
             ch_Rogue "Ah know how you feel. But trust me, you're doin' them a favor by stayin' away."
+        "Too good, that bed is amazing. Way better than my old one. . . I wonder how my roommates are doing, I feel a bit guilty." if not Player.has_family:
+            call change_Girl_stat(Rogue, "trust", medium_stat) from _call_change_Girl_stat_1622
+            
+            $ Rogue.change_face("worried1")
+          
+            ch_Rogue "Ah know how you feel. But trust me, you're doin' them a favor by stayin' away."
         "I slept like a rock. The beds in this place are really something else.":
             ch_Rogue "They sure are comfortable. We're lucky the Prof is so generous."
 

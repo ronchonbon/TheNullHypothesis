@@ -124,7 +124,7 @@ label prologue:
 
     menu:
         extend ""
-        "Sorry, [Amahl.name]. You know freshman Psych is the reason I wake up every morning.":
+        "Sorry, [Amahl.name]. You know this class is the reason I wake up every morning.":
             call prologue_1A from _call_prologue_1A
         "Look, Professor, I think that breakfast burrito I ate is starting to fight back. May I please be excused?":
             call prologue_1B from _call_prologue_1B

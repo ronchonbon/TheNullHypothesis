@@ -518,7 +518,7 @@ label Laura_I_love_you_1B:
 
     $ reset_behavior(Laura)
 
-    call change_Outfit(Laura, Laura.Wardrobe.gym_Outfit, instant = True) from _call_change_Outfit_47
+    call change_Outfit(Laura, Laura.Wardrobe.superhero_Outfit, instant = True) from _call_change_Outfit_47
     call add_Characters(Laura) from _call_add_Characters_90
 
     $ Laura.change_face("neutral")

@@ -456,9 +456,7 @@ init -2 python:
             eyes = "wide"
             mouth = "agape"
         else:
-            renpy.say(None, "Something went wrong with a face here.")
-
-            return "neutral", "neutral", "neutral", 0
+            return "wrong", "wrong", "wrong", 0
 
         return brows, eyes, mouth, blush
 

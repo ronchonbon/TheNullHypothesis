@@ -190,7 +190,7 @@ label Characters_leave(leaving_Characters, farewells = True, fade = True):
 
             while temp_hiding_Characters:
                 if temp_hiding_Characters[0] in all_Companions:
-                    if sandbox and not ongoing_Event and not temp_hiding_Characters[0].Outfit.wear_in_public and not (temp_hiding_Characters[0].Outfit.activewear and temp_hiding_Characters[0].destination in ["bg_danger", "bg_lockers"]) and not (temp_hiding_Characters[0].Outfit.swimwear and temp_hiding_Characters[0].destination in ["bg_pool"]):                       
+                    if sandbox and not ongoing_Event and not temp_hiding_Characters[0].Outfit.wear_in_public and not ((temp_hiding_Characters[0].Outfit.activewear or temp_hiding_Characters[0].Outfit.superwear) and temp_hiding_Characters[0].destination in ["bg_danger", "bg_lockers"]) and not (temp_hiding_Characters[0].Outfit.swimwear and temp_hiding_Characters[0].destination in ["bg_pool"]):                       
                         call set_Character_Outfits(temp_hiding_Characters[0], instant = False) from _call_set_Character_Outfits_21
 
                         pause 1.0

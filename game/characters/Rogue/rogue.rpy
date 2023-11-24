@@ -523,9 +523,7 @@ init -2 python:
             eyes = "wide"
             mouth = "agape"
         else:
-            renpy.say(None, "Something went wrong with a face here.")
-
-            return "neutral", "neutral", "neutral", 0
+            return "wrong", "wrong", "wrong", 0
 
         return brows, eyes, mouth, blush
 
@@ -563,13 +561,11 @@ init -2 python:
         elif pose == "shrug":
             left_arm = "extended"
             right_arm = "extended"
-        elif pose == "touch_Rogue":
+        elif pose == "touch_self":
             left_arm = "grope"
             right_arm = "touch_pussy"
         else:
-            renpy.say(None, "Something went wrong with an arm pose here.")
-
-            return "neutral", "neutral"
+            return "wrong", "wrong"
 
         return left_arm, right_arm
 

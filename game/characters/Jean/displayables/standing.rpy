@@ -174,9 +174,6 @@ layeredimage Jean_standing:
     if Jean.left_arm in ["grope"]:
         "characters/Jean/images/standing/left_forearm_[Jean.left_arm].webp"
 
-    always:
-        "characters/Jean/images/standing/head_shadow.webp"
-
     if not Player.left_hand_Actions or Jean not in Player.left_hand_Actions[0].Targets:
         Null()
     elif Player.left_hand_Actions[0].animation_type == "choke":

@@ -605,7 +605,7 @@ screen head_screen(Girl):
                         
                         null width 85
 
-            if True:
+            if False:
                 $ brows = [
                     "neutral", "cocked", "furrowed", "raised", "wink", "worried"]
 
@@ -642,8 +642,12 @@ screen head_screen(Girl):
 
                         null width 85
 
-                $ mouths = [
-                    "neutral", "agape", "frown", "happy", "kiss", "lipbite", "open", "smile", "smirk", "tongue"]
+                if Girl in [Laura]:
+                    $ mouths = [
+                        "neutral", "agape", "frown", "happy", "kiss", "lipbite", "open", "smile", "smirk", "snarl", "tongue"]
+                else:
+                    $ mouths = [
+                        "neutral", "agape", "frown", "happy", "kiss", "lipbite", "open", "smile", "smirk", "tongue"]
 
                 for mouth in mouths:
                     hbox align (0.5, 0.5):
@@ -660,13 +664,22 @@ screen head_screen(Girl):
 
                         null width 85
 
-                $ faces = [
-                    "neutral", "angry1", "angry2", "appalled1", "appalled2", "appalled3", 
-                    "confused1", "confused2", "confused3", "devious",
-                    "furious", "happy", "kiss1", "kiss2", "manic",
-                    "perplexed", "pleased1", "pleased2", "sad",
-                    "sexy", "sly", "smirk1", "smirk2", "surprised1", "surprised2", "surprised3",
-                    "suspicious1", "suspicious2", "worried1", "worried2", "worried3", "worried4"]
+                if Girl in [Laura]:
+                    $ faces = [
+                        "neutral", "angry1", "angry2", "appalled1", "appalled2", "appalled3", 
+                        "confused1", "confused2", "confused3", "devious",
+                        "furious", "grimace", "happy", "kiss1", "kiss2", "manic",
+                        "perplexed", "pleased1", "pleased2", "sad",
+                        "sexy", "sly", "smirk1", "smirk2", "snarl", "surprised1", "surprised2", "surprised3",
+                        "suspicious1", "suspicious2", "wink", "worried1", "worried2", "worried3", "worried4"]
+                else:
+                    $ faces = [
+                        "neutral", "angry1", "angry2", "appalled1", "appalled2", "appalled3", 
+                        "confused1", "confused2", "confused3", "devious",
+                        "furious", "grimace", "happy", "kiss1", "kiss2", "manic",
+                        "perplexed", "pleased1", "pleased2", "sad",
+                        "sexy", "sly", "smirk1", "smirk2", "surprised1", "surprised2", "surprised3",
+                        "suspicious1", "suspicious2", "wink", "worried1", "worried2", "worried3", "worried4"]
 
                 for face in faces:
                     hbox align (0.5, 0.5):
@@ -1019,6 +1032,7 @@ screen edit_Outfit_screen(Girl):
         SetDict(current_flags, "wear_in_public", Girl.Outfit.wear_in_public),
         SetDict(current_flags, "wear_in_private", Girl.Outfit.wear_in_private),
         SetDict(current_flags, "activewear", Girl.Outfit.activewear),
+        SetDict(current_flags, "superwear", Girl.Outfit.superwear),
         SetDict(current_flags, "swimwear", Girl.Outfit.swimwear),
         SetDict(current_flags, "datewear", Girl.Outfit.datewear),
         SetDict(current_flags, "sexwear", Girl.Outfit.sexwear),

@@ -94,6 +94,7 @@ init -3 python:
 
             self.daywear = properties.get("daywear", False)
             self.activewear = properties.get("activewear", False)
+            self.superwear = properties.get("superwear", False)
             self.swimwear = properties.get("swimwear", False)
             self.datewear = properties.get("datewear", False)
             self.sexwear = properties.get("sexwear", False)
@@ -145,13 +146,16 @@ init -3 python:
 
             self.Outfits = {}
 
-            self.indoor_Outfit = OutfitClass("null")
             self.outdoor_Outfit = OutfitClass("null")
+            self.indoor_Outfit = OutfitClass("null")
 
             self.private_Outfit = OutfitClass("null")
 
             self.gym_Outfit = OutfitClass("null")
+            self.superhero_Outfit = OutfitClass("null")
             self.swimming_Outfit = OutfitClass("null")
+            self.date_Outfit = OutfitClass("null")
+            self.sex_Outfit = OutfitClass("null")
             self.sleeping_Outfit = OutfitClass("null")
 
         def add_Clothing(self, Clothing):
@@ -180,6 +184,7 @@ init -3 python:
             
             day_Outfits = []
             gym_Outfits = []
+            superhero_Outfits = []
             swimming_Outfits = []
             date_Outfits = []
             sex_Outfits = []
@@ -211,6 +216,13 @@ init -3 python:
                                 gym_Outfits.append(O)
                         else:
                             gym_Outfits.append(O)
+
+                    if O.superwear:
+                        if temperature[0] >= 10:
+                            if not O.winterwear and "Winter" not in O.name:
+                                superhero_Outfits.append(O)
+                        else:
+                            superhero_Outfits.append(O)
 
                     if O.swimwear:
                         if temperature[0] >= 10:
@@ -257,6 +269,7 @@ init -3 python:
             self.private_Outfit = renpy.random.choice(private_Outfits) if private_Outfits else self.indoor_Outfit
             
             self.gym_Outfit = renpy.random.choice(gym_Outfits) if gym_Outfits else self.indoor_Outfit
+            self.superhero_Outfit = renpy.random.choice(superhero_Outfits) if superhero_Outfits else self.indoor_Outfit
             self.swimming_Outfit = renpy.random.choice(swimming_Outfits) if swimming_Outfits else self.indoor_Outfit
             self.date_Outfit = renpy.random.choice(date_Outfits) if date_Outfits else self.indoor_Outfit
             self.sex_Outfit = renpy.random.choice(sex_Outfits) if sex_Outfits else self.private_Outfit
@@ -270,6 +283,7 @@ init -3 python:
             
             day_Outfits = []
             gym_Outfits = []
+            superhero_Outfits = []
             swimming_Outfits = []
             date_Outfits = []
             sex_Outfits = []
@@ -301,6 +315,13 @@ init -3 python:
                                 gym_Outfits.append(O)
                         else:
                             gym_Outfits.append(O)
+
+                    if O.superwear:
+                        if temperature[0] >= 10:
+                            if not O.winterwear and "Winter" not in O.name:
+                                superhero_Outfits.append(O)
+                        else:
+                            superhero_Outfits.append(O)
 
                     if O.swimwear:
                         if temperature[0] >= 10:
@@ -353,6 +374,9 @@ init -3 python:
 
             if self.swimming_Outfit.disabled:
                 self.swimming_Outfit = renpy.random.choice(swimming_Outfits) if swimming_Outfits else self.indoor_Outfit
+            
+            if self.superhero_Outfit.disabled:
+                self.superhero_Outfit = renpy.random.choice(superhero_Outfits) if superhero_Outfits else self.indoor_Outfit
 
             if self.date_Outfit.disabled:
                 self.date_Outfit = renpy.random.choice(date_Outfits) if date_Outfits else self.indoor_Outfit

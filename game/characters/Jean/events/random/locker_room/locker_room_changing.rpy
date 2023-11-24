@@ -22,7 +22,7 @@ label Jean_locker_room_changing:
 
     call remove_Characters(location = "bg_lockers") from _call_remove_Characters_310
     call send_Characters(Jean, "bg_lockers", behavior = "changing") from _call_send_Characters_287
-    call change_Outfit(Jean, Jean.Wardrobe.gym_Outfit, instant = True) from _call_change_Outfit_2
+    call change_Outfit(Jean, Jean.Wardrobe.superhero_Outfit, instant = True) from _call_change_Outfit_2
     call set_the_scene(location = "bg_lockers") from _call_set_the_scene_38
 
     if Jean in Partners:

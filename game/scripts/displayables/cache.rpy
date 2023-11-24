@@ -133,7 +133,7 @@ init python:
 
                             break
                 else:
-                    for Outfit_type in ["outdoor_Outfit", "indoor_Outfit", "private_Outfit", "date_Outfit", "gym_Outfit", "swimming_Outfit", "sleeping_Outfit"]:
+                    for Outfit_type in ["outdoor_Outfit", "indoor_Outfit", "private_Outfit", "gym_Outfit", "superhero_Outfit", "swimming_Outfit", "date_Outfit", "sleeping_Outfit"]:
                         Outfit = getattr(Character.Wardrobe, Outfit_type)
 
                         for C in Outfit.Clothes.values():

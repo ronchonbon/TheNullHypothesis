@@ -434,6 +434,10 @@ init -2 python:
             brows = "furrowed"
             eyes = "neutral"
             mouth = "frown"
+        elif face == "grimace":
+            brows = "furrowed"
+            eyes = "closed"
+            mouth = "lipbite"
         elif face == "happy":
             brows = "neutral"
             eyes = "neutral"
@@ -483,6 +487,10 @@ init -2 python:
             brows = "neutral"
             eyes = "neutral"
             mouth = "smirk"
+        elif face == "snarl":
+            brows = "furrowed"
+            eyes = "squint"
+            mouth = "snarl"
         elif face == "surprised1":
             brows = "raised"
             eyes = "neutral"
@@ -503,6 +511,10 @@ init -2 python:
             brows = "furrowed"
             eyes = "squint"
             mouth = "frown"
+        elif face == "wink":
+            brows = "wink"
+            eyes = "wink"
+            mouth = "kiss"
         elif face == "worried1":
             brows = "worried"
             eyes = "neutral"
@@ -520,7 +532,7 @@ init -2 python:
             eyes = "wide"
             mouth = "open"
         else:
-            renpy.say(None, "Something went wrong with a face here.")
+            return "wrong", "wrong", "wrong", 0
 
             return "neutral", "neutral", "neutral", 0
 
@@ -563,16 +575,14 @@ init -2 python:
         elif pose == "sheepish":
             left_arm = "rub_neck"
             right_arm = "extended"
-        elif pose == "touch_Laura":
+        elif pose == "touch_self":
             left_arm = "grope"
             right_arm = "touch_pussy"
         elif pose == "X":
             left_arm = "X"
             right_arm = "X"
         else:
-            renpy.say(None, "Something went wrong with an arm pose here.")
-
-            return "neutral", "neutral"
+            return "wrong", "wrong"
 
         return left_arm, right_arm
 
