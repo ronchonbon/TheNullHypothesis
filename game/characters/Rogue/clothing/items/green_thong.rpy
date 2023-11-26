@@ -34,8 +34,10 @@ init -1 python:
                 "pussy": [0],
                 "anus": [0]}}
 
-        covered_by = {}
-        blocked_by = {}
+        covered_by = {
+            "black_jeans": [0]}
+        blocked_by = {
+            "black_jeans": [0, 1]}
 
         supports_breasts = False
         

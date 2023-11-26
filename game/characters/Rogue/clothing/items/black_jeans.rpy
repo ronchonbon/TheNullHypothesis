@@ -21,9 +21,9 @@ init -1 python:
         shame = [-10, -10]
         
         available_states = {
-            "standing": [0]}
+            "standing": [0, 1]}
         undressed_states = {
-            "standing": 0}
+            "standing": 1}
         
         covers = {
             "standing": {
@@ -40,12 +40,8 @@ init -1 python:
                 "pussy": [0],
                 "anus": [0]}}
 
-        covered_by = {
-            "thighhigh_boots": [0],
-            "yellow_boots": [0]}
-        blocked_by = {
-            "thighhigh_boots": [0],
-            "yellow_boots": [0]}
+        covered_by = {}
+        blocked_by = {}
 
         supports_breasts = False
 

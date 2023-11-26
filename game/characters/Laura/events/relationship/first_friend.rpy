@@ -507,7 +507,6 @@ label Laura_first_friend_part_three:
     $ denied_boyfriend = False
     $ asked_stalking = False
     $ asked_crush = False
-    $ said_crush = False
 
     while chatting:
         menu:
@@ -541,7 +540,7 @@ label Laura_first_friend_part_three:
                 ch_Laura "There are other reasons for the 'crush'. . . that you don't need to know."
 
                 $ asked_crush = True
-            "I have a 'crush' on you too." if asked_crush and not said_crush:
+            "I have a 'crush' on you too." if asked_crush:
                 $ Laura.change_face("perplexed", blush = 1)
 
                 ch_Laura "And this still doesn't mean you're my boyfriend?"
@@ -560,9 +559,8 @@ label Laura_first_friend_part_three:
 
                 ch_Laura "Good."
 
-                $ said_crush = True
                 $ chatting = False
-            "I think I know where this is going. . . Do you think we could keep things the way they are? I really care about you a lot, but I'm not ready to be more than friends.":
+            "I think I know where this is going. . . Do you think we could keep things the way they are? I really care about you a lot, but I'm not ready to be more than friends." if asked_crush:
                 call change_Girl_stat(Laura, "love", -medium_stat) from _call_change_Girl_stat_1612
                 call change_Girl_stat(Laura, "trust", medium_stat) from _call_change_Girl_stat_1613
 

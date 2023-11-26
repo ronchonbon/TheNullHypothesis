@@ -14,7 +14,7 @@ init python:
 
             "chapter == 1 and season == 1",
 
-            "weekday < 5 and time_index >= 2",
+            "weekday < 5 and time_index >= 3",
 
             "not Jean.History.check('trained_with_Player', tracker = 'daily')",
 
@@ -41,7 +41,7 @@ init python:
             
             "chapter == 1 and season == 1",
 
-            "weekday < 5 and time_index >= 2",
+            "weekday < 5 and time_index >= 3",
             
             "Jean.location == 'bg_classroom'",
             "Jean.behavior == 'studying'",
@@ -59,7 +59,7 @@ init python:
 
                 "chapter == 1 and season == 1",
 
-                "weekday < 5 and time_index >= 2",
+                "weekday < 5 and time_index >= 3",
                 
                 "Jean.location == 'bg_classroom'",
                 "Jean.behavior == 'studying'",

@@ -32,8 +32,10 @@ init -1 python:
             "standing": {
                 "breasts": [0]}}
 
-        covered_by = {}
-        blocked_by = {}
+        covered_by = {
+            "black_lowcut_top": [0]}
+        blocked_by = {
+            "black_lowcut_top": [0]}
 
         supports_breasts = True
         

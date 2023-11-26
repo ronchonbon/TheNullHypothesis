@@ -6,7 +6,7 @@ init -2:
         "face_inner_accessory", "hair", "face_outer_accessory",
         "nipple_accessories", "bra", "underwear", "hose",
         "harness", "bodysuit",
-        "socks", "pants", "skirt", "boots",
+        "socks", "pants", "skirt", "footwear",
         "dress", "top",
         "neck", "gloves", "sleeves", "belt", "suspenders",
         "jacket", "towel", "cloak"]
@@ -17,13 +17,13 @@ init -2:
         "socks", "pants", "skirt",
         "dress", "top",
         "neck", 
-        "boots", "sleeves", "gloves", 
+        "footwear", "sleeves", "gloves", 
         "belt", "suspenders",
         "jacket", "towel", "cloak",
         "face_inner_accessory", "face_outer_accessory",]
 
     define upper_Clothing_types = ["bra", "bodysuit", "dress", "top", "jacket", "towel", "cloak"]
-    define lower_Clothing_types = ["underwear", "hose", "socks", "pants", "skirt", "boots"]
+    define lower_Clothing_types = ["underwear", "hose", "socks", "pants", "skirt", "footwear"]
     define accessory_Clothing_types = ["makeup", "gag", 
         "face_inner_accessory", "face_outer_accessory", 
         "nipple_accessories", 

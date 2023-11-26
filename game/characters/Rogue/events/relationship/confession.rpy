@@ -597,7 +597,7 @@ label Rogue_confession:
                 $ Rogue.change_face("happy", blush = 1)
 
                 $ chatting = False
-            "Do you think we could keep things the way they are? I really care about you a lot, but I'm not ready to be more than friends.": 
+            "Do you think we could keep things the way they are? I really care about you a lot, but I'm not ready to be more than friends." if asked_more_than_friends or asked_dating: 
                 call Rogue_confession_2D from _call_Rogue_confession_2D
 
                 return

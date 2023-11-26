@@ -34,10 +34,8 @@ init -1 python:
         hides = {
             "standing": {}}
 
-        covered_by = {
-            "NIN_shirt": [0]}
-        blocked_by = {
-            "NIN_shirt": [0]}
+        covered_by = {}
+        blocked_by = {}
 
         supports_breasts = False
         

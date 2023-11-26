@@ -8,15 +8,9 @@ init python:
         Outfits[-1].Clothes.update({
             "hair": Rogue_asymmetric_hair(),
             "bra": Rogue_black_tanktop(), "underwear": Rogue_yellow_panties(),
-            "pants": Rogue_black_jeans(),
-            "top": Rogue_black_lowcut_top()})
-
-        Outfits.append(OutfitClass("Workout 1", activewear = True))
-
-        Outfits[-1].Clothes.update({
-            "hair": Rogue_asymmetric_hair(),
-            "bra": Rogue_black_sports_bra(), "underwear": Rogue_yellow_panties(),
-            "pants": Rogue_green_athletic_shorts()})
+            "pants": Rogue_black_jeans(), "footwear": Rogue_black_strap_pumps(),
+            "top": Rogue_black_lowcut_top(),
+            "gloves": Rogue_black_gloves(), "sleeves": Rogue_black_spiked_bracelets()})
 
         Outfits.append(OutfitClass("Swimsuit (Bikini)", swimwear = True))
 

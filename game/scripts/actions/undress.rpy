@@ -275,12 +275,12 @@ label ask_to_undress(Character):
             "Put on your [Outfit[sleeves].short_name]?" if not Clothes["sleeves"].string and Outfit["sleeves"].string and Character.position in Outfit["sleeves"].poses:
                 $ verb = "try_on"
                 $ Item_type = "sleeves"
-            "Take off your [Clothes[boots].short_name]?" if Clothes["boots"].string:
+            "Take off your [Clothes[footwear].short_name]?" if Clothes["footwear"].string:
                 $ verb = "take_off"
-                $ Item_type = "boots"
-            "Put on your [Outfit[boots].short_name]?" if not Clothes["boots"].string and Outfit["boots"].string and Character.position in Outfit["boots"].poses:
+                $ Item_type = "footwear"
+            "Put on your [Outfit[footwear].short_name]?" if not Clothes["footwear"].string and Outfit["footwear"].string and Character.position in Outfit["footwear"].poses:
                 $ verb = "try_on"
-                $ Item_type = "boots"
+                $ Item_type = "footwear"
             "Take off your [Clothes[socks].short_name]?" if Clothes["socks"].string:
                 $ verb = "take_off"
                 $ Item_type = "socks"

@@ -21,9 +21,9 @@ init -1 python:
         shame = [5, 5]
         
         available_states = {
-            "standing": [0]}
+            "standing": [0, 1]}
         undressed_states = {
-            "standing": 0}
+            "standing": 1}
         
         covers = {
             "standing": {
@@ -38,15 +38,12 @@ init -1 python:
                 "back": [0],
                 "belly": [0]}}
 
-        covered_by = {
-            "NIN_shirt": [0]}
-        blocked_by = {
-            "NIN_shirt": [0]}
+        covered_by = {}
+        blocked_by = {}
 
         supports_breasts = False
         
-        incompatibilities = [
-            "sweater_dress"]
+        incompatibilities = []
         
         return ClothingClass(
             Rogue, 

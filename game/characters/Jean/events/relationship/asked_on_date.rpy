@@ -194,7 +194,7 @@ label Jean_asked_on_date:
                 call Jean_asked_on_date_1D from _call_Jean_asked_on_date_1D
 
                 $ chatting = False
-            "Do you think we could keep things the way they are? I really care about you a lot, but I'm not ready to be more than friends.":
+            "Do you think we could keep things the way they are? I really care about you a lot, but I'm not ready to be more than friends." if asked_single:
                 call change_Girl_stat(Jean, "love", -medium_stat) from _call_change_Girl_stat_1610
                 call change_Girl_stat(Jean, "trust", medium_stat) from _call_change_Girl_stat_1611
                 
