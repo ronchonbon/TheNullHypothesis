@@ -26,58 +26,57 @@ screen belt_screen():
     style_prefix "belt"
 
     if not black_screen and not belt_hidden and sandbox and not ongoing_Event:
-        add "images/interface/belt/belt.webp" align (0.5, 0.5)
+        add "images/interface/belt/background.webp" zoom interface_new_adjustment
 
-        if weather:
-            if time_index <= 3:
-                add f"images/interface/belt/{time_index}_{weather}.webp" align (0.5, 0.5)
-            else:
-                add f"images/interface/belt/3_{weather}.webp" align (0.5, 0.5)
-        else:
-            if time_index <= 3:
-                add f"images/interface/belt/{time_index}.webp" align (0.5, 0.5)
-            else:
-                add "images/interface/belt/3.webp" align (0.5, 0.5)
-
-        vbox anchor (0.5, 0.5) pos (0.932, 0.065) xysize (25, 100):
-            for s in range(1, Player.max_stamina + 1):
-                if s <= Player.max_stamina - clock:
+        hbox anchor (0.5, 0.5) pos (0.891, 0.036) xysize (int(55*background_sampling), int(260*background_sampling)):
+            for s in range(Player.max_stamina):
+                if s >= clock:
                     imagebutton align (0.5, 0.5):
-                        idle "images/interface/belt/stamina_empty.webp" hover "images/interface/belt/stamina_empty.webp"
+                        idle At("images/interface/belt/stamina_empty.webp", interface) hover At("images/interface/belt/stamina_empty.webp", interface)
 
                         action NullAction()
 
-                        tooltip "Stamina"
+                        tooltip "Stamina (Empty)"
                 else:
                     imagebutton align (0.5, 0.5):
-                        idle "images/interface/belt/stamina.webp" hover "images/interface/belt/stamina.webp"
+                        idle At("images/interface/belt/stamina.webp", interface) hover At("images/interface/belt/stamina.webp", interface)
 
                         action NullAction()
 
                         tooltip "Stamina"
 
-        text f"{temperature[time_index]} " + u"\u00b0C" anchor (1.0, 0.5) pos (0.780, 0.044):
+            for s in range(Player.max_stamina, 4):
+                imagebutton align (0.5, 0.5):
+                    idle At("images/interface/belt/stamina_lock.webp", interface) hover At("images/interface/belt/stamina_lock.webp", interface)
+
+                    action NullAction()
+
+                    tooltip "Stamina (Locked)"
+
+        text f"{temperature[time_index]} " + u"\u00b0C" anchor (0.5, 0.5) pos (0.903, 0.082):
+            font "agency_fb_bold.ttf"
+
             color "#ffffff"
             
             size 25
         
-        text f"{week[weekday][0:3]}" anchor (0.5, 0.5) pos (0.965, 0.05):
+        text f"{week[weekday][0:2]}" anchor (0.5, 0.5) pos (0.963, 0.05):
+            font "magneto_bold.ttf"
+            
             color "#ffffff"
-
-            bold True
             
             size 45
         
-        text f"{time_options[time_index].capitalize()}" anchor (0.5, 0.5) pos (0.966, 0.087):
+        text f"{time_options[time_index].capitalize()}" anchor (0.5, 0.5) pos (0.963, 0.09):
             color "#ffffff"
 
-            size 30
+            size 35
             
         if renpy.get_screen("say"):
-            add "images/interface/belt/journal_idle.webp" align (0.5, 0.5)
+            add "images/interface/belt/journal_idle.webp" zoom interface_new_adjustment
         elif not belt_disabled and (not current_phone_Character or not current_phone_Character.mandatory_text_options):
             imagebutton align (0.5, 0.5):
-                idle "images/interface/belt/journal_idle.webp" hover "images/interface/belt/journal.webp"
+                idle At("images/interface/belt/journal_idle.webp", interface) hover At("images/interface/belt/journal.webp", interface)
 
                 action [
                     SetVariable("current_Player_menu_page", "journal"),
@@ -88,13 +87,13 @@ screen belt_screen():
 
                 tooltip "Open Journal"
         else:
-            add "images/interface/belt/journal_lock.webp" align (0.5, 0.5)
+            add "images/interface/belt/journal_lock.webp" zoom interface_new_adjustment
 
         if renpy.get_screen("say"):
-            add "images/interface/belt/inventory_idle.webp" align (0.5, 0.5)
+            add "images/interface/belt/inventory_idle.webp" zoom interface_new_adjustment
         elif not belt_disabled and (not current_phone_Character or not current_phone_Character.mandatory_text_options):
             imagebutton align (0.5, 0.5):
-                idle "images/interface/belt/inventory_idle.webp" hover "images/interface/belt/inventory.webp"
+                idle At("images/interface/belt/inventory_idle.webp", interface) hover At("images/interface/belt/inventory.webp", interface)
 
                 action [
                     SetVariable("current_Player_menu_page", "inventory"),
@@ -105,13 +104,13 @@ screen belt_screen():
 
                 tooltip "Open Inventory"
         else:
-            add "images/interface/belt/inventory_lock.webp" align (0.5, 0.5)
+            add "images/interface/belt/inventory_lock.webp" zoom interface_new_adjustment
             
         if renpy.get_screen("say"):
-            add "images/interface/belt/map_idle.webp" align (0.5, 0.5)
+            add "images/interface/belt/map_idle.webp" zoom interface_new_adjustment
         elif not belt_disabled and (not current_phone_Character or not current_phone_Character.mandatory_text_options):
             imagebutton align (0.5, 0.5):
-                idle "images/interface/belt/map_idle.webp" hover "images/interface/belt/map.webp"
+                idle At("images/interface/belt/map_idle.webp", interface) hover At("images/interface/belt/map.webp", interface)
                 
                 action [
                     SetVariable("current_Player_menu_page", "map"),
@@ -121,13 +120,13 @@ screen belt_screen():
 
                 tooltip "Open Map"
         else:
-            add "images/interface/belt/map_lock.webp" align (0.5, 0.5)
+            add "images/interface/belt/map_lock.webp" zoom interface_new_adjustment
             
         if sandbox and quick_location_1 and renpy.get_screen("say"):
-            add "images/interface/belt/quick1_idle.webp" align (0.5, 0.5)
+            add "images/interface/belt/quick1_idle.webp" zoom interface_new_adjustment
         elif sandbox and quick_location_1 and not belt_disabled and (not current_phone_Character or not current_phone_Character.mandatory_text_options):
             imagebutton align (0.5, 0.5):
-                idle "images/interface/belt/quick1_idle.webp" hover "images/interface/belt/quick1.webp"
+                idle At("images/interface/belt/quick1_idle.webp", interface) hover At("images/interface/belt/quick1.webp", interface)
                 
                 action Function(exec, quick_location_1)
 
@@ -135,13 +134,13 @@ screen belt_screen():
 
                 tooltip "Move to QuickLoc1"
         else:
-            add "images/interface/belt/quick1_lock.webp" align (0.5, 0.5)
+            add "images/interface/belt/quick1_lock.webp" zoom interface_new_adjustment
             
         if sandbox and quick_location_2 and renpy.get_screen("say"):
-            add "images/interface/belt/quick2_idle.webp" align (0.5, 0.5)
+            add "images/interface/belt/quick2_idle.webp" zoom interface_new_adjustment
         elif sandbox and quick_location_2 and not belt_disabled and (not current_phone_Character or not current_phone_Character.mandatory_text_options):
             imagebutton align (0.5, 0.5):
-                idle "images/interface/belt/quick2_idle.webp" hover "images/interface/belt/quick2.webp"
+                idle At("images/interface/belt/quick2_idle.webp", interface) hover At("images/interface/belt/quick2.webp", interface)
                 
                 action Function(exec, quick_location_2)
 
@@ -149,13 +148,13 @@ screen belt_screen():
 
                 tooltip "Move to QuickLoc2"
         else:
-            add "images/interface/belt/quick2_lock.webp" align (0.5, 0.5)
+            add "images/interface/belt/quick2_lock.webp" zoom interface_new_adjustment
             
         if sandbox and quick_location_3 and renpy.get_screen("say"):
-            add "images/interface/belt/quick3_idle.webp" align (0.5, 0.5)
+            add "images/interface/belt/quick3_idle.webp" zoom interface_new_adjustment
         elif sandbox and quick_location_3 and not belt_disabled and (not current_phone_Character or not current_phone_Character.mandatory_text_options):
             imagebutton align (0.5, 0.5):
-                idle "images/interface/belt/quick3_idle.webp" hover "images/interface/belt/quick3.webp"
+                idle At("images/interface/belt/quick3_idle.webp", interface) hover At("images/interface/belt/quick3.webp", interface)
                 
                 action Function(exec, quick_location_3)
 
@@ -163,13 +162,13 @@ screen belt_screen():
 
                 tooltip "Move to QuickLoc3"
         else:
-            add "images/interface/belt/quick3_lock.webp" align (0.5, 0.5)
+            add "images/interface/belt/quick3_lock.webp" zoom interface_new_adjustment
 
         if renpy.get_screen("say"):
-            add "images/interface/belt/phone_idle.webp" align (0.5, 0.5)
+            add "images/interface/belt/phone_idle.webp" zoom interface_new_adjustment
         elif not belt_disabled and (not current_phone_Character or not current_phone_Character.mandatory_text_options):
             imagebutton align (0.5, 0.5):
-                idle "images/interface/belt/phone_idle.webp" hover "images/interface/belt/phone.webp"
+                idle At("images/interface/belt/phone_idle.webp", interface) hover At("images/interface/belt/phone.webp", interface)
                 
                 if not renpy.get_screen("phone_screen"):
                     action [
@@ -185,26 +184,36 @@ screen belt_screen():
 
                 tooltip "Open Phone"
         else:
-            add "images/interface/belt/phone_lock.webp" align (0.5, 0.5)
+            add "images/interface/belt/phone_lock.webp" zoom interface_new_adjustment
 
         if journal_alert:
-            add "images/interface/belt/journal_alert.webp" align (0.5, 0.5)
+            add "images/interface/belt/journal_alert.webp" zoom interface_new_adjustment
 
         if inventory_alert:
-            add "images/interface/belt/inventory_alert.webp" align (0.5, 0.5)
+            add "images/interface/belt/inventory_alert.webp" zoom interface_new_adjustment
 
         if phone_alert or unread_messages:
-            add "images/interface/belt/phone_alert.webp" align (0.5, 0.5)
+            add "images/interface/belt/phone_alert.webp" zoom interface_new_adjustment
 
         if Player.sweat >= Player.sweaty_threshold:
             imagebutton align (0.5, 0.5):
-                idle "images/interface/belt/sweaty.webp" hover "images/interface/belt/sweaty.webp"
+                idle At("images/interface/belt/sweaty.webp", interface) hover At("images/interface/belt/sweaty.webp", interface)
 
                 action NullAction()
 
                 focus_mask True
 
                 tooltip "Sweaty"
+
+        if Player.History.check("attended_class", tracker = "weekly") >= 3:
+            imagebutton align (0.5, 0.5):
+                idle At("images/interface/belt/attendance.webp", interface) hover At("images/interface/belt/attendance.webp", interface)
+
+                action NullAction()
+
+                focus_mask True
+
+                tooltip "Attendance Bonus"
 
     if tooltips_enabled:
         use tooltips
@@ -220,10 +229,10 @@ screen updates_screen():
 
         if update_message:
             if belt_hidden or ongoing_Event or not sandbox:
-                frame anchor (1.0, 0.5) pos (0.98, 0.166):
-                    background Frame("images/interface/belt/update.webp", 12, 12)
+                frame anchor (1.0, 0.5) pos (0.98, 0.05):
+                    background Frame("images/interface/belt/update.webp", 2, 2)
 
-                    padding (25, 15, 15, 15)
+                    padding (15, 15, 15, 15)
 
                     text update_message align (0.5, 0.5):
                         color "#ffffff"
@@ -235,10 +244,10 @@ screen updates_screen():
                         pause 2.5
                         fade_out(0.4)
             else:
-                frame anchor (1.0, 0.5) pos (0.935, 0.166):
-                    background Frame("images/interface/belt/update.webp", 12, 12)
+                frame anchor (1.0, 0.5) pos (0.925, 0.18):
+                    background Frame("images/interface/belt/update.webp", 2, 2)
 
-                    padding (25, 15, 15, 15)
+                    padding (15, 15, 15, 15)
 
                     text update_message align (0.5, 0.5):
                         color "#ffffff"

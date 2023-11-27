@@ -63,19 +63,22 @@ label start:
 
     $ _skipping = False
 
-    show expression "images/interface/main_menu/background.webp" as new_game_background:
+    show expression "images/interface/main_menu/blank_background.webp" as new_game_background:
         subpixel True
         transform_anchor True
 
         align (0.5, 0.5)
+
+        zoom interface_new_adjustment
 
     show expression "images/interface/main_menu/comic.webp" as new_game_comic:
         subpixel True
         transform_anchor True
 
         anchor (2257, 1045)
-        offset (1556, 399)
-        zoom 0.5
+        offset (2172, 398)
+
+        zoom interface_new_adjustment
 
     $ renpy.pause(0.2, hard = True)
 
@@ -95,15 +98,16 @@ label start:
         transform_anchor True
 
         anchor (2257, 1045)
-        offset (1556, 399)
-        zoom 0.5
+        offset (2172, 398)
+
+        zoom interface_new_adjustment
 
         parallel:
             ease 2.0 rotate -21
         parallel:
             ease 2.0 zoom 1.95
         parallel:
-            ease 2.0 pos (0.3875, 0.665)
+            ease 2.0 pos (0.895, 0.104)
 
     $ renpy.pause(2.0, hard = True)
     

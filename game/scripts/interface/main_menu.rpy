@@ -1,17 +1,28 @@
-image menu_foreground:
-    "images/interface/main_menu/Ororo.webp" with Dissolve(0.5, alpha = True)
-    pause 5.0
-    "images/interface/main_menu/Rogue.webp" with Dissolve(0.5, alpha = True)
-    pause 5.0
-    "images/interface/main_menu/Laura.webp" with Dissolve(0.5, alpha = True)
-    pause 5.0
+image menu_background:
+    # "images/interface/main_menu/Ororo.webp" with Dissolve(0.5, alpha = True)
+    # pause 5.0
+    # "images/interface/main_menu/Rogue.webp" with Dissolve(0.5, alpha = True)
+    # pause 5.0
+    # "images/interface/main_menu/Laura.webp" with Dissolve(0.5, alpha = True)
+    # pause 5.0
     "images/interface/main_menu/Charles.webp" with Dissolve(0.5, alpha = True)
-    pause 5.0
-    "images/interface/main_menu/Jean.webp" with Dissolve(0.5, alpha = True)
-    pause 5.0
-    "images/interface/main_menu/Kurt.webp" with Dissolve(0.5, alpha = True)
-    pause 5.0
-    repeat
+    # pause 5.0
+    # "images/interface/main_menu/Jean.webp" with Dissolve(0.5, alpha = True)
+    # pause 5.0
+    # "images/interface/main_menu/Kurt.webp" with Dissolve(0.5, alpha = True)
+    # pause 5.0
+    # repeat
+
+image menu_comic:
+    "images/interface/main_menu/comic.webp"
+
+    subpixel True
+    transform_anchor True
+
+    anchor (2257, 1045)
+    offset (2172, 398)
+
+    zoom interface_new_adjustment
 
 style main_menu is default
 
@@ -28,71 +39,76 @@ screen main_menu():
 
     style_prefix "main_menu"
 
-    add "images/interface/main_menu/background.webp" align (0.5, 0.5) zoom background_adjustment
+    add "menu_background" zoom interface_new_adjustment
 
-    add "menu_foreground" align (0.5, 0.5) zoom background_adjustment
+    add "images/interface/main_menu/small_elements.webp" zoom interface_new_adjustment
 
-    add "images/interface/main_menu/logo.webp" align (0.5, 0.5) zoom background_adjustment
+    add "images/interface/main_menu/big_elements.webp" zoom interface_new_adjustment
 
-    text "GAME VERSION: [config.version]" anchor (0.0, 1.0) pos (0.01, 0.99) size 30
+    add "images/interface/main_menu/game_version.webp" zoom interface_new_adjustment
+
+    add "menu_comic"
+
+    text f"{config.version}" anchor (1.0, 0.5) pos (0.155, 0.96):
+        font "agency_fb_bold.ttf"
+
+        size 25
+
+        color "#ffffff"
+
+    imagebutton:
+        idle At("images/interface/main_menu/patreon_idle.webp", interface) hover At("images/interface/main_menu/patreon.webp", interface)
+
+        action OpenURL("https://patreon.com/ronchon")
+
+        focus_mask True
+
+    imagebutton:
+        idle At("images/interface/main_menu/soundcloud_idle.webp", interface) hover At("images/interface/main_menu/soundcloud.webp", interface)
+
+        action OpenURL("https://soundcloud.com/grey_scale")
+
+        focus_mask True
+
+    imagebutton:
+        idle At("images/interface/main_menu/discord_idle.webp", interface) hover At("images/interface/main_menu/discord.webp", interface)
+
+        action OpenURL("https://discord.gg/kFjf49QVns")
+
+        focus_mask True
+
+    imagebutton:
+        idle At("images/interface/main_menu/quit_idle.webp", interface) hover At("images/interface/main_menu/quit.webp", interface)
+
+        action Quit(confirm = False)
+
+        focus_mask True
+
+    imagebutton:
+        idle At("images/interface/main_menu/new_game_idle.webp", interface) hover At("images/interface/main_menu/new_game.webp", interface)
+
+        action Start()
+
+        focus_mask True
 
     $ last_save = renpy.newest_slot()
 
     if last_save is not None:
         $ page, name = last_save.split("-")
 
-    vbox anchor (0.0, 0.5) pos (0.0, 0.5):
-        spacing 10
-
-        imagebutton anchor (0.0, 0.0) pos (0.0, 0.0):
-            idle "images/interface/main_menu/soundcloud_idle.webp" hover "images/interface/main_menu/soundcloud.webp"
-
-            action OpenURL("https://soundcloud.com/grey_scale")
-
-        imagebutton anchor (0.0, 0.0) pos (0.0, 0.0):
-            idle "images/interface/main_menu/discord_idle.webp" hover "images/interface/main_menu/discord.webp"
-
-            action OpenURL("https://discord.gg/kFjf49QVns")
-
-        imagebutton anchor (0.0, 0.0) pos (0.0, 0.0):
-            idle "images/interface/main_menu/patreon_idle.webp" hover "images/interface/main_menu/patreon.webp"
-
-            action OpenURL("https://patreon.com/ronchon")
-
-    button anchor (0.5, 0.5) pos (0.275, 0.48) xysize (428, 85):
-        idle_background "images/interface/main_menu/button_idle.webp" hover_background "images/interface/main_menu/button.webp"
-
-        text "New Game" align (0.5, 0.5):
-            size 46
-
-            color "#512908"
-
-        action Start()
-
-    button anchor (0.5, 0.5) pos (0.275, 0.595) xysize (428, 85):
-        idle_background "images/interface/main_menu/button_idle.webp" hover_background "images/interface/main_menu/button.webp"
-
-        text "Continue" align (0.5, 0.5):
-            size 46
-
-            color "#512908"
+    imagebutton:
+        idle At("images/interface/main_menu/continue_idle.webp", interface) hover At("images/interface/main_menu/continue.webp", interface)
 
         if last_save is not None:
             action FileLoad(name, page = page)
         else:
             action NullAction()
 
-    button anchor (0.5, 0.5) pos (0.275, 0.71) xysize (428, 85):
-        idle_background "images/interface/main_menu/button_idle.webp" hover_background "images/interface/main_menu/button.webp"
+        focus_mask True
 
-        text "Options" align (0.5, 0.5):
-            size 46
-
-            color "#512908"
+    imagebutton:
+        idle At("images/interface/main_menu/options_idle.webp", interface) hover At("images/interface/main_menu/options.webp", interface)
 
         action ShowMenu("preferences")
 
-    imagebutton anchor (0.5, 1.0) pos (0.9, 1.0):
-        idle "images/interface/main_menu/exit_idle.webp" hover "images/interface/main_menu/exit.webp"
-
-        action Quit(confirm = False)
+        focus_mask True

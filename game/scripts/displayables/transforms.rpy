@@ -80,6 +80,9 @@ init -99:
     transform desire_color:
         matrixcolor TintMatrix("#f3a3b3")
 
+    transform interface:
+        zoom interface_new_adjustment
+
     transform customization_portrait:
         zoom 0.5
 
