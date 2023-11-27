@@ -4,7 +4,7 @@ init python:
         label = "Laura_chapter_one_season_one_late_night_training_setup"
 
         conditions = [
-            "Laura.location not in ['hold', Player.location]",
+            "Laura.location not in ['hold', Player.location, Player.destination]",
 
             "renpy.random.random() > 0.5",
 

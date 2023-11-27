@@ -6,7 +6,7 @@ init python:
         label = "Jean_chapter_one_season_one_friendless_setup"
 
         conditions = [
-            "Jean.location not in ['hold', Player.location]",
+            "Jean.location not in ['hold', Player.location, Player.destination]",
 
             "renpy.random.random() > 0.75",
 

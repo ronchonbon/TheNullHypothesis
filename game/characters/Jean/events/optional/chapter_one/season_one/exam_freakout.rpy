@@ -4,7 +4,7 @@ init python:
         label = "Jean_chapter_one_season_one_exam_freakout_setup"
 
         conditions = [
-            "Jean.location not in ['hold', Player.location]",
+            "Jean.location not in ['hold', Player.location, Player.destination]",
 
             "renpy.random.random() > 0.75",
 

@@ -4,8 +4,8 @@ init python:
         label = "Laura_Jean_wants_to_go_on_date_setup"
 
         conditions = [
-            "Laura.location not in ['hold', Player.location]",
-            "Jean.location not in ['hold', Player.location]",
+            "Laura.location not in ['hold', Player.location, Player.destination]",
+            "Jean.location not in ['hold', Player.location, Player.destination]",
 
             "renpy.random.random() > 0.75",
 

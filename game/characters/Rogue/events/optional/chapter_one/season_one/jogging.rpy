@@ -4,7 +4,7 @@ init python:
         label = "Rogue_chapter_one_season_one_jogging_setup"
 
         conditions = [
-            "Rogue.location not in ['hold', Player.location]",
+            "Rogue.location not in ['hold', Player.location, Player.destination]",
 
             "renpy.random.random() > 0.75",
 

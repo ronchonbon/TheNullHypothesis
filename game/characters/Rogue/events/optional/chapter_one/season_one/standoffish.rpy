@@ -4,7 +4,7 @@ init python:
         label = "Rogue_chapter_one_season_one_standoffish_part_one_setup"
 
         conditions = [
-            "Rogue.location not in ['hold', Player.location]",
+            "Rogue.location not in ['hold', Player.location, Player.destination]",
 
             "renpy.random.random() > 0.75",
 
@@ -271,7 +271,7 @@ init python:
         label = "Rogue_chapter_one_season_one_standoffish_part_two_setup"
 
         conditions = [
-            "Rogue.location not in ['hold', Player.location]",
+            "Rogue.location not in ['hold', Player.location, Player.destination]",
             
             "renpy.random.random() > 0.75",
 

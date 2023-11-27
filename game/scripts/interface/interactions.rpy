@@ -79,24 +79,24 @@ screen interactions_screen(Character):
                 Hide("interactions_screen"), 
                 SetVariable("belt_hidden", False)]
 
-        if Character.sprite_position[0] < stage_far_far_right:
-            $ frame_anchor = [0.0, 0.0]
-            $ frame_position = [Character.sprite_position[0] + 0.05, Character.sprite_position[1] - 0.1]
-        else:
+        if Character.sprite_position[0] > stage_far_far_left:
             $ frame_anchor = [1.0, 0.0]
             $ frame_position = [Character.sprite_position[0] - 0.05, Character.sprite_position[1] - 0.1]
+        else:
+            $ frame_anchor = [0.0, 0.0]
+            $ frame_position = [Character.sprite_position[0] + 0.05, Character.sprite_position[1] - 0.1]
 
         vbox anchor (frame_anchor[0], frame_anchor[1]) pos (frame_position[0], frame_position[1]) xysize (int(450*background_sampling), int(1100*background_sampling)):           
             if Character in all_Companions:
                 button xalign 0.5 xysize (int(409*interface_new_adjustment), int(130*interface_new_adjustment)):
-                    if Character.sprite_position[0] < stage_far_far_right:
+                    if Character.sprite_position[0] > stage_far_far_left:
                         idle_background At("images/interface/interactions/love_left.webp", interface) hover_background At("images/interface/interactions/love_left.webp", interface)
                     else:
                         idle_background At("images/interface/interactions/love_right.webp", interface) hover_background At("images/interface/interactions/love_right.webp", interface)
 
                     action NullAction()
 
-                    if Character.sprite_position[0] < stage_far_far_right:
+                    if Character.sprite_position[0] > stage_far_far_left:
                         text f"{Character.love}" anchor (0.5, 0.5) pos (0.37, 0.52):
                             color "#000000"
 
@@ -110,14 +110,14 @@ screen interactions_screen(Character):
                     tooltip "Love"
 
                 button xalign 0.5 xysize (int(409*interface_new_adjustment), int(130*interface_new_adjustment)):
-                    if Character.sprite_position[0] < stage_far_far_right:
+                    if Character.sprite_position[0] > stage_far_far_left:
                         idle_background At("images/interface/interactions/trust_left.webp", interface) hover_background At("images/interface/interactions/trust_left.webp", interface)
                     else:
                         idle_background At("images/interface/interactions/trust_right.webp", interface) hover_background At("images/interface/interactions/trust_right.webp", interface)
 
                     action NullAction()
 
-                    if Character.sprite_position[0] < stage_far_far_right:
+                    if Character.sprite_position[0] > stage_far_far_left:
                         text f"{Character.trust}" anchor (0.5, 0.5) pos (0.37, 0.52):
                             color "#000000"
 
@@ -165,6 +165,17 @@ screen interactions_screen(Character):
                     tooltip "Chat"
 
                 if Character in all_Companions:
+                    imagebutton:
+                        idle At("images/interface/interactions/gift_idle.webp", interface) hover At("images/interface/interactions/gift.webp", interface)
+
+                        action [
+                            Hide("interactions_screen"),
+                            SetVariable("giving_gift", True),
+                            SetVariable("current_Player_menu_page", "inventory"),
+                            Show("Player_menu")]
+
+                        tooltip "Give Gift"
+
                     if approval_check(Character, threshold = "change_Outfit"):
                         imagebutton:
                             idle At("images/interface/interactions/wardrobe_idle.webp", interface) hover At("images/interface/interactions/wardrobe.webp", interface)
@@ -194,17 +205,6 @@ screen interactions_screen(Character):
                             idle At("images/interface/interactions/lock.webp", interface) hover At("images/interface/interactions/lock.webp", interface)
 
                             action NullAction()
-
-                    imagebutton:
-                        idle At("images/interface/interactions/gift_idle.webp", interface) hover At("images/interface/interactions/gift.webp", interface)
-
-                        action [
-                            Hide("interactions_screen"),
-                            SetVariable("giving_gift", True),
-                            SetVariable("current_Player_menu_page", "inventory"),
-                            Show("Player_menu")]
-
-                        tooltip "Give Gift"
                 else:
                     null width int(236*interface_new_adjustment) height int(238*interface_new_adjustment)
 

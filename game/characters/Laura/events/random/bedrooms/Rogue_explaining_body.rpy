@@ -4,8 +4,8 @@ init python:
         label = "Laura_Rogue_explaining_body_setup"
 
         conditions = [
-            "Laura.location not in ['hold', Player.location]",
-            "Rogue.location not in ['hold', Player.location]",
+            "Laura.location not in ['hold', Player.location, Player.destination]",
+            "Rogue.location not in ['hold', Player.location, Player.destination]",
 
             "renpy.random.random() > 0.75",
 
