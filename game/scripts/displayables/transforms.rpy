@@ -80,6 +80,9 @@ init -99:
     transform desire_color:
         matrixcolor TintMatrix("#f3a3b3")
 
+    transform blurred_background:
+        blur 100
+
     transform interface:
         zoom interface_new_adjustment
 

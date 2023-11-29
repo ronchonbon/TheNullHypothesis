@@ -223,7 +223,7 @@ label ch1_mutant_hate:
 
     $ Kurt.change_face("neutral")
 
-    ch_Kurt "Just follow me, bruder."
+    ch_Kurt "Just follow me, Bruder."
     "[Kurt.name] leads the way."
 
     call hide_Character(Kurt) from _call_hide_Character_44
@@ -277,7 +277,7 @@ label ch1_mutant_hate:
     $ Kurt.change_face("sad")
 
     if Player.visible_mutation:
-        ch_Kurt "Put yours up too, mein bruder."
+        ch_Kurt "Put yours up too, mein Bruder."
         ch_Kurt "Zee harassment has only been getting worse lately. . ."
 
         $ Kurt.change_face("neutral")
@@ -362,7 +362,7 @@ label ch1_mutant_hate:
             
             $ Kurt.change_face("angry")
 
-            ch_Kurt "I am upset too, mein bruder." 
+            ch_Kurt "I am upset too, mein Bruder." 
             
             $ Kurt.change_face("neutral") 
             
@@ -1318,7 +1318,7 @@ label ch1_mutant_hate:
 
     $ Kurt.change_face("neutral")
 
-    ch_Kurt "Thank you. . . mein bruder."
+    ch_Kurt "Thank you. . . mein Bruder."
     "He grabs your forearm."
     ch_Player "Any time, brother."
 

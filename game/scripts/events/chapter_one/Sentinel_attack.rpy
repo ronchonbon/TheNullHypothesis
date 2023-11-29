@@ -97,7 +97,7 @@ label ch1_season_two_progress:
         call send_text(Kurt, "cool, thanks") from _call_send_text_51
         call receive_text(Kurt, "You going?") from _call_receive_text_657
         call receive_text(Kurt, "I would go too, but busy") from _call_receive_text_658
-        call receive_text(Kurt, "Sorry bruder") from _call_receive_text_659
+        call receive_text(Kurt, "Sorry Bruder") from _call_receive_text_659
 
         pause
 

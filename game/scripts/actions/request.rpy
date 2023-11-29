@@ -142,8 +142,20 @@ label request_Action(Action_type, Actors, Targets):
 
     $ Action = ActionClass(Action_type, Actors, Targets)
 
-    if not focused_Girl.History.check(Action_type, tracker = "recent"):
-        $ Player.voice(Action.line)
+    if focused_Girl.History.check(Action_type, tracker = "recent"):
+        if focused_Girl.History.check(Action_type) >= 10:
+            $ Player.voice(Action.lines[2].replace(".", " again.").replace("?", " again?"))
+        elif focused_Girl.History.check(Action_type) >= 3:
+            $ Player.voice(Action.lines[1].replace(".", " again.").replace("?", " again?"))
+        else:
+            $ Player.voice(Action.lines[0].replace(".", " again.").replace("?", " again?"))
+    else:
+        if focused_Girl.History.check(Action_type) >= 10:
+            $ Player.voice(Action.lines[2])
+        elif focused_Girl.History.check(Action_type) >= 3:
+            $ Player.voice(Action.lines[1])
+        else:
+            $ Player.voice(Action.lines[0])
 
     if approval_check(focused_Girl, threshold = Action_type):
         if not focused_Girl.History.check(Action_type, tracker = "recent"):

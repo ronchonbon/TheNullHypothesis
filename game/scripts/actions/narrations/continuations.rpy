@@ -5,26 +5,17 @@ label makeout_continuations(Action):
         $ dice_pool = [1, 2, 3, 4, 5]
 
         if Characters[0].History.check("makeout") >= 12:
-            $ increase_Character_desire(Characters[0], 5, limit = 75)
-            $ increase_Character_desire(Player, 5, limit = 75)
-
             $ dice_pool.append(6)
             $ dice_pool.append(7)
             $ dice_pool.append(8)
             $ dice_pool.append(9)
             $ dice_pool.append(10)
         elif Characters[0].History.check("makeout") >= 6:
-            $ increase_Character_desire(Characters[0], 4, limit = 75)
-            $ increase_Character_desire(Player, 4, limit = 75)
-
             $ dice_pool.append(11)
             $ dice_pool.append(12)
             $ dice_pool.append(13)
             $ dice_pool.append(14)
         else:
-            $ increase_Character_desire(Characters[0], 2, limit = 75)
-            $ increase_Character_desire(Player, 2, limit = 75)
-
             $ dice_pool.append(15)
             $ dice_pool.append(16)
             $ dice_pool.append(17)
@@ -124,9 +115,6 @@ label choke_continuations(Action):
     $ Characters = get_Action_Characters(Action)
 
     while Characters:
-        $ increase_Character_desire(Characters[0], 1, limit = 75)
-        $ increase_Character_desire(Player, 2, limit = 75)
-
         $ Characters[0].blush += 1 if Characters[0].blush < 3 else 0
 
         $ dice_roll = renpy.random.randint(1, 3)
@@ -146,9 +134,6 @@ label touch_thighs_over_clothes_continuations(Action):
     $ Characters = get_Action_Characters(Action)
 
     while Characters:
-        $ increase_Character_desire(Characters[0], 2, limit = 85)
-        $ increase_Character_desire(Player, 1, limit = 75)
-
         if Characters[0] in [Laura]:
             $ dice_roll = renpy.random.randint(1, 4)
         else:
@@ -171,9 +156,6 @@ label touch_thighs_higher_over_clothes_continuations(Action):
     $ Characters = get_Action_Characters(Action)
 
     while Characters:
-        $ increase_Character_desire(Characters[0], 4, limit = 85)
-        $ increase_Character_desire(Player, 2, limit = 75)
-
         $ dice_roll = renpy.random.randint(1, 3)
 
         if dice_roll == 1:
@@ -191,9 +173,6 @@ label touch_thighs_continuations(Action):
     $ Characters = get_Action_Characters(Action)
 
     while Characters:
-        $ increase_Character_desire(Characters[0], 3, limit = 85)
-        $ increase_Character_desire(Player, 1, limit = 75)
-
         if Characters[0] in [Laura]:
             $ dice_roll = renpy.random.randint(1, 4)
         else:
@@ -216,9 +195,6 @@ label touch_thighs_higher_continuations(Action):
     $ Characters = get_Action_Characters(Action)
 
     while Characters:
-        $ increase_Character_desire(Characters[0], 5, limit = 85)
-        $ increase_Character_desire(Player, 2, limit = 75)
-
         $ dice_roll = renpy.random.randint(1, 3)
 
         if dice_roll == 1:
@@ -236,9 +212,6 @@ label touch_breasts_over_clothes_continuations(Action):
     $ Characters = get_Action_Characters(Action)
 
     while Characters:
-        $ increase_Character_desire(Characters[0], 3, limit = 90)
-        $ increase_Character_desire(Player, 2, limit = 80)
-
         $ dice_pool = [1, 2]
 
         if Characters[0] in [Rogue, Jean]:
@@ -265,9 +238,6 @@ label touch_breasts_continuations(Action):
     $ Characters = get_Action_Characters(Action)
 
     while Characters:
-        $ increase_Character_desire(Characters[0], 5, limit = 90)
-        $ increase_Character_desire(Player, 3, limit = 80)
-
         $ dice_pool = [1, 2]
 
         if Characters[0] in [Rogue]:
@@ -294,9 +264,6 @@ label pinch_nipples_continuations(Action):
     $ Characters = get_Action_Characters(Action)
 
     while Characters:
-        $ increase_Character_desire(Characters[0], 6, limit = 90)
-        $ increase_Character_desire(Player, 3, limit = 80)
-
         if Characters[0].piercings["nipple"]:
             $ dice_roll = renpy.random.randint(1, 4)
         else:
@@ -319,9 +286,6 @@ label suck_nipples_continuations(Action):
     $ Characters = get_Action_Characters(Action)
 
     while Characters:
-        $ increase_Character_desire(Characters[0], 7, limit = 95)
-        $ increase_Character_desire(Player, 4, limit = 90)
-
         if Characters[0].piercings["nipple"]:
             $ dice_roll = renpy.random.randint(1, 5)
         else:
@@ -346,9 +310,6 @@ label touch_pussy_over_clothes_continuations(Action):
     $ Characters = get_Action_Characters(Action)
 
     while Characters:
-        $ increase_Character_desire(Characters[0], 3, limit = 90)
-        $ increase_Character_desire(Player, 1, limit = 85)
-
         $ dice_roll = renpy.random.randint(1, 3)
 
         if dice_roll == 1:
@@ -366,9 +327,6 @@ label touch_pussy_continuations(Action):
     $ Characters = get_Action_Characters(Action)
 
     while Characters:
-        $ increase_Character_desire(Characters[0], 5)
-        $ increase_Character_desire(Player, 3, limit = 90)
-
         $ dice_roll = renpy.random.randint(1, 3)
 
         if dice_roll == 1:
@@ -386,16 +344,10 @@ label finger_pussy_continuations(Action):
     $ Characters = get_Action_Characters(Action)
 
     while Characters:
-        $ increase_Character_desire(Player, 3, limit = 90)
-
         $ dice_pool = [1, 2, 3]
 
-        if speed > Action.max_speed[0]/2:
-            $ increase_Character_desire(Characters[0], 7)
-
+        if speed >= Action.max_speed[0]/2:
             $ dice_pool.append(4)
-        else:
-            $ increase_Character_desire(Characters[0], 6)
 
         if Characters[0].desire >= 75:
             $ dice_pool.append(5)
@@ -421,9 +373,6 @@ label eat_pussy_continuations(Action):
     $ Characters = get_Action_Characters(Action)
 
     while Characters:
-        $ increase_Character_desire(Characters[0], 8)
-        $ increase_Character_desire(Player, 4, limit = 90)
-
         $ dice_roll = renpy.random.randint(1, 3)
 
         if dice_roll == 1:
@@ -441,9 +390,6 @@ label grab_ass_over_clothes_continuations(Action):
     $ Characters = get_Action_Characters(Action)
 
     while Characters:
-        $ increase_Character_desire(Characters[0], 3, limit = 85)
-        $ increase_Character_desire(Player, 1, limit = 75)
-
         $ dice_roll = renpy.random.randint(1, 3)
 
         if dice_roll == 1:
@@ -461,9 +407,6 @@ label grab_ass_continuations(Action):
     $ Characters = get_Action_Characters(Action)
 
     while Characters:
-        $ increase_Character_desire(Characters[0], 4, limit = 85)
-        $ increase_Character_desire(Player, 2, limit = 75)
-
         $ dice_roll = renpy.random.randint(1, 3)
 
         if dice_roll == 1:
@@ -481,23 +424,10 @@ label finger_ass_continuations(Action):
     $ Characters = get_Action_Characters(Action)
 
     while Characters:
-        if Characters[0].History.check("finger_ass") >= 6:
-            $ increase_Character_desire(Characters[0], 4)
-            $ increase_Character_desire(Player, 2, limit = 90)
-        elif Characters[0].History.check("finger_ass") >= 2:
-            $ increase_Character_desire(Characters[0], 2)
-            $ increase_Character_desire(Player, 1, limit = 90)
-        else:
-            $ increase_Character_desire(Player, 1, limit = 90)
-
         $ dice_pool = [1, 2, 3]
 
-        if speed > Action.max_speed[0]/2:
-            $ increase_Character_desire(Characters[0], 5)
-
+        if speed >= Action.max_speed[0]/2:
             $ dice_pool.append(4)
-        else:
-            $ increase_Character_desire(Characters[0], 4)
 
         if Characters[0].desire >= 75:
             $ dice_pool.append(5)
@@ -523,9 +453,6 @@ label eat_ass_continuations(Action):
     $ Characters = get_Action_Characters(Action)
 
     while Characters:
-        $ increase_Character_desire(Characters[0], 7)
-        $ increase_Character_desire(Player, 3, limit = 90)
-
         $ dice_roll = renpy.random.randint(1, 3)
 
         if dice_roll == 1:
@@ -544,9 +471,6 @@ label handjob_continuations(Action):
 
     while Characters:
         if Characters[0].History.check("handjob") >= 10:
-            $ increase_Character_desire(Characters[0], 5, limit = 85)
-            $ increase_Character_desire(Player, 16)
-
             $ dice_roll = renpy.random.randint(1, 3)
 
             if dice_roll == 1:
@@ -556,9 +480,6 @@ label handjob_continuations(Action):
             elif dice_roll == 3:
                 "Every stroke feels like it's designed to make you cum as fast as possible, her hand a perfect fit around you, maximizing the pleasure."
         elif Characters[0].History.check("handjob") >= 5:
-            $ increase_Character_desire(Characters[0], 4, limit = 85)
-            $ increase_Character_desire(Player, 12)
-
             $ dice_roll = renpy.random.randint(1, 3)
 
             if dice_roll == 1:
@@ -568,9 +489,6 @@ label handjob_continuations(Action):
             elif dice_roll == 3:
                 "A wave of pleasure runs through you as she plays with your head, but it's ruined when she squeezes a bit too tightly. . . at least she's getting better."
         else:
-            $ increase_Character_desire(Characters[0], 2, limit = 85)
-            $ increase_Character_desire(Player, 8)
-
             $ dice_roll = renpy.random.randint(1, 4)
 
             if dice_roll == 1:
@@ -596,9 +514,6 @@ label fondle_balls_continuations(Action):
 
     while Characters:
         if Characters[0].History.check("fondle_balls") >= 6:
-            $ increase_Character_desire(Characters[0], 2, limit = 85)
-            $ increase_Character_desire(Player, 4, limit = 95)
-            
             if Characters[0] in [Laura]:
                 $ dice_roll = renpy.random.randint(1, 5)
             else:
@@ -615,9 +530,6 @@ label fondle_balls_continuations(Action):
             elif dice_roll == 5:
                 "[Characters[0].name] grips your balls tightly, slowly squeezing harder and harder before finally releasing."
         else:
-            $ increase_Character_desire(Characters[0], 1, limit = 85)
-            $ increase_Character_desire(Player, 2, limit = 95)
-
             if Characters[0] in [Laura]:
                 $ dice_roll = renpy.random.randint(1, 4)
             else:
@@ -641,9 +553,6 @@ label blowjob_continuations(Action):
 
     while Characters:
         if Action.mode == 1:
-            $ increase_Character_desire(Characters[0], 2, limit = 90)
-            $ increase_Character_desire(Player, 6)
-
             $ dice_roll = renpy.random.randint(1, 3)
 
             if dice_roll == 1:
@@ -653,9 +562,6 @@ label blowjob_continuations(Action):
             elif dice_roll == 3:
                 "She pays special attention to the head, as her lips press into you."
         elif Action.mode == 2:
-            $ increase_Character_desire(Characters[0], 3, limit = 90)
-            $ increase_Character_desire(Player, 8)
-
             $ dice_roll = renpy.random.randint(1, 3)
 
             if dice_roll == 1:
@@ -666,9 +572,6 @@ label blowjob_continuations(Action):
                 "Each pass of her tongue makes you twitch, as she makes sure to cover every last inch."
         elif Action.mode == 3:
             if Characters[0].History.check("blowjob") >= 10:
-                $ increase_Character_desire(Characters[0], 6, limit = 95)
-                $ increase_Character_desire(Player, 20)
-
                 $ dice_roll = renpy.random.randint(1, 3)
 
                 if dice_roll == 1:
@@ -678,9 +581,6 @@ label blowjob_continuations(Action):
                 elif dice_roll == 3:
                     "She sucks with the perfect amount of pressure, pushing all the right buttons to get you off as fast as possible. It's like she's enjoying this even more than you do."
             elif Characters[0].History.check("blowjob") >= 5:
-                $ increase_Character_desire(Characters[0], 5, limit = 95)
-                $ increase_Character_desire(Player, 15)
-
                 $ dice_roll = renpy.random.randint(1, 3)
 
                 if dice_roll == 1:
@@ -690,9 +590,6 @@ label blowjob_continuations(Action):
                 elif dice_roll == 3:
                     "She goes a bit too deep, gagging slightly, but quickly corrects herself and keeps sucking. You can tell she's improving as she doesn't skip a beat."
             else:
-                $ increase_Character_desire(Characters[0], 4, limit = 95)
-                $ increase_Character_desire(Player, 10)
-
                 $ dice_roll = renpy.random.randint(1, 3)
 
                 if dice_roll == 1:
@@ -720,9 +617,6 @@ label deepthroat_continuations(Action):
 
     while Characters:
         if Characters[0].throat_training == 1:
-            $ increase_Character_desire(Characters[0], 2, limit = 95)
-            $ increase_Character_desire(Player, 10)
-
             $ dice_roll = renpy.random.randint(1, 3)
 
             if dice_roll == 1:
@@ -732,9 +626,6 @@ label deepthroat_continuations(Action):
             elif dice_roll == 3:
                 "She chokes, and has to come up for air before she can take you deeper than a couple inches."
         elif Characters[0].throat_training == 2:
-            $ increase_Character_desire(Characters[0], 5, limit = 95)
-            $ increase_Character_desire(Player, 12)
-
             $ dice_roll = renpy.random.randint(1, 3)
 
             if dice_roll == 1:
@@ -744,9 +635,6 @@ label deepthroat_continuations(Action):
             elif dice_roll == 3:
                 "[Characters[0].name] makes up for lack of depth with enthusiasm, as she tries to push past her gag reflex. She also doesn't have to come up for breath as often."
         elif Characters[0].throat_training == 3:
-            $ increase_Character_desire(Characters[0], 7, limit = 95)
-            $ increase_Character_desire(Player, 14)
-
             $ dice_roll = renpy.random.randint(1, 3)
 
             if dice_roll == 1:
@@ -756,9 +644,6 @@ label deepthroat_continuations(Action):
             elif dice_roll == 3:
                 "[Characters[0].name] tries pushing it, and you feel her throat tighten around you as she gags. She's very determined to get those last couple inches as she keeps on trying."
         elif Characters[0].throat_training == 4:
-            $ increase_Character_desire(Characters[0], 8, limit = 95)
-            $ increase_Character_desire(Player, 18)
-            
             $ dice_roll = renpy.random.randint(1, 3)
 
             if dice_roll == 1:
@@ -795,9 +680,6 @@ label self_touch_pussy_continuations(Action):
 
     while Characters:
         if Characters[0].desire >= 75:
-            $ increase_Character_desire(Characters[0], 12)
-            $ increase_Character_desire(Player, 6, limit = 90)
-
             $ dice_roll = renpy.random.randint(1, 3)
 
             if dice_roll == 1:
@@ -807,9 +689,6 @@ label self_touch_pussy_continuations(Action):
             elif dice_roll == 3:
                 "[Characters[0].name] continues to masturbate, picking up the pace as she gets closer to the edge." 
         else:
-            $ increase_Character_desire(Characters[0], 8)
-            $ increase_Character_desire(Player, 4, limit = 90)
-
             $ dice_roll = renpy.random.randint(1, 3)
 
             if dice_roll == 1:
@@ -828,9 +707,6 @@ label self_finger_ass_continuations(Action):
 
     while Characters:
         if Characters[0].desire >= 75:
-            $ increase_Character_desire(Characters[0], 10)
-            $ increase_Character_desire(Player, 7, limit = 90)
-
             $ dice_roll = renpy.random.randint(1, 3)
 
             if dice_roll == 1:
@@ -840,9 +716,6 @@ label self_finger_ass_continuations(Action):
             elif dice_roll == 3:
                 "[Characters[0].name]'s fingers rapidly slide in and out of her ass as she quivers with every motion."
         else:
-            $ increase_Character_desire(Characters[0], 6)
-            $ increase_Character_desire(Player, 5, limit = 90)
-
             $ dice_roll = renpy.random.randint(1, 3)
 
             if dice_roll == 1:
@@ -861,9 +734,6 @@ label self_vibrator_continuations(Action):
 
     while Characters:
         if Characters[0].desire >= 75:
-            $ increase_Character_desire(Characters[0], 14)
-            $ increase_Character_desire(Player, 7, limit = 90)
-
             $ dice_roll = renpy.random.randint(1, 3)
 
             if dice_roll == 1:
@@ -873,9 +743,6 @@ label self_vibrator_continuations(Action):
             elif dice_roll == 3:
                 "[Characters[0].name]'s whole body starts to shudder as waves of pleasure radiate throughout her thanks to the vibrator."
         else:
-            $ increase_Character_desire(Characters[0], 12)
-            $ increase_Character_desire(Player, 5, limit = 90)
-
             $ dice_roll = renpy.random.randint(1, 3)
 
             if dice_roll == 1:
@@ -894,9 +761,6 @@ label self_dildo_pussy_continuations(Action):
 
     while Characters:
         if Characters[0].desire >= 75:
-            $ increase_Character_desire(Characters[0], 12)
-            $ increase_Character_desire(Player, 7, limit = 90)
-
             $ dice_roll = renpy.random.randint(1, 3)
 
             if dice_roll == 1:
@@ -906,9 +770,6 @@ label self_dildo_pussy_continuations(Action):
             elif dice_roll == 3:
                 "[Characters[0].name] moans louder and louder as the dildo slides in and out of her dripping wet pussy."
         else:
-            $ increase_Character_desire(Characters[0], 10)
-            $ increase_Character_desire(Player, 5, limit = 90)
-
             $ dice_roll = renpy.random.randint(1, 3)
 
             if dice_roll == 1:
@@ -926,9 +787,6 @@ label self_dildo_ass_continuations(Action):
 
     while Characters:
         if Characters[0].desire >= 75:
-            $ increase_Character_desire(Characters[0], 10)
-            $ increase_Character_desire(Player, 8, limit = 90)
-
             $ dice_roll = renpy.random.randint(1, 3)
 
             if dice_roll == 1:
@@ -938,9 +796,6 @@ label self_dildo_ass_continuations(Action):
             elif dice_roll == 3:
                 "[Characters[0].name] moans louder and louder as the dildo slides in and out of her ass, her entire body shuddering."
         else:
-            $ increase_Character_desire(Characters[0], 8)
-            $ increase_Character_desire(Player, 6, limit = 90)
-
             $ dice_roll = renpy.random.randint(1, 3)
 
             if dice_roll == 1:
@@ -969,19 +824,10 @@ label grind_pussy_continuations(Action):
     while Characters:
         $ dice_pool = [1, 2, 3]
 
-        if intensity >= 50:
-            $ increase_Character_desire(Characters[0], 10)
-            $ increase_Character_desire(Player, 10)
-
+        if intensity >= Action.max_intensity[0]/2:
             $ dice_pool.append(4)
-        elif speed >= 50:
-            $ increase_Character_desire(Characters[0], 8)
-            $ increase_Character_desire(Player, 10)
-
+        elif speed >= Action.max_speed[0]/2:
             $ dice_pool.append(5)
-        else:
-            $ increase_Character_desire(Characters[0], 7)
-            $ increase_Character_desire(Player, 8)
 
         if Characters[0].desire >= 75:
             $ dice_pool.append(6)
@@ -1011,19 +857,10 @@ label grind_ass_continuations(Action):
     while Characters:
         $ dice_pool = [1, 2, 3]
 
-        if intensity >= 50:
-            $ increase_Character_desire(Characters[0], 8)
-            $ increase_Character_desire(Player, 9)
-
+        if intensity >= Action.max_intensity[0]/2:
             $ dice_pool.append(4)
-        elif speed >= 50:
-            $ increase_Character_desire(Characters[0], 6)
-            $ increase_Character_desire(Player, 8)
-
+        elif speed >= Action.max_speed[0]/2:
             $ dice_pool.append(5)
-        else:
-            $ increase_Character_desire(Characters[0], 5)
-            $ increase_Character_desire(Player, 7)
 
         if Characters[0].desire >= 75:
             $ dice_pool.append(6)
@@ -1052,9 +889,6 @@ label sex_continuations(Action):
 
     while Characters:
         if Action.mode == 1:
-            $ increase_Character_desire(Characters[0], 6)
-            $ increase_Character_desire(Player, 8)
-
             $ dice_roll = renpy.random.randint(1, 3)
 
             if dice_roll == 1:
@@ -1065,9 +899,6 @@ label sex_continuations(Action):
                 "She shudders as the head slides in, and you can feel how wet and warm she is before pulling back out."
         elif Action.mode == 2:
             if Characters[0].History.check("sex") >= 10:
-                $ increase_Character_desire(Characters[0], 14)
-                $ increase_Character_desire(Player, 16)
-
                 $ dice_roll = renpy.random.randint(1, 3)
 
                 if dice_roll == 1:
@@ -1077,9 +908,6 @@ label sex_continuations(Action):
                 elif dice_roll == 3:
                     "Every thrust sends a wave of pleasure through both of you, causing [Characters[0].name] to moan and shudder uncontrollably, her pussy tightening around your cock."
             elif Characters[0].History.check("sex") >= 5:
-                $ increase_Character_desire(Characters[0], 10)
-                $ increase_Character_desire(Player, 14)
-
                 $ dice_roll = renpy.random.randint(1, 3)
 
                 if dice_roll == 1:
@@ -1089,9 +917,6 @@ label sex_continuations(Action):
                 elif dice_roll == 3:
                     "[Characters[0].name] moans as you continue to thrust into her, enjoying the sensation as much as you are. She does gasp from pain when you go a bit too hard."
             else:
-                $ increase_Character_desire(Characters[0], 8)
-                $ increase_Character_desire(Player, 12)
-
                 $ dice_roll = renpy.random.randint(1, 3)
 
                 if dice_roll == 1:
@@ -1112,9 +937,6 @@ label anal_continuations(Action):
         if Characters[0].History.check("anal") >= 2:
             if Action.mode == 1:
                 if Characters[0].anal_training == 1:
-                    $ increase_Character_desire(Characters[0], 1)
-                    $ increase_Character_desire(Player, 6)
-
                     $ dice_roll = renpy.random.randint(1, 3)
 
                     if dice_roll == 1:
@@ -1124,9 +946,6 @@ label anal_continuations(Action):
                     elif dice_roll == 3:
                         "Your tip slides in and out of [Characters[0].name]'s ass, every motion causing her to wince."
                 elif Characters[0].anal_training == 2:
-                    $ increase_Character_desire(Characters[0], 4)
-                    $ increase_Character_desire(Player, 12)
-
                     $ dice_roll = renpy.random.randint(1, 3)
 
                     if dice_roll == 1:
@@ -1136,9 +955,6 @@ label anal_continuations(Action):
                     elif dice_roll == 3:
                         "[Characters[0].name] twitches as the tip of your cock slides inside her. You think she could take it deeper, but don't push it when she grimaces in pain."
                 elif Characters[0].anal_training == 3:
-                    $ increase_Character_desire(Characters[0], 10)
-                    $ increase_Character_desire(Player, 14)
-
                     $ dice_roll = renpy.random.randint(1, 3)
 
                     if dice_roll == 1:
@@ -1149,9 +965,6 @@ label anal_continuations(Action):
                         "[Characters[0].name] shudders with every motion, and the tip of your cock smoothly glides in and out of her."
             elif Action.mode == 2:
                 if Characters[0].anal_training == 1:
-                    $ increase_Character_desire(Characters[0], 1)
-                    $ increase_Character_desire(Player, 6)
-
                     $ dice_roll = renpy.random.randint(1, 3)
 
                     if dice_roll == 1:
@@ -1161,9 +974,6 @@ label anal_continuations(Action):
                     elif dice_roll == 3:
                         "Your tip slides in and out of her ass, every motion causing her to wince."
                 elif Characters[0].anal_training == 2:
-                    $ increase_Character_desire(Characters[0], 5)
-                    $ increase_Character_desire(Player, 12)
-
                     $ dice_roll = renpy.random.randint(1, 3)
 
                     if dice_roll == 1:
@@ -1173,9 +983,6 @@ label anal_continuations(Action):
                     elif dice_roll == 3:
                         "It seems like [Characters[0].name]'s starting to feel more pleasure than pain, as your cock slides in deeper than before, eliciting a moan."
                 elif Characters[0].anal_training == 3:
-                    $ increase_Character_desire(Characters[0], 12)
-                    $ increase_Character_desire(Player, 16)
-
                     $ dice_roll = renpy.random.randint(1, 3)
 
                     if dice_roll == 1:
@@ -1185,8 +992,6 @@ label anal_continuations(Action):
                     elif dice_roll == 3:
                         "[Characters[0].name]'s ass quivers as your cock thrusts back and forth inside it. The deeper you go, the more she seems to enjoy it"  
         else:
-            $ increase_Character_desire(Player, 2, limit = 60)
-            
             if Characters[0] in [Rogue]:
                 $ Characters[0].change_face("angry1", eyes = "closed", mouth = "lipbite", blush = 2) 
                 
@@ -1241,9 +1046,6 @@ label vibrator_continuations(Action):
 
     while Characters:
         if Characters[0].desire >= 75:
-            $ increase_Character_desire(Characters[0], 14)
-            $ increase_Character_desire(Player, 8, limit = 75)
-
             $ dice_roll = renpy.random.randint(1, 3)
 
             if dice_roll == 1:
@@ -1253,9 +1055,6 @@ label vibrator_continuations(Action):
             elif dice_roll == 3:
                 "[Characters[0].name]'s whole body starts to shudder as waves of pleasure radiate throughout her thanks to the vibrator."
         else:
-            $ increase_Character_desire(Characters[0], 12)
-            $ increase_Character_desire(Player, 6, limit = 75)
-
             $ dice_roll = renpy.random.randint(1, 3)
 
             if dice_roll == 1:
@@ -1275,15 +1074,12 @@ label dildo_pussy_continuations(Action):
     while Characters:
         $ dice_pool = [1, 2, 3]
 
-        if speed >= 75:
+        if speed >= Action.max_speed[0]/2:
             $ dice_pool.append(4)
 
         $ dice_roll = renpy.random.choice(dice_pool)
 
         if Characters[0].desire >= 75:
-            $ increase_Character_desire(Characters[0], 12)
-            $ increase_Character_desire(Player, 7, limit = 75)
-
             if dice_roll == 1:
                 "You steadily slide the dildo in and out of [Characters[0].name]'s pussy, causing her to shudder with every motion."
             elif dice_roll == 2:
@@ -1293,9 +1089,6 @@ label dildo_pussy_continuations(Action):
             elif dice_roll == 4:
                 "You pick up the pace, thrusting the dildo in and out of [Characters[0].name]'s pussy, eliciting moans and involuntary shudders."
         else:
-            $ increase_Character_desire(Characters[0], 10)
-            $ increase_Character_desire(Player, 5, limit = 75)
-
             if dice_roll == 1:
                 "You steadily slide the dildo in and out of [Characters[0].name]'s pussy."
             elif dice_roll == 2:
@@ -1315,15 +1108,12 @@ label dildo_ass_continuations(Action):
     while Characters:
         $ dice_pool = [1, 2, 3]
 
-        if speed >= 75:
+        if speed >= Action.max_speed[0]/2:
             $ dice_pool.append(4)
 
         $ dice_roll = renpy.random.choice(dice_pool)
 
         if Characters[0].desire >= 75:
-            $ increase_Character_desire(Characters[0], 10)
-            $ increase_Character_desire(Player, 6, limit = 75)
-
             if dice_roll == 1:
                 "You steadily slide the dildo in and out of [Characters[0].name]'s ass even faster. She moans with every motion as her ass quivers around it."
             elif dice_roll == 2:
@@ -1333,9 +1123,6 @@ label dildo_ass_continuations(Action):
             elif dice_roll == 4:
                 "You pick up the pace, thrusting the dildo in and out of [Characters[0].name]'s ass, eliciting moans and involuntary shudders."
         else:
-            $ increase_Character_desire(Characters[0], 8)
-            $ increase_Character_desire(Player, 5, limit = 75)
-
             if dice_roll == 1:
                 "You steadily slide the dildo in and out of [Characters[0].name]'s ass, making sure not to go too deep."
             elif dice_roll == 2:

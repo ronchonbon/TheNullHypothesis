@@ -1067,33 +1067,7 @@ label Jean_flirt_eb:
 
         "After a quick kiss, she pulls away." 
 
-        $ Jean.change_face("sexy", blush = 2) 
-
-        if Player.stamina and Jean.stamina and len(Present) == 1:
-            ch_Player "That's it?"
-            ch_Jean "What, you thought a single 'please' would get you any more than that?"
-
-            menu:
-                extend ""
-                "Beg to make out with her":
-                    ch_Player "I really want to make out with you."
-                    ch_Player "Don't leave me hanging, please?"
-
-                    $ Jean.change_face("confused1", mouth = "lipbite", blush = 2)
-
-                    ch_Jean "You want to make out with your big sister?"
-
-                    $ Jean.change_face("sexy", blush = 2)
-
-                    $ Jean.History.update("hookup")
-                    $ Jean.History.update("makeout")
-
-                    $ Action = ActionClass("makeout", Player, Jean)
-
-                    call start_Action(Action) from _call_start_Action_12
-                    call screen Action_screen(automatic = True)
-                "Pull away":
-                    pass
+        $ Jean.change_face("sexy", blush = 2)
     else:
         $ Jean.change_face("pleased2", mouth = "lipbite", blush = 1) 
 
@@ -1107,35 +1081,7 @@ label Jean_flirt_eb:
 
         $ Jean.change_face("kiss2", blush = 1) 
 
-        "She pulls you in tight, and presses her lips against yours."
-
-        if Player.stamina and Jean.stamina and len(Present) == 1:
-            "Her tongue starts getting involved, and she doesn't seem to be slowing down at all."
-
-            call change_Girl_stat(Jean, "desire", 0) from _call_change_Girl_stat_1247 
-
-            $ Jean.change_face("kiss2", blush = 2) 
-
-            menu:
-                extend ""
-                "Make out with her":
-                    call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1248
-
-                    $ Jean.History.update("hookup")
-                    $ Jean.History.update("makeout")
-
-                    $ Action = ActionClass("makeout", Player, Jean)
-
-                    call start_Action(Action) from _call_start_Action_13
-                    call screen Action_screen(automatic = True)
-                "Pull away":
-                    $ Jean.change_face("confused1", blush = 2) 
-
-                    ch_Jean "Wanna stop?"
-
-                    $ Jean.change_face("smirk2", mouth = "lipbite", blush = 1)
-
-                    ch_Jean "You owe me for later, then."
+        "She pulls you in tight and presses her lips against yours."
 
     return
 
@@ -1311,32 +1257,7 @@ label Jean_flirt_i:
 
         call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1257
 
-        $ Jean.change_face("kiss2", blush = 2) 
-
-        if Player.stamina and Jean.stamina and len(Present) == 1:
-            "She holds you tight against her, and starts running her hands across your body." 
-
-            call change_Girl_stat(Jean, "desire", 0) from _call_change_Girl_stat_1258
-
-            "She starts involving her tongue, and doesn't seem intent on slowing down at all."
-
-            menu:
-                extend ""
-                "Make out with her":
-                    call change_Girl_stat(Jean, "love", 2) from _call_change_Girl_stat_1259
-                    call change_Girl_stat(Jean, "desire", 5) from _call_change_Girl_stat_1260
-                    
-                    $ Jean.History.update("hookup")
-                    $ Jean.History.update("makeout")
-
-                    $ Action = ActionClass("makeout", Player, Jean)
-
-                    call start_Action(Action) from _call_start_Action_14
-                    call screen Action_screen(automatic = True)
-                "Pull away":
-                    $ Jean.change_face("confused1", mouth = "lipbite", blush = 1) 
-
-                    ch_Jean "What? Not in the mood?"
+        $ Jean.change_face("kiss2", blush = 2)
     else:
         $ Jean.change_face("surprised2")
 

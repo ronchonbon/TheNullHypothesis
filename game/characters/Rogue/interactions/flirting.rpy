@@ -939,9 +939,6 @@ label Rogue_flirt_eb:
 
         ch_Rogue "Ah wouldn't mind if ya. . . just took it upon yourself some time. . ."
 
-        call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_1491
-        call change_Girl_stat(Rogue, "desire", 0) from _call_change_Girl_stat_1492
-
         $ Rogue.change_face("kiss2", blush = 2)  
 
         "After a passionate moment, she pulls away."
@@ -949,27 +946,6 @@ label Rogue_flirt_eb:
         $ Rogue.change_face("sexy", blush = 2) 
 
         ch_Rogue "Ah am yours. . . after all."
-
-        if Player.stamina and Rogue.stamina and len(Present) == 1:
-            menu:
-                extend ""
-                "Make out with her":
-                    $ Rogue.change_face(brows = "raised", eyes = "closed", mouth = "kiss", blush = 2)
-
-                    call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_1493
-                    call change_Girl_stat(Rogue, "desire", 0) from _call_change_Girl_stat_1494
-
-                    "Without a word, you pull her right back into the kiss."
-
-                    $ Rogue.History.update("hookup")
-                    $ Rogue.History.update("makeout")
-
-                    $ Action = ActionClass("makeout", Player, Rogue)
-
-                    call start_Action(Action) from _call_start_Action_18
-                    call screen Action_screen(automatic = True)
-                "Pull away":
-                    pass
     else:
         $ Rogue.change_face("pleased2", mouth = "lipbite", blush = 1) 
 
@@ -981,27 +957,7 @@ label Rogue_flirt_eb:
 
         "As your lips touch, she holds on to you for dear life."
 
-        if Player.stamina and Rogue.stamina and len(Present) == 1:
-            "When her tongue reaches out, it's obvious she wouldn't mind going a bit further."
-
-            call change_Girl_stat(Rogue, "desire", 0) from _call_change_Girl_stat_1496 
-
-            $ Rogue.change_face("kiss2", blush = 2)
-
-            menu:
-                extend ""
-                "Make out with her":
-                    call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_1497
-
-                    $ Rogue.History.update("hookup")
-                    $ Rogue.History.update("makeout")
-
-                    $ Action = ActionClass("makeout", Player, Rogue)
-
-                    call start_Action(Action) from _call_start_Action_19
-                    call screen Action_screen(automatic = True)
-                "Pull away":
-                    $ Rogue.change_face("worried1", blush = 2)
+        $ Rogue.change_face("worried1", blush = 2)
 
         ch_Rogue "Sorry. . . got a bit carried away. . ."
 
@@ -1176,25 +1132,6 @@ label Rogue_flirt_i:
         $ Rogue.change_face("kiss2", blush = 2) 
 
         "She squeezes you tightly, and her breath starts running ragged."
-
-        if Player.stamina and Rogue.stamina and len(Present) == 1:
-            "When her tongue starts getting involved, it's clear she doesn't want to stop."
-
-            menu:
-                extend ""
-                "Make out with her":
-                    call change_Girl_stat(Rogue, "love", 2) from _call_change_Girl_stat_1508
-                    call change_Girl_stat(Rogue, "desire", 5) from _call_change_Girl_stat_1509
-
-                    $ Rogue.History.update("hookup")
-                    $ Rogue.History.update("makeout")
-
-                    $ Action = ActionClass("makeout", Player, Rogue)
-
-                    call start_Action(Action) from _call_start_Action_20
-                    call screen Action_screen(automatic = True)
-                "Pull away":
-                    pass
 
         $ Rogue.change_face("worried1", mouth = "lipbite", blush = 1) 
 

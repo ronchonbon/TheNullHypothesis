@@ -155,7 +155,7 @@ label Rogue_first_sex:
 
     $ Rogue.change_face("worried1", eyes = "down", mouth = "lipbite", blush = 1)
 
-    $ speed = 0.01
+    $ speed = 0.001
     $ starting_depth = 0.025
 
     $ Action.mode = 2

@@ -756,19 +756,7 @@ label Rogue_date_dinner:
 
                 ch_Rogue "My food's good too."
 
-    if Player.stamina and Rogue.stamina:
-        if (Rogue.status["horny"] or Rogue.status["nympho"]) and renpy.random.random() > 0.5:
-            $ sex_initiator = Rogue
-                
-            call Rogue_date_dinner_sex from _call_Rogue_date_dinner_sex
-        elif renpy.random.random() > 0.5:
-            menu:
-                "Recommend some fooling around":
-                    $ sex_initiator = Player
-
-                    call Rogue_date_dinner_sex from _call_Rogue_date_dinner_sex_1
-                "Just finish the meal normally":
-                    pass
+    ##
 
     $ Rogue.change_face("smirk1", eyes = "right")
 
@@ -1140,50 +1128,7 @@ label Rogue_date_dinner_sex_sex:
     "Good thing it's a private one."
     "She locks the door behind you."
         
-    if sex_initiator == Rogue:
-        $ has_Action_control = False
-        $ has_position_control = False
-        $ has_movement_control = False
-
-    $ Rogue.available_Actions = ["sex"]
-
-    if Rogue.History.check("anal"):
-        $ Rogue.available_Actions.append("anal")
-
-    $ Rogue.available_poses = ["missionary"]
-
-    if Rogue.History.check("doggy"):
-        $ Rogue.available_poses.append("doggy")
-
-    $ chosen_Action = renpy.random.choice(Rogue.available_Actions)
-    $ chosen_pose = renpy.random.choice(Rogue.available_poses)
-
-    $ Rogue.History.update("hookup")
-        
-    $ Rogue.History.update(chosen_Action)
-    
-    call request_position(Rogue, chosen_pose, automatic = True) from _call_request_position_15
-
-    $ Action = ActionClass(chosen_Action, Player, Rogue)
-
-    call undress(Rogue, "underwear") from _call_undress_21
-    call start_Action(Action) from _call_start_Action_10
-    call screen Action_screen(automatic = True)
-    
-    $ choice_disabled = False
-
-    # if renpy.random.random() > 0.5:
-    #     call try_on(Rogue, Rogue.Wardrobe.Clothes["messy hair"])
-
-    call change_Outfit(Rogue, Rogue.Wardrobe.Outfits[Rogue.Outfit.name]) from _call_change_Outfit_54
-    
-    $ locations = list(Rogue.spunk.keys())
-
-    while locations:
-        if Rogue.spunk[locations[0]]:
-            call clean_cum(Rogue) from _call_clean_cum_6
-
-        $ locations.remove(locations[0])
+    ##
 
     "After you both put your clothes back on, [Rogue.name] leaves and heads back to the table."
 
@@ -1205,7 +1150,7 @@ label Rogue_date_dinner_sex_sex:
 
         "She straightens it out."
 
-        call try_on(Rogue, Rogue.Wardrobe.Clothes["straight hair"]) from _call_try_on_8
+        call try_on(Rogue, Rogue.Wardrobe.Clothes["asymmetric hair"]) from _call_try_on_8
 
     $ Rogue.change_face("worried1", mouth = "lipbite")
 
@@ -1242,29 +1187,7 @@ label Rogue_date_dinner_sex_eat_pussy:
     "Good thing it's a private one."
     "She locks the door behind you."
         
-    $ has_movement_control = False
-
-    $ Rogue.available_Actions = ["eat_pussy"]
-    $ Rogue.available_poses = ["masturbation"]
-
-    $ chosen_Action = renpy.random.choice(Rogue.available_Actions)
-    $ chosen_pose = renpy.random.choice(Rogue.available_poses)
-
-    $ Rogue.History.update("hookup")
-        
-    $ Rogue.History.update(chosen_Action)
-    
-    call request_position(Rogue, chosen_pose, automatic = True) from _call_request_position_16
-
-    $ Action = ActionClass(chosen_Action, Player, Rogue)
-
-    call undress(Rogue, "underwear") from _call_undress_22
-    call start_Action(Action) from _call_start_Action_11
-    call screen Action_screen(automatic = True)
-    
-    $ choice_disabled = False
-
-    call change_Outfit(Rogue, Rogue.Wardrobe.Outfits[Rogue.Outfit.name]) from _call_change_Outfit_55
+    ##
 
     "After you both put your clothes back on, [Rogue.name] leaves and heads back to the table."
 
@@ -1552,19 +1475,7 @@ label Rogue_date_movie_ron_bic1:
 
     $ Rogue.change_face("worried1", eyes = "right")
 
-    if Player.stamina and Rogue.stamina:
-        if (Rogue.status["horny"] or Rogue.status["nympho"]) and renpy.random.random() > 0.5:
-            $ sex_initiator = Rogue
-
-            call Rogue_date_movie_sex from _call_Rogue_date_movie_sex
-        elif renpy.random.random() > 0.5:
-            menu:
-                "Recommend some fooling around":
-                    $ sex_initiator = Player
-
-                    call Rogue_date_movie_sex from _call_Rogue_date_movie_sex_1
-                "Just finish watching the movie":
-                    pass
+    ##
 
     "The movie continues, as Ron kills legions of men in the pursuit of revenge."
     "He has to fight his way through hundreds of evil henchmen in a lighter factory and finally takes out the real bad guy in the end."
@@ -1601,19 +1512,7 @@ label Rogue_date_movie_ron_bic2:
     "Poor Ron can't seem to avoid trouble, as he has to kill dozens of people in an attempt to prevent everyone from learning of his terrible mistake. . ."
     "You look over to see [Rogue.name] looking quite worried about Ron's predicament."
 
-    if Player.stamina and Rogue.stamina:
-        if (Rogue.status["horny"] or Rogue.status["nympho"]) and renpy.random.random() > 0.5:
-            $ sex_initiator = Rogue
-
-            call Rogue_date_movie_sex from _call_Rogue_date_movie_sex_2
-        elif renpy.random.random() > 0.5:
-            menu:
-                "Recommend some fooling around":
-                    $ sex_initiator = Player
-
-                    call Rogue_date_movie_sex from _call_Rogue_date_movie_sex_3
-                "Just finish watching the movie":
-                    pass
+    ##
 
     $ Rogue.change_face("confused1", eyes = "right")
 
@@ -1664,19 +1563,7 @@ label Rogue_date_movie_hamburg_portfolio:
 
     $ Rogue.change_face("smirk2", eyes = "right")
 
-    if Player.stamina and Rogue.stamina:
-        if (Rogue.status["horny"] or Rogue.status["nympho"]) and renpy.random.random() > 0.5:
-            $ sex_initiator = Rogue
-
-            call Rogue_date_movie_sex from _call_Rogue_date_movie_sex_4
-        elif renpy.random.random() > 0.5:
-            menu:
-                "Recommend some fooling around":
-                    $ sex_initiator = Player
-
-                    call Rogue_date_movie_sex from _call_Rogue_date_movie_sex_5
-                "Just finish watching the movie":
-                    pass
+    ##
 
     $ Rogue.change_face("confused1", eyes = "right")
 
@@ -1727,19 +1614,7 @@ label Rogue_date_movie_beautiful_flower:
     "He's running around frantically trying to find flowers to buy because his mother is very ill."
     "This might be his last chance, ever, to give her flowers."
 
-    if Player.stamina and Rogue.stamina:
-        if (Rogue.status["horny"] or Rogue.status["nympho"]) and renpy.random.random() > 0.5:
-            $ sex_initiator = Rogue
-
-            call Rogue_date_movie_sex from _call_Rogue_date_movie_sex_6
-        elif renpy.random.random() > 0.5:
-            menu:
-                "Recommend some fooling around":
-                    $ sex_initiator = Player
-
-                    call Rogue_date_movie_sex from _call_Rogue_date_movie_sex_7
-                "Just finish watching the movie":
-                    pass
+    ##
 
     $ Rogue.change_face("worried2", eyes = "right")
 
@@ -1770,19 +1645,7 @@ label Rogue_date_movie_fated:
 
     $ Rogue.change_face("smirk2", eyes = "right")
 
-    if Player.stamina and Rogue.stamina:
-        if (Rogue.status["horny"] or Rogue.status["nympho"]) and renpy.random.random() > 0.5:
-            $ sex_initiator = Rogue
-
-            call Rogue_date_movie_sex from _call_Rogue_date_movie_sex_8
-        elif renpy.random.random() > 0.5:
-            menu:
-                "Recommend some fooling around":
-                    $ sex_initiator = Player
-
-                    call Rogue_date_movie_sex from _call_Rogue_date_movie_sex_9
-                "Just finish watching the movie":
-                    pass
+    ##
 
     $ Rogue.change_face("confused1", eyes = "right")
 
@@ -1834,19 +1697,7 @@ label Rogue_date_movie_refilling_empty_glass:
     "She was recently widowed." 
     "She's been struggling to move on from her husband's death, until one night she spots a despondent man sitting at the far end of the bar."
 
-    if Player.stamina and Rogue.stamina:
-        if (Rogue.status["horny"] or Rogue.status["nympho"]) and renpy.random.random() > 0.5:
-            $ sex_initiator = Rogue
-
-            call Rogue_date_movie_sex from _call_Rogue_date_movie_sex_10
-        elif renpy.random.random() > 0.5:
-            menu:
-                "Recommend some fooling around":
-                    $ sex_initiator = Player
-
-                    call Rogue_date_movie_sex from _call_Rogue_date_movie_sex_11
-                "Just finish watching the movie":
-                    pass
+    ##
 
     "The movie continues, and the bartender becomes interested in the despondent man, since he looks similar to her late husband."
 
@@ -1890,19 +1741,7 @@ label Rogue_date_movie_stale_air:
 
     "He has no idea where they're coming from, but they all have great ideas which he uses to jumpstart his writing."
 
-    if Player.stamina and Rogue.stamina:
-        if (Rogue.status["horny"] or Rogue.status["nympho"]) and renpy.random.random() > 0.5:
-            $ sex_initiator = Rogue
-
-            call Rogue_date_movie_sex from _call_Rogue_date_movie_sex_12
-        elif renpy.random.random() > 0.5:
-            menu:
-                "Recommend some fooling around":
-                    $ sex_initiator = Player
-
-                    call Rogue_date_movie_sex from _call_Rogue_date_movie_sex_13
-                "Just finish watching the movie":
-                    pass
+    ##
 
     "As the movie continues, it quickly becomes clear what's going on."
     "Unbeknownst to the writer, a carbon monoxide leak in his apartment is simultaneously poisoning him, while also the cause for his inspiration."
@@ -1943,19 +1782,7 @@ label Rogue_date_movie_devils_spring_break:
     ch_Rogue "Ain't this one predictable. . ."
     "Despite the rumors, the house isn't actually haunted. . . at least not by ghosts."
 
-    if Player.stamina and Rogue.stamina:
-        if (Rogue.status["horny"] or Rogue.status["nympho"]) and renpy.random.random() > 0.5:
-            $ sex_initiator = Rogue
-
-            call Rogue_date_movie_sex from _call_Rogue_date_movie_sex_14
-        elif renpy.random.random() > 0.5:
-            menu:
-                "Recommend some fooling around":
-                    $ sex_initiator = Player
-
-                    call Rogue_date_movie_sex from _call_Rogue_date_movie_sex_15
-                "Just finish watching the movie":
-                    pass
+    ##
 
     $ Rogue.change_face("surprised1", eyes = "right")
 
@@ -2001,19 +1828,7 @@ label Rogue_date_movie_unsanctioned_crusade:
     "They do terrible things in a misguided attempt at worship."
     "Only, God is real and is less than pleased by these atrocities."
 
-    if Player.stamina and Rogue.stamina:
-        if (Rogue.status["horny"] or Rogue.status["nympho"]) and renpy.random.random() > 0.5:
-            $ sex_initiator = Rogue
-
-            call Rogue_date_movie_sex from _call_Rogue_date_movie_sex_16
-        elif renpy.random.random() > 0.5:
-            menu:
-                "Recommend some fooling around":
-                    $ sex_initiator = Player
-
-                    call Rogue_date_movie_sex from _call_Rogue_date_movie_sex_17
-                "Just finish watching the movie":
-                    pass
+    ##
 
     $ Rogue.change_face("worried1", eyes = "right")
 

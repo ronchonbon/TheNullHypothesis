@@ -1,19 +1,6 @@
 init python:
 
     import copy
-    import math
-
-    def saturating_exponential(x, limit):
-        
-        return limit*(1 - math.exp(-2*x/limit))
-
-    def increase_Character_desire(Character, update, limit = 130):
-        new = int(saturating_exponential(Character.desire + update, limit))
-
-        if new > Character.desire:
-            Character.desire = new
-
-        return
 
 label Character_orgasms(Character):
     $ has_progression_control = False
@@ -23,11 +10,14 @@ label Character_orgasms(Character):
 
     $ Character.orgasming = True
 
+    $ Character.History.update("orgasmed_with_Player")
+
+    call change_Girl_stat(Character, "love", int(small_stat/(Character.History.check("orgasmed_with_Player", tracker = "recent"))))
     call Character_orgasm_narrations(Character) from _call_Character_orgasm_narrations
 
     $ Character.orgasming = False
 
-    $ Character.desire = 0
+    $ Character.desire = int(100 - 50/Character.History.check("orgasmed_with_Player", tracker = "recent"))
 
     $ Character.stamina -= 1 if Character.stamina > 0 else 0
 
@@ -38,17 +28,6 @@ label Character_orgasms(Character):
     $ has_position_control = True
     $ has_movement_control = True
     $ has_ejaculation_control = True
-
-    if Character.stamina == 0 and Player.desire < 75:
-        "Looks like [Character.name] is wiped out. You should take a break."
-
-        $ speed = 0.001
-        $ intensity = 0.001
-
-        $ has_Action_control = False
-        $ has_position_control = False
-        $ has_movement_control = False
-        $ has_ejaculation_control = False
 
     return
 
@@ -100,15 +79,9 @@ label Player_orgasms:
                     "In her ass" if focused_Girl.History.check("anal"):
                         $ climax_choice = "anal_creampie"
                     "Delay" if Player.orgasm_control or (focused_Girl.History.check("made_Player_orgasm") >= 5 and Player.History.check("delayed_orgasm", tracker = "recent") < 3):
-                        if not Player.History.check("delayed_orgasm", tracker = "recent"):
-                            $ Player.desire -= 50
-                        elif Player.History.check("delayed_orgasm", tracker = "recent") == 1:
-                            $ Player.desire -= 25
-                        elif Player.History.check("delayed_orgasm", tracker = "recent") == 2:
-                            $ Player.desire -= 10
-
                         $ Player.History.update("delayed_orgasm")
-                        
+                        $ Player.desire -= 50/Player.History.check("delayed_orgasm", tracker = "recent")
+
                         $ has_progression_control = True
                         $ has_Action_control = True
                         $ has_position_control = True
@@ -281,10 +254,12 @@ label Player_orgasms:
 
     $ Player.History.update("orgasmed")
 
+    $ Player.cock_Actions[0].mode = 0
+
     $ Player.orgasming = None
 
-    $ speed = 0.05
-    $ intensity = 0.05
+    $ speed = 1.0
+    $ intensity = 1.0
 
     $ Player.desire = 0
 
@@ -295,18 +270,6 @@ label Player_orgasms:
     $ has_position_control = True
     $ has_movement_control = True
     $ has_ejaculation_control = True
-
-    if Player.stamina == 0:
-        "You are completely empty. You should take a break."
-
-        $ speed = 0.001
-        $ intensity = 0.001
-
-        $ has_progression_control = True
-        $ has_Action_control = False
-        $ has_position_control = False
-        $ has_movement_control = False
-        $ has_ejaculation_control = False
 
     return
 

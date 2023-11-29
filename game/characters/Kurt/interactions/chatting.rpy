@@ -85,7 +85,7 @@ label Kurt_chatting(line):
                     ch_Kurt "Viz everysing zat has happened lately." 
                     ch_Kurt "Someone who looks like a mutant, being seen in public. . ." 
                     ch_Kurt "I vill just say zee harassment has been getting vorse." 
-                    ch_Kurt "Be careful mein bruder."
+                    ch_Kurt "Be careful mein Bruder."
                 else:
                     $ dice_roll = renpy.random.randint(1, 2)
 
@@ -109,7 +109,7 @@ label Kurt_chatting(line):
                 
                 ch_Kurt "I suspect different girls may prefer different sings." 
                 ch_Kurt "Vether it may be date locations, movie genres, types of cuisine." 
-                ch_Kurt "Just keep zeir preferences in mind, I have faiz in you mein bruder."
+                ch_Kurt "Just keep zeir preferences in mind, I have faiz in you mein Bruder."
 
     if line == "Hey, about that comic book store in town.":
         $ EventScheduler.Events["ch1_mutant_hate"].start()
@@ -155,7 +155,7 @@ label Kurt_busy:
 label Kurt_busy_asked_once:
     $ Kurt.change_face("sad") 
     
-    ch_Kurt "You alright, bruder?" 
+    ch_Kurt "You alright, Bruder?" 
     
     $ Kurt.change_face("confused") 
 

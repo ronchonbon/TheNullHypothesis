@@ -341,7 +341,7 @@ init -2 python:
 
             self.position = None
 
-            self.line = ""
+            self.lines = [None, None, None]
 
             self.counter = 0
 
@@ -354,7 +354,7 @@ init -2 python:
                 self.available_poses = ["standing", "masturbation", "missionary"]
 
                 if Action_type == "makeout":
-                    self.line = "Wanna makeout?"
+                    self.lines = ["Can I kiss you?", "Wanna makeout?", None]
             elif Action_type in ["choke"]:
                 self.modes = [1]
                 
@@ -364,7 +364,7 @@ init -2 python:
                 self.available_poses = ["standing", "masturbation", "missionary"]
 
                 if Action_type == "choke":
-                    self.line = "Can I choke you?"
+                    self.lines = ["Can I choke you?", "Wanna be choked?", None]
             elif Action_type in ["touch_thighs_over_clothes", "touch_thighs_higher_over_clothes", "touch_thighs", "touch_thighs_higher"]:
                 self.modes = [1]
                 
@@ -374,13 +374,13 @@ init -2 python:
                 self.available_poses = ["standing", "masturbation"]
                 
                 if Action_type == "touch_thighs_over_clothes":
-                    self.line = "Can I touch your thighs?"
+                    self.lines = ["Can I touch your thighs?", "Want me to touch your thighs?", None]
                 elif Action_type == "touch_thighs_higher_over_clothes":
-                    self.line = "Can I go higher?"
+                    self.lines = ["Can I touch your thighs?", "Want me to touch your thighs?", None]
                 elif Action_type == "touch_thighs":
-                    self.line = "Can I touch your thighs?"
+                    self.lines = ["Can I touch your thighs?", "Want me to touch your thighs?", None]
                 elif Action_type == "touch_thighs_higher":
-                    self.line = "Can I go higher?"
+                    self.lines = ["Can I touch your thighs?", "Want me to touch your thighs?", None]
             elif Action_type in breasts_Action_types:
                 self.modes = [1]
                 
@@ -390,13 +390,13 @@ init -2 python:
                 self.available_poses = ["standing", "masturbation", "missionary"]
 
                 if Action_type == "touch_breasts_over_clothes":
-                    self.line = "Can I feel you up?"
+                    self.lines = ["Can I feel you up?", "Want me to feel you up?", None]
                 elif Action_type == "touch_breasts":
-                    self.line = "Can I touch your tits?"
+                    self.lines = ["Can I touch your tits?", "Want me to touch your tits?", None]
                 elif Action_type == "pinch_nipples":
-                    self.line = "Can I pinch your nipples?"
+                    self.lines = ["Can I pinch your nipples?", "Want me to pinch your nipples?", None]
                 elif Action_type == "suck_nipples":
-                    self.line = "Can I suck on your breasts?"
+                    self.lines = ["Can I suck on your breasts?", "Want me to suck on your breasts?", None]
             elif Action_type in ["touch_pussy_over_clothes", "touch_pussy"]:
                 self.modes = [1]
                 
@@ -406,9 +406,9 @@ init -2 python:
                 self.available_poses = ["standing"]
 
                 if Action_type == "touch_pussy_over_clothes":
-                    self.line = "Can I rub your crotch?"
+                    self.lines = ["Can I rub your crotch?", "Want me to rub your crotch?", None]
                 elif Action_type == "touch_pussy":
-                    self.line = "Can I rub your pussy?"
+                    self.lines = ["Can I rub your pussy?", "Want me to rub your pussy?", None]
             elif Action_type in ["grab_ass_over_clothes", "grab_ass"]:
                 self.modes = [1]
                 
@@ -418,9 +418,9 @@ init -2 python:
                 self.available_poses = ["standing", "doggy"]
 
                 if Action_type == "grab_ass_over_clothes":
-                    self.line = "Can I touch your ass?"
+                    self.lines = ["Can I touch your ass?", "Want me to touch your ass?", None]
                 elif Action_type == "grab_ass":
-                    self.line = "Can I touch your ass?"
+                    self.lines = ["Can I touch your ass?", "Want me to touch your ass?", None]
             elif Action_type == "finger_pussy":
                 self.modes = [1]
 
@@ -432,7 +432,7 @@ init -2 python:
 
                 self.available_poses = ["masturbation", "missionary"]
 
-                self.line = "Can I finger you?"
+                self.lines = ["Can I finger you?", "Wanna be fingered?", "I'm going to finger you."]
             elif Action_type == "finger_ass":
                 self.modes = [1]
 
@@ -444,7 +444,7 @@ init -2 python:
 
                 self.available_poses = ["masturbation", "missionary", "doggy"]
 
-                self.line = "Can I finger your ass?"
+                self.lines = ["Can I finger your ass?", "Want me to finger your ass?", "I'm going to put a finger in your ass."]
             elif Action_type in ["eat_pussy", "eat_ass"]:
                 self.modes = [1]
                 
@@ -454,9 +454,9 @@ init -2 python:
                 self.available_poses = ["masturbation", "missionary", "doggy"]
 
                 if Action_type == "eat_pussy":
-                    self.line = "Can I eat you out?"
+                    self.lines = ["Can I eat you out?", "Want me to eat you out?", "I want to eat you out."]
                 elif Action_type == "eat_ass":
-                    self.line = "Can I eat your ass?"
+                    self.lines = ["Can I eat your ass?", "Want me to eat your ass?", "I want to eat your ass."]
             elif Action_type == "handjob":
                 self.modes = [1]
 
@@ -471,7 +471,7 @@ init -2 python:
 
                 self.available_poses = ["hands_and_knees"]
 
-                self.line = "Can you give me a handjob?"
+                self.lines = ["Can you stroke my cock?", "Want to stroke my cock?", "Stroke my cock."]
             elif Action_type in ["fondle_balls", "suck_balls"]:
                 self.modes = [1]
                 
@@ -481,26 +481,23 @@ init -2 python:
                 self.available_poses = ["hands_and_knees"]
 
                 if Action_type == "fondle_balls":
-                    self.line = "Can you fondle my balls?"
+                    self.lines = ["Can you fondle my balls?", "Want to touch my balls?", "Touch my balls."]
                 elif Action_type == "suck_balls":
-                    self.line = "Can you try sucking on my balls?"
+                    self.lines = ["Can you try sucking on my balls?", "Want to suck my balls?", "Suck on my balls."]
             elif Action_type == "blowjob":
                 self.modes = [1, 2, 3]
 
                 self.speed = 1.0
-                self.intensity = 1.0
+                self.intensity = None
 
                 self.min_speed = [0.1, 0.1, 0.1]
-                self.max_speed = [1.0, 1.0, 2.0]
-                
-                self.min_intensity = [1.0, 1.0, 1.0]
-                self.max_intensity = [1.0, 1.0, 1.0]
+                self.max_speed = [2.0, 2.0, 2.0]
 
                 self.mode_names = ["Kiss", "Lick", "Just the head"]
 
                 self.available_poses = ["hands_and_knees"]
 
-                self.line = "Can you give me a blowjob?"
+                self.lines = ["Can you suck my cock?", "Want to suck my cock?", "Suck my cock."]
             elif Action_type == "deepthroat":
                 self.modes = [1]
 
@@ -515,7 +512,7 @@ init -2 python:
 
                 self.available_poses = ["hands_and_knees"]
 
-                self.line = "Can I try training your throat?"
+                self.lines = ["Can you try deepthroating me?", "Want to deepthroat me?", "Deepthroat me."]
             elif Action_type == "self_touch_pussy":                 
                 self.modes = [1]
                 
@@ -524,7 +521,7 @@ init -2 python:
 
                 self.available_poses = ["masturbation", "hands_and_knees", "missionary"]
 
-                self.line = "Can I watch while you masturbate?"
+                self.lines = ["Can I watch while you touch yourself?", "Want to touch yourself for me?", "Touch yourself for me."]
             elif Action_type == "self_finger_ass":               
                 self.modes = [1]
                 
@@ -533,7 +530,7 @@ init -2 python:
 
                 self.available_poses = ["doggy"]
 
-                self.line = "Can I watch while you finger your ass?"
+                self.lines = ["Can I watch while you finger your ass?", "Want to finger your ass?", "Finger your ass for me."]
             elif Action_type in ["self_vibrator", "vibrator"]:
                 self.modes = [1]
                 
@@ -543,9 +540,9 @@ init -2 python:
                 self.available_poses = ["masturbation", "missionary", "doggy"]
 
                 if Action_type == "self_vibrator":
-                    self.line = "Can you use a vibrator?"
+                    self.lines = ["Can you use a vibrator?", "Want to use a vibrator?", "Use a vibrator for me."]
                 elif Action_type == "vibrator":
-                    self.line = "Can I use a vibrator on you?"
+                    self.lines = ["Can I use a vibrator on you?", "Want me to use a vibrator?", "I'm going to use a vibrator on you."]
             elif Action_type in dildo_Action_types:
                 self.modes = [1]
 
@@ -558,13 +555,13 @@ init -2 python:
                 self.available_poses = ["masturbation", "missionary", "doggy"]
 
                 if Action_type == "self_dildo_pussy":
-                    self.line = "Can you use a dildo?"
+                    self.lines = ["Can you use a dildo?", "Want to use a dildo?", "Use a dildo for me."]
                 elif Action_type == "self_dildo_ass":
-                    self.line = "Can you use a dildo on your ass?"
+                    self.lines = ["Can you use a dildo on your ass?", "Want to use a dildo on your ass?", "Put a dildo in your ass."]
                 elif Action_type == "dildo_pussy":
-                    self.line = "Can I use a dildo on you?"
+                    self.lines = ["Can I use a dildo on you?", "Want me to use a dildo on you?", "I'm going to put a dildo in you."]
                 elif Action_type == "dildo_ass":
-                    self.line = "Can I use a dildo on your ass?"
+                    self.lines = ["Can I use a dildo on your ass?", "Want me to put a dildo in your ass?", "I'm going to put a dildo in your ass."]
             elif Action_type in ["grind_pussy", "grind_ass"]:
                 self.modes = [2]
 
@@ -579,7 +576,7 @@ init -2 python:
 
                 self.available_poses = ["missionary", "doggy"]
 
-                self.line = "Can we grind on each other?"
+                self.lines = ["Can we grind?", "Want to grind?", "Let's grind."]
             elif Action_type in ["sex", "anal"]:
                 self.modes = [1, 2]
 
@@ -597,8 +594,8 @@ init -2 python:
                 self.available_poses = ["missionary", "doggy"]
                 
                 if Action_type == "sex":
-                    self.line = "Can we have sex?"
+                    self.lines = ["Can we have sex?", "Want me inside you?", "I want to be inside you."]
                 elif Action_type == "anal":
-                    self.line = "Can we do anal?"
+                    self.lines = ["Can we do anal?", "Want me to put my cock in your ass?", "I want to fuck your ass."]
 
             self.mode = self.modes[0]

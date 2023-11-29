@@ -38,7 +38,7 @@ label Kurt_leveling_tutorial:
     $ Kurt.change_face("confused")
 
     ch_Player "Bro, where the hel-"
-    ch_Kurt "It seems mein bruder has recently leveled up."
+    ch_Kurt "It seems mein Bruder has recently leveled up."
     ch_Player "'Leveled up'?"
 
     $ Kurt.change_face("neutral")

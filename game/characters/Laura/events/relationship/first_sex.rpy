@@ -313,7 +313,7 @@ label Laura_first_sex_part_two:
 
     $ Laura.change_face("sexy", eyes = "down", blush = 1)
     
-    $ speed = 0.01
+    $ speed = 0.001
     $ starting_depth = 0.025
 
     $ Action.mode = 2

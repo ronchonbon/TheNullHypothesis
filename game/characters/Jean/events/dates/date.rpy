@@ -701,19 +701,7 @@ label Jean_date_dinner:
 
                 $ Jean.change_face("confused1", eyes = "right")
 
-    if Player.stamina and Jean.stamina:
-        if (Jean.status["horny"] or Jean.status["nympho"]) and renpy.random.random() > 0.5:
-            $ sex_initiator = Jean
-                
-            call Jean_date_dinner_sex from _call_Jean_date_dinner_sex
-        elif renpy.random.random() > 0.5:
-            menu:
-                "Recommend some fooling around":
-                    $ sex_initiator = Player
-
-                    call Jean_date_dinner_sex from _call_Jean_date_dinner_sex_1
-                "Just finish the meal normally":
-                    pass
+    ##
 
     $ Jean.change_face("smirk1", eyes = "right")
 
@@ -1051,50 +1039,8 @@ label Jean_date_dinner_sex_sex:
 
     "Good thing it's a private one."
     "She locks the door behind you."
-        
-    if sex_initiator == Jean:
-        $ has_position_control = False
-        $ has_movement_control = False
 
-    $ Jean.available_Actions = ["sex"]
-
-    if Jean.History.check("anal"):
-        $ Jean.available_Actions.append("anal")
-
-    $ Jean.available_poses = ["missionary"]
-
-    if Jean.History.check("doggy"):
-        $ Jean.available_poses.append("doggy")
-
-    $ chosen_Action = renpy.random.choice(Jean.available_Actions)
-    $ chosen_pose = renpy.random.choice(Jean.available_poses)
-
-    $ Jean.History.update("hookup")
-        
-    $ Jean.History.update(chosen_Action)
-    
-    call request_position(Jean, chosen_pose, automatic = True) from _call_request_position_11
-
-    $ Action = ActionClass(chosen_Action, Player, Jean)
-
-    call undress(Jean, "underwear") from _call_undress_17
-    call start_Action(Action) from _call_start_Action
-    call screen Action_screen(automatic = True)
-
-    $ choice_disabled = False
-
-    # if renpy.random.random() > 0.5:
-    #     call try_on(Jean, Jean.Wardrobe.Clothes["messy hair"]) from _call_try_on
-
-    call change_Outfit(Jean, Jean.Wardrobe.Outfits[Jean.Outfit.name]) from _call_change_Outfit_24
-    
-    $ locations = list(Jean.spunk.keys())
-
-    while locations:
-        if Jean.spunk[locations[0]]:
-            call clean_cum(Jean) from _call_clean_cum_4
-
-        $ locations.remove(locations[0])
+    ##
 
     "After you both put your clothes back on, [Jean.name] leaves and heads back to the table."
 
@@ -1149,30 +1095,8 @@ label Jean_date_dinner_sex_eat_pussy:
 
     "Good thing it's a private one."
     "She locks the door behind you."
-        
-    $ has_movement_control = False
 
-    $ Jean.available_Actions = ["eat_pussy"]
-    $ Jean.available_poses = ["masturbation"]
-
-    $ chosen_Action = renpy.random.choice(Jean.available_Actions)
-    $ chosen_pose = renpy.random.choice(Jean.available_poses)
-
-    $ Jean.History.update("hookup")
-        
-    $ Jean.History.update(chosen_Action)
-    
-    call request_position(Jean, chosen_pose, automatic = True) from _call_request_position_12
-
-    $ Action = ActionClass(chosen_Action, Player, Jean)
-
-    call undress(Jean, "underwear") from _call_undress_18
-    call start_Action(Action) from _call_start_Action_1
-    call screen Action_screen(automatic = True)
-    
-    $ choice_disabled = False
-
-    call change_Outfit(Jean, Jean.Wardrobe.Outfits[Jean.Outfit.name]) from _call_change_Outfit_27
+    ##
 
     "After you both put your clothes back on, [Jean.name] leaves and heads back to the table."
     
@@ -1455,19 +1379,7 @@ label Jean_date_movie_ron_bic1:
 
     $ Jean.change_face("worried1", eyes = "right")
 
-    if Player.stamina and Jean.stamina:
-        if (Jean.status["horny"] or Jean.status["nympho"]) and renpy.random.random() > 0.5:
-            $ sex_initiator = Jean
-
-            call Jean_date_movie_sex from _call_Jean_date_movie_sex
-        elif renpy.random.random() > 0.5:
-            menu:
-                "Recommend some fooling around":
-                    $ sex_initiator = Player
-
-                    call Jean_date_movie_sex from _call_Jean_date_movie_sex_1
-                "Just finish watching the movie":
-                    pass
+    ##
 
     "The movie continues, as Ron kills legions of men in the pursuit of revenge."
     "He has to fight his way through hundreds of evil henchmen in a lighter factory and finally takes out the real bad guy in the end."
@@ -1504,19 +1416,7 @@ label Jean_date_movie_ron_bic2:
     "Poor Ron can't seem to avoid trouble, as he has to kill dozens of people in an attempt to prevent everyone from learning of his terrible mistake. . ."
     "You look over to see [Jean.name] looking quite worried about Ron's predicament."
 
-    if Player.stamina and Jean.stamina:
-        if (Jean.status["horny"] or Jean.status["nympho"]) and renpy.random.random() > 0.5:
-            $ sex_initiator = Jean
-
-            call Jean_date_movie_sex from _call_Jean_date_movie_sex_2
-        elif renpy.random.random() > 0.5:
-            menu:
-                "Recommend some fooling around":
-                    $ sex_initiator = Player
-
-                    call Jean_date_movie_sex from _call_Jean_date_movie_sex_3
-                "Just finish watching the movie":
-                    pass
+    ##
 
     $ Jean.change_face("confused1", eyes = "right")
 
@@ -1565,19 +1465,7 @@ label Jean_date_movie_hamburg_portfolio:
 
     "Although, it is quite entertaining, as he uses his considerable talent with magic to kill his enemies in very creative ways."
 
-    if Player.stamina and Jean.stamina:
-        if (Jean.status["horny"] or Jean.status["nympho"]) and renpy.random.random() > 0.5:
-            $ sex_initiator = Jean
-
-            call Jean_date_movie_sex from _call_Jean_date_movie_sex_4
-        elif renpy.random.random() > 0.5:
-            menu:
-                "Recommend some fooling around":
-                    $ sex_initiator = Player
-
-                    call Jean_date_movie_sex from _call_Jean_date_movie_sex_5
-                "Just finish watching the movie":
-                    pass
+    ##
 
     $ Jean.change_face("confused1", eyes = "right")
 
@@ -1624,19 +1512,7 @@ label Jean_date_movie_beautiful_flower:
     "He's running around frantically trying to find flowers to buy because his mother is very ill."
     "This might be his last chance, ever, to give her flowers."
 
-    if Player.stamina and Jean.stamina:
-        if (Jean.status["horny"] or Jean.status["nympho"]) and renpy.random.random() > 0.5:
-            $ sex_initiator = Jean
-
-            call Jean_date_movie_sex from _call_Jean_date_movie_sex_6
-        elif renpy.random.random() > 0.5:
-            menu:
-                "Recommend some fooling around":
-                    $ sex_initiator = Player
-
-                    call Jean_date_movie_sex from _call_Jean_date_movie_sex_7
-                "Just finish watching the movie":
-                    pass
+    ##
 
     $ Jean.change_face("worried2", eyes = "right")
 
@@ -1667,19 +1543,7 @@ label Jean_date_movie_fated:
 
     $ Jean.change_face("smirk2", eyes = "right")
 
-    if Player.stamina and Jean.stamina:
-        if (Jean.status["horny"] or Jean.status["nympho"]) and renpy.random.random() > 0.5:
-            $ sex_initiator = Jean
-
-            call Jean_date_movie_sex from _call_Jean_date_movie_sex_8
-        elif renpy.random.random() > 0.5:
-            menu:
-                "Recommend some fooling around":
-                    $ sex_initiator = Player
-
-                    call Jean_date_movie_sex from _call_Jean_date_movie_sex_9
-                "Just finish watching the movie":
-                    pass
+    ##
 
     $ Jean.change_face("surprised2", eyes = "right")
 
@@ -1729,19 +1593,7 @@ label Jean_date_movie_refilling_empty_glass:
     "She was recently widowed." 
     "She's been struggling to move on from her husband's death, until one night she spots a despondent man sitting at the far end of the bar."
 
-    if Player.stamina and Jean.stamina:
-        if (Jean.status["horny"] or Jean.status["nympho"]) and renpy.random.random() > 0.5:
-            $ sex_initiator = Jean
-
-            call Jean_date_movie_sex from _call_Jean_date_movie_sex_10
-        elif renpy.random.random() > 0.5:
-            menu:
-                "Recommend some fooling around":
-                    $ sex_initiator = Player
-
-                    call Jean_date_movie_sex from _call_Jean_date_movie_sex_11
-                "Just finish watching the movie":
-                    pass
+    ##
 
     "The movie continues, and the bartender becomes interested in the despondent man, since he looks similar to her late husband."
 
@@ -1786,19 +1638,7 @@ label Jean_date_movie_stale_air:
 
     "He has no idea where they're coming from, but they all have great ideas which he uses to jumpstart his writing."
 
-    if Player.stamina and Jean.stamina:
-        if (Jean.status["horny"] or Jean.status["nympho"]) and renpy.random.random() > 0.5:
-            $ sex_initiator = Jean
-
-            call Jean_date_movie_sex from _call_Jean_date_movie_sex_12
-        elif renpy.random.random() > 0.5:
-            menu:
-                "Recommend some fooling around":
-                    $ sex_initiator = Player
-
-                    call Jean_date_movie_sex from _call_Jean_date_movie_sex_13
-                "Just finish watching the movie":
-                    pass
+    ##
 
     "As the movie continues, it quickly becomes clear what's going on."
     "Unbeknownst to the writer, a carbon monoxide leak in his apartment is simultaneously poisoning him, while also the cause for his inspiration."
@@ -1838,19 +1678,7 @@ label Jean_date_movie_devils_spring_break:
     ch_Jean "I can tell where this is going. . ."
     "Despite the rumors, the house isn't actually haunted. . . at least not by ghosts."
 
-    if Player.stamina and Jean.stamina:
-        if (Jean.status["horny"] or Jean.status["nympho"]) and renpy.random.random() > 0.5:
-            $ sex_initiator = Jean
-
-            call Jean_date_movie_sex from _call_Jean_date_movie_sex_14
-        elif renpy.random.random() > 0.5:
-            menu:
-                "Recommend some fooling around":
-                    $ sex_initiator = Player
-
-                    call Jean_date_movie_sex from _call_Jean_date_movie_sex_15
-                "Just finish watching the movie":
-                    pass
+    ##
 
     $ Jean.change_face("surprised1", eyes = "right")
 
@@ -1896,19 +1724,7 @@ label Jean_date_movie_unsanctioned_crusade:
     "They do terrible things in a misguided attempt at worship."
     "Only, God is real and is less than pleased by these atrocities."
 
-    if Player.stamina and Jean.stamina:
-        if (Jean.status["horny"] or Jean.status["nympho"]) and renpy.random.random() > 0.5:
-            $ sex_initiator = Jean
-
-            call Jean_date_movie_sex from _call_Jean_date_movie_sex_16
-        elif renpy.random.random() > 0.5:
-            menu:
-                "Recommend some fooling around":
-                    $ sex_initiator = Player
-
-                    call Jean_date_movie_sex from _call_Jean_date_movie_sex_17
-                "Just finish watching the movie":
-                    pass
+    ##
 
     $ Jean.change_face("worried1", eyes = "right")
 

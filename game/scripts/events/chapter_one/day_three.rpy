@@ -146,7 +146,7 @@ label day_three_intro:
     $ Kurt.change_face("neutral")
 
     ch_Kurt "Cool huh? I don't know if you saw the vay she vas looking at you, but sings are a bit varmer zan cool."
-    ch_Kurt "Look mein bruder, [Rogue.name] is a nice girl in a very unfortunate situation. You sink anyone is villing to date a person who could kill zem just by holding hands? Nein."
+    ch_Kurt "Look mein Bruder, [Rogue.name] is a nice girl in a very unfortunate situation. You sink anyone is villing to date a person who could kill zem just by holding hands? Nein."
     ch_Kurt "But now you're here."
     ch_Kurt "Don't be surprised ven she gets attached."
     ch_Player "That's. . . a good point."

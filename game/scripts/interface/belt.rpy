@@ -228,7 +228,22 @@ screen updates_screen():
                 RemoveFromSet(update_messages, update_messages[0])]
 
         if update_message:
-            if belt_hidden or ongoing_Event or not sandbox:
+            if Action_screen_showing:
+                frame anchor (1.0, 0.5) pos (0.85, 0.05):
+                    background Frame("images/interface/belt/update.webp", 2, 2)
+
+                    padding (15, 15, 15, 15)
+
+                    text update_message align (0.5, 0.5):
+                        color "#ffffff"
+
+                        size 32
+
+                    at transform:
+                        fade_in(0.4)
+                        pause 2.5
+                        fade_out(0.4)
+            elif belt_hidden or ongoing_Event or not sandbox:
                 frame anchor (1.0, 0.5) pos (0.98, 0.05):
                     background Frame("images/interface/belt/update.webp", 2, 2)
 

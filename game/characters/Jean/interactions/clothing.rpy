@@ -231,7 +231,7 @@ label Jean_change_Outfit_reject_asked_once:
     if dice_roll == 1:
         $ Jean.change_face("angry1")
 
-        ch_Jean "I said no, [hean.Player_petname]." 
+        ch_Jean "I said no, [Jean.Player_petname]." 
     elif dice_roll == 2:
         $ Jean.change_face("angry1")
 

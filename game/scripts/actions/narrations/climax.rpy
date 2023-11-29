@@ -75,60 +75,32 @@ label Player_orgasm_narrations(Character, location):
 
 label Player_cumshot_narrations(Character, location):
     if location == "cumshot_belly":
-        $ increase_Character_desire(Character, 5)
-        
         "You lose control, your cum shooting all over her stomach."
     elif "breasts" in location:
-        $ increase_Character_desire(Character, 10)
-        
         "You lose control, your cum shooting all over her tits, slowly dripping down their curves."
     elif location == "cumshot_face":
-        $ increase_Character_desire(Character, 8)
-        
         "Your cum lands on her face causing her to flinch, but lean in trying to catch every last drop."
     elif location == "cumshot_hair":
-        $ increase_Character_desire(Character, 5)
-
         "You shudder and finally lose control, showering her with cum, getting it all in her hair."
     elif location == "cumshot_back":
-        $ increase_Character_desire(Character, 5)
-        
         "You shudder, as your cum shoots all over her back."
     elif location == "cumshot_ass":
-        $ increase_Character_desire(Character, 7)
-        
         "Your cum sprays all over her ass, dripping down its curves."
     elif location == "cumshot_feet":
-        $ increase_Character_desire(Character, 5)
-        
         "Her feet and toes are covered, as you shudder and spray all over them."
     elif location == "creampie":
-        $ increase_Character_desire(Character, 12)
-
         "You can't help but shudder as you fill her, cumming right inside her pussy."
     elif location == "cum_in_mouth":
-        $ increase_Character_desire(Character, 10)
-        
         "Her lips tighten around you as your cum sprays into the back of her mouth."
     elif location == "cumshot_tongue":
-        $ increase_Character_desire(Character, 8)
-        
         "You spray across her tongue, getting most of the cum on it, but some ends up in the back of her mouth."
     elif location == "cum_down_throat":
-        $ increase_Character_desire(Character, 10)
-        
         "[Character.name] gags and sputters as you cum down her throat. She struggles to swallow with you still deep inside her."
     elif location == "anal_creampie":
-        $ increase_Character_desire(Character, 8)
-        
         "Her ass tightens around you as you cum inside, filling it to the brim."
     elif location == "bukkake":
-        $ increase_Character_desire(Character, 10)
-
         "You convulse as waves of pleasure flow through you, your cum spraying all over her body."
     elif location == "floor":
-        $ increase_Character_desire(Character, 3)
-
         "You spray across the room, landing on some towels you set up beforehand."
 
     return

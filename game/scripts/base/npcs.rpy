@@ -79,7 +79,7 @@ init -2 python:
             self.brows, self.eyes, self.mouth = eval(f"{self.tag}_faces('{face}')")
 
             if self.brows == "wrong":
-                renpy.say(None, "Something went wrong with a face here.")
+                renpy.invoke_in_new_context(renpy.say, None, "Something went wrong with a face here.")
 
             if brows:
                 self.brows = brows
@@ -101,7 +101,7 @@ init -2 python:
             self.left_arm, self.right_arm = eval(f"{self.tag}_arms('{pose}')")
 
             if self.left_arm == "wrong":
-                renpy.say(None, "Something went wrong with an arm pose here.")
+                renpy.invoke_in_new_context(renpy.say, None, "Something went wrong with an arm pose here.")
 
             if left_arm:
                 self.left_arm = left_arm

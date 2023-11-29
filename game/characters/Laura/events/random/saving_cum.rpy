@@ -106,31 +106,10 @@ label Laura_saving_cum:
 
         ch_Laura "You didn't do as I said."
         ch_Laura "{i}Grrrrrr{/i}"
-        ch_Laura "Get on the bed."
     else:
         $ Laura.change_face("sexy", blush = 2)
 
-        ch_Laura "Good, so you did as I said"
-        ch_Laura "Now, get on the bed."
-
-        call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_350
-    
-    if Player.History.check("orgasmed", tracker = "daily") or not Player.stamina:
-        $ Laura.available_Actions = ["eat_pussy"]
-
-        $ Action = ActionClass("eat_pussy", Player, Laura)
-
-        call start_Action(Action) from _call_start_Action_2
-        
-        $ has_position_control = False
-        $ has_movement_control = False
-        $ has_ejaculation_control = False
-
-    $ Laura.History.update("hookup")
-
-    call screen Action_screen(automatic = True)
-
-    $ Laura.available_Actions = []
+        ch_Laura "Good, so you did as I said."
     
     $ choice_disabled = False
 

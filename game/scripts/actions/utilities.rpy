@@ -924,14 +924,14 @@ label continue_Actions:
         $ temp_sex_Characters = Present[:]
 
         while temp_sex_Characters:            
-            if temp_sex_Characters[0] in all_Companions and temp_sex_Characters[0].desire >= 100 and not temp_sex_Characters[0].orgasm_control:
+            if temp_sex_Characters[0] in all_Companions and temp_sex_Characters[0].desire >= 100:
                 call Character_orgasms(temp_sex_Characters[0]) from _call_Character_orgasms
                 
                 return
 
             $ temp_sex_Characters.remove(temp_sex_Characters[0])
 
-        if Player.desire >= 100 and not Player.orgasm_control:
+        if Player.desire >= 100:
             call Player_orgasms from _call_Player_orgasms
                 
             return

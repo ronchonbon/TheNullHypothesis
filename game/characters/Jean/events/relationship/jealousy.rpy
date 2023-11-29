@@ -273,7 +273,7 @@ init python:
 
             "not EventScheduler.Events['Jean_jealousy_went_on_date'].completed",
 
-            "Jean.History.check('cheated_on_flirting_in_public') >= 4 and Jean.History.permanent['cheated_on_flirting_in_public'][-4] > EventScheduler.Events['Jean_boyfriend'].completed",
+            "Jean.History.check('cheated_on_flirting_in_public') >= 4 and Jean.History.permanent['cheated_on_flirting_in_public'].completed[-4] > EventScheduler.Events['Jean_boyfriend'].completed",
             
             "Jean.location != Player.location and Player.location in public_locations"]
             
@@ -706,7 +706,7 @@ init python:
             
             "Jean.History.check('told_wants_multiple_girlfriend')",
             
-            "Jean.History.check('cheated_on_flirting_in_public') >= 4 and Jean.History.permanent['cheated_on_flirting_in_public'][-3] > max(Jean.History.check_when('told_wants_multiple_partners'), EventScheduler.Events['Jean_jealousy_went_on_date_anyways'].completed, EventScheduler.Events['Jean_jealousy_flirted_anyways'].completed)",
+            "Jean.History.check('cheated_on_flirting_in_public') >= 4 and Jean.History.permanent['cheated_on_flirting_in_public'].completed[-3] > max(Jean.History.check_when('told_wants_multiple_partners'), EventScheduler.Events['Jean_jealousy_went_on_date_anyways'].completed, EventScheduler.Events['Jean_jealousy_flirted_anyways'].completed)",
             
             "Jean.location != Player.location and Player.location in public_locations"]
             

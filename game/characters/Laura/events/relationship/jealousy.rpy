@@ -225,7 +225,7 @@ init python:
             
             "not EventScheduler.Events['Laura_jealousy_went_on_date'].completed",
             
-            "Laura.History.check('cheated_on_flirting_in_public') >= 3 and Laura.History.permanent['cheated_on_flirting_in_public'][-3] > EventScheduler.Events['Laura_boyfriend'].completed",
+            "Laura.History.check('cheated_on_flirting_in_public') >= 3 and Laura.History.permanent['cheated_on_flirting_in_public'].completed[-3] > EventScheduler.Events['Laura_boyfriend'].completed",
            
             "Laura.location != Player.location and Player.location in public_locations"]
             
@@ -634,7 +634,7 @@ init python:
             
             "Laura.History.check('told_wants_multiple_girlfriend')",
             
-            "Laura.History.check('cheated_on_flirting_in_public') >= 3 and Laura.History.permanent['cheated_on_flirting_in_public'][-3] > max(Laura.History.check_when('told_wants_multiple_partners'), EventScheduler.Events['Laura_jealousy_went_on_date_anyways'].completed, EventScheduler.Events['Laura_jealousy_flirted_anyways'].completed)",
+            "Laura.History.check('cheated_on_flirting_in_public') >= 3 and Laura.History.permanent['cheated_on_flirting_in_public'].completed[-3] > max(Laura.History.check_when('told_wants_multiple_partners'), EventScheduler.Events['Laura_jealousy_went_on_date_anyways'].completed, EventScheduler.Events['Laura_jealousy_flirted_anyways'].completed)",
             
             "Laura.location != Player.location and Player.location in public_locations"]
             

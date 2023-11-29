@@ -433,7 +433,7 @@ label Jean_first_sex_part_two:
 
     "She's already soaking wet just in anticipation, but also trembles slightly at your touch out of apprehension."
     
-    $ speed = 0.01
+    $ speed = 0.001
     $ starting_depth = 0.025
 
     $ Action.mode = 2

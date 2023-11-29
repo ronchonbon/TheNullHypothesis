@@ -294,12 +294,6 @@ label Rogue_texting_ask_to_masturbate_response:
         call set_the_scene(location = Rogue.location) from _call_set_the_scene_199
 
         $ Rogue.change_face("manic", blush = 2)
-
-        call change_Girl_stat(Rogue, "desire", 0) from _call_change_Girl_stat_610
-
-        $ Rogue.History.update("hookup")
-            
-        call screen Action_screen(automatic = True)
         
         $ choice_disabled = False
         

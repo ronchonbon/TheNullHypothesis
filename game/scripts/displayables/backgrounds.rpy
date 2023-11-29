@@ -193,38 +193,6 @@ layeredimage bg_restaurant_table:
     always:
         "images/backgrounds/base/bg_restaurant_shakers.webp"
 
-image sex_background:
-    contains:
-        "images/interface/Action_menu/background.webp"
-
-    contains:
-        "sex_bubbles"
-
-layeredimage sex_bubbles:
-    always:
-        At("images/interface/Action_menu/bubble.webp", bubble_rising)
-
-    always:
-        At("images/interface/Action_menu/small_bubble.webp", bubble_rising)
-
-    always:
-        At("images/interface/Action_menu/bubble.webp", bubble_rising)
-
-    always:
-        At("images/interface/Action_menu/small_bubble.webp", bubble_rising)
-
-    always:
-        At("images/interface/Action_menu/bubble.webp", bubble_rising)
-
-    always:
-        At("images/interface/Action_menu/small_bubble.webp", bubble_rising)
-
-    always:
-        At("images/interface/Action_menu/bubble.webp", bubble_rising)
-
-    always:
-        At("images/interface/Action_menu/small_bubble.webp", bubble_rising)
-
 layeredimage background:
     always:
         At("black_fade", invisible)
@@ -309,6 +277,9 @@ layeredimage midground:
     always:
         At("black_fade", invisible)
 
+    if Action_screen_showing:
+        At("background", blurred_background)
+
     if Player.location in ["bg_lockers", "bg_shower_Player", "bg_shower_Rogue", "bg_shower_Laura", "bg_shower_Jean"] and shower_steam:
         At("shower_steam_midground", fade_in(2.0))
         
@@ -343,12 +314,6 @@ layeredimage foreground:
             
     if Player.location == "bg_classroom" and time_index < 2 and weekday < 5 and clock >= math.ceil(0.1*Player.max_stamina):
         "images/backgrounds/base/bg_classroom_students.webp"
-
-    if Action_screen_showing:
-        Solid("#ffffff")
-
-    if Action_screen_showing:
-        "sex_background"
 
     if cinematic_bars and (ongoing_Event or not sandbox):
         At(At("black_fade", top_bar), fade_in(0.4))

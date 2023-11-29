@@ -20,7 +20,7 @@ screen quick_menu():
         if renpy.get_screen("Wardrobe_screen"):
             align (0.0, 1.0)
         elif Action_screen_showing:
-            align (0.5, 1.0)
+            align (0.0, 1.0)
         else:
             align (1.0, 1.0)
 

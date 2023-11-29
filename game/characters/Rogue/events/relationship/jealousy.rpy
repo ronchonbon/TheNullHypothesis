@@ -180,7 +180,7 @@ label Rogue_jealousy_went_on_date:
 
     $ Kurt.change_face("angry")
 
-    ch_Kurt "Wirklich, bruder?"
+    ch_Kurt "Wirklich, Bruder?"
 
     $ Kurt.change_face("confused")
 
@@ -223,7 +223,7 @@ init python:
             
             "not EventScheduler.Events['Rogue_jealousy_went_on_date'].completed",
             
-            "Rogue.History.check('cheated_on_flirting_in_public') >= 3 and Rogue.History.permanent['cheated_on_flirting_in_public'][-3] > EventScheduler.Events['Rogue_boyfriend'].completed",
+            "Rogue.History.check('cheated_on_flirting_in_public') >= 3 and Rogue.History.permanent['cheated_on_flirting_in_public'].completed[-3] > EventScheduler.Events['Rogue_boyfriend'].completed",
             
             "Rogue.location != Player.location and Player.location == Player.home"]
             
@@ -316,7 +316,7 @@ label Rogue_jealousy_flirted:
 
     $ Kurt.change_face("angry")
 
-    ch_Kurt "Wirklich, bruder?"
+    ch_Kurt "Wirklich, Bruder?"
 
     $ Kurt.change_face("confused")
 
@@ -615,7 +615,7 @@ init python:
             
             "Rogue.History.check('told_wants_multiple_girlfriend')",
             
-            "Rogue.History.check('cheated_on_flirting_in_public') >= 3 and Rogue.History.permanent['cheated_on_flirting_in_public'][-3] > max(Rogue.History.check_when('told_wants_multiple_partners'), EventScheduler.Events['Rogue_jealousy_went_on_date_anyways'].completed, EventScheduler.Events['Rogue_jealousy_flirted_anyways'].completed)",
+            "Rogue.History.check('cheated_on_flirting_in_public') >= 3 and Rogue.History.permanent['cheated_on_flirting_in_public'].completed[-3] > max(Rogue.History.check_when('told_wants_multiple_partners'), EventScheduler.Events['Rogue_jealousy_went_on_date_anyways'].completed, EventScheduler.Events['Rogue_jealousy_flirted_anyways'].completed)",
             
             "Rogue.location != Player.location and Player.location == Player.home"]
             

@@ -162,7 +162,7 @@ label start_chapter_one_season_three:
     $ HumHumPool.update(
         HumHumThreadClass(
             "Kurt_worries", [
-                HumHumClass(Kurt, "Word of advice, any of our more 'exotic'-looking bruder und schwestern planning on visiting town any time soon, be wary."),
+                HumHumClass(Kurt, "Word of advice, any of our more 'exotic'-looking Bruder und schwestern planning on visiting town any time soon, be wary."),
                 HumHumClass(Kurt, "I was getting some very. . . upset looks today from some of the people. Take care, meine freunde.")])) 
     
     $ HumHumPool.update(

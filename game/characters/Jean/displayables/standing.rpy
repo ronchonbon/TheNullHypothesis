@@ -138,7 +138,7 @@ layeredimage Jean_standing:
     if Jean.left_arm in ["bra", "rub_neck", "touch_ass"]:
         "characters/Jean/images/standing/left_forearm_[Jean.left_arm].webp"
 
-    if Jean.right_arm not in ["bra", "extended", "fight", "fist", "hip", "neutral", "psychic1", "psychic2", "touch_pussy"]:
+    if Jean.right_arm not in ["bra", "crossed", "extended", "fight", "fist", "hip", "neutral", "psychic1", "psychic2", "touch_pussy"]:
         Null()
     elif renpy.get_screen("Wardrobe_screen"):
         "Jean_standing_right_arm"
@@ -150,10 +150,10 @@ layeredimage Jean_standing:
     always:
         "Jean_standing_body"
 
-    if Jean.left_arm in ["fist", "hip", "neutral"]:
+    if Jean.left_arm in ["crossed", "fist", "hip", "neutral"]:
         "characters/Jean/images/standing/left_arm_[Jean.left_arm]_shadow.webp"
 
-    if Jean.left_arm not in ["bra", "extended", "fight", "fist", "grope", "hip", "neutral", "psychic1", "psychic2", "rub_neck", "touch_ass"]:
+    if Jean.left_arm not in ["bra", "crossed", "extended", "fight", "fist", "grope", "hip", "neutral", "psychic1", "psychic2", "rub_neck", "touch_ass"]:
         Null()
     elif renpy.get_screen("Wardrobe_screen"):
         "Jean_standing_left_arm"
@@ -251,13 +251,18 @@ layeredimage Jean_standing_head:
         "characters/Jean/images/standing/head.webp"
 
     always:
-        "characters/Jean/images/standing/mouth_happy.webp"
+        "characters/Jean/images/standing/mouth_[Jean.mouth].webp"
+
+    if Jean.eyes in ["closed", "down", "left", "right", "squint", "wink", "up"]:
+        "characters/Jean/images/standing/eyes_[Jean.eyes].webp"
+    else:
+        "Jean_standing_blinking"
 
     always:
-        "characters/Jean/images/standing/eyes_neutral.webp"
+        "characters/Jean/images/standing/brows_[Jean.brows].webp"
 
-    always:
-        "characters/Jean/images/standing/brows_neutral.webp"
+    if Jean.blush:
+        "characters/Jean/images/standing/blush[Jean.blush].webp"
 
     # if Jean.wet or Jean.Clothes["hair"].string == "wet":
     #     "characters/Jean/images/standing/hair_wet_shadow.webp"
@@ -310,7 +315,9 @@ layeredimage Jean_standing_body:
     always:
         "characters/Jean/images/standing/breasts_shadow.webp"
 
-    always:
+    if Jean.left_arm == "crossed" and Jean.right_arm == "crossed":
+        "characters/Jean/images/standing/breasts_crossed.webp"
+    else:
         "characters/Jean/images/standing/breasts.webp"
 
 layeredimage Jean_standing_left_arm:

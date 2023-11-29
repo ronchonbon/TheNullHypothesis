@@ -302,10 +302,6 @@ label Jean_texting_summon_horny_response:
         call set_the_scene(location = Jean.location) from _call_set_the_scene_41
 
         $ Jean.change_face("sexy", blush = 2)
-
-        $ Jean.History.update("hookup")
-
-        call screen Action_screen(automatic = True)
         
         $ choice_disabled = False
     elif Jean.text_history[-1][1] == temp[2]:

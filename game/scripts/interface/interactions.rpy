@@ -32,15 +32,10 @@ screen Character_picker():
 
                         focus_mask renpy.displayable(f"{C.tag}_sprite standing")
 
-                        if Action_screen_showing:
-                            action [
-                                SetVariable("focused_Girl", C), 
-                                SetField(C, "hovered", False)]
-                        else:
-                            action [
-                                SetVariable("focused_Girl", C), 
-                                Show("interactions_screen", Character = C), 
-                                SetField(C, "hovered", False)]
+                        action [
+                            SetVariable("focused_Girl", C), 
+                            Show("interactions_screen", Character = C), 
+                            SetField(C, "hovered", False)]
 
                 if C in all_NPCs and renpy.showing(f"{C.tag}_sprite"):
                     button anchor (C.sprite_anchor[0], C.sprite_anchor[1]) pos (C.sprite_position[0], C.sprite_position[1]):  

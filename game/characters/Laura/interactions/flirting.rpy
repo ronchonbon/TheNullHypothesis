@@ -1112,36 +1112,9 @@ label Laura_flirt_eb:
 
         "After a quick kiss, you pull away." 
 
-        if Player.stamina and Laura.stamina and len(Present) == 1:
-            $ Laura.change_face("angry1", mouth = "lipbite", blush = 2) 
+        $ Laura.change_face("angry1", mouth = "lipbite", blush = 2) 
 
-            ch_Laura "That's it?"
-            ch_Laura "I wasn't done."
-
-            menu:
-                extend ""
-                "Let her do as she pleases":
-                    ch_Player "If you want to keep going. . ."
-                    ch_Player "You don't need my permission."
-
-                    $ Laura.change_face("sly", mouth = "lipbite", blush = 2)
-
-                    ch_Laura "Good."
-
-                    call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_1388
-                    call change_Girl_stat(Laura, "desire", 0) from _call_change_Girl_stat_1389
-
-                    "Without a word, she pulls you back into the kiss."
-
-                    $ Laura.History.update("hookup")
-                    $ Laura.History.update("makeout")
-
-                    $ Action = ActionClass("makeout", Player, Laura)
-
-                    call start_Action(Action) from _call_start_Action_15
-                    call screen Action_screen(automatic = True)
-                "Pull away":
-                    pass
+        ch_Laura "That's it?"
     else:
         $ Laura.change_face("sly", mouth = "lipbite", blush = 1) 
 
@@ -1158,33 +1131,14 @@ label Laura_flirt_eb:
         "She pulls you down into a kiss, her hands holding on to you for dear life."
         "She starts clumsily using her tongue, and her enthusiasm is evident."
 
-        call change_Girl_stat(Laura, "desire", 0) from _call_change_Girl_stat_1391 
+        $ Laura.change_face("confused1", blush = 2) 
 
-        $ Laura.change_face("kiss2", blush = 2)
+        "When you finally pull away, her expression is confused."
+        ch_Laura "I wasn't done. . ."
 
-        if Player.stamina and Laura.stamina and len(Present) == 1:
-            menu:
-                extend ""
-                "Make out with her":
-                    call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_1392
+        $ Laura.change_face("angry1", mouth = "lipbite", blush = 1)
 
-                    $ Laura.History.update("hookup")
-                    $ Laura.History.update("makeout")
-
-                    $ Action = ActionClass("makeout", Player, Laura)
-
-                    call start_Action(Action) from _call_start_Action_16
-                    call screen Action_screen(automatic = True)
-                "Pull away":
-                    $ Laura.change_face("confused1", blush = 2) 
-
-                    ch_Laura "I wasn't done. . ."
-
-                    $ Laura.change_face("angry1", mouth = "lipbite", blush = 1)
-
-                    ch_Laura "Fine, we'll just continue later."
-
-        ch_Laura "Sorry. . . got a bit carried away. . ."
+        ch_Laura "Fine, we'll just continue later."
 
     return
 
@@ -1340,30 +1294,7 @@ label Laura_flirt_i:
 
         $ Laura.change_face("kiss2", blush = 2) 
 
-        "She turns, and doesn't hesitate to start kissing you." 
-
-        if Player.stamina and Laura.stamina and len(Present) == 1:
-            call change_Girl_stat(Laura, "desire", 0) from _call_change_Girl_stat_1402
-
-            "Her grip on your ass tightens, and tongue starts getting involved." 
-
-            menu:
-                extend ""
-                "Make out with her":
-                    call change_Girl_stat(Laura, "love", 2) from _call_change_Girl_stat_1403
-                    call change_Girl_stat(Laura, "desire", 5) from _call_change_Girl_stat_1404
-                    
-                    $ Laura.History.update("hookup")
-                    $ Laura.History.update("makeout")
-
-                    $ Action = ActionClass("makeout", Player, Laura)
-
-                    call start_Action(Action) from _call_start_Action_17
-                    call screen Action_screen(automatic = True)
-                "Pull away":
-                    $ Laura.change_face("confused1", mouth = "lipbite", blush = 1) 
-
-                    ch_Laura "You're done?"
+        "She turns and doesn't hesitate to stick her tongue in your mouth." 
     else:
         $ Laura.change_face("surprised2")
 

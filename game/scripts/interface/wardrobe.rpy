@@ -605,7 +605,7 @@ screen head_screen(Girl):
                         
                         null width 85
 
-            if False:
+            if True:
                 $ brows = [
                     "neutral", "cocked", "furrowed", "raised", "wink", "worried"]
 
@@ -701,10 +701,10 @@ screen head_screen(Girl):
                         "bra", "crossed", "extended", "fight", "fist", "grope", "hip", "neutral", "rub_neck", "touch_ass"]
                 elif Girl in [Laura]:
                     $ left_arms = [
-                        "bra", "claws", "crossed", "extended", "fight", "fist", "grope", "hip", "neutral", "touch_ass", "X"]
+                        "bra", "claws", "crossed", "extended", "fight", "fist", "grope", "hip", "neutral", "rub_neck", "touch_ass", "X"]
                 elif Girl in [Jean]:
                     $ left_arms = [
-                        "bra", "extended", "fight", "fist", "grope", "hip", "neutral", "psychic1", "psychic2", "rub_neck", "touch_ass"]
+                        "bra", "crossed", "extended", "fight", "fist", "grope", "hip", "neutral", "psychic1", "psychic2", "rub_neck", "touch_ass"]
 
                 for left_arm in left_arms:
                     hbox align (0.5, 0.5):

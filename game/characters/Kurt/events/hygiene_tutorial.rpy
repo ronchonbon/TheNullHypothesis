@@ -73,7 +73,7 @@ label Kurt_hygiene_tutorial:
     $ Kurt.change_face("happy")
 
     ch_Kurt "Zat is all."
-    ch_Kurt "I have faith in you, mein bruder."
+    ch_Kurt "I have faith in you, mein Bruder."
     ch_Kurt "Don't be stinky."
 
     call Kurt_teleports_out from _call_Kurt_teleports_out

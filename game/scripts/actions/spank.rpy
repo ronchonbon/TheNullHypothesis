@@ -11,17 +11,16 @@ label spank(Girl):
 
     call spank_narrations(Girl) from _call_spank_narrations
 
-    $ Girl.History.update("spank")
-
     if approval_check(Girl, threshold = "spank"):
-        if not Girl.History.check("spank"):
-            call expression f"{Girl.tag}_accepts_spank_first_time" from _call_expression_91
-        elif Girl.History.check("spank") == 1:
-            call expression f"{Girl.tag}_accepts_spank_second_time" from _call_expression_92
-        elif approval_check(Girl, threshold = "love"):
-            call expression f"{Girl.tag}_accepts_spank_love" from _call_expression_93
-        else:
-            call expression f"{Girl.tag}_accepts_spank" from _call_expression_94
+        if not Girl.History.check("spank", tracker = "recent"):
+            if not Girl.History.check("spank"):
+                call expression f"{Girl.tag}_accepts_spank_first_time" from _call_expression_91
+            elif Girl.History.check("spank") == 1:
+                call expression f"{Girl.tag}_accepts_spank_second_time" from _call_expression_92
+            elif approval_check(Girl, threshold = "love"):
+                call expression f"{Girl.tag}_accepts_spank_love" from _call_expression_93
+            else:
+                call expression f"{Girl.tag}_accepts_spank" from _call_expression_94
     else:
         if Girl.History.check("rejected_spank", tracker = "recent") >= 2:
             call change_Girl_stat(Girl, "love", -5) from _call_change_Girl_stat_831
@@ -37,30 +36,26 @@ label spank(Girl):
 
         $ Girl.History.update("rejected_spank")
 
+    $ Girl.History.update("spank")
+
     return
 
 label spank_narrations(Girl):
-    if Girl.History.check("spank") >= 10:
-        $ increase_Character_desire(Girl, 5, limit = 75)
-
+    if approval_check(Girl, threshold = "spank") and Girl.History.check("spank") >= 10:
         $ dice_roll = renpy.random.randint(1, 3)
 
         if dice_roll == 1:
-            "You deftly smack her ass, causing her to jump, and leaving a neat handprint."
+            "You deftly smack her ass, leaving a neat handprint."
         elif dice_roll == 2:
             "She jumps and lets out a small moan as your hand sends a ripple through her ass."
         elif dice_roll == 3:
             "You give her ass a good smack, and she shudders in pleasure from the impact."
     else:
-        $ increase_Character_desire(Girl, 3, limit = 75)
-
         $ dice_roll = renpy.random.randint(1, 3)
 
         if dice_roll == 1:
-            "You smack her ass, maybe a bit too hard. . ."
+            "You give her ass a light smack."
         elif dice_roll == 2:
-            "Your hand connects with her ass and she stiffens - it might've been a bit too hard."
-        elif dice_roll == 3:
-            "As you spank her, you still can't tell if it was too hard or too soft. . ."
+            "You gently slap her ass."
 
     return
