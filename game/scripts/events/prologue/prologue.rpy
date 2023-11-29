@@ -329,6 +329,7 @@ label prologue:
     $ Charles.telepathic = False
 
     hide new_game_background 
+    hide new_game_foreground
     hide new_game_comic 
     hide bg_ch0 
     hide bg_ch0_overlay

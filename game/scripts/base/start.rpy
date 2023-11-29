@@ -55,7 +55,15 @@ label start:
 
     $ _skipping = False
 
-    show expression "images/interface/main_menu/blank_background.webp" as new_game_background:
+    show expression "images/interface/preferences/background.webp" as new_game_background:
+        subpixel True
+        transform_anchor True
+
+        align (0.5, 0.5)
+
+        zoom interface_new_adjustment
+
+    show expression "images/interface/preferences/spin.webp" as new_game_foreground:
         subpixel True
         transform_anchor True
 

@@ -286,7 +286,7 @@ layeredimage midground:
         At("shower_steam_midground", fade_in(2.0))
         
     transform_anchor True
-    align (0.5, 0.5)
+    align (0.5, 1.0)
 
     zoom background_adjustment
 
@@ -332,7 +332,7 @@ layeredimage cover1:
         "bg_restaurant_table"
 
     transform_anchor True
-    align (0.5, 0.5)
+    align (0.5, 1.0)
 
     zoom background_adjustment
 
@@ -393,7 +393,7 @@ layeredimage filter:
         At("black_fade", invisible)
 
     if comic_filter:
-        At("images/effects/comic.webp", inverse_background_scale)
+        "images/effects/comic.webp"
 
     if Player.desire >= 90:
         At("images/interface/Action_menu/climax_fringe.webp", pulse(intensity = 1.0))

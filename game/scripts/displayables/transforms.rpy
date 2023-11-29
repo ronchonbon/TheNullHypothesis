@@ -80,6 +80,14 @@ init -99:
     transform desire_color:
         matrixcolor TintMatrix("#f3a3b3")
 
+    transform spinning_element:
+        transform_anchor True
+
+        block:
+            rotate 0
+            linear 60.0 rotate 360
+            repeat
+
     transform blurred_background:
         blur 100
 
