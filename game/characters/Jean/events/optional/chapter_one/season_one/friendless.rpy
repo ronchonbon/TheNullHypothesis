@@ -7,6 +7,7 @@ init python:
 
         conditions = [
             "Jean.location not in ['hold', Player.location, Player.destination]",
+            "'bg_danger' not in [Player.location, Player.destination]",
 
             "renpy.random.random() > 0.75",
 

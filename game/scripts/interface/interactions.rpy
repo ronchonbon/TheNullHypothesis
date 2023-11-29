@@ -81,7 +81,7 @@ screen interactions_screen(Character):
             $ frame_anchor = [0.0, 0.0]
             $ frame_position = [Character.sprite_position[0] + 0.05, Character.sprite_position[1] - 0.1]
 
-        vbox anchor (frame_anchor[0], frame_anchor[1]) pos (frame_position[0], frame_position[1]) xysize (int(450*background_sampling), int(1100*background_sampling)):           
+        vbox anchor (frame_anchor[0], frame_anchor[1]) pos (frame_position[0], frame_position[1]) xysize (int(450*interface_new_adjustment), int(1100*interface_new_adjustment)):           
             if Character in all_Companions:
                 button xalign 0.5 xysize (int(409*interface_new_adjustment), int(130*interface_new_adjustment)):
                     if Character.sprite_position[0] > stage_far_far_left:

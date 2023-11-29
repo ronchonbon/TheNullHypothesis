@@ -85,20 +85,21 @@ image black_fade:
     xysize (config.screen_width, config.screen_height)
 
 image shower_steam_midground:
-    "images/effects/steam2.webp"
+    At("images/effects/steam2.webp", inverse_background_scale)
 
     subpixel True
 
     yalign 1.0
 
-    xoffset -4*config.screen_width*background_sampling
+    xoffset -config.screen_width
+
     block:
         linear 45.0 xoffset 0
-        xoffset -4*config.screen_width*background_sampling
+        xoffset -config.screen_width
         repeat
 
 image shower_steam_cover:
-    "images/effects/steam1.webp"
+    At("images/effects/steam1.webp", inverse_background_scale)
 
     subpixel True
 
@@ -106,8 +107,9 @@ image shower_steam_cover:
 
     xoffset 0
     alpha 0.8
+
     block:
-        linear 30.0 xoffset -4*config.screen_width*background_sampling
+        linear 30.0 xoffset -config.screen_width
         xoffset 0
         repeat
     
@@ -278,7 +280,7 @@ layeredimage midground:
         At("black_fade", invisible)
 
     if Action_screen_showing:
-        At("background", blurred_background)
+        At(At("background", blurred_background), inverse_background_scale)
 
     if Player.location in ["bg_lockers", "bg_shower_Player", "bg_shower_Rogue", "bg_shower_Laura", "bg_shower_Jean"] and shower_steam:
         At("shower_steam_midground", fade_in(2.0))
@@ -314,11 +316,6 @@ layeredimage foreground:
             
     if Player.location == "bg_classroom" and time_index < 2 and weekday < 5 and clock >= math.ceil(0.1*Player.max_stamina):
         "images/backgrounds/base/bg_classroom_students.webp"
-
-    if cinematic_bars and (ongoing_Event or not sandbox):
-        At(At("black_fade", top_bar), fade_in(0.4))
-    elif cinematic_bars:
-        At(At("black_fade", top_bar), fade_out(0.4))
 
     transform_anchor True
     align (0.5, 0.5)
@@ -367,8 +364,6 @@ layeredimage top_bar:
     transform_anchor True
     align (0.5, 0.5)
 
-    zoom background_adjustment
-
 layeredimage bottom_bar:
     always:
         At("black_fade", invisible)
@@ -380,8 +375,6 @@ layeredimage bottom_bar:
 
     transform_anchor True
     align (0.5, 0.5)
-
-    zoom background_adjustment
         
 layeredimage black_screen:
     always:
@@ -395,14 +388,12 @@ layeredimage black_screen:
     transform_anchor True
     align (0.5, 0.5)
 
-    zoom background_adjustment
-
 layeredimage filter:
     always:
         At("black_fade", invisible)
 
     if comic_filter:
-        "images/effects/comic.webp"
+        At("images/effects/comic.webp", inverse_background_scale)
 
     if Player.desire >= 90:
         At("images/interface/Action_menu/climax_fringe.webp", pulse(intensity = 1.0))
@@ -425,13 +416,13 @@ layeredimage filter:
         At("images/interface/Player_power/power_white.webp", pulse(intensity = 0.25))
 
     if Player.power >= 100:
-        At("images/interface/Player_power/vein_black.webp", pulse(intensity = 1.0, frequency = 2.0))
+        At("images/interface/Player_power/veins_black.webp", pulse(intensity = 1.0, frequency = 2.0))
     elif Player.power >= 75:
-        At("images/interface/Player_power/vein_black.webp", pulse(intensity = 0.75, frequency = 1.5))
+        At("images/interface/Player_power/veins_black.webp", pulse(intensity = 0.75, frequency = 1.5))
     elif Player.power >= 50:
-        At("images/interface/Player_power/vein_black.webp", pulse(intensity = 0.5))
+        At("images/interface/Player_power/veins_black.webp", pulse(intensity = 0.5))
     elif Player.power > 25:
-        At("images/interface/Player_power/vein_black.webp", pulse(intensity = 0.25))
+        At("images/interface/Player_power/veins_black.webp", pulse(intensity = 0.25))
 
     transform_anchor True
     align (0.5, 0.5)

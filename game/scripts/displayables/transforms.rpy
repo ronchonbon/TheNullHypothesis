@@ -83,6 +83,11 @@ init -99:
     transform blurred_background:
         blur 100
 
+    transform inverse_background_scale:
+        transform_anchor True
+
+        zoom 1.0/background_adjustment
+
     transform interface:
         zoom interface_new_adjustment
 

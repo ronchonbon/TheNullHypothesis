@@ -78,9 +78,6 @@ layeredimage Charles_chair:
         "characters/Charles/images/arms.webp"
 
     always:
-        "characters/Charles/images/head_shadow.webp"
-
-    always:
         At("Charles_chair_head", Charles_chair_head_animation)
 
 layeredimage Charles_chair_head:

@@ -37,6 +37,8 @@ init python:
 
     config.window_icon = "images/interface/icon.webp"
 
+    config.main_menu_music = "sounds/music/Main Theme.ogg"
+
     # config.mouse = {}
     # config.mouse['default'] = [("images/interface/cursor.webp", 0, 0)]
 
@@ -50,8 +52,6 @@ init python:
     config.rollback_enabled = True
     config.rollback_length = 512
     config.hard_rollback_limit = 512
-
-    config.keymap["rollback"].remove("mousedown_4")
 
     config.default_music_volume = 0.4
     config.default_sfx_volume = 0.25
@@ -74,5 +74,3 @@ init python:
 
     build.documentation("*.html")
     build.documentation("*.txt")
-
-    config.main_menu_music = "sounds/music/Main Theme.ogg"

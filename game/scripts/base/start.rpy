@@ -12,10 +12,6 @@ init -2:
     default season_day = 1
 
 label splashscreen:
-    $ renpy.start_predict("images/interface/*.webp")
-    $ renpy.start_predict("images/interface/*/*.webp")
-    $ renpy.start_predict("images/interface/*/*/*.webp")
-    $ renpy.start_predict("images/effects/*.webp")
     $ renpy.start_predict("characters/Player/images/*.webp")
 
     $ check_predicted_images()
@@ -53,6 +49,8 @@ label splashscreen:
     return
 
 label start:
+    $ config.keymap["rollback"].remove("mousedown_4")
+
     $ save_name = "Prologue"
 
     $ _skipping = False
@@ -119,13 +117,7 @@ label after_load:
     return
 
 label get_ready:
-    $ renpy.start_predict("images/interface/*.webp")
-    $ renpy.start_predict("images/interface/*/*.webp")
-    $ renpy.start_predict("images/interface/*/*/*.webp")
-    $ renpy.start_predict("images/effects/*.webp")
     $ renpy.start_predict("characters/Player/images/*.webp")
-
-    # $ renpy.pause(hard = True, predict = True)
 
     $ renpy.dynamic(temp_Characters = all_Characters[:])
 

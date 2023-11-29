@@ -124,6 +124,11 @@ label request_hookup(Character):
     return
 
 label request_Action(Action_type, Actors, Targets):
+    if Action_type in cock_Action_types and not Player.stamina:
+        "Looks like you're running on empty - maybe give yourself a break."
+
+        return
+
     $ temp_speed = speed
     $ temp_intensity = intensity
 

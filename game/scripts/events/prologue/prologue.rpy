@@ -23,8 +23,9 @@ label prologue:
     $ renpy.pause(1.6, hard = True)
 
     show background zorder 0
-    show midground zorder 2
-    show foreground zorder 4
+    show top_bar zorder 1
+    show midground zorder 3
+    show foreground zorder 5
     show cover1 zorder 97
     show cover2 zorder 98
     show bottom_bar zorder 99

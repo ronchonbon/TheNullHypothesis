@@ -5,6 +5,7 @@ init python:
 
         conditions = [
             "Rogue.location not in ['hold', Player.location, Player.destination]",
+            "'bg_girls_hallway' not in [Player.location, Player.destination]",
 
             "renpy.random.random() > 0.75",
 
@@ -272,6 +273,7 @@ init python:
 
         conditions = [
             "Rogue.location not in ['hold', Player.location, Player.destination]",
+            "'bg_classroom' not in [Player.location, Player.destination]",
             
             "renpy.random.random() > 0.75",
 
