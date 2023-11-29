@@ -12,17 +12,11 @@ init -2:
     default season_day = 1
 
 label splashscreen:
-    $ renpy.start_predict("images/backgrounds/base/*.webp")
     $ renpy.start_predict("images/interface/*.webp")
     $ renpy.start_predict("images/interface/*/*.webp")
     $ renpy.start_predict("images/interface/*/*/*.webp")
     $ renpy.start_predict("images/effects/*.webp")
     $ renpy.start_predict("characters/Player/images/*.webp")
-
-    python:
-        for C in all_Characters:
-            if f"bg_{C.tag}" in bedrooms:
-                renpy.start_predict(f"characters/{C.tag}/images/bedroom/*.webp")
 
     $ check_predicted_images()
 
@@ -125,26 +119,20 @@ label after_load:
     return
 
 label get_ready:
-    $ renpy.start_predict("images/backgrounds/base/*.webp")
     $ renpy.start_predict("images/interface/*.webp")
     $ renpy.start_predict("images/interface/*/*.webp")
     $ renpy.start_predict("images/interface/*/*/*.webp")
     $ renpy.start_predict("images/effects/*.webp")
     $ renpy.start_predict("characters/Player/images/*.webp")
 
-    python:
-        for C in all_Characters:
-            if f"bg_{C.tag}" in bedrooms:
-                renpy.start_predict(f"characters/{C.tag}/images/bedroom/*.webp")
-
     # $ renpy.pause(hard = True, predict = True)
 
-    $ temp_all_Characters = all_Characters[:]
+    $ renpy.dynamic(temp_Characters = all_Characters[:])
 
-    while temp_all_Characters:
-        call expression f"update_{temp_all_Characters[0].tag}" from _call_expression_102
+    while temp_Characters:
+        call expression f"update_{temp_Characters[0].tag}" from _call_expression_102
 
-        $ temp_all_Characters.remove(temp_all_Characters[0])
+        $ temp_Characters.remove(temp_Characters[0])
 
     $ check_predicted_images(loading = True)
     

@@ -119,73 +119,74 @@ label sleepover(Characters):
 
     $ Characters = sort_Characters_by_approval(Characters[:])[:]
 
-    $ temp_sleeping_Characters = Characters[:]
+    $ renpy.dynamic(temp_Characters = Characters[:])
 
     python:
-        for C in temp_sleeping_Characters:
-            if Player.location == C.home:
-                temp_sleeping_Characters.remove(C)
-                temp_sleeping_Characters.insert(0, C)
+        for C in all_Characters:
+            if C in temp_Characters:
+                if Player.location == C.home:
+                    temp_Characters.remove(C)
+                    temp_Characters.insert(0, C)
 
     $ sleeping_Characters = []
 
     $ also_leaving = False
 
-    while temp_sleeping_Characters:
-        if temp_sleeping_Characters[0] in all_Companions:    
-            $ status = temp_sleeping_Characters[0].get_status()
+    while temp_Characters:
+        if temp_Characters[0] in all_Companions:    
+            $ status = temp_Characters[0].get_status()
 
             if status:
-                call expression f"{temp_sleeping_Characters[0].tag}_getting_late_{status}" from _call_expression_270
-            elif approval_check(temp_sleeping_Characters[0], threshold = "love"):
-                call expression f"{temp_sleeping_Characters[0].tag}_getting_late_love" from _call_expression_271
-            elif temp_sleeping_Characters[0] in Partners:
-                call expression f"{temp_sleeping_Characters[0].tag}_getting_late_relationship" from _call_expression_272
+                call expression f"{temp_Characters[0].tag}_getting_late_{status}" from _call_expression_270
+            elif approval_check(temp_Characters[0], threshold = "love"):
+                call expression f"{temp_Characters[0].tag}_getting_late_love" from _call_expression_271
+            elif temp_Characters[0] in Partners:
+                call expression f"{temp_Characters[0].tag}_getting_late_relationship" from _call_expression_272
             else:
-                call expression f"{temp_sleeping_Characters[0].tag}_getting_late" from _call_expression_273
+                call expression f"{temp_Characters[0].tag}_getting_late" from _call_expression_273
 
             $ option = None
 
             menu:
                 extend ""
-                "Do you want to sleep over tonight?" if temp_sleeping_Characters[0] in Partners and Player.location == Player.home and not sleeping_Characters:
+                "Do you want to sleep over tonight?" if temp_Characters[0] in Partners and Player.location == Player.home and not sleeping_Characters:
                     $ option = "sleepover"
-                "Can I sleep over tonight?" if temp_sleeping_Characters[0] in Partners and Player.location == temp_sleeping_Characters[0].home:
+                "Can I sleep over tonight?" if temp_Characters[0] in Partners and Player.location == temp_Characters[0].home:
                     $ option = "sleepover"
-                "Did you also want to sleep over, [temp_sleeping_Characters[0].name]?" if temp_sleeping_Characters[0] in Partners and sleeping_Characters:
+                "Did you also want to sleep over, [temp_Characters[0].name]?" if temp_Characters[0] in Partners and sleeping_Characters:
                     $ option = "sleepover"
-                "Goodnight, [temp_sleeping_Characters[0].name].":
+                "Goodnight, [temp_Characters[0].name].":
                     $ option = "goodnight"
 
             if option == "sleepover":
-                $ status = temp_sleeping_Characters[0].get_status()
+                $ status = temp_Characters[0].get_status()
 
                 if status:
-                    call expression f"{temp_sleeping_Characters[0].tag}_asked_to_sleepover_{status}" pass (sleeping_Characters = sleeping_Characters) from _call_expression_274
-                elif approval_check(temp_sleeping_Characters[0], threshold = "love"):
-                    call expression f"{temp_sleeping_Characters[0].tag}_asked_to_sleepover_love" pass (sleeping_Characters = sleeping_Characters) from _call_expression_275
-                elif temp_sleeping_Characters[0] in Partners:
-                    call expression f"{temp_sleeping_Characters[0].tag}_asked_to_sleepover_relationship" pass (sleeping_Characters = sleeping_Characters) from _call_expression_276
+                    call expression f"{temp_Characters[0].tag}_asked_to_sleepover_{status}" pass (sleeping_Characters = sleeping_Characters) from _call_expression_274
+                elif approval_check(temp_Characters[0], threshold = "love"):
+                    call expression f"{temp_Characters[0].tag}_asked_to_sleepover_love" pass (sleeping_Characters = sleeping_Characters) from _call_expression_275
+                elif temp_Characters[0] in Partners:
+                    call expression f"{temp_Characters[0].tag}_asked_to_sleepover_relationship" pass (sleeping_Characters = sleeping_Characters) from _call_expression_276
                 else:
-                    call expression f"{temp_sleeping_Characters[0].tag}_asked_to_sleepover" pass (sleeping_Characters = sleeping_Characters) from _call_expression_277
+                    call expression f"{temp_Characters[0].tag}_asked_to_sleepover" pass (sleeping_Characters = sleeping_Characters) from _call_expression_277
 
                 if not _return:
                     $ option = "rejected"
             elif option == "goodnight":
                 $ temp_friend_Characters = sleeping_Characters[:]
-                $ temp_friend_Characters.append(temp_sleeping_Characters[0])
+                $ temp_friend_Characters.append(temp_Characters[0])
 
-                $ status = temp_sleeping_Characters[0].get_status()
+                $ status = temp_Characters[0].get_status()
 
-                if are_Characters_in_Partners(temp_sleeping_Characters) and approval_check(temp_sleeping_Characters[0], threshold = "sleepover") and (are_Characters_friends(temp_friend_Characters) or renpy.random.random() > 0.5):
+                if are_Characters_in_Partners(temp_Characters) and approval_check(temp_Characters[0], threshold = "sleepover") and (are_Characters_friends(temp_friend_Characters) or renpy.random.random() > 0.5):
                     if status:
-                        call expression f"{temp_sleeping_Characters[0].tag}_request_sleepover_{status}" pass (sleeping_Characters = sleeping_Characters) from _call_expression_278
-                    elif approval_check(temp_sleeping_Characters[0], threshold = "love"):
-                        call expression f"{temp_sleeping_Characters[0].tag}_request_sleepover_love" pass (sleeping_Characters = sleeping_Characters) from _call_expression_279
-                    elif temp_sleeping_Characters[0] in Partners:
-                        call expression f"{temp_sleeping_Characters[0].tag}_request_sleepover_relationship" pass (sleeping_Characters = sleeping_Characters) from _call_expression_280
+                        call expression f"{temp_Characters[0].tag}_request_sleepover_{status}" pass (sleeping_Characters = sleeping_Characters) from _call_expression_278
+                    elif approval_check(temp_Characters[0], threshold = "love"):
+                        call expression f"{temp_Characters[0].tag}_request_sleepover_love" pass (sleeping_Characters = sleeping_Characters) from _call_expression_279
+                    elif temp_Characters[0] in Partners:
+                        call expression f"{temp_Characters[0].tag}_request_sleepover_relationship" pass (sleeping_Characters = sleeping_Characters) from _call_expression_280
                     else:
-                        call expression f"{temp_sleeping_Characters[0].tag}_request_sleepover" pass (sleeping_Characters = sleeping_Characters) from _call_expression_281
+                        call expression f"{temp_Characters[0].tag}_request_sleepover" pass (sleeping_Characters = sleeping_Characters) from _call_expression_281
 
                     if not _return:
                         $ option = "rejected"
@@ -193,23 +194,23 @@ label sleepover(Characters):
                         $ option = "sleepover"
                 else:
                     if status:
-                        call expression f"{temp_sleeping_Characters[0].tag}_goodnight_{status}" pass (sleeping_Characters = sleeping_Characters, also_leaving = also_leaving) from _call_expression_282
-                    elif approval_check(temp_sleeping_Characters[0], threshold = "love"):
-                        call expression f"{temp_sleeping_Characters[0].tag}_goodnight_love" pass (sleeping_Characters = sleeping_Characters, also_leaving = also_leaving) from _call_expression_283
-                    elif temp_sleeping_Characters[0] in Partners:
-                        call expression f"{temp_sleeping_Characters[0].tag}_goodnight_relationship" pass (sleeping_Characters = sleeping_Characters, also_leaving = also_leaving) from _call_expression_284
+                        call expression f"{temp_Characters[0].tag}_goodnight_{status}" pass (sleeping_Characters = sleeping_Characters, also_leaving = also_leaving) from _call_expression_282
+                    elif approval_check(temp_Characters[0], threshold = "love"):
+                        call expression f"{temp_Characters[0].tag}_goodnight_love" pass (sleeping_Characters = sleeping_Characters, also_leaving = also_leaving) from _call_expression_283
+                    elif temp_Characters[0] in Partners:
+                        call expression f"{temp_Characters[0].tag}_goodnight_relationship" pass (sleeping_Characters = sleeping_Characters, also_leaving = also_leaving) from _call_expression_284
                     else:
-                        call expression f"{temp_sleeping_Characters[0].tag}_goodnight" pass (sleeping_Characters = sleeping_Characters, also_leaving = also_leaving) from _call_expression_285
+                        call expression f"{temp_Characters[0].tag}_goodnight" pass (sleeping_Characters = sleeping_Characters, also_leaving = also_leaving) from _call_expression_285
         else:
-            call expression f"{temp_sleeping_Characters[0].tag}_leaves" from _call_expression_286
+            call expression f"{temp_Characters[0].tag}_leaves" from _call_expression_286
 
-        if option in ["goodnight", "rejected"] and Player.location == temp_sleeping_Characters[0].home:
+        if option in ["goodnight", "rejected"] and Player.location == temp_Characters[0].home:
             call move_location(Player.home) from _call_move_location_46
         elif option in ["goodnight", "rejected"]:
-            call send_Characters(temp_sleeping_Characters[0], temp_sleeping_Characters[0].home) from _call_send_Characters_228
+            call send_Characters(temp_Characters[0], temp_Characters[0].home) from _call_send_Characters_228
 
             $ also_leaving = True
                 
-        $ temp_sleeping_Characters.remove(temp_sleeping_Characters[0])
+        $ temp_Characters.remove(temp_Characters[0])
 
     return

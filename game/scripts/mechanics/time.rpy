@@ -114,7 +114,7 @@ label wait_around(fade = True, silent = False, Events = True):
     if time_index < 3:
         $ time_index += 1
 
-        $ temp_weather = weather
+        $ renpy.dynamic(temp_weather = weather)
 
         $ set_weather()
 
@@ -246,15 +246,15 @@ label start_new_day(fast = False):
 
     $ update_messages = []
 
-    $ temp_ignored_Companions = all_Companions[:]
+    $ renpy.dynamic(temp_Characters = all_Companions[:])
 
-    while temp_ignored_Companions:
-        if temp_ignored_Companions[0].timed_text_options:
-            $ temp_ignored_Companions[0].timed_text_options = {}
+    while temp_Characters:
+        if temp_Characters[0].timed_text_options:
+            $ temp_Characters[0].timed_text_options = {}
 
-            call change_Girl_stat(temp_ignored_Companions[0], "love", -5) from _call_change_Girl_stat_1038
+            call change_Girl_stat(temp_Characters[0], "love", -5) from _call_change_Girl_stat_1038
 
-        $ temp_ignored_Companions.remove(temp_ignored_Companions[0])
+        $ temp_Characters.remove(temp_Characters[0])
 
     $ clock = Player.max_stamina
     

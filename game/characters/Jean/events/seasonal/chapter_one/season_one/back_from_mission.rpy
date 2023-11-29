@@ -20,7 +20,7 @@ init python:
 label Jean_back_from_mission:
     $ ongoing_Event = True
     
-    $ temp_destination = Player.destination
+    $ renpy.dynamic(temp_destination = Player.destination)
 
     "As you exit the dorms, a voice pops into your head."
 

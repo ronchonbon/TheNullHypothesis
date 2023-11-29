@@ -15,9 +15,9 @@ init python:
     config.default_fullscreen = True
 
     if renpy.android:
-        config.image_cache_size = 100
+        config.image_cache_size = 75
     else:
-        config.image_cache_size = 300
+        config.image_cache_size = 200
 
     config.cache_surfaces = False
     config.optimize_texture_bounds = True

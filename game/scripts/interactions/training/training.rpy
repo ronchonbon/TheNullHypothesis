@@ -8,12 +8,12 @@ label train:
 
     menu:
         "Train on your own":
-            $ temp_training_Characters = Present[:]
+            $ renpy.dynamic(temp_Characters = Present[:])
 
-            while temp_training_Characters:
-                call remove_Characters(temp_training_Characters[0]) from _call_remove_Characters_237
+            while temp_Characters:
+                call remove_Characters(temp_Characters[0]) from _call_remove_Characters_237
 
-                $ temp_training_Characters.remove(temp_training_Characters[0])
+                $ temp_Characters.remove(temp_Characters[0])
 
             $ _return = True
         "Train with [Rogue.name]" if not Rogue.History.check("trained_with_Player", tracker = "daily") and Rogue in Present and not Rogue.History.check("said_no_to_training", tracker = "recent") > 2:

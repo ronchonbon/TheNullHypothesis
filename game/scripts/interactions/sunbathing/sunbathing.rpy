@@ -4,28 +4,28 @@ label sunbathe:
 
     $ Player.behavior = "sunbathing"
     
-    $ temp_sunbathing_Characters = Present[:]
+    $ renpy.dynamic(temp_Characters = Present[:])
 
     python:
         for C in all_NPCs:
-            if C in temp_sunbathing_Characters:
-                temp_sunbathing_Characters.remove(C)
+            if C in temp_Characters:
+                temp_Characters.remove(C)
 
-    if temp_sunbathing_Characters:
-        if len(temp_sunbathing_Characters) > 1:
+    if temp_Characters:
+        if len(temp_Characters) > 1:
             ch_Player "Do you all want to sunbathe?"
         else:
-            ch_Player "Want to sunbathe, [temp_sunbathing_Characters[0].name]?"
+            ch_Player "Want to sunbathe, [temp_Characters[0].name]?"
 
-    $ stable_sunbathing_Characters = temp_sunbathing_Characters[:]
+    $ stable_sunbathing_Characters = temp_Characters[:]
 
-    while temp_sunbathing_Characters:
-        call ask_to_sunbathe(temp_sunbathing_Characters[0]) from _call_ask_to_sunbathe
+    while temp_Characters:
+        call ask_to_sunbathe(temp_Characters[0]) from _call_ask_to_sunbathe
 
         if not _return:
-            $ stable_sunbathing_Characters.remove(temp_sunbathing_Characters[0])
+            $ stable_sunbathing_Characters.remove(temp_Characters[0])
 
-        $ temp_sunbathing_Characters.remove(temp_sunbathing_Characters[0])
+        $ temp_Characters.remove(temp_Characters[0])
 
     call actually_sunbathe(stable_sunbathing_Characters) from _call_actually_sunbathe
         

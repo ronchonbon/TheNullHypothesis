@@ -34,28 +34,23 @@ label Jean_enjoying_being_girlfriend:
 
     $ Jean.change_face("smirk2", eyes = "closed")
 
-    $ temp_Characters = Present[:]
-    $ temp_Characters.remove(Jean)
-
-    while temp_Characters:
-        if temp_Characters[0] in all_Companions:
-            $ temp_Characters[0].change_face("confused2")
-        else:
-            $ temp_Characters[0].change_face("confused")
-
-        $ temp_Characters.remove(temp_Characters[0])
+    python:
+        for C in Present:
+            if C != Jean:
+                if C in all_Companions:
+                    C.change_face("confused2")
+                else:
+                    C.change_face("confused")
         
     "Before you can even react, [Jean.name] smothers you with a hug."
 
     $ Jean.change_face("smirk2", eyes = "closed", blush = 1)
 
-    $ temp_Characters = Present[:]
-    $ temp_Characters.remove(Jean)
-
-    while temp_Characters:
-        $ temp_Characters[0].change_face("confused1", blush = 1)
-
-        $ temp_Characters.remove(temp_Characters[0])
+    python:
+        for C in Present:
+            if C != Jean:
+                if C in all_Companions:
+                    C.change_face("confused1", blush = 1)
         
     ch_Jean "Mmm. . ."
     "[Jean.name] just squeezes harder, thoroughly enjoying the moment."

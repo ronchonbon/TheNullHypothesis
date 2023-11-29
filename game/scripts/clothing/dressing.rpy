@@ -160,12 +160,12 @@ label set_Outfit_flags(Character, Outfit = None, hypothetical = False):
                     # else:
                     #     Character.Outfit.shame += Character.Clothes[C_type].shame[1]
     
-        $ temp_parts = ["bra", "breasts", "back", "belly", "thighs", "underwear", "ass", "pussy", "anus", "feet"]
+        $ renpy.dynamic(temp_body_parts = ["bra", "breasts", "back", "belly", "thighs", "underwear", "ass", "pussy", "anus", "feet"])
 
-        while temp_parts:
-            if temp_parts[0] not in ["bra", "underwear"] or Character.Clothes[temp_parts[0]].string:
-                $ exec(f"Character.{temp_parts[0]}_covered = False")
-                $ exec(f"Character.{temp_parts[0]}_hidden = False")
+        while temp_body_parts:
+            if temp_body_parts[0] not in ["bra", "underwear"] or Character.Clothes[temp_body_parts[0]].string:
+                $ exec(f"Character.{temp_body_parts[0]}_covered = False")
+                $ exec(f"Character.{temp_body_parts[0]}_hidden = False")
 
                 $ covered = False
                 $ hidden = False
@@ -174,32 +174,31 @@ label set_Outfit_flags(Character, Outfit = None, hypothetical = False):
                     for C_type in all_Clothing_types:
                         if Character.Clothes[C_type].string:
                             if Character.position in Character.Clothes[C_type].covers.keys():
-                                if temp_parts[0] in Character.Clothes[C_type].covers[Character.position].keys() and Character.Clothes[C_type].state in Character.Clothes[C_type].covers[Character.position][temp_parts[0]]:
-                                    exec(f"Character.{temp_parts[0]}_covered = True")
+                                if temp_body_parts[0] in Character.Clothes[C_type].covers[Character.position].keys() and Character.Clothes[C_type].state in Character.Clothes[C_type].covers[Character.position][temp_body_parts[0]]:
+                                    exec(f"Character.{temp_body_parts[0]}_covered = True")
 
                                     covered = True
 
                             if Character.position in Character.Clothes[C_type].hides.keys():
-                                if temp_parts[0] in Character.Clothes[C_type].hides[Character.position].keys() and Character.Clothes[C_type].state in Character.Clothes[C_type].hides[Character.position][temp_parts[0]]:
-                                    exec(f"Character.{temp_parts[0]}_hidden = True")
+                                if temp_body_parts[0] in Character.Clothes[C_type].hides[Character.position].keys() and Character.Clothes[C_type].state in Character.Clothes[C_type].hides[Character.position][temp_body_parts[0]]:
+                                    exec(f"Character.{temp_body_parts[0]}_hidden = True")
 
                                     hidden = True
                 
                 # if not covered:
-                #     $ Character.Outfit.shame += eval(f"{Character.tag}_Outfit_shame['{temp_parts[0]}_exposed']")
+                #     $ Character.Outfit.shame += eval(f"{Character.tag}_Outfit_shame['{temp_body_parts[0]}_exposed']")
                 # elif not hidden:
-                #     $ Character.Outfit.shame += eval(f"{Character.tag}_Outfit_shame['{temp_parts[0]}_visible']")
+                #     $ Character.Outfit.shame += eval(f"{Character.tag}_Outfit_shame['{temp_body_parts[0]}_visible']")
 
                 if not hypothetical and not black_screen and renpy.showing(f"{Character.tag}_sprite"):
                     if not hidden and Character.location != "hold" and Character.location == Player.location:
-                        if temp_parts[0] in ["bra", "breasts", "underwear", "ass", "pussy", "anus"]:
-                            if day - EventScheduler.Events[f"{Character.tag}_seen_{temp_parts[0]}"].completed_when != 0:
-                                $ EventScheduler.Events[f"{Character.tag}_seen_{temp_parts[0]}"].start()
+                        if temp_body_parts[0] in ["bra", "breasts", "underwear", "ass", "pussy", "anus"]:
+                            if day - EventScheduler.Events[f"{Character.tag}_seen_{temp_body_parts[0]}"].completed_when != 0:
+                                $ EventScheduler.Events[f"{Character.tag}_seen_{temp_body_parts[0]}"].start()
 
-                        $ Character.History.update(f"seen_{temp_parts[0]}")
+                        $ Character.History.update(f"seen_{temp_body_parts[0]}")
 
-            if temp_parts:
-                $ temp_parts.remove(temp_parts[0])
+            $ temp_body_parts.remove(temp_body_parts[0])
     else:
         $ Outfit.shame = 0
 
@@ -222,12 +221,12 @@ label set_Outfit_flags(Character, Outfit = None, hypothetical = False):
                     # else:
                     #     Outfit.shame += Outfit.Clothes[C_type].shame[1]
     
-        $ temp_parts = ["bra", "breasts", "back", "belly", "thighs", "underwear", "ass", "pussy", "anus", "feet"]
+        $ renpy.dynamic(temp_body_parts = ["bra", "breasts", "back", "belly", "thighs", "underwear", "ass", "pussy", "anus", "feet"])
 
-        while temp_parts:
-            if temp_parts[0] not in ["bra", "underwear"] or Outfit.Clothes[temp_parts[0]].string:
-                $ exec(f"Outfit.{temp_parts[0]}_covered = False")
-                $ exec(f"Outfit.{temp_parts[0]}_hidden = False")
+        while temp_body_parts:
+            if temp_body_parts[0] not in ["bra", "underwear"] or Outfit.Clothes[temp_body_parts[0]].string:
+                $ exec(f"Outfit.{temp_body_parts[0]}_covered = False")
+                $ exec(f"Outfit.{temp_body_parts[0]}_hidden = False")
 
                 $ covered = False
                 $ hidden = False
@@ -236,24 +235,23 @@ label set_Outfit_flags(Character, Outfit = None, hypothetical = False):
                     for C_type in all_Clothing_types:
                         if Outfit.Clothes[C_type].string:
                             if Character.position in Outfit.Clothes[C_type].covers.keys():
-                                if temp_parts[0] in Outfit.Clothes[C_type].covers[Character.position].keys() and Outfit.Clothes[C_type].state in Outfit.Clothes[C_type].covers[Character.position][temp_parts[0]]:
-                                    exec(f"Outfit.{temp_parts[0]}_covered = True")
+                                if temp_body_parts[0] in Outfit.Clothes[C_type].covers[Character.position].keys() and Outfit.Clothes[C_type].state in Outfit.Clothes[C_type].covers[Character.position][temp_body_parts[0]]:
+                                    exec(f"Outfit.{temp_body_parts[0]}_covered = True")
 
                                     covered = True
 
                             if Character.position in Outfit.Clothes[C_type].hides.keys():
-                                if temp_parts[0] in Outfit.Clothes[C_type].hides[Character.position].keys() and Outfit.Clothes[C_type].state in Outfit.Clothes[C_type].hides[Character.position][temp_parts[0]]:
-                                    exec(f"Outfit.{temp_parts[0]}_hidden = True")
+                                if temp_body_parts[0] in Outfit.Clothes[C_type].hides[Character.position].keys() and Outfit.Clothes[C_type].state in Outfit.Clothes[C_type].hides[Character.position][temp_body_parts[0]]:
+                                    exec(f"Outfit.{temp_body_parts[0]}_hidden = True")
 
                                     hidden = True
                 
                 # if not covered:
-                #     $ Outfit.shame += eval(f"{Character.tag}_Outfit_shame['{temp_parts[0]}_exposed']")
+                #     $ Outfit.shame += eval(f"{Character.tag}_Outfit_shame['{temp_body_parts[0]}_exposed']")
                 # elif not hidden:
-                #     $ Outfit.shame += eval(f"{Character.tag}_Outfit_shame['{temp_parts[0]}_visible']")
+                #     $ Outfit.shame += eval(f"{Character.tag}_Outfit_shame['{temp_body_parts[0]}_visible']")
 
-            if temp_parts:
-                $ temp_parts.remove(temp_parts[0])
+            $ temp_body_parts.remove(temp_body_parts[0])
                 
     return
 
@@ -360,7 +358,7 @@ label try_on(Character, Clothing, redress = True, instant = False, final = True)
         for C in Character.Clothes.keys():
             temp_trying_on_Clothes[C] = copy.copy(Character.Clothes[C])
 
-    $ temp_Clothing_types = removable_Clothing_types[:]
+    $ renpy.dynamic(temp_Clothing_types = removable_Clothing_types[:])
 
     while temp_Clothing_types:
         if Character.Clothes[temp_Clothing_types[0]].string:
@@ -375,43 +373,42 @@ label try_on(Character, Clothing, redress = True, instant = False, final = True)
 
         $ temp_Clothing_types.remove(temp_Clothing_types[0])
 
-    $ temp_trying_on_Clothing_types = list(reversed(removable_Clothing_types))[:]
+    $ renpy.dynamic(temp_Clothing_types = list(reversed(removable_Clothing_types))[:])
 
-    while temp_trying_on_Clothing_types:
-        if Character.Clothes[temp_trying_on_Clothing_types[0]].string:
-            if Character.Clothes[temp_trying_on_Clothing_types[0]].string in Clothing.blocked_by.keys():
-                if Character.Clothes[temp_trying_on_Clothing_types[0]].undressed_states[Character.position] in Clothing.blocked_by[Character.Clothes[temp_trying_on_Clothing_types[0]].string]:
-                    call undress(Character, Character.Clothes[temp_trying_on_Clothing_types[0]].Clothing_type, instant = instant, final = False) from _call_undress
+    while temp_Clothing_types:
+        if Character.Clothes[temp_Clothing_types[0]].string:
+            if Character.Clothes[temp_Clothing_types[0]].string in Clothing.blocked_by.keys():
+                if Character.Clothes[temp_Clothing_types[0]].undressed_states[Character.position] in Clothing.blocked_by[Character.Clothes[temp_Clothing_types[0]].string]:
+                    call undress(Character, Character.Clothes[temp_Clothing_types[0]].Clothing_type, instant = instant, final = False) from _call_undress
 
-                    $ Character.Clothes[temp_trying_on_Clothing_types[0]] = null_Clothing
+                    $ Character.Clothes[temp_Clothing_types[0]] = null_Clothing
         
                     if not instant:
                         call set_Outfit_flags(Character) from _call_set_Outfit_flags_8
 
                         $ renpy.pause(0.15, hard = True)
                 else:
-                    call undress(Character, Character.Clothes[temp_trying_on_Clothing_types[0]].Clothing_type, instant = instant, final = False) from _call_undress_1
+                    call undress(Character, Character.Clothes[temp_Clothing_types[0]].Clothing_type, instant = instant, final = False) from _call_undress_1
 
-        if temp_trying_on_Clothing_types:
-            $ temp_trying_on_Clothing_types.remove(temp_trying_on_Clothing_types[0])
+        $ temp_Clothing_types.remove(temp_Clothing_types[0])
 
-    $ temp_trying_on_Clothings = list(temp_trying_on_Clothes.values())[:]
+    $ renpy.dynamic(temp_Clothes = list(temp_trying_on_Clothes.values())[:])
 
-    while temp_trying_on_Clothings:
-        if Clothing.string in temp_trying_on_Clothings[0].incompatibilities or temp_trying_on_Clothings[0].string in Clothing.incompatibilities:
-            if Character.Clothes[temp_trying_on_Clothings[0].Clothing_type].string:
-                call undress(Character, temp_trying_on_Clothings[0].Clothing_type, instant = instant, final = False) from _call_undress_2
+    while temp_Clothes:
+        if Clothing.string in temp_Clothes[0].incompatibilities or temp_Clothes[0].string in Clothing.incompatibilities:
+            if Character.Clothes[temp_Clothes[0].Clothing_type].string:
+                call undress(Character, temp_Clothes[0].Clothing_type, instant = instant, final = False) from _call_undress_2
 
-                $ Character.Clothes[temp_trying_on_Clothings[0].Clothing_type] = null_Clothing
+                $ Character.Clothes[temp_Clothes[0].Clothing_type] = null_Clothing
 
                 if not instant:
                     call set_Outfit_flags(Character) from _call_set_Outfit_flags_9
 
                     $ renpy.pause(0.15, hard = True)
 
-            $ temp_trying_on_Clothes[temp_trying_on_Clothings[0].Clothing_type] = null_Clothing
+            $ temp_trying_on_Clothes[temp_Clothes[0].Clothing_type] = null_Clothing
 
-        $ temp_trying_on_Clothings.remove(temp_trying_on_Clothings[0])
+        $ temp_Clothes.remove(temp_Clothes[0])
 
     if Character.Clothes[Clothing.Clothing_type].name and Clothing.Clothing_type in removable_Clothing_types:
         call undress(Character, Clothing.Clothing_type, instant = instant, final = False) from _call_undress_3
@@ -468,24 +465,24 @@ label take_off(Character, Clothing_type_to_take_off, redress = True, instant = F
         for C in Character.Clothes.keys():
             temp_taking_off_Clothes[C] = copy.copy(Character.Clothes[C])
 
-    $ temp_taking_off_Clothing_types = list(reversed(removable_Clothing_types))[:]
+    $ renpy.dynamic(temp_Clothing_types = list(reversed(removable_Clothing_types))[:])
 
-    while temp_taking_off_Clothing_types:
-        if Character.Clothes[temp_taking_off_Clothing_types[0]].string:
-            if Character.Clothes[temp_taking_off_Clothing_types[0]].string in Character.Clothes[Clothing_type_to_take_off].blocked_by.keys():
-                if Character.Clothes[temp_taking_off_Clothing_types[0]].undressed_states[Character.position] in Character.Clothes[Clothing_type_to_take_off].blocked_by[Character.Clothes[temp_taking_off_Clothing_types[0]].string]:
-                    call undress(Character, Character.Clothes[temp_taking_off_Clothing_types[0]].Clothing_type, instant = instant, final = False) from _call_undress_4
+    while temp_Clothing_types:
+        if Character.Clothes[temp_Clothing_types[0]].string:
+            if Character.Clothes[temp_Clothing_types[0]].string in Character.Clothes[Clothing_type_to_take_off].blocked_by.keys():
+                if Character.Clothes[temp_Clothing_types[0]].undressed_states[Character.position] in Character.Clothes[Clothing_type_to_take_off].blocked_by[Character.Clothes[temp_Clothing_types[0]].string]:
+                    call undress(Character, Character.Clothes[temp_Clothing_types[0]].Clothing_type, instant = instant, final = False) from _call_undress_4
 
-                    $ Character.Clothes[temp_taking_off_Clothing_types[0]] = null_Clothing
+                    $ Character.Clothes[temp_Clothing_types[0]] = null_Clothing
         
                     if not instant:
                         call set_Outfit_flags(Character) from _call_set_Outfit_flags_13
 
                         $ renpy.pause(0.15, hard = True)
                 else:
-                    call undress(Character, Character.Clothes[temp_taking_off_Clothing_types[0]].Clothing_type, instant = instant, final = False) from _call_undress_5
+                    call undress(Character, Character.Clothes[temp_Clothing_types[0]].Clothing_type, instant = instant, final = False) from _call_undress_5
 
-        $ temp_taking_off_Clothing_types.remove(temp_taking_off_Clothing_types[0])
+        $ temp_Clothing_types.remove(temp_Clothing_types[0])
 
     call undress(Character, Clothing_type_to_take_off, instant = instant, final = False) from _call_undress_6
 
@@ -497,23 +494,23 @@ label take_off(Character, Clothing_type_to_take_off, redress = True, instant = F
         $ renpy.pause(0.15, hard = True)
 
     if redress:
-        $ temp_redressing_Clothing_types = removable_Clothing_types[:]
+        $ renpy.dynamic(temp_Clothing_types = removable_Clothing_types[:])
 
-        while temp_redressing_Clothing_types:
-            if temp_redressing_Clothing_types[0] != Clothing_type_to_take_off:
-                if temp_taking_off_Clothes[temp_redressing_Clothing_types[0]].string:
-                    if not Character.Clothes[temp_redressing_Clothing_types[0]].string:
-                        $ temp_taking_off_Clothes[temp_redressing_Clothing_types[0]].state = temp_taking_off_Clothes[temp_redressing_Clothing_types[0]].undressed_states[Character.position]
-                        $ Character.Clothes[temp_redressing_Clothing_types[0]] = temp_taking_off_Clothes[temp_redressing_Clothing_types[0]]
+        while temp_Clothing_types:
+            if temp_Clothing_types[0] != Clothing_type_to_take_off:
+                if temp_taking_off_Clothes[temp_Clothing_types[0]].string:
+                    if not Character.Clothes[temp_Clothing_types[0]].string:
+                        $ temp_taking_off_Clothes[temp_Clothing_types[0]].state = temp_taking_off_Clothes[temp_Clothing_types[0]].undressed_states[Character.position]
+                        $ Character.Clothes[temp_Clothing_types[0]] = temp_taking_off_Clothes[temp_Clothing_types[0]]
                         
                         if not instant:
                             call set_Outfit_flags(Character) from _call_set_Outfit_flags_15
 
                             $ renpy.pause(0.15, hard = True)
 
-                        call put_on(Character, temp_redressing_Clothing_types[0], instant = instant, final = False) from _call_put_on_2
+                        call put_on(Character, temp_Clothing_types[0], instant = instant, final = False) from _call_put_on_2
 
-            $ temp_redressing_Clothing_types.remove(temp_redressing_Clothing_types[0])
+            $ temp_Clothing_types.remove(temp_Clothing_types[0])
 
     if final:
         call set_Outfit_flags(Character) from _call_set_Outfit_flags_31
@@ -530,31 +527,31 @@ label take_off_everything_but(Character, Clothing_types, instant = False, final 
         for C in Character.Clothes.keys():
             temp_take_off_everything_but_Clothes[C] = copy.copy(Character.Clothes[C])
 
-    $ temp_all_Clothing_types = list(reversed(removable_Clothing_types))[:]
+    $ renpy.dynamic(temp_Clothing_types = list(reversed(removable_Clothing_types))[:])
 
-    while temp_all_Clothing_types:
-        if temp_all_Clothing_types[0] not in Clothing_types:
-            call take_off(Character, temp_all_Clothing_types[0], redress = False, instant = instant, final = False) from _call_take_off_8
+    while temp_Clothing_types:
+        if temp_Clothing_types[0] not in Clothing_types:
+            call take_off(Character, temp_Clothing_types[0], redress = False, instant = instant, final = False) from _call_take_off_8
 
-        $ temp_all_Clothing_types.remove(temp_all_Clothing_types[0])
+        $ temp_Clothing_types.remove(temp_Clothing_types[0])
 
-    $ temp_all_Clothing_types = removable_Clothing_types[:]
+    $ renpy.dynamic(temp_Clothing_types = removable_Clothing_types[:])
 
-    while temp_all_Clothing_types:
-        if temp_all_Clothing_types[0] in Clothing_types:
-            if temp_take_off_everything_but_Clothes[temp_all_Clothing_types[0]].string:
-                if not Character.Clothes[temp_all_Clothing_types[0]].string:
-                    $ temp_take_off_everything_but_Clothes[temp_all_Clothing_types[0]].state = temp_take_off_everything_but_Clothes[temp_all_Clothing_types[0]].undressed_states[Character.position]
-                    $ Character.Clothes[temp_all_Clothing_types[0]] = temp_take_off_everything_but_Clothes[temp_all_Clothing_types[0]]
+    while temp_Clothing_types:
+        if temp_Clothing_types[0] in Clothing_types:
+            if temp_take_off_everything_but_Clothes[temp_Clothing_types[0]].string:
+                if not Character.Clothes[temp_Clothing_types[0]].string:
+                    $ temp_take_off_everything_but_Clothes[temp_Clothing_types[0]].state = temp_take_off_everything_but_Clothes[temp_Clothing_types[0]].undressed_states[Character.position]
+                    $ Character.Clothes[temp_Clothing_types[0]] = temp_take_off_everything_but_Clothes[temp_Clothing_types[0]]
         
                     if not instant:
                         call set_Outfit_flags(Character) from _call_set_Outfit_flags_16
 
                         $ renpy.pause(0.15, hard = True)
 
-                    call put_on(Character, temp_all_Clothing_types[0], instant = instant, final = False) from _call_put_on_3
+                    call put_on(Character, temp_Clothing_types[0], instant = instant, final = False) from _call_put_on_3
 
-        $ temp_all_Clothing_types.remove(temp_all_Clothing_types[0])
+        $ temp_Clothing_types.remove(temp_Clothing_types[0])
 
     if final:
         call set_Outfit_flags(Character) from _call_set_Outfit_flags_32
@@ -562,20 +559,19 @@ label take_off_everything_but(Character, Clothing_types, instant = False, final 
     return
 
 label expose(Character, part, instant = False, final = True):
-    $ temp_exposed_Clothing_types = eval(f"{part}_hiding_Clothing_types")[:]
+    $ renpy.dynamic(temp_Clothing_types = eval(f"{part}_hiding_Clothing_types")[:])
 
-    while temp_exposed_Clothing_types:
-        if Character.Clothes[temp_exposed_Clothing_types[0]].string and part in Character.Clothes[temp_exposed_Clothing_types[0]].covers[Character.position].keys() and Character.Clothes[temp_exposed_Clothing_types[0]].state in Character.Clothes[temp_exposed_Clothing_types[0]].covers[Character.position][part]:
-            call undress(Character, temp_exposed_Clothing_types[0], instant = instant, final = False) from _call_undress_7
+    while temp_Clothing_types:
+        if Character.Clothes[temp_Clothing_types[0]].string and part in Character.Clothes[temp_Clothing_types[0]].covers[Character.position].keys() and Character.Clothes[temp_Clothing_types[0]].state in Character.Clothes[temp_Clothing_types[0]].covers[Character.position][part]:
+            call undress(Character, temp_Clothing_types[0], instant = instant, final = False) from _call_undress_7
 
-            if Character.Clothes[temp_exposed_Clothing_types[0]].state < 1:
-                $ Character.Clothes[temp_exposed_Clothing_types[0]] = null_Clothing
+            if Character.Clothes[temp_Clothing_types[0]].state < 1:
+                $ Character.Clothes[temp_Clothing_types[0]] = null_Clothing
         
                 if not instant:
                     call set_Outfit_flags(Character) from _call_set_Outfit_flags_17
         
-        if temp_exposed_Clothing_types:
-            $ temp_exposed_Clothing_types.remove(temp_exposed_Clothing_types[0])
+        $ temp_Clothing_types.remove(temp_Clothing_types[0])
 
     if final:
         call set_Outfit_flags(Character) from _call_set_Outfit_flags_33
@@ -583,21 +579,21 @@ label expose(Character, part, instant = False, final = True):
     return
 
 label get_naked(Character, under_towel = False, instant = False, final = True):
-    $ temp_getting_naked_Clothing_types = list(reversed(removable_Clothing_types))[:]
+    $ renpy.dynamic(temp_Clothing_types = list(reversed(removable_Clothing_types))[:])
 
-    while temp_getting_naked_Clothing_types:
-        if not under_towel or temp_getting_naked_Clothing_types[0] != "towel":
-            if Character.Clothes[temp_getting_naked_Clothing_types[0]].name:
-                call undress(Character, temp_getting_naked_Clothing_types[0], instant = instant, final = False) from _call_undress_8
+    while temp_Clothing_types:
+        if not under_towel or temp_Clothing_types[0] != "towel":
+            if Character.Clothes[temp_Clothing_types[0]].name:
+                call undress(Character, temp_Clothing_types[0], instant = instant, final = False) from _call_undress_8
                 
-                $ Character.Clothes[temp_getting_naked_Clothing_types[0]] = null_Clothing
+                $ Character.Clothes[temp_Clothing_types[0]] = null_Clothing
         
                 if not instant:
                     call set_Outfit_flags(Character) from _call_set_Outfit_flags_18
 
                     $ renpy.pause(0.15, hard = True)
 
-        $ temp_getting_naked_Clothing_types.remove(temp_getting_naked_Clothing_types[0])
+        $ temp_Clothing_types.remove(temp_Clothing_types[0])
 
     if final:
         call set_Outfit_flags(Character) from _call_set_Outfit_flags_34
@@ -605,14 +601,13 @@ label get_naked(Character, under_towel = False, instant = False, final = True):
     return
 
 label fix_clothing(Character, instant = False, final = True):
-    $ temp_putting_on_Clothing_types = removable_Clothing_types[:]
+    $ renpy.dynamic(temp_Clothing_types = removable_Clothing_types[:])
 
-    while temp_putting_on_Clothing_types:
-        if Character.Clothes[temp_putting_on_Clothing_types[0]].string and Character.Clothes[temp_putting_on_Clothing_types[0]].state > 0:
-            call put_on(Character, temp_putting_on_Clothing_types[0], instant = instant, final = False) from _call_put_on_4
+    while temp_Clothing_types:
+        if Character.Clothes[temp_Clothing_types[0]].string and Character.Clothes[temp_Clothing_types[0]].state > 0:
+            call put_on(Character, temp_Clothing_types[0], instant = instant, final = False) from _call_put_on_4
 
-        if temp_putting_on_Clothing_types:
-            $ temp_putting_on_Clothing_types.remove(temp_putting_on_Clothing_types[0])
+        $ temp_Clothing_types.remove(temp_Clothing_types[0])
 
     if final:
         call set_Outfit_flags(Character) from _call_set_Outfit_flags_35
@@ -624,41 +619,38 @@ label change_Outfit(Character, Outfit, instant = False):
 
     $ Items_to_remove, Items_to_add = get_changed_Items(Character, Character.Outfit)
 
-    $ temp_removing_Items = Items_to_remove[:]
+    $ renpy.dynamic(temp_Clothes = Items_to_remove[:])
 
-    while temp_removing_Items:
-        call take_off(Character, temp_removing_Items[0].Clothing_type, redress = False, instant = instant, final = False) from _call_take_off_9
+    while temp_Clothes:
+        call take_off(Character, temp_Clothes[0].Clothing_type, redress = False, instant = instant, final = False) from _call_take_off_9
 
-        if temp_removing_Items:
-            $ temp_removing_Items.remove(temp_removing_Items[0])
+        $ temp_Clothes.remove(temp_Clothes[0])
 
-    $ temp_adding_Items = Items_to_add[:]
+    $ renpy.dynamic(temp_Clothes = Items_to_add[:])
 
-    while temp_adding_Items:
-        call try_on(Character, temp_adding_Items[0], redress = False, instant = instant, final = False) from _call_try_on_11
+    while temp_Clothes:
+        call try_on(Character, temp_Clothes[0], redress = False, instant = instant, final = False) from _call_try_on_11
 
-        if temp_adding_Items:
-            $ temp_adding_Items.remove(temp_adding_Items[0])
+        $ temp_Clothes.remove(temp_Clothes[0])
 
     if not instant:
-        $ temp_redressing_Clothes = removable_Clothing_types[:]
+        $ renpy.dynamic(temp_Clothes = removable_Clothing_types[:])
 
-        while temp_redressing_Clothes:
-            if Character.Outfit.Clothes[temp_redressing_Clothes[0]].string:
-                if not Character.Clothes[temp_redressing_Clothes[0]].string:
-                    $ temp = Character.Outfit.Clothes[temp_redressing_Clothes[0]].selected_state
-                    $ Character.Outfit.Clothes[temp_redressing_Clothes[0]].state = Character.Outfit.Clothes[temp_redressing_Clothes[0]].undressed_states[Character.position]
-                    $ Character.Clothes[temp_redressing_Clothes[0]] = copy.copy(Character.Outfit.Clothes[temp_redressing_Clothes[0]])
-                    $ Character.Outfit.Clothes[temp_redressing_Clothes[0]].state = temp
+        while temp_Clothes:
+            if Character.Outfit.Clothes[temp_Clothes[0]].string:
+                if not Character.Clothes[temp_Clothes[0]].string:
+                    $ temp = Character.Outfit.Clothes[temp_Clothes[0]].selected_state
+                    $ Character.Outfit.Clothes[temp_Clothes[0]].state = Character.Outfit.Clothes[temp_Clothes[0]].undressed_states[Character.position]
+                    $ Character.Clothes[temp_Clothes[0]] = copy.copy(Character.Outfit.Clothes[temp_Clothes[0]])
+                    $ Character.Outfit.Clothes[temp_Clothes[0]].state = temp
         
                     call set_Outfit_flags(Character) from _call_set_Outfit_flags_19
                     
                     $ renpy.pause(0.15, hard = True)
 
-                    call put_on(Character, temp_redressing_Clothes[0], instant = False, final = False) from _call_put_on_5
+                    call put_on(Character, temp_Clothes[0], instant = False, final = False) from _call_put_on_5
 
-            if temp_redressing_Clothes:
-                $ temp_redressing_Clothes.remove(temp_redressing_Clothes[0])
+            $ temp_Clothes.remove(temp_Clothes[0])
                     
     python:
         for C in Character.Outfit.Clothes.keys():

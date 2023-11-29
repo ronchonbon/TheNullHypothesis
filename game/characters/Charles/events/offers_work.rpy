@@ -17,7 +17,7 @@ init python:
 label Charles_offers_work:
     $ ongoing_Event = True
     
-    $ temp_destination = Player.destination
+    $ renpy.dynamic(temp_destination = Player.destination)
 
     $ Charles.telepathic = True
 

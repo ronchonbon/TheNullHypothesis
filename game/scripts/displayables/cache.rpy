@@ -62,6 +62,7 @@ init python:
 
             checklist = [
                 "body.webp",
+                "ground_shadow.webp",
                 "arm",
                 "breasts",
                 "pubes",

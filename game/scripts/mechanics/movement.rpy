@@ -15,36 +15,36 @@ label travel(destination):
     if Player.destination in public_locations and Party:
         $ someone_changed = False
 
-        $ temp_Companions = Party[:]
+        $ renpy.dynamic(temp_Characters = Party[:])
 
-        while temp_Companions:
+        while temp_Characters:
             if destination in all_Companions:
-                $ temp_Companions[0].destination = destination.home
-                $ temp_Companions[0].location = destination.home
+                $ temp_Characters[0].destination = destination.home
+                $ temp_Characters[0].location = destination.home
             else:
-                $ temp_Companions[0].destination = destination
-                $ temp_Companions[0].location = destination
+                $ temp_Characters[0].destination = destination
+                $ temp_Characters[0].location = destination
 
-            if not temp_Companions[0].Outfit.wear_in_public:
-                call expression f"{temp_Companions[0].tag}_Party_change_into_public_Outfit" from _call_expression_378
+            if not temp_Characters[0].Outfit.wear_in_public:
+                call expression f"{temp_Characters[0].tag}_Party_change_into_public_Outfit" from _call_expression_378
 
                 pause 1.0
 
-                call set_Character_Outfits(temp_Companions, instant = False) from _call_set_Character_Outfits_26
+                call set_Character_Outfits(temp_Characters, instant = False) from _call_set_Character_Outfits_26
 
                 $ someone_changed = True
 
-            $ locations = list(temp_Companions[0].spunk.keys())
+            $ locations = list(temp_Characters[0].spunk.keys())
 
             while locations:
-                if temp_Companions[0].spunk[locations[0]]:
-                    call clean_cum(temp_Companions[0]) from _call_clean_cum_7
+                if temp_Characters[0].spunk[locations[0]]:
+                    call clean_cum(temp_Characters[0]) from _call_clean_cum_7
 
                     $ someone_changed = True
 
                 $ locations.remove(locations[0])
 
-            $ temp_Companions.remove(temp_Companions[0])
+            $ temp_Characters.remove(temp_Characters[0])
 
         if someone_changed:
             "Looks like everyone's ready to go."

@@ -77,40 +77,40 @@ label request_hookup(Character):
 
         return
 
-    $ temp_hookup_Characters = Present[:]
+    $ renpy.dynamic(temp_Characters = Present[:])
 
-    while temp_hookup_Characters:
-        if approval_check(temp_hookup_Characters[0], threshold = "hookup"):
-            if not temp_hookup_Characters[0].History.check("hookup", tracker = "recent"):
-                if not temp_hookup_Characters[0].History.check("hookup"):
-                    call expression f"{temp_hookup_Characters[0].tag}_accepts_hookup_first_time" from _call_expression_65
-                elif temp_hookup_Characters[0].History.check("hookup") == 1:
-                    call expression f"{temp_hookup_Characters[0].tag}_accepts_hookup_second_time" from _call_expression_66
-                elif approval_check(temp_hookup_Characters[0], threshold = "love"):
-                    call expression f"{temp_hookup_Characters[0].tag}_accepts_hookup_love" from _call_expression_67
+    while temp_Characters:
+        if approval_check(temp_Characters[0], threshold = "hookup"):
+            if not temp_Characters[0].History.check("hookup", tracker = "recent"):
+                if not temp_Characters[0].History.check("hookup"):
+                    call expression f"{temp_Characters[0].tag}_accepts_hookup_first_time" from _call_expression_65
+                elif temp_Characters[0].History.check("hookup") == 1:
+                    call expression f"{temp_Characters[0].tag}_accepts_hookup_second_time" from _call_expression_66
+                elif approval_check(temp_Characters[0], threshold = "love"):
+                    call expression f"{temp_Characters[0].tag}_accepts_hookup_love" from _call_expression_67
                 else:
-                    call expression f"{temp_hookup_Characters[0].tag}_accepts_hookup" from _call_expression_68
+                    call expression f"{temp_Characters[0].tag}_accepts_hookup" from _call_expression_68
         else:
-            if temp_hookup_Characters[0].History.check("rejected_hookup", tracker = "recent") >= 2:
-                call change_Girl_stat(temp_hookup_Characters[0], "love", -5) from _call_change_Girl_stat_819
-                call change_Girl_stat(temp_hookup_Characters[0], "trust", -5) from _call_change_Girl_stat_820
+            if temp_Characters[0].History.check("rejected_hookup", tracker = "recent") >= 2:
+                call change_Girl_stat(temp_Characters[0], "love", -5) from _call_change_Girl_stat_819
+                call change_Girl_stat(temp_Characters[0], "trust", -5) from _call_change_Girl_stat_820
 
-                call expression f"{temp_hookup_Characters[0].tag}_rejects_hookup_asked_twice" from _call_expression_69
-            elif temp_hookup_Characters[0].History.check("rejected_hookup", tracker = "recent") == 1:
-                call change_Girl_stat(temp_hookup_Characters[0], "love", -2) from _call_change_Girl_stat_821
+                call expression f"{temp_Characters[0].tag}_rejects_hookup_asked_twice" from _call_expression_69
+            elif temp_Characters[0].History.check("rejected_hookup", tracker = "recent") == 1:
+                call change_Girl_stat(temp_Characters[0], "love", -2) from _call_change_Girl_stat_821
 
-                call expression f"{temp_hookup_Characters[0].tag}_rejects_hookup_asked_once" from _call_expression_70
+                call expression f"{temp_Characters[0].tag}_rejects_hookup_asked_once" from _call_expression_70
             else:
-                call expression f"{temp_hookup_Characters[0].tag}_rejects_hookup" from _call_expression_71
+                call expression f"{temp_Characters[0].tag}_rejects_hookup" from _call_expression_71
 
-            $ temp_hookup_Characters[0].History.update("rejected_hookup")
+            $ temp_Characters[0].History.update("rejected_hookup")
 
             if Character.location == Player.location:
                 show screen interactions_screen(Character)
 
             return
 
-        $ temp_hookup_Characters.remove(temp_hookup_Characters[0])
+        $ temp_Characters.remove(temp_Characters[0])
 
     python:
         for C in Present:
@@ -264,15 +264,15 @@ label request_position(Girl, new_position, Action = None, automatic = False):
             elif Girl in [Rogue, Laura] and new_position == "doggy" and Player.left_hand_Actions and Girl in Player.left_hand_Actions[0].Targets:
                 $ stop_Actions(Player, organ = "left_hand")
 
-            $ temp_undressed_Clothing_types = removable_Clothing_types[:]
+            $ renpy.dynamic(temp_Clothing_types = removable_Clothing_types[:])
 
-            while temp_undressed_Clothing_types:
-                if Girl.Clothes[temp_undressed_Clothing_types[0]].string:
-                    if new_position in Girl.Clothes[temp_undressed_Clothing_types[0]].available_states.keys():
-                        if Girl.Clothes[temp_undressed_Clothing_types[0]].state not in Girl.Clothes[temp_undressed_Clothing_types[0]].available_states[new_position]:
-                            call fix(Girl, temp_undressed_Clothing_types[0], state = 0, instant = False) from _call_fix_5
+            while temp_Clothing_types:
+                if Girl.Clothes[temp_Clothing_types[0]].string:
+                    if new_position in Girl.Clothes[temp_Clothing_types[0]].available_states.keys():
+                        if Girl.Clothes[temp_Clothing_types[0]].state not in Girl.Clothes[temp_Clothing_types[0]].available_states[new_position]:
+                            call fix(Girl, temp_Clothing_types[0], state = 0, instant = False) from _call_fix_5
 
-                $ temp_undressed_Clothing_types.remove(temp_undressed_Clothing_types[0])
+                $ temp_Clothing_types.remove(temp_Clothing_types[0])
 
             if Action:
                 $ Action.position = new_position

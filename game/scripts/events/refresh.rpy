@@ -68,26 +68,24 @@ label refresh_season_content:
     if not game_started:
         call set_Character_Outfits from _call_set_Character_Outfits_10
     else:
-        $ temp_resetting_Outfits_Companions = all_Companions[:]
+        $ renpy.dynamic(temp_Characters = all_Companions[:])
 
-        while temp_resetting_Outfits_Companions:
-            if temp_resetting_Outfits_Companions[0].location != Player.location:
-                call set_Character_Outfits(temp_resetting_Outfits_Companions[0]) from _call_set_Character_Outfits_22
+        while temp_Characters:
+            if temp_Characters[0].location != Player.location:
+                call set_Character_Outfits(temp_Characters[0]) from _call_set_Character_Outfits_22
 
-            $ temp_resetting_Outfits_Companions.remove(temp_resetting_Outfits_Companions[0])
+            $ temp_Characters.remove(temp_Characters[0])
 
-    $ temp_refreshing_Characters = all_Companions[:]
+    $ renpy.dynamic(temp_Characters = all_Companions[:])
 
-    while temp_refreshing_Characters:
-        $ temp_all_Outfits = list(temp_refreshing_Characters[0].Wardrobe.Outfits.values())[:]
+    while temp_Characters:
+        $ renpy.dynamic(temp_Outfits = list(temp_Characters[0].Wardrobe.Outfits.values())[:])
 
-        while temp_all_Outfits:
-            call set_Outfit_flags(temp_refreshing_Characters[0], temp_all_Outfits[0], hypothetical = True) from _call_set_Outfit_flags_23
+        while temp_Outfits:
+            call set_Outfit_flags(temp_Characters[0], temp_Outfits[0], hypothetical = True) from _call_set_Outfit_flags_23
 
-            if temp_all_Outfits:
-                $ temp_all_Outfits.remove(temp_all_Outfits[0])
+            $ temp_Outfits.remove(temp_Outfits[0])
 
-        if temp_refreshing_Characters:
-            $ temp_refreshing_Characters.remove(temp_refreshing_Characters[0])
+        $ temp_Characters.remove(temp_Characters[0])
 
     return

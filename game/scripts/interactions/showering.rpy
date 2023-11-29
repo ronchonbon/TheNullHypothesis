@@ -43,12 +43,12 @@ label take_a_shower:
         if Player.location == "bg_lockers":
             call set_Character_Outfits(showering_Companions, instant = False) from _call_set_Character_Outfits_12
         elif "bg_shower" in Player.location:
-            $ temp_showering_Companions = showering_Companions[:]
+            $ renpy.dynamic(temp_Characters = showering_Companions[:])
 
-            while temp_showering_Companions:
-                call change_Outfit(temp_showering_Companions[0], temp_showering_Companions[0].Wardrobe.Outfits["Nude"]) from _call_change_Outfit_42
+            while temp_Characters:
+                call change_Outfit(temp_Characters[0], temp_Characters[0].Wardrobe.Outfits["Nude"]) from _call_change_Outfit_42
                 
-                $ temp_showering_Companions.remove(temp_showering_Companions[0])
+                $ temp_Characters.remove(temp_Characters[0])
 
         if black_screen:
             $ fade_in_from_black(0.4)
@@ -60,15 +60,15 @@ label take_a_shower:
         $ Player.cock_out = True
 
         if showering_Companions:
-            $ temp_showering_Companions = showering_Companions[:]
+            $ renpy.dynamic(temp_Characters = showering_Companions[:])
 
-            while temp_showering_Companions:
-                if not temp_showering_Companions[0].History.check("seen_Player_naked"):
-                    $ EventScheduler.Events[f"{temp_showering_Companions[0].tag}_seeing_penis"].start()
+            while temp_Characters:
+                if not temp_Characters[0].History.check("seen_Player_naked"):
+                    $ EventScheduler.Events[f"{temp_Characters[0].tag}_seeing_penis"].start()
 
-                $ temp_showering_Companions[0].History.update("seen_Player_naked")
+                $ temp_Characters[0].History.update("seen_Player_naked")
 
-                $ temp_showering_Companions.remove(temp_showering_Companions[0])
+                $ temp_Characters.remove(temp_Characters[0])
 
         $ shower_open = False
 
@@ -92,13 +92,13 @@ label take_a_shower:
                 for location in G.spunk.keys():
                     G.spunk[location] = False
 
-    $ temp_showering_Companions = showering_Companions[:]
+    $ renpy.dynamic(temp_Characters = showering_Companions[:])
 
-    while temp_showering_Companions:
-        if not temp_showering_Companions[0].History.check("showered_with_Player", tracker = "recent"):
-            $ temp_showering_Companions[0].History.update("showered_with_Player")
+    while temp_Characters:
+        if not temp_Characters[0].History.check("showered_with_Player", tracker = "recent"):
+            $ temp_Characters[0].History.update("showered_with_Player")
 
-        $ temp_showering_Companions.remove(temp_showering_Companions[0])
+        $ temp_Characters.remove(temp_Characters[0])
             
     pause 5.0
 
@@ -125,17 +125,17 @@ label take_a_shower:
         pause 1.0
 
     if showering_Companions:
-        $ temp_showering_Companions = showering_Companions[:]
+        $ renpy.dynamic(temp_Characters = showering_Companions[:])
 
-        while temp_showering_Companions:
-            # call try_on(temp_showering_Companions[0], temp_showering_Companions[0].Wardrobe.Clothes["towel"]) from _call_try_on_14
+        while temp_Characters:
+            # call try_on(temp_Characters[0], temp_Characters[0].Wardrobe.Clothes["towel"]) from _call_try_on_14
 
-            $ temp_showering_Companions[0].behavior = None
+            $ temp_Characters[0].behavior = None
 
-            if time_index in temp_showering_Companions[0].schedule.keys() and temp_showering_Companions[0].schedule[time_index][1] == "showering":
-                $ del temp_showering_Companions[0].schedule[time_index]
+            if time_index in temp_Characters[0].schedule.keys() and temp_Characters[0].schedule[time_index][1] == "showering":
+                $ del temp_Characters[0].schedule[time_index]
 
-            $ temp_showering_Companions.remove(temp_showering_Companions[0])
+            $ temp_Characters.remove(temp_Characters[0])
 
         pause 1.0
 

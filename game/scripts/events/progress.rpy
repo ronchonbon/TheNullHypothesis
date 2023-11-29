@@ -13,12 +13,12 @@ label progress_story:
 
     call displace_Characters(Present[:]) from _call_displace_Characters_2
 
-    $ temp_hiding_Characters = Present[:]
+    $ renpy.dynamic(temp_Characters = Present[:])
 
-    while temp_hiding_Characters:
-        call hide_Character(temp_hiding_Characters[0]) from _call_hide_Character_32
+    while temp_Characters:
+        call hide_Character(temp_Characters[0]) from _call_hide_Character_32
 
-        $ temp_hiding_Characters.remove(temp_hiding_Characters[0])
+        $ temp_Characters.remove(temp_Characters[0])
 
     $ fade_in_from_black(0.4)
 

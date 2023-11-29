@@ -440,7 +440,7 @@ label start_Action(Action):
                     else:
                         Action.position = Action.available_poses[0]
 
-        $ temp_showing_Characters = Targets[:]
+        $ renpy.dynamic(temp_Characters = Targets[:])
     elif Action.Action_type in passive_Action_types:
         python:
             for A in Actors:
@@ -460,27 +460,27 @@ label start_Action(Action):
                     else:
                         Action.position = Action.available_poses[0]
 
-        $ temp_showing_Characters = Actors[:]
+        $ renpy.dynamic(temp_Characters = Actors[:])
 
     $ proceed = True
 
     if (not ongoing_Event or has_Action_control) and proceed:
-        while temp_showing_Characters:
+        while temp_Characters:
             $ Clothing_to_remove = []
 
             python:
                 for Clothing_type in reversed(removable_Clothing_types):
-                    if temp_showing_Characters[0].Clothes[Clothing_type].string and Action.position not in temp_showing_Characters[0].Clothes[Clothing_type].available_states.keys():
-                        Clothing_to_remove.append(temp_showing_Characters[0].Clothes[Clothing_type])
+                    if temp_Characters[0].Clothes[Clothing_type].string and Action.position not in temp_Characters[0].Clothes[Clothing_type].available_states.keys():
+                        Clothing_to_remove.append(temp_Characters[0].Clothes[Clothing_type])
 
             if Clothing_to_remove:
-                call does_Girl_agree_to_change_Clothes(temp_showing_Characters[0], removed_Items = Clothing_to_remove, automatic = True) from _call_does_Girl_agree_to_change_Clothes_1
+                call does_Girl_agree_to_change_Clothes(temp_Characters[0], removed_Items = Clothing_to_remove, automatic = True) from _call_does_Girl_agree_to_change_Clothes_1
 
                 $ proceed = _return
 
             if proceed:
-                if temp_showing_Characters[0].position != Action.position:
-                    call request_position(temp_showing_Characters[0], Action.position) from _call_request_position_10
+                if temp_Characters[0].position != Action.position:
+                    call request_position(temp_Characters[0], Action.position) from _call_request_position_10
 
                 pause 0.5
 
@@ -490,77 +490,77 @@ label start_Action(Action):
 
                 python:
                     for Clothing_type in reversed(removable_Clothing_types):
-                        if temp_showing_Characters[0].Clothes[Clothing_type].string and Action.position in temp_showing_Characters[0].Clothes[Clothing_type].available_states.keys():
+                        if temp_Characters[0].Clothes[Clothing_type].string and Action.position in temp_Characters[0].Clothes[Clothing_type].available_states.keys():
                             if Action.Action_type in ["touch_thighs", "touch_thighs_higher"]:
-                                if "thighs" in temp_showing_Characters[0].Clothes[Clothing_type].covers[Action.position].keys():
-                                    current_state = temp_showing_Characters[0].Clothes[Clothing_type].state
+                                if "thighs" in temp_Characters[0].Clothes[Clothing_type].covers[Action.position].keys():
+                                    current_state = temp_Characters[0].Clothes[Clothing_type].state
 
-                                    while current_state in temp_showing_Characters[0].Clothes[Clothing_type].covers[Action.position]["thighs"] and current_state <= temp_showing_Characters[0].Clothes[Clothing_type].available_states[Action.position][-1]:
+                                    while current_state in temp_Characters[0].Clothes[Clothing_type].covers[Action.position]["thighs"] and current_state <= temp_Characters[0].Clothes[Clothing_type].available_states[Action.position][-1]:
                                         current_state += 1
 
-                                    if current_state not in temp_showing_Characters[0].Clothes[Clothing_type].available_states[Action.position]:
-                                        Clothing_to_remove.append(temp_showing_Characters[0].Clothes[Clothing_type])
+                                    if current_state not in temp_Characters[0].Clothes[Clothing_type].available_states[Action.position]:
+                                        Clothing_to_remove.append(temp_Characters[0].Clothes[Clothing_type])
                                     else:
-                                        Clothing_to_undress.append(temp_showing_Characters[0].Clothes[Clothing_type])
+                                        Clothing_to_undress.append(temp_Characters[0].Clothes[Clothing_type])
                                         undressed_states.append(current_state)
                             elif Action.Action_type in ["touch_breasts", "pinch_nipples", "suck_nipples"]:
-                                if "breasts" in temp_showing_Characters[0].Clothes[Clothing_type].covers[Action.position].keys():
-                                    current_state = temp_showing_Characters[0].Clothes[Clothing_type].state
+                                if "breasts" in temp_Characters[0].Clothes[Clothing_type].covers[Action.position].keys():
+                                    current_state = temp_Characters[0].Clothes[Clothing_type].state
 
-                                    while current_state in temp_showing_Characters[0].Clothes[Clothing_type].covers[Action.position]["breasts"] and current_state <= temp_showing_Characters[0].Clothes[Clothing_type].available_states[Action.position][-1]:
+                                    while current_state in temp_Characters[0].Clothes[Clothing_type].covers[Action.position]["breasts"] and current_state <= temp_Characters[0].Clothes[Clothing_type].available_states[Action.position][-1]:
                                         current_state += 1
 
-                                    if current_state not in temp_showing_Characters[0].Clothes[Clothing_type].available_states[Action.position]:
-                                        Clothing_to_remove.append(temp_showing_Characters[0].Clothes[Clothing_type])
+                                    if current_state not in temp_Characters[0].Clothes[Clothing_type].available_states[Action.position]:
+                                        Clothing_to_remove.append(temp_Characters[0].Clothes[Clothing_type])
                                     else:
-                                        Clothing_to_undress.append(temp_showing_Characters[0].Clothes[Clothing_type])
+                                        Clothing_to_undress.append(temp_Characters[0].Clothes[Clothing_type])
                                         undressed_states.append(current_state)
                             elif Action.Action_type in ["touch_pussy", "finger_pussy", "eat_pussy", "self_touch_pussy", "self_vibrator", "self_dildo_pussy", "sex", "vibrator", "dildo_pussy"]:
-                                if "pussy" in temp_showing_Characters[0].Clothes[Clothing_type].covers[Action.position].keys():
-                                    current_state = temp_showing_Characters[0].Clothes[Clothing_type].state
+                                if "pussy" in temp_Characters[0].Clothes[Clothing_type].covers[Action.position].keys():
+                                    current_state = temp_Characters[0].Clothes[Clothing_type].state
 
-                                    while current_state in temp_showing_Characters[0].Clothes[Clothing_type].covers[Action.position]["pussy"] and current_state <= temp_showing_Characters[0].Clothes[Clothing_type].available_states[Action.position][-1]:
+                                    while current_state in temp_Characters[0].Clothes[Clothing_type].covers[Action.position]["pussy"] and current_state <= temp_Characters[0].Clothes[Clothing_type].available_states[Action.position][-1]:
                                         current_state += 1
 
-                                    if current_state not in temp_showing_Characters[0].Clothes[Clothing_type].available_states[Action.position]:
-                                        Clothing_to_remove.append(temp_showing_Characters[0].Clothes[Clothing_type])
+                                    if current_state not in temp_Characters[0].Clothes[Clothing_type].available_states[Action.position]:
+                                        Clothing_to_remove.append(temp_Characters[0].Clothes[Clothing_type])
                                     else:
-                                        Clothing_to_undress.append(temp_showing_Characters[0].Clothes[Clothing_type])
+                                        Clothing_to_undress.append(temp_Characters[0].Clothes[Clothing_type])
                                         undressed_states.append(current_state)
                             elif Action.Action_type in ["finger_ass", "eat_ass", "self_finger_ass", "self_dildo_ass", "anal", "dildo_ass"]:
-                                if "anus" in temp_showing_Characters[0].Clothes[Clothing_type].covers[Action.position].keys():
-                                    current_state = temp_showing_Characters[0].Clothes[Clothing_type].state
+                                if "anus" in temp_Characters[0].Clothes[Clothing_type].covers[Action.position].keys():
+                                    current_state = temp_Characters[0].Clothes[Clothing_type].state
 
-                                    while current_state in temp_showing_Characters[0].Clothes[Clothing_type].covers[Action.position]["anus"] and current_state <= temp_showing_Characters[0].Clothes[Clothing_type].available_states[Action.position][-1]:
+                                    while current_state in temp_Characters[0].Clothes[Clothing_type].covers[Action.position]["anus"] and current_state <= temp_Characters[0].Clothes[Clothing_type].available_states[Action.position][-1]:
                                         current_state += 1
 
-                                    if current_state not in temp_showing_Characters[0].Clothes[Clothing_type].available_states[Action.position]:
-                                        Clothing_to_remove.append(temp_showing_Characters[0].Clothes[Clothing_type])
+                                    if current_state not in temp_Characters[0].Clothes[Clothing_type].available_states[Action.position]:
+                                        Clothing_to_remove.append(temp_Characters[0].Clothes[Clothing_type])
                                     else:
-                                        Clothing_to_undress.append(temp_showing_Characters[0].Clothes[Clothing_type])
+                                        Clothing_to_undress.append(temp_Characters[0].Clothes[Clothing_type])
                                         undressed_states.append(current_state)
 
                 if Clothing_to_remove or Clothing_to_undress:
-                    call does_Girl_agree_to_change_Clothes(temp_showing_Characters[0], removed_Items = Clothing_to_remove, undressed_Items = Clothing_to_undress, undressed_states = undressed_states, automatic = True) from _call_does_Girl_agree_to_change_Clothes_2
+                    call does_Girl_agree_to_change_Clothes(temp_Characters[0], removed_Items = Clothing_to_remove, undressed_Items = Clothing_to_undress, undressed_states = undressed_states, automatic = True) from _call_does_Girl_agree_to_change_Clothes_2
 
                     $ proceed = _return
 
-            $ temp_showing_Characters.remove(temp_showing_Characters[0])
+            $ temp_Characters.remove(temp_Characters[0])
 
     if proceed:
         if Action.Action_type in cock_Action_types:
             $ Player.naked = True
             $ Player.cock_out = True
 
-            $ temp_seeing_Characters = Present[:]
-            
-            while temp_seeing_Characters:
-                if not temp_seeing_Characters[0].History.check("seen_Player_naked"):
-                    $ EventScheduler.Events[f"{temp_seeing_Characters[0].tag}_seeing_penis"].start()
+            $ renpy.dynamic(temp_Characters = Present[:])
 
-                $ temp_seeing_Characters[0].History.update("seen_Player_naked")
+            while temp_Characters:
+                if not temp_Characters[0].History.check("seen_Player_naked"):
+                    $ EventScheduler.Events[f"{temp_Characters[0].tag}_seeing_penis"].start()
+
+                $ temp_Characters[0].History.update("seen_Player_naked")
                 
-                $ temp_seeing_Characters.remove(temp_seeing_Characters[0])
+                $ temp_Characters.remove(temp_Characters[0])
 
         if Player in Action.Actors or Player in Action.Targets:
             $ Player.position = Action.position
@@ -850,10 +850,10 @@ label start_Action(Action):
         if Action.Action_type in ["sex", "anal"]:
             $ Player.dirty_cock = True
 
-        $ temp_Action_Characters = list(set(Actors[:] + Targets[:]))
+        $ renpy.dynamic(temp_Characters = list(set(Actors[:] + Targets[:])))
 
         python:
-            for C in temp_Action_Characters:
+            for C in temp_Characters:
                 if not C.History.check(Action.Action_type, tracker = "recent"):
                     C.History.update(Action.Action_type)
 
@@ -919,15 +919,15 @@ label continue_Actions:
 
                 $ unique_Actions.remove(unique_Actions[0])
 
-        $ temp_sex_Characters = Present[:]
+        $ renpy.dynamic(temp_Characters = Present[:])
 
-        while temp_sex_Characters:            
-            if temp_sex_Characters[0] in all_Companions and temp_sex_Characters[0].desire >= 100:
-                call Character_orgasms(temp_sex_Characters[0]) from _call_Character_orgasms
+        while temp_Characters:            
+            if temp_Characters[0] in all_Companions and temp_Characters[0].desire >= 100:
+                call Character_orgasms(temp_Characters[0]) from _call_Character_orgasms
                 
                 return
 
-            $ temp_sex_Characters.remove(temp_sex_Characters[0])
+            $ temp_Characters.remove(temp_Characters[0])
 
         if Player.desire >= 100:
             call Player_orgasms from _call_Player_orgasms
@@ -945,24 +945,24 @@ label stop_all_Actions(close_interface = False, automatic = False):
     $ belt_hidden = True
     $ Character_picker_disabled = True
 
-    $ temp_Companions = Present[:]
+    $ renpy.dynamic(temp_Characters = Present[:])
 
     python:
         for C in all_NPCs:
-            if C in temp_Companions:
-                temp_Companions.remove(C)
+            if C in temp_Characters:
+                temp_Characters.remove(C)
 
     $ color_transform = get_color_transform(location = Player.location)
 
-    while temp_Companions:
-        $ stop_Actions(temp_Companions[0])
+    while temp_Characters:
+        $ stop_Actions(temp_Characters[0])
 
         if not automatic:
-            call show_Character(temp_Companions[0], color_transform = color_transform) from _call_show_Character_2
+            call show_Character(temp_Characters[0], color_transform = color_transform) from _call_show_Character_2
 
-        $ temp_Companions[0].Lovers = {}
+        $ temp_Characters[0].Lovers = {}
 
-        $ temp_Companions.remove(temp_Companions[0])
+        $ temp_Characters.remove(temp_Characters[0])
 
     $ stop_Actions(Player)
 
@@ -983,12 +983,12 @@ label stop_all_Actions(close_interface = False, automatic = False):
 
         $ renpy.pause(1.0, hard = True)
 
-        $ temp_changing_Characters = Present[:]
+        $ renpy.dynamic(temp_Characters = Present[:])
 
-        while temp_changing_Characters:
-            call change_Outfit(temp_changing_Characters[0], temp_changing_Characters[0].Wardrobe.Outfits[temp_changing_Characters[0].Outfit.name]) from _call_change_Outfit_23
+        while temp_Characters:
+            call change_Outfit(temp_Characters[0], temp_Characters[0].Wardrobe.Outfits[temp_Characters[0].Outfit.name]) from _call_change_Outfit_23
 
-            $ temp_changing_Characters.remove(temp_changing_Characters[0])
+            $ temp_Characters.remove(temp_Characters[0])
 
     $ Player.naked = False
     $ Player.cock_out = False

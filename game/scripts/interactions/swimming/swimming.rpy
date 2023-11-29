@@ -4,28 +4,28 @@ label swim:
 
     $ Player.behavior = "swimming"
     
-    $ temp_swimming_Characters = Present[:]
+    $ renpy.dynamic(temp_Characters = Present[:])
 
     python:
         for C in all_NPCs:
-            if C in temp_swimming_Characters:
-                temp_swimming_Characters.remove(C)
+            if C in temp_Characters:
+                temp_Characters.remove(C)
 
-    if temp_swimming_Characters:
-        if len(temp_swimming_Characters) > 1:
+    if temp_Characters:
+        if len(temp_Characters) > 1:
             ch_Player "Do you all want to go for a swim?"
         else:
-            ch_Player "Want to go for a swim, [temp_swimming_Characters[0].name]?"
+            ch_Player "Want to go for a swim, [temp_Characters[0].name]?"
 
-    $ stable_swimming_Characters = temp_swimming_Characters[:]
+    $ stable_swimming_Characters = temp_Characters[:]
 
-    while temp_swimming_Characters:
-        call ask_to_swim(temp_swimming_Characters[0]) from _call_ask_to_swim
+    while temp_Characters:
+        call ask_to_swim(temp_Characters[0]) from _call_ask_to_swim
 
         if not _return:
-            $ stable_swimming_Characters.remove(temp_swimming_Characters[0])
+            $ stable_swimming_Characters.remove(temp_Characters[0])
 
-        $ temp_swimming_Characters.remove(temp_swimming_Characters[0])
+        $ temp_Characters.remove(temp_Characters[0])
 
     call actually_swim(stable_swimming_Characters) from _call_actually_swim
         
@@ -66,15 +66,15 @@ label actually_swim(swimming_Characters):
 
         call set_Character_Outfits(swimming_Characters, instant = False) from _call_set_Character_Outfits_18
 
-    $ temp_swimming_Characters = swimming_Characters[:]
+    $ renpy.dynamic(temp_Characters = swimming_Characters[:])
 
-    while temp_swimming_Characters:
-        if temp_swimming_Characters[0].desire <= 50:
-            call change_Girl_stat(temp_swimming_Characters[0], "desire", 5) from _call_change_Girl_stat_1021
+    while temp_Characters:
+        if temp_Characters[0].desire <= 50:
+            call change_Girl_stat(temp_Characters[0], "desire", 5) from _call_change_Girl_stat_1021
         else:
-            call change_Girl_stat(temp_swimming_Characters[0], "desire", 60 - temp_swimming_Characters[0].desire) from _call_change_Girl_stat_1022
+            call change_Girl_stat(temp_Characters[0], "desire", 60 - temp_Characters[0].desire) from _call_change_Girl_stat_1022
 
-        $ temp_swimming_Characters.remove(temp_swimming_Characters[0])
+        $ temp_Characters.remove(temp_Characters[0])
 
     if black_screen:
         $ fade_in_from_black(0.4)

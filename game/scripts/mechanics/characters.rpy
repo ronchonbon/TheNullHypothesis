@@ -33,7 +33,7 @@ label set_the_scene(location = None, show_Characters = True, show_Party = True, 
             G.destination = Player.location
             G.location = Player.location
 
-    $ temp_Characters = all_Characters[:]
+    $ renpy.dynamic(temp_Characters = all_Characters[:])
 
     while temp_Characters:
         if (not show_Characters or temp_Characters[0].location != Player.location) and renpy.showing(f"{temp_Characters[0].tag}_sprite"):
@@ -213,21 +213,21 @@ label remove_Characters(Characters = None, location = None, fade = True):
 
             reset_behavior(C)
 
-    $ temp_removing_Characters = Characters[:]
+    $ renpy.dynamic(temp_Characters = Characters[:])
 
-    while temp_removing_Characters:
-        if temp_removing_Characters[0].location == location:
-            if temp_removing_Characters[0] in Party:
-                $ Party.remove(temp_removing_Characters[0])
+    while temp_Characters:
+        if temp_Characters[0].location == location:
+            if temp_Characters[0] in Party:
+                $ Party.remove(temp_Characters[0])
 
-            if temp_removing_Characters[0].destination == temp_removing_Characters[0].location:
-                call displace_Characters(temp_removing_Characters[0]) from _call_displace_Characters_1
+            if temp_Characters[0].destination == temp_Characters[0].location:
+                call displace_Characters(temp_Characters[0]) from _call_displace_Characters_1
 
-            $ temp_removing_Characters[0].location = temp_removing_Characters[0].destination
+            $ temp_Characters[0].location = temp_Characters[0].destination
 
-            call hide_Character(temp_removing_Characters[0], fade = fade) from _call_hide_Character_51
+            call hide_Character(temp_Characters[0], fade = fade) from _call_hide_Character_51
 
-        $ temp_removing_Characters.remove(temp_removing_Characters[0])
+        $ temp_Characters.remove(temp_Characters[0])
 
     if location == Player.location:
         call set_the_scene(fade = False, fade_Characters = True) from _call_set_the_scene_326
@@ -245,15 +245,15 @@ label remove_everyone_but(Characters, location = None, fade = True):
 
     $ Present = get_Present(location = location)
 
-    $ temp_removing_Characters = Present[:]
+    $ renpy.dynamic(temp_Characters = Present[:])
 
     python:
         for C in Characters:
-            while C in temp_removing_Characters:
-                temp_removing_Characters.remove(C)
+            if C in temp_Characters:
+                temp_Characters.remove(C)
 
-    if temp_removing_Characters:
-        call remove_Characters(temp_removing_Characters, fade = fade) from _call_remove_Characters_239
+    if temp_Characters:
+        call remove_Characters(temp_Characters, fade = fade) from _call_remove_Characters_239
 
     return
 
@@ -337,12 +337,12 @@ label displace_Characters(Characters):
         for C in Characters:
             set_Character_behavior(C)
 
-    $ temp_displacing_Characters = Characters[:]
+    $ renpy.dynamic(temp_Characters = Characters[:])
 
-    while temp_displacing_Characters:
-        if not renpy.showing(f"{temp_displacing_Characters[0].tag}_sprite"):
-            call set_Character_Outfits(temp_displacing_Characters[0]) from _call_set_Character_Outfits_25
+    while temp_Characters:
+        if not renpy.showing(f"{temp_Characters[0].tag}_sprite"):
+            call set_Character_Outfits(temp_Characters[0]) from _call_set_Character_Outfits_25
 
-        $ temp_displacing_Characters.remove(temp_displacing_Characters[0])
+        $ temp_Characters.remove(temp_Characters[0])
 
     return

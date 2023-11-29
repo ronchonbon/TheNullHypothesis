@@ -142,3 +142,8 @@ init -2:
     default season_completed = False
 
     define chapter_names = ["P", "I", "II", "III", "IV", "V", "VI"]
+
+    default temp_Characters = [CompanionClass("Placeholder")]
+    default temp_Clothes = [ClothingClass(None, "Placeholder", "Placholder", "placeholder", "placeholder", "placeholder", 0, 0, {})]
+    default temp_Clothing_types = ["placeholder"]
+    default temp_body_parts = ["placeholder"]

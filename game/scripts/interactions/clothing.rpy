@@ -112,18 +112,19 @@ label ask_Girl_to_change_Outfit(Girl, Outfit_name, instant = False):
 label ask_Girl_to_try_on(Clothing, instant = False):
     $ Girl = Clothing.Owner
 
-    $ temp_incompatible_Clothes = removable_Clothing_types[:]
-    $ temp_incompatible_Clothes = list(reversed(temp_incompatible_Clothes))
+    $ renpy.dynamic(temp_Clothes = removable_Clothing_types[:])
 
-    while temp_incompatible_Clothes:
-        if Clothing.string in Girl.Clothes[temp_incompatible_Clothes[0]].incompatibilities or Girl.Clothes[temp_incompatible_Clothes[0]].string in Clothing.incompatibilities:
-            $ Clothing_name = Girl.Clothes[temp_incompatible_Clothes[0]].name
+    $ temp_Clothes = list(reversed(temp_Clothes))
+
+    while temp_Clothes:
+        if Clothing.string in Girl.Clothes[temp_Clothes[0]].incompatibilities or Girl.Clothes[temp_Clothes[0]].string in Clothing.incompatibilities:
+            $ Clothing_name = Girl.Clothes[temp_Clothes[0]].name
             
             "She'll have to take off her [Clothing_name] first."
 
             return
 
-        $ temp_incompatible_Clothes.remove(temp_incompatible_Clothes[0])
+        $ temp_Clothes.remove(temp_Clothes[0])
 
     if Girl.status["miffed"] or Girl.status["mad"]:
         call expression f"{Girl.tag}_change_Outfit_reject_mad" from _call_expression_172
@@ -256,15 +257,15 @@ label ask_Girl_to_redress(Clothing, state = 0, instant = False):
 
         $ Girl.History.update("refused_to_change_Outfit")
     elif approval_check(Girl, threshold = "change_Outfit"):
-        $ temp_covered_Clothing_types = removable_Clothing_types[:]
+        $ renpy.dynamic(temp_Clothing_types = removable_Clothing_types[:])
 
-        while temp_covered_Clothing_types:
-            if Girl.Clothes[temp_covered_Clothing_types[0]].string:
-                if Clothing.string in Girl.Clothes[temp_covered_Clothing_types[0]].covered_by.keys() and state in Girl.Clothes[temp_covered_Clothing_types[0]].covered_by[Clothing.string]:
-                    if Girl.Clothes[temp_covered_Clothing_types[0]].state > 0:
-                        call fix(Girl, temp_covered_Clothing_types[0], state = 0, instant = instant) from _call_fix
+        while temp_Clothing_types:
+            if Girl.Clothes[temp_Clothing_types[0]].string:
+                if Clothing.string in Girl.Clothes[temp_Clothing_types[0]].covered_by.keys() and state in Girl.Clothes[temp_Clothing_types[0]].covered_by[Clothing.string]:
+                    if Girl.Clothes[temp_Clothing_types[0]].state > 0:
+                        call fix(Girl, temp_Clothing_types[0], state = 0, instant = instant) from _call_fix
 
-            $ temp_covered_Clothing_types.remove(temp_covered_Clothing_types[0])
+            $ temp_Clothing_types.remove(temp_Clothing_types[0])
         
         call fix(Girl, Clothing.Clothing_type, state = state, instant = instant) from _call_fix_1
 
@@ -320,7 +321,7 @@ label does_Girl_agree_to_change_Clothes(Character, added_Items = None, removed_I
     $ agrees_to_remove = True
 
     if shown_body_parts:
-        $ temp_body_parts = shown_body_parts[:]
+        $ renpy.dynamic(temp_body_parts = shown_body_parts[:])
         
         while temp_body_parts and agrees_to_remove:
             if not Character.History.check(f"seen_{temp_body_parts[0]}", tracker = "recent"):
@@ -353,8 +354,7 @@ label does_Girl_agree_to_change_Clothes(Character, added_Items = None, removed_I
 
                     $ agrees_to_remove = False
 
-            if temp_body_parts:
-                $ temp_body_parts.remove(temp_body_parts[0])
+            $ temp_body_parts.remove(temp_body_parts[0])
 
     $ del hypothetical_Outfit
 

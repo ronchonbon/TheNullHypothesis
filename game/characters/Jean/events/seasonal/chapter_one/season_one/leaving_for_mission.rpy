@@ -21,7 +21,7 @@ init python:
 label Jean_leaving_for_mission:
     $ ongoing_Event = True
 
-    $ temp_destination = Player.destination
+    $ renpy.dynamic(temp_destination = Player.destination)
 
     $ active_Companions.append(Jean)
     $ unlocked_locations.update({Jean.home: "renpy.call('travel', Jean)"})

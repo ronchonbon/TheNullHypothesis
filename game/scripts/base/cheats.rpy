@@ -45,12 +45,12 @@ label enter_cheat_code(code):
                 if Girl:
                     call change_Girl_stat(Girl, parsed_code[2], int(parsed_code[3])) from _call_change_Girl_stat_834
     elif parsed_code[0] == "max" and parsed_code[1] == "Girl" and parsed_code[2] == "stats":
-        $ temp_Companions = active_Companions[:]
+        $ renpy.dynamic(temp_Characters = active_Companions[:])
 
-        while temp_Companions:
-            call change_Girl_stat(temp_Companions[0], "love", 1000) from _call_change_Girl_stat_835
-            call change_Girl_stat(temp_Companions[0], "trust", 1000) from _call_change_Girl_stat_836
+        while temp_Characters:
+            call change_Girl_stat(temp_Characters[0], "love", 1000) from _call_change_Girl_stat_835
+            call change_Girl_stat(temp_Characters[0], "trust", 1000) from _call_change_Girl_stat_836
 
-            $ temp_Companions.remove(temp_Companions[0])
+            $ temp_Characters.remove(temp_Characters[0])
 
     return
