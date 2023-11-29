@@ -846,8 +846,6 @@ label start_Action(Action):
                     T.all_Actions.append(Action)
 
         $ ongoing_Actions.append(Action)
-        
-        $ selected_Action_mode = Action.mode
 
         if Action.Action_type in ["sex", "anal"]:
             $ Player.dirty_cock = True
@@ -1035,7 +1033,6 @@ label closing_Action_interface:
     $ speed = 1.0
     $ intensity = 1.0
     $ starting_depth = 0.0
-    $ selected_Action_index = 0
 
     $ belt_hidden = False
     $ choice_disabled = False

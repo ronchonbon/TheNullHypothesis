@@ -657,8 +657,6 @@ label anal_initiations(Action):
         else:
             $ Action.mode = 1
 
-            $ selected_Action_mode = 1
-
             if Characters[0] in [Rogue]:
                 $ Characters[0].change_face("worried1", eyes = "down", mouth = "lipbite", blush = 2) 
                 

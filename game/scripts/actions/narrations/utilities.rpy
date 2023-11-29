@@ -57,7 +57,7 @@ init python:
                     if dice_roll == 1:
                         renpy.say(C.voice, "*gasp*")
                     elif dice_roll == 2:
-                        renpy.say(C.voice, "Oh lord. . . [C.Player_petname], please don't stop.")
+                        renpy.say(C.voice, f"Oh lord. . . {C.Player_petname}, please don't stop.")
                     elif dice_roll == 3:
                         renpy.say(C.voice, "Mmmmh. . .")
             elif C in [Laura]:
@@ -93,6 +93,6 @@ init python:
                     elif dice_roll == 2:
                         renpy.say(C.voice, "*gasp*")
                     elif dice_roll == 3:
-                        renpy.say(C.voice, "Mmmm, [C.Player_petname], keep going.")
+                        renpy.say(C.voice, f"Mmmm, {C.Player_petname}, keep going.")
 
         return

@@ -1,6 +1,13 @@
 init -2:
 
     default ongoing_Actions = []
+
+    define all_poses = [
+        "standing",
+        "masturbation",
+        "hands_and_knees",
+        "missionary",
+        "doggy"]
     
     define all_Action_types = [
         "makeout",

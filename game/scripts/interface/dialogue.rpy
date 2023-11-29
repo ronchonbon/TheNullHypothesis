@@ -38,8 +38,12 @@ screen say(who, what, two_window = False, hide_after = None):
     if hide_after:
         timer hide_after action Hide("say")
 
-    $ dialogue_anchor = [0.5, 0.0]
-    $ dialogue_position = [0.12, 0.08]
+    if Action_screen_showing:
+        $ dialogue_anchor = [0.5, 0.0]
+        $ dialogue_position = [0.12, 0.15]
+    else:
+        $ dialogue_anchor = [0.5, 0.0]
+        $ dialogue_position = [0.12, 0.08]
 
     if who == "Player":
         $ C = Player

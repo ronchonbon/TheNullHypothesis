@@ -60,7 +60,9 @@ screen Action_screen(automatic = False):
         if has_progression_control:
             if has_position_control:
                 imagebutton:
-                    idle At("images/interface/Action_menu/pose_idle.webp", interface) hover At("images/interface/Action_menu/pose.webp", interface)
+                    idle At("images/interface/Action_menu/pose_idle.webp", interface) hover At("images/interface/Action_menu/pose.webp", interface) selected_idle At("images/interface/Action_menu/pose.webp", interface)
+
+                    selected Action_screen_tab == "pose"
 
                     if has_position_control:
                         action SetVariable("Action_screen_tab", "pose")
@@ -73,7 +75,9 @@ screen Action_screen(automatic = False):
 
             if has_Action_control:
                 imagebutton:
-                    idle At("images/interface/Action_menu/action_idle.webp", interface) hover At("images/interface/Action_menu/action.webp", interface)
+                    idle At("images/interface/Action_menu/action_idle.webp", interface) hover At("images/interface/Action_menu/action.webp", interface) selected_idle At("images/interface/Action_menu/action.webp", interface)
+
+                    selected Action_screen_tab == "action"
 
                     if has_Action_control:
                         action SetVariable("Action_screen_tab", "action")
@@ -86,176 +90,211 @@ screen Action_screen(automatic = False):
 
             if has_Action_control:
                 imagebutton:
-                    idle At("images/interface/Action_menu/strip_idle.webp", interface) hover At("images/interface/Action_menu/strip.webp", interface)
+                    idle At("images/interface/Action_menu/strip_idle.webp", interface) hover At("images/interface/Action_menu/strip.webp", interface) selected_idle At("images/interface/Action_menu/strip.webp", interface)
+
+                    selected Action_screen_tab == "strip"
 
                     if has_Action_control:
-                        action SetVariable("Action_screen_tab", "strip")
+                        action Call("ask_to_undress", focused_Girl, from_current = True)
+                        # action SetVariable("Action_screen_tab", "strip")
                     else:
                         action None
 
-                    tooltip "Open Strip Menu"
+                    tooltip "Open Undressing Menu"
                     
                     focus_mask True
 
-            # if has_Action_control:
-            #     if Action_screen_tab == "action":
+            if Action_screen_tab == "pose":
+                if has_position_control:
+                    $ pose_list = all_poses[:]
 
-            # # if has_Action_control:
-            # #     fixed anchor (0.0, 1.0) pos (0.0, 1.0) xysize (191, 1083):
+                    for pose in pose_names.keys():
+                        if pose in pose_list:
+                            if focused_Girl.available_poses and pose not in focused_Girl.available_poses:
+                                $ pose_list.remove(pose)
+                            elif focused_Girl.possible_poses and pose not in focused_Girl.possible_poses:
+                                $ pose_list.remove(pose)
 
-            # #             imagebutton anchor (0.5, 0.5) pos (0.615, 0.7666):
-            # #                 idle "images/interface/Action_menu/spank_idle.webp" hover "images/interface/Action_menu/spank.webp"
+                    if len(pose_list) <= 6:
+                        $ viewport_position = 0.9281
+                    else:
+                        $ viewport_position = 0.922
 
-            # #                 action Call("spank", focused_Girl, from_current = True)
+                    vpgrid id "pose_viewport" anchor (0.5, 0.0) pos (viewport_position, 0.276) xysize (int(447*interface_new_adjustment), int(980*interface_new_adjustment)):
+                        cols 1
 
-            # #                 tooltip "Spank"
+                        draggable True
+                        mousewheel True
 
-            # #     if Action_screen_chat_open and Action_type_tab:
-            # #         fixed anchor (0.0, 0.0) pos (0.11, 0.01) xysize (507, 629):
-            # #             add "images/interface/Action_menu/selection_window.webp"
-                        
-            # #             viewport id "Action_viewport" anchor (0.5, 0.0) pos (0.475, 0.03) xysize (431, 525):
-            # #                 draggable True
-            # #                 mousewheel True
+                        spacing -10
 
-            # #                 vbox xalign 0.5:
-            # #                     spacing 1
+                        for pose in pose_list:
+                            $ pose_name = pose_names[pose]
 
-            # #                     $ current_Action_list = eval(f"{Action_type_tab}_Action_types")[:]
+                            button align (0.5, 0.5) xysize (int(447*interface_new_adjustment), int(177*interface_new_adjustment)):
+                                idle_background At("images/interface/Action_menu/button_off.webp", interface) hover_background At("images/interface/Action_menu/button_on.webp", interface) selected_idle_background At("images/interface/Action_menu/button_on.webp", interface)
 
-            # #                     for Action_type in all_Action_types:
-            # #                         if Action_type in current_Action_list:
-            # #                             if focused_Girl.available_Actions and Action_type not in focused_Girl.available_Actions:
-            # #                                 $ current_Action_list.remove(Action_type)
-            # #                             elif focused_Girl.possible_Actions and Action_type not in focused_Girl.possible_Actions:
-            # #                                 $ current_Action_list.remove(Action_type)
-            # #                             elif "touch_thighs" in Action_type:
-            # #                                 if focused_Girl.thighs_covered and "over_clothes" not in Action_type:
-            # #                                     $ current_Action_list.remove(Action_type)
-            # #                                 elif not focused_Girl.thighs_covered and "over_clothes" in Action_type:
-            # #                                     $ current_Action_list.remove(Action_type)
-            # #                             elif "touch_breasts" in Action_type:
-            # #                                 if focused_Girl.breasts_covered and "over_clothes" not in Action_type:
-            # #                                     $ current_Action_list.remove(Action_type)
-            # #                                 elif not focused_Girl.breasts_covered and "over_clothes" in Action_type:
-            # #                                     $ current_Action_list.remove(Action_type)
-            # #                             elif "grab_ass" in Action_type:
-            # #                                 if focused_Girl.ass_covered and "over_clothes" not in Action_type:
-            # #                                     $ current_Action_list.remove(Action_type)
-            # #                                 elif not focused_Girl.ass_covered and "over_clothes" in Action_type:
-            # #                                     $ current_Action_list.remove(Action_type)
-            # #                             elif "touch_pussy" in Action_type and Action_type != "self_touch_pussy":
-            # #                                 if focused_Girl.pussy_covered and "over_clothes" not in Action_type:
-            # #                                     $ current_Action_list.remove(Action_type)
-            # #                                 elif not focused_Girl.pussy_covered and "over_clothes" in Action_type:
-            # #                                     $ current_Action_list.remove(Action_type)
+                                selected focused_Girl.position == pose
 
-            # #                     for Action_type in toy_Action_types:
-            # #                         if Action_type in current_Action_list:
-            # #                             if Action_type in dildo_Action_types and not ("dildo" in Player.inventory.keys() or "dildo" in focused_Girl.inventory.keys()):
-            # #                                 $ current_Action_list.remove(Action_type)
-            # #                             elif Action_type in ["self_vibrator", "vibrator"] and not ("vibrator" in Player.inventory.keys() or "vibrator" in focused_Girl.inventory.keys()):
-            # #                                 $ current_Action_list.remove(Action_type)
+                                text f"{pose_name}" align (0.5, 0.5):
+                                    if len(pose_name) > 18:
+                                        size 22
+                                    elif len(pose_name) > 15:
+                                        size 28
+                                    elif len(pose_name) > 12:
+                                        size 32
+                                    else:
+                                        size 35
 
-            # #                     for Action_type in current_Action_list:
-            # #                         $ Action_name = Action_names[Action_type]
+                                    text_align 0.5
 
-            # #                         $ ongoing_Action = False
+                                    color "#ffffff"
 
-            # #                         for A in Player.all_Actions:
-            # #                             if A.Action_type == Action_type:
-            # #                                 $ ongoing_Action = A
+                                if focused_Girl.position != pose:
+                                    action Call("request_position", focused_Girl, pose, from_current = True)
+                                else:
+                                    action NullAction()
 
-            # #                         if not ongoing_Action:
-            # #                             for A in focused_Girl.all_Actions:
-            # #                                 if A.Action_type == Action_type:
-            # #                                     $ ongoing_Action = A
+                    vbar value YScrollValue("pose_viewport") anchor (0.0, 0.0) pos (0.98, 0.276) xysize (int(29*interface_new_adjustment), int(980*interface_new_adjustment)):
+                        base_bar Frame("images/interface/Action_menu/scrollbar.webp")
 
-            # #                         button align (0.5, 0.5) xysize (431, 71):
-            # #                             if Action_type in active_Action_types:
-            # #                                 idle_background "images/interface/Action_menu/male_idle.webp" hover_background "images/interface/Action_menu/male.webp" selected_background "images/interface/Action_menu/male_selected.webp"
-            # #                             elif Action_type in passive_Action_types:
-            # #                                 idle_background "images/interface/Action_menu/female_idle.webp" hover_background "images/interface/Action_menu/female.webp" selected_background "images/interface/Action_menu/female_selected.webp"
+                        thumb At("images/interface/Action_menu/scrollbar_thumb.webp", interface)
+                        thumb_offset 10
 
-            # #                             selected ongoing_Action
+                        unscrollable "hide"
+            if Action_screen_tab == "action":
+                if has_Action_control:
+                    $ current_Action_list = all_Action_types[:]
 
-            # #                             text f"{Action_name}" anchor (0.5, 0.5) pos (0.55, 0.5):
-            # #                                 size 32
+                    for Action_type in all_Action_types:
+                        if Action_type in current_Action_list:
+                            if focused_Girl.available_Actions and Action_type not in focused_Girl.available_Actions:
+                                $ current_Action_list.remove(Action_type)
+                            elif focused_Girl.possible_Actions and Action_type not in focused_Girl.possible_Actions:
+                                $ current_Action_list.remove(Action_type)
+                            elif "touch_thighs" in Action_type:
+                                if focused_Girl.thighs_covered and "over_clothes" not in Action_type:
+                                    $ current_Action_list.remove(Action_type)
+                                elif not focused_Girl.thighs_covered and "over_clothes" in Action_type:
+                                    $ current_Action_list.remove(Action_type)
+                            elif "touch_breasts" in Action_type:
+                                if focused_Girl.breasts_covered and "over_clothes" not in Action_type:
+                                    $ current_Action_list.remove(Action_type)
+                                elif not focused_Girl.breasts_covered and "over_clothes" in Action_type:
+                                    $ current_Action_list.remove(Action_type)
+                            elif "grab_ass" in Action_type:
+                                if focused_Girl.ass_covered and "over_clothes" not in Action_type:
+                                    $ current_Action_list.remove(Action_type)
+                                elif not focused_Girl.ass_covered and "over_clothes" in Action_type:
+                                    $ current_Action_list.remove(Action_type)
+                            elif "touch_pussy" in Action_type and Action_type != "self_touch_pussy":
+                                if focused_Girl.pussy_covered and "over_clothes" not in Action_type:
+                                    $ current_Action_list.remove(Action_type)
+                                elif not focused_Girl.pussy_covered and "over_clothes" in Action_type:
+                                    $ current_Action_list.remove(Action_type)
 
-            # #                             if ongoing_Action:
-            # #                                 action [
-            # #                                     Function(stop_Action, ongoing_Action),
-            # #                                     SetVariable("selected_Action_index", 0)]
-            # #                             else:
-            # #                                 if Action_type in ["self_touch_pussy", "self_finger_ass", "self_vibrator", "self_dildo_pussy", "self_dildo_ass"]:
-            # #                                     action [
-            # #                                         SetVariable("speed", 1.0),
-            # #                                         SetVariable("intensity", 1.0),
-            # #                                         SetVariable("starting_depth", 0.0),
-            # #                                         SetVariable("Action_screen_chat_open", False),
-            # #                                         Call("request_Action", Action_type, focused_Girl, focused_Girl, from_current = True)]
-            # #                                 elif Action_type in active_Action_types:
-            # #                                     action [
-            # #                                         SetVariable("speed", 1.0),
-            # #                                         SetVariable("intensity", 1.0),
-            # #                                         SetVariable("starting_depth", 0.0),
-            # #                                         SetVariable("Action_screen_chat_open", False),
-            # #                                         Call("request_Action", Action_type, Player, focused_Girl, from_current = True)]
-            # #                                 elif Action_type in passive_Action_types:
-            # #                                     action [
-            # #                                         SetVariable("speed", 1.0),
-            # #                                         SetVariable("intensity", 1.0),
-            # #                                         SetVariable("starting_depth", 0.0),
-            # #                                         SetVariable("Action_screen_chat_open", False),
-            # #                                         Call("request_Action", Action_type, focused_Girl, Player, from_current = True)]
+                    for Action_type in toy_Action_types:
+                        if Action_type in current_Action_list:
+                            if Action_type in dildo_Action_types and not ("dildo" in Player.inventory.keys() or "dildo" in focused_Girl.inventory.keys()):
+                                $ current_Action_list.remove(Action_type)
+                            elif Action_type in ["self_vibrator", "vibrator"] and not ("vibrator" in Player.inventory.keys() or "vibrator" in focused_Girl.inventory.keys()):
+                                $ current_Action_list.remove(Action_type)
 
-            # #             vbar value YScrollValue("Action_viewport") anchor (0.0, 0.0) pos (0.925, 0.03) xysize (22, 525):
-            # #                 base_bar Frame("images/interface/Action_menu/scrollbar.webp")
+                    for Action_type in all_Action_types:
+                        if Action_type in current_Action_list:
+                            $ test_Action = ActionClass(Action_type, None)
 
-            # #                 thumb "images/interface/Action_menu/scrollbar_thumb.webp"
-            # #                 thumb_offset 10
+                            if focused_Girl.position not in test_Action.available_poses:
+                                $ current_Action_list.remove(Action_type)
 
-            # #                 unscrollable "hide"
-            #     elif Action_screen_tab == "pose":
-            # #         if has_position_control:
-            # #             $ pose_list = ongoing_Actions[selected_Action_index].available_poses[:]
+                    if len(current_Action_list) <= 5:
+                        $ viewport_position = 0.9281
+                    else:
+                        $ viewport_position = 0.922
 
-            # #             for pose in pose_names.keys():
-            # #                 if pose in pose_list:
-            # #                     if focused_Girl.available_poses and pose not in focused_Girl.available_poses:
-            # #                         $ pose_list.remove(pose)
-            # #                     elif focused_Girl.possible_poses and pose not in focused_Girl.possible_poses:
-            # #                         $ pose_list.remove(pose)
+                    vpgrid id "Action_viewport" anchor (0.5, 0.0) pos (viewport_position, 0.276) xysize (int(447*interface_new_adjustment), int(980*interface_new_adjustment)):
+                        cols 1
 
-            # #             hbox anchor (0.5, 0.5) pos (0.5, 0.275) xysize (600, 88):
-            # #                 spacing -100
+                        draggable True
+                        mousewheel True
 
-            # #                 for pose in pose_list:
-            # #                     $ pose_name = pose_names[pose]
+                        spacing -10
+                                            
+                        button align (0.5, 0.5) xysize (int(447*interface_new_adjustment), int(177*interface_new_adjustment)):
+                            idle_background At("images/interface/Action_menu/button_off.webp", interface) hover_background At("images/interface/Action_menu/button_on.webp", interface) selected_idle_background At("images/interface/Action_menu/button_on.webp", interface)
 
-            # #                     button align (0.5, 0.5) xysize (200, 88):
-            # #                         background None
+                            text "Spank" align (0.5, 0.5):
+                                size 35
 
-            # #                         hover_sound None
+                                text_align 0.5
 
-            # #                         selected ongoing_Actions[selected_Action_index].position == pose
+                                color "#ffffff"
 
-            # #                         text f"{pose_name}" align (0.5, 0.5):
-            # #                             if len(pose_name) > 12:
-            # #                                 size 26
-            # #                             else:
-            # #                                 size 32
+                            action Call("spank", focused_Girl, from_current = True)
 
-            # #                             text_align 0.5
+                        for Action_type in current_Action_list:
+                            $ Action_name = Action_names[Action_type]
 
-            # #                             idle_color "#000000" hover_color "#ffffff" selected_color "#ffffff"
+                            $ ongoing_Action = False
 
-            # #                         if ongoing_Actions[selected_Action_index].position != pose:
-            # #                             action Call("request_position", focused_Girl, pose, ongoing_Actions[selected_Action_index], from_current = True)
-            # #                         else:
-            # #                             action NullAction()
+                            for A in Player.all_Actions:
+                                if A.Action_type == Action_type:
+                                    $ ongoing_Action = A
 
-            # #                         # tooltip "Change Position"
+                            if not ongoing_Action:
+                                for A in focused_Girl.all_Actions:
+                                    if A.Action_type == Action_type:
+                                        $ ongoing_Action = A
+
+                            button align (0.5, 0.5) xysize (int(447*interface_new_adjustment), int(177*interface_new_adjustment)):
+                                idle_background At("images/interface/Action_menu/button_off.webp", interface) hover_background At("images/interface/Action_menu/button_on.webp", interface) selected_idle_background At("images/interface/Action_menu/button_on.webp", interface)
+
+                                selected ongoing_Action
+
+                                text f"{Action_name}" align (0.5, 0.5):
+                                    if len(Action_name) > 18:
+                                        size 22
+                                    elif len(Action_name) > 15:
+                                        size 28
+                                    elif len(Action_name) > 12:
+                                        size 32
+                                    else:
+                                        size 35
+
+                                    text_align 0.5
+
+                                    color "#ffffff"
+
+                                if ongoing_Action:
+                                    action [
+                                        Function(stop_Action, ongoing_Action)]
+                                else:
+                                    if Action_type in ["self_touch_pussy", "self_finger_ass", "self_vibrator", "self_dildo_pussy", "self_dildo_ass"]:
+                                        action [
+                                            SetVariable("speed", 1.0),
+                                            SetVariable("intensity", 1.0),
+                                            SetVariable("starting_depth", 0.0),
+                                            Call("request_Action", Action_type, focused_Girl, focused_Girl, from_current = True)]
+                                    elif Action_type in active_Action_types:
+                                        action [
+                                            SetVariable("speed", 1.0),
+                                            SetVariable("intensity", 1.0),
+                                            SetVariable("starting_depth", 0.0),
+                                            Call("request_Action", Action_type, Player, focused_Girl, from_current = True)]
+                                    elif Action_type in passive_Action_types:
+                                        action [
+                                            SetVariable("speed", 1.0),
+                                            SetVariable("intensity", 1.0),
+                                            SetVariable("starting_depth", 0.0),
+                                            Call("request_Action", Action_type, focused_Girl, Player, from_current = True)]
+
+                    vbar value YScrollValue("Action_viewport") anchor (0.0, 0.0) pos (0.98, 0.276) xysize (int(29*interface_new_adjustment), int(980*interface_new_adjustment)):
+                        base_bar Frame("images/interface/Action_menu/scrollbar.webp")
+
+                        thumb At("images/interface/Action_menu/scrollbar_thumb.webp", interface)
+                        thumb_offset 10
+
+                        unscrollable "hide"
             #     elif Action_screen_tab == "strip":
 
             imagebutton:
@@ -271,48 +310,46 @@ screen Action_screen(automatic = False):
                 imagebutton:
                     idle At("images/interface/Action_menu/pause_idle.webp", interface) hover At("images/interface/Action_menu/pause.webp", interface)
 
-                    action [
-                        SetVariable("speed", 0.001),
-                        SetVariable("intensity", 0.001)]
+                    if Player.cock_Actions:
+                        action [
+                            SetVariable("speed", 0.001),
+                            SetVariable("intensity", 0.001),
+                            SetField(Player.cock_Actions[0], "mode", 0)]
+                    else:
+                        action [
+                            SetVariable("speed", 0.001),
+                            SetVariable("intensity", 0.001)]
 
                     tooltip "Pause Action"
                     
                     focus_mask True
 
-            # if ongoing_Actions and has_Action_control:
-            #     vpgrid anchor (0.5, 0.5) pos (0.46, 0.695) xysize (180, 180):
-            #         cols 2
+            if has_Action_control and Player.cock_Actions and len(Player.cock_Actions[0].modes) > 1:
+                hbox anchor (0.5, 0.5) pos (0.9281, 0.857) xysize (int(475*interface_new_adjustment), int(177*interface_new_adjustment)):
+                    spacing -14
 
-            #         spacing 1
+                    for mode in Player.cock_Actions[0].modes:
+                        button align (0.5, 0.5) xysize (int(191*interface_new_adjustment), int(177*interface_new_adjustment)):
+                            idle_background At("images/interface/Action_menu/mode_idle.webp", interface) hover_background At("images/interface/Action_menu/mode.webp", interface) selected_background At("images/interface/Action_menu/mode.webp", interface)
 
-            #         for mode in ongoing_Actions[selected_Action_index].modes:
-            #             button align (0.5, 0.5) xysize (89, 88):
-            #                 idle_background "images/interface/Action_menu/mode_idle.webp" hover_background "images/interface/Action_menu/mode.webp" selected_background "images/interface/Action_menu/mode_selected.webp"
+                            selected Player.cock_Actions[0].mode == mode
 
-            #                 selected selected_Action_mode == mode
+                            if len(Player.cock_Actions[0].modes) == 1:
+                                text "1" align (0.5, 0.5):
+                                    size 32
+                            else:
+                                text f"{mode}" align (0.5, 0.5):
+                                    size 32
 
-            #                 if len(ongoing_Actions[selected_Action_index].modes) == 1:
-            #                     text "1" align (0.5, 0.5):
-            #                         size 32
-            #                 else:
-            #                     text f"{mode}" align (0.5, 0.5):
-            #                         size 32
+                            if Player.cock_Actions[0].mode != mode:
+                                action [
+                                    SetVariable("speed", 1.0),
+                                    SetVariable("intensity", 1.0),
+                                    Call("request_mode", Player.cock_Actions[0], mode, from_current = True)]
+                            else:
+                                action NullAction()
 
-            #                 if selected_Action_mode != mode:
-            #                     action Call("request_mode", ongoing_Actions[selected_Action_index], mode, from_current = True)
-            #                 else:
-            #                     action NullAction()
-
-            #                 tooltip "Change Mode"
-
-                # imagebutton anchor (0.5, 0.5) pos (0.72, 0.805):
-                #     idle "images/interface/Action_menu/stop_idle.webp" hover "images/interface/Action_menu/stop.webp"
-
-                #     action [
-                #         Function(stop_Action, ongoing_Actions[selected_Action_index]),
-                #         SetVariable("selected_Action_index", 0)]
-
-                #     tooltip "Stop Action"
+                            tooltip "Change Mode"
 
             $ different_intensities_available = False
 
@@ -324,33 +361,57 @@ screen Action_screen(automatic = False):
 
             if has_movement_control and different_intensities_available:
                 imagebutton:
-                    idle At("images/interface/Action_menu/x1_idle.webp", interface) hover At("images/interface/Action_menu/x1.webp", interface)
+                    idle At("images/interface/Action_menu/x1_idle.webp", interface) hover At("images/interface/Action_menu/x1.webp", interface) selected_idle At("images/interface/Action_menu/x1.webp", interface)
 
-                    action [
-                        SetVariable("speed", 0.5),
-                        SetVariable("intensity", 0.5)]
+                    selected speed == 0.5 and intensity == 0.5
+
+                    if Player.cock_Actions[0].mode == 0:
+                        action [
+                            SetVariable("speed", 0.5),
+                            SetVariable("intensity", 0.5),
+                            SetField(Player.cock_Actions[0], "mode", Player.cock_Actions[0].modes[0])]
+                    else:
+                        action [
+                            SetVariable("speed", 0.5),
+                            SetVariable("intensity", 0.5)]
 
                     tooltip "Set Intensity to 1"
                     
                     focus_mask True
 
                 imagebutton:
-                    idle At("images/interface/Action_menu/x2_idle.webp", interface) hover At("images/interface/Action_menu/x2.webp", interface)
+                    idle At("images/interface/Action_menu/x2_idle.webp", interface) hover At("images/interface/Action_menu/x2.webp", interface) selected_idle At("images/interface/Action_menu/x2.webp", interface)
 
-                    action [
-                        SetVariable("speed", 1.0),
-                        SetVariable("intensity", 1.0)]
+                    selected speed == 1.0 and intensity == 1.0
+
+                    if Player.cock_Actions[0].mode == 0:
+                        action [
+                            SetVariable("speed", 1.0),
+                            SetVariable("intensity", 1.0),
+                            SetField(Player.cock_Actions[0], "mode", Player.cock_Actions[0].modes[0])]
+                    else:
+                        action [
+                            SetVariable("speed", 1.0),
+                            SetVariable("intensity", 1.0)]
 
                     tooltip "Set Intensity to 2"
                     
                     focus_mask True
 
                 imagebutton:
-                    idle At("images/interface/Action_menu/x3_idle.webp", interface) hover At("images/interface/Action_menu/x3.webp", interface)
+                    idle At("images/interface/Action_menu/x3_idle.webp", interface) hover At("images/interface/Action_menu/x3.webp", interface) selected_idle At("images/interface/Action_menu/x3.webp", interface)
 
-                    action [
-                        SetVariable("speed", 2.0),
-                        SetVariable("intensity", 2.0)]
+                    selected speed == 2.0 and intensity == 2.0
+
+                    if Player.cock_Actions[0].mode == 0:
+                        action [
+                            SetVariable("speed", 2.0),
+                            SetVariable("intensity", 2.0),
+                            SetField(Player.cock_Actions[0], "mode", Player.cock_Actions[0].modes[0])]
+                    else:
+                        action [
+                            SetVariable("speed", 2.0),
+                            SetVariable("intensity", 2.0)]
 
                     tooltip "Set Intensity to 3"
                     
@@ -376,6 +437,9 @@ screen Action_screen(automatic = False):
     if black_screen or renpy.get_screen("say"):
         button align (0.5, 0.5) xysize (config.screen_width, config.screen_height):
             background None
+
+            hover_sound None
+            activate_sound None
             
             if not renpy.get_screen("choice"):
                 action Return()

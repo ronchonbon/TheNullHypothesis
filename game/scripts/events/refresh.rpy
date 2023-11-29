@@ -53,17 +53,17 @@ label refresh_season_content:
 
     python:
         for C in all_Companions:
-            C.possible_Actions = []
-
-            for Action_type in all_Action_types:
-                if eval(f"{C.tag}_thresholds['{Action_type}'][0]") <= max_stats[season - 1] and eval(f"{C.tag}_thresholds['{Action_type}'][1]") <= max_stats[season - 1]:
-                    C.possible_Actions.append(Action_type)
-                
             C.possible_poses = []
 
             for pose in pose_names.keys():
-                if eval(f"{C.tag}_thresholds['{pose}'][0]") <= max_stats[season - 1] and eval(f"{C.tag}_thresholds['{pose}'][1]") <= max_stats[season - 1]:
+                if approval_check(C, threshold = eval(f"[1.1*{C.tag}_thresholds['{pose}'][0], 1.1*{C.tag}_thresholds['{pose}'][1]]")):
                     C.possible_poses.append(pose)
+
+            C.possible_Actions = []
+
+            for Action_type in all_Action_types:
+                if approval_check(C, threshold = eval(f"[1.1*{C.tag}_thresholds['{Action_type}'][0], 1.1*{C.tag}_thresholds['{Action_type}'][1]]")):
+                    C.possible_Actions.append(Action_type)
 
     if not game_started:
         call set_Character_Outfits from _call_set_Character_Outfits_10

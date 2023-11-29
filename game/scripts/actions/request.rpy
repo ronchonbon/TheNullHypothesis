@@ -134,6 +134,12 @@ label request_hookup(Character):
     return
 
 label request_Action(Action_type, Actors, Targets):
+    $ temp_speed = speed
+    $ temp_intensity = intensity
+
+    $ speed = 0.001
+    $ intensity = 0.001
+
     if Actors in all_Characters or Actors == Player:
         $ Actors = [Actors]
 
@@ -175,8 +181,6 @@ label request_Action(Action_type, Actors, Targets):
         call check_double_penetration(focused_Girl, Action_type) from _call_check_double_penetration
 
         if _return:
-            $ selected_Action_index = 0
-
             call start_Action(Action) from _call_start_Action_4
         else:
             $ focused_Girl.History.update(f"rejected_double_penetrate")
@@ -195,6 +199,9 @@ label request_Action(Action_type, Actors, Targets):
 
         $ focused_Girl.History.update(f"rejected_{Action_type}")
 
+    $ speed = temp_speed
+    $ intensity = temp_intensity
+
     return
 
 label request_mode(Action, mode):
@@ -205,8 +212,6 @@ label request_mode(Action, mode):
     $ intensity = 0.001
 
     $ Action.mode = mode
-
-    $ selected_Action_mode = mode
 
     if not ongoing_Event or has_Action_control:
         call expression f"{Action.Action_type}_initiations" pass (Action = Action) from _call_expression_131
@@ -286,8 +291,6 @@ label request_position(Girl, new_position, Action = None, automatic = False):
 
             $ Girl.History.update(new_position)
 
-            $ selected_Action_index = 0
-
             return True
         else:
             if Girl.History.check(f"rejected_{new_position}", tracker = "recent") >= 2:
@@ -315,8 +318,6 @@ label request_position(Girl, new_position, Action = None, automatic = False):
             $ Action.position = new_position
 
         call show_pose(Girl, new_position) from _call_show_pose_1
-
-        $ selected_Action_index = 0
 
         return True
 
