@@ -180,8 +180,6 @@ label Laura_first_sex_part_one:
             $ Laura.change_face("sexy", blush = 2)
             
             $ EventScheduler.Events["Laura_first_sex_part_two"].start()
-        "If you're comfortable, I'd love to have sex with you." if not Player.stamina:
-            pass
         "It's not that I don't want to, but can we wait?":
             $ Laura.change_face("neutral", blush = 1)
 

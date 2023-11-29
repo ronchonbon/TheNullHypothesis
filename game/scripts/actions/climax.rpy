@@ -12,7 +12,7 @@ label Character_orgasms(Character):
 
     $ Character.History.update("orgasmed_with_Player")
 
-    call change_Girl_stat(Character, "love", int(small_stat/(Character.History.check("orgasmed_with_Player", tracker = "recent"))))
+    call change_Girl_stat(Character, "love", int(small_stat/(Character.History.check("orgasmed_with_Player", tracker = "recent")))) from _call_change_Girl_stat_350
     call Character_orgasm_narrations(Character) from _call_Character_orgasm_narrations
 
     $ Character.orgasming = False

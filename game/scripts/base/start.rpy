@@ -137,12 +137,7 @@ label get_ready:
             if f"bg_{C.tag}" in bedrooms:
                 renpy.start_predict(f"characters/{C.tag}/images/bedroom/*.webp")
 
-            if C in all_Companions:
-                if C.left_arm in [0, 1]:
-                    C.left_arm = "neutral"
-                
-                if C.right_arm in [0, 1]:
-                    C.right_arm = "neutral"
+    # $ renpy.pause(hard = True, predict = True)
 
     $ temp_all_Characters = all_Characters[:]
 
@@ -151,7 +146,7 @@ label get_ready:
 
         $ temp_all_Characters.remove(temp_all_Characters[0])
 
-    $ check_predicted_images()
+    $ check_predicted_images(loading = True)
     
     call refresh_season_content from _call_refresh_season_content
     

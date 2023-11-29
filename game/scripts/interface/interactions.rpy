@@ -186,7 +186,7 @@ screen interactions_screen(Character):
 
                             action NullAction()
 
-                    if approval_check(Character, threshold = "hookup"):
+                    if approval_check(Character, threshold = "hookup") and len(Present) == 1 and Player.location in bedrooms:
                         imagebutton:
                             idle At("images/interface/interactions/hookup_idle.webp", interface) hover At("images/interface/interactions/hookup.webp", interface)
 

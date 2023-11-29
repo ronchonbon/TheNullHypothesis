@@ -17,16 +17,6 @@ label request_hookup(Character):
 
         return
 
-    if not Player.stamina:
-        "You're empty, maybe later."
-
-        return
-
-    if not Character.stamina:
-        "[Character.name] seems wiped out. Maybe later?"
-
-        return
-
     ch_Player "Do you want to mess around?"
 
     if Character.status["miffed"] or Character.status["mad"]:
@@ -48,7 +38,7 @@ label request_hookup(Character):
             show screen interactions_screen(Character)
 
         return
-    elif Player.location in public_locations and not approval_check(Character, threshold = "exhibitionism"):
+    elif Player.location not in bedrooms:
         if Character.History.check("rejected_hookup", tracker = "recent") >= 2:
             call change_Girl_stat(Character, "love", -5) from _call_change_Girl_stat_813
             call change_Girl_stat(Character, "trust", -5) from _call_change_Girl_stat_814
@@ -67,7 +57,7 @@ label request_hookup(Character):
             show screen interactions_screen(Character)
 
         return
-    elif len(Present) > 1:#not are_Characters_in_Partners(Present):
+    elif len(Present) > 1:
         if Character.History.check("rejected_hookup", tracker = "recent") >= 2:
             call change_Girl_stat(Character, "love", -5) from _call_change_Girl_stat_816
             call change_Girl_stat(Character, "trust", -5) from _call_change_Girl_stat_817

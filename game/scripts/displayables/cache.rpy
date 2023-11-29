@@ -1,6 +1,6 @@
 init python:
     
-    def check_predicted_images():
+    def check_predicted_images(loading = False):
         global all_Characters
         global Sprites
         global active_Companions
@@ -27,6 +27,9 @@ init python:
                         renpy.stop_predict(f"characters/{C.tag}/images/missionary/*.webp")
                     else:
                         renpy.stop_predict(f"characters/{C.tag}/images/*.webp")
+
+        # if loading:
+        #     renpy.pause(hard = True, predict = True)
 
         return
 
