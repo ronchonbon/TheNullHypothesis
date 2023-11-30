@@ -354,7 +354,8 @@ label does_Character_agree_to_change_Clothes(Character, added_Items = None, remo
 
                     $ agrees_to_remove = False
 
-            $ temp_body_parts.remove(temp_body_parts[0])
+            if temp_body_parts:
+                $ temp_body_parts.remove(temp_body_parts[0])
 
     $ del hypothetical_Outfit
 

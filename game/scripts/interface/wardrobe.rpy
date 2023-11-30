@@ -94,7 +94,12 @@ screen Wardrobe_screen(Companion):
 
     add "images/interface/wardrobe/background.webp" align (0.5, 0.5)
 
-    add At(f"{Companion.tag}_sprite standing", color_shade(eval(f"{Companion.tag}_color"))) anchor (Companion.sprite_anchor[0], Companion.sprite_anchor[1]) pos (0.4, eval(f"{Companion.tag}_standing_height")) zoom Companion.sprite_zoom
+    add At(f"{Companion.tag}_sprite standing", color_shade(eval(f"{Companion.tag}_color"))):
+        transform_anchor True
+
+        anchor (eval(f"{Companion.tag}_standing_anchor")[0], eval(f"{Companion.tag}_standing_anchor")[1]) 
+        pos (0.4, eval(f"{Companion.tag}_standing_height")) 
+        zoom eval(f"{Companion.tag}_standing_zoom")
 
     imagebutton align (0.5, 0.5):
         idle "images/interface/wardrobe/default_idle.webp" hover "images/interface/wardrobe/default.webp" selected_idle "images/interface/wardrobe/default_selected.webp" selected_hover "images/interface/wardrobe/default_selected.webp"
@@ -189,7 +194,12 @@ screen Wardrobe_screen(Companion):
         text Companion.Outfit.name anchor (1.0, 0.5) pos (0.85, 0.258):
             size 46
 
-    add f"{Companion.tag}_sprite standing" anchor (Companion.sprite_anchor[0], Companion.sprite_anchor[1]) pos (0.36, eval(f"{Companion.tag}_standing_height")) zoom Companion.sprite_zoom
+    add f"{Companion.tag}_sprite standing":
+        transform_anchor True
+
+        anchor (eval(f"{Companion.tag}_standing_anchor")[0], eval(f"{Companion.tag}_standing_anchor")[1]) 
+        pos (0.36, eval(f"{Companion.tag}_standing_height")) 
+        zoom eval(f"{Companion.tag}_standing_zoom")
 
     imagebutton align (0.5, 0.5):
         idle "images/interface/wardrobe/accessories_idle.webp" hover "images/interface/wardrobe/accessories.webp" selected_idle "images/interface/wardrobe/accessories_selected.webp"

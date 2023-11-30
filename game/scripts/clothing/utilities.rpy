@@ -291,14 +291,14 @@ label debrief_Outfit_change(Companions, instant = False):
         call set_Character_Outfits(Companions, instant = instant) from _call_set_Character_Outfits_7
 
     if not renpy.get_screen("shop_screen") and changed_pubes:
-        $ temp_shaving_Companions = []
+        $ renpy.dynamic(temp_Characters = [])
 
         python:
             for G in Companions:
                 if G.pubes != G.desired_pubes:
-                    temp_shaving_Companions.append(G)
+                    temp_Characters.append(G)
 
-        call Companions_will_shave(temp_shaving_Companions) from _call_Companions_will_shave
+        call Companions_will_shave(temp_Characters) from _call_Companions_will_shave
 
         $ changed_pubes = False
 

@@ -47,8 +47,6 @@ label go_to_sleep(automatic = False):
         $ lighting = "night"
         
     $ reset_behavior()
-    
-    $ temp_sleepover_Characters = []
 
     python:
         for C in Present:
