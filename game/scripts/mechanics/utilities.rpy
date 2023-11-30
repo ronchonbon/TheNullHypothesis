@@ -47,10 +47,21 @@ init python:
             if len(sorted_Characters) >= 3:
                 temp_right_Slot = sorted_Characters[2]
         elif selected_Character:
-            if left_Slot == selected_Character:
+            if temp_left_Slot == selected_Character:
                 temp_left_Slot, temp_middle_Slot = temp_middle_Slot, selected_Character
-            elif right_Slot == selected_Character:
+            elif temp_middle_Slot == selected_Character:
+                pass
+            elif temp_right_Slot == selected_Character:
                 temp_middle_Slot, temp_right_Slot = selected_Character, temp_middle_Slot
+            else:
+                if temp_left_Slot and temp_middle_Slot and temp_right_Slot:
+                    temp_left_Slot, temp_middle_Slot, temp_right_Slot = temp_middle_Slot, selected_Character, temp_right_Slot
+                elif not temp_middle_Slot:
+                    temp_middle_Slot = selected_Character
+                elif not temp_left_Slot:
+                    temp_left_Slot, temp_middle_Slot = temp_middle_Slot, selected_Character
+                elif not temp_right_Slot:
+                    temp_middle_Slot, temp_right_Slot = selected_Character, temp_middle_Slot
 
         if not ongoing_Event and sandbox:
             if not temp_middle_Slot:
@@ -73,18 +84,23 @@ init python:
                         temp_Offscreen.remove(C)
 
             if location in location_Slots.keys():
-                for S in location_Slots[location]:
-                    if S["occupied"] is None:
-                        temp_Characters = temp_Offscreen[:]
+                for S in location_Slots[location].values():
+                    occupied = False
 
-                        for C in temp_Characters:
-                            if C.behavior == S["behavior"]:
-                                S["occupied"] = C
+                    temp_Characters = temp_Offscreen[:]
+
+                    for C in temp_Characters:
+                        for C_alt in temp_Characters:
+                            if C != C_alt and S["position"] == C_alt.sprite_position:
+                                occupied = True
+
+                                break
+
+                        if not occupied:
+                            if not S["behavior"] or C.behavior == S["behavior"]:
+                                C.sprite_position = S["position"]
 
                                 temp_Offscreen.remove(C)
-                    elif S["occupied"]:
-                        if S["occupied"] not in temp_Offscreen:
-                            S["occupied"] = None
                 
         return temp_Present, temp_left_Slot, temp_middle_Slot, temp_right_Slot, temp_Offscreen
 

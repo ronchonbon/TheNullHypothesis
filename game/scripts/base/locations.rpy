@@ -103,19 +103,18 @@ init -2:
     default infirmary_screen2 = False
     default infirmary_screen3 = False
 
-    default location_Slots = {
-        "bg_campus": [],
-        "bg_classroom": [
-            {
-                "occupied": None,
+    define location_Slots = {
+        "bg_campus": {},
+        "bg_classroom": {
+            "podium": {
                 "behavior": "teaching",
                 "anchor": [None, 1.0],
                 "position": [0.39, 0.69],
                 "zoom": 0.3,
                 "layer": 3,
-                "color_transform": None}],
-        "bg_danger": [],
-        "bg_girls_hallway": [],
-        "bg_hallway": [],
-        "bg_mall": [],
-        "bg_pool": []}
+                "color_transform": None}},
+        "bg_danger": {},
+        "bg_girls_hallway": {},
+        "bg_hallway": {},
+        "bg_mall": {},
+        "bg_pool": {}}

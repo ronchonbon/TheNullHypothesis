@@ -150,7 +150,7 @@ label show_Character(Character, t = None, sprite_anchor = None, x = None, y = No
 
     return
 
-label hide_Character(Character, fade = True):
+label hide_Character(Character, fade = True, send_Offscreen = True):
     $ check_predicted_images()
 
     $ renpy.hide(f"{Character.tag}_sprite")
@@ -163,17 +163,18 @@ label hide_Character(Character, fade = True):
 
     $ Character.change_face()
 
-    if Character == left_Slot:
-        $ left_Slot = None
+    if send_Offscreen:
+        if Character == left_Slot:
+            $ left_Slot = None
 
-    if Character == middle_Slot:
-        $ middle_Slot = None
+        if Character == middle_Slot:
+            $ middle_Slot = None
 
-    if Character == right_Slot:
-        $ right_Slot = None
+        if Character == right_Slot:
+            $ right_Slot = None
 
-    if Character.destination == Player.location:
-        $ send_Characters_Offscreen(Character)
+        if Character.destination == Player.location:
+            $ send_Characters_Offscreen(Character)
 
     return
 
