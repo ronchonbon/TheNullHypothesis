@@ -1,8 +1,6 @@
 init python:
 
     def Jean_ch1_season_two_Quest():
-        global Jean
-
         name = f"{Jean.full_name}: Winter"
 
         string = "Jean_ch1_season_two_Quest"

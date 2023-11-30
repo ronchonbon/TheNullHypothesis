@@ -78,8 +78,8 @@ label Rogue_chapter_one_season_two_first_study_session:
 
             ch_Rogue "Ah'm sorry for bein' like this, [Rogue.Player_petname]." 
             
-            call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_1081 
-            call change_Girl_stat(Rogue, "trust", 0) from _call_change_Girl_stat_1082
+            call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_1081 
+            call change_Companion_stat(Rogue, "trust", 0) from _call_change_Companion_stat_1082
         "[temp], are you really okay? If something's going on, you can tell me.":
             $ Rogue.change_face("worried1", eyes = "right")
 
@@ -89,7 +89,7 @@ label Rogue_chapter_one_season_two_first_study_session:
             
             ch_Rogue "And ah'm sorry, but. . ." 
             
-            call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_1083
+            call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_1083
         "Okay, seriously, what the hell is going on with you?":
             $ Rogue.change_face("worried2") 
             
@@ -100,8 +100,8 @@ label Rogue_chapter_one_season_two_first_study_session:
             ch_Rogue "Nothin's goin' on!" 
             ch_Rogue "It ain't about me." 
             
-            call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_1084
-            call change_Girl_stat(Rogue, "trust", 0) from _call_change_Girl_stat_1085
+            call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_1084
+            call change_Companion_stat(Rogue, "trust", 0) from _call_change_Companion_stat_1085
 
     $ Rogue.change_face("worried2")
 

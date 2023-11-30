@@ -1,8 +1,6 @@
 init python:
 
     def Jean_love_Quest():
-        global Jean
-        
         name = f"{Jean.full_name}: Love"
 
         string = "Jean_love_Quest"

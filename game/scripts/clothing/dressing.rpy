@@ -87,7 +87,7 @@ init python:
         return hypothetical_Outfit
 
 label does_Character_want_privacy(Character, Items_to_add = None, Items_to_remove = None):
-    $ Present = get_Present(location = Character.location)
+    $ Present = get_Present(location = Character.location)[0]
 
     if len(Present) > 1 and not are_Characters_in_Partners(Present):
         return True

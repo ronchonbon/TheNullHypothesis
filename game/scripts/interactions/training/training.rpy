@@ -4,7 +4,7 @@ label train:
 
     $ Player.behavior = "training"
 
-    $ training_Girl = None
+    $ training_Character = None
 
     menu:
         "Train on your own":
@@ -20,32 +20,32 @@ label train:
             call ask_to_train(Rogue) from _call_ask_to_train
 
             if _return:
-                $ training_Girl = Rogue
+                $ training_Character = Rogue
         "Invite [Rogue.name] to train" if not Rogue.History.check("trained_with_Player", tracker = "daily") and Rogue in Contacts and Rogue in active_Companions and Rogue not in Present and Rogue.location != "hold" and not Rogue.History.check("said_no_to_training", tracker = "recent") > 2 and not Rogue.History.check("said_goodnight", tracker = "recent"):
             call ask_to_train(Rogue) from _call_ask_to_train_1
 
             if _return:
-                $ training_Girl = Rogue
+                $ training_Character = Rogue
         "Train with [Laura.name]" if not Laura.History.check("trained_with_Player", tracker = "daily") and Laura in Present and not Laura.History.check("said_no_to_training", tracker = "recent") > 2:
             call ask_to_train(Laura) from _call_ask_to_train_2
 
             if _return:
-                $ training_Girl = Laura
+                $ training_Character = Laura
         "Invite [Laura.name] to train" if not Laura.History.check("trained_with_Player", tracker = "daily") and Laura in Contacts and Laura in active_Companions and Laura not in Present and Laura.location != "hold" and not Laura.History.check("said_no_to_training", tracker = "recent") > 2 and not Laura.History.check("said_goodnight", tracker = "recent"):
             call ask_to_train(Laura) from _call_ask_to_train_3
 
             if _return:
-                $ training_Girl = Laura
+                $ training_Character = Laura
         "Train with [Jean.name]" if not Jean.History.check("trained_with_Player", tracker = "daily") and Jean in Present and not Jean.History.check("said_no_to_training", tracker = "recent") > 2:
             call ask_to_train(Jean) from _call_ask_to_train_4
 
             if _return:
-                $ training_Girl = Jean
+                $ training_Character = Jean
         "Invite [Jean.name] to train" if not Jean.History.check("trained_with_Player", tracker = "daily") and Jean in Contacts and Jean in active_Companions and Jean not in Present and Jean.location != "hold" and not Jean.History.check("said_no_to_training", tracker = "recent") > 2 and not Jean.History.check("said_goodnight", tracker = "recent"):
             call ask_to_train(Jean) from _call_ask_to_train_5
 
             if _return:
-                $ training_Girl = Jean
+                $ training_Character = Jean
         "Back":
             $ Character_picker_disabled = False
             $ belt_disabled = False
@@ -54,9 +54,9 @@ label train:
 
     if _return:
         if Player.behavior == "studying":
-            call actually_study(training_Girl) from _call_actually_study_13
+            call actually_study(training_Character) from _call_actually_study_13
         elif Player.behavior == "training":
-            call actually_train(training_Girl) from _call_actually_train_10
+            call actually_train(training_Character) from _call_actually_train_10
     else:
         $ reset_behavior(Player)
 
@@ -66,71 +66,71 @@ label train:
 
     return
 
-label ask_to_train(Girl):
-    $ status = Girl.get_status()
+label ask_to_train(Companion):
+    $ status = Companion.get_status()
 
-    if Girl in Present:
-        ch_Player "Hey, [Girl.name], wanna train together?"
+    if Companion in Present:
+        ch_Player "Hey, [Companion.name], wanna train together?"
 
-        if Girl.is_in_normal_mood() and not Girl.History.check("trained_with_Player", tracker = "daily") and time_index < 3:
-            call expression f"{Girl.tag}_accept_train" from _call_expression_346
+        if Companion.is_in_normal_mood() and not Companion.History.check("trained_with_Player", tracker = "daily") and time_index < 3:
+            call expression f"{Companion.tag}_accept_train" from _call_expression_346
         else:
-            if Girl.History.check("said_no_to_training", tracker = "recent") >= 2:
-                call change_Girl_stat(Girl, "love", -5) from _call_change_Girl_stat_1029
-                call change_Girl_stat(Girl, "trust", -5) from _call_change_Girl_stat_1030
+            if Companion.History.check("said_no_to_training", tracker = "recent") >= 2:
+                call change_Companion_stat(Companion, "love", -5) from _call_change_Companion_stat_1029
+                call change_Companion_stat(Companion, "trust", -5) from _call_change_Companion_stat_1030
 
-                call expression f"{Girl.tag}_reject_train_asked_twice" from _call_expression_347
-            elif Girl.History.check("said_no_to_training", tracker = "recent") == 1:
-                call change_Girl_stat(Girl, "love", -2) from _call_change_Girl_stat_1031
+                call expression f"{Companion.tag}_reject_train_asked_twice" from _call_expression_347
+            elif Companion.History.check("said_no_to_training", tracker = "recent") == 1:
+                call change_Companion_stat(Companion, "love", -2) from _call_change_Companion_stat_1031
                 
-                call expression f"{Girl.tag}_reject_train_asked_once" from _call_expression_348
+                call expression f"{Companion.tag}_reject_train_asked_once" from _call_expression_348
             else:
-                call expression f"{Girl.tag}_reject_train" from _call_expression_349
+                call expression f"{Companion.tag}_reject_train" from _call_expression_349
 
-            $ Girl.History.update("said_no_to_training")
+            $ Companion.History.update("said_no_to_training")
 
             $ phone_interactable = True 
 
             return False
     else:
-        call open_texts(Girl) from _call_open_texts_21
-        call send_text(Girl, "hey, wanna train? I'm in the Danger Room rn") from _call_send_text_81
+        call open_texts(Companion) from _call_open_texts_21
+        call send_text(Companion, "hey, wanna train? I'm in the Danger Room rn") from _call_send_text_81
 
         if time_index == 3:
-            if Girl.History.check("said_too_late_to_text", tracker = "recent") >= 2:
-                call change_Girl_stat(Girl, "love", -5) from _call_change_Girl_stat_1032
-                call change_Girl_stat(Girl, "trust", -5) from _call_change_Girl_stat_1033
+            if Companion.History.check("said_too_late_to_text", tracker = "recent") >= 2:
+                call change_Companion_stat(Companion, "love", -5) from _call_change_Companion_stat_1032
+                call change_Companion_stat(Companion, "trust", -5) from _call_change_Companion_stat_1033
 
-                call expression f"{Girl.tag}_summon_reject_asked_twice" from _call_expression_351
-            elif Girl.History.check("said_too_late_to_text", tracker = "recent") == 1:
-                call change_Girl_stat(Girl, "love", -2) from _call_change_Girl_stat_1034
+                call expression f"{Companion.tag}_summon_reject_asked_twice" from _call_expression_351
+            elif Companion.History.check("said_too_late_to_text", tracker = "recent") == 1:
+                call change_Companion_stat(Companion, "love", -2) from _call_change_Companion_stat_1034
 
-                call expression f"{Girl.tag}_summon_reject_asked_once" from _call_expression_352
+                call expression f"{Companion.tag}_summon_reject_asked_once" from _call_expression_352
             else:
-                call expression f"{Girl.tag}_summon_busy_late" from _call_expression_353
+                call expression f"{Companion.tag}_summon_busy_late" from _call_expression_353
 
-            $ Girl.History.update("said_too_late_to_text")
+            $ Companion.History.update("said_too_late_to_text")
 
             $ phone_interactable = True 
 
             return False
         else:
-            if time_index not in Girl.schedule.keys() and Girl.is_in_normal_mood() and not Girl.History.check("trained_with_Player", tracker = "daily"):
-                call expression f"{Girl.tag}_accept_train_text" from _call_expression_354
+            if time_index not in Companion.schedule.keys() and Companion.is_in_normal_mood() and not Companion.History.check("trained_with_Player", tracker = "daily"):
+                call expression f"{Companion.tag}_accept_train_text" from _call_expression_354
             else:
-                if Girl.History.check("said_no_to_training", tracker = "recent") >= 2:
-                    call change_Girl_stat(Girl, "love", -5) from _call_change_Girl_stat_1035
-                    call change_Girl_stat(Girl, "trust", -5) from _call_change_Girl_stat_1036
+                if Companion.History.check("said_no_to_training", tracker = "recent") >= 2:
+                    call change_Companion_stat(Companion, "love", -5) from _call_change_Companion_stat_1035
+                    call change_Companion_stat(Companion, "trust", -5) from _call_change_Companion_stat_1036
 
-                    call expression f"{Girl.tag}_reject_train_asked_twice_text" from _call_expression_355
-                elif Girl.History.check("said_no_to_training", tracker = "recent") == 1:
-                    call change_Girl_stat(Girl, "love", -2) from _call_change_Girl_stat_1037
+                    call expression f"{Companion.tag}_reject_train_asked_twice_text" from _call_expression_355
+                elif Companion.History.check("said_no_to_training", tracker = "recent") == 1:
+                    call change_Companion_stat(Companion, "love", -2) from _call_change_Companion_stat_1037
 
-                    call expression f"{Girl.tag}_reject_train_asked_once_text" from _call_expression_356
+                    call expression f"{Companion.tag}_reject_train_asked_once_text" from _call_expression_356
                 else:
-                    call expression f"{Girl.tag}_reject_train_text" from _call_expression_357
+                    call expression f"{Companion.tag}_reject_train_text" from _call_expression_357
 
-                $ Girl.History.update("said_no_to_training")
+                $ Companion.History.update("said_no_to_training")
 
                 $ phone_interactable = True 
 
@@ -142,14 +142,14 @@ label ask_to_train(Girl):
 
     return True
 
-label actually_train(Girl):            
+label actually_train(Companion):            
     hide screen phone_screen
 
-    if Girl:
+    if Companion:
         $ Player.behavior = "training"
-        $ Player.behavior_Partners = [Girl]
+        $ Player.behavior_Partners = [Companion]
 
-        $ Girl.behavior = "training"
+        $ Companion.behavior = "training"
 
     if black_screen:
         $ fade_in_from_black(0.4)
@@ -159,19 +159,19 @@ label actually_train(Girl):
     $ selected_Event = EventScheduler.choose_Event()
 
     if selected_Event:
-        if Girl:
-            if Girl not in Present:
-                $ Girl.destination = Player.location
+        if Companion:
+            if Companion not in Present:
+                $ Companion.destination = Player.location
 
-                call set_Character_Outfits(Girl, instant = True) from _call_set_Character_Outfits_20  
+                call set_Character_Outfits(Companion, instant = True) from _call_set_Character_Outfits_20  
 
-                call Characters_arrive(Girl, invited = True) from _call_Characters_arrive_2
+                call Characters_arrive(Companion, invited = True) from _call_Characters_arrive_2
 
-                $ Girl.location = Girl.destination
+                $ Companion.location = Companion.destination
             else:
-                call set_Character_Outfits(Girl, instant = False) from _call_set_Character_Outfits_19
+                call set_Character_Outfits(Companion, instant = False) from _call_set_Character_Outfits_19
 
-            call remove_everyone_but(Girl) from _call_remove_everyone_but_8
+            call remove_everyone_but(Companion) from _call_remove_everyone_but_8
             
         call start_Event(selected_Event) from _call_start_Event_14
     else:

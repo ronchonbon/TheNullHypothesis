@@ -49,7 +49,7 @@ label Jean_before_study_session_part_one:
 
             $ Jean.History.update("Player_rejected_studying")
         "Nah, I'm good.":
-            call change_Girl_stat(Jean, "love", -small_stat) from _call_change_Girl_stat_129
+            call change_Companion_stat(Jean, "love", -small_stat) from _call_change_Companion_stat_129
 
             $ Jean.change_face("confused1")
 
@@ -129,7 +129,7 @@ label Jean_before_study_session_part_two:
 
             $ Jean.History.update("Player_rejected_studying")
         "Not particularly.":
-            call change_Girl_stat(Jean, "love", -small_stat) from _call_change_Girl_stat_130
+            call change_Companion_stat(Jean, "love", -small_stat) from _call_change_Companion_stat_130
 
             $ Jean.change_face("confused1")
 

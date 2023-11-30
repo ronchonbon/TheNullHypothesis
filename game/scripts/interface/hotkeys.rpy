@@ -1,7 +1,5 @@
 default volume_muted = False
 
-default focused_Girl_index = 0
-
 screen hotkeys_screen():
     if not input_cheats:
         if not black_screen and not belt_hidden and sandbox and not ongoing_Event and (not current_phone_Character or not current_phone_Character.mandatory_text_options):

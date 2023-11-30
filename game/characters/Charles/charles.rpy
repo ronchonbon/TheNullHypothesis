@@ -6,7 +6,7 @@ init -1:
     define ch_Charles = Character("[Charles.tag]")
 
     define Charles_standing_anchor = [int(1260*character_sampling), int(1792*character_sampling)]
-    define Charles_standing_height = 0.35
+    define Charles_standing_height = 0.38
     define Charles_standing_zoom = 0.35*character_adjustment
 
 init -2 python:
@@ -72,12 +72,6 @@ init -2 python:
         return "neutral", "neutral"
 
     def Charles_locations():
-        global weekday
-        global time_index
-
-        global weather
-        global snow_left
-
         possible_locations = []
 
         possible_locations.append(Charles.home)

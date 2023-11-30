@@ -19,8 +19,8 @@ label Rogue_mystery_novel_shopping_accept:
 
     ch_Rogue "Thanks, [Rogue.Player_petname], ah really appreciate it."
 
-    call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_1561
-    call change_Girl_stat(Rogue, "trust", 0) from _call_change_Girl_stat_1562
+    call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_1561
+    call change_Companion_stat(Rogue, "trust", 0) from _call_change_Companion_stat_1562
 
     return True
 
@@ -52,8 +52,8 @@ label Rogue_mystery_novel_gift_accept:
 
     ch_Rogue "Thanks, [Rogue.Player_petname], ah really appreciate it."
 
-    call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_1563
-    call change_Girl_stat(Rogue, "trust", 0) from _call_change_Girl_stat_1564
+    call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_1563
+    call change_Companion_stat(Rogue, "trust", 0) from _call_change_Companion_stat_1564
 
     return True
 

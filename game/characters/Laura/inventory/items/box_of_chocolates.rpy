@@ -21,8 +21,8 @@ label Laura_box_of_chocolates_shopping_accept:
 
     ch_Laura "Thank you. . ."
 
-    call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_1443
-    call change_Girl_stat(Laura, "trust", 0) from _call_change_Girl_stat_1444
+    call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_1443
+    call change_Companion_stat(Laura, "trust", 0) from _call_change_Companion_stat_1444
 
     return True
 
@@ -60,8 +60,8 @@ label Laura_box_of_chocolates_gift_accept:
 
     ch_Laura "Thank you. . ."
 
-    call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_1445
-    call change_Girl_stat(Laura, "trust", 0) from _call_change_Girl_stat_1446
+    call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_1445
+    call change_Companion_stat(Laura, "trust", 0) from _call_change_Companion_stat_1446
 
     return True
 

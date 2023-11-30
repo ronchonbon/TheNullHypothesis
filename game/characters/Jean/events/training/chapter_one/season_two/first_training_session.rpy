@@ -37,20 +37,20 @@ label Jean_chapter_one_season_two_first_training_session:
 
             ch_Jean "How could I not be concerned?" 
             
-            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_198
-            call change_Girl_stat(Jean, "trust", 0) from _call_change_Girl_stat_199
+            call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_198
+            call change_Companion_stat(Jean, "trust", 0) from _call_change_Companion_stat_199
         "Not really. . . but thanks for caring.":
             $ Jean.change_face("worried2")
 
             ch_Jean "Of course I care!" 
             
-            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_200
+            call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_200
         "I'm not dead so, yeah. . . mostly just pissed that I was so useless.":
             $ Jean.change_face("angry1")
 
             ch_Jean "You weren't useless!" 
             
-            call change_Girl_stat(Jean, "trust", 0) from _call_change_Girl_stat_201
+            call change_Companion_stat(Jean, "trust", 0) from _call_change_Companion_stat_201
 
     $ Jean.change_face("worried1")
 
@@ -189,19 +189,19 @@ label Jean_chapter_one_season_two_first_training_session:
 
             ch_Jean "You really think I'm impressive. . . ?" 
             
-            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_202 
+            call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_202 
         "Okay, but it's not like I'll be catching up to you any time soon.":
             $ Jean.change_face("worried1")
 
             ch_Jean "I know, I know. . ." 
             
-            call change_Girl_stat(Jean, "trust", 0) from _call_change_Girl_stat_203
+            call change_Companion_stat(Jean, "trust", 0) from _call_change_Companion_stat_203
         "Oh please, you're probably the most powerful person I've ever met. So what if things aren't going fast enough for you.":
             $ Jean.change_face("angry1", eyes = "right")
 
             ch_Jean "You wouldn't get it. . ." 
             
-            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_204
+            call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_204
 
     $ Jean.change_face("worried1", eyes = "right")
 
@@ -228,20 +228,20 @@ label Jean_chapter_one_season_two_first_training_session:
             
             ch_Jean "Thanks, [Jean.Player_petname]." 
             
-            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_205 
-            call change_Girl_stat(Jean, "trust", 0) from _call_change_Girl_stat_206
+            call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_205 
+            call change_Companion_stat(Jean, "trust", 0) from _call_change_Companion_stat_206
         "I appreciate it. Might have to take you up on that. . . everything has been so stressful lately.":
             $ Jean.change_face("worried1", mouth = "smirk")
 
             ch_Jean "Any time, [Jean.Player_petname]. . ." 
             
-            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_207
+            call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_207
         "Thanks, I guess. . . I'll be fine.":
             $ Jean.change_face("angry1", eyes = "right")
 
             ch_Jean "Whatever. . ." 
             
-            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_208
+            call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_208
 
     $ Jean.change_face("smirk1")
 

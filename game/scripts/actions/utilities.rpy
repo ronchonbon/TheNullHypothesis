@@ -406,8 +406,6 @@ init python:
         return
 
     def get_Action_Characters(Action, remove_Player = True):
-        global Player
-
         Characters = list(set(Action.Actors[:] + Action.Targets[:]))
 
         if remove_Player and Player in Characters:
@@ -474,7 +472,7 @@ label start_Action(Action):
                         Clothing_to_remove.append(temp_Characters[0].Clothes[Clothing_type])
 
             if Clothing_to_remove:
-                call does_Girl_agree_to_change_Clothes(temp_Characters[0], removed_Items = Clothing_to_remove, automatic = True) from _call_does_Girl_agree_to_change_Clothes_1
+                call does_Character_agree_to_change_Clothes(temp_Characters[0], removed_Items = Clothing_to_remove, automatic = True) from _call_does_Character_agree_to_change_Clothes_1
 
                 $ proceed = _return
 
@@ -541,7 +539,7 @@ label start_Action(Action):
                                         undressed_states.append(current_state)
 
                 if Clothing_to_remove or Clothing_to_undress:
-                    call does_Girl_agree_to_change_Clothes(temp_Characters[0], removed_Items = Clothing_to_remove, undressed_Items = Clothing_to_undress, undressed_states = undressed_states, automatic = True) from _call_does_Girl_agree_to_change_Clothes_2
+                    call does_Character_agree_to_change_Clothes(temp_Characters[0], removed_Items = Clothing_to_remove, undressed_Items = Clothing_to_undress, undressed_states = undressed_states, automatic = True) from _call_does_Character_agree_to_change_Clothes_2
 
                     $ proceed = _return
 
@@ -974,12 +972,12 @@ label stop_all_Actions(close_interface = False, automatic = False):
         $ needs_to_clean = False
 
         python:
-            for location in focused_Girl.spunk.keys():
-                if focused_Girl.spunk[location] and location != "mouth":
+            for location in focused_Companion.spunk.keys():
+                if focused_Companion.spunk[location] and location != "mouth":
                     needs_to_clean = True
 
         if needs_to_clean:
-            call clean_cum_mess(focused_Girl) from _call_clean_cum_mess
+            call clean_cum_mess(focused_Companion) from _call_clean_cum_mess
 
         $ renpy.pause(1.0, hard = True)
 
@@ -1014,8 +1012,8 @@ label stop_all_Actions(close_interface = False, automatic = False):
     $ Character_picker_disabled = False
 
     if close_interface:
-        if not ongoing_Event and focused_Girl.location == Player.location:
-            show screen interactions_screen(focused_Girl)
+        if not ongoing_Event and focused_Companion.location == Player.location:
+            show screen interactions_screen(focused_Companion)
     else:
         $ belt_disabled = False
 

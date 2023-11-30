@@ -34,25 +34,25 @@ label sunbathe:
 
     return
 
-label ask_to_sunbathe(Girl):   
-    $ status = Girl.get_status()
+label ask_to_sunbathe(Companion):   
+    $ status = Companion.get_status()
 
-    if Girl.is_in_normal_mood() and approval_check(Girl, threshold = "dating"):
-        call expression f"{Girl.tag}_accept_sunbathe" from _call_expression_325
+    if Companion.is_in_normal_mood() and approval_check(Companion, threshold = "dating"):
+        call expression f"{Companion.tag}_accept_sunbathe" from _call_expression_325
     else:
-        if Girl.History.check("said_no_to_sunbathing", tracker = "recent") >= 2:
-            call change_Girl_stat(Girl, "love", -5) from _call_change_Girl_stat_1013
-            call change_Girl_stat(Girl, "trust", -5) from _call_change_Girl_stat_1014
+        if Companion.History.check("said_no_to_sunbathing", tracker = "recent") >= 2:
+            call change_Companion_stat(Companion, "love", -5) from _call_change_Companion_stat_1013
+            call change_Companion_stat(Companion, "trust", -5) from _call_change_Companion_stat_1014
 
-            call expression f"{Girl.tag}_reject_sunbathe_asked_twice" from _call_expression_326
-        elif Girl.History.check("said_no_to_sunbathing", tracker = "recent") == 1:
-            call change_Girl_stat(Girl, "love", -2) from _call_change_Girl_stat_1015
+            call expression f"{Companion.tag}_reject_sunbathe_asked_twice" from _call_expression_326
+        elif Companion.History.check("said_no_to_sunbathing", tracker = "recent") == 1:
+            call change_Companion_stat(Companion, "love", -2) from _call_change_Companion_stat_1015
 
-            call expression f"{Girl.tag}_reject_sunbathe_asked_once" from _call_expression_327
+            call expression f"{Companion.tag}_reject_sunbathe_asked_once" from _call_expression_327
         else:
-            call expression f"{Girl.tag}_reject_sunbathe" from _call_expression_328
+            call expression f"{Companion.tag}_reject_sunbathe" from _call_expression_328
 
-        $ Girl.History.update("said_no_to_sunbathing")
+        $ Companion.History.update("said_no_to_sunbathing")
 
         return False
 

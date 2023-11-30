@@ -9,7 +9,6 @@ init -2:
     default all_Characters = []
     default all_Companions = []
     default all_NPCs = []
-    default Present = []
     default Students = []
     default Staff = []
     default Professors = []

@@ -16,7 +16,7 @@ label get_ready_for_bed:
     if selected_Event:
         call start_Event(selected_Event) from _call_start_Event_10
     else:
-        $ Present = get_Present(location = Player.location)
+        $ Present = get_Present(location = Player.location)[0]
 
         if Present:
             call sleepover(Present) from _call_sleepover
@@ -98,8 +98,6 @@ label go_to_sleep(automatic = False):
         $ Player.behavior = "waking_up"
         
         call wait_around(fade = False) from _call_wait_around_2
-
-        $ reset_behavior()
 
     if black_screen:
         $ fade_in_from_black(0.4)

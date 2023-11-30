@@ -69,12 +69,14 @@ init python:
 label Laura_chapter_one_season_one_outcast:
     $ ongoing_Event = True
 
-    $ Present = get_Present(location = "bg_classroom")
+    $ Present = get_Present(location = "bg_classroom")[0]
     
     python:
         for C in Present:
             if C != Laura:
-                C.location = "nearby"
+                send_Characters_Offscreen(C, location = "bg_classroom")
+            else:
+                middle_Spot = C
 
     $ Laura.change_face("neutral", eyes = "left") 
 
@@ -91,8 +93,8 @@ label Laura_chapter_one_season_one_outcast:
         "Take a random seat":
             "You grab a seat in the chair closest to you."
 
-            call send_Characters(Laura, "nearby", behavior = "in_class") from _call_send_Characters_336
-
+            call hide_Character(Laura)
+            
             $ EventScheduler.Events["Laura_chapter_one_season_one_outcast"].completed = False
             $ EventScheduler.Events["Laura_chapter_one_season_one_outcast"].completed_when = 1e8
 
@@ -127,8 +129,8 @@ label Laura_chapter_one_season_one_outcast:
     menu:
         extend ""
         "Not sure why it would, I think I enjoy your company. Always know where I stand when it comes to you.":
-            call change_Girl_stat(Laura, "love", medium_stat) from _call_change_Girl_stat_905
-            call change_Girl_stat(Laura, "trust", medium_stat) from _call_change_Girl_stat_906
+            call change_Companion_stat(Laura, "love", medium_stat) from _call_change_Companion_stat_905
+            call change_Companion_stat(Laura, "trust", medium_stat) from _call_change_Companion_stat_906
 
             $ Laura.change_face("confused3")
 
@@ -138,8 +140,8 @@ label Laura_chapter_one_season_one_outcast:
             
             ch_Laura "I see. . ."
         "I mean you are a bit intimidating, but that doesn't make me uncomfortable. I appreciate your bluntness.":
-            call change_Girl_stat(Laura, "love", small_stat) from _call_change_Girl_stat_907
-            call change_Girl_stat(Laura, "trust", medium_stat) from _call_change_Girl_stat_909
+            call change_Companion_stat(Laura, "love", small_stat) from _call_change_Companion_stat_907
+            call change_Companion_stat(Laura, "trust", medium_stat) from _call_change_Companion_stat_909
             
             $ Laura.change_face("confused1")
 
@@ -149,7 +151,7 @@ label Laura_chapter_one_season_one_outcast:
             
             ch_Laura "I see. . ."
         "Nope. Is that what this is about? You think you make everyone uncomfortable? I can see why they might be, but it doesn't bother me.":
-            call change_Girl_stat(Laura, "love", -small_stat) from _call_change_Girl_stat_911
+            call change_Companion_stat(Laura, "love", -small_stat) from _call_change_Companion_stat_911
             
             $ Laura.change_face("confused1")
 

@@ -176,9 +176,6 @@ init -3 python:
             return
 
         def choose_Outfits(self):
-            global temperature
-            global weather
-
             public_Outfits = []
             private_Outfits = []
             

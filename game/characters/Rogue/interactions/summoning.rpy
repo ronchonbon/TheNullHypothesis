@@ -96,13 +96,13 @@ label Rogue_dismiss_accept:
             ch_Rogue "But. . ."
             ch_Rogue "Okay, ah'll see you 'round. . ."
 
-            call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_779
+            call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_779
         "Leave, give us some privacy." if len(Present) > 1:
             $ Rogue.change_face("worried1")
 
             ch_Rogue "Okay. . . sorry."
 
-            call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_780
+            call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_780
         "Back":
             return False
 
@@ -123,13 +123,13 @@ label Rogue_dismiss_reject:
 
             ch_Rogue "Ah'm good."
 
-            call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_781
+            call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_781
         "Leave, give us some privacy." if len(Present) > 1:
             $ Rogue.change_face("angry1")
 
             ch_Rogue "Maybe if you asked polite-like."
 
-            call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_782
+            call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_782
         "Back":
             return False
 

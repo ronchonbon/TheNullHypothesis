@@ -1,10 +1,6 @@
 init python:
 
     def Jean_ch1_season_one_Quest():
-        global Jean
-
-        global EventScheduler
-
         name = f"{Jean.full_name}: Fall"
 
         string = "Jean_ch1_season_one_Quest"

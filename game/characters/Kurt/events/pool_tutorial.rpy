@@ -10,7 +10,7 @@ init python:
 
             "Player.location not in [Kurt.location, Kurt.destination]",
 
-            "not get_Present(location = 'bg_pool')"]
+            "not get_Present(location = 'bg_pool')[0]"]
 
         traveling = True
 

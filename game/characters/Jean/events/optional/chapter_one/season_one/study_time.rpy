@@ -46,7 +46,7 @@ init python:
             
             "Jean.location == 'bg_classroom'",
             "Jean.behavior == 'studying'",
-            "len(get_Present(location = 'bg_classroom')) == 1",
+            "len(get_Present(location = 'bg_classroom')[0]) == 1",
 
             "not Jean.History.check('trained_with_Player', tracker = 'daily')",
 
@@ -64,7 +64,7 @@ init python:
                 
                 "Jean.location == 'bg_classroom'",
                 "Jean.behavior == 'studying'",
-                "len(get_Present(location = 'bg_classroom')) == 1",
+                "len(get_Present(location = 'bg_classroom')[0]) == 1",
 
                 "not Jean.History.check('trained_with_Player', tracker = 'daily')",
 
@@ -208,21 +208,21 @@ label Jean_chapter_one_season_one_study_time:
     menu:
         extend ""
         "Well, as long as you're not pushing yourself harder than you can take.":
-            call change_Girl_stat(Jean, "love", medium_stat) from _call_change_Girl_stat_164
-            call change_Girl_stat(Jean, "trust", small_stat) from _call_change_Girl_stat_165
+            call change_Companion_stat(Jean, "love", medium_stat) from _call_change_Companion_stat_164
+            call change_Companion_stat(Jean, "trust", small_stat) from _call_change_Companion_stat_165
             
             $ Jean.change_face("worried1", mouth = "smirk", eyes = "right")
 
             ch_Jean "I mean, I probably am, but I can catch up on sleep when all this is over, right?"
         "That's crazy, you do this all the time?":
-            call change_Girl_stat(Jean, "love", small_stat) from _call_change_Girl_stat_166
+            call change_Companion_stat(Jean, "love", small_stat) from _call_change_Companion_stat_166
             
             $ Jean.change_face("worried1", mouth = "smirk")
 
             ch_Jean "It's the sacrifice we have to pay for the top grade."
         "I think you're the only person I've ever met who willingly spends time in class when they don't have to.":
-            call change_Girl_stat(Jean, "love", small_stat) from _call_change_Girl_stat_167
-            call change_Girl_stat(Jean, "trust", small_stat) from _call_change_Girl_stat_168
+            call change_Companion_stat(Jean, "love", small_stat) from _call_change_Companion_stat_167
+            call change_Companion_stat(Jean, "trust", small_stat) from _call_change_Companion_stat_168
             
             $ Jean.change_face("confused1", mouth = "smirk")
 

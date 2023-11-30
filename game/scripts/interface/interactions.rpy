@@ -32,10 +32,16 @@ screen Character_picker():
 
                         focus_mask renpy.displayable(f"{C.tag}_sprite standing")
 
-                        action [
-                            SetVariable("focused_Girl", C), 
-                            Show("interactions_screen", Character = C), 
-                            SetField(C, "hovered", False)]
+                        if C == middle_Slot:
+                            action [
+                                SetVariable("focused_Companion", C),
+                                SetField(C, "hovered", False),
+                                Show("interactions_screen", Character = C)]
+                        else:
+                            action [
+                                SetVariable("focused_Companion", C),
+                                SetField(C, "hovered", False),
+                                Call("set_the_scene", fade = False, selected_Character = C)]
 
                 if C in all_NPCs and renpy.showing(f"{C.tag}_sprite"):
                     button anchor (C.sprite_anchor[0], C.sprite_anchor[1]) pos (C.sprite_position[0], C.sprite_position[1]):  
@@ -46,9 +52,14 @@ screen Character_picker():
 
                         focus_mask renpy.displayable(f"{C.tag}_sprite")
 
-                        action [
-                            Show("interactions_screen", Character = C), 
-                            SetField(C, "hovered", False)]
+                        if C == middle_Slot:
+                            action [
+                                SetField(C, "hovered", False),
+                                Show("interactions_screen", Character = C)]
+                        else:
+                            action [
+                                SetField(C, "hovered", False),
+                                Call("set_the_scene", fade = False, selected_Character = C)]
 
 screen interactions_screen(Character):
     layer "interface"
@@ -177,7 +188,7 @@ screen interactions_screen(Character):
 
                             action [
                                 Hide("interactions_screen"), 
-                                Show("Wardrobe_screen", Girl = Character)]
+                                Show("Wardrobe_screen", Companion = Character)]
 
                             tooltip "Open Wardrobe"
                     else:

@@ -1,12 +1,6 @@
 init python:
 
     def register_Characters():
-        global all_Characters
-        global all_Companions
-
-        global chapter
-        global season
-
         global shop_inventory
         global unrestricted_shop_inventory
 
@@ -84,8 +78,6 @@ init python:
         return
 
     def register_Events():
-        global Cast
-
         global EventScheduler
         
         Events = []

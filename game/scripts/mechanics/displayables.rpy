@@ -163,77 +163,89 @@ label hide_Character(Character, fade = True):
 
     $ Character.change_face()
 
+    if Character == left_Slot:
+        $ left_Slot = None
+
+    if Character == middle_Slot:
+        $ middle_Slot = None
+
+    if Character == right_Slot:
+        $ right_Slot = None
+
+    if Character.destination == Player.location:
+        $ send_Characters_Offscreen(Character)
+
     return
 
-label show_pose(Girl, pose, t = None, x = None, y = None, sprite_zoom = None, sprite_rotation = None, sprite_layer = None, color_transform = None, animation_transform = None, fade = False):
-    $ Girl.position = pose
+label show_pose(Companion, pose, t = None, x = None, y = None, sprite_zoom = None, sprite_rotation = None, sprite_layer = None, color_transform = None, animation_transform = None, fade = False):
+    $ Companion.position = pose
 
     $ check_predicted_images()
     
-    $ Girl.sprite_anchor = eval(f"{Girl.tag}_{pose}_anchor")
-    $ Girl.sprite_position = [Girl.sprite_position[0], eval(f"{Girl.tag}_{pose}_height")]
+    $ Companion.sprite_anchor = eval(f"{Companion.tag}_{pose}_anchor")
+    $ Companion.sprite_position = [Companion.sprite_position[0], eval(f"{Companion.tag}_{pose}_height")]
 
     $ different = False
 
     if x is not None:
-        if Girl.sprite_position[0] != x:
+        if Companion.sprite_position[0] != x:
             $ different = True
 
-        $ Girl.sprite_position[0] = x
+        $ Companion.sprite_position[0] = x
 
     if y is not None:
-        if Girl.sprite_position[1] != y:
+        if Companion.sprite_position[1] != y:
             $ different = True
 
-        $ Girl.sprite_position[1] = y
+        $ Companion.sprite_position[1] = y
 
     if sprite_zoom is None:
-        $ sprite_zoom = eval(f"{Girl.tag}_{pose}_zoom")
+        $ sprite_zoom = eval(f"{Companion.tag}_{pose}_zoom")
 
-    if Girl.sprite_zoom != sprite_zoom:
+    if Companion.sprite_zoom != sprite_zoom:
         $ different = True
 
-        $ Girl.sprite_zoom = sprite_zoom
+        $ Companion.sprite_zoom = sprite_zoom
     
     if sprite_rotation is not None:
-        if Girl.sprite_rotation != sprite_rotation:
+        if Companion.sprite_rotation != sprite_rotation:
             $ different = True
 
-        $ Girl.sprite_rotation = sprite_rotation
+        $ Companion.sprite_rotation = sprite_rotation
 
     if sprite_layer is not None:
-        if Girl.sprite_layer != sprite_layer:
+        if Companion.sprite_layer != sprite_layer:
             $ different = True
 
-        $ Girl.sprite_layer = sprite_layer
+        $ Companion.sprite_layer = sprite_layer
     
-    if not renpy.showing(f"{Girl.tag}_sprite {pose}") or different or color_transform or animation_transform:
+    if not renpy.showing(f"{Companion.tag}_sprite {pose}") or different or color_transform or animation_transform:
         if pose != "standing":
             if t is not None and not black_screen:
                 $ transform_list = [
-                    change_sprite_anchor(Girl.sprite_anchor[0], Girl.sprite_anchor[1]),
-                    zoom_sprite(Girl.sprite_zoom, t = t),
-                    move_sprite(Girl.sprite_position[0], Girl.sprite_position[1], t = t),
-                    rotate_sprite(Girl.sprite_rotation, t = t)]
+                    change_sprite_anchor(Companion.sprite_anchor[0], Companion.sprite_anchor[1]),
+                    zoom_sprite(Companion.sprite_zoom, t = t),
+                    move_sprite(Companion.sprite_position[0], Companion.sprite_position[1], t = t),
+                    rotate_sprite(Companion.sprite_rotation, t = t)]
             else:
                 $ transform_list = [
-                    change_sprite_anchor(Girl.sprite_anchor[0], Girl.sprite_anchor[1]),
-                    zoom_sprite(Girl.sprite_zoom),
-                    move_sprite(Girl.sprite_position[0], Girl.sprite_position[1]),
-                    rotate_sprite(Girl.sprite_rotation)]
+                    change_sprite_anchor(Companion.sprite_anchor[0], Companion.sprite_anchor[1]),
+                    zoom_sprite(Companion.sprite_zoom),
+                    move_sprite(Companion.sprite_position[0], Companion.sprite_position[1]),
+                    rotate_sprite(Companion.sprite_rotation)]
         else:
             if t is not None and not black_screen:
                 $ transform_list = [
-                    change_sprite_anchor(Girl.sprite_anchor[0], Girl.sprite_anchor[1]),
-                    zoom_sprite(Girl.sprite_zoom, t = t),
-                    move_sprite(Girl.sprite_position[0], Girl.sprite_position[1], t = t),
-                    rotate_sprite(Girl.sprite_rotation, t = t)]
+                    change_sprite_anchor(Companion.sprite_anchor[0], Companion.sprite_anchor[1]),
+                    zoom_sprite(Companion.sprite_zoom, t = t),
+                    move_sprite(Companion.sprite_position[0], Companion.sprite_position[1], t = t),
+                    rotate_sprite(Companion.sprite_rotation, t = t)]
             else:
                 $ transform_list = [
-                    change_sprite_anchor(Girl.sprite_anchor[0], Girl.sprite_anchor[1]),
-                    zoom_sprite(Girl.sprite_zoom),
-                    move_sprite(Girl.sprite_position[0], Girl.sprite_position[1]),
-                    rotate_sprite(Girl.sprite_rotation)]
+                    change_sprite_anchor(Companion.sprite_anchor[0], Companion.sprite_anchor[1]),
+                    zoom_sprite(Companion.sprite_zoom),
+                    move_sprite(Companion.sprite_position[0], Companion.sprite_position[1]),
+                    rotate_sprite(Companion.sprite_rotation)]
 
         if color_transform:
             $ transform_list.append(color_transform)
@@ -246,21 +258,21 @@ label show_pose(Girl, pose, t = None, x = None, y = None, sprite_zoom = None, sp
     else:
         if pose != "standing":
             $ transform_list = [
-                change_sprite_anchor(Girl.sprite_anchor[0], Girl.sprite_anchor[1]),
-                zoom_sprite(Girl.sprite_zoom),
-                move_sprite(Girl.sprite_position[0], Girl.sprite_position[1]),
-                rotate_sprite(Girl.sprite_rotation)]
+                change_sprite_anchor(Companion.sprite_anchor[0], Companion.sprite_anchor[1]),
+                zoom_sprite(Companion.sprite_zoom),
+                move_sprite(Companion.sprite_position[0], Companion.sprite_position[1]),
+                rotate_sprite(Companion.sprite_rotation)]
         else:
             $ transform_list = [
-                change_sprite_anchor(Girl.sprite_anchor[0], Girl.sprite_anchor[1]),
-                zoom_sprite(Girl.sprite_zoom),
-                move_sprite(Girl.sprite_position[0], Girl.sprite_position[1]),
-                rotate_sprite(Girl.sprite_rotation)]
+                change_sprite_anchor(Companion.sprite_anchor[0], Companion.sprite_anchor[1]),
+                zoom_sprite(Companion.sprite_zoom),
+                move_sprite(Companion.sprite_position[0], Companion.sprite_position[1]),
+                rotate_sprite(Companion.sprite_rotation)]
             
         $ color_transform = get_color_transform(location = Player.location)
         $ transform_list.append(color_transform)
 
-    $ renpy.show(f"{Girl.tag}_sprite {pose}", at_list = transform_list, zorder = Girl.sprite_layer, tag = f"{Girl.tag}_sprite")
+    $ renpy.show(f"{Companion.tag}_sprite {pose}", at_list = transform_list, zorder = Companion.sprite_layer, tag = f"{Companion.tag}_sprite")
     
     if fade:
         with dissolve

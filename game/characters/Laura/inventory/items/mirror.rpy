@@ -17,8 +17,8 @@ label Laura_mirror_shopping_accept:
     ch_Laura "[Rogue.name] has been urging me to 'expand my wardrobe'. . ."
     ch_Laura "Thank you."
 
-    call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_1461
-    call change_Girl_stat(Laura, "trust", 0) from _call_change_Girl_stat_1462
+    call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_1461
+    call change_Companion_stat(Laura, "trust", 0) from _call_change_Companion_stat_1462
 
     return True
 
@@ -45,8 +45,8 @@ label Laura_mirror_gift_accept:
     ch_Laura "[Rogue.name] has been urging me to 'expand my wardrobe'. . ."
     ch_Laura "Thank you."
 
-    call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_1463
-    call change_Girl_stat(Laura, "trust", 0) from _call_change_Girl_stat_1464
+    call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_1463
+    call change_Companion_stat(Laura, "trust", 0) from _call_change_Companion_stat_1464
 
     return True
 

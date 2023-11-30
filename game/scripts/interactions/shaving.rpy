@@ -1,17 +1,17 @@
-label ask_Girl_to_shave(Girl, hair_style):
-    if hair_style != Girl.desired_pubes:
-        call expression f"{Girl.tag}_pubes_{hair_style}_accept" from _call_expression_267
+label ask_Character_to_shave(Companion, hair_style):
+    if hair_style != Companion.desired_pubes:
+        call expression f"{Companion.tag}_pubes_{hair_style}_accept" from _call_expression_267
     else:
         $ changed_pubes = False
 
     if hair_style == "shaven":
-        $ Girl.desired_pubes = None
+        $ Companion.desired_pubes = None
     else:
-        $ Girl.desired_pubes = hair_style
+        $ Companion.desired_pubes = hair_style
 
     return
 
-label Girls_will_shave(shaving_Companions):
+label Companions_will_shave(shaving_Companions):
     if shaving_Companions in all_Characters:
         $ shaving_Companions = [shaving_Companions]
 

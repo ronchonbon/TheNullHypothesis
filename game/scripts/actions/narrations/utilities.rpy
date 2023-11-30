@@ -1,10 +1,6 @@
 init python:
 
     def sex_faces(Characters):
-        global Rogue
-        global Laura
-        global Jean
-
         for C in Characters:
             if not C.mouth_Actions:
                 if C in [Rogue]:
@@ -38,10 +34,6 @@ init python:
         return
 
     def sex_talk(Characters):
-        global Rogue
-        global Laura
-        global Jean
-
         for C in Characters:
             if C in [Rogue]:
                 if C.mouth_Actions and ((C.mouth_Actions[0].animation_type == "blowjob" and C.mouth_Actions[0].mode == 3) or C.mouth_Actions[0].animation_type == "deepthroat"):

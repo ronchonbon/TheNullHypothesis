@@ -1,37 +1,92 @@
 init python:
      
-    def get_Present(location = None):
-        global all_Characters
-        global all_Companions
-
-        global Player
-
-        global Party
-        
-        global focused_Girl
-
-        Present = Party[:] if Party else []
+    def get_Present(location = None, selected_Character = None, traveling = False):
+        temp_Present = Party[:] if Party else []
+        temp_left_Slot = left_Slot if left_Slot else None
+        temp_middle_Slot = middle_Slot if middle_Slot else None
+        temp_right_Slot = right_Slot if right_Slot else None
+        temp_Offscreen = Offscreen[:] if Offscreen else []
 
         location = Player.location if not location else location
 
         for C in all_Characters:
             if C not in Party:
-                if C not in Present and C.location == location:
-                    Present.append(C)
-                elif C in Present and C.location != location:
-                    Present.remove(C)
-                    
-        if focused_Girl not in Present:
-            randomized_present_Companions = []
+                if C not in temp_Present and C.location == location:
+                    temp_Present.append(C)
 
-            for C in Present:
-                if C in all_Companions:
-                    randomized_present_Companions.append(C)
+        temp_Characters = temp_Present[:]
+        
+        # if location == Player.location:
+        #     for C in temp_Offscreen:
+        #         if C in temp_Characters:
+        #             temp_Characters.remove(C)
 
-            if randomized_present_Companions:
-                focused_Girl = renpy.random.choice(randomized_present_Companions)
+        for C in temp_Present:
+            if C in temp_Characters:
+                if C.behavior == "teaching" and C.location == "bg_classroom":
+                    temp_Characters.remove(C)
+        
+        if temp_left_Slot not in temp_Characters:
+            temp_left_Slot = None
+
+        if temp_middle_Slot not in temp_Characters:
+            temp_middle_Slot = None
+
+        if temp_right_Slot not in temp_Characters:
+            temp_right_Slot = None
+
+        sorted_Characters = sort_Characters_by_approval(temp_Characters[:])
+
+        if traveling:
+            if sorted_Characters:
+                temp_middle_Slot = sorted_Characters[0]
+
+            if len(sorted_Characters) >= 2:
+                temp_left_Slot = sorted_Characters[1]
+
+            if len(sorted_Characters) >= 3:
+                temp_right_Slot = sorted_Characters[2]
+        elif selected_Character:
+            if left_Slot == selected_Character:
+                temp_left_Slot, temp_middle_Slot = temp_middle_Slot, selected_Character
+            elif right_Slot == selected_Character:
+                temp_middle_Slot, temp_right_Slot = selected_Character, temp_middle_Slot
+
+        if not ongoing_Event and sandbox:
+            if not temp_middle_Slot:
+                if temp_left_Slot:
+                    temp_left_Slot, temp_middle_Slot = None, temp_left_Slot
+                elif right_Slot:
+                    temp_middle_Slot, temp_right_Slot = temp_right_Slot, None
+
+        if location == Player.location:            
+            for C in all_Characters:
+                if C in temp_Offscreen and C.location != location:
+                    temp_Offscreen.remove(C)
                         
-        return Present
+            for C in temp_Present:
+                if C not in temp_Offscreen:
+                    if C not in [temp_left_Slot, temp_middle_Slot, temp_right_Slot]:
+                        temp_Offscreen.append(C)
+                elif C in temp_Offscreen:
+                    if C in [temp_left_Slot, temp_middle_Slot, temp_right_Slot]:
+                        temp_Offscreen.remove(C)
+
+            if location in location_Slots.keys():
+                for S in location_Slots[location]:
+                    if S["occupied"] is None:
+                        temp_Characters = temp_Offscreen[:]
+
+                        for C in temp_Characters:
+                            if C.behavior == S["behavior"]:
+                                S["occupied"] = C
+
+                                temp_Offscreen.remove(C)
+                    elif S["occupied"]:
+                        if S["occupied"] not in temp_Offscreen:
+                            S["occupied"] = None
+                
+        return temp_Present, temp_left_Slot, temp_middle_Slot, temp_right_Slot, temp_Offscreen
 
 label reset_all_interfaces:
     call stop_all_Actions(automatic = True) from _call_stop_all_Actions_6

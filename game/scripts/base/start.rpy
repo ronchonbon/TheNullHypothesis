@@ -50,6 +50,7 @@ label splashscreen:
 
 label start:
     $ config.keymap["rollback"].remove("mousedown_4")
+    $ renpy.clear_keymap_cache()
 
     $ save_name = "Prologue"
 

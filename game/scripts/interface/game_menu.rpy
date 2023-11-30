@@ -605,13 +605,10 @@ screen preferences():
                         selected scrolling_rollback
 
                         if scrolling_rollback:
-                            if "mousedown_4" in config.keymap["rollback"]:
-                                action [
-                                    Function(config.keymap["rollback"].remove, "mousedown_4"),
-                                    SetVariable("scrolling_rollback", False),
-                                    Function(renpy.clear_keymap_cache)]
-                            else:
-                                action SetVariable("scrolling_rollback", False)
+                            action [
+                                Function(config.keymap["rollback"].remove, "mousedown_4"),
+                                SetVariable("scrolling_rollback", False),
+                                Function(renpy.clear_keymap_cache)]
                         else:
                             action [
                                 Function(config.keymap["rollback"].append, "mousedown_4"),

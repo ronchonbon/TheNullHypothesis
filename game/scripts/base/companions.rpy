@@ -48,7 +48,7 @@ init -2 python:
             self.sprite_zoom = 1.0
             self.sprite_rotation = 0.0
 
-            # sprite_layer = [background_characters (eg. teachers), top_bar, midground (eg. shower_steam), midground_characters (eg. teachers), foreground (eg. podium), foreground_characters (eg. Present), focused_Girl, cover (eg. shower_steam)]
+            # sprite_layer = [background_characters (eg. teachers), top_bar, midground (eg. shower_steam), midground_characters (eg. teachers), foreground (eg. podium), foreground_characters (eg. Present), focused_Companion, cover (eg. shower_steam)]
             self.sprite_layer = 7
 
             self.hovered = False
@@ -301,8 +301,6 @@ init -2 python:
             return pose
 
         def travel(self):
-            global Player
-
             if self.location != "hold":
                 if self.behavior in ["training", "swimming"]:
                     self.destination = "bg_lockers"
@@ -349,8 +347,6 @@ init -2 python:
 
         def give_status(self, status):
             global update_messages
-            
-            global EventScheduler
             
             if status == "miffed":
                 if self.status["miffed"]:

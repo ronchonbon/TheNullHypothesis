@@ -6,7 +6,7 @@ label Ororo_texting(message):
                     renpy.call(f"{E}_response")
 
     if Ororo.timed_text_options:
-        call change_Girl_stat(Ororo, "love", 0) from _call_change_Girl_stat_524
+        call change_Companion_stat(Ororo, "love", 0) from _call_change_Companion_stat_524
 
         $ Ororo.timed_text_options = {}
 

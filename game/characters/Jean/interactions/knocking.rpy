@@ -26,7 +26,7 @@ label Jean_knocks(arriving_Characters):
             "No, not right now.":
                 ch_Jean "Ugh. . . fine." 
                 
-                call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_245
+                call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_245
     elif dice_roll == 2:
         "You hear knocking at your door."  
         ch_Player "Who is it?" 
@@ -48,7 +48,7 @@ label Jean_knocks(arriving_Characters):
             "I'm busy.":
                 ch_Jean "Ugh. . . fine." 
                 
-                call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_246
+                call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_246
 
     return
 
@@ -79,7 +79,7 @@ label Jean_knocks_relationship(arriving_Characters):
             ch_Jean "What about later?" 
             ch_Player "Maybe." 
             
-            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_247
+            call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_247
 
     return
 
@@ -131,7 +131,7 @@ label Jean_knocks_love(arriving_Characters):
                 ch_Jean "Oh really?" 
                 ch_Jean "You're making me mad, [Jean.Player_petname]." 
                 
-                call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_248
+                call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_248
     else:
         $ temp = Jean.Player_petname.capitalize()
 
@@ -164,7 +164,7 @@ label Jean_knocks_love(arriving_Characters):
             "Kinda in the middle of something.":
                 ch_Jean "Don't have to be rude about it. . ." 
                 
-                call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_249
+                call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_249
 
     return
 
@@ -219,7 +219,7 @@ label Jean_knocks_heartbroken(arriving_Characters):
         "Stay silent":
             ch_Jean ". . . really?" 
             
-            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_250
+            call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_250
 
     return
 

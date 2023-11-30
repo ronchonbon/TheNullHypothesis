@@ -1,12 +1,6 @@
 init python:
 
     def Laura_ch1_season_one_Quest():
-        global Laura
-
-        global QuestPool
-
-        global EventScheduler
-
         name = f"{Laura.full_name}: Fall"
 
         string = "Laura_ch1_season_one_Quest"

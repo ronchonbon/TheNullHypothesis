@@ -10,7 +10,7 @@ label Characters_arrive(arriving_Characters, invited = False, greetings = True, 
 
     python:
         for C in arriving_Characters:
-            C.location = "nearby"
+            send_Characters_Offscreen(C)
 
     $ renpy.dynamic(temp_Characters = sort_Characters_by_approval(arriving_Characters[:])[:])
 
@@ -119,7 +119,7 @@ label Characters_arrive(arriving_Characters, invited = False, greetings = True, 
 
                         $ Characters_to_greet.remove(Characters_to_greet[0])
 
-            if verb == "knocks" and grouped_Characters[0].location == "nearby":
+            if verb == "knocks" and grouped_Characters[0] in Offscreen:
                 python:
                     for C in grouped_Characters:
                         C.History.update("Player_rejected_knock")
@@ -144,7 +144,7 @@ label Characters_arrive(arriving_Characters, invited = False, greetings = True, 
 
     return
 
-label Characters_leave(leaving_Characters, farewells = True, fade = True):
+label Characters_leave(leaving_Characters, farewells = True, fade = True, remove = True):
     $ temp_Character_picker_active = Character_picker_active
     $ temp_temp_belt_disabled = belt_disabled
 
@@ -160,6 +160,11 @@ label Characters_leave(leaving_Characters, farewells = True, fade = True):
     $ Player_has_to_leave = False
 
     $ renpy.dynamic(temp_Characters = sort_Characters_by_approval(stable_leaving_Characters[:])[:])
+
+    python:
+        for C in Offscreen:
+            if C in temp_Characters:
+                temp_Characters.remove(C)
 
     while temp_Characters:
         $ grouped_Characters = group_Characters(temp_Characters)
@@ -179,29 +184,28 @@ label Characters_leave(leaving_Characters, farewells = True, fade = True):
             else:
                 call expression f"{grouped_Characters[0].tag}_leaves" from _call_expression_370
 
-        $ temp_grouped_Characters = grouped_Characters[:]
+        $ renpy.dynamic(temp_temp_Characters = grouped_Characters[:])
 
         python:
             for C in all_Characters:
-                if C in temp_grouped_Characters and C.destination == C.location:
-                    temp_grouped_Characters.remove(C)
+                if C in temp_temp_Characters and C.destination == C.location:
+                    temp_temp_Characters.remove(C)
 
-        if temp_grouped_Characters:
-            $ renpy.dynamic(temp_Characters = temp_grouped_Characters[:])
+                    stable_leaving_Characters.remove(C)
 
-            while temp_Characters:
-                if temp_Characters[0] in all_Companions:
-                    if sandbox and not ongoing_Event and not temp_Characters[0].Outfit.wear_in_public and not ((temp_Characters[0].Outfit.activewear or temp_Characters[0].Outfit.superwear) and temp_Characters[0].destination in ["bg_danger", "bg_lockers"]) and not (temp_Characters[0].Outfit.swimwear and temp_Characters[0].destination in ["bg_pool"]):                       
-                        call set_Character_Outfits(temp_Characters[0], instant = False) from _call_set_Character_Outfits_21
+        while temp_temp_Characters:
+            if temp_temp_Characters[0] in all_Companions:
+                if sandbox and not ongoing_Event and not temp_temp_Characters[0].Outfit.wear_in_public and not ((temp_temp_Characters[0].Outfit.activewear or temp_temp_Characters[0].Outfit.superwear) and temp_temp_Characters[0].destination in ["bg_danger", "bg_lockers"]) and not (temp_temp_Characters[0].Outfit.swimwear and temp_temp_Characters[0].destination in ["bg_pool"]):                       
+                    call set_Character_Outfits(temp_temp_Characters[0], instant = False) from _call_set_Character_Outfits_21
 
-                        pause 1.0
+                    pause 1.0
 
-                call hide_Character(temp_Characters[0], fade = fade) from _call_hide_Character_46
+            call hide_Character(temp_temp_Characters[0], fade = fade) from _call_hide_Character_46
 
-                if Player.location == temp_Characters[0].home and temp_Characters[0] not in Keys:
-                    $ Player_has_to_leave = True
+            if Player.location == temp_temp_Characters[0].home and temp_temp_Characters[0] not in Keys:
+                $ Player_has_to_leave = True
 
-                $ temp_Characters.remove(temp_Characters[0])
+            $ temp_temp_Characters.remove(temp_temp_Characters[0])
 
             $ also_leaving = True
             
@@ -210,7 +214,8 @@ label Characters_leave(leaving_Characters, farewells = True, fade = True):
                 if C in temp_Characters:
                     temp_Characters.remove(C)
 
-    call remove_Characters(stable_leaving_Characters, fade = False) from _call_remove_Characters_238
+    if remove:
+        call remove_Characters(stable_leaving_Characters, fade = False) from _call_remove_Characters_238
 
     if Player_has_to_leave:
         call move_location("bg_girls_hallway") from _call_move_location_57

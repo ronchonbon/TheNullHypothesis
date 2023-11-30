@@ -72,14 +72,14 @@ label Rogue_penultimate_penultimate_quirk:
                 ch_Rogue "Ah promise ah will, from now on." 
                 ch_Player "Good, then there's nothing to worry about." 
                 
-                call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_1164
+                call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_1164
             "You don't need to do that. If there's something you want to talk about, don't worry about interrupting me. (discourage_quirk)":
                 $ Rogue.change_face("worried1", mouth = "smirk")
                 
                 ch_Rogue "Oh, alright, if you say so. . ." 
                 ch_Player "Really, there's nothing to worry about." 
                 
-                call change_Girl_stat(Rogue, "trust", 0) from _call_change_Girl_stat_1165
+                call change_Companion_stat(Rogue, "trust", 0) from _call_change_Companion_stat_1165
 
         $ Rogue.change_face("worried1")
 
@@ -115,13 +115,13 @@ label Rogue_penultimate_penultimate_quirk:
                 
                 ch_Rogue "Ah promise ah won't interrupt ya next time." 
                 
-                call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_1166
+                call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_1166
             "Of course we can talk. (discourage_quirk)":
                 $ Rogue.change_face("smirk2")
                 
                 ch_Rogue "Nothin's botherin' me, per se. . ." 
                 
-                call change_Girl_stat(Rogue, "trust", 0) from _call_change_Girl_stat_1167
+                call change_Companion_stat(Rogue, "trust", 0) from _call_change_Companion_stat_1167
 
         $ Rogue.change_face("worried1", mouth = "smirk")
 
@@ -188,8 +188,8 @@ label Rogue_penultimate_penultimate_quirk:
             
             ch_Rogue "It means a whole lot." 
             
-            call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_1168 
-            call change_Girl_stat(Rogue, "trust", 0) from _call_change_Girl_stat_1169
+            call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_1168 
+            call change_Companion_stat(Rogue, "trust", 0) from _call_change_Companion_stat_1169
         "You have no idea how happy it's made me, especially with everything else going on. . .":
             $ Rogue.change_face("worried2")
 
@@ -200,7 +200,7 @@ label Rogue_penultimate_penultimate_quirk:
             ch_Rogue "Ah'm glad. . ."
             ch_Rogue "You've been goin' through a lot, and it's the least ah could do." 
             
-            call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_1170
+            call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_1170
         "Well, yeah, I guess you could say that. Definitely hasn't been the worst thing I've been through since coming here.":
             $ Rogue.change_face("worried2")
 
@@ -211,8 +211,8 @@ label Rogue_penultimate_penultimate_quirk:
             ch_Rogue "Ah'm glad. . ." 
             ch_Rogue "Ah know it hasn't been easy for you." 
             
-            call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_1171 
-            call change_Girl_stat(Rogue, "trust", 0) from _call_change_Girl_stat_1172
+            call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_1171 
+            call change_Companion_stat(Rogue, "trust", 0) from _call_change_Companion_stat_1172
 
     $ Rogue.change_face("worried1")
 
@@ -302,7 +302,7 @@ label Rogue_penultimate_quirk_encouraged:
         call receive_text(Rogue, "Thank you") from _call_receive_text_815
         call receive_text(Rogue, "I'll go slow to give ya extra time") from _call_receive_text_816
 
-        call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_1173
+        call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_1173
     elif Rogue.text_history[-1][1] == temp[1]:
         call receive_text(Rogue, "Im sorry") from _call_receive_text_817
         call receive_text(Rogue, "I can wait") from _call_receive_text_818
@@ -310,7 +310,7 @@ label Rogue_penultimate_quirk_encouraged:
         call receive_text(Rogue, "I'll go slow to give ya extra time") from _call_receive_text_819
         call send_text(Rogue, "thanks") from _call_send_text_106
 
-        call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_1174
+        call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_1174
 
     call send_text(Rogue, "see you soon") from _call_send_text_107
 
@@ -345,15 +345,15 @@ label Rogue_penultimate_quirk_encouraged:
             
             ch_Rogue "Ah still feel bad 'bout it, though." 
             
-            call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_1175 
-            call change_Girl_stat(Rogue, "trust", 0) from _call_change_Girl_stat_1176
+            call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_1175 
+            call change_Companion_stat(Rogue, "trust", 0) from _call_change_Companion_stat_1176
         "Don't worry about it. I know how it feels to have something nagging at you, and waiting never helps. . .":
             $ Rogue.change_face("worried1")
 
             ch_Rogue "Ah appreciate how considerate ya are. . ." 
             ch_Rogue "But ah still feel bad." 
             
-            call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_1177
+            call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_1177
         "Better to get this out of the way as soon as possible. Don't want you waking me up like this every morning. . .":
             $ Rogue.change_face("worried1")
 
@@ -363,7 +363,7 @@ label Rogue_penultimate_quirk_encouraged:
             
             ch_Rogue "It was just really botherin' me." 
             
-            call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_1178
+            call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_1178
 
     $ Rogue.History.update("started_penultimate_quirk_encouraged")
 
@@ -433,14 +433,14 @@ label Rogue_penultimate_quirk_discouraged:
             ch_Rogue "Thanks, [Rogue.Player_petname]." 
             ch_Rogue "Ah really appreciate it." 
             
-            call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_1179
+            call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_1179
         "Really, it has to be right now? Fine, let's get this over with.":
             $ Rogue.change_face("worried1", eyes = "down")
 
             ch_Rogue "Ah'm sorry. . ." 
             ch_Rogue "Somethin's just been botherin' me lately. . ." 
             
-            call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_1180
+            call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_1180
 
     $ fade_to_black(0.4)
 
@@ -465,8 +465,8 @@ label Rogue_penultimate_quirk_discouraged:
             ch_Rogue "Yer always so considerate." 
             ch_Rogue "It's why ah like ya." 
             
-            call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_1181 
-            call change_Girl_stat(Rogue, "trust", 0) from _call_change_Girl_stat_1182
+            call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_1181 
+            call change_Companion_stat(Rogue, "trust", 0) from _call_change_Companion_stat_1182
         "Don't worry about it. I know how it feels to have something nagging at you, and waiting never helps. . .":
             ch_Rogue "Ah really appreciate how considerate ya are. . ." 
             
@@ -474,13 +474,13 @@ label Rogue_penultimate_quirk_discouraged:
             
             ch_Rogue "It's why ah like ya." 
             
-            call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_1183
+            call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_1183
         "Better to get this stuff out of the way as soon as possible. Don't want you dragging me away all the time. . .":
             $ Rogue.change_face("worried1") 
             
             ch_Rogue "This won't be a regular thing. . ." 
             
-            call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_1184
+            call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_1184
 
     $ EventScheduler.Events["Rogue_penultimate_quirk"].start()
 
@@ -548,7 +548,7 @@ label Rogue_penultimate_quirk:
         menu:
             extend ""
             "I will admit. . . I do enjoy wearing the pants in this relationship. . . (encourage_quirk)":
-                call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_1185
+                call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_1185
 
                 $ Rogue.change_face("worried2", mouth = "lipbite", blush = 2) 
                 
@@ -566,7 +566,7 @@ label Rogue_penultimate_quirk:
                     "I like it too. . . but let's not jump into this blindly. (encourage_quirk)":
                         $ Rogue.change_face("worried1", blush = 1)
 
-                        call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_1186
+                        call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_1186
 
                         while Rogue.History.check("quirk_encouraged") < Rogue.History.check("quirk_discouraged"):
                             $ Rogue.History.update("quirk_encouraged")

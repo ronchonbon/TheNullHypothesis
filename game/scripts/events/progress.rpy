@@ -9,7 +9,7 @@ label progress_story:
 
     $ Player.location = Player.home
 
-    $ Present = get_Present()
+    $ Present = get_Present()[0]
 
     call displace_Characters(Present[:]) from _call_displace_Characters_2
 

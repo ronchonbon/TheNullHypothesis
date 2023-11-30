@@ -190,7 +190,7 @@ layeredimage bg_restaurant_table:
         "images/backgrounds/base/bg_restaurant_bottle.webp"
 
     if food_arrived:
-        "images/backgrounds/base/bg_restaurant_Girl_plate.webp"
+        "images/backgrounds/base/bg_restaurant_Character_plate.webp"
 
     always:
         "images/backgrounds/base/bg_restaurant_shakers.webp"
@@ -267,7 +267,7 @@ layeredimage background:
     if Player.location == "bg_danger" and lights_on:
         At("bg_danger_lights", danger_room_pulsing)
 
-    if Player.location in ["traveling", "bg_bar", "bg_door", "bg_restaurant_bathroom"]:
+    if Player.location in ["traveling", "bg_door", "bg_restaurant_bathroom"]:
         "black_fade"
 
     transform_anchor True

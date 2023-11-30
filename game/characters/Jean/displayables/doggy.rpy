@@ -222,7 +222,7 @@ layeredimage Jean_doggy_controls_temp:
         At(At("Jean_doggy", speed_000), intensity_000)
  
 layeredimage Jean_doggy:
-    if Player.orgasming and focused_Girl == Jean:
+    if Player.orgasming and focused_Companion == Jean:
         "Jean_doggy_ass_animation0"
     elif Player.cock_Actions and Jean in Player.cock_Actions[0].Targets:
         "Jean_doggy_ass_animation[Player.cock_Actions[0].mode]"
@@ -230,21 +230,21 @@ layeredimage Jean_doggy:
         "Jean_doggy_ass_animation0"
     
 layeredimage Jean_doggy_ass:
-    if Player.orgasming and focused_Girl == Jean:
+    if Player.orgasming and focused_Companion == Jean:
         "Jean_doggy_left_leg_animation0"
     elif Player.cock_Actions and Jean in Player.cock_Actions[0].Targets:
         "Jean_doggy_left_leg_animation[Player.cock_Actions[0].mode]"
     else:
         "Jean_doggy_left_leg_animation0"
 
-    if Player.orgasming and focused_Girl == Jean:
+    if Player.orgasming and focused_Companion == Jean:
         "Jean_doggy_right_leg_animation0"
     elif Player.cock_Actions and Jean in Player.cock_Actions[0].Targets:
         "Jean_doggy_right_leg_animation[Player.cock_Actions[0].mode]"
     else:
         "Jean_doggy_right_leg_animation0"
         
-    if Player.orgasming and focused_Girl == Jean:
+    if Player.orgasming and focused_Companion == Jean:
         "Jean_doggy_torso_animation0"
     elif Player.cock_Actions and Jean in Player.cock_Actions[0].Targets:
         "Jean_doggy_torso_animation[Player.cock_Actions[0].mode]"
@@ -253,7 +253,7 @@ layeredimage Jean_doggy_ass:
         
     if not Player.body_visible:
         Null()
-    elif Player.orgasming and focused_Girl == Jean:
+    elif Player.orgasming and focused_Companion == Jean:
         "Jean_doggy_male_body_[Player.orgasming]_animation"
     elif Player.cock_Actions and Jean in Player.cock_Actions[0].Targets:
         "Jean_doggy_male_body_[Player.cock_Actions[0].animation_type]_animation[Player.cock_Actions[0].mode]"
@@ -276,7 +276,7 @@ layeredimage Jean_doggy_ass:
     always:
         "characters/Jean/images/doggy/ass.webp"
 
-    if Player.orgasming == "creampie" and focused_Girl == Jean:
+    if Player.orgasming == "creampie" and focused_Companion == Jean:
         "Jean_doggy_pussy_creampie_animation"
     elif not Jean.vagina_Actions:
         "Jean_doggy_pussy_closed"
@@ -286,12 +286,12 @@ layeredimage Jean_doggy_ass:
         "Jean_doggy_pussy_dildo_pussy_animation[Jean.vagina_Actions[0].mode]"
     elif Jean.vagina_Actions[0].animation_type == "finger_pussy":
         "Jean_doggy_pussy_finger_pussy_animation[Jean.vagina_Actions[0].mode]"
-    elif Player.orgasming and focused_Girl == Jean:
+    elif Player.orgasming and focused_Companion == Jean:
         "Jean_doggy_pussy_closed"
     else:
         "Jean_doggy_pussy_[Jean.vagina_Actions[0].animation_type]_animation[Jean.vagina_Actions[0].mode]"
 
-    if Player.orgasming == "anal_creampie" and focused_Girl == Jean:
+    if Player.orgasming == "anal_creampie" and focused_Companion == Jean:
         "Jean_doggy_anus_anal_creampie_animation"
     elif not Jean.anus_Actions or Jean.anus_Actions[0].animation_type == "eat_ass":
         "Jean_doggy_anus_closed"
@@ -303,12 +303,12 @@ layeredimage Jean_doggy_ass:
         "Jean_doggy_anus_dildo_ass_animation[Jean.anus_Actions[0].mode]"
     elif Jean.anus_Actions[0].animation_type == "finger_ass":
         "Jean_doggy_anus_finger_ass_animation[Jean.anus_Actions[0].mode]"
-    elif Player.orgasming and focused_Girl == Jean:
+    elif Player.orgasming and focused_Companion == Jean:
         "Jean_doggy_anus_closed"
     else:
         "Jean_doggy_anus_[Jean.anus_Actions[0].animation_type]_animation[Jean.anus_Actions[0].mode]"
 
-    if Player.orgasming == "creampie" and focused_Girl == Jean:
+    if Player.orgasming == "creampie" and focused_Companion == Jean:
         "Jean_doggy_creampie"
     elif not Jean.creampie["pussy"]:
         Null()
@@ -327,7 +327,7 @@ layeredimage Jean_doggy_ass:
     elif Jean.clitoris_Actions and Jean.clitoris_Actions[0].animation_type in ["vibrator", "self_vibrator"]:
         "Jean_doggy_vibrator_animation[Jean.clitoris_Actions[0].mode]"
 
-    if Player.orgasming == "anal_creampie" and focused_Girl == Jean:
+    if Player.orgasming == "anal_creampie" and focused_Companion == Jean:
         "Jean_doggy_anal_creampie"
     elif not Jean.creampie["anus"]:
         Null()
@@ -356,11 +356,11 @@ layeredimage Jean_doggy_ass:
     elif Jean.vagina_Actions and Jean.vagina_Actions[0].animation_type in ["dildo_pussy", "self_dildo_pussy"]:
         AlphaMask("Jean_doggy_dildo_pussy_animations", "Jean_doggy_mask_pussy_animations")
 
-    if Player.orgasming == "cumshot" and focused_Girl == Jean:
+    if Player.orgasming == "cumshot" and focused_Companion == Jean:
         Null()
-    elif Player.orgasming == "creampie" and focused_Girl == Jean:
+    elif Player.orgasming == "creampie" and focused_Companion == Jean:
         AlphaMask("Jean_doggy_cock_animations", "Jean_doggy_mask_pussy_animations")
-    elif Player.orgasming == "anal_creampie" and focused_Girl == Jean:
+    elif Player.orgasming == "anal_creampie" and focused_Companion == Jean:
         AlphaMask("Jean_doggy_cock_animations", "Jean_doggy_mask_anus_animations")
     elif Player.cock_Actions and Jean in Player.cock_Actions[0].Targets and Player.cock_Actions[0].animation_type == "sex":
         AlphaMask("Jean_doggy_cock_animations", "Jean_doggy_mask_pussy_animations")
@@ -370,15 +370,15 @@ layeredimage Jean_doggy_ass:
     if Jean.anus_Actions and Jean.anus_Actions[0].animation_type in ["dildo_ass", "self_dildo_ass"]:
         AlphaMask("Jean_doggy_dildo_ass_animations", "Jean_doggy_mask_anus_animations")
 
-    if Player.orgasming == "cumshot" and focused_Girl == Jean:
+    if Player.orgasming == "cumshot" and focused_Companion == Jean:
         "Jean_doggy_cock_animations"
     elif Player.cock_Actions and Jean in Player.cock_Actions[0].Targets and Player.cock_Actions[0].animation_type in ["grind_pussy", "grind_ass"]:
         "Jean_doggy_cock_animations"
 
-    if Player.orgasming == "cumshot" and focused_Girl == Jean:
+    if Player.orgasming == "cumshot" and focused_Companion == Jean:
         "Jean_doggy_cumshot"
 
-    if Player.orgasming and focused_Girl == Jean:
+    if Player.orgasming and focused_Companion == Jean:
         Null()
     elif not Player.right_hand_Actions or Jean not in Player.right_hand_Actions[0].Targets:
         Null()
@@ -389,7 +389,7 @@ layeredimage Jean_doggy_ass:
 
     if not Jean.right_hand_Actions or Jean.right_hand_Actions[0].animation_type != "self_finger_ass":
         Null()
-    elif Player.orgasming == "anal_creampie" and focused_Girl == Jean:
+    elif Player.orgasming == "anal_creampie" and focused_Companion == Jean:
         Null()
     elif Jean.right_hand_Actions and Jean.right_hand_Actions[0].animation_type == "self_finger_ass":
         "Jean_doggy_right_forearm_self_finger_ass_animation[Jean.right_hand_Actions[0].mode]"
@@ -400,7 +400,7 @@ layeredimage Jean_doggy_ass:
         "Jean_doggy_male_left_arm_animation0"
     elif Player.left_hand_Actions:
         Null()
-    elif Player.orgasming and focused_Girl == Jean:
+    elif Player.orgasming and focused_Companion == Jean:
         "Jean_doggy_male_left_arm_animation0"
     elif Player.cock_Actions and Jean in Player.cock_Actions[0].Targets:
         "Jean_doggy_male_left_arm_animation[Player.cock_Actions[0].mode]"
@@ -411,12 +411,12 @@ layeredimage Jean_doggy_ass:
         "Jean_doggy_male_right_arm_animation0"
     elif Player.right_hand_Actions:
         Null()
-    elif Player.orgasming and focused_Girl == Jean:
+    elif Player.orgasming and focused_Companion == Jean:
         "Jean_doggy_male_right_arm_animation0"
     elif Player.cock_Actions and Jean in Player.cock_Actions[0].Targets:
         "Jean_doggy_male_right_arm_animation[Player.cock_Actions[0].mode]"
 
-    if Player.orgasming and focused_Girl == Jean:
+    if Player.orgasming and focused_Companion == Jean:
         Null()
     elif not Player.mouth_Actions or Jean not in Player.mouth_Actions[0].Targets:
         Null()
@@ -443,18 +443,18 @@ layeredimage Jean_doggy_right_leg:
     offset (int(3365*sex_sampling), int(2531*sex_sampling))
 
 layeredimage Jean_doggy_torso:
-    if Player.orgasming == "anal_creampie" and focused_Girl == Jean:
+    if Player.orgasming == "anal_creampie" and focused_Companion == Jean:
         "Jean_doggy_right_arm_animation0"
     elif Jean.right_hand_Actions and Jean.right_hand_Actions[0].animation_type == "self_finger_ass":
         Null()
-    elif Player.orgasming and focused_Girl == Jean:
+    elif Player.orgasming and focused_Companion == Jean:
         "Jean_doggy_right_arm_animation0"
     elif Player.cock_Actions and Jean in Player.cock_Actions[0].Targets:
         "Jean_doggy_right_arm_animation[Player.cock_Actions[0].mode]"
     else:
         "Jean_doggy_right_arm_animation0"
 
-    if Player.orgasming and focused_Girl == Jean:
+    if Player.orgasming and focused_Companion == Jean:
         "Jean_doggy_head_animation0"
     elif Player.cock_Actions and Jean in Player.cock_Actions[0].Targets:
         "Jean_doggy_head_animation[Player.cock_Actions[0].mode]"
@@ -466,19 +466,19 @@ layeredimage Jean_doggy_torso:
 
     if not Jean.right_hand_Actions or Jean.right_hand_Actions[0].animation_type != "self_finger_ass":
         Null()
-    elif Player.orgasming and Player.orgasming != "anal_creampie" and focused_Girl == Jean:
+    elif Player.orgasming and Player.orgasming != "anal_creampie" and focused_Companion == Jean:
         "Jean_doggy_right_arm_self_finger_ass_animation0"
     elif Jean.right_hand_Actions and Jean.right_hand_Actions[0].animation_type == "self_finger_ass":
         "Jean_doggy_right_arm_self_finger_ass_animation[Jean.right_hand_Actions[0].mode]"
 
-    if Player.orgasming and focused_Girl == Jean:
+    if Player.orgasming and focused_Companion == Jean:
         "Jean_doggy_left_arm_animation0"
     elif Player.cock_Actions and Jean in Player.cock_Actions[0].Targets:
         "Jean_doggy_left_arm_animation[Player.cock_Actions[0].mode]"
     else:
         "Jean_doggy_left_arm_animation0"
 
-    if Player.orgasming and focused_Girl == Jean:
+    if Player.orgasming and focused_Companion == Jean:
         "Jean_doggy_hair_animation0"
     elif Player.cock_Actions and Jean in Player.cock_Actions[0].Targets:
         "Jean_doggy_hair_animation[Player.cock_Actions[0].mode]"
@@ -498,7 +498,7 @@ image Jean_doggy_right_arm:
     offset (int(2525*sex_sampling), int(1128*sex_sampling))
     
 layeredimage Jean_doggy_head:
-    if Player.orgasming and focused_Girl == Jean:
+    if Player.orgasming and focused_Companion == Jean:
         "Jean_doggy_hair_front_animation0"
     elif Player.cock_Actions and Jean in Player.cock_Actions[0].Targets:
         "Jean_doggy_hair_front_animation[Player.cock_Actions[0].mode]"
@@ -687,7 +687,7 @@ image Jean_doggy_male_left_arm_finger:
     offset (int(2111*sex_sampling), int(2055*sex_sampling))
 
 layeredimage Jean_doggy_mask_pussy:
-    if Player.orgasming == "creampie" and focused_Girl == Jean:
+    if Player.orgasming == "creampie" and focused_Companion == Jean:
         "characters/Jean/images/doggy/mask_pussy.webp"
     elif Jean.vagina_Actions[0].animation_type == "finger_pussy":
         "characters/Jean/images/doggy/mask_pussy_finger.webp"
@@ -698,7 +698,7 @@ layeredimage Jean_doggy_mask_pussy:
     offset (int(2102*sex_sampling), int(3144*sex_sampling))
 
 layeredimage Jean_doggy_mask_anus:
-    if Player.orgasming == "anal_creampie" and focused_Girl == Jean:
+    if Player.orgasming == "anal_creampie" and focused_Companion == Jean:
         "characters/Jean/images/doggy/mask_anus.webp"
     elif Jean.anus_Actions[0].animation_type == "finger_ass":
         "characters/Jean/images/doggy/mask_anus_finger.webp"
@@ -1354,14 +1354,14 @@ image Jean_doggy_mask_anal_creampie_animation:
     doggy_mask_anal_creampie_animation
 
 layeredimage Jean_doggy_cock_animations:
-    if Player.orgasming and focused_Girl == Jean:
+    if Player.orgasming and focused_Companion == Jean:
         "Jean_doggy_cock_[Player.orgasming]_animation"
     else:
         "Jean_doggy_cock_[Player.cock_Actions[0].animation_type]_animation[Player.cock_Actions[0].mode]"
 
     if not Player.spunk and not Player.orgasming:
         Null()
-    elif Player.orgasming and focused_Girl == Jean:
+    elif Player.orgasming and focused_Companion == Jean:
         "Jean_doggy_spunk_tip_[Player.orgasming]_animation"
     else:
         "Jean_doggy_spunk_tip_[Player.cock_Actions[0].animation_type]_animation[Player.cock_Actions[0].mode]"
@@ -1379,7 +1379,7 @@ layeredimage Jean_doggy_dildo_ass_animations:
         "Jean_doggy_dildo_ass_animation[Jean.anus_Actions[0].mode]"
 
 layeredimage Jean_doggy_mask_pussy_animations:
-    if Player.orgasming == "creampie" and focused_Girl == Jean:
+    if Player.orgasming == "creampie" and focused_Companion == Jean:
         "Jean_doggy_mask_creampie_animation"
     elif Jean.vagina_Actions[0].animation_type in ["dildo_pussy", "self_dildo_pussy"]:
         "Jean_doggy_mask_dildo_pussy_animation[Jean.vagina_Actions[0].mode]"
@@ -1387,7 +1387,7 @@ layeredimage Jean_doggy_mask_pussy_animations:
         "Jean_doggy_mask_[Jean.vagina_Actions[0].animation_type]_animation[Jean.vagina_Actions[0].mode]"
 
 layeredimage Jean_doggy_mask_anus_animations:
-    if Player.orgasming == "anal_creampie" and focused_Girl == Jean:
+    if Player.orgasming == "anal_creampie" and focused_Companion == Jean:
         "Jean_doggy_mask_anal_creampie_animation"
     elif Jean.anus_Actions[0].animation_type in ["dildo_ass", "self_dildo_ass"]:
         "Jean_doggy_mask_dildo_ass_animation[Jean.anus_Actions[0].mode]"

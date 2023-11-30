@@ -585,14 +585,6 @@ init -2 python:
         return left_arm, right_arm
 
     def Jean_locations():
-        global Player
-        
-        global weekday
-        global time_index
-
-        global weather
-        global snow_left
-        
         possible_locations = []
 
         possible_locations.append(Jean.home)

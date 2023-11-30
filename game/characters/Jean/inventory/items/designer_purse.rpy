@@ -33,8 +33,8 @@ label Jean_designer_purse_shopping_accept:
 
     ch_Jean "I'll put it to good use."
 
-    call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1299
-    call change_Girl_stat(Jean, "trust", 0) from _call_change_Girl_stat_1300
+    call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1299
+    call change_Companion_stat(Jean, "trust", 0) from _call_change_Companion_stat_1300
 
     return True
 
@@ -81,8 +81,8 @@ label Jean_designer_purse_gift_accept:
 
     ch_Jean "I'll put it to good use."
 
-    call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1301
-    call change_Girl_stat(Jean, "trust", 0) from _call_change_Girl_stat_1302
+    call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1301
+    call change_Companion_stat(Jean, "trust", 0) from _call_change_Companion_stat_1302
 
     return True
 

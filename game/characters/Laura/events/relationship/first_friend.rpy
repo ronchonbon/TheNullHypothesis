@@ -88,7 +88,7 @@ label Laura_first_friend_part_one:
 
                 $ Laura.eyes = "neutral"
 
-                call change_Girl_stat(Laura, "trust", 0) from _call_change_Girl_stat_360
+                call change_Companion_stat(Laura, "trust", 0) from _call_change_Companion_stat_360
 
                 $ Laura.change_face("smirk1", blush = 0)
 
@@ -107,7 +107,7 @@ label Laura_first_friend_part_one:
 
                 $ Laura.change_face("perplexed")
 
-                call change_Girl_stat(Laura, "trust", 0) from _call_change_Girl_stat_361
+                call change_Companion_stat(Laura, "trust", 0) from _call_change_Companion_stat_361
 
                 ch_Laura "I. . . don't fully understand, but I will try to {i}care{/i}."
 
@@ -166,13 +166,13 @@ label Laura_first_friend_part_one_1A:
         "I'm sorry, that must've been tough. . .":
             $ Laura.change_face("confused1")
 
-            call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_362
+            call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_362
 
             ch_Laura "Why are you sorry?"
         "Makes sense, why you're. . .":
             $ Laura.change_face("confused1")
 
-            call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_363
+            call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_363
 
             ch_Laura "Why I'm what?"
             ch_Player "Nothing. . ."
@@ -204,15 +204,15 @@ label Laura_first_friend_part_one_1B:
         "I can try to help you learn.":
             $ Laura.change_face("surprised2")
 
-            call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_364
-            call change_Girl_stat(Laura, "trust", 0) from _call_change_Girl_stat_365
+            call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_364
+            call change_Companion_stat(Laura, "trust", 0) from _call_change_Companion_stat_365
 
             ch_Laura "So you are my friend now?"
         "Are you even capable of that?":
             $ Laura.change_face("angry1")
 
-            call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_366
-            call change_Girl_stat(Laura, "trust", 0) from _call_change_Girl_stat_367
+            call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_366
+            call change_Companion_stat(Laura, "trust", 0) from _call_change_Companion_stat_367
 
             ch_Laura "I. . . don't know."
 
@@ -226,7 +226,7 @@ init python:
         conditions = [
             "EventScheduler.Events['Laura_first_friend_part_one'].completed",
             
-            "Laura.location != Player.location and not get_Present(location = Player.destination)",
+            "Laura.location != Player.location and not get_Present(location = Player.destination)[0]",
             
             "time_index >= 3",
 
@@ -277,7 +277,7 @@ label Laura_first_friend_part_two:
 
     $ Laura.change_face("angry1", blush = 2)
 
-    call change_Girl_stat(Laura, "desire", 0) from _call_change_Girl_stat_368
+    call change_Companion_stat(Laura, "desire", 0) from _call_change_Companion_stat_368
 
     ch_Laura "I stopped it when the female started removing her clothes."
 
@@ -300,7 +300,7 @@ label Laura_first_friend_part_two:
 
                 $ Laura.change_face("confused1")
 
-                call change_Girl_stat(Laura, "trust", 0) from _call_change_Girl_stat_369
+                call change_Companion_stat(Laura, "trust", 0) from _call_change_Companion_stat_369
 
                 ch_Player "You should go see [Rogue.name], she's very nice, and I'm sure she wouldn't mind answering some questions."
 
@@ -328,7 +328,7 @@ label Laura_first_friend_part_two:
     ch_Player "She had some questions about stuff that I thought might be better discussed with another girl. . ."
     ch_Player "She can be a bit rough around the edges, but she means well."
 
-    call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_370
+    call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_370
 
     ch_Rogue ". . . Well ain't that sweet. Don't worry, ah'll help her out."
     ch_Player "Thanks, [Rogue.name]."
@@ -373,9 +373,9 @@ label Laura_first_friend_part_two_1A:
 
     ch_Laura "Everyone else smells terrible in comparison. . ."
 
-    call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_371
-    call change_Girl_stat(Laura, "trust", 0) from _call_change_Girl_stat_372
-    call change_Girl_stat(Laura, "desire", 0) from _call_change_Girl_stat_373
+    call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_371
+    call change_Companion_stat(Laura, "trust", 0) from _call_change_Companion_stat_372
+    call change_Companion_stat(Laura, "desire", 0) from _call_change_Companion_stat_373
 
     ch_Player "{i}Ahem{/i}. . ."
 
@@ -393,7 +393,7 @@ init python:
             
             "'bg_shower' not in Player.destination",
             "Player.destination not in bedrooms or 'bg_shower' not in Player.location",
-            "not get_Present(location = Player.destination)",
+            "not get_Present(location = Player.destination)[0]",
             
             "time_index >= 3",
 
@@ -482,8 +482,8 @@ label Laura_first_friend_part_three:
 
         $ Laura.change_face("suspicious2", blush = 0)
 
-        call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_374
-        call change_Girl_stat(Laura, "trust", 0) from _call_change_Girl_stat_375
+        call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_374
+        call change_Companion_stat(Laura, "trust", 0) from _call_change_Companion_stat_375
 
         ch_Laura "Very good things. . ."
         "[Laura.name] stares at you skeptically."
@@ -561,8 +561,8 @@ label Laura_first_friend_part_three:
 
                 $ chatting = False
             "I think I know where this is going. . . Do you think we could keep things the way they are? I really care about you a lot, but I'm not ready to be more than friends." if asked_crush:
-                call change_Girl_stat(Laura, "love", -medium_stat) from _call_change_Girl_stat_1612
-                call change_Girl_stat(Laura, "trust", medium_stat) from _call_change_Girl_stat_1613
+                call change_Companion_stat(Laura, "love", -medium_stat) from _call_change_Companion_stat_1612
+                call change_Companion_stat(Laura, "trust", medium_stat) from _call_change_Companion_stat_1613
 
                 $ Laura.change_face("confused2")
 
@@ -628,7 +628,7 @@ label Laura_first_friend_part_three_1A:
         ". . . {i}{size=-5}yet{/size}{/i}.":
             $ Laura.change_face("suspicious2")
 
-            call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_376
+            call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_376
         ". . .":
             pass
 
@@ -675,7 +675,7 @@ label Laura_first_friend_part_three_1B:
         "I appreciate it. . . but no, that's not how friends normally do it. (discourage_quirk)":
             $ Laura.change_face("surprised1", blush = 1)
 
-            call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_377
+            call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_377
 
             ch_Laura "You want me to stop?"
             ch_Player "You don't have to {i}constantly{/i} watch over me."
@@ -688,7 +688,7 @@ label Laura_first_friend_part_three_1B:
         "Uhh. . . no. That's kind of weird. (discourage_quirk)":
             $ Laura.change_face("angry1")
 
-            call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_378
+            call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_378
 
             ch_Laura "Fine, then I will stop."
             ch_Player "Friends still help and protect each other."
@@ -702,8 +702,8 @@ label Laura_first_friend_part_three_1B:
 
             $ Laura.change_face("pleased1", blush = 1)
 
-            call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_379
-            call change_Girl_stat(Laura, "trust", 0) from _call_change_Girl_stat_380
+            call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_379
+            call change_Companion_stat(Laura, "trust", 0) from _call_change_Companion_stat_380
 
             ch_Laura "Good."
 

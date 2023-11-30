@@ -56,13 +56,13 @@ label Laura_chapter_one_season_four_first_training_session:
             if Player.History.check("told_Laura_protesters_got_what_they_deserved_during_mutant_hate"):
                 ch_Laura "So now you're suddenly all self righteous?" 
                 
-                call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_405 
-                call change_Girl_stat(Laura, "trust", 0) from _call_change_Girl_stat_406
+                call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_405 
+                call change_Companion_stat(Laura, "trust", 0) from _call_change_Companion_stat_406
             else:
                 ch_Laura "So people who kill are lesser, in your opinion?" 
                 
-                call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_407 
-                call change_Girl_stat(Laura, "trust", 0) from _call_change_Girl_stat_408
+                call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_407 
+                call change_Companion_stat(Laura, "trust", 0) from _call_change_Companion_stat_408
         "I can't just kill people! The fact that it would've been so easy terrifies me.":
             $ Laura.change_face("angry1")
             
@@ -70,27 +70,27 @@ label Laura_chapter_one_season_four_first_training_session:
                 ch_Laura "Where'd your spine go?" 
                 ch_Laura "Killing is necessary at times." 
                 
-                call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_409
-                call change_Girl_stat(Laura, "trust", 0) from _call_change_Girl_stat_410
+                call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_409
+                call change_Companion_stat(Laura, "trust", 0) from _call_change_Companion_stat_410
             else:
                 ch_Laura "This is reality, you need to get over it." 
                 
-                call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_411 
-                call change_Girl_stat(Laura, "trust", 0) from _call_change_Girl_stat_412
+                call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_411 
+                call change_Companion_stat(Laura, "trust", 0) from _call_change_Companion_stat_412
         "I know. You're right, maybe they didn't deserve mercy.":
             $ Laura.change_face("angry1", eyes = "left")
 
             if Player.History.check("told_Laura_protesters_got_what_they_deserved_during_mutant_hate"):
                 ch_Laura "Everyone at this goddamn school thinks otherwise. . ." 
                 
-                call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_413 
-                call change_Girl_stat(Laura, "trust", 0) from _call_change_Girl_stat_414
+                call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_413 
+                call change_Companion_stat(Laura, "trust", 0) from _call_change_Companion_stat_414
             else:
                 ch_Laura "Changed your mind so easily?" 
                 ch_Laura "Everyone at this goddamn school thinks otherwise. . ." 
                 
-                call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_415 
-                call change_Girl_stat(Laura, "trust", 0) from _call_change_Girl_stat_416
+                call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_415 
+                call change_Companion_stat(Laura, "trust", 0) from _call_change_Companion_stat_416
 
     ch_Player "I just-"
 
@@ -114,15 +114,15 @@ label Laura_chapter_one_season_four_first_training_session:
             ch_Laura "I was still the one who did the killing." 
             ch_Laura "But apparently, now I can make my own decisions on who to kill." 
             
-            call change_Girl_stat(Laura, "trust", 0) from _call_change_Girl_stat_418
+            call change_Companion_stat(Laura, "trust", 0) from _call_change_Companion_stat_418
         "Fuck. . . I'm sorry you had to go through that.":
             $ Laura.change_face("angry1", eyes = "left")
 
             ch_Laura "Now that I'm in control. . ." 
             ch_Laura "Anyone who tries to harm you will. . ." 
             
-            call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_417
-            call change_Girl_stat(Laura, "trust", 0) from _call_change_Girl_stat_419
+            call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_417
+            call change_Companion_stat(Laura, "trust", 0) from _call_change_Companion_stat_419
         ". . .":
             $ Laura.change_face("furious")
 
@@ -139,7 +139,7 @@ label Laura_chapter_one_season_four_first_training_session:
             
             $ Laura.change_face("angry1", eyes = "left") 
             
-            call change_Girl_stat(Laura, "trust", 0) from _call_change_Girl_stat_420
+            call change_Companion_stat(Laura, "trust", 0) from _call_change_Companion_stat_420
 
     $ Laura.change_face("angry1", eyes = "right")
 

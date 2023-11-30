@@ -222,7 +222,7 @@ layeredimage Rogue_doggy_controls_temp:
         At(At("Rogue_doggy", speed_000), intensity_000)
 
 layeredimage Rogue_doggy:
-    if Player.orgasming and focused_Girl == Rogue:
+    if Player.orgasming and focused_Companion == Rogue:
         "Rogue_doggy_ass_animation0"
     elif Player.cock_Actions and Rogue in Player.cock_Actions[0].Targets:
         "Rogue_doggy_ass_animation[Player.cock_Actions[0].mode]"
@@ -230,21 +230,21 @@ layeredimage Rogue_doggy:
         "Rogue_doggy_ass_animation0"
     
 layeredimage Rogue_doggy_ass:
-    if Player.orgasming and focused_Girl == Rogue:
+    if Player.orgasming and focused_Companion == Rogue:
         "Rogue_doggy_left_leg_animation0"
     elif Player.cock_Actions and Rogue in Player.cock_Actions[0].Targets:
         "Rogue_doggy_left_leg_animation[Player.cock_Actions[0].mode]"
     else:
         "Rogue_doggy_left_leg_animation0"
 
-    if Player.orgasming and focused_Girl == Rogue:
+    if Player.orgasming and focused_Companion == Rogue:
         "Rogue_doggy_right_leg_animation0"
     elif Player.cock_Actions and Rogue in Player.cock_Actions[0].Targets:
         "Rogue_doggy_right_leg_animation[Player.cock_Actions[0].mode]"
     else:
         "Rogue_doggy_right_leg_animation0"
         
-    if Player.orgasming and focused_Girl == Rogue:
+    if Player.orgasming and focused_Companion == Rogue:
         "Rogue_doggy_torso_animation0"
     elif Player.cock_Actions and Rogue in Player.cock_Actions[0].Targets:
         "Rogue_doggy_torso_animation[Player.cock_Actions[0].mode]"
@@ -253,7 +253,7 @@ layeredimage Rogue_doggy_ass:
         
     if not Player.body_visible:
         Null()
-    elif Player.orgasming and focused_Girl == Rogue:
+    elif Player.orgasming and focused_Companion == Rogue:
         "Rogue_doggy_male_body_[Player.orgasming]_animation"
     elif Player.cock_Actions and Rogue in Player.cock_Actions[0].Targets:
         "Rogue_doggy_male_body_[Player.cock_Actions[0].animation_type]_animation[Player.cock_Actions[0].mode]"
@@ -276,7 +276,7 @@ layeredimage Rogue_doggy_ass:
     always:
         "characters/Rogue/images/doggy/ass.webp"
 
-    if Player.orgasming == "creampie" and focused_Girl == Rogue:
+    if Player.orgasming == "creampie" and focused_Companion == Rogue:
         "Rogue_doggy_pussy_creampie_animation"
     elif not Rogue.vagina_Actions:
         "Rogue_doggy_pussy_closed"
@@ -286,12 +286,12 @@ layeredimage Rogue_doggy_ass:
         "Rogue_doggy_pussy_dildo_pussy_animation[Rogue.vagina_Actions[0].mode]"
     elif Rogue.vagina_Actions[0].animation_type == "finger_pussy":
         "Rogue_doggy_pussy_finger_pussy_animation[Rogue.vagina_Actions[0].mode]"
-    elif Player.orgasming and focused_Girl == Rogue:
+    elif Player.orgasming and focused_Companion == Rogue:
         "Rogue_doggy_pussy_closed"
     else:
         "Rogue_doggy_pussy_[Rogue.vagina_Actions[0].animation_type]_animation[Rogue.vagina_Actions[0].mode]"
 
-    if Player.orgasming == "anal_creampie" and focused_Girl == Rogue:
+    if Player.orgasming == "anal_creampie" and focused_Companion == Rogue:
         "Rogue_doggy_anus_anal_creampie_animation"
     elif not Rogue.anus_Actions or Rogue.anus_Actions[0].animation_type == "eat_ass":
         "Rogue_doggy_anus_closed"
@@ -303,7 +303,7 @@ layeredimage Rogue_doggy_ass:
         "Rogue_doggy_anus_dildo_ass_animation[Rogue.anus_Actions[0].mode]"
     elif Rogue.anus_Actions[0].animation_type == "finger_ass":
         "Rogue_doggy_anus_finger_ass_animation[Rogue.anus_Actions[0].mode]"
-    elif Player.orgasming and focused_Girl == Rogue:
+    elif Player.orgasming and focused_Companion == Rogue:
         "Rogue_doggy_anus_closed"
     else:
         "Rogue_doggy_anus_[Rogue.anus_Actions[0].animation_type]_animation[Rogue.anus_Actions[0].mode]"
@@ -314,7 +314,7 @@ layeredimage Rogue_doggy_ass:
     if Rogue.tan_lines["full"]:
         "characters/Rogue/images/doggy/tan_lines_[Rogue.tan_lines[full]]_ass.webp"
 
-    if Player.orgasming == "creampie" and focused_Girl == Rogue:
+    if Player.orgasming == "creampie" and focused_Companion == Rogue:
         "Rogue_doggy_creampie"
     elif not Rogue.creampie["pussy"]:
         Null()
@@ -333,7 +333,7 @@ layeredimage Rogue_doggy_ass:
     elif Rogue.clitoris_Actions and Rogue.clitoris_Actions[0].animation_type in ["vibrator", "self_vibrator"]:
         "Rogue_doggy_vibrator_animation[Rogue.clitoris_Actions[0].mode]"
 
-    if Player.orgasming == "anal_creampie" and focused_Girl == Rogue:
+    if Player.orgasming == "anal_creampie" and focused_Companion == Rogue:
         "Rogue_doggy_anal_creampie"
     elif not Rogue.creampie["anus"]:
         Null()
@@ -362,11 +362,11 @@ layeredimage Rogue_doggy_ass:
     elif Rogue.vagina_Actions and Rogue.vagina_Actions[0].animation_type in ["dildo_pussy", "self_dildo_pussy"]:
         AlphaMask("Rogue_doggy_dildo_pussy_animations", "Rogue_doggy_mask_pussy_animations")
 
-    if Player.orgasming == "cumshot" and focused_Girl == Rogue:
+    if Player.orgasming == "cumshot" and focused_Companion == Rogue:
         Null()
-    elif Player.orgasming == "creampie" and focused_Girl == Rogue:
+    elif Player.orgasming == "creampie" and focused_Companion == Rogue:
         AlphaMask("Rogue_doggy_cock_animations", "Rogue_doggy_mask_pussy_animations")
-    elif Player.orgasming == "anal_creampie" and focused_Girl == Rogue:
+    elif Player.orgasming == "anal_creampie" and focused_Companion == Rogue:
         AlphaMask("Rogue_doggy_cock_animations", "Rogue_doggy_mask_anus_animations")
     elif Player.cock_Actions and Rogue in Player.cock_Actions[0].Targets and Player.cock_Actions[0].animation_type == "sex":
         AlphaMask("Rogue_doggy_cock_animations", "Rogue_doggy_mask_pussy_animations")
@@ -376,15 +376,15 @@ layeredimage Rogue_doggy_ass:
     if Rogue.anus_Actions and Rogue.anus_Actions[0].animation_type in ["dildo_ass", "self_dildo_ass"]:
         AlphaMask("Rogue_doggy_dildo_ass_animations", "Rogue_doggy_mask_anus_animations")
 
-    if Player.orgasming == "cumshot" and focused_Girl == Rogue:
+    if Player.orgasming == "cumshot" and focused_Companion == Rogue:
         "Rogue_doggy_cock_animations"
     elif Player.cock_Actions and Rogue in Player.cock_Actions[0].Targets and Player.cock_Actions[0].animation_type in ["grind_pussy", "grind_ass"]:
         "Rogue_doggy_cock_animations"
 
-    if Player.orgasming == "cumshot" and focused_Girl == Rogue:
+    if Player.orgasming == "cumshot" and focused_Companion == Rogue:
         "Rogue_doggy_cumshot"
 
-    if Player.orgasming and focused_Girl == Rogue:
+    if Player.orgasming and focused_Companion == Rogue:
         Null()
     elif not Player.right_hand_Actions or Rogue not in Player.right_hand_Actions[0].Targets:
         Null()
@@ -395,7 +395,7 @@ layeredimage Rogue_doggy_ass:
 
     if not Rogue.right_hand_Actions or Rogue.right_hand_Actions[0].animation_type != "self_finger_ass":
         Null()
-    elif Player.orgasming == "anal_creampie" and focused_Girl == Rogue:
+    elif Player.orgasming == "anal_creampie" and focused_Companion == Rogue:
         Null()
     elif Rogue.right_hand_Actions and Rogue.right_hand_Actions[0].animation_type == "self_finger_ass":
         "Rogue_doggy_right_forearm_self_finger_ass_animation[Rogue.right_hand_Actions[0].mode]"
@@ -406,7 +406,7 @@ layeredimage Rogue_doggy_ass:
         "Rogue_doggy_male_left_arm_animation0"
     elif Player.left_hand_Actions:
         Null()
-    elif Player.orgasming and focused_Girl == Rogue:
+    elif Player.orgasming and focused_Companion == Rogue:
         "Rogue_doggy_male_left_arm_animation0"
     elif Player.cock_Actions and Rogue in Player.cock_Actions[0].Targets:
         "Rogue_doggy_male_left_arm_animation[Player.cock_Actions[0].mode]"
@@ -417,12 +417,12 @@ layeredimage Rogue_doggy_ass:
         "Rogue_doggy_male_right_arm_animation0"
     elif Player.right_hand_Actions:
         Null()
-    elif Player.orgasming and focused_Girl == Rogue:
+    elif Player.orgasming and focused_Companion == Rogue:
         "Rogue_doggy_male_right_arm_animation0"
     elif Player.cock_Actions and Rogue in Player.cock_Actions[0].Targets:
         "Rogue_doggy_male_right_arm_animation[Player.cock_Actions[0].mode]"
 
-    if Player.orgasming and focused_Girl == Rogue:
+    if Player.orgasming and focused_Companion == Rogue:
         Null()
     elif not Player.mouth_Actions or Rogue not in Player.mouth_Actions[0].Targets:
         Null()
@@ -449,25 +449,25 @@ layeredimage Rogue_doggy_right_leg:
     offset (int(3365*sex_sampling), int(2531*sex_sampling))
 
 layeredimage Rogue_doggy_torso:
-    if Player.orgasming and focused_Girl == Rogue:
+    if Player.orgasming and focused_Companion == Rogue:
         "Rogue_doggy_left_arm_animation0"
     elif Player.cock_Actions and Rogue in Player.cock_Actions[0].Targets:
         "Rogue_doggy_left_arm_animation[Player.cock_Actions[0].mode]"
     else:
         "Rogue_doggy_left_arm_animation0"
 
-    if Player.orgasming == "anal_creampie" and focused_Girl == Rogue:
+    if Player.orgasming == "anal_creampie" and focused_Companion == Rogue:
         "Rogue_doggy_right_arm_animation0"
     elif Rogue.right_hand_Actions and Rogue.right_hand_Actions[0].animation_type == "self_finger_ass":
         Null()
-    elif Player.orgasming and focused_Girl == Rogue:
+    elif Player.orgasming and focused_Companion == Rogue:
         "Rogue_doggy_right_arm_animation0"
     elif Player.cock_Actions and Rogue in Player.cock_Actions[0].Targets:
         "Rogue_doggy_right_arm_animation[Player.cock_Actions[0].mode]"
     else:
         "Rogue_doggy_right_arm_animation0"
 
-    if Player.orgasming and focused_Girl == Rogue:
+    if Player.orgasming and focused_Companion == Rogue:
         "Rogue_doggy_head_animation0"
     elif Player.cock_Actions and Rogue in Player.cock_Actions[0].Targets:
         "Rogue_doggy_head_animation[Player.cock_Actions[0].mode]"
@@ -479,7 +479,7 @@ layeredimage Rogue_doggy_torso:
 
     if not Rogue.right_hand_Actions or Rogue.right_hand_Actions[0].animation_type != "self_finger_ass":
         Null()
-    elif Player.orgasming and Player.orgasming != "anal_creampie" and focused_Girl == Rogue:
+    elif Player.orgasming and Player.orgasming != "anal_creampie" and focused_Companion == Rogue:
         "Rogue_doggy_right_arm_self_finger_ass_animation0"
     else:
         "Rogue_doggy_right_arm_self_finger_ass_animation[Rogue.right_hand_Actions[0].mode]"
@@ -498,7 +498,7 @@ layeredimage Rogue_doggy_torso:
     else:
         "characters/Rogue/images/doggy/tan_lines_[Rogue.tan_lines[full]]_torso.webp"
 
-    if Player.orgasming and focused_Girl == Rogue:
+    if Player.orgasming and focused_Companion == Rogue:
         "Rogue_doggy_hair_animation0"
     elif Player.cock_Actions and Rogue in Player.cock_Actions[0].Targets:
         "Rogue_doggy_hair_animation[Player.cock_Actions[0].mode]"
@@ -516,7 +516,7 @@ layeredimage Rogue_doggy_right_arm:
     offset (int(2525*sex_sampling), int(1128*sex_sampling))
     
 layeredimage Rogue_doggy_head:
-    if Player.orgasming and focused_Girl == Rogue:
+    if Player.orgasming and focused_Companion == Rogue:
         "Rogue_doggy_hair_front_animation0"
     elif Player.cock_Actions and Rogue in Player.cock_Actions[0].Targets:
         "Rogue_doggy_hair_front_animation[Player.cock_Actions[0].mode]"
@@ -706,7 +706,7 @@ image Rogue_doggy_male_right_arm_finger:
     offset (int(2111*sex_sampling), int(2055*sex_sampling))
 
 layeredimage Rogue_doggy_mask_pussy:
-    if Player.orgasming == "creampie" and focused_Girl == Rogue:
+    if Player.orgasming == "creampie" and focused_Companion == Rogue:
         "characters/Rogue/images/doggy/mask_pussy.webp"
     elif Rogue.vagina_Actions[0].animation_type == "finger_pussy":
         "characters/Rogue/images/doggy/mask_pussy_finger.webp"
@@ -717,7 +717,7 @@ layeredimage Rogue_doggy_mask_pussy:
     offset (int(2102*sex_sampling), int(3144*sex_sampling))
 
 layeredimage Rogue_doggy_mask_anus:
-    if Player.orgasming == "anal_creampie" and focused_Girl == Rogue:
+    if Player.orgasming == "anal_creampie" and focused_Companion == Rogue:
         "characters/Rogue/images/doggy/mask_anus.webp"
     elif Rogue.anus_Actions[0].animation_type == "finger_ass":
         "characters/Rogue/images/doggy/mask_anus_finger.webp"
@@ -1373,14 +1373,14 @@ image Rogue_doggy_mask_anal_creampie_animation:
     doggy_mask_anal_creampie_animation
 
 layeredimage Rogue_doggy_cock_animations:
-    if Player.orgasming and focused_Girl == Rogue:
+    if Player.orgasming and focused_Companion == Rogue:
         "Rogue_doggy_cock_[Player.orgasming]_animation"
     else:
         "Rogue_doggy_cock_[Player.cock_Actions[0].animation_type]_animation[Player.cock_Actions[0].mode]"
 
     if not Player.spunk and not Player.orgasming:
         Null()
-    elif Player.orgasming and focused_Girl == Rogue:
+    elif Player.orgasming and focused_Companion == Rogue:
         "Rogue_doggy_spunk_tip_[Player.orgasming]_animation"
     else:
         "Rogue_doggy_spunk_tip_[Player.cock_Actions[0].animation_type]_animation[Player.cock_Actions[0].mode]"
@@ -1398,7 +1398,7 @@ layeredimage Rogue_doggy_dildo_ass_animations:
         "Rogue_doggy_dildo_ass_animation[Rogue.anus_Actions[0].mode]"
 
 layeredimage Rogue_doggy_mask_pussy_animations:
-    if Player.orgasming == "creampie" and focused_Girl == Rogue:
+    if Player.orgasming == "creampie" and focused_Companion == Rogue:
         "Rogue_doggy_mask_creampie_animation"
     elif Rogue.vagina_Actions[0].animation_type in ["dildo_pussy", "self_dildo_pussy"]:
         "Rogue_doggy_mask_dildo_pussy_animation[Rogue.vagina_Actions[0].mode]"
@@ -1406,7 +1406,7 @@ layeredimage Rogue_doggy_mask_pussy_animations:
         "Rogue_doggy_mask_[Rogue.vagina_Actions[0].animation_type]_animation[Rogue.vagina_Actions[0].mode]"
 
 layeredimage Rogue_doggy_mask_anus_animations:
-    if Player.orgasming == "anal_creampie" and focused_Girl == Rogue:
+    if Player.orgasming == "anal_creampie" and focused_Companion == Rogue:
         "Rogue_doggy_mask_anal_creampie_animation"
     elif Rogue.anus_Actions[0].animation_type in ["dildo_ass", "self_dildo_ass"]:
         "Rogue_doggy_mask_dildo_ass_animation[Rogue.anus_Actions[0].mode]"

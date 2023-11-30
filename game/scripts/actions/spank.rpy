@@ -1,4 +1,4 @@
-label spank(Girl):
+label spank(Companion):
     show expression "images/effects/smack.webp" as smack onlayer effects:
         anchor (0.5, 0.5) pos (0.5, 0.6)
 
@@ -9,39 +9,39 @@ label spank(Girl):
 
     with small_screenshake
 
-    call spank_narrations(Girl) from _call_spank_narrations
+    call spank_narrations(Companion) from _call_spank_narrations
 
-    if approval_check(Girl, threshold = "spank"):
-        if not Girl.History.check("spank", tracker = "recent"):
-            if not Girl.History.check("spank"):
-                call expression f"{Girl.tag}_accepts_spank_first_time" from _call_expression_91
-            elif Girl.History.check("spank") == 1:
-                call expression f"{Girl.tag}_accepts_spank_second_time" from _call_expression_92
-            elif approval_check(Girl, threshold = "love"):
-                call expression f"{Girl.tag}_accepts_spank_love" from _call_expression_93
+    if approval_check(Companion, threshold = "spank"):
+        if not Companion.History.check("spank", tracker = "recent"):
+            if not Companion.History.check("spank"):
+                call expression f"{Companion.tag}_accepts_spank_first_time" from _call_expression_91
+            elif Companion.History.check("spank") == 1:
+                call expression f"{Companion.tag}_accepts_spank_second_time" from _call_expression_92
+            elif approval_check(Companion, threshold = "love"):
+                call expression f"{Companion.tag}_accepts_spank_love" from _call_expression_93
             else:
-                call expression f"{Girl.tag}_accepts_spank" from _call_expression_94
+                call expression f"{Companion.tag}_accepts_spank" from _call_expression_94
     else:
-        if Girl.History.check("rejected_spank", tracker = "recent") >= 2:
-            call change_Girl_stat(Girl, "love", -5) from _call_change_Girl_stat_831
-            call change_Girl_stat(Girl, "trust", -5) from _call_change_Girl_stat_832
+        if Companion.History.check("rejected_spank", tracker = "recent") >= 2:
+            call change_Companion_stat(Companion, "love", -5) from _call_change_Companion_stat_831
+            call change_Companion_stat(Companion, "trust", -5) from _call_change_Companion_stat_832
             
-            call expression f"{Girl.tag}_rejects_Action_asked_twice" from _call_expression_95
-        elif Girl.History.check("rejected_spank", tracker = "recent") == 1:
-            call change_Girl_stat(Girl, "love", -2) from _call_change_Girl_stat_833
+            call expression f"{Companion.tag}_rejects_Action_asked_twice" from _call_expression_95
+        elif Companion.History.check("rejected_spank", tracker = "recent") == 1:
+            call change_Companion_stat(Companion, "love", -2) from _call_change_Companion_stat_833
             
-            call expression f"{Girl.tag}_rejects_Action_asked_once" from _call_expression_96
+            call expression f"{Companion.tag}_rejects_Action_asked_once" from _call_expression_96
         else:
-            call expression f"{Girl.tag}_rejects_spank" from _call_expression_97
+            call expression f"{Companion.tag}_rejects_spank" from _call_expression_97
 
-        $ Girl.History.update("rejected_spank")
+        $ Companion.History.update("rejected_spank")
 
-    $ Girl.History.update("spank")
+    $ Companion.History.update("spank")
 
     return
 
-label spank_narrations(Girl):
-    if approval_check(Girl, threshold = "spank") and Girl.History.check("spank") >= 10:
+label spank_narrations(Companion):
+    if approval_check(Companion, threshold = "spank") and Companion.History.check("spank") >= 10:
         $ dice_roll = renpy.random.randint(1, 3)
 
         if dice_roll == 1:

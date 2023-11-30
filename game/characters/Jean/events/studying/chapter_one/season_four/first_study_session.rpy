@@ -90,14 +90,14 @@ label Jean_chapter_one_season_four_first_study_session:
 
             ch_Jean "I. . . am {i}really{/i} not okay. . ." 
             
-            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_117 
-            call change_Girl_stat(Jean, "trust", 0) from _call_change_Girl_stat_118
+            call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_117 
+            call change_Companion_stat(Jean, "trust", 0) from _call_change_Companion_stat_118
         "[temp]? Is everything really okay? You're getting distracted again. . .":
             $ Jean.change_face("worried2")
 
             ch_Jean "No, [Jean.Player_petname], I am {i}really{/i} not okay." 
             
-            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_119
+            call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_119
         "Really? What the hell's gotten into you? At this rate, studying with [Laura.name] would be more productive. . .":
             $ Jean.change_face("appalled1")
 
@@ -107,8 +107,8 @@ label Jean_chapter_one_season_four_first_study_session:
             
             ch_Jean "Sorry. . . that was mean. . ." 
             
-            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_120 
-            call change_Girl_stat(Jean, "trust", 0) from _call_change_Girl_stat_121
+            call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_120 
+            call change_Companion_stat(Jean, "trust", 0) from _call_change_Companion_stat_121
 
     $ Jean.change_face("appalled2")
 
@@ -194,8 +194,8 @@ label Jean_chapter_one_season_four_first_study_session:
             
             ch_Jean "It doesn't matter in the end." 
             
-            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_122 
-            call change_Girl_stat(Jean, "trust", 0) from _call_change_Girl_stat_123
+            call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_122 
+            call change_Companion_stat(Jean, "trust", 0) from _call_change_Companion_stat_123
         "I. . . give a shit. And you can't think like that.":
             $ Jean.change_face("worried3")
 
@@ -205,14 +205,14 @@ label Jean_chapter_one_season_four_first_study_session:
             
             ch_Jean "Even deep down, I know you think it's probably a waste." 
             
-            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_124
+            call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_124
         "Oh please, stop lying to yourself.":
             $ Jean.change_face("appalled1")
 
             ch_Jean "What the hell?" 
             
-            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_125 
-            call change_Girl_stat(Jean, "trust", 0) from _call_change_Girl_stat_126
+            call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_125 
+            call change_Companion_stat(Jean, "trust", 0) from _call_change_Companion_stat_126
 
     $ Jean.change_face("confused2")
 

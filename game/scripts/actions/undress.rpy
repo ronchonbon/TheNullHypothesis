@@ -14,7 +14,7 @@ label ask_to_undress(Character):
         menu:
             "Can you. . . ?"
             "Use your remote vibrator?" if not Character.remote_vibrator and "remote_vibrator" in Character.inventory.keys() and not Character.vagina_Actions:
-                call ask_Girl_to_use_Toy(Character, Character.inventory["remote_vibrator"][0]) from _call_ask_Girl_to_use_Toy
+                call ask_Character_to_use_Toy(Character, Character.inventory["remote_vibrator"][0]) from _call_ask_Character_to_use_Toy
             "Remove your remote vibrator?" if Character.remote_vibrator:
                 call expose(Character, "pussy") from _call_expose_12
 
@@ -60,13 +60,13 @@ label ask_to_undress(Character):
 
                 if plug_type and plug_size:
                     if plug_size == "XS":
-                        call ask_Girl_to_use_Toy(Character, Character.inventory[plug_type][0], 0) from _call_ask_Girl_to_use_Toy_1
+                        call ask_Character_to_use_Toy(Character, Character.inventory[plug_type][0], 0) from _call_ask_Character_to_use_Toy_1
                     elif plug_size == "S":
-                        call ask_Girl_to_use_Toy(Character, Character.inventory[plug_type][0], 1) from _call_ask_Girl_to_use_Toy_2
+                        call ask_Character_to_use_Toy(Character, Character.inventory[plug_type][0], 1) from _call_ask_Character_to_use_Toy_2
                     elif plug_size == "M":
-                        call ask_Girl_to_use_Toy(Character, Character.inventory[plug_type][0], 2) from _call_ask_Girl_to_use_Toy_3
+                        call ask_Character_to_use_Toy(Character, Character.inventory[plug_type][0], 2) from _call_ask_Character_to_use_Toy_3
                     elif plug_size == "L":
-                        call ask_Girl_to_use_Toy(Character, Character.inventory[plug_type][0], 3) from _call_ask_Girl_to_use_Toy_4
+                        call ask_Character_to_use_Toy(Character, Character.inventory[plug_type][0], 3) from _call_ask_Character_to_use_Toy_4
             "Take out your buttplug?" if Character.buttplug:
                 call expose(Character, "anus") from _call_expose_13
 
@@ -295,7 +295,7 @@ label ask_to_undress(Character):
                         if Clothes[C_type].string:
                             removed_Items.append(Clothes[C_type])
 
-                call does_Girl_agree_to_change_Clothes(Character, removed_Items = removed_Items, instant = False) from _call_does_Girl_agree_to_change_Clothes_7
+                call does_Character_agree_to_change_Clothes(Character, removed_Items = removed_Items, instant = False) from _call_does_Character_agree_to_change_Clothes_7
 
                 if _return:
                     call get_naked(Character) from _call_get_naked_1
@@ -308,11 +308,11 @@ label ask_to_undress(Character):
             if state is None:
                 $ state = Clothes[Item_type].undressed_states[Character.position]
 
-            call expression f"ask_Girl_to_{verb}" pass (Clothing = Clothes[Item_type], state = state) from _call_expression_98
+            call expression f"ask_Character_to_{verb}" pass (Clothing = Clothes[Item_type], state = state) from _call_expression_98
         elif verb in ["redress", "take_off"]:
-            call expression f"ask_Girl_to_{verb}" pass (Clothing = Clothes[Item_type]) from _call_expression_99
+            call expression f"ask_Character_to_{verb}" pass (Clothing = Clothes[Item_type]) from _call_expression_99
         elif verb == "try_on":
-            call expression f"ask_Girl_to_{verb}" pass (Clothing = Outfit[Item_type]) from _call_expression_100
+            call expression f"ask_Character_to_{verb}" pass (Clothing = Outfit[Item_type]) from _call_expression_100
 
         if _return and verb == "take_off":
             if Player.location == Player.home:

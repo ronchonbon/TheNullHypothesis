@@ -19,7 +19,7 @@ screen test_screen():
 
     add "images/interface/test/test.webp" zoom interface_new_adjustment
 
-    frame anchor (0.0, 0.5) pos (0.41, 0.145) xysize (int(400*background_sampling), int(70*background_sampling)):
+    frame anchor (0.0, 0.5) pos (0.41, 0.145) xysize (int(400*interface_new_adjustment), int(70*interface_new_adjustment)):
         background None
 
         input id "first_name_input" value first_name_value xalign 1.0:
@@ -29,7 +29,7 @@ screen test_screen():
 
             length 10
     
-    frame anchor (0.0, 0.5) pos (0.41, 0.185) xysize (int(400*background_sampling), int(70*background_sampling)):
+    frame anchor (0.0, 0.5) pos (0.41, 0.185) xysize (int(400*interface_new_adjustment), int(70*interface_new_adjustment)):
         background None
 
         input id "last_name_input" value last_name_value xalign 1.0:
@@ -39,12 +39,12 @@ screen test_screen():
 
             length 15
 
-    button anchor (0.0, 0.5) pos (0.41, 0.15) xysize (int(400*background_sampling), int(70*background_sampling)):
+    button anchor (0.0, 0.5) pos (0.41, 0.15) xysize (int(400*interface_new_adjustment), int(70*interface_new_adjustment)):
         background None
 
         action first_name_value.Toggle()
 
-    button anchor (0.0, 0.5) pos (0.41, 0.1905) xysize (int(400*background_sampling), int(70*background_sampling)):
+    button anchor (0.0, 0.5) pos (0.41, 0.1905) xysize (int(400*interface_new_adjustment), int(70*interface_new_adjustment)):
         background None
         
         action last_name_value.Toggle()

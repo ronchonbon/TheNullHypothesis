@@ -1,8 +1,6 @@
 init python:
 
     def Jean_relationship_1_Quest():
-        global Jean
-
         name = f"{Jean.full_name}: Relationship I"
 
         string = "Jean_relationship_1_Quest"
@@ -28,8 +26,6 @@ init python:
         return QuestClass(name, string, Quest_type, chapter, description, objectives, optional_objectives, rewards, criteria)
 
     def Jean_relationship_2_Quest():
-        global Jean
-
         name = f"{Jean.full_name}: Relationship II"
 
         string = "Jean_relationship_2_Quest"
@@ -55,8 +51,6 @@ init python:
         return QuestClass(name, string, Quest_type, chapter, description, objectives, optional_objectives, rewards, criteria)
 
     def Jean_relationship_3_Quest():
-        global Jean
-        
         name = f"{Jean.full_name}: Relationship III"
 
         string = "Jean_relationship_3_Quest"

@@ -66,7 +66,7 @@ label Laura_texting_study_response:
         call receive_text(Laura, "Goddamnit") from _call_receive_text_275
         call receive_text(Laura, "Now I have to find the redhead") from _call_receive_text_276
         
-        call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_351
+        call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_351
 
         $ Laura.History.update("Player_rejected_studying")
 
@@ -128,7 +128,7 @@ label Laura_texting_training_response:
         if time_index > 2:
             call receive_text(Laura, "Too late.") from _call_receive_text_823
             
-            call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_1605
+            call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_1605
         else:
             call receive_text(Laura, "Good") from _call_receive_text_282
             call receive_text(Laura, "Don't think you'll get out of the warmup by taking your time") from _call_receive_text_283
@@ -142,7 +142,7 @@ label Laura_texting_training_response:
     elif Laura.text_history[-1][1] == temp[2]:
         call receive_text(Laura, "Stop being such a goddamn wimp") from _call_receive_text_284
         
-        call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_352
+        call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_352
 
         $ Laura.History.update("Player_rejected_training")
 
@@ -207,20 +207,20 @@ label Laura_texting_date_response:
         if time_index > 2:
             call receive_text(Laura, "Too late.") from _call_receive_text_820
             
-            call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_1600
+            call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_1600
         else:
             call receive_text(Laura, "Good") from _call_receive_text_289
 
-            call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_353
+            call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_353
 
-            $ Player.date_planned[Laura] = "Girl_initiated_primary"
+            $ Player.date_planned[Laura] = "Companion_initiated_primary"
 
             if time_index == 2:
                 $ EventScheduler.Events["Laura_date"].start()
     elif Laura.text_history[-1][1] == temp[2]:
         call receive_text(Laura, "What?!") from _call_receive_text_290
         
-        call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_354
+        call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_354
 
         $ Laura.History.update("Player_rejected_date")
 

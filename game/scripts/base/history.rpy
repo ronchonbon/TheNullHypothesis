@@ -30,8 +30,6 @@ init -3 python:
                     tracker.update({item: HistoryItemClass()})
 
         def update(self, item):
-            global day
-
             global EventScheduler
 
             for tracker in [self.event, self.recent, self.daily, self.weekly, self.season, self.persistent, self.permanent]:

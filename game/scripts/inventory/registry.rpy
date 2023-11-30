@@ -38,10 +38,6 @@ init python:
     def register_Items():
         global shop_inventory
 
-        global all_Companions
-
-        global Player
-
         Items = all_Items()
 
         for I in Items:

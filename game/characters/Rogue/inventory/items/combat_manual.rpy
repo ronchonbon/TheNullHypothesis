@@ -25,8 +25,8 @@ label Rogue_combat_manual_shopping_accept:
 
     ch_Rogue "Ah'll put it to good use."
 
-    call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_1549
-    call change_Girl_stat(Rogue, "trust", 0) from _call_change_Girl_stat_1550
+    call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_1549
+    call change_Companion_stat(Rogue, "trust", 0) from _call_change_Companion_stat_1550
 
     return True
 
@@ -64,8 +64,8 @@ label Rogue_combat_manual_gift_accept:
 
     ch_Rogue "Ah'll put it to good use."
 
-    call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_1551
-    call change_Girl_stat(Rogue, "trust", 0) from _call_change_Girl_stat_1552
+    call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_1551
+    call change_Companion_stat(Rogue, "trust", 0) from _call_change_Companion_stat_1552
 
     return True
 

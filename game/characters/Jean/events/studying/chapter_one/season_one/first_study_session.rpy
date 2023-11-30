@@ -66,8 +66,8 @@ label Jean_chapter_one_season_one_first_study_session:
     menu:
         extend ""
         "You know exactly where to look. . . amazing.":
-            call change_Girl_stat(Jean, "love", medium_stat) from _call_change_Girl_stat_388
-            call change_Girl_stat(Jean, "trust", small_stat) from _call_change_Girl_stat_389
+            call change_Companion_stat(Jean, "love", medium_stat) from _call_change_Companion_stat_388
+            call change_Companion_stat(Jean, "trust", small_stat) from _call_change_Companion_stat_389
 
             $ Jean.change_face("pleased2") 
             
@@ -77,7 +77,7 @@ label Jean_chapter_one_season_one_first_study_session:
 
             ch_Jean "You think so?"
         "Holy shit. . . are you a genius or something?":
-            call change_Girl_stat(Jean, "love", large_stat) from _call_change_Girl_stat_390    
+            call change_Companion_stat(Jean, "love", large_stat) from _call_change_Companion_stat_390    
 
             $ Jean.change_face("smirk2", eyes = "right") 
             
@@ -87,7 +87,7 @@ label Jean_chapter_one_season_one_first_study_session:
 
             ch_Jean "Well. . . a few people have told me my IQ is pretty high. . ." 
         "What the hell. . . is your entire life just spent studying and memorizing. . . ?":
-            call change_Girl_stat(Jean, "love", -medium_stat) from _call_change_Girl_stat_391    
+            call change_Companion_stat(Jean, "love", -medium_stat) from _call_change_Companion_stat_391    
 
             $ Jean.change_face("appalled1") 
             

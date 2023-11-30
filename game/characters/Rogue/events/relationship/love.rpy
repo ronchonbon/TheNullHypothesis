@@ -282,8 +282,8 @@ label Rogue_I_love_you:
                 
                 ch_Rogue "You have no idea how happy ah am hearin' you say that. . ." 
                 
-                call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_1155 
-                call change_Girl_stat(Rogue, "trust", 0) from _call_change_Girl_stat_1156
+                call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_1155 
+                call change_Companion_stat(Rogue, "trust", 0) from _call_change_Companion_stat_1156
             "It's okay, I know how much this matters to you. I love you too. Of course I want you to be mine.":
                 $ Rogue.change_face("worried2", mouth = "smirk", blush = 1)
 
@@ -293,7 +293,7 @@ label Rogue_I_love_you:
                 
                 ch_Rogue "It matters a whole lot, and nothin' makes me happier than hearin' you say that. . ." 
                 
-                call change_Girl_stat(Rogue, "trust", 0) from _call_change_Girl_stat_1157
+                call change_Companion_stat(Rogue, "trust", 0) from _call_change_Companion_stat_1157
             "You were a bad girl, but I'll forgive you this one time. I know how much this means to you - I love you too. You are {i}mine{/i}.":
                 $ Rogue.change_face("worried2", blush = 1)
 
@@ -307,8 +307,8 @@ label Rogue_I_love_you:
                 
                 ch_Rogue "But you have no idea how glad ah am that you feel the same way. . ." 
                 
-                call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_1158 
-                call change_Girl_stat(Rogue, "desire", 0) from _call_change_Girl_stat_1159
+                call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_1158 
+                call change_Companion_stat(Rogue, "desire", 0) from _call_change_Companion_stat_1159
 
         $ Rogue.change_face("kiss2", blush = 1)
 
@@ -373,7 +373,7 @@ label Rogue_I_love_you:
                 
                 ch_Rogue "You make it so easy to love ya. . ." 
                 
-                call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_1160
+                call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_1160
             "I love you too. . . so much. . . you have no idea how happy this has made me as well. I want nothing more than for us to be together for a very long time.":
                 $ Rogue.change_face("worried2", blush = 1)
 
@@ -383,8 +383,8 @@ label Rogue_I_love_you:
                 
                 ch_Rogue "Ah'm glad yer happy. . . you have no idea how glad. . ." 
                 
-                call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_1161 
-                call change_Girl_stat(Rogue, "trust", 0) from _call_change_Girl_stat_1162
+                call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_1161 
+                call change_Companion_stat(Rogue, "trust", 0) from _call_change_Companion_stat_1162
             "I don't know how I feel about you 'taking charge'. . . but yeah, I love you too. Don't worry, it's not like I want to break up or anything.":
                 $ Rogue.change_face("confused1", blush = 1)
 
@@ -398,7 +398,7 @@ label Rogue_I_love_you:
                 
                 ch_Rogue "But ah'm glad ya feel the same way. . ." 
                 
-                call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_1163
+                call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_1163
 
         $ Rogue.change_face("worried1", mouth = "lipbite", blush = 1)
 

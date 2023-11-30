@@ -62,7 +62,7 @@ label Jean_flirt_aa:
         
         ch_Jean "If I get a chance, I'll make you a playlist."
 
-        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_223 
+        call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_223 
     elif dice_roll == 2:
         $ Jean.change_face("pleased2")
 
@@ -76,7 +76,7 @@ label Jean_flirt_aa:
 
         ch_Jean "I'll show you my favorites."
 
-        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_224 
+        call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_224 
     elif dice_roll == 3:
         $ Jean.change_face("pleased2", blush = 1)
 
@@ -91,7 +91,7 @@ label Jean_flirt_aa:
         ch_Jean "We should totally listen together at some point."
         ch_Jean "I know you're a big music guy, wouldn't mind hearing what kinda stuff you like." 
 
-        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_225
+        call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_225
 
     return
 
@@ -114,7 +114,7 @@ label Jean_flirt_ab:
 
         ch_Jean "I'll forgive the little slip up. . ."
 
-        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_226
+        call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_226
     elif dice_roll == 2:
         $ Jean.change_face("surprised2")
 
@@ -128,7 +128,7 @@ label Jean_flirt_ab:
 
         ch_Jean "You look pretty great yourself. . ."
 
-        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_227
+        call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_227
     elif dice_roll == 3:
         $ Jean.change_face("sexy", eyes = "down")
 
@@ -141,8 +141,8 @@ label Jean_flirt_ab:
 
         $ Jean.change_face("sly", mouth = "lipbite", blush = 1)
 
-        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_228
-        call change_Girl_stat(Jean, "desire", 0) from _call_change_Girl_stat_229
+        call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_228
+        call change_Companion_stat(Jean, "desire", 0) from _call_change_Companion_stat_229
 
     return
 
@@ -163,7 +163,7 @@ label Jean_flirt_ac:
 
         $ Jean.change_face("smirk2", blush = 1)
 
-        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_230
+        call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_230
     elif dice_roll == 2:
         $ Jean.change_face("pleased2", blush = 1)
 
@@ -175,7 +175,7 @@ label Jean_flirt_ac:
 
         $ Jean.change_face("smirk2")
 
-        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_231
+        call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_231
     elif dice_roll == 3:
         $ Jean.change_face("confused1", mouth = "smirk", blush = 1) 
 
@@ -187,7 +187,7 @@ label Jean_flirt_ac:
 
         $ Jean.change_face("smirk2", blush = 1)
 
-        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_232
+        call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_232
     elif dice_roll == 4:
         $ Jean.change_face("pleased1", blush = 1) 
 
@@ -201,7 +201,7 @@ label Jean_flirt_ac:
 
         ch_Jean "And of course, I can rock just about anything." 
 
-        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_233
+        call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_233
 
     return
 
@@ -229,7 +229,7 @@ label Jean_flirt_ad:
 
         $ Jean.change_face("worried1", blush = 1)
 
-        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_234
+        call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_234
     elif dice_roll == 2:
         $ Jean.change_face("sly", blush = 1) 
 
@@ -241,8 +241,8 @@ label Jean_flirt_ad:
 
         $ Jean.change_face("sexy", blush = 1)
 
-        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_235
-        call change_Girl_stat(Jean, "desire", 0) from _call_change_Girl_stat_236
+        call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_235
+        call change_Companion_stat(Jean, "desire", 0) from _call_change_Companion_stat_236
     elif dice_roll == 3:
         $ Jean.change_face("appalled2")
 
@@ -252,8 +252,8 @@ label Jean_flirt_ad:
 
         ch_Jean "Stop staring at my chest, jerk." 
 
-        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_237
-        call change_Girl_stat(Jean, "trust", 0) from _call_change_Girl_stat_238
+        call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_237
+        call change_Companion_stat(Jean, "trust", 0) from _call_change_Companion_stat_238
     elif dice_roll == 4:
         $ Jean.change_face("perplexed")
 
@@ -263,8 +263,8 @@ label Jean_flirt_ad:
 
         ch_Jean "What the hell is wrong with you?!" 
 
-        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_239
-        call change_Girl_stat(Jean, "trust", 0) from _call_change_Girl_stat_240
+        call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_239
+        call change_Companion_stat(Jean, "trust", 0) from _call_change_Companion_stat_240
 
     return
 
@@ -291,8 +291,8 @@ label Jean_flirt_ae:
 
         $ Jean.change_face("smirk2", blush = 1)
 
-        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1187
-        call change_Girl_stat(Jean, "desire", 0) from _call_change_Girl_stat_1188
+        call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1187
+        call change_Companion_stat(Jean, "desire", 0) from _call_change_Companion_stat_1188
     elif dice_roll == 2:
         $ Jean.change_face("sly", blush = 1) 
 
@@ -302,8 +302,8 @@ label Jean_flirt_ae:
 
         ch_Jean "I like yours too. . ."
 
-        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1189
-        call change_Girl_stat(Jean, "desire", 0) from _call_change_Girl_stat_1190
+        call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1189
+        call change_Companion_stat(Jean, "desire", 0) from _call_change_Companion_stat_1190
     elif dice_roll == 3:
         $ Jean.change_face("confused1")
 
@@ -315,8 +315,8 @@ label Jean_flirt_ae:
 
         $ Jean.change_face("angry1")
 
-        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1191
-        call change_Girl_stat(Jean, "trust", 0) from _call_change_Girl_stat_1192
+        call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1191
+        call change_Companion_stat(Jean, "trust", 0) from _call_change_Companion_stat_1192
     elif dice_roll == 4:
         $ Jean.change_face("perplexed") 
 
@@ -328,8 +328,8 @@ label Jean_flirt_ae:
 
         $ Jean.change_face("angry1")
 
-        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1193
-        call change_Girl_stat(Jean, "trust", 0) from _call_change_Girl_stat_1194
+        call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1193
+        call change_Companion_stat(Jean, "trust", 0) from _call_change_Companion_stat_1194
 
     return
 
@@ -349,7 +349,7 @@ label Jean_flirt_af:
 
         ch_Jean "Really sweet. . ."
 
-        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1195 
+        call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1195 
     elif dice_roll == 2:
         $ Jean.change_face("pleased2")
 
@@ -360,7 +360,7 @@ label Jean_flirt_af:
         ch_Jean "Well, good."
         ch_Jean "You're the one I actually want to mesmerize. . ."
 
-        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1196
+        call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1196
 
     return
 
@@ -389,7 +389,7 @@ label Jean_flirt_ag:
 
         ch_Jean "But. . . you think I look good now?"
 
-        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1197
+        call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1197
     elif dice_roll == 2:
         $ Jean.change_face("surprised2")
 
@@ -411,7 +411,7 @@ label Jean_flirt_ag:
 
         ch_Jean "You're the one who looks like they work out a lot. . ."
 
-        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1198
+        call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1198
     elif dice_roll == 3:
         $ Jean.change_face("perplexed") 
 
@@ -423,8 +423,8 @@ label Jean_flirt_ag:
 
         $ Jean.change_face("angry1")
 
-        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1199
-        call change_Girl_stat(Jean, "trust", 0) from _call_change_Girl_stat_1200
+        call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1199
+        call change_Companion_stat(Jean, "trust", 0) from _call_change_Companion_stat_1200
     elif dice_roll == 4:
         $ Jean.change_face("appalled2") 
 
@@ -432,8 +432,8 @@ label Jean_flirt_ag:
 
         $ Jean.change_face("angry1")
 
-        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1201
-        call change_Girl_stat(Jean, "trust", 0) from _call_change_Girl_stat_1202
+        call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1201
+        call change_Companion_stat(Jean, "trust", 0) from _call_change_Companion_stat_1202
 
     return
 
@@ -449,7 +449,7 @@ label Jean_flirt_ah:
 
         ch_Jean "I mean, I am pretty dreamy. . ."
 
-        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1203
+        call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1203
     elif dice_roll == 2:
         $ Jean.change_face("surprised2")
 
@@ -463,7 +463,7 @@ label Jean_flirt_ah:
 
         ch_Jean "I'll let it slide. . ."
 
-        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1204
+        call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1204
 
     return
 
@@ -482,8 +482,8 @@ label Jean_flirt_ai:
 
         $ Jean.change_face("smirk2", mouth = "lipbite", blush = 1)
 
-        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1205
-        call change_Girl_stat(Jean, "desire", 0) from _call_change_Girl_stat_1206
+        call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1205
+        call change_Companion_stat(Jean, "desire", 0) from _call_change_Companion_stat_1206
     elif dice_roll == 2:
         $ Jean.change_face("sly")
 
@@ -499,8 +499,8 @@ label Jean_flirt_ai:
 
         $ Jean.change_face("sly", blush = 1)
 
-        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1207
-        call change_Girl_stat(Jean, "desire", 0) from _call_change_Girl_stat_1208
+        call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1207
+        call change_Companion_stat(Jean, "desire", 0) from _call_change_Companion_stat_1208
     elif dice_roll == 3:
         $ Jean.change_face("pleased2")
 
@@ -516,8 +516,8 @@ label Jean_flirt_ai:
 
         $ Jean.change_face("sexy", blush = 1)
 
-        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1209
-        call change_Girl_stat(Jean, "desire", 0) from _call_change_Girl_stat_1210
+        call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1209
+        call change_Companion_stat(Jean, "desire", 0) from _call_change_Companion_stat_1210
     elif dice_roll == 4:
         $ Jean.change_face("pleased2")
 
@@ -533,8 +533,8 @@ label Jean_flirt_ai:
 
         $ Jean.change_face("sexy", eyes = "down", blush = 2)
 
-        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1211
-        call change_Girl_stat(Jean, "desire", 0) from _call_change_Girl_stat_1212
+        call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1211
+        call change_Companion_stat(Jean, "desire", 0) from _call_change_Companion_stat_1212
 
     return
 
@@ -557,7 +557,7 @@ label Jean_flirt_aj:
 
         ch_Jean "You really are the luckiest."
 
-        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1213 
+        call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1213 
     elif dice_roll == 2:
         $ Jean.change_face("pleased2")
 
@@ -576,7 +576,7 @@ label Jean_flirt_aj:
 
         ch_Jean "And I like spending time with you. . ."
 
-        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1214 
+        call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1214 
     elif dice_roll == 3:
         $ Jean.change_face("surprised2")
 
@@ -598,7 +598,7 @@ label Jean_flirt_aj:
 
         ch_Jean "{i}Nearly{/i} as smart as I am. . ."
 
-        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1215
+        call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1215
 
     return
 
@@ -619,7 +619,7 @@ label Jean_flirt_ak:
 
         ch_Jean "Glad you like it."
 
-        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_241
+        call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_241
     elif dice_roll == 2:
         $ Jean.change_face("pleased2", blush = 1) 
 
@@ -629,7 +629,7 @@ label Jean_flirt_ak:
 
         ch_Jean "I like the way you smell too. . ."
 
-        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_242
+        call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_242
     elif dice_roll == 3:
         $ Jean.change_face("perplexed") 
 
@@ -639,8 +639,8 @@ label Jean_flirt_ak:
 
         ch_Jean "Maybe stop standing so close."
 
-        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_243
-        call change_Girl_stat(Jean, "trust", 0) from _call_change_Girl_stat_244
+        call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_243
+        call change_Companion_stat(Jean, "trust", 0) from _call_change_Companion_stat_244
 
     return
 
@@ -657,7 +657,7 @@ label Jean_flirt_al:
 
     ch_Jean "That's really sweet. . ."
 
-    call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1216 
+    call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1216 
 
     return
 
@@ -682,7 +682,7 @@ label Jean_flirt_am:
 
         ch_Jean "You're pretty impressive yourself."
 
-        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1217
+        call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1217
     elif dice_roll == 2:
         $ Jean.change_face("surprised2")
 
@@ -697,7 +697,7 @@ label Jean_flirt_am:
         ch_Jean "If only they cooperated."
         ch_Jean "I do really appreciate your help with that, by the way."
 
-        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1218
+        call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1218
     elif dice_roll == 3:
         $ Jean.change_face("sly", blush = 1) 
 
@@ -710,7 +710,7 @@ label Jean_flirt_am:
 
         $ Jean.change_face("smirk2", mouth = "lipbite", blush = 2)
 
-        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1219
+        call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1219
 
     return
 
@@ -730,7 +730,7 @@ label Jean_flirt_an:
 
         ch_Jean "Can't help but smile around you."
 
-        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1220
+        call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1220
     elif dice_roll == 2:
         $ Jean.change_face("pleased2")
 
@@ -746,7 +746,7 @@ label Jean_flirt_an:
 
         $ Jean.change_face("smirk2", blush = 2) 
 
-        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1221
+        call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1221
     elif dice_roll == 3:
         $ Jean.change_face("surprised2")
 
@@ -764,7 +764,7 @@ label Jean_flirt_an:
 
         ch_Jean "You're lucky I can't help it around you."
 
-        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1222
+        call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1222
 
     return
 
@@ -787,8 +787,8 @@ label Jean_flirt_ao:
 
         ch_Jean "I do look amazing, don't I. . ."
 
-        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1223
-        call change_Girl_stat(Jean, "trust", 0) from _call_change_Girl_stat_1224
+        call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1223
+        call change_Companion_stat(Jean, "trust", 0) from _call_change_Companion_stat_1224
     elif dice_roll == 2:
         $ Jean.change_face("pleased2")
 
@@ -807,8 +807,8 @@ label Jean_flirt_ao:
 
         ch_Jean "I can barely keep my eyes off of you whenever you're training. . ."
 
-        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1225
-        call change_Girl_stat(Jean, "trust", 0) from _call_change_Girl_stat_1226
+        call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1225
+        call change_Companion_stat(Jean, "trust", 0) from _call_change_Companion_stat_1226
 
     return
 
@@ -836,8 +836,8 @@ label Jean_flirt_ap:
 
     $ Jean.change_face("smirk2", mouth = "lipbite", blush = 1)
 
-    call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1227
-    call change_Girl_stat(Jean, "trust", 0) from _call_change_Girl_stat_1228
+    call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1227
+    call change_Companion_stat(Jean, "trust", 0) from _call_change_Companion_stat_1228
 
     return
 
@@ -859,8 +859,8 @@ label Jean_flirt_aq:
     ch_Jean "I wish I had more time to spend on my appearance."
     ch_Jean "But I barely have any free time. . ."
 
-    call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1229
-    call change_Girl_stat(Jean, "trust", 0) from _call_change_Girl_stat_1230
+    call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1229
+    call change_Companion_stat(Jean, "trust", 0) from _call_change_Companion_stat_1230
 
     return
 
@@ -882,8 +882,8 @@ label Jean_flirt_ar:
     ch_Jean "And I do have to try pretty hard."
     ch_Jean "Unlike you, where everything comes so easily."
 
-    call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1231
-    call change_Girl_stat(Jean, "trust", 0) from _call_change_Girl_stat_1232
+    call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1231
+    call change_Companion_stat(Jean, "trust", 0) from _call_change_Companion_stat_1232
 
     return
 
@@ -901,7 +901,7 @@ label Jean_flirt_b:
 
         ch_Jean "At least it wasn't about my ass or something. . ."
 
-        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1233
+        call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1233
     elif dice_roll == 2:
         ch_Player "Math isn't my best subject, but even I know you're a perfect 10."
 
@@ -913,7 +913,7 @@ label Jean_flirt_b:
 
         ch_Jean "Well, you're not wrong. . . but seriously?"
 
-        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1234
+        call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1234
     elif dice_roll == 3:
         ch_Player "By the way, are you a model?"
 
@@ -930,7 +930,7 @@ label Jean_flirt_b:
 
         ch_Jean "Heh, at least it was funny."
 
-        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1235
+        call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1235
     elif dice_roll == 4:
         ch_Player "You don't happen to have a protractor on you, do you?"
 
@@ -948,7 +948,7 @@ label Jean_flirt_b:
         ch_Jean "Ugh, really?"
         ch_Jean "That was so bad I actually kinda liked it. . ."
 
-        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1236
+        call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1236
 
     return
 
@@ -964,7 +964,7 @@ label Jean_flirt_c:
 
         ch_Jean "Oh, hey. . ."
 
-        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1237 
+        call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1237 
     elif dice_roll == 2:
         $ Jean.change_face("confused1", mouth = "smirk", blush = 1) 
 
@@ -981,7 +981,7 @@ label Jean_flirt_c:
 
         $ Jean.change_face("smirk2", mouth = "lipbite", eyes= "left", blush = 1)
 
-        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1238
+        call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1238
 
     return
 
@@ -996,7 +996,7 @@ label Jean_flirt_d:
         ch_Jean "Heh, I mean. . . sure."
         "You gently grasp her hand."
 
-        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1239
+        call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1239
     elif dice_roll == 2:
         ch_Jean "Of course we can."
 
@@ -1004,7 +1004,7 @@ label Jean_flirt_d:
 
         "She reaches out and takes your hand, interlacing her fingers with yours."
 
-        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1240
+        call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1240
     elif dice_roll == 3:
         ch_Jean "C'mere. . ."
 
@@ -1012,7 +1012,7 @@ label Jean_flirt_d:
 
         "She takes your hand and gives it a light squeeze."
 
-        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1241
+        call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1241
 
     return
 
@@ -1022,7 +1022,7 @@ label Jean_flirt_ea:
 
     $ Jean.change_face("smirk2", mouth = "lipbite")
 
-    call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1242
+    call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1242
 
     return
 
@@ -1040,7 +1040,7 @@ label Jean_flirt_eb:
 
         ch_Jean "You can bet there will be more later. . ." 
 
-        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1243
+        call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1243
     elif Player.location in public_locations:
         $ Jean.change_face("worried1", eyes = "left", mouth = "lipbite", blush = 1) 
 
@@ -1060,8 +1060,8 @@ label Jean_flirt_eb:
 
         $ Jean.change_face("smirk2", mouth = "lipbite", blush = 2)
 
-        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1244
-        call change_Girl_stat(Jean, "desire", 0) from _call_change_Girl_stat_1245
+        call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1244
+        call change_Companion_stat(Jean, "desire", 0) from _call_change_Companion_stat_1245
 
         $ Jean.change_face("kiss2", blush = 2)  
 
@@ -1073,7 +1073,7 @@ label Jean_flirt_eb:
 
         ch_Jean "Want a kiss, huh?"
 
-        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1246 
+        call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1246 
 
         $ Jean.change_face("smirk2", mouth = "lipbite", blush = 1)
 
@@ -1099,7 +1099,7 @@ label Jean_flirt_f:
 
         ch_Jean "You give good hugs."
 
-        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1249
+        call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1249
     elif Player.location in public_locations:
         $ Jean.change_face("confused1", eyes = "left") 
 
@@ -1119,7 +1119,7 @@ label Jean_flirt_f:
 
         $ Jean.change_face("smirk2")
 
-        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1250
+        call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1250
     elif approval_check(Jean, threshold = [50, 25]):
         $ Jean.change_face("pleased2", blush = 1) 
 
@@ -1134,7 +1134,7 @@ label Jean_flirt_f:
 
         ch_Jean "Could you. . . hug me more often?" 
 
-        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1251
+        call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1251
     else:
         $ Jean.change_face("pleased2")
 
@@ -1153,7 +1153,7 @@ label Jean_flirt_f:
 
         ch_Jean "That was nice. . ." 
 
-        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1252
+        call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1252
 
     return
 
@@ -1174,7 +1174,7 @@ label Jean_flirt_g:
 
     ch_Jean "You're pretty good at that."
 
-    call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1253
+    call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1253
 
     return
 
@@ -1193,7 +1193,7 @@ label Jean_flirt_h:
 
         ch_Jean "I like when you do that." 
 
-        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1254
+        call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1254
     else:
         $ Jean.change_face("surprised2", blush = 1) 
 
@@ -1207,7 +1207,7 @@ label Jean_flirt_h:
 
         ch_Jean "That was. . . interesting"
 
-        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1255
+        call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1255
 
     return
 
@@ -1228,7 +1228,7 @@ label Jean_flirt_i:
 
         $ Jean.change_face("smirk2", blush = 1)
 
-        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1256
+        call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1256
     elif Player.location in public_locations:
         $ Jean.change_face("perplexed")
 
@@ -1255,7 +1255,7 @@ label Jean_flirt_i:
 
         "As you wrap an arm around [Jean.name], she turns and kisses you." 
 
-        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1257
+        call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1257
 
         $ Jean.change_face("kiss2", blush = 2)
     else:
@@ -1274,7 +1274,7 @@ label Jean_flirt_i:
 
         $ Jean.change_face("smirk2", blush = 1)
 
-        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1261
+        call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1261
 
     return
 
@@ -1324,7 +1324,7 @@ label Jean_flirt_l:
         
         "You give her ass a relatively light smack, and she lets out a small gasp." 
 
-        call change_Girl_stat(Jean, "desire", 0) from _call_change_Girl_stat_1262
+        call change_Companion_stat(Jean, "desire", 0) from _call_change_Companion_stat_1262
 
         $ Jean.change_face("sexy", blush = 1) 
 
@@ -1332,7 +1332,7 @@ label Jean_flirt_l:
 
         $ Jean.change_face("sexy", eyes = "down", blush = 2) 
 
-        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1263
+        call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1263
     elif Player.location in public_locations:
         $ Jean.change_face("perplexed")
 
@@ -1343,7 +1343,7 @@ label Jean_flirt_l:
         ch_Jean "Seriously?"
         ch_Jean "Why would I let you do that here of all places?"
 
-        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1264
+        call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1264
     elif Jean.quirk:
         $ Jean.change_face("perplexed")
 
@@ -1365,7 +1365,7 @@ label Jean_flirt_l:
         
         "Without saying anything, she gives your ass a smack, leaving a light stinging sensation." 
 
-        call change_Girl_stat(Jean, "desire", 0) from _call_change_Girl_stat_1265
+        call change_Companion_stat(Jean, "desire", 0) from _call_change_Companion_stat_1265
 
         $ Jean.change_face("sexy", blush = 1) 
 
@@ -1391,11 +1391,11 @@ label Jean_flirt_l:
 
         $ Jean.change_face("sly", mouth = "lipbite", blush = 1)
 
-        call change_Girl_stat(Jean, "desire", 0) from _call_change_Girl_stat_1266
+        call change_Companion_stat(Jean, "desire", 0) from _call_change_Companion_stat_1266
 
         ch_Jean "I enjoyed that. . ."
 
-        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1267
+        call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1267
     else:
         $ Jean.change_face("worried2")
 
@@ -1421,7 +1421,7 @@ label Jean_flirt_l:
         
         "You give her ass a proper smack, and she shudders slightly from the impact."
 
-        call change_Girl_stat(Jean, "desire", 0) from _call_change_Girl_stat_1268
+        call change_Companion_stat(Jean, "desire", 0) from _call_change_Companion_stat_1268
 
         $ Jean.change_face("surprised2", mouth = "lipbite", blush = 2) 
 
@@ -1431,7 +1431,7 @@ label Jean_flirt_l:
 
         ch_Jean "That was pretty hard. . ." 
 
-        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1269
+        call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1269
 
     return
 
@@ -1464,8 +1464,8 @@ label Jean_flirt_oa:
 
     $ Jean.change_face("pleased2")
 
-    call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1270
-    call change_Girl_stat(Jean, "desire", 0) from _call_change_Girl_stat_1271
+    call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1270
+    call change_Companion_stat(Jean, "desire", 0) from _call_change_Companion_stat_1271
 
     $ Jean.change_face("sly", mouth = "lipbite", blush = 1) 
 
@@ -1479,8 +1479,8 @@ label Jean_flirt_ob:
 
     $ Jean.change_face("kiss2", blush = 1) 
 
-    call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1272
-    call change_Girl_stat(Jean, "desire", 0) from _call_change_Girl_stat_1273
+    call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1272
+    call change_Companion_stat(Jean, "desire", 0) from _call_change_Companion_stat_1273
 
     "She holds you tightly against herself for another moment, before letting go." 
 
@@ -1511,8 +1511,8 @@ label Jean_flirt_pd:
 label Jean_flirt_qa:
     $ Jean.change_face("pleased2", blush = 1)
 
-    call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1274
-    call change_Girl_stat(Jean, "desire", 0) from _call_change_Girl_stat_1275 
+    call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1274
+    call change_Companion_stat(Jean, "desire", 0) from _call_change_Companion_stat_1275 
 
     pause 0.5
 
@@ -1529,15 +1529,15 @@ label Jean_flirt_qa:
 
     ch_Jean "You're a great little brother too."
 
-    call change_Girl_stat(Jean, "desire", 0) from _call_change_Girl_stat_1276 
+    call change_Companion_stat(Jean, "desire", 0) from _call_change_Companion_stat_1276 
 
     return
 
 label Jean_flirt_qb:
     $ Jean.change_face("pleased2", blush = 1) 
 
-    call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1277
-    call change_Girl_stat(Jean, "desire", 0) from _call_change_Girl_stat_1278
+    call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1277
+    call change_Companion_stat(Jean, "desire", 0) from _call_change_Companion_stat_1278
 
     pause 0.5
 
@@ -1554,15 +1554,15 @@ label Jean_flirt_qb:
 
     ch_Jean "Doesn't mean I don't like being flattered. . ."
 
-    call change_Girl_stat(Jean, "desire", 0) from _call_change_Girl_stat_1279
+    call change_Companion_stat(Jean, "desire", 0) from _call_change_Companion_stat_1279
 
     return
 
 label Jean_flirt_qc:
     $ Jean.change_face("confused2", mouth = "smirk", blush = 1) 
 
-    call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1280
-    call change_Girl_stat(Jean, "desire", 0) from _call_change_Girl_stat_1281
+    call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1280
+    call change_Companion_stat(Jean, "desire", 0) from _call_change_Companion_stat_1281
 
     pause 0.5
 
@@ -1583,7 +1583,7 @@ label Jean_flirt_qc:
 
     ch_Jean "But, that doesn't mean you should stop expressing your thanks. . ."
 
-    call change_Girl_stat(Jean, "desire", 0) from _call_change_Girl_stat_1282
+    call change_Companion_stat(Jean, "desire", 0) from _call_change_Companion_stat_1282
 
     return
 
@@ -1599,8 +1599,8 @@ label Jean_flirt_r:
 
         ch_Jean "Aw, I love you too!"
 
-        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1283
-        call change_Girl_stat(Jean, "trust", 0) from _call_change_Girl_stat_1284
+        call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1283
+        call change_Companion_stat(Jean, "trust", 0) from _call_change_Companion_stat_1284
     elif dice_roll == 2:
         $ Jean.change_face("worried1", blush = 1)
 
@@ -1612,8 +1612,8 @@ label Jean_flirt_r:
         ch_Jean "I mean of course you do."
         ch_Jean "I love you too, [Jean.Player_petname]."
 
-        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1285
-        call change_Girl_stat(Jean, "trust", 0) from _call_change_Girl_stat_1286
+        call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1285
+        call change_Companion_stat(Jean, "trust", 0) from _call_change_Companion_stat_1286
     elif dice_roll == 3:
         $ Jean.change_face("happy", blush = 1)
 
@@ -1627,8 +1627,8 @@ label Jean_flirt_r:
 
         ch_Jean "I know, I love you too, [Jean.Player_petname]."
 
-        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1287
-        call change_Girl_stat(Jean, "trust", 0) from _call_change_Girl_stat_1288
+        call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1287
+        call change_Companion_stat(Jean, "trust", 0) from _call_change_Companion_stat_1288
     elif dice_roll == 4:
         $ Jean.change_face("sly", blush = 1)
 
@@ -1646,7 +1646,7 @@ label Jean_flirt_r:
         ch_Player "I do."
         ch_Jean "Good."
 
-        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1289
-        call change_Girl_stat(Jean, "trust", 0) from _call_change_Girl_stat_1290
+        call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1289
+        call change_Companion_stat(Jean, "trust", 0) from _call_change_Companion_stat_1290
 
     return

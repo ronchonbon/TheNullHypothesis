@@ -1,9 +1,6 @@
 init python:
 
     def reset_Characters_at_end_of_period(Characters = None):
-        global all_Characters
-        global all_Companions
-
         Characters = all_Characters[:] if not Characters else Characters
 
         for C in Characters:
@@ -56,14 +53,6 @@ init python:
         return
 
     def reset_Characters_at_end_of_day(Characters = None):
-        global all_Characters
-        global all_Companions
-        global all_NPCs
-
-        global EventScheduler
-
-        global day
-
         Characters = all_Characters[:] if not Characters else Characters
 
         for C in Characters:
@@ -175,8 +164,8 @@ label wait_around(fade = True, silent = False, Events = True):
         $ EventScheduler.Events["inclement_weather"].start()
 
     if not silent:
-        if was_teaching:
-            call set_the_scene(fade = False) from _call_set_the_scene_328
+        if was_teaching and was_teaching.behavior != "teaching":
+            call add_Characters(was_teaching)
 
         if leaving_Characters:
             call Characters_leave(leaving_Characters) from _call_Characters_leave_7
@@ -252,7 +241,7 @@ label start_new_day(fast = False):
         if temp_Characters[0].timed_text_options:
             $ temp_Characters[0].timed_text_options = {}
 
-            call change_Girl_stat(temp_Characters[0], "love", -5) from _call_change_Girl_stat_1038
+            call change_Companion_stat(temp_Characters[0], "love", -5) from _call_change_Companion_stat_1038
 
         $ temp_Characters.remove(temp_Characters[0])
 

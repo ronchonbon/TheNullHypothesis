@@ -1,10 +1,6 @@
 init python:
     
     def check_predicted_images(loading = False):
-        global all_Characters
-        global Sprites
-        global active_Companions
-
         temp = renpy.list_files()
         file_list = []
 
@@ -130,7 +126,7 @@ init python:
                             predict = True
 
             if not predict:
-                if renpy.get_screen("Wardrobe_screen") and focused_Girl == Character:
+                if renpy.get_screen("Wardrobe_screen") and focused_Companion == Character:
                     for C in Character.Wardrobe.Clothes.values():
                         if C.string and C.string in file:
                             predict = True

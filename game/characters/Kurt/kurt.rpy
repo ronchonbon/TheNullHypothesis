@@ -79,12 +79,6 @@ init -2 python:
         return "neutral", "neutral"
 
     def Kurt_locations():
-        global weekday
-        global time_index
-
-        global weather
-        global snow_left
-        
         possible_locations = []
 
         possible_locations.append(Kurt.home)

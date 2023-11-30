@@ -50,7 +50,7 @@ label Jean_first_sex_part_one:
         pause
 
     if Jean.text_history[-1][1] == temp[0]:
-        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1101
+        call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1101
 
         call receive_text(Jean, "Ugh") from _call_receive_text_741
         call receive_text(Jean, "Now I feel bad </3") from _call_receive_text_742
@@ -64,7 +64,7 @@ label Jean_first_sex_part_one:
         call receive_text(Jean, "It's okay") from _call_receive_text_747
         call receive_text(Jean, "We can just talk tomorrow") from _call_receive_text_748
     elif Jean.text_history[-1][1] == temp[2]:
-        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1102
+        call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1102
 
         call receive_text(Jean, "Ugh") from _call_receive_text_749
         call receive_text(Jean, "I guess not") from _call_receive_text_750
@@ -219,8 +219,8 @@ label Jean_first_sex_part_one:
         "Look, I can tell this is important to you. . . but I really don't know what you're talking about. . .":
             $ Jean.change_face("confused2", blush = 1) 
             
-            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1103 
-            call change_Girl_stat(Jean, "trust", 0) from _call_change_Girl_stat_1104
+            call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1103 
+            call change_Companion_stat(Jean, "trust", 0) from _call_change_Companion_stat_1104
                     
             ch_Jean "Oh my god."
 
@@ -233,7 +233,7 @@ label Jean_first_sex_part_one:
             "[Jean.name] cups your face with both hands and looks directly into your eyes."
             ch_Jean "I.{w} Want.{w} To.{w} Have.{w} Sex.{w} With.{w} You."
         "Wha. . . wait a minute. Are you talking about. . .?":
-            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1105
+            call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1105
 
             ch_Player "Are you talking about. . . sex?!"
 
@@ -603,11 +603,11 @@ label Jean_first_sex_part_two:
         "I really did. . . I'm glad we could share that together.":
             $ Jean.change_face("worried1", mouth = "lipbite", blush = 1)
 
-            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1106
+            call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1106
         "That wasn't too bad. Just need more. . . practice.":
             $ Jean.change_face("confused1", blush = 1) 
             
-            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1107
+            call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1107
 
     $ Jean.change_face("worried1", mouth = "smirk", blush = 1)
 

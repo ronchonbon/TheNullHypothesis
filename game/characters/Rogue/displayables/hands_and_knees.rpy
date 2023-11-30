@@ -222,7 +222,7 @@ layeredimage Rogue_hands_and_knees_controls_temp:
         At(At("Rogue_hands_and_knees", speed_000), intensity_000)
 
 layeredimage Rogue_hands_and_knees:
-    if Player.orgasming and focused_Girl == Rogue:
+    if Player.orgasming and focused_Companion == Rogue:
         "Rogue_hands_and_knees_ass_handjob_animation0"
     elif Player.cock_Actions and Rogue in Player.cock_Actions[0].Actors:
         "Rogue_hands_and_knees_ass_[Player.cock_Actions[0].animation_type]_animation[Player.cock_Actions[0].mode]"
@@ -231,25 +231,25 @@ layeredimage Rogue_hands_and_knees:
 
     if not Player.body_visible:
         Null()
-    elif Player.orgasming and focused_Girl == Rogue:
+    elif Player.orgasming and focused_Companion == Rogue:
         "Rogue_hands_and_knees_male_left_foot_animation0"
     elif Player.cock_Actions and Rogue in Player.cock_Actions[0].Actors:
         "Rogue_hands_and_knees_male_left_foot_animation[Player.cock_Actions[0].mode]"
     else: 
         "Rogue_hands_and_knees_male_left_foot_animation0"
 
-    if Player.orgasming == "cumshot" and focused_Girl == Rogue:
+    if Player.orgasming == "cumshot" and focused_Companion == Rogue:
         "Rogue_hands_and_knees_torso_handjob_animation0"
-    elif Player.orgasming in ["cum_in_mouth", "cum_down_throat"] and focused_Girl == Rogue:
+    elif Player.orgasming in ["cum_in_mouth", "cum_down_throat"] and focused_Companion == Rogue:
         "Rogue_hands_and_knees_torso_[Player.orgasming]_animation"
     elif Player.cock_Actions and Rogue in Player.cock_Actions[0].Actors:
         "Rogue_hands_and_knees_torso_[Player.cock_Actions[0].animation_type]_animation[Player.cock_Actions[0].mode]"
     else: 
         "Rogue_hands_and_knees_torso_handjob_animation0"
 
-    if Player.orgasming == "cumshot" and focused_Girl == Rogue:
+    if Player.orgasming == "cumshot" and focused_Companion == Rogue:
         "Rogue_hands_and_knees_head_handjob_animation0"
-    elif Player.orgasming in ["cum_in_mouth", "cum_down_throat"] and focused_Girl == Rogue:
+    elif Player.orgasming in ["cum_in_mouth", "cum_down_throat"] and focused_Companion == Rogue:
         "Rogue_hands_and_knees_head_[Player.orgasming]_animation"
     elif Player.cock_Actions and Rogue in Player.cock_Actions[0].Actors:
         "Rogue_hands_and_knees_head_[Player.cock_Actions[0].animation_type]_animation[Player.cock_Actions[0].mode]"
@@ -263,9 +263,9 @@ layeredimage Rogue_hands_and_knees:
     else: 
         "Rogue_hands_and_knees_male_body_handjob_animation0"
 
-    if Player.orgasming in ["cumshot", "cum_in_mouth"] and focused_Girl == Rogue:
+    if Player.orgasming in ["cumshot", "cum_in_mouth"] and focused_Companion == Rogue:
         "Rogue_hands_and_knees_thumb_[Player.orgasming]_animation"
-    elif Player.orgasming == "cum_down_throat" and focused_Girl == Rogue:
+    elif Player.orgasming == "cum_down_throat" and focused_Companion == Rogue:
         Null()
     elif Player.cock_Actions and Rogue in Player.cock_Actions[0].Actors and Player.cock_Actions[0].animation_type != "deepthroat":
         "Rogue_hands_and_knees_thumb_[Player.cock_Actions[0].animation_type]_animation[Player.cock_Actions[0].mode]"
@@ -274,9 +274,9 @@ layeredimage Rogue_hands_and_knees:
     else: 
         "Rogue_hands_and_knees_thumb_handjob_animation0"
 
-    if Player.orgasming in ["cum_in_mouth", "cum_down_throat"] and focused_Girl == Rogue:
+    if Player.orgasming in ["cum_in_mouth", "cum_down_throat"] and focused_Companion == Rogue:
         AlphaMask("Rogue_hands_and_knees_cock_animations", "Rogue_hands_and_knees_mask_animations")
-    elif Player.orgasming and focused_Girl == Rogue:
+    elif Player.orgasming and focused_Companion == Rogue:
         "Rogue_hands_and_knees_cock_animations"
     elif Rogue.mouth_Actions and ((Rogue.mouth_Actions[0].animation_type == "blowjob" and Rogue.mouth_Actions[0].mode == 3) or Rogue.mouth_Actions[0].animation_type == "deepthroat"):
         AlphaMask("Rogue_hands_and_knees_cock_animations", "Rogue_hands_and_knees_mask_animations")
@@ -285,12 +285,12 @@ layeredimage Rogue_hands_and_knees:
     else:
         "Rogue_hands_and_knees_cock_handjob_animation0"
         
-    if Player.orgasming == "cumshot" and focused_Girl == Rogue:
+    if Player.orgasming == "cumshot" and focused_Companion == Rogue:
         "Rogue_hands_and_knees_cumshot"
 
-    if Player.orgasming in ["cumshot", "cum_in_mouth"] and focused_Girl == Rogue:
+    if Player.orgasming in ["cumshot", "cum_in_mouth"] and focused_Companion == Rogue:
         "Rogue_hands_and_knees_hand_[Player.orgasming]_animation"
-    elif Player.orgasming == "cum_down_throat" and focused_Girl == Rogue:
+    elif Player.orgasming == "cum_down_throat" and focused_Companion == Rogue:
         Null()
     elif Player.cock_Actions and Rogue in Player.cock_Actions[0].Actors and Player.cock_Actions[0].animation_type != "deepthroat":
         "Rogue_hands_and_knees_hand_[Player.cock_Actions[0].animation_type]_animation[Player.cock_Actions[0].mode]"
@@ -322,9 +322,9 @@ image Rogue_hands_and_knees_male_left_foot:
     offset (int(1316*sex_sampling), int(2877*sex_sampling))
 
 layeredimage Rogue_hands_and_knees_torso:
-    if Player.orgasming in ["cumshot", "cum_down_throat"] and focused_Girl == Rogue:
+    if Player.orgasming in ["cumshot", "cum_down_throat"] and focused_Companion == Rogue:
         "Rogue_hands_and_knees_left_arm_handjob_animation0"
-    elif Player.orgasming == "cum_in_mouth" and focused_Girl == Rogue:
+    elif Player.orgasming == "cum_in_mouth" and focused_Companion == Rogue:
         "Rogue_hands_and_knees_left_arm_cum_in_mouth_animation"
     elif Player.cock_Actions and Rogue in Player.cock_Actions[0].Actors:
         "Rogue_hands_and_knees_left_arm_[Player.cock_Actions[0].animation_type]_animation[Player.cock_Actions[0].mode]"
@@ -338,7 +338,7 @@ layeredimage Rogue_hands_and_knees_torso:
     else:
         "characters/Rogue/images/hands_and_knees/torso.webp"
 
-    if Player.orgasming and focused_Girl == Rogue:
+    if Player.orgasming and focused_Companion == Rogue:
         "Rogue_hands_and_knees_right_arm_handjob_animation0"
     elif Rogue.right_hand_Actions and Rogue.right_hand_Actions[0].animation_type == "self_touch_pussy":
         Null()
@@ -347,19 +347,19 @@ layeredimage Rogue_hands_and_knees_torso:
     else:
         "Rogue_hands_and_knees_right_arm_handjob_animation0"
 
-    if Player.orgasming and focused_Girl == Rogue:
+    if Player.orgasming and focused_Companion == Rogue:
         "Rogue_hands_and_knees_breasts_handjob_animation0"
     elif Player.cock_Actions and Rogue in Player.cock_Actions[0].Actors:
         "Rogue_hands_and_knees_breasts_[Player.cock_Actions[0].animation_type]_animation[Player.cock_Actions[0].mode]"
     else:
         "Rogue_hands_and_knees_breasts_handjob_animation0"
 
-    if Player.orgasming and focused_Girl == Rogue:
+    if Player.orgasming and focused_Companion == Rogue:
         Null()
     elif Rogue.right_hand_Actions and Rogue.right_hand_Actions[0].animation_type == "fondle_balls":
         "Rogue_hands_and_knees_right_forearm_fondle_balls_animation[Rogue.right_hand_Actions[0].mode]"
 
-    if Player.orgasming and focused_Girl == Rogue:
+    if Player.orgasming and focused_Companion == Rogue:
         "Rogue_hands_and_knees_hair_back_handjob_animation0"
     elif Player.cock_Actions and Rogue in Player.cock_Actions[0].Actors:
         "Rogue_hands_and_knees_hair_back_[Player.cock_Actions[0].animation_type]_animation[Player.cock_Actions[0].mode]"
@@ -376,7 +376,7 @@ image Rogue_hands_and_knees_left_arm:
     offset (int(2624*sex_sampling), int(1754*sex_sampling))
 
 layeredimage Rogue_hands_and_knees_right_arm:
-    if Player.orgasming and focused_Girl == Rogue:
+    if Player.orgasming and focused_Companion == Rogue:
         "characters/Rogue/images/hands_and_knees/right_arm.webp"
     elif Rogue.right_hand_Actions and Rogue.right_hand_Actions[0].animation_type == "fondle_balls":
         "characters/Rogue/images/hands_and_knees/right_arm_fondle.webp"
@@ -432,11 +432,11 @@ image Rogue_hands_and_knees_hair_back:
     offset (int(2138*sex_sampling), int(1585*sex_sampling))
 
 layeredimage Rogue_hands_and_knees_head:
-    if Player.orgasming == "cum_in_mouth" and focused_Girl == Rogue:
+    if Player.orgasming == "cum_in_mouth" and focused_Companion == Rogue:
         "characters/Rogue/images/hands_and_knees/head_agape.webp"
-    elif Player.orgasming == "cum_down_throat" and focused_Girl == Rogue:
+    elif Player.orgasming == "cum_down_throat" and focused_Companion == Rogue:
         "characters/Rogue/images/hands_and_knees/head_deepthroat.webp"
-    elif (Player.orgasming and focused_Girl == Rogue) or not Rogue.mouth_Actions:
+    elif (Player.orgasming and focused_Companion == Rogue) or not Rogue.mouth_Actions:
         "characters/Rogue/images/hands_and_knees/head_[Rogue.mouth].webp"
     elif Rogue.mouth_Actions[0].animation_type == "deepthroat":
         "characters/Rogue/images/hands_and_knees/head_deepthroat.webp"
@@ -445,9 +445,9 @@ layeredimage Rogue_hands_and_knees_head:
     else:
         "characters/Rogue/images/hands_and_knees/head_kiss.webp"
 
-    if Player.orgasming == "cum_down_throat" and focused_Girl == Rogue:
+    if Player.orgasming == "cum_down_throat" and focused_Companion == Rogue:
         Null()
-    elif (Player.orgasming and focused_Girl == Rogue) or not Rogue.mouth_Actions:
+    elif (Player.orgasming and focused_Companion == Rogue) or not Rogue.mouth_Actions:
         "characters/Rogue/images/hands_and_knees/eyes_[Rogue.eyes].webp"
     elif Rogue.mouth_Actions[0].animation_type == "deepthroat":
         Null()
@@ -456,39 +456,39 @@ layeredimage Rogue_hands_and_knees_head:
     else:
         "Rogue_hands_and_knees_blinking"
 
-    if Player.orgasming == "cum_down_throat" and focused_Girl == Rogue:
+    if Player.orgasming == "cum_down_throat" and focused_Companion == Rogue:
         Null()
-    elif (Player.orgasming and focused_Girl == Rogue) or not Rogue.mouth_Actions:
+    elif (Player.orgasming and focused_Companion == Rogue) or not Rogue.mouth_Actions:
         "characters/Rogue/images/hands_and_knees/brows_[Rogue.brows].webp"
     elif Rogue.mouth_Actions[0].animation_type != "deepthroat":
         "characters/Rogue/images/hands_and_knees/brows_[Rogue.brows].webp"
 
-    if Player.orgasming in ["cum_in_mouth", "cum_down_throat"] and focused_Girl == Rogue:
+    if Player.orgasming in ["cum_in_mouth", "cum_down_throat"] and focused_Companion == Rogue:
         "Rogue_hands_and_knees_mouth_[Player.orgasming]_animation"
-    elif (Player.orgasming and focused_Girl == Rogue) or not Rogue.mouth_Actions:
+    elif (Player.orgasming and focused_Companion == Rogue) or not Rogue.mouth_Actions:
         Null()
     elif Rogue.mouth_Actions[0].animation_type == "deepthroat":
         "Rogue_hands_and_knees_mouth_deepthroat_animation[Rogue.mouth_Actions[0].mode]"
     elif Rogue.mouth_Actions[0].mode != 2:
         "Rogue_hands_and_knees_mouth_blowjob_animation[Rogue.mouth_Actions[0].mode]"
 
-    if Player.orgasming and focused_Girl == Rogue:
+    if Player.orgasming and focused_Companion == Rogue:
         Null()
     elif Rogue.mouth_Actions and Rogue.mouth_Actions[0].animation_type == "blowjob" and Rogue.mouth_Actions[0].mode == 2:
         "Rogue_hands_and_knees_tongue_blowjob_animation[Rogue.mouth_Actions[0].mode]"
 
     if not Rogue.blush:
         Null()
-    elif Player.orgasming == "cum_down_throat" and focused_Girl == Rogue:
+    elif Player.orgasming == "cum_down_throat" and focused_Companion == Rogue:
         "characters/Rogue/images/hands_and_knees/blush[Rogue.blush]_deepthroat.webp"
-    elif (Player.orgasming and focused_Girl == Rogue) or not Rogue.mouth_Actions:
+    elif (Player.orgasming and focused_Companion == Rogue) or not Rogue.mouth_Actions:
         "characters/Rogue/images/hands_and_knees/blush[Rogue.blush].webp"
     elif Rogue.mouth_Actions[0].animation_type == "deepthroat":
         "characters/Rogue/images/hands_and_knees/blush[Rogue.blush]_deepthroat.webp"
 
     if not Rogue.spunk["chin"]:
         Null()
-    elif Player.orgasming in ["cum_in_mouth", "cum_down_throat"] and focused_Girl == Rogue:
+    elif Player.orgasming in ["cum_in_mouth", "cum_down_throat"] and focused_Companion == Rogue:
         Null()
     elif Rogue.mouth_Actions and Rogue.mouth_Actions[0].animation_type == "deepthroat":
         Null()
@@ -500,7 +500,7 @@ layeredimage Rogue_hands_and_knees_head:
     if Rogue.spunk["face"]:
         "characters/Rogue/images/hands_and_knees/spunk_face.webp"
 
-    if Player.orgasming and focused_Girl == Rogue:
+    if Player.orgasming and focused_Companion == Rogue:
         "Rogue_hands_and_knees_hair_handjob_animation0"
     elif Player.cock_Actions and Rogue in Player.cock_Actions[0].Actors:
         "Rogue_hands_and_knees_hair_[Player.cock_Actions[0].animation_type]_animation[Player.cock_Actions[0].mode]"
@@ -539,13 +539,13 @@ layeredimage Rogue_hands_and_knees_tongue:
     offset (int(2175*sex_sampling), int(1849*sex_sampling))
 
 layeredimage Rogue_hands_and_knees_hair:
-    # if (Rogue.wet or Rogue.Clothes["hair"].string == "wet") and Player.orgasming == "cum_down_throat" and focused_Girl == Rogue:
+    # if (Rogue.wet or Rogue.Clothes["hair"].string == "wet") and Player.orgasming == "cum_down_throat" and focused_Companion == Rogue:
     #     "characters/Rogue/images/hands_and_knees/hair_wet_deepthroat.webp"
     # elif (Rogue.wet or Rogue.Clothes["hair"].string == "wet") and Rogue.mouth_Actions and Rogue.mouth_Actions[0].animation_type == "deepthroat":
     #     "characters/Rogue/images/hands_and_knees/hair_wet_deepthroat.webp"
     # elif Rogue.wet or Rogue.Clothes["hair"].string == "wet":
     #     "characters/Rogue/images/hands_and_knees/hair_wet.webp"
-    if Player.orgasming == "cum_down_throat" and focused_Girl == Rogue:
+    if Player.orgasming == "cum_down_throat" and focused_Companion == Rogue:
         "characters/Rogue/images/hands_and_knees/hair_[Rogue.Clothes[hair].string]_deepthroat.webp"
     elif Rogue.mouth_Actions and Rogue.mouth_Actions[0].animation_type == "deepthroat":
         "characters/Rogue/images/hands_and_knees/hair_[Rogue.Clothes[hair].string]_deepthroat.webp"
@@ -1373,21 +1373,21 @@ image Rogue_hands_and_knees_mask_cum_down_throat_animation:
         hands_and_knees_head_cum_down_throat_animation
         
 layeredimage Rogue_hands_and_knees_cock_animations:
-    if Player.orgasming and focused_Girl == Rogue:
+    if Player.orgasming and focused_Companion == Rogue:
         "Rogue_hands_and_knees_cock_[Player.orgasming]_animation"
     else:
         "Rogue_hands_and_knees_cock_[Player.cock_Actions[0].animation_type]_animation[Player.cock_Actions[0].mode]"
 
     if not Player.saliva:
         Null()
-    elif Player.orgasming and focused_Girl == Rogue:
+    elif Player.orgasming and focused_Companion == Rogue:
         "Rogue_hands_and_knees_saliva_[Player.orgasming]_animation"
     else:
         "Rogue_hands_and_knees_saliva_[Player.cock_Actions[0].animation_type]_animation[Player.cock_Actions[0].mode]"
 
     if not Player.spunk and not Player.orgasming:
         Null()
-    elif Player.orgasming and focused_Girl == Rogue:
+    elif Player.orgasming and focused_Companion == Rogue:
         "Rogue_hands_and_knees_spunk_tip_[Player.orgasming]_animation"
     else:
         "Rogue_hands_and_knees_spunk_tip_[Player.cock_Actions[0].animation_type]_animation[Player.cock_Actions[0].mode]"
@@ -1583,7 +1583,7 @@ layeredimage Rogue_hands_and_knees_mask_animations:
         At(At("Rogue_hands_and_knees_mask_animations_temp", speed_000), intensity_000)
 
 layeredimage Rogue_hands_and_knees_mask_animations_temp:
-    if Player.orgasming in ["cum_in_mouth", "cum_down_throat"] and focused_Girl == Rogue:
+    if Player.orgasming in ["cum_in_mouth", "cum_down_throat"] and focused_Companion == Rogue:
         "Rogue_hands_and_knees_mask_[Player.orgasming]_animation"
     elif Rogue.mouth_Actions and ((Rogue.mouth_Actions[0].animation_type == "blowjob" and Rogue.mouth_Actions[0].mode == 3) or Rogue.mouth_Actions[0].animation_type == "deepthroat"):
         "Rogue_hands_and_knees_mask_[Player.cock_Actions[0].animation_type]_animation[Player.cock_Actions[0].mode]"

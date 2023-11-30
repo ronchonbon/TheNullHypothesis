@@ -26,21 +26,21 @@ label Rogue_chapter_one_season_one_first_training_session:
     menu:
         extend ""
         "Of course, I wouldn't ask if I weren't serious.":
-            call change_Girl_stat(Rogue, "love", medium_stat) from _call_change_Girl_stat_1617
-            call change_Girl_stat(Rogue, "trust", medium_stat) from _call_change_Girl_stat_1618
+            call change_Companion_stat(Rogue, "love", medium_stat) from _call_change_Companion_stat_1617
+            call change_Companion_stat(Rogue, "trust", medium_stat) from _call_change_Companion_stat_1618
 
             $ Rogue.change_face("worried1", mouth = "smirk")
 
             ch_Rogue "Ah know. . ."
         "It couldn't be any worse than training with [Laura.name], that's for sure.":
-            call change_Girl_stat(Rogue, "love", small_stat) from _call_change_Girl_stat_1619
-            call change_Girl_stat(Rogue, "trust", small_stat) from _call_change_Girl_stat_1620
+            call change_Companion_stat(Rogue, "love", small_stat) from _call_change_Companion_stat_1619
+            call change_Companion_stat(Rogue, "trust", small_stat) from _call_change_Companion_stat_1620
 
             $ Rogue.change_face("worried1", mouth = "smirk")
 
             ch_Rogue "Ah reckon yer not wrong. . ."
         "Why, is there something about all this that you're not telling me?":
-            call change_Girl_stat(Rogue, "love", -small_stat) from _call_change_Girl_stat_1621
+            call change_Companion_stat(Rogue, "love", -small_stat) from _call_change_Companion_stat_1621
 
             $ Rogue.change_face("worried2")
 

@@ -182,7 +182,7 @@ label Jean_first_date:
             "You make it just before another couple and get seated fairly quickly."
             ch_Jean "You saved the day, [Jean.Player_petname]."
 
-            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_49
+            call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_49
         "It's pointless":
             $ Jean.change_face("perplexed")
 
@@ -220,7 +220,7 @@ label Jean_first_date:
 
             ch_Jean "See, maybe you shouldn't have given up so quickly."
 
-            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_50
+            call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_50
         "Suggest annother activity":
             $ Jean.change_face("surprised2", eyes = "left")
 
@@ -319,7 +319,7 @@ label Jean_first_date:
 
             ch_Jean "I don't really appreciate that. . ." 
             
-            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_51
+            call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_51
 
             $ chosen_meal[Jean] = "lobster tails"
             $ restaurant_bill[Jean] = 45
@@ -372,7 +372,7 @@ label Jean_first_date:
 
             "Then she realizes."
 
-            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_52
+            call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_52
 
             $ Jean.change_face("smirk2", eyes = "right", blush = 1)
 
@@ -425,7 +425,7 @@ label Jean_first_date:
 
         ch_Jean "It's delicious!"
 
-        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_53
+        call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_53
 
         $ Jean.change_face("smirk2")
 
@@ -441,7 +441,7 @@ label Jean_first_date:
 
         ch_Jean "It's delicious!" 
 
-        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_54
+        call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_54
 
         ch_Jean "Good recommendation."
     elif chosen_meal[Jean] != "garden salad":
@@ -518,8 +518,8 @@ label Jean_first_date:
             ch_Player "Come on, [Jean.petname]." 
             ch_Player "I can pay." 
             
-            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_55 
-            call change_Girl_stat(Jean, "trust", 0) from _call_change_Girl_stat_56 
+            call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_55 
+            call change_Companion_stat(Jean, "trust", 0) from _call_change_Companion_stat_56 
             
             ch_Jean "Nope!" 
             ch_Jean "This is my treat, [Jean.Player_petname]."
@@ -528,7 +528,7 @@ label Jean_first_date:
 
             ch_Player "At least let me pick up my half of the bill." 
             
-            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_57 
+            call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_57 
             
             ch_Jean "Nope!"
             ch_Jean "This is my treat, [Jean.Player_petname]."
@@ -676,14 +676,14 @@ label Jean_first_date:
             
             ch_Player "We don't ha-" 
             
-            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_58 
-            call change_Girl_stat(Jean, "trust", 0) from _call_change_Girl_stat_59
+            call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_58 
+            call change_Companion_stat(Jean, "trust", 0) from _call_change_Companion_stat_59
         "That doesn't matter to me.":
             $ Jean.change_face("worried1", mouth = "lipbite", blush = 1) 
             
             ch_Player "If yo-" 
             
-            call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_60
+            call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_60
         "So?":
             $ Jean.change_face("confused1", mouth = "lipbite", blush = 1) 
             
@@ -766,7 +766,7 @@ label Jean_first_date:
 label Jean_first_date_path_1A:
     $ Jean.change_face("confused2", mouth = "smirk") 
             
-    call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_61
+    call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_61
 
     $ Jean.change_face("confused1", mouth = "smirk")
 
@@ -889,7 +889,7 @@ label Jean_first_date_path_1B:
 
     $ Jean.change_face("surprised1", eyes = "right", mouth = "lipbite", blush = 1)
 
-    call change_Girl_stat(Jean, "desire", 0) from _call_change_Girl_stat_62
+    call change_Companion_stat(Jean, "desire", 0) from _call_change_Companion_stat_62
 
     "There are many very graphic sex scenes, as the two continue denying their romantic feelings for each other."
 

@@ -137,7 +137,7 @@ label Laura_Jean_wants_to_go_on_date:
             
             ch_Laura "Fine, but you're all mine another day."
 
-            $ Player.date_planned[Jean] = "Girl_initiated_primary"
+            $ Player.date_planned[Jean] = "Companion_initiated_primary"
 
             if time_index == 2:
                 $ EventScheduler.Events["Jean_date"].start()
@@ -153,7 +153,7 @@ label Laura_Jean_wants_to_go_on_date:
             
             call remove_Characters(Jean) from _call_remove_Characters_96
 
-            $ Player.date_planned[Laura] = "Girl_initiated_primary"
+            $ Player.date_planned[Laura] = "Companion_initiated_primary"
 
             if time_index == 2:
                 $ EventScheduler.Events["Laura_date"].start()

@@ -10,7 +10,7 @@ init python:
 
             "Player.location not in [Kurt.location, Kurt.destination]",
 
-            "not get_Present(location = Player.destination)"]
+            "not get_Present(location = Player.destination)[0]"]
 
         waiting = True
         traveling = True

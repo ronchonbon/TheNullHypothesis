@@ -62,7 +62,7 @@ label Rogue_chapter_one_season_one_study_sessions:
                 
                 ch_Rogue ". . . Please." 
                 
-                call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_1077
+                call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_1077
             "Be my guest.":
                 $ Rogue.change_face("pleased2", mouth = "lipbite", blush = 1)
 

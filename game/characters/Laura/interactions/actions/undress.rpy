@@ -620,7 +620,7 @@ label Laura_accepts_show_breasts_after_first_time:
         "Very. . . happy.":
             $ Laura.change_face("sexy", eyes = "down", blush = 1) 
             
-            call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_1063
+            call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_1063
         "They're pretty nice.":
             $ Laura.change_face("sexy", eyes = "down", blush = 1)
         "They're. . . fine.":
@@ -860,7 +860,7 @@ label Laura_accepts_show_pussy_after_first_time:
             
             ch_Laura "It is?" 
             
-            call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_1064
+            call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_1064
         "Well yeah. . . it's great.":
             $ Laura.change_face("confused1", mouth = "lipbite", blush = 1) 
             
@@ -870,7 +870,7 @@ label Laura_accepts_show_pussy_after_first_time:
             
             ch_Laura "What does that mean?" 
             
-            call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_1065 
+            call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_1065 
 
     return
 

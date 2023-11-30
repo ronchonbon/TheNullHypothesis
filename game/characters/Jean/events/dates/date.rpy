@@ -62,7 +62,7 @@ label Jean_date:
     $ first_event = {}
     $ second_event = {}
 
-    if "Girl_initiated" in Player.date_planned[Jean]:
+    if "Companion_initiated" in Player.date_planned[Jean]:
         if renpy.random.random() > 0.5:
             ch_Jean "Yep!" 
             ch_Jean "Let's go grab dinner."
@@ -118,7 +118,7 @@ label Jean_date:
     call set_the_scene(location = "bg_mall") from _call_set_the_scene_3
     call send_Characters(Jean, "bg_mall", behavior = "on_date") from _call_send_Characters_2
 
-    if "Girl_initiated" in Player.date_planned[Jean]:
+    if "Companion_initiated" in Player.date_planned[Jean]:
         if renpy.random.random() > 0.25:
             $ dice_roll = renpy.random.random()
 
@@ -663,7 +663,7 @@ label Jean_date_dinner:
         ch_Jean "This is delicious."
         ch_Jean "Thanks for making a great choice, [Jean.Player_petname]."
 
-        call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat
+        call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat
 
         $ Jean.change_face("worried1", mouth = "smirk", blush = 1)
 
@@ -692,7 +692,7 @@ label Jean_date_dinner:
 
                 ch_Jean "Tasted as good as it looked."
 
-                call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_1
+                call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1
             "Don't give her a bite":
                 $ Jean.change_face("worried1") 
 
@@ -727,7 +727,7 @@ label Jean_date_dinner:
                 if Player.cash >= restaurant_bill[Player] + restaurant_bill[Jean]:
                     "You pay the bill and head back into the mall." 
                     
-                    call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_2
+                    call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_2
 
                     $ Player.cash -= restaurant_bill[Player] + restaurant_bill[Jean]
                 else:
@@ -742,7 +742,7 @@ label Jean_date_dinner:
                     ch_Jean "If you didn't have enough, you should've just said so." 
                     "[Jean.name] pays the difference." 
                     
-                    call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_3
+                    call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_3
 
                     $ Player.cash = 0
             else:
@@ -757,7 +757,7 @@ label Jean_date_dinner:
                 ch_Jean "You're welcome, [Jean.Player_petname]."
                 "[Jean.name] pays the bill, and you both head back into the mall."
 
-                call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_4
+                call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_4
         "Recommend splitting the check":
             if "Player_initiated" in Player.date_planned[Jean]:
                 $ Jean.change_face("confused1", mouth = "smirk")
@@ -784,7 +784,7 @@ label Jean_date_dinner:
                     ch_Jean "If you didn't have enough, you should've just said so." 
                     "[Jean.name] pays the difference." 
                     
-                    call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_5
+                    call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_5
 
                     $ Player.cash = 0
             else:
@@ -799,7 +799,7 @@ label Jean_date_dinner:
                 ch_Jean "You're welcome, [Jean.Player_petname]."
                 "[Jean.name] pays the bill, and you both head back into the mall."
 
-                call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_6
+                call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_6
 
     return
 
@@ -936,8 +936,8 @@ label Jean_date_dinner_sex_handjob:
 
     ch_Jean "I love making you twitch."
 
-    call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_7
-    call change_Girl_stat(Jean, "desire", 0) from _call_change_Girl_stat_8
+    call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_7
+    call change_Companion_stat(Jean, "desire", 0) from _call_change_Companion_stat_8
 
     return
 
@@ -1013,8 +1013,8 @@ label Jean_date_dinner_sex_blowjob:
 
     ch_Jean "You taste {i}really{/i} good."
 
-    call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_9
-    call change_Girl_stat(Jean, "desire", 0) from _call_change_Girl_stat_10
+    call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_9
+    call change_Companion_stat(Jean, "desire", 0) from _call_change_Companion_stat_10
 
     $ Jean.History.update("swallow_cum")
 
@@ -1068,8 +1068,8 @@ label Jean_date_dinner_sex_sex:
 
     ch_Jean "That was a {i}lot{/i} of fun. . ."
 
-    call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_11
-    call change_Girl_stat(Jean, "desire", 0) from _call_change_Girl_stat_12
+    call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_11
+    call change_Companion_stat(Jean, "desire", 0) from _call_change_Companion_stat_12
 
     $ Jean.available_Actions = []
     $ Jean.available_poses = []
@@ -1115,8 +1115,8 @@ label Jean_date_dinner_sex_eat_pussy:
 
     ch_Jean "That was a {i}lot{/i} of fun. . ."
 
-    call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_13
-    call change_Girl_stat(Jean, "desire", 0) from _call_change_Girl_stat_14
+    call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_13
+    call change_Companion_stat(Jean, "desire", 0) from _call_change_Companion_stat_14
 
     $ Jean.available_Actions = []
     $ Jean.available_poses = []
@@ -1150,7 +1150,7 @@ label Jean_date_movie:
 
     $ chosen_movie = None
 
-    if "Girl_initiated" in Player.date_planned[Jean]:
+    if "Companion_initiated" in Player.date_planned[Jean]:
         if renpy.random.random() > 0.25:
             if dice_roll > 0.50:
                 $ chosen_movie = 2
@@ -1285,7 +1285,7 @@ label Jean_date_movie:
                 if Player.cash >= 2*ticket_price:
                     "You pay for the tickets." 
                     
-                    call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_15
+                    call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_15
 
                     $ Player.cash -= 2*ticket_price
                 else:
@@ -1300,7 +1300,7 @@ label Jean_date_movie:
                     ch_Jean "If you didn't have enough, you should've just said so." 
                     "[Jean.name] pays the difference." 
                     
-                    call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_16
+                    call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_16
 
                     $ Player.cash = 0
             else:
@@ -1315,7 +1315,7 @@ label Jean_date_movie:
                 ch_Jean "You're welcome, [Jean.Player_petname]."
                 "[Jean.name] pays for the tickets."
 
-                call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_17
+                call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_17
         "Recommend splitting the ticket price":
             if "Player_initiated" in Player.date_planned[Jean]:
                 $ Jean.change_face("confused1", mouth = "smirk")
@@ -1342,7 +1342,7 @@ label Jean_date_movie:
                     ch_Jean "If you didn't have enough, you should've just said so." 
                     "[Jean.name] pays the difference." 
                     
-                    call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_18
+                    call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_18
 
                     $ Player.cash = 0
             else:
@@ -1393,8 +1393,8 @@ label Jean_date_movie_ron_bic1:
 
     ch_Jean "Really well made, though."
 
-    call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_19
-    call change_Girl_stat(Jean, "trust", 0) from _call_change_Girl_stat_20
+    call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_19
+    call change_Companion_stat(Jean, "trust", 0) from _call_change_Companion_stat_20
 
     return
 
@@ -1442,8 +1442,8 @@ label Jean_date_movie_ron_bic2:
 
     ch_Jean "I hate cliffhangers."
 
-    call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_21
-    call change_Girl_stat(Jean, "trust", 0) from _call_change_Girl_stat_22
+    call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_21
+    call change_Companion_stat(Jean, "trust", 0) from _call_change_Companion_stat_22
 
     return
 
@@ -1493,8 +1493,8 @@ label Jean_date_movie_hamburg_portfolio:
 
     ch_Jean "I hope we never have to make a decision like that. . ."
 
-    call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_23
-    call change_Girl_stat(Jean, "trust", 0) from _call_change_Girl_stat_24
+    call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_23
+    call change_Companion_stat(Jean, "trust", 0) from _call_change_Companion_stat_24
 
     return
 
@@ -1528,7 +1528,7 @@ label Jean_date_movie_beautiful_flower:
 
     ch_Jean "That was really sweet. . ."
 
-    call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_25
+    call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_25
 
     return
 
@@ -1561,7 +1561,7 @@ label Jean_date_movie_fated:
 
     "Instead the two become friends with benefits, ending the night with a very graphic sex scene."
 
-    call change_Girl_stat(Jean, "desire", 0) from _call_change_Girl_stat_26 
+    call change_Companion_stat(Jean, "desire", 0) from _call_change_Companion_stat_26 
 
     "There are many, very graphic sex scenes, as the two continue denying their romantic feelings for each other."
     "Eventually they do officially get together, and the movie ends."
@@ -1572,8 +1572,8 @@ label Jean_date_movie_fated:
 
     $ Jean.change_face("sexy", eyes = "squint", blush = 2)
 
-    call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_27
-    call change_Girl_stat(Jean, "desire", 0) from _call_change_Girl_stat_28
+    call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_27
+    call change_Companion_stat(Jean, "desire", 0) from _call_change_Companion_stat_28
 
     return
 
@@ -1618,8 +1618,8 @@ label Jean_date_movie_refilling_empty_glass:
 
     ch_Jean "I bet you thought she was hot."
 
-    call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_29
-    call change_Girl_stat(Jean, "desire", 0) from _call_change_Girl_stat_30
+    call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_29
+    call change_Companion_stat(Jean, "desire", 0) from _call_change_Companion_stat_30
 
     return
 
@@ -1656,8 +1656,8 @@ label Jean_date_movie_stale_air:
 
     ch_Jean "That was. . . disturbing. . ."
 
-    call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_31
-    call change_Girl_stat(Jean, "trust", 0) from _call_change_Girl_stat_32
+    call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_31
+    call change_Companion_stat(Jean, "trust", 0) from _call_change_Companion_stat_32
 
     return
 
@@ -1701,7 +1701,7 @@ label Jean_date_movie_devils_spring_break:
 
     ch_Jean "But I still felt kinda bad for them."
 
-    call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_33
+    call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_33
 
     return
 
@@ -1743,7 +1743,7 @@ label Jean_date_movie_unsanctioned_crusade:
 
     ch_Jean "I guess they deserved it. . ." 
 
-    call change_Girl_stat(Jean, "trust", 0) from _call_change_Girl_stat_34
+    call change_Companion_stat(Jean, "trust", 0) from _call_change_Companion_stat_34
 
     return
 
@@ -1833,8 +1833,8 @@ label Jean_date_movie_sex_makeout:
     ch_Jean "Mmm. . ."
     ch_Jean "I can never get enough of you, [Jean.Player_petname]."
 
-    call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_35
-    call change_Girl_stat(Jean, "desire", 0) from _call_change_Girl_stat_36
+    call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_35
+    call change_Companion_stat(Jean, "desire", 0) from _call_change_Companion_stat_36
 
     return
 
@@ -1921,8 +1921,8 @@ label Jean_date_movie_sex_handjob:
 
     ch_Jean "I love making you twitch."
 
-    call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_37
-    call change_Girl_stat(Jean, "desire", 0) from _call_change_Girl_stat_38
+    call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_37
+    call change_Companion_stat(Jean, "desire", 0) from _call_change_Companion_stat_38
 
     return
 
@@ -1980,8 +1980,8 @@ label Jean_date_movie_sex_touch_pussy:
     ch_Jean "God. . ."
     ch_Jean "You make me feel so amazing."
 
-    call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_39
-    call change_Girl_stat(Jean, "desire", 0) from _call_change_Girl_stat_40
+    call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_39
+    call change_Companion_stat(Jean, "desire", 0) from _call_change_Companion_stat_40
 
     return
 
@@ -2039,8 +2039,8 @@ label Jean_date_movie_sex_finger_pussy:
     ch_Jean "God. . ."
     ch_Jean "You make me feel so amazing."
 
-    call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_41
-    call change_Girl_stat(Jean, "desire", 0) from _call_change_Girl_stat_42
+    call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_41
+    call change_Companion_stat(Jean, "desire", 0) from _call_change_Companion_stat_42
 
     return
 
@@ -2116,8 +2116,8 @@ label Jean_date_movie_sex_blowjob:
 
     ch_Jean "You taste {i}really{/i} good."
 
-    call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_43
-    call change_Girl_stat(Jean, "desire", 0) from _call_change_Girl_stat_44
+    call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_43
+    call change_Companion_stat(Jean, "desire", 0) from _call_change_Companion_stat_44
 
     $ Jean.History.update("swallow_cum")
 
@@ -2193,8 +2193,8 @@ label Jean_date_mall_wander:
                 
                 $ Jean.change_face("smirk2", mouth = "lipbite", eyes = "right", blush = 1) 
                 
-                call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_45
-                call change_Girl_stat(Jean, "trust", 0) from _call_change_Girl_stat_46 
+                call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_45
+                call change_Companion_stat(Jean, "trust", 0) from _call_change_Companion_stat_46 
 
                 $ holding_hands = True
             "Just grab [Jean.name]'s hand.": 
@@ -2204,7 +2204,7 @@ label Jean_date_mall_wander:
                 
                 $ Jean.change_face("smirk2", mouth = "lipbite", eyes = "right", blush = 1) 
                 
-                call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_47
+                call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_47
 
                 $ holding_hands = True
             "Do nothing":
@@ -2234,7 +2234,7 @@ label Jean_date_mall_wander:
 
     "Time flies by, spent well, doing nothing much at all aside from being close to each other."
 
-    call change_Girl_stat(Jean, "love", 0) from _call_change_Girl_stat_48
+    call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_48
 
     return
 

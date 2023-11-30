@@ -44,8 +44,6 @@ init python:
         return
 
     def set_weather():
-        global day
-        
         global temperature
         global weather
 

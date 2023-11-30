@@ -30,7 +30,7 @@ label Rogue_knocks(arriving_Characters):
             "Nah.":
                 ch_Rogue "Oh. . . okay."
 
-                call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_773
+                call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_773
     elif dice_roll == 2:
         "You hear knocking at your door."
         ch_Player "Who is it?"
@@ -59,7 +59,7 @@ label Rogue_knocks(arriving_Characters):
                 else:
                     ch_Rogue "It's alright, maybe ah'll see ya later."
             "I'm busy.":
-                call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_774
+                call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_774
 
     return
 
@@ -91,7 +91,7 @@ label Rogue_knocks_relationship(arriving_Characters):
             ch_Rogue "Maybe ah'll see you later?"
             ch_Player "Maybe."
 
-            call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_775
+            call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_775
 
     return
 
@@ -140,7 +140,7 @@ label Rogue_knocks_love(arriving_Characters):
             "I'm busy.":
                 ch_Rogue "Sorry to bother ya. . ."
 
-                call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_776
+                call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_776
     else:
         $ temp = Rogue.Player_petname.capitalize()
         
@@ -171,7 +171,7 @@ label Rogue_knocks_love(arriving_Characters):
             "Kinda in the middle of something.":
                 ch_Rogue "Didn't mean to bother ya. . ."
 
-                call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_777
+                call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_777
 
     return
 
@@ -220,7 +220,7 @@ label Rogue_knocks_heartbroken(arriving_Characters):
         "Stay silent":
             ch_Rogue ". . . sorry."
 
-            call change_Girl_stat(Rogue, "love", 0) from _call_change_Girl_stat_778
+            call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_778
 
     return
 

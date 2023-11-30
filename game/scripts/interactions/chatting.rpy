@@ -39,13 +39,13 @@ label chat(Character):
         if time_index == 3 and not approval_check(Character, threshold = "talk_late"):
             if Character.History.check("said_too_late_to_talk", tracker = "recent") >= 2:
                 if Character in all_Companions:
-                    call change_Girl_stat(Character, "love", -5) from _call_change_Girl_stat_1091
-                    call change_Girl_stat(Character, "trust", -5) from _call_change_Girl_stat_1092
+                    call change_Companion_stat(Character, "love", -5) from _call_change_Companion_stat_1091
+                    call change_Companion_stat(Character, "trust", -5) from _call_change_Companion_stat_1092
                 
                 call expression f"{Character.tag}_busy_late_asked_twice" from _call_expression_125
             elif Character.History.check("said_too_late_to_talk", tracker = "recent") == 1:
                 if Character in all_Companions:
-                    call change_Girl_stat(Character, "love", -2) from _call_change_Girl_stat_1093
+                    call change_Companion_stat(Character, "love", -2) from _call_change_Companion_stat_1093
 
                 call expression f"{Character.tag}_busy_late_asked_once" from _call_expression_126
             else:
@@ -129,13 +129,13 @@ label chat(Character):
             #             if time_index == 3 and not approval_check(Character, threshold = "talk_late"):
         #                     if Character.History.check("said_too_late_to_talk", tracker = "recent") >= 2:
         #                         if Character in all_Companions:
-        #                             call change_Girl_stat(Character, "love", -5) from _call_change_Girl_stat_931
-        #                             call change_Girl_stat(Character, "trust", -5) from _call_change_Girl_stat_932
+        #                             call change_Companion_stat(Character, "love", -5) from _call_change_Companion_stat_931
+        #                             call change_Companion_stat(Character, "trust", -5) from _call_change_Companion_stat_932
                                 
         #                         call expression f"{Character.tag}_busy_late_asked_twice" from _call_expression_124
         #                     elif Character.History.check("said_too_late_to_talk", tracker = "recent") == 1:
         #                         if Character in all_Companions:
-        #                             call change_Girl_stat(Character, "love", -2) from _call_change_Girl_stat_933
+        #                             call change_Companion_stat(Character, "love", -2) from _call_change_Companion_stat_933
 
         #                         call expression f"{Character.tag}_busy_late_asked_once" from _call_expression_125
         #                     else:
@@ -154,13 +154,13 @@ label chat(Character):
             #                 else:
         #                         if Character.History.check("asked_how_are_you", tracker = "recent") >= 2:
         #                             if Character in all_Companions:
-        #                                 call change_Girl_stat(Character, "love", -5) from _call_change_Girl_stat_934
-        #                                 call change_Girl_stat(Character, "trust", -5) from _call_change_Girl_stat_935
+        #                                 call change_Companion_stat(Character, "love", -5) from _call_change_Companion_stat_934
+        #                                 call change_Companion_stat(Character, "trust", -5) from _call_change_Companion_stat_935
                                     
         #                             call expression f"{Character.tag}_busy_asked_twice" from _call_expression_131
         #                         elif Character.History.check("asked_how_are_you", tracker = "recent") == 1:
         #                             if Character in all_Companions:
-        #                                 call change_Girl_stat(Character, "love", -2) from _call_change_Girl_stat_936
+        #                                 call change_Companion_stat(Character, "love", -2) from _call_change_Companion_stat_936
 
         #                             call expression f"{Character.tag}_busy_asked_once" from _call_expression_132
         #                         else:
@@ -169,13 +169,13 @@ label chat(Character):
             #             if time_index == 3:
             #                 if Character.History.check("said_too_late_to_talk", tracker = "recent") >= 2:
             #                     if Character in all_Companions:
-            #                         call change_Girl_stat(Character, "love", -5) from _call_change_Girl_stat_937
-            #                         call change_Girl_stat(Character, "trust", -5) from _call_change_Girl_stat_938
+            #                         call change_Companion_stat(Character, "love", -5) from _call_change_Companion_stat_937
+            #                         call change_Companion_stat(Character, "trust", -5) from _call_change_Companion_stat_938
 
             #                     call expression f"{Character.tag}_busy_late_asked_twice" from _call_expression_134
             #                 elif Character.History.check("said_too_late_to_talk", tracker = "recent") == 1:
             #                     if Character in all_Companions:
-            #                         call change_Girl_stat(Character, "love", -2) from _call_change_Girl_stat_939
+            #                         call change_Companion_stat(Character, "love", -2) from _call_change_Companion_stat_939
 
             #                     call expression f"{Character.tag}_busy_late_asked_once" from _call_expression_135
             #                 else:
@@ -185,13 +185,13 @@ label chat(Character):
             #             else:
             #                 if Character.History.check("asked_how_are_you", tracker = "recent") >= 2:
             #                     if Character in all_Companions:
-            #                         call change_Girl_stat(Character, "love", -5) from _call_change_Girl_stat_940
-            #                         call change_Girl_stat(Character, "trust", -5) from _call_change_Girl_stat_941
+            #                         call change_Companion_stat(Character, "love", -5) from _call_change_Companion_stat_940
+            #                         call change_Companion_stat(Character, "trust", -5) from _call_change_Companion_stat_941
 
             #                     call expression f"{Character.tag}_busy_asked_twice" from _call_expression_137
             #                 elif Character.History.check("asked_how_are_you", tracker = "recent") == 1:
             #                     if Character in all_Companions:
-            #                         call change_Girl_stat(Character, "love", -2) from _call_change_Girl_stat_942
+            #                         call change_Companion_stat(Character, "love", -2) from _call_change_Companion_stat_942
                                 
             #                     call expression f"{Character.tag}_busy_asked_once" from _call_expression_138
             #                 else:

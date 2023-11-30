@@ -464,14 +464,6 @@ init -2 python:
         return "neutral", "neutral"
 
     def Ororo_locations():
-        global Player
-        
-        global weekday
-        global time_index
-
-        global weather
-        global snow_left
-        
         possible_locations = []
 
         possible_locations.append(Ororo.home)

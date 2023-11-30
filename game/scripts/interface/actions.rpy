@@ -31,11 +31,11 @@ screen Action_screen(automatic = False):
         SetVariable("choice_disabled", True)]
 
     if not black_screen:
-        $ focused_Girl_index = 0
+        $ focused_Companion_index = 0
 
         for g, G in enumerate(Present):
-            if G == focused_Girl:
-                $ focused_Girl_index = g
+            if G == focused_Companion:
+                $ focused_Companion_index = g
 
         add "images/interface/Action_menu/background.webp" zoom interface_new_adjustment
 
@@ -48,14 +48,14 @@ screen Action_screen(automatic = False):
 
             tooltip f"{Player.first_name}'s Desire"
 
-        bar value focused_Girl.desire range 100 anchor (0.5, 0.5) pos (0.94, 0.0851) xysize (int(291*interface_new_adjustment), int(37*interface_new_adjustment)):
+        bar value focused_Companion.desire range 100 anchor (0.5, 0.5) pos (0.94, 0.0851) xysize (int(291*interface_new_adjustment), int(37*interface_new_adjustment)):
             left_bar Frame("images/interface/Action_menu/climax_female.webp")
             right_bar Frame("images/interface/Action_menu/climax_empty.webp")
 
             thumb None
             thumb_offset 0
 
-            tooltip f"{focused_Girl.name}'s Desire"
+            tooltip f"{focused_Companion.name}'s Desire"
 
         if has_progression_control:
             if has_position_control:
@@ -95,7 +95,7 @@ screen Action_screen(automatic = False):
                     selected Action_screen_tab == "strip"
 
                     if has_Action_control:
-                        action Call("ask_to_undress", focused_Girl, from_current = True)
+                        action Call("ask_to_undress", focused_Companion, from_current = True)
                         # action SetVariable("Action_screen_tab", "strip")
                     else:
                         action None
@@ -110,9 +110,9 @@ screen Action_screen(automatic = False):
 
                     for pose in pose_names.keys():
                         if pose in pose_list:
-                            if focused_Girl.available_poses and pose not in focused_Girl.available_poses:
+                            if focused_Companion.available_poses and pose not in focused_Companion.available_poses:
                                 $ pose_list.remove(pose)
-                            elif focused_Girl.possible_poses and pose not in focused_Girl.possible_poses:
+                            elif focused_Companion.possible_poses and pose not in focused_Companion.possible_poses:
                                 $ pose_list.remove(pose)
 
                     if len(pose_list) <= 6:
@@ -134,7 +134,7 @@ screen Action_screen(automatic = False):
                             button align (0.5, 0.5) xysize (int(447*interface_new_adjustment), int(177*interface_new_adjustment)):
                                 idle_background At("images/interface/Action_menu/button_off.webp", interface) hover_background At("images/interface/Action_menu/button_on.webp", interface) selected_idle_background At("images/interface/Action_menu/button_on.webp", interface)
 
-                                selected focused_Girl.position == pose
+                                selected focused_Companion.position == pose
 
                                 text f"{pose_name}" align (0.5, 0.5):
                                     if len(pose_name) > 18:
@@ -150,8 +150,8 @@ screen Action_screen(automatic = False):
 
                                     color "#ffffff"
 
-                                if focused_Girl.position != pose:
-                                    action Call("request_position", focused_Girl, pose, from_current = True)
+                                if focused_Companion.position != pose:
+                                    action Call("request_position", focused_Companion, pose, from_current = True)
                                 else:
                                     action NullAction()
 
@@ -168,43 +168,43 @@ screen Action_screen(automatic = False):
 
                     for Action_type in all_Action_types:
                         if Action_type in current_Action_list:
-                            if focused_Girl.available_Actions and Action_type not in focused_Girl.available_Actions:
+                            if focused_Companion.available_Actions and Action_type not in focused_Companion.available_Actions:
                                 $ current_Action_list.remove(Action_type)
-                            elif focused_Girl.possible_Actions and Action_type not in focused_Girl.possible_Actions:
+                            elif focused_Companion.possible_Actions and Action_type not in focused_Companion.possible_Actions:
                                 $ current_Action_list.remove(Action_type)
                             elif "touch_thighs" in Action_type:
-                                if focused_Girl.thighs_covered and "over_clothes" not in Action_type:
+                                if focused_Companion.thighs_covered and "over_clothes" not in Action_type:
                                     $ current_Action_list.remove(Action_type)
-                                elif not focused_Girl.thighs_covered and "over_clothes" in Action_type:
+                                elif not focused_Companion.thighs_covered and "over_clothes" in Action_type:
                                     $ current_Action_list.remove(Action_type)
                             elif "touch_breasts" in Action_type:
-                                if focused_Girl.breasts_covered and "over_clothes" not in Action_type:
+                                if focused_Companion.breasts_covered and "over_clothes" not in Action_type:
                                     $ current_Action_list.remove(Action_type)
-                                elif not focused_Girl.breasts_covered and "over_clothes" in Action_type:
+                                elif not focused_Companion.breasts_covered and "over_clothes" in Action_type:
                                     $ current_Action_list.remove(Action_type)
                             elif "grab_ass" in Action_type:
-                                if focused_Girl.ass_covered and "over_clothes" not in Action_type:
+                                if focused_Companion.ass_covered and "over_clothes" not in Action_type:
                                     $ current_Action_list.remove(Action_type)
-                                elif not focused_Girl.ass_covered and "over_clothes" in Action_type:
+                                elif not focused_Companion.ass_covered and "over_clothes" in Action_type:
                                     $ current_Action_list.remove(Action_type)
                             elif "touch_pussy" in Action_type and Action_type != "self_touch_pussy":
-                                if focused_Girl.pussy_covered and "over_clothes" not in Action_type:
+                                if focused_Companion.pussy_covered and "over_clothes" not in Action_type:
                                     $ current_Action_list.remove(Action_type)
-                                elif not focused_Girl.pussy_covered and "over_clothes" in Action_type:
+                                elif not focused_Companion.pussy_covered and "over_clothes" in Action_type:
                                     $ current_Action_list.remove(Action_type)
 
                     for Action_type in toy_Action_types:
                         if Action_type in current_Action_list:
-                            if Action_type in dildo_Action_types and not ("dildo" in Player.inventory.keys() or "dildo" in focused_Girl.inventory.keys()):
+                            if Action_type in dildo_Action_types and not ("dildo" in Player.inventory.keys() or "dildo" in focused_Companion.inventory.keys()):
                                 $ current_Action_list.remove(Action_type)
-                            elif Action_type in ["self_vibrator", "vibrator"] and not ("vibrator" in Player.inventory.keys() or "vibrator" in focused_Girl.inventory.keys()):
+                            elif Action_type in ["self_vibrator", "vibrator"] and not ("vibrator" in Player.inventory.keys() or "vibrator" in focused_Companion.inventory.keys()):
                                 $ current_Action_list.remove(Action_type)
 
                     for Action_type in all_Action_types:
                         if Action_type in current_Action_list:
                             $ test_Action = ActionClass(Action_type, None)
 
-                            if focused_Girl.position not in test_Action.available_poses:
+                            if focused_Companion.position not in test_Action.available_poses:
                                 $ current_Action_list.remove(Action_type)
 
                     if len(current_Action_list) <= 5:
@@ -230,7 +230,7 @@ screen Action_screen(automatic = False):
 
                                 color "#ffffff"
 
-                            action Call("spank", focused_Girl, from_current = True)
+                            action Call("spank", focused_Companion, from_current = True)
 
                         for Action_type in current_Action_list:
                             $ Action_name = Action_names[Action_type]
@@ -242,7 +242,7 @@ screen Action_screen(automatic = False):
                                     $ ongoing_Action = A
 
                             if not ongoing_Action:
-                                for A in focused_Girl.all_Actions:
+                                for A in focused_Companion.all_Actions:
                                     if A.Action_type == Action_type:
                                         $ ongoing_Action = A
 
@@ -274,19 +274,19 @@ screen Action_screen(automatic = False):
                                             SetVariable("speed", 1.0),
                                             SetVariable("intensity", 1.0),
                                             SetVariable("starting_depth", 0.0),
-                                            Call("request_Action", Action_type, focused_Girl, focused_Girl, from_current = True)]
+                                            Call("request_Action", Action_type, focused_Companion, focused_Companion, from_current = True)]
                                     elif Action_type in active_Action_types:
                                         action [
                                             SetVariable("speed", 1.0),
                                             SetVariable("intensity", 1.0),
                                             SetVariable("starting_depth", 0.0),
-                                            Call("request_Action", Action_type, Player, focused_Girl, from_current = True)]
+                                            Call("request_Action", Action_type, Player, focused_Companion, from_current = True)]
                                     elif Action_type in passive_Action_types:
                                         action [
                                             SetVariable("speed", 1.0),
                                             SetVariable("intensity", 1.0),
                                             SetVariable("starting_depth", 0.0),
-                                            Call("request_Action", Action_type, focused_Girl, Player, from_current = True)]
+                                            Call("request_Action", Action_type, focused_Companion, Player, from_current = True)]
 
                     vbar value YScrollValue("Action_viewport") anchor (0.0, 0.0) pos (0.98, 0.276) xysize (int(29*interface_new_adjustment), int(980*interface_new_adjustment)):
                         base_bar Frame("images/interface/Action_menu/scrollbar.webp")

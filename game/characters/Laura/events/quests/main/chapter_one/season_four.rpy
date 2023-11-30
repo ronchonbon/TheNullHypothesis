@@ -1,8 +1,6 @@
 init python:
 
     def Laura_ch1_season_four_Quest():
-        global Laura
-
         name = f"{Laura.full_name}: Summer"
 
         string = "Laura_ch1_season_four_Quest"

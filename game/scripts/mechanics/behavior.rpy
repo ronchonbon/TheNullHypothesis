@@ -1,10 +1,6 @@
 init python:
 
     def reset_behavior(Characters = None):
-        global all_Characters
-
-        global Player
-
         if not Characters:
             Characters = all_Characters[:]
 
@@ -23,12 +19,6 @@ init python:
         return
     
     def set_Character_locations(Characters = None):
-        global all_Characters
-
-        global Party
-
-        global Player
-        
         if not Characters:
             Characters = all_Characters[:]
         elif Characters in all_Characters:
@@ -75,18 +65,6 @@ init python:
         return leaving_Characters, arriving_Characters
 
     def set_Character_behavior(Characters = None):
-        global all_Characters
-        global all_Companions
-        global Students
-        global Professors
-
-        global Player
-
-        global bedrooms
-
-        global time_index
-        global clock
-        
         if not Characters:
             Characters = all_Characters[:]
         elif Characters in all_Characters:
@@ -99,7 +77,7 @@ init python:
         reset_behavior(Characters)
 
         for C in Characters:
-            Characters_present = get_Present(location = C.location)
+            Characters_present = get_Present(location = C.location)[0]
 
             if clock > 0:
                 if time_index in C.schedule.keys():
@@ -196,7 +174,7 @@ label set_Character_Outfits(Characters = None, instant = True):
                             $ Outfit = temp_Characters[0].Wardrobe.swimming_Outfit
                         elif temp_Characters[0].location == "bg_lockers":
                             $ Outfit = temp_Characters[0].Wardrobe.swimming_Outfit
-                        elif temp_Characters[0].location == "nearby":
+                        elif temp_Characters[0] in Offscreen:
                             $ Outfit = temp_Characters[0].Wardrobe.swimming_Outfit
                         else:
                             $ Outfit = temp_Characters[0].Wardrobe.indoor_Outfit
@@ -238,7 +216,7 @@ label set_Character_Outfits(Characters = None, instant = True):
                         call change_Outfit(temp_Characters[0], Outfit, instant = True) from _call_change_Outfit_45
 
                 if temp_Characters:
-                    # if temp_Characters[0].behavior == "showering" and temp_Characters[0].location == "nearby":
+                    # if temp_Characters[0].behavior == "showering" and temp_Characters[0] in Offscreen:
                     #     call try_on(temp_Characters[0], temp_Characters[0].Wardrobe.Clothes["towel"], instant = True) from _call_try_on_15
                     
                     if temp_Characters[0].behavior == "showering" and Player.location not in [temp_Characters[0].location, temp_Characters[0].destination]:

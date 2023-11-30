@@ -2,54 +2,54 @@ init python:
 
     import copy
 
-    def set_default_Outfits(Girl, change = False):
-        Outfits = eval(f"default_{Girl.tag}_Outfits()")
+    def set_default_Outfits(Companion, change = False):
+        Outfits = eval(f"default_{Companion.tag}_Outfits()")
 
-        temp = list(Girl.Wardrobe.Outfits.keys())[:]
+        temp = list(Companion.Wardrobe.Outfits.keys())[:]
 
         for O_name in temp:
-            if Girl.Wardrobe.Outfits[O_name].Outfit_type == "default":
-                if Girl.Wardrobe.Outfits[O_name].disabled:
+            if Companion.Wardrobe.Outfits[O_name].Outfit_type == "default":
+                if Companion.Wardrobe.Outfits[O_name].disabled:
                     for O in Outfits:
                         if O.name == O_name:
                             O.disabled = True
 
-                del Girl.Wardrobe.Outfits[O_name]
+                del Companion.Wardrobe.Outfits[O_name]
 
         for O in Outfits:
-            Girl.Wardrobe.Outfits.update({O.name: O})
+            Companion.Wardrobe.Outfits.update({O.name: O})
 
-        for O in Girl.Wardrobe.Outfits.values():
+        for O in Companion.Wardrobe.Outfits.values():
             for Clothing in O.Clothes.values():
                 if Clothing.name:
-                    Girl.give(Clothing)
+                    Companion.give(Clothing)
 
-        # exec(f"Girl.give({Girl.tag}_towel())")
+        # exec(f"Companion.give({Companion.tag}_towel())")
 
         if change:
-            Girl.choose_Outfits()
+            Companion.choose_Outfits()
 
         return
 
-    def check_if_Clothes_in_Wardrobe(Girl, Clothes):
+    def check_if_Clothes_in_Wardrobe(Companion, Clothes):
         for C in Clothes.values():
-            if C.name not in Girl.Wardrobe.Clothes.keys():
+            if C.name not in Companion.Wardrobe.Clothes.keys():
                 return False
 
         return True
 
-label save_new_Outfit(Girl, name, color, flags):
+label save_new_Outfit(Companion, name, color, flags):
     $ new_Outfit = OutfitClass(name)
 
     python:
-        for C in Girl.Clothes.keys():
-            new_Outfit.Clothes[C] = copy.copy(Girl.Clothes[C])
+        for C in Companion.Clothes.keys():
+            new_Outfit.Clothes[C] = copy.copy(Companion.Clothes[C])
 
     python:
         for Clothing_type in all_Clothing_types:
             new_Outfit.Clothes[Clothing_type].selected_state = new_Outfit.Clothes[Clothing_type].state
 
-    call set_Outfit_flags(Girl, new_Outfit, hypothetical = True) from _call_set_Outfit_flags_21
+    call set_Outfit_flags(Companion, new_Outfit, hypothetical = True) from _call_set_Outfit_flags_21
     
     if flags["wear_in_public"]:
         $ new_Outfit.wear_in_public = True
@@ -82,20 +82,20 @@ label save_new_Outfit(Girl, name, color, flags):
     $ new_Outfit.color = color
 
     if new_Outfit.wear_in_public or new_Outfit.activewear or new_Outfit.superwear or new_Outfit.swimwear:
-        if (not new_Outfit.wear_in_public and (new_Outfit.activewear or new_Outfit.superwear or new_Outfit.swimwear) and approval_check(Girl, threshold = 2.5*new_Outfit.shame, extra_condition = "new_Outfit")) or approval_check(Girl, threshold = 4.0*new_Outfit.shame, extra_condition = "new_Outfit"):
-            call expression f"{Girl.tag}_accept_public_Outfit" pass (Outfit = new_Outfit) from _call_expression_103
+        if (not new_Outfit.wear_in_public and (new_Outfit.activewear or new_Outfit.superwear or new_Outfit.swimwear) and approval_check(Companion, threshold = 2.5*new_Outfit.shame, extra_condition = "new_Outfit")) or approval_check(Companion, threshold = 4.0*new_Outfit.shame, extra_condition = "new_Outfit"):
+            call expression f"{Companion.tag}_accept_public_Outfit" pass (Outfit = new_Outfit) from _call_expression_103
 
-            if name in Girl.Wardrobe.Outfits.keys():
-                $ Girl.Wardrobe.Outfits[name] = copy.deepcopy(new_Outfit)
+            if name in Companion.Wardrobe.Outfits.keys():
+                $ Companion.Wardrobe.Outfits[name] = copy.deepcopy(new_Outfit)
 
                 $ del new_Outfit
             else:
-                $ Girl.Wardrobe.Outfits.update({name: new_Outfit})
+                $ Companion.Wardrobe.Outfits.update({name: new_Outfit})
 
             $ Outfit_list = []
 
             python:
-                for O in Girl.Wardrobe.Outfits.values():
+                for O in Companion.Wardrobe.Outfits.values():
                     if O.Outfit_type == Wardrobe_tab:
                         Outfit_list.append(O)
                         
@@ -104,24 +104,24 @@ label save_new_Outfit(Girl, name, color, flags):
             else:
                 $ current_Wardrobe_Outfit_page = 0
         else:
-            call expression f"{Girl.tag}_reject_public_Outfit" pass (Outfit = new_Outfit) from _call_expression_104
+            call expression f"{Companion.tag}_reject_public_Outfit" pass (Outfit = new_Outfit) from _call_expression_104
 
             $ del new_Outfit
     else:
-        if approval_check(Girl, threshold = 0.4*new_Outfit.shame, extra_condition = "new_Outfit"):
-            call expression f"{Girl.tag}_accept_private_Outfit" pass (Outfit = new_Outfit) from _call_expression_105
+        if approval_check(Companion, threshold = 0.4*new_Outfit.shame, extra_condition = "new_Outfit"):
+            call expression f"{Companion.tag}_accept_private_Outfit" pass (Outfit = new_Outfit) from _call_expression_105
 
-            if name in Girl.Wardrobe.Outfits.keys():
-                $ Girl.Wardrobe.Outfits[name] = copy.deepcopy(new_Outfit)
+            if name in Companion.Wardrobe.Outfits.keys():
+                $ Companion.Wardrobe.Outfits[name] = copy.deepcopy(new_Outfit)
 
                 $ del new_Outfit
             else:
-                $ Girl.Wardrobe.Outfits.update({name: new_Outfit})
+                $ Companion.Wardrobe.Outfits.update({name: new_Outfit})
 
             $ Outfit_list = []
 
             python:
-                for O in Girl.Wardrobe.Outfits.values():
+                for O in Companion.Wardrobe.Outfits.values():
                     if O.Outfit_type == Wardrobe_tab:
                         Outfit_list.append(O)
 
@@ -130,31 +130,31 @@ label save_new_Outfit(Girl, name, color, flags):
             else:
                 $ current_Wardrobe_Outfit_page = 0
         else:
-            call expression f"{Girl.tag}_reject_private_Outfit" pass (Outfit = new_Outfit) from _call_expression_106
+            call expression f"{Companion.tag}_reject_private_Outfit" pass (Outfit = new_Outfit) from _call_expression_106
 
             $ del new_Outfit
 
     return
 
-label edit_Outfit(Girl, Outfit, name, color, flags):
+label edit_Outfit(Companion, Outfit, name, color, flags):
     python:
         for Clothing_type in all_Clothing_types:
             Outfit.Clothes[Clothing_type].selected_state = Outfit.Clothes[Clothing_type].state
 
-    call set_Outfit_flags(Girl, Outfit, hypothetical = True) from _call_set_Outfit_flags_22
+    call set_Outfit_flags(Companion, Outfit, hypothetical = True) from _call_set_Outfit_flags_22
 
     if flags["wear_in_public"] or flags["activewear"] or flags["swimwear"]:
-        if (not flags["wear_in_public"] and (flags["activewear"] or flags["swimwear"]) and approval_check(Girl, threshold = 2.5*Girl.Outfit.shame, extra_condition = "new_Outfit")) or approval_check(Girl, threshold = 4.0*Girl.Outfit.shame, extra_condition = "new_Outfit"):
-            call expression f"{Girl.tag}_accept_public_Outfit" pass (Outfit = Outfit) from _call_expression_107
+        if (not flags["wear_in_public"] and (flags["activewear"] or flags["swimwear"]) and approval_check(Companion, threshold = 2.5*Companion.Outfit.shame, extra_condition = "new_Outfit")) or approval_check(Companion, threshold = 4.0*Companion.Outfit.shame, extra_condition = "new_Outfit"):
+            call expression f"{Companion.tag}_accept_public_Outfit" pass (Outfit = Outfit) from _call_expression_107
         else:
-            call expression f"{Girl.tag}_reject_public_Outfit" pass (Outfit = Outfit) from _call_expression_108
+            call expression f"{Companion.tag}_reject_public_Outfit" pass (Outfit = Outfit) from _call_expression_108
 
             return
     else:
-        if approval_check(Girl, threshold = 0.4*Girl.Outfit.shame, extra_condition = "new_Outfit"):
-            call expression f"{Girl.tag}_accept_private_Outfit" pass (Outfit = Outfit) from _call_expression_109
+        if approval_check(Companion, threshold = 0.4*Companion.Outfit.shame, extra_condition = "new_Outfit"):
+            call expression f"{Companion.tag}_accept_private_Outfit" pass (Outfit = Outfit) from _call_expression_109
         else:
-            call expression f"{Girl.tag}_reject_private_Outfit" pass (Outfit = Outfit) from _call_expression_110
+            call expression f"{Companion.tag}_reject_private_Outfit" pass (Outfit = Outfit) from _call_expression_110
 
             return
 
@@ -208,19 +208,19 @@ label edit_Outfit(Girl, Outfit, name, color, flags):
     $ old_name = Outfit.name
     $ Outfit.name = name
 
-    $ Girl.Wardrobe.Outfits[Outfit.name] = copy.deepcopy(Outfit)
+    $ Companion.Wardrobe.Outfits[Outfit.name] = copy.deepcopy(Outfit)
 
     if old_name != Outfit.name:
-        $ del Girl.Wardrobe.Outfits[old_name]
+        $ del Companion.Wardrobe.Outfits[old_name]
 
-    call change_Outfit(Girl, Outfit, instant = True) from _call_change_Outfit_25
+    call change_Outfit(Companion, Outfit, instant = True) from _call_change_Outfit_25
 
     $ Outfit_list = []
 
     $ del Outfit
 
     python:
-        for O in Girl.Wardrobe.Outfits.values():
+        for O in Companion.Wardrobe.Outfits.values():
             if O.Outfit_type == Wardrobe_tab:
                 Outfit_list.append(O)
 
@@ -231,74 +231,74 @@ label edit_Outfit(Girl, Outfit, name, color, flags):
 
     return
 
-label review_Outfit(Girl):
-    call debrief_Outfit_change(Girl, instant = True) from _call_debrief_Outfit_change
+label review_Outfit(Companion):
+    call debrief_Outfit_change(Companion, instant = True) from _call_debrief_Outfit_change
     
     $ Outfit_changed = False
 
     python:
         for Clothing_type in all_Clothing_types:
-            if Girl.previous_Outfit not in Girl.Wardrobe.Outfits.keys() or Girl.Outfit.Clothes[Clothing_type].string != Girl.Wardrobe.Outfits[Girl.previous_Outfit].Clothes[Clothing_type].string:
+            if Companion.previous_Outfit not in Companion.Wardrobe.Outfits.keys() or Companion.Outfit.Clothes[Clothing_type].string != Companion.Wardrobe.Outfits[Companion.previous_Outfit].Clothes[Clothing_type].string:
                 Outfit_changed = True
 
                 break
 
     if not Outfit_changed:
-        call change_Outfit(Girl, Girl.Wardrobe.Outfits[Girl.previous_Outfit], instant = True) from _call_change_Outfit_26
+        call change_Outfit(Companion, Companion.Wardrobe.Outfits[Companion.previous_Outfit], instant = True) from _call_change_Outfit_26
 
     if Outfit_changed:
         $ say_obscured = True
 
         $ flag = are_Characters_in_Partners(Present)
 
-        if Girl.Outfit.wear_in_public or ((Girl.Outfit.activewear or Girl.Outfit.superwear) and Player.location == "bg_danger") or (Girl.Outfit.swimwear and Player.location == "bg_pool") or (Girl.Outfit.sleepwear and Player.location in bedrooms and flag):
+        if Companion.Outfit.wear_in_public or ((Companion.Outfit.activewear or Companion.Outfit.superwear) and Player.location == "bg_danger") or (Companion.Outfit.swimwear and Player.location == "bg_pool") or (Companion.Outfit.sleepwear and Player.location in bedrooms and flag):
             pass
-        elif approval_check(Girl, threshold = 4.0*Girl.Outfit.shame):
-            call expression f"{Girl.tag}_accept_public_Outfit" pass (Outfit = Girl.Outfit) from _call_expression_112
-        elif Player.location not in public_locations and flag and approval_check(Girl, threshold = 0.4*Girl.Outfit.shame):
-            call expression f"{Girl.tag}_accept_private_Outfit" pass (Outfit = Girl.Outfit) from _call_expression_113
+        elif approval_check(Companion, threshold = 4.0*Companion.Outfit.shame):
+            call expression f"{Companion.tag}_accept_public_Outfit" pass (Outfit = Companion.Outfit) from _call_expression_112
+        elif Player.location not in public_locations and flag and approval_check(Companion, threshold = 0.4*Companion.Outfit.shame):
+            call expression f"{Companion.tag}_accept_private_Outfit" pass (Outfit = Companion.Outfit) from _call_expression_113
         elif Player.location in public_locations or not flag:
-            call expression f"{Girl.tag}_reject_public_Outfit" pass (Outfit = Girl.Outfit) from _call_expression_129
+            call expression f"{Companion.tag}_reject_public_Outfit" pass (Outfit = Companion.Outfit) from _call_expression_129
 
-            call set_Character_Outfits(Girl) from _call_set_Character_Outfits_28
-        elif ((Girl.Outfit.activewear or Girl.Outfit.superwear) and Player.location != "bg_danger") or (Girl.Outfit.swimwear and Player.location != "bg_pool") or (Girl.Outfit.sleepwear and Player.location not in bedrooms):
-            call expression f"{Girl.tag}_reject_contextual_Outfit" pass (Outfit = Girl.Outfit) from _call_expression_111
+            call set_Character_Outfits(Companion) from _call_set_Character_Outfits_28
+        elif ((Companion.Outfit.activewear or Companion.Outfit.superwear) and Player.location != "bg_danger") or (Companion.Outfit.swimwear and Player.location != "bg_pool") or (Companion.Outfit.sleepwear and Player.location not in bedrooms):
+            call expression f"{Companion.tag}_reject_contextual_Outfit" pass (Outfit = Companion.Outfit) from _call_expression_111
 
-            call set_Character_Outfits(Girl) from _call_set_Character_Outfits_5
+            call set_Character_Outfits(Companion) from _call_set_Character_Outfits_5
         else:
-            call expression f"{Girl.tag}_reject_private_Outfit" pass (Outfit = Girl.Outfit) from _call_expression_114
+            call expression f"{Companion.tag}_reject_private_Outfit" pass (Outfit = Companion.Outfit) from _call_expression_114
 
-            call set_Character_Outfits(Girl) from _call_set_Character_Outfits_6
+            call set_Character_Outfits(Companion) from _call_set_Character_Outfits_6
 
         $ say_obscured = False
 
-    $ Girl.Wardrobe.replace_disabled_Outfits()
+    $ Companion.Wardrobe.replace_disabled_Outfits()
 
     hide screen Wardrobe_screen
     
-    if Girl.location == Player.location:
-        show screen interactions_screen(Girl)
+    if Companion.location == Player.location:
+        show screen interactions_screen(Companion)
 
     return
 
-label debrief_Outfit_change(Girls, instant = False):
+label debrief_Outfit_change(Companions, instant = False):
     call set_music from _call_set_music
     
-    if Girls in all_Companions:
-        $ Girls = [Girls]
+    if Companions in all_Companions:
+        $ Companions = [Companions]
 
     if renpy.get_screen("shop_screen"):
-        call set_Character_Outfits(Girls, instant = instant) from _call_set_Character_Outfits_7
+        call set_Character_Outfits(Companions, instant = instant) from _call_set_Character_Outfits_7
 
     if not renpy.get_screen("shop_screen") and changed_pubes:
         $ temp_shaving_Companions = []
 
         python:
-            for G in Girls:
+            for G in Companions:
                 if G.pubes != G.desired_pubes:
                     temp_shaving_Companions.append(G)
 
-        call Girls_will_shave(temp_shaving_Companions) from _call_Companions_will_shave
+        call Companions_will_shave(temp_shaving_Companions) from _call_Companions_will_shave
 
         $ changed_pubes = False
 

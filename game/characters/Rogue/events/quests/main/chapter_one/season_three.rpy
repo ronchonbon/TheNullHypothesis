@@ -1,8 +1,6 @@
 init python:
 
     def Rogue_ch1_season_three_Quest():
-        global Rogue
-
         name = f"{Rogue.name}: Spring"
 
         string = "Rogue_ch1_season_three_Quest"

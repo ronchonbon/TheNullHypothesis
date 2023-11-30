@@ -5,11 +5,6 @@ label travel(destination):
     $ Character_picker_disabled = True
     $ belt_disabled = True
 
-    python:
-        for C in all_Characters:
-            if C.location == "nearby":
-                C.location = Player.location
-
     $ Player.destination = destination
     
     if Player.destination in public_locations and Party:
@@ -90,7 +85,7 @@ label move_location(destination):
         $ current_bedroom = destination
         $ Player.destination = current_bedroom.home
 
-        jump Girl_room
+        jump Companion_room
     elif "bg_shower" in destination:
         jump shower
     elif destination == "bg_classroom":
@@ -105,5 +100,3 @@ label move_location(destination):
         jump study
     elif destination == "bg_mall":
         jump mall
-    elif destination == "bg_bar":
-        jump bar

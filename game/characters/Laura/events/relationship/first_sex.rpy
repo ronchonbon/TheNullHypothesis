@@ -95,20 +95,20 @@ label Laura_first_sex_part_one:
             
             ch_Laura "Good. . ."
 
-            call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_934 
-            call change_Girl_stat(Laura, "trust", 0) from _call_change_Girl_stat_935
+            call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_934 
+            call change_Companion_stat(Laura, "trust", 0) from _call_change_Companion_stat_935
         "Wha. . . I. . . uh. . . yeah, talking is a good idea.":
             $ Laura.change_face("angry1", eyes = "squint", blush = 1) 
 
             ch_Laura "It is."
             
-            call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_936
+            call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_936
         "Oh god, don't tell me I have to explain this shit to you. . .":
             $ Laura.change_face("angry1", eyes = "squint", blush = 1) 
 
             ch_Laura "No, you do not."
             
-            call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_937
+            call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_937
 
     $ Laura.change_face("angry1", eyes = "right", blush = 1)
 
@@ -474,11 +474,11 @@ label Laura_first_sex_part_two:
         "That was amazing. I'm glad you enjoyed it as well.":
             $ Laura.change_face("sexy", blush = 1) 
             
-            call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_938
+            call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_938
         "That was okay. You'll get better the more we do it together.":
             $ Laura.change_face("confused1", blush = 1) 
             
-            call change_Girl_stat(Laura, "love", 0) from _call_change_Girl_stat_939
+            call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_939
 
     $ Laura.change_face("worried1", eyes = "right", blush = 1)
 

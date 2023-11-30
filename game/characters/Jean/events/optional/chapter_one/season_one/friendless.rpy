@@ -45,7 +45,7 @@ init python:
             
             "Jean.location == 'bg_danger'",
             "Jean.behavior == 'training'",
-            "len(get_Present(location = 'bg_danger')) == 1",
+            "len(get_Present(location = 'bg_danger')[0]) == 1",
 
             "Jean.is_in_normal_mood()"]
 
@@ -61,7 +61,7 @@ init python:
                 
                 "Jean.location == 'bg_danger'",
                 "Jean.behavior == 'training'",
-                "len(get_Present(location = 'bg_danger')) == 1",
+                "len(get_Present(location = 'bg_danger')[0]) == 1",
                 
                 "Jean.is_in_normal_mood()"]}
 
@@ -141,22 +141,22 @@ label Jean_chapter_one_season_one_friendless:
     menu:
         extend ""
         "Hey, it's their loss. I wouldn't want to be friends with people who can't respect what's important to me.":
-            call change_Girl_stat(Jean, "love", small_stat) from _call_change_Girl_stat_132
-            call change_Girl_stat(Jean, "trust", medium_stat) from _call_change_Girl_stat_133
+            call change_Companion_stat(Jean, "love", small_stat) from _call_change_Companion_stat_132
+            call change_Companion_stat(Jean, "trust", medium_stat) from _call_change_Companion_stat_133
             
             $ Jean.change_face("worried1", mouth = "smirk")
 
             ch_Jean "I guess you're right. . . but I wouldn't even wanna be friends with me if I was in their shoes."
         "Maybe you're better off without them. Real friends would realize how important your grades are to you and not make it about themselves.":
-            call change_Girl_stat(Jean, "love", medium_stat) from _call_change_Girl_stat_134
-            call change_Girl_stat(Jean, "trust", small_stat) from _call_change_Girl_stat_161
+            call change_Companion_stat(Jean, "love", medium_stat) from _call_change_Companion_stat_134
+            call change_Companion_stat(Jean, "trust", small_stat) from _call_change_Companion_stat_161
             
             $ Jean.change_face("worried1", mouth = "smirk")
 
             ch_Jean "Maybe. . . but if I was in their shoes, I'd probably feel the same way."
         "What did you expect when you prioritize books over people. . . but they seemed like assholes anyways, making it all about themselves.":
-            call change_Girl_stat(Jean, "love", -medium_stat) from _call_change_Girl_stat_162
-            call change_Girl_stat(Jean, "trust", small_stat) from _call_change_Girl_stat_163
+            call change_Companion_stat(Jean, "love", -medium_stat) from _call_change_Companion_stat_162
+            call change_Companion_stat(Jean, "trust", small_stat) from _call_change_Companion_stat_163
             
             $ Jean.change_face("worried1")
 

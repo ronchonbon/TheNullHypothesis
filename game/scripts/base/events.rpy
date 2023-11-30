@@ -76,8 +76,6 @@ init -3 python:
             return
 
         def start(self):
-            global day
-
             self.completed = True
             self.completed_when = day
 

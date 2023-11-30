@@ -1,8 +1,8 @@
-label buy_Girl_Clothing(Clothing, discounted = False):
-    $ Girl = Clothing.Owner
+label buy_Character_Clothing(Clothing, discounted = False):
+    $ Companion = Clothing.Owner
 
-    if (Clothing.shop_type in ["sex", "lingerie"] and approval_check(Girl, threshold = Clothing.thresholds["accept"], extra_condition = "sexy_gifts")) or approval_check(Girl, threshold = Clothing.thresholds["accept"]):
-        call expression f"{Girl.tag}_{Clothing.string}_shopping_accept" from _call_expression_149
+    if (Clothing.shop_type in ["sex", "lingerie"] and approval_check(Companion, threshold = Clothing.thresholds["accept"], extra_condition = "sexy_gifts")) or approval_check(Companion, threshold = Clothing.thresholds["accept"]):
+        call expression f"{Companion.tag}_{Clothing.string}_shopping_accept" from _call_expression_149
 
         if discounted:
             $ Player.cash -= int(0.5*Clothing.price)
@@ -11,114 +11,114 @@ label buy_Girl_Clothing(Clothing, discounted = False):
 
         $ Clothing.gift = True
 
-        $ Girl.give(Clothing)
+        $ Companion.give(Clothing)
             
-        $ set_default_Outfits(Girl, change = False)
+        $ set_default_Outfits(Companion, change = False)
 
         if Clothing.string in shop_inventory[Clothing.shop_type].keys():
             $ del shop_inventory[Clothing.shop_type][Clothing.string]
             $ del unrestricted_shop_inventory[Clothing.shop_type][Clothing.string]
     else:
-        if Girl.History.check(f"said_no_to_{Clothing.string}", tracker = "recent") >= 2:
-            call change_Girl_stat(Girl, "love", -5) from _call_change_Girl_stat_943
-            call change_Girl_stat(Girl, "trust", -5) from _call_change_Girl_stat_944
+        if Companion.History.check(f"said_no_to_{Clothing.string}", tracker = "recent") >= 2:
+            call change_Companion_stat(Companion, "love", -5) from _call_change_Companion_stat_943
+            call change_Companion_stat(Companion, "trust", -5) from _call_change_Companion_stat_944
 
-            call expression f"{Girl.tag}_rejected_Clothing_twice" from _call_expression_151
-        elif Girl.History.check(f"said_no_to_{Clothing.string}", tracker = "recent") == 1:
-            call change_Girl_stat(Girl, "love", -2) from _call_change_Girl_stat_945
+            call expression f"{Companion.tag}_rejected_Clothing_twice" from _call_expression_151
+        elif Companion.History.check(f"said_no_to_{Clothing.string}", tracker = "recent") == 1:
+            call change_Companion_stat(Companion, "love", -2) from _call_change_Companion_stat_945
 
-            call expression f"{Girl.tag}_rejected_Clothing_once" from _call_expression_152
+            call expression f"{Companion.tag}_rejected_Clothing_once" from _call_expression_152
         else:
-            call expression f"{Girl.tag}_{Clothing.string}_shopping_reject" from _call_expression_153
+            call expression f"{Companion.tag}_{Clothing.string}_shopping_reject" from _call_expression_153
 
-        $ Girl.History.update(f"said_no_to_{Clothing.string}")
+        $ Companion.History.update(f"said_no_to_{Clothing.string}")
 
     return
 
-label give_Girl_Clothing(Girl, Clothing):
+label give_Character_Clothing(Companion, Clothing):
     hide screen Player_menu
 
-    if (Clothing.shop_type in ["sex", "lingerie"] and approval_check(Girl, threshold = Clothing.thresholds["accept"], extra_condition = "sexy_gifts")) or approval_check(Girl, threshold = Clothing.thresholds["accept"]):
-        call expression f"{Girl.tag}_{Clothing.string}_gift_accept" from _call_expression_154
+    if (Clothing.shop_type in ["sex", "lingerie"] and approval_check(Companion, threshold = Clothing.thresholds["accept"], extra_condition = "sexy_gifts")) or approval_check(Companion, threshold = Clothing.thresholds["accept"]):
+        call expression f"{Companion.tag}_{Clothing.string}_gift_accept" from _call_expression_154
 
         $ Clothing.gift = True
 
-        $ Girl.give(Clothing)
+        $ Companion.give(Clothing)
             
-        $ set_default_Outfits(Girl, change = False)
+        $ set_default_Outfits(Companion, change = False)
 
         $ del Player.inventory[Clothing.string]
     else:
-        if Girl.History.check(f"said_no_to_{Clothing.string}", tracker = "recent") > 1:
-            call change_Girl_stat(Girl, "love", -5) from _call_change_Girl_stat_946
-            call change_Girl_stat(Girl, "trust", -5) from _call_change_Girl_stat_947
+        if Companion.History.check(f"said_no_to_{Clothing.string}", tracker = "recent") > 1:
+            call change_Companion_stat(Companion, "love", -5) from _call_change_Companion_stat_946
+            call change_Companion_stat(Companion, "trust", -5) from _call_change_Companion_stat_947
 
-            call expression f"{Girl.tag}_rejected_Clothing_twice" from _call_expression_156
-        elif Girl.History.check(f"said_no_to_{Clothing.string}", tracker = "recent") == 1:
-            call change_Girl_stat(Girl, "love", -2) from _call_change_Girl_stat_948
+            call expression f"{Companion.tag}_rejected_Clothing_twice" from _call_expression_156
+        elif Companion.History.check(f"said_no_to_{Clothing.string}", tracker = "recent") == 1:
+            call change_Companion_stat(Companion, "love", -2) from _call_change_Companion_stat_948
 
-            call expression f"{Girl.tag}_rejected_Clothing_once" from _call_expression_157
+            call expression f"{Companion.tag}_rejected_Clothing_once" from _call_expression_157
         else:
-            call expression f"{Girl.tag}_{Clothing.string}_gift_reject" from _call_expression_158
+            call expression f"{Companion.tag}_{Clothing.string}_gift_reject" from _call_expression_158
 
-        $ Girl.History.update(f"said_no_to_{Clothing.string}")
+        $ Companion.History.update(f"said_no_to_{Clothing.string}")
 
-    if Girl.location == Player.location:
-        show screen interactions_screen(Girl)
+    if Companion.location == Player.location:
+        show screen interactions_screen(Companion)
 
     return
 
-label ask_Girl_to_change_Outfit(Girl, Outfit_name, instant = False):
-    call set_Outfit_flags(Girl, Girl.Wardrobe.Outfits[Outfit_name], hypothetical = True) from _call_set_Outfit_flags_24
+label ask_Character_to_change_Outfit(Companion, Outfit_name, instant = False):
+    call set_Outfit_flags(Companion, Companion.Wardrobe.Outfits[Outfit_name], hypothetical = True) from _call_set_Outfit_flags_24
 
-    if Girl.status["miffed"] or Girl.status["mad"]:
-        call expression f"{Girl.tag}_change_Outfit_reject_mad" from _call_expression_159
+    if Companion.status["miffed"] or Companion.status["mad"]:
+        call expression f"{Companion.tag}_change_Outfit_reject_mad" from _call_expression_159
 
-        $ Girl.History.update("refused_to_change_Outfit")
-    elif approval_check(Girl, threshold = "change_Outfit") and approval_check(Girl, threshold = 0.5*Girl.Wardrobe.Outfits[Outfit_name].shame):
-        $ Items_to_remove, Items_to_add = get_changed_Items(Girl, Girl.Wardrobe.Outfits[Outfit_name])
+        $ Companion.History.update("refused_to_change_Outfit")
+    elif approval_check(Companion, threshold = "change_Outfit") and approval_check(Companion, threshold = 0.5*Companion.Wardrobe.Outfits[Outfit_name].shame):
+        $ Items_to_remove, Items_to_add = get_changed_Items(Companion, Companion.Wardrobe.Outfits[Outfit_name])
 
-        call does_Character_want_privacy(Girl, Items_to_add = Items_to_add, Items_to_remove = Items_to_remove) from _call_does_Character_want_privacy_1
+        call does_Character_want_privacy(Companion, Items_to_add = Items_to_add, Items_to_remove = Items_to_remove) from _call_does_Character_want_privacy_1
 
         if (Items_to_add or Items_to_remove) and _return:
-            call expression f"{Girl.tag}_change_Outfit_accept_with_privacy_before" pass (Outfit_name = Outfit_name) from _call_expression_166
+            call expression f"{Companion.tag}_change_Outfit_accept_with_privacy_before" pass (Outfit_name = Outfit_name) from _call_expression_166
 
-            call change_Outfit(Girl, Girl.Wardrobe.Outfits[Outfit_name], instant = instant) from _call_change_Outfit_38
+            call change_Outfit(Companion, Companion.Wardrobe.Outfits[Outfit_name], instant = instant) from _call_change_Outfit_38
 
-            call expression f"{Girl.tag}_change_Outfit_accept_with_privacy_after" pass (Outfit_name = Outfit_name) from _call_expression_167
+            call expression f"{Companion.tag}_change_Outfit_accept_with_privacy_after" pass (Outfit_name = Outfit_name) from _call_expression_167
         else:
-            call expression f"{Girl.tag}_change_Outfit_accept_before" pass (Outfit_name = Outfit_name) from _call_expression_160
+            call expression f"{Companion.tag}_change_Outfit_accept_before" pass (Outfit_name = Outfit_name) from _call_expression_160
 
-            call change_Outfit(Girl, Girl.Wardrobe.Outfits[Outfit_name], instant = instant) from _call_change_Outfit_37
+            call change_Outfit(Companion, Companion.Wardrobe.Outfits[Outfit_name], instant = instant) from _call_change_Outfit_37
 
-            call expression f"{Girl.tag}_change_Outfit_accept_after" pass (Outfit_name = Outfit_name) from _call_expression_161
+            call expression f"{Companion.tag}_change_Outfit_accept_after" pass (Outfit_name = Outfit_name) from _call_expression_161
     else:
-        if Girl.History.check("refused_to_change_Outfit", tracker = "recent") >= 2:
-            call change_Girl_stat(Girl, "love", -5) from _call_change_Girl_stat_952
-            call change_Girl_stat(Girl, "trust", -5) from _call_change_Girl_stat_953
+        if Companion.History.check("refused_to_change_Outfit", tracker = "recent") >= 2:
+            call change_Companion_stat(Companion, "love", -5) from _call_change_Companion_stat_952
+            call change_Companion_stat(Companion, "trust", -5) from _call_change_Companion_stat_953
             
-            call expression f"{Girl.tag}_change_Outfit_reject_asked_twice" from _call_expression_169
-        elif Girl.History.check("refused_to_change_Outfit", tracker = "recent") == 1:
-            call change_Girl_stat(Girl, "love", -2) from _call_change_Girl_stat_954
+            call expression f"{Companion.tag}_change_Outfit_reject_asked_twice" from _call_expression_169
+        elif Companion.History.check("refused_to_change_Outfit", tracker = "recent") == 1:
+            call change_Companion_stat(Companion, "love", -2) from _call_change_Companion_stat_954
             
-            call expression f"{Girl.tag}_change_Outfit_reject_asked_once" from _call_expression_170
+            call expression f"{Companion.tag}_change_Outfit_reject_asked_once" from _call_expression_170
         else:
-            call expression f"{Girl.tag}_change_Outfit_reject" from _call_expression_171
+            call expression f"{Companion.tag}_change_Outfit_reject" from _call_expression_171
 
-        $ Girl.History.update("refused_to_change_Outfit")
+        $ Companion.History.update("refused_to_change_Outfit")
 
     return
 
-label ask_Girl_to_try_on(Clothing, instant = False):
-    $ Girl = Clothing.Owner
+label ask_Character_to_try_on(Clothing, instant = False):
+    $ Companion = Clothing.Owner
 
     $ renpy.dynamic(temp_Clothes = removable_Clothing_types[:])
 
     $ temp_Clothes = list(reversed(temp_Clothes))
 
     while temp_Clothes:
-        if Clothing.string in Girl.Clothes[temp_Clothes[0]].incompatibilities or Girl.Clothes[temp_Clothes[0]].string in Clothing.incompatibilities:
-            $ Clothing_name = Girl.Clothes[temp_Clothes[0]].name
+        if Clothing.string in Companion.Clothes[temp_Clothes[0]].incompatibilities or Companion.Clothes[temp_Clothes[0]].string in Clothing.incompatibilities:
+            $ Clothing_name = Companion.Clothes[temp_Clothes[0]].name
             
             "She'll have to take off her [Clothing_name] first."
 
@@ -126,168 +126,168 @@ label ask_Girl_to_try_on(Clothing, instant = False):
 
         $ temp_Clothes.remove(temp_Clothes[0])
 
-    if Girl.status["miffed"] or Girl.status["mad"]:
-        call expression f"{Girl.tag}_change_Outfit_reject_mad" from _call_expression_172
+    if Companion.status["miffed"] or Companion.status["mad"]:
+        call expression f"{Companion.tag}_change_Outfit_reject_mad" from _call_expression_172
 
-        $ Girl.History.update(f"said_no_to_{Clothing.string}")
-    elif renpy.get_screen("shop_screen") and approval_check(Girl, threshold = Clothing.thresholds["wear_in_private"]) and len(Present) == 1:
-        if not Girl.History.check(f"wore_{Clothing.string}", tracker = "recent"):
+        $ Companion.History.update(f"said_no_to_{Clothing.string}")
+    elif renpy.get_screen("shop_screen") and approval_check(Companion, threshold = Clothing.thresholds["wear_in_private"]) and len(Present) == 1:
+        if not Companion.History.check(f"wore_{Clothing.string}", tracker = "recent"):
             if Clothing.Clothing_type == "hair" and Clothing.string not in ["ponytail", "mohawk", "wet_mohawk"]:
-                call expression f"{Girl.tag}_{Clothing.string}_hair_change_private_before" from _call_expression_173
+                call expression f"{Companion.tag}_{Clothing.string}_hair_change_private_before" from _call_expression_173
             else:
-                call expression f"{Girl.tag}_{Clothing.string}_change_private_before" from _call_expression_174
+                call expression f"{Companion.tag}_{Clothing.string}_change_private_before" from _call_expression_174
             
-        call does_Girl_agree_to_change_Clothes(Girl, added_Items = [Clothing], instant = instant) from _call_does_Girl_agree_to_change_Clothes_3
+        call does_Character_agree_to_change_Clothes(Companion, added_Items = [Clothing], instant = instant) from _call_does_Character_agree_to_change_Clothes_3
 
-        if _return and not Girl.History.check(f"wore_{Clothing.string}", tracker = "recent"):
+        if _return and not Companion.History.check(f"wore_{Clothing.string}", tracker = "recent"):
             if Clothing.Clothing_type == "hair" and Clothing.string not in ["ponytail", "mohawk", "wet_mohawk"]:
-                call expression f"{Girl.tag}_{Clothing.string}_hair_change_private_after" from _call_expression_175
+                call expression f"{Companion.tag}_{Clothing.string}_hair_change_private_after" from _call_expression_175
             else:
-                call expression f"{Girl.tag}_{Clothing.string}_change_private_after" from _call_expression_176
+                call expression f"{Companion.tag}_{Clothing.string}_change_private_after" from _call_expression_176
 
-            $ Girl.History.update(f"wore_{Clothing.string}")
+            $ Companion.History.update(f"wore_{Clothing.string}")
 
             return True
-    elif approval_check(Girl, threshold = Clothing.thresholds["wear_in_public"]):
-        if not Girl.History.check(f"wore_{Clothing.string}", tracker = "recent"):
+    elif approval_check(Companion, threshold = Clothing.thresholds["wear_in_public"]):
+        if not Companion.History.check(f"wore_{Clothing.string}", tracker = "recent"):
             if Clothing.Clothing_type == "hair" and Clothing.string not in ["ponytail", "mohawk", "wet_mohawk"]:
-                call expression f"{Girl.tag}_{Clothing.string}_hair_change_public_before" from _call_expression_177
+                call expression f"{Companion.tag}_{Clothing.string}_hair_change_public_before" from _call_expression_177
             else:
-                call expression f"{Girl.tag}_{Clothing.string}_change_public_before" from _call_expression_178
+                call expression f"{Companion.tag}_{Clothing.string}_change_public_before" from _call_expression_178
                 
-        call does_Girl_agree_to_change_Clothes(Girl, added_Items = [Clothing], instant = instant) from _call_does_Girl_agree_to_change_Clothes_4
+        call does_Character_agree_to_change_Clothes(Companion, added_Items = [Clothing], instant = instant) from _call_does_Character_agree_to_change_Clothes_4
 
-        if _return and not Girl.History.check(f"wore_{Clothing.string}", tracker = "recent"):
+        if _return and not Companion.History.check(f"wore_{Clothing.string}", tracker = "recent"):
             if Clothing.Clothing_type == "hair" and Clothing.string not in ["ponytail", "mohawk", "wet_mohawk"]:
-                call expression f"{Girl.tag}_{Clothing.string}_hair_change_public_after" from _call_expression_179
+                call expression f"{Companion.tag}_{Clothing.string}_hair_change_public_after" from _call_expression_179
             else:
-                call expression f"{Girl.tag}_{Clothing.string}_change_public_after" from _call_expression_180
+                call expression f"{Companion.tag}_{Clothing.string}_change_public_after" from _call_expression_180
 
-            $ Girl.History.update(f"wore_{Clothing.string}")
+            $ Companion.History.update(f"wore_{Clothing.string}")
 
             return True
     else:
-        if Girl.History.check(f"said_no_to_{Clothing.string}", tracker = "recent") >= 2:
-            call change_Girl_stat(Girl, "love", -5) from _call_change_Girl_stat_955
-            call change_Girl_stat(Girl, "trust", -5) from _call_change_Girl_stat_956
+        if Companion.History.check(f"said_no_to_{Clothing.string}", tracker = "recent") >= 2:
+            call change_Companion_stat(Companion, "love", -5) from _call_change_Companion_stat_955
+            call change_Companion_stat(Companion, "trust", -5) from _call_change_Companion_stat_956
             
-            call expression f"{Girl.tag}_rejected_Clothing_twice" from _call_expression_182
-        elif Girl.History.check(f"said_no_to_{Clothing.string}", tracker = "recent") == 1:
-            call change_Girl_stat(Girl, "love", -2) from _call_change_Girl_stat_957
+            call expression f"{Companion.tag}_rejected_Clothing_twice" from _call_expression_182
+        elif Companion.History.check(f"said_no_to_{Clothing.string}", tracker = "recent") == 1:
+            call change_Companion_stat(Companion, "love", -2) from _call_change_Companion_stat_957
 
-            call expression f"{Girl.tag}_rejected_Clothing_once" from _call_expression_183
+            call expression f"{Companion.tag}_rejected_Clothing_once" from _call_expression_183
         else:
-            call expression f"{Girl.tag}_change_Outfit_reject" from _call_expression_184
+            call expression f"{Companion.tag}_change_Outfit_reject" from _call_expression_184
 
-        $ Girl.History.update(f"said_no_to_{Clothing.string}")
+        $ Companion.History.update(f"said_no_to_{Clothing.string}")
 
     return False
 
-label ask_Girl_to_take_off(Clothing, instant = False):
-    $ Girl = Clothing.Owner
+label ask_Character_to_take_off(Clothing, instant = False):
+    $ Companion = Clothing.Owner
 
-    if Girl.status["miffed"] or Girl.status["mad"]:
-        call expression f"{Girl.tag}_change_Outfit_reject_mad" from _call_expression_185
+    if Companion.status["miffed"] or Companion.status["mad"]:
+        call expression f"{Companion.tag}_change_Outfit_reject_mad" from _call_expression_185
 
-        $ Girl.History.update("refused_to_change_Outfit")
-    elif approval_check(Girl, threshold = "change_Outfit"):
-        if not Girl.Clothes[Clothing.Clothing_type].string:
-            call expression f"{Girl.tag}_not_wearing_Clothing_type" pass (Clothing_type = Clothing.Clothing_type) from _call_expression_186
+        $ Companion.History.update("refused_to_change_Outfit")
+    elif approval_check(Companion, threshold = "change_Outfit"):
+        if not Companion.Clothes[Clothing.Clothing_type].string:
+            call expression f"{Companion.tag}_not_wearing_Clothing_type" pass (Clothing_type = Clothing.Clothing_type) from _call_expression_186
 
             return
 
-        call does_Girl_agree_to_change_Clothes(Girl, removed_Items = [Clothing], instant = instant) from _call_does_Girl_agree_to_change_Clothes_5
+        call does_Character_agree_to_change_Clothes(Companion, removed_Items = [Clothing], instant = instant) from _call_does_Character_agree_to_change_Clothes_5
 
         if _return:
             return True
     else:
-        if Girl.History.check("refused_to_change_Outfit", tracker = "recent") >= 2:
-            call change_Girl_stat(Girl, "love", -5) from _call_change_Girl_stat_958
-            call change_Girl_stat(Girl, "trust", -5) from _call_change_Girl_stat_959
+        if Companion.History.check("refused_to_change_Outfit", tracker = "recent") >= 2:
+            call change_Companion_stat(Companion, "love", -5) from _call_change_Companion_stat_958
+            call change_Companion_stat(Companion, "trust", -5) from _call_change_Companion_stat_959
             
-            call expression f"{Girl.tag}_change_Outfit_reject_asked_twice" from _call_expression_188
-        elif Girl.History.check("refused_to_change_Outfit", tracker = "recent") == 1:
-            call change_Girl_stat(Girl, "love", -2) from _call_change_Girl_stat_960
+            call expression f"{Companion.tag}_change_Outfit_reject_asked_twice" from _call_expression_188
+        elif Companion.History.check("refused_to_change_Outfit", tracker = "recent") == 1:
+            call change_Companion_stat(Companion, "love", -2) from _call_change_Companion_stat_960
             
-            call expression f"{Girl.tag}_change_Outfit_reject_asked_once" from _call_expression_189
+            call expression f"{Companion.tag}_change_Outfit_reject_asked_once" from _call_expression_189
         else:
-            call expression f"{Girl.tag}_change_Outfit_reject" from _call_expression_190
+            call expression f"{Companion.tag}_change_Outfit_reject" from _call_expression_190
 
-        $ Girl.History.update("refused_to_change_Outfit")
+        $ Companion.History.update("refused_to_change_Outfit")
 
     return False
 
-label ask_Girl_to_undress(Clothing, state = None, instant = False):
-    $ Girl = Clothing.Owner
+label ask_Character_to_undress(Clothing, state = None, instant = False):
+    $ Companion = Clothing.Owner
 
     if state is None:
-        $ state = Girl.Clothes[Clothing.Clothing_type].undressed_states[Girl.position]
+        $ state = Companion.Clothes[Clothing.Clothing_type].undressed_states[Companion.position]
 
-    if Girl.status["miffed"] or Girl.status["mad"]:
-        call expression f"{Girl.tag}_change_Outfit_reject_mad" from _call_expression_191
+    if Companion.status["miffed"] or Companion.status["mad"]:
+        call expression f"{Companion.tag}_change_Outfit_reject_mad" from _call_expression_191
 
-        $ Girl.History.update("refused_to_change_Outfit")
-    elif approval_check(Girl, threshold = "change_Outfit"):
-        call does_Girl_agree_to_change_Clothes(Girl, undressed_Items = [Clothing], undressed_states = [state], instant = instant) from _call_does_Girl_agree_to_change_Clothes_6
+        $ Companion.History.update("refused_to_change_Outfit")
+    elif approval_check(Companion, threshold = "change_Outfit"):
+        call does_Character_agree_to_change_Clothes(Companion, undressed_Items = [Clothing], undressed_states = [state], instant = instant) from _call_does_Character_agree_to_change_Clothes_6
 
         if _return:
             return True
     else:
-        if Girl.History.check("refused_to_change_Outfit", tracker = "recent") >= 2:
-            call change_Girl_stat(Girl, "love", -5) from _call_change_Girl_stat_961
-            call change_Girl_stat(Girl, "trust", -5) from _call_change_Girl_stat_962
+        if Companion.History.check("refused_to_change_Outfit", tracker = "recent") >= 2:
+            call change_Companion_stat(Companion, "love", -5) from _call_change_Companion_stat_961
+            call change_Companion_stat(Companion, "trust", -5) from _call_change_Companion_stat_962
 
-            call expression f"{Girl.tag}_change_Outfit_reject_asked_twice" from _call_expression_193
-        elif Girl.History.check("refused_to_change_Outfit", tracker = "recent") == 1:
-            call change_Girl_stat(Girl, "love", -2) from _call_change_Girl_stat_963
+            call expression f"{Companion.tag}_change_Outfit_reject_asked_twice" from _call_expression_193
+        elif Companion.History.check("refused_to_change_Outfit", tracker = "recent") == 1:
+            call change_Companion_stat(Companion, "love", -2) from _call_change_Companion_stat_963
 
-            call expression f"{Girl.tag}_change_Outfit_reject_asked_once" from _call_expression_194
+            call expression f"{Companion.tag}_change_Outfit_reject_asked_once" from _call_expression_194
         else:
-            call expression f"{Girl.tag}_change_Outfit_reject" from _call_expression_195
+            call expression f"{Companion.tag}_change_Outfit_reject" from _call_expression_195
 
-        $ Girl.History.update("refused_to_change_Outfit")
+        $ Companion.History.update("refused_to_change_Outfit")
 
     return False
 
-label ask_Girl_to_redress(Clothing, state = 0, instant = False):
-    $ Girl = Clothing.Owner
+label ask_Character_to_redress(Clothing, state = 0, instant = False):
+    $ Companion = Clothing.Owner
 
-    if Girl.status["miffed"] or Girl.status["mad"]:
-        call expression f"{Girl.tag}_change_Outfit_reject_mad" from _call_expression_196
+    if Companion.status["miffed"] or Companion.status["mad"]:
+        call expression f"{Companion.tag}_change_Outfit_reject_mad" from _call_expression_196
 
-        $ Girl.History.update("refused_to_change_Outfit")
-    elif approval_check(Girl, threshold = "change_Outfit"):
+        $ Companion.History.update("refused_to_change_Outfit")
+    elif approval_check(Companion, threshold = "change_Outfit"):
         $ renpy.dynamic(temp_Clothing_types = removable_Clothing_types[:])
 
         while temp_Clothing_types:
-            if Girl.Clothes[temp_Clothing_types[0]].string:
-                if Clothing.string in Girl.Clothes[temp_Clothing_types[0]].covered_by.keys() and state in Girl.Clothes[temp_Clothing_types[0]].covered_by[Clothing.string]:
-                    if Girl.Clothes[temp_Clothing_types[0]].state > 0:
-                        call fix(Girl, temp_Clothing_types[0], state = 0, instant = instant) from _call_fix
+            if Companion.Clothes[temp_Clothing_types[0]].string:
+                if Clothing.string in Companion.Clothes[temp_Clothing_types[0]].covered_by.keys() and state in Companion.Clothes[temp_Clothing_types[0]].covered_by[Clothing.string]:
+                    if Companion.Clothes[temp_Clothing_types[0]].state > 0:
+                        call fix(Companion, temp_Clothing_types[0], state = 0, instant = instant) from _call_fix
 
             $ temp_Clothing_types.remove(temp_Clothing_types[0])
         
-        call fix(Girl, Clothing.Clothing_type, state = state, instant = instant) from _call_fix_1
+        call fix(Companion, Clothing.Clothing_type, state = state, instant = instant) from _call_fix_1
 
         return True
     else:
-        if Girl.History.check("refused_to_change_Outfit", tracker = "recent") >= 2:
-            call change_Girl_stat(Girl, "love", -5) from _call_change_Girl_stat_964
-            call change_Girl_stat(Girl, "trust", -5) from _call_change_Girl_stat_965
+        if Companion.History.check("refused_to_change_Outfit", tracker = "recent") >= 2:
+            call change_Companion_stat(Companion, "love", -5) from _call_change_Companion_stat_964
+            call change_Companion_stat(Companion, "trust", -5) from _call_change_Companion_stat_965
 
-            call expression f"{Girl.tag}_change_Outfit_reject_asked_twice" from _call_expression_198
-        elif Girl.History.check("refused_to_change_Outfit", tracker = "recent") == 1:
-            call change_Girl_stat(Girl, "love", -2) from _call_change_Girl_stat_966
+            call expression f"{Companion.tag}_change_Outfit_reject_asked_twice" from _call_expression_198
+        elif Companion.History.check("refused_to_change_Outfit", tracker = "recent") == 1:
+            call change_Companion_stat(Companion, "love", -2) from _call_change_Companion_stat_966
 
-            call expression f"{Girl.tag}_change_Outfit_reject_asked_once" from _call_expression_199
+            call expression f"{Companion.tag}_change_Outfit_reject_asked_once" from _call_expression_199
         else:
-            call expression f"{Girl.tag}_change_Outfit_reject" from _call_expression_200
+            call expression f"{Companion.tag}_change_Outfit_reject" from _call_expression_200
 
-        $ Girl.History.update("refused_to_change_Outfit")
+        $ Companion.History.update("refused_to_change_Outfit")
 
     return False
 
-label does_Girl_agree_to_change_Clothes(Character, added_Items = None, removed_Items = None, undressed_Items = None, undressed_states = None, automatic = False, instant = False):
+label does_Character_agree_to_change_Clothes(Character, added_Items = None, removed_Items = None, undressed_Items = None, undressed_states = None, automatic = False, instant = False):
     if not added_Items:
         $ added_Items = []
     
@@ -339,12 +339,12 @@ label does_Girl_agree_to_change_Clothes(Character, added_Items = None, removed_I
                         $ temp_body_parts = []
                 else:
                     if Character.History.check(f"refused_to_show_{temp_body_parts[0]}", tracker = "recent") >= 2:
-                        call change_Girl_stat(Character, "love", -5) from _call_change_Girl_stat_967
-                        call change_Girl_stat(Character, "trust", -5) from _call_change_Girl_stat_968
+                        call change_Companion_stat(Character, "love", -5) from _call_change_Companion_stat_967
+                        call change_Companion_stat(Character, "trust", -5) from _call_change_Companion_stat_968
 
                         call expression f"{Character.tag}_rejects_show_{temp_body_parts[0]}_asked_twice" from _call_expression_206
                     elif Character.History.check(f"refused_to_show_{temp_body_parts[0]}", tracker = "recent") == 1:
-                        call change_Girl_stat(Character, "love", -2) from _call_change_Girl_stat_969
+                        call change_Companion_stat(Character, "love", -2) from _call_change_Companion_stat_969
 
                         call expression f"{Character.tag}_rejects_show_{temp_body_parts[0]}_asked_once" from _call_expression_207
                     else:
