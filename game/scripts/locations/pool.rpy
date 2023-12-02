@@ -28,6 +28,8 @@ label pool:
                 call sunbathe from _call_sunbathe
             "Sunbathe (locked)" if clock <= 0 or time_index > 2 or weather:
                 pass
+            "Approach. . ." if Offscreen:
+                call approach_Characters
             "Wait" if time_index < 3:
                 call wait_around from _call_wait_around_26
             "Wait (locked)" if time_index > 2:

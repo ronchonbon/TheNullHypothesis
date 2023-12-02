@@ -896,9 +896,7 @@ label ch1_Sentinel_attack:
 
     # call change_Outfit(Jean, Jean.Wardrobe.Outfits["Casual 1"], instant = True) from _call_change_Outfit_31
 
-    $ color_transform = get_color_transform(location = Player.location)
-
-    call show_Character(Jean, sprite_anchor = Jean_standing_anchor, x = stage_far_far_right, y = Jean_standing_height, sprite_zoom = Jean_standing_zoom, sprite_layer = 6, color_transform = color_transform) from _call_show_Character_5
+    call show_Character(Jean, x = stage_far_far_right) from _call_show_Character_5
 
     $ Jean.name = Jean.temp
     $ Jean.change_face("surprised3")
@@ -930,7 +928,7 @@ label ch1_Sentinel_attack:
 
     ch_Jean "Then let's give you a reason to try harder."
 
-    call show_Character(Jean, sprite_anchor = Jean_standing_anchor, x = stage_far_right, y = Jean_standing_height, sprite_zoom = 1.4*Jean_standing_zoom, sprite_layer = 6, color_transform = color_transform) from _call_show_Character_6
+    call show_Character(Jean, x = stage_far_right, sprite_zoom = 1.4*Jean_standing_zoom) from _call_show_Character_6
 
     "Without any hesitation, [Jean.name] walks right up to you and grabs your hand."
 
@@ -1102,9 +1100,7 @@ label ch1_Sentinel_attack:
 
     # call change_Outfit(Rogue, Rogue.Wardrobe.Outfits["Casual 1"], instant = True) from _call_change_Outfit_32
 
-    $ color_transform = get_color_transform(location = Player.location)
-
-    call show_Character(Rogue, sprite_anchor = Rogue_standing_anchor, x = stage_far_far_right, y = Rogue_standing_height, sprite_zoom = Rogue_standing_zoom, sprite_layer = 6, color_transform = color_transform) from _call_show_Character_7
+    call show_Character(Rogue, x = stage_far_far_right) from _call_show_Character_7
 
     $ Rogue.change_face("worried1")
 
@@ -1113,7 +1109,7 @@ label ch1_Sentinel_attack:
 
     $ Rogue.change_face("worried2")
 
-    call show_Character(Rogue, sprite_anchor = Rogue_standing_anchor, x = stage_far_right, y = Rogue_standing_height, sprite_zoom = 1.4*Rogue_standing_zoom, sprite_layer = 6, color_transform = color_transform) from _call_show_Character_8
+    call show_Character(Rogue, x = stage_far_right, sprite_zoom = 1.4*Rogue_standing_zoom) from _call_show_Character_8
 
     $ Rogue.change_face("worried1", eyes = "right")
 
@@ -1348,9 +1344,7 @@ label ch1_Sentinel_attack:
     # call change_Outfit(Laura, Laura.Wardrobe.Outfits["Casual 1"], instant = True) from _call_change_Outfit_33
     # call try_on(Laura, Laura.Wardrobe.Clothes["messy hair"]) from _call_try_on_12
 
-    $ color_transform = get_color_transform(location = Player.location)
-
-    call show_Character(Laura, sprite_anchor = Laura_standing_anchor, x = stage_far_right, y = Laura_standing_height, sprite_zoom = 1.4*Laura_standing_zoom, sprite_layer = 6, color_transform = color_transform) from _call_show_Character_9
+    call show_Character(Laura, x = stage_far_right, sprite_zoom = 1.4*Laura_standing_zoom) from _call_show_Character_9
 
     $ Laura.change_face("furious")
 

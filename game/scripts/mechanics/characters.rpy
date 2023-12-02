@@ -82,7 +82,30 @@ label set_the_scene(location = None, show_Characters = True, show_Party = True, 
 
     $ Present, left_Slot, middle_Slot, right_Slot, Offscreen = get_Present(location = Player.location, selected_Character = selected_Character, traveling = traveling)
 
-    $ renpy.dynamic(Background = [])
+    if traveling:
+        $ Background = []
+    else:
+        if left_Slot in Background:
+            $ Background.remove(left_Slot)
+
+        if left_Slot in Background:
+            $ Background.remove(middle_Slot)
+
+        if left_Slot in Background:
+            $ Background.remove(right_Slot)
+
+        python:
+            for C in Offscreen:
+                if C in Background:
+                    Background.remove(C)
+
+    $ renpy.dynamic(temp_Characters = Offscreen[:])
+    
+    while temp_Characters:
+        if renpy.showing(f"{temp_Characters[0].tag}_sprite"):
+            call hide_Character(temp_Characters[0], fade = fade_Characters)
+
+        $ temp_Characters.remove(temp_Characters[0])
 
     if (show_Characters and Present) or (show_Party and Party):
         $ color_transform = get_color_transform(location = Player.location)
@@ -119,7 +142,6 @@ label set_the_scene(location = None, show_Characters = True, show_Party = True, 
                     $ y = temp_Characters[0].sprite_position[1]
                     $ sprite_zoom = eval(f"{temp_Characters[0].tag}_standing_zoom")
                     $ sprite_layer = temp_Characters[0].sprite_layer
-                    $ background_color_transform = color_transform
 
                     if chosen_Slot["anchor"][0] and chosen_Slot["anchor"][1]:    
                         $ anchor = [chosen_Slot["anchor"][0], chosen_Slot["anchor"][1]]
@@ -143,11 +165,14 @@ label set_the_scene(location = None, show_Characters = True, show_Party = True, 
                         $ sprite_layer = chosen_Slot["layer"]
 
                     if chosen_Slot["color_transform"]:
-                        $ color_transform = chosen_Slot["color_transform"]
+                        $ background_color_transform = chosen_Slot["color_transform"]
 
-                    call show_Character(temp_Characters[0], sprite_anchor = anchor, x = x, y = y, sprite_zoom = sprite_zoom, sprite_layer = sprite_layer, color_transform = background_color_transform, fade = fade_Characters)
+                        call show_Character(temp_Characters[0], sprite_anchor = anchor, x = x, y = y, sprite_zoom = sprite_zoom, sprite_layer = sprite_layer, color_transforms = [color_transform, background_color_transform, depth_of_field], fade = fade_Characters)
+                    else:
+                        call show_Character(temp_Characters[0], sprite_anchor = anchor, x = x, y = y, sprite_zoom = sprite_zoom, sprite_layer = sprite_layer, color_transforms = [color_transform, depth_of_field], fade = fade_Characters)
 
-                    $ Background.append(temp_Characters[0])
+                    if temp_Characters[0] not in Background:
+                        $ Background.append(temp_Characters[0])
 
                 $ temp_Characters.remove(temp_Characters[0])
 
@@ -163,23 +188,23 @@ label set_the_scene(location = None, show_Characters = True, show_Party = True, 
             $ renpy.dynamic(temp_Characters = Present[:])
 
             while temp_Characters:
-                if temp_Characters[0] != right_Slot and temp_Characters[0] not in Background and temp_Characters[0].sprite_position[0] in [stage_far_right, stage_far_right - 0.05] and renpy.showing(f"{temp_Characters[0].tag}_sprite"):
+                if temp_Characters[0] != right_Slot and temp_Characters[0].sprite_position[0] in [stage_far_right, stage_far_right - 0.05] and renpy.showing(f"{temp_Characters[0].tag}_sprite"):
                     call hide_Character(temp_Characters[0], fade = fade_Characters, send_Offscreen = False)
 
                 $ temp_Characters.remove(temp_Characters[0])
 
-            call show_Character(right_Slot, sprite_anchor = eval(f"{right_Slot.tag}_standing_anchor"), x = stage_far_right, y = eval(f"{right_Slot.tag}_standing_height"), sprite_layer = 5, color_transform = color_transform, fade = fade_Characters)
+            call show_Character(right_Slot, sprite_anchor = eval(f"{right_Slot.tag}_standing_anchor"), x = stage_far_right, y = eval(f"{right_Slot.tag}_standing_height"), sprite_layer = 7, color_transforms = [color_transform], fade = fade_Characters)
 
         if left_Slot and (not renpy.showing(f"{left_Slot.tag}_sprite") or left_Slot.sprite_position[0] != stage_left):
             $ renpy.dynamic(temp_Characters = Present[:])
 
             while temp_Characters:
-                if temp_Characters[0] != left_Slot and temp_Characters[0] not in Background and temp_Characters[0].sprite_position[0] in [stage_left, stage_left + 0.05] and renpy.showing(f"{temp_Characters[0].tag}_sprite"):
+                if temp_Characters[0] != left_Slot and temp_Characters[0].sprite_position[0] in [stage_left, stage_left + 0.05] and renpy.showing(f"{temp_Characters[0].tag}_sprite"):
                     call hide_Character(temp_Characters[0], fade = fade_Characters, send_Offscreen = False)
 
                 $ temp_Characters.remove(temp_Characters[0])
 
-            call show_Character(left_Slot, sprite_anchor = eval(f"{left_Slot.tag}_standing_anchor"), x = stage_left, y = eval(f"{left_Slot.tag}_standing_height"), sprite_layer = 5, color_transform = color_transform, fade = fade_Characters)
+            call show_Character(left_Slot, sprite_anchor = eval(f"{left_Slot.tag}_standing_anchor"), x = stage_left, y = eval(f"{left_Slot.tag}_standing_height"), sprite_layer = 7, color_transforms = [color_transform], fade = fade_Characters)
 
         if left_Slot and right_Slot:
             $ x = (stage_left + stage_far_right)/2
@@ -194,12 +219,12 @@ label set_the_scene(location = None, show_Characters = True, show_Party = True, 
             $ renpy.dynamic(temp_Characters = Present[:])
 
             while temp_Characters:
-                if temp_Characters[0] != middle_Slot and temp_Characters[0] not in Background and temp_Characters[0].sprite_position[0] in [(stage_left + stage_far_right)/2, stage_far_right - 0.05, stage_left + 0.05, stage_center] and renpy.showing(f"{temp_Characters[0].tag}_sprite"):
+                if temp_Characters[0] != middle_Slot and temp_Characters[0].sprite_position[0] in [(stage_left + stage_far_right)/2, stage_far_right - 0.05, stage_left + 0.05, stage_center] and renpy.showing(f"{temp_Characters[0].tag}_sprite"):
                     call hide_Character(temp_Characters[0], fade = fade_Characters, send_Offscreen = False)
 
                 $ temp_Characters.remove(temp_Characters[0])
 
-            call show_Character(middle_Slot, sprite_anchor = eval(f"{middle_Slot.tag}_standing_anchor"), x = x, y = eval(f"{middle_Slot.tag}_standing_height"), sprite_layer = 5, color_transform = color_transform, fade = fade_Characters)
+            call show_Character(middle_Slot, sprite_anchor = eval(f"{middle_Slot.tag}_standing_anchor"), x = x, y = eval(f"{middle_Slot.tag}_standing_height"), sprite_layer = 7, color_transforms = [color_transform], fade = fade_Characters)
 
     $ renpy.dynamic(temp_Characters = Present[:])
 
@@ -212,25 +237,30 @@ label set_the_scene(location = None, show_Characters = True, show_Party = True, 
     if not silent and black_screen:
         $ fade_in_from_black(0.4)
 
-    if greetings and traveling and Present:
-        $ renpy.dynamic(temp_Characters = [])
+    if Present and greetings:
+        if traveling:
+            $ renpy.dynamic(temp_Characters = [])
 
-        if left_Slot:
-            $ temp_Characters.append(left_Slot)
+            if left_Slot:
+                $ temp_Characters.append(left_Slot)
 
-        if middle_Slot:
-            $ temp_Characters.append(middle_Slot)
+            if middle_Slot:
+                $ temp_Characters.append(middle_Slot)
 
-        if right_Slot:
-            $ temp_Characters.append(right_Slot)
+            if right_Slot:
+                $ temp_Characters.append(right_Slot)
 
-        python:
-            for C in Party:
-                if C in temp_Characters:
-                    temp_Characters.remove(C)
+            python:
+                for C in Party:
+                    if C in temp_Characters:
+                        temp_Characters.remove(C)
 
-        if temp_Characters:
-            call Characters_greet_Player(temp_Characters) from _call_Characters_greet_Player_13
+            if temp_Characters:
+                call Characters_greet_Player(temp_Characters) from _call_Characters_greet_Player_13
+        elif new_Characters:
+            call Characters_greet_Player(new_Characters)
+
+            $ new_Characters = []
 
     $ Character_picker_disabled = temp_Character_picker_disabled
     $ belt_disabled = temp_belt_disabled
@@ -252,8 +282,12 @@ label add_Characters(Characters, direction = None, greetings = False, fade = Tru
             C.destination = Player.location
             C.location = Player.location
 
-            if C in Offscreen and direction:
-                Offscreen.remove(C)
+            if direction:
+                if C in Offscreen:
+                    Offscreen.remove(C)
+
+                if C in Background:
+                    Background.remove(C)
 
             if direction == "right":
                 if right_Slot:
@@ -281,6 +315,9 @@ label add_Characters(Characters, direction = None, greetings = False, fade = Tru
                     right_Slot = C
                 else:
                     Offscreen.append(C)
+
+    if greetings:
+        $ new_Characters = Characters[:]
 
     call set_the_scene(greetings = greetings, fade = False, fade_Characters = fade) from _call_set_the_scene_325
 
@@ -318,6 +355,12 @@ label remove_Characters(Characters = None, location = None, fade = True):
             if renpy.showing(f"{temp_Characters[0].tag}_sprite"):
                 call hide_Character(temp_Characters[0], fade = fade) from _call_hide_Character_51
 
+            if temp_Characters[0] in Offscreen:
+                $ Offscreen.remove(temp_Characters[0])
+
+            if temp_Characters[0] in Background:
+                $ Background.remove(temp_Characters[0])
+
         $ temp_Characters.remove(temp_Characters[0])
 
     if location == Player.location:
@@ -352,8 +395,8 @@ label send_Characters(Characters, location, behavior = None, farewells = False, 
     if Characters in all_Characters:
         $ Characters = [Characters]
 
-    $ leaving_Characters = []
-    $ arriving_Characters = []
+    $ renpy.dynamic(leaving_Characters = [])
+    $ renpy.dynamic(arriving_Characters = [])
 
     python:
         for C in Characters:
@@ -439,7 +482,7 @@ label displace_Characters(Characters):
     return
 
 label swap_Slots(Character, new_Slot):
-    $ previous_Slot = None
+    $ renpy.dynamic(previous_Slot = None)
 
     if left_Slot == Character:
         $ previous_Slot = "left"

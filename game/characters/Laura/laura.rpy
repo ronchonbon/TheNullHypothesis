@@ -8,6 +8,7 @@ init -1:
     define Laura_standing_anchor = [int(1220*character_sampling), int(1510*character_sampling)]
     define Laura_standing_height = 0.305
     define Laura_standing_zoom = 0.35*character_adjustment
+    define Laura_standing_bottom = 0.959
     define Laura_standing_neck_position = [int(1305*character_sampling), int(1575*character_sampling)]
     define Laura_standing_left_breast_position = [int(1330*character_sampling), int(1980*character_sampling)]
     define Laura_standing_right_breast_position = [int(1040*character_sampling), int(1985*character_sampling)]

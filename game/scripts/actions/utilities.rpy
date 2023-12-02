@@ -950,13 +950,11 @@ label stop_all_Actions(close_interface = False, automatic = False):
             if C in temp_Characters:
                 temp_Characters.remove(C)
 
-    $ color_transform = get_color_transform(location = Player.location)
-
     while temp_Characters:
         $ stop_Actions(temp_Characters[0])
 
         if not automatic:
-            call show_Character(temp_Characters[0], color_transform = color_transform) from _call_show_Character_2
+            call show_Character(temp_Characters[0]) from _call_show_Character_2
 
         $ temp_Characters[0].Lovers = {}
 

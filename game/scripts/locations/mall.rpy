@@ -36,6 +36,8 @@ label mall:
                 show screen shop_screen("sex")
             "'The Moaning of Life' (locked)" if time_index > 2:
                 pass
+            "Approach. . ." if Offscreen:
+                call approach_Characters
             "Wait" if time_index < 3:
                 call wait_around from _call_wait_around_24
             "Wait (locked)" if time_index > 2:

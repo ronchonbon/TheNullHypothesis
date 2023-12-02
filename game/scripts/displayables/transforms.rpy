@@ -56,6 +56,9 @@ init -99:
     transform moonlight:
         matrixcolor TintMatrix(Color(rgb = (0.5, 0.6, 1.0)))*BrightnessMatrix(0.0)
 
+    transform raining:
+        matrixcolor ContrastMatrix(0.9)*SaturationMatrix(0.8)
+
     transform indoors:
         matrixcolor TintMatrix(Color(rgb = (1.0, 1.0, 1.0)))*BrightnessMatrix(0.0)
 
@@ -70,6 +73,15 @@ init -99:
 
     transform red_lights:
         matrixcolor TintMatrix(Color(rgb=(1.0, 0.7, 0.7)))*BrightnessMatrix(0.0)
+
+    transform shadow:
+        matrixcolor ContrastMatrix(0.9)*SaturationMatrix(0.9)*BrightnessMatrix(-0.05)
+
+    transform deep_shadow:
+        matrixcolor ContrastMatrix(0.8)*SaturationMatrix(0.7)*BrightnessMatrix(-0.1)
+
+    transform depth_of_field:
+        blur 0
 
     transform love_color:
         matrixcolor TintMatrix("#c11b17")

@@ -8,6 +8,7 @@ init -1:
     define Kurt_standing_anchor = [int(1250*character_sampling), int(1250*character_sampling)]
     define Kurt_standing_height = 0.23
     define Kurt_standing_zoom = 0.35*character_adjustment
+    define Kurt_standing_bottom = 0.943
 
 init -2 python:
 
@@ -144,7 +145,7 @@ label Kurt_teleports_in(dialogue = None, x = None, y = None, add = True):
     if not y:
         $ y = Kurt_standing_height
 
-    call show_Character(Kurt, x = x, y = y, sprite_layer = 6, fade = False) from _call_show_Character
+    call show_Character(Kurt, x = x, y = y, fade = False) from _call_show_Character
 
     $ Kurt.smoke = False
 

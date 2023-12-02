@@ -8,6 +8,7 @@ init -1:
     define Jean_standing_anchor = [int(1260*character_sampling), int(1330*character_sampling)]
     define Jean_standing_height = 0.28
     define Jean_standing_zoom = 0.35*character_adjustment
+    define Jean_standing_bottom = 0.943
     define Jean_standing_neck_position = [int(1310*character_sampling), int(1410*character_sampling)]
     define Jean_standing_left_breast_position = [int(1340*character_sampling), int(1840*character_sampling)]
     define Jean_standing_right_breast_position = [int(1020*character_sampling), int(1850*character_sampling)]

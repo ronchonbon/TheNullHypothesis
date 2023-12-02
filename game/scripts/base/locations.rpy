@@ -104,17 +104,80 @@ init -2:
     default infirmary_screen3 = False
 
     define location_Slots = {
-        "bg_campus": {},
+        "bg_campus": {
+            "sidewalk": {
+                "behavior": None,
+                "anchor": [None, 1.0],
+                "position": [0.65, 0.93],
+                "zoom": 0.28,
+                "layer": 3,
+                "color_transform": None},
+            "steps": {
+                "behavior": None,
+                "anchor": [None, 1.0],
+                "position": [0.46, 0.785],
+                "zoom": 0.1,
+                "layer": 3,
+                "color_transform": None}},
         "bg_classroom": {
             "podium": {
                 "behavior": "teaching",
                 "anchor": [None, 1.0],
                 "position": [0.39, 0.69],
-                "zoom": 0.3,
+                "zoom": 0.4,
                 "layer": 3,
                 "color_transform": None}},
-        "bg_danger": {},
+        "bg_danger": {
+            "training1": {
+                "behavior": "training",
+                "anchor": [None, 1.0],
+                "position": [0.225, 0.95],
+                "zoom": 0.3,
+                "layer": 3,
+                "color_transform": shadow},
+            "training2": {
+                "behavior": "training",
+                "anchor": [None, 1.0],
+                "position": [0.65, 0.905],
+                "zoom": 0.15,
+                "layer": 3,
+                "color_transform": shadow}},
         "bg_girls_hallway": {},
         "bg_hallway": {},
-        "bg_mall": {},
-        "bg_pool": {}}
+        "bg_mall": {
+            "shopping": {
+                "behavior": None,
+                "anchor": [None, 1.0],
+                "position": [0.85, 0.91],
+                "zoom": 0.4,
+                "layer": 5,
+                "color_transform": None}},
+        "bg_pool": {
+            "left_edge": {
+                "behavior": None,
+                "anchor": [None, 1.0],
+                "position": [0.4, 0.61],
+                "zoom": 0.14,
+                "layer": 3,
+                "color_transform": None},
+            "far_edge": {
+                "behavior": None,
+                "anchor": [None, 1.0],
+                "position": [0.8, 0.55],
+                "zoom": 0.11,
+                "layer": 3,
+                "color_transform": deep_shadow},
+            "diving_board": {
+                "behavior": None,
+                "anchor": [None, 1.0],
+                "position": [0.225, 0.99],
+                "zoom": 0.3,
+                "layer": 3,
+                "color_transform": None},
+            "right_edge": {
+                "behavior": None,
+                "anchor": [None, 1.0],
+                "position": [0.85, 0.8],
+                "zoom": 0.25,
+                "layer": 3,
+                "color_transform": deep_shadow}}}

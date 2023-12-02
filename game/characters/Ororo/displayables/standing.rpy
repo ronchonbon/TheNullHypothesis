@@ -64,6 +64,9 @@ image Ororo_sprite standing:
     xysize (int(2500*character_sampling), int(4500*character_sampling))
 
 layeredimage Ororo_standing:
+    if Ororo.ground_shadow:
+        "characters/Ororo/images/standing/ground_shadow.webp"
+
     if renpy.get_screen("Wardrobe_screen"):
         "Ororo_standing_hair_back"
     else:

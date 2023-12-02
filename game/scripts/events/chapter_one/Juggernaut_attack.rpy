@@ -1725,7 +1725,7 @@ label ch1_Juggernaut_attack_path_1A:
 
     # call change_Outfit(Laura, Laura.Wardrobe.Outfits["Hero (Chapter I)"], instant = True) from _call_change_Outfit_29
 
-    call show_Character(Laura, x = stage_far_far_right, sprite_layer = 16, color_transform = red_lights, fade = False) from _call_show_Character_3
+    call show_Character(Laura, x = stage_far_far_right, sprite_layer = 16, color_transforms = [red_lights], fade = False) from _call_show_Character_3
 
     $ Laura.change_face("furious")
 
@@ -2175,7 +2175,7 @@ label ch1_Juggernaut_attack_path_1B:
 
     # call change_Outfit(Laura, Laura.Wardrobe.Outfits["Hero (Chapter I)"], instant = True) from _call_change_Outfit_30
 
-    call show_Character(Laura, x = stage_far_far_right, sprite_layer = 16, color_transform = red_lights, fade = False) from _call_show_Character_4
+    call show_Character(Laura, x = stage_far_far_right, sprite_layer = 16, color_transforms = [red_lights], fade = False) from _call_show_Character_4
 
     $ Laura.change_face("furious")
 

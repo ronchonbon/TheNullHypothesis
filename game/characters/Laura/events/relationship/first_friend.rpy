@@ -425,8 +425,7 @@ label Laura_first_friend_part_three:
     $ reset_behavior(Laura)
     
     call set_Character_Outfits(Laura) from _call_set_Character_Outfits_3
-
-    call show_Character(Laura, x = stage_center, sprite_layer = 6, fade = False) from _call_show_Character_1
+    call show_Character(Laura, x = stage_center, fade = False) from _call_show_Character_1
 
     ch_Player "Gah! What the fu. . ."
     ch_Laura "We are going to talk."

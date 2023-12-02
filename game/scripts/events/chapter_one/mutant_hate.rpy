@@ -262,10 +262,7 @@ label ch1_mutant_hate:
         zoom background_adjustment
 
     call set_the_scene(location = "bg_town") from _call_set_the_scene_281
-    
-    $ color_transform = get_color_transform(location = Player.location)
-
-    call show_Character(Kurt, sprite_anchor = Kurt_standing_anchor, x = stage_center - 0.1, y = Kurt_standing_height, sprite_layer = 5, color_transform = color_transform, fade = True) from _call_show_Character_10
+    call show_Character(Kurt, x = stage_center - 0.1, sprite_layer = 5, fade = True) from _call_show_Character_10
 
     "As you walk into the town proper, you see [Kurt.name] put his hood up."
 

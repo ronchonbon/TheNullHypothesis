@@ -1,7 +1,9 @@
 init python:
 
     def get_color_transform(location):
-        if (location in bedrooms or location in ["bg_campus", "bg_classroom", "bg_mall", "bg_pool"]) and time_index == 0:
+        if location in ["bg_campus", "bg_pool"] and weather in ["rain", "snow"]:
+            color_transform = raining
+        elif (location in bedrooms or location in ["bg_campus", "bg_classroom", "bg_mall", "bg_pool"]) and time_index == 0:
             color_transform = morning
         elif (location in bedrooms or location in ["bg_girls_hallway", "bg_hallway", "bg_study", "bg_campus", "bg_classroom", "bg_mall", "bg_pool"]) and time_index == 1:
             color_transform = daylight
@@ -47,7 +49,7 @@ init python:
 
         return
 
-label show_Character(Character, t = None, sprite_anchor = None, x = None, y = None, sprite_zoom = None, sprite_rotation = None, sprite_layer = None, color_transform = None, animation_transform = None, fade = True):
+label show_Character(Character, t = None, sprite_anchor = None, x = None, y = None, sprite_zoom = None, sprite_rotation = None, sprite_layer = None, color_transforms = None, animation_transforms = None, fade = True):
     $ check_predicted_images()
     
     $ Character.position = "standing"
@@ -77,6 +79,8 @@ label show_Character(Character, t = None, sprite_anchor = None, x = None, y = No
 
     if sprite_anchor is None:
         $ sprite_anchor = eval(f"{Character.tag}_standing_anchor")
+    elif sprite_anchor[1] == 1.0:
+        $ sprite_anchor[1] = eval(f"{Character.tag}_standing_bottom")
 
     if Character.sprite_anchor[0] != sprite_anchor[0] and Character.sprite_anchor[1] != sprite_anchor[1]:
         $ different = True
@@ -114,8 +118,10 @@ label show_Character(Character, t = None, sprite_anchor = None, x = None, y = No
             $ different = True
 
         $ Character.sprite_layer = sprite_layer
+    else:
+        $ Character.sprite_layer = 7
 
-    if not renpy.showing(f"{Character.tag}_sprite standing") or different or color_transform or animation_transform:
+    if not renpy.showing(f"{Character.tag}_sprite standing") or different or color_transforms or s:
         $ renpy.hide(f"{Character.tag}_sprite")
         
         if t is not None and not black_screen and not Character.behavior == "teaching":
@@ -131,14 +137,18 @@ label show_Character(Character, t = None, sprite_anchor = None, x = None, y = No
                 move_sprite(Character.sprite_position[0], Character.sprite_position[1]),
                 rotate_sprite(Character.sprite_rotation)]
 
-        if color_transform:
-            $ transform_list.append(color_transform)
+        if color_transforms:
+            python:
+                for c_t in color_transforms:
+                    transform_list.append(c_t)
         else:
             $ color_transform = get_color_transform(location = Player.location)
             $ transform_list.append(color_transform)
 
-        if animation_transform:
-            $ transform_list.append(animation_transform)
+        if animation_transforms:
+            python:
+                for a_t in animation_transforms:
+                    transform_list.append(a_t)
 
         if Character in all_Companions:
             $ renpy.show(f"{Character.tag}_sprite standing", at_list = transform_list, zorder = Character.sprite_layer, tag = f"{Character.tag}_sprite")
@@ -157,6 +167,8 @@ label hide_Character(Character, fade = True, send_Offscreen = True):
 
     if fade:
         with dissolve
+
+    $ Character.sprite_position = [0.0, eval(f"{Character.tag}_standing_height")]
 
     $ Character.left_arm = "neutral"
     $ Character.right_arm = "neutral"
@@ -178,7 +190,7 @@ label hide_Character(Character, fade = True, send_Offscreen = True):
 
     return
 
-label show_pose(Companion, pose, t = None, x = None, y = None, sprite_zoom = None, sprite_rotation = None, sprite_layer = None, color_transform = None, animation_transform = None, fade = False):
+label show_pose(Companion, pose, t = None, x = None, y = None, sprite_zoom = None, sprite_rotation = None, sprite_layer = None, color_transforms = None, animation_transforms = None, fade = False):
     $ Companion.position = pose
 
     $ check_predicted_images()
@@ -220,7 +232,7 @@ label show_pose(Companion, pose, t = None, x = None, y = None, sprite_zoom = Non
 
         $ Companion.sprite_layer = sprite_layer
     
-    if not renpy.showing(f"{Companion.tag}_sprite {pose}") or different or color_transform or animation_transform:
+    if not renpy.showing(f"{Companion.tag}_sprite {pose}") or different or color_transforms or animation_transforms:
         if pose != "standing":
             if t is not None and not black_screen:
                 $ transform_list = [
@@ -249,13 +261,17 @@ label show_pose(Companion, pose, t = None, x = None, y = None, sprite_zoom = Non
                     rotate_sprite(Companion.sprite_rotation)]
 
         if color_transform:
-            $ transform_list.append(color_transform)
+            python:
+                for c_t in color_transforms:
+                    transform_list.append(c_t)
         else:
             $ color_transform = get_color_transform(location = Player.location)
             $ transform_list.append(color_transform)
 
-        if animation_transform:
-            $ transform_list.append(animation_transform)
+        if animation_transforms:
+            python:
+                for a_t in animation_transforms:
+                    transform_list.append(a_t)
     else:
         if pose != "standing":
             $ transform_list = [

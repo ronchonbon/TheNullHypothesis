@@ -28,6 +28,8 @@ label study:
                 call travel("bg_classroom") from _call_travel_33
             "Grounds":
                 call travel("bg_campus") from _call_travel_34
+            "Approach. . ." if Offscreen:
+                call approach_Characters
             "Wait" if time_index < 3:
                 call wait_around from _call_wait_around_28
             "Wait (locked)" if time_index > 2:

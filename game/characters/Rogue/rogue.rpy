@@ -8,6 +8,7 @@ init -1:
     define Rogue_standing_anchor = [int(1260*character_sampling), int(1300*character_sampling)]
     define Rogue_standing_height = 0.25
     define Rogue_standing_zoom = 0.35*character_adjustment
+    define Rogue_standing_bottom = 0.964
     define Rogue_standing_neck_position = [int(1340*character_sampling), int(1370*character_sampling)]
     define Rogue_standing_left_breast_position = [int(1320*character_sampling), int(1855*character_sampling)]
     define Rogue_standing_right_breast_position = [int(1015*character_sampling), int(1840*character_sampling)]

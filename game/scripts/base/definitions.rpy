@@ -8,6 +8,7 @@ init -2:
     default left_Slot = None
     default middle_Slot = None
     default right_Slot = None
+    default Background = []
     default Offscreen = []
 
     default Party = []
@@ -42,6 +43,7 @@ init -2:
 
     define chapter_names = ["P", "I", "II", "III", "IV", "V", "VI"]
 
+    default new_Characters = []
     default temp_Characters = [CompanionClass("Placeholder")]
     default temp_temp_Characters = [CompanionClass("Placeholder")]
     default temp_Clothes = [ClothingClass(None, "Placeholder", "Placholder", "placeholder", "placeholder", "placeholder", 0, 0, {})]

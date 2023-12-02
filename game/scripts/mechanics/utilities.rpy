@@ -5,7 +5,7 @@ init python:
         temp_left_Slot = left_Slot if left_Slot else None
         temp_middle_Slot = middle_Slot if middle_Slot else None
         temp_right_Slot = right_Slot if right_Slot else None
-        temp_Offscreen = Offscreen[:] if Offscreen else []
+        temp_Offscreen = Offscreen[:] + Background[:] if (Offscreen or Background) else []
 
         location = Player.location if not location else location
 
@@ -55,7 +55,7 @@ init python:
                 temp_middle_Slot, temp_right_Slot = selected_Character, temp_middle_Slot
             else:
                 if temp_left_Slot and temp_middle_Slot and temp_right_Slot:
-                    temp_left_Slot, temp_middle_Slot, temp_right_Slot = temp_middle_Slot, selected_Character, temp_right_Slot
+                    temp_left_Slot, temp_middle_Slot = temp_middle_Slot, selected_Character
                 elif not temp_middle_Slot:
                     temp_middle_Slot = selected_Character
                 elif not temp_left_Slot:
@@ -85,24 +85,60 @@ init python:
 
             if location in location_Slots.keys():
                 for S in location_Slots[location].values():
+                    already_somewhere = False
                     occupied = False
 
                     temp_Characters = temp_Offscreen[:]
 
                     for C in temp_Characters:
-                        for C_alt in temp_Characters:
+                        if C in Background:
+                            for S_alt in location_Slots[location].values():
+                                if S != S_alt and S_alt["position"] == C.sprite_position:
+                                    already_somewhere = True
+
+                                    temp_Offscreen.remove(C)
+
+                                    break
+
+                        for C_alt in Background:
                             if C != C_alt and S["position"] == C_alt.sprite_position:
                                 occupied = True
 
                                 break
 
-                        if not occupied:
+                        if not already_somewhere and not occupied:
                             if not S["behavior"] or C.behavior == S["behavior"]:
                                 C.sprite_position = S["position"]
 
                                 temp_Offscreen.remove(C)
                 
         return temp_Present, temp_left_Slot, temp_middle_Slot, temp_right_Slot, temp_Offscreen
+
+label approach_Characters:
+    $ renpy.dynamic(temp_Characters = sort_Characters_by_approval(Background + Offscreen))
+
+    menu:
+        "Approach. . ."
+        "[temp_Characters[0].name]" if temp_Characters:
+            call add_Characters(temp_Characters[0], direction = "middle", greetings = True)
+        "[temp_Characters[1].name]" if len(temp_Characters) >= 2:
+            call add_Characters(temp_Characters[1], direction = "middle", greetings = True)
+        "[temp_Characters[2].name]" if len(temp_Characters) >= 3:
+            call add_Characters(temp_Characters[2], direction = "middle", greetings = True)
+        "[temp_Characters[3].name]" if len(temp_Characters) >= 4:
+            call add_Characters(temp_Characters[3], direction = "middle", greetings = True)
+        "[temp_Characters[4].name]" if len(temp_Characters) >= 5:
+            call add_Characters(temp_Characters[4], direction = "middle", greetings = True)
+        "[temp_Characters[5].name]" if len(temp_Characters) >= 6:
+            call add_Characters(temp_Characters[5], direction = "middle", greetings = True)
+        "[temp_Characters[6].name]" if len(temp_Characters) >= 7:
+            call add_Characters(temp_Characters[6], direction = "middle", greetings = True)
+        "[temp_Characters[7].name]" if len(temp_Characters) >= 8:
+            call add_Characters(temp_Characters[7], direction = "middle", greetings = True)
+        "Back":
+            pass
+
+    return
 
 label reset_all_interfaces:
     call stop_all_Actions(automatic = True) from _call_stop_all_Actions_6
