@@ -1,72 +1,58 @@
 transform Ororo_standing_head_animation:
     subpixel True
     transform_anchor True
+    animation
     
     pos (0.0, 0.0)
     xzoom 1.0 yzoom 1.0
     rotate 0.0
 
     block:
-        pause 2.0
-        ease 2.0 rotate -3
-        pause 5.0
+        pause 6.7
+        ease 2.0 rotate -1
+        pause 4.5
+        ease 2.0 rotate 1
+        pause 5.7
         ease 2.0 rotate 0
-        pause 10.0
-        ease 2.0 rotate 3
 
         repeat
 
 transform Ororo_standing_right_arm_animation:
     subpixel True
     transform_anchor True
+    animation
     
     pos (0.0, 0.0)
     xzoom 1.0 yzoom 1.0
     rotate 0.0
 
     block:
-        block:
-            choice:
-                pause 2.0
-            choice:
-                pause 5.0
-            choice:
-                pause 10.0
-
-        block:
-            choice:
-                ease 2.0 rotate -2
-            choice:
-                ease 2.0 rotate 0
-            choice:
-                ease 2.0 rotate 2
+        pause 2.6
+        ease 2.0 rotate -1
+        pause 5.3
+        ease 2.0 rotate 0
+        pause 3.4
+        ease 2.0 rotate -2
 
         repeat
 
 transform Ororo_standing_left_arm_animation:
     subpixel True
     transform_anchor True
+    animation
     
     pos (0.0, 0.0)
     xzoom 1.0 yzoom 1.0
     rotate 0.0
 
     block:
-        block:
-            choice:
-                pause 2.0
-            choice:
-                pause 5.0
-            choice:
-                pause 10.0
+        pause 2.5
+        ease 2.0 rotate 0.5
+        pause 5.8
+        ease 2.0 rotate -0.5
+        pause 4.5
+        ease 2.0 rotate 0
 
-        block:
-            choice:
-                ease 2.0 rotate -2
-            choice:
-                ease 2.0 rotate 0
-            choice:
-                ease 2.0 rotate 2
         repeat
     
 image Ororo_sprite standing:

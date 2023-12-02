@@ -24,33 +24,31 @@ screen Character_picker():
         for C in Present:
             if C.behavior != "teaching":
                 if C in all_Companions and renpy.showing(f"{C.tag}_sprite standing"):
-                    button anchor (C.sprite_anchor[0], C.sprite_anchor[1]) pos (C.sprite_position[0], C.sprite_position[1]):
-                        background None
+                    button:
+                        background At(At(At(At(f"{C.tag}_sprite standing", change_sprite_anchor(C.sprite_anchor[0], C.sprite_anchor[1])), move_sprite(C.sprite_position[0], C.sprite_position[1])), zoom_sprite(C.sprite_zoom)), almost_invisible)
+
+                        hovered SetField(C, "hovered", True)
+                        unhovered SetField(C, "hovered", False)
+
+                        if C == middle_Slot:
+                            action [
+                                SetVariable("focused_Companion", C),
+                                SetField(C, "hovered", False),
+                                Show("interactions_screen", Character = C)]
+                        else:
+                            action [
+                                SetVariable("focused_Companion", C),
+                                SetField(C, "hovered", False),
+                                Call("set_the_scene", fade = False, selected_Character = C)]
+
+                        focus_mask True
                         
-                        hovered SetField(C, "hovered", True)
-                        unhovered SetField(C, "hovered", False)
-
-                        focus_mask renpy.displayable(f"{C.tag}_sprite standing")
-
-                        if C == middle_Slot:
-                            action [
-                                SetVariable("focused_Companion", C),
-                                SetField(C, "hovered", False),
-                                Show("interactions_screen", Character = C)]
-                        else:
-                            action [
-                                SetVariable("focused_Companion", C),
-                                SetField(C, "hovered", False),
-                                Call("set_the_scene", fade = False, selected_Character = C)]
-
                 if C in all_NPCs and renpy.showing(f"{C.tag}_sprite"):
-                    button anchor (C.sprite_anchor[0], C.sprite_anchor[1]) pos (C.sprite_position[0], C.sprite_position[1]):  
-                        background None
+                    button:  
+                        background At(At(At(At(f"{C.tag}_sprite", change_sprite_anchor(C.sprite_anchor[0], C.sprite_anchor[1])), move_sprite(C.sprite_position[0], C.sprite_position[1])), zoom_sprite(C.sprite_zoom)), almost_invisible)
 
                         hovered SetField(C, "hovered", True)
                         unhovered SetField(C, "hovered", False)
-
-                        focus_mask renpy.displayable(f"{C.tag}_sprite")
 
                         if C == middle_Slot:
                             action [
@@ -60,6 +58,8 @@ screen Character_picker():
                             action [
                                 SetField(C, "hovered", False),
                                 Call("set_the_scene", fade = False, selected_Character = C)]
+
+                        focus_mask True
 
 screen interactions_screen(Character):
     layer "interface"

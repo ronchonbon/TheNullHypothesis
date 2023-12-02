@@ -1,18 +1,19 @@
 transform Charles_chair_head_animation:
     subpixel True
     transform_anchor True
+    animation
     
     pos (0.0, 0.0)
     xzoom 1.0 yzoom 1.0
     rotate 0.0
 
     block:
-        pause 2.0
-        ease 2.0 rotate -1
-        pause 5.0
+        pause 3.2
+        ease 2.0 rotate -2
+        pause 4.6
+        ease 2.0 rotate 2
+        pause 6.2
         ease 2.0 rotate 0
-        pause 10.0
-        ease 2.0 rotate 1
 
         repeat
 
