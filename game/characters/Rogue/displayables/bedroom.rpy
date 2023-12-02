@@ -30,5 +30,3 @@ layeredimage bg_Rogue:
 
     if "candle" in Rogue.inventory.keys():
         "characters/Rogue/images/bedroom/bg_Rogue_candles_[lighting].webp"
-
-    zoom background_adjustment

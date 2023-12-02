@@ -39,5 +39,3 @@ layeredimage bg_Laura:
 
     if "MMA_gloves" in Laura.inventory.keys():
         "characters/Laura/images/bedroom/bg_Laura_gloves_[lighting].webp"
-
-    zoom background_adjustment

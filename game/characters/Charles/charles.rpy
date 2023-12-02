@@ -87,25 +87,6 @@ init -2 python:
             if time_index == 2:
                 Charles.destination = "bg_study"
 
-        elif Charles.tag == "Kurt":
-            if time_index < 3 and weather != "rain":
-                possible_locations.append("bg_campus")
-
-            if time_index < 3:
-                possible_locations.append("bg_danger")
-
-            if time_index < 3:
-                if time_index == 2:
-                    if temperature[time_index] > 22 and not weather and snow_left == 0:
-                        possible_locations.append("bg_pool")
-
-                    possible_locations.append("bg_mall")
-                elif weekday > 4:
-                    if temperature[time_index] > 22 and not weather and snow_left == 0:
-                        possible_locations.append("bg_pool")
-
-                    possible_locations.append("bg_mall")
-
         return possible_locations
 
 label update_Charles:

@@ -256,7 +256,7 @@ label shower:
                 else:
                     call travel(current_bedroom) from _call_travel_19
             "Approach. . ." if Offscreen:
-                call approach_Characters
+                call approach_Characters from _call_approach_Characters
             "Wait" if time_index < 3:
                 call wait_around from _call_wait_around_14
             "Wait (locked)" if time_index > 2:

@@ -93,7 +93,7 @@ label Laura_chapter_one_season_one_outcast:
         "Take a random seat":
             "You grab a seat in the chair closest to you."
 
-            call hide_Character(Laura)
+            call hide_Character(Laura) from _call_hide_Character_48
             
             $ EventScheduler.Events["Laura_chapter_one_season_one_outcast"].completed = False
             $ EventScheduler.Events["Laura_chapter_one_season_one_outcast"].completed_when = 1e8

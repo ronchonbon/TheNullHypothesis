@@ -15,9 +15,7 @@ init python:
 
             "chapter == 1 and season == 1",
 
-            "weekday < 5 and time_index >= 3",
-
-            "not Jean.History.check('trained_with_Player', tracker = 'daily')",
+            "time_index >= 3",
 
             "Jean.is_in_normal_mood()"]
 
@@ -42,13 +40,11 @@ init python:
             
             "chapter == 1 and season == 1",
 
-            "weekday < 5 and time_index >= 3",
+            "time_index >= 3",
             
             "Jean.location == 'bg_classroom'",
             "Jean.behavior == 'studying'",
             "len(get_Present(location = 'bg_classroom')[0]) == 1",
-
-            "not Jean.History.check('trained_with_Player', tracker = 'daily')",
 
             "Jean.is_in_normal_mood()"]
 
@@ -60,13 +56,11 @@ init python:
 
                 "chapter == 1 and season == 1",
 
-                "weekday < 5 and time_index >= 3",
+                "time_index >= 3",
                 
                 "Jean.location == 'bg_classroom'",
                 "Jean.behavior == 'studying'",
                 "len(get_Present(location = 'bg_classroom')[0]) == 1",
-
-                "not Jean.History.check('trained_with_Player', tracker = 'daily')",
 
                 "Jean.is_in_normal_mood()"]}
 

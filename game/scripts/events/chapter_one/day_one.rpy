@@ -369,7 +369,7 @@ label day_one_intro:
             ch_Charles "Please, [Player.first_name], think nothing of it."
 
             call send_Characters(Charles, location = "hold") from _call_send_Characters_181
-            call swap_Slots(Ororo, "middle")
+            call swap_Slots(Ororo, "middle") from _call_swap_Slots
         "Thank you, [Charles.name]. I might be dead if not for you.":
             $ Ororo.change_face("smirk1")
 
@@ -378,7 +378,7 @@ label day_one_intro:
             ch_Charles "You are very welcome, [Player.first_name]."
 
             call send_Characters(Charles, location = "hold") from _call_send_Characters_182
-            call swap_Slots(Ororo, "middle")
+            call swap_Slots(Ororo, "middle") from _call_swap_Slots_1
 
             ch_Ororo "I'm glad you properly appreciate everything Charles is doing for you."
 
@@ -533,7 +533,7 @@ label meet_Rogue:
     ch_Ororo "You two may acquaint yourselves while I go find extra study materials for him."
 
     call send_Characters(Ororo, "hold") from _call_send_Characters_183
-    call swap_Slots(Rogue, "middle")
+    call swap_Slots(Rogue, "middle") from _call_swap_Slots_2
 
     $ Rogue.change_face("happy")
 
@@ -769,7 +769,7 @@ label meet_Laura:
     ch_Ororo "I have to take this. [Player.first_name], meet me in front of the Institute when you're done here."
 
     call send_Characters(Ororo, "hold") from _call_send_Characters_185
-    call swap_Slots(Laura, "middle")
+    call swap_Slots(Laura, "middle") from _call_swap_Slots_3
 
     $ Laura.change_face("confused1")
 

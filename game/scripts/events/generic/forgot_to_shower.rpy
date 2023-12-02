@@ -4,7 +4,7 @@ init python:
         label = "Player_forgot_to_shower"
 
         conditions = [
-            "day > 3 and day - Player.History.check_when('showered') >= 2"]
+            "day > 3 and time_index == 0 and day - Player.History.check_when('showered') >= 2"]
 
         repeatable = True
         automatic = True

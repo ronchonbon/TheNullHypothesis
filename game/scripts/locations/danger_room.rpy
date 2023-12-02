@@ -34,7 +34,7 @@ label danger_room:
             "Locker room":
                 call travel("bg_lockers") from _call_travel_27
             "Approach. . ." if Offscreen:
-                call approach_Characters
+                call approach_Characters from _call_approach_Characters_3
             "Wait" if time_index < 3:
                 call wait_around from _call_wait_around_20
             "Wait (locked)" if time_index > 2:

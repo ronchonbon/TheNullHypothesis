@@ -20,56 +20,6 @@ transform bottom_bar:
     yanchor 0.0
     ypos 1.8
 
-transform bubble_rising:
-    subpixel True
-
-    ypos 1.5
-
-    block:
-        choice:
-            pause 0.0
-        choice:
-            pause 0.5
-        choice:
-            pause 1.0
-        choice:
-            pause 1.5
-        choice:
-            pause 2.0
-        choice:
-            pause 2.5
-        choice:
-            pause 3.0
-        choice:
-            pause 3.5
-        choice:
-            pause 4.0
-        choice:
-            pause 4.5
-        choice:
-            pause 5.0
-
-        choice:
-            xpos 0.2 ypos 1.5
-            ease 8.0 xpos 0.5 ypos -0.5
-        choice:
-            xpos 0.5 ypos 1.5
-            ease 8.0 xpos 0.4 ypos -0.5
-        choice:
-            xpos 0.1 ypos 1.5
-            ease 8.0 xpos 0.6 ypos -0.5
-        choice:
-            xpos 0.9 ypos 1.5
-            ease 8.0 xpos 0.7 ypos -0.5
-        choice:
-            xpos 1.0 ypos 1.5
-            ease 8.0 xpos 0.7 ypos -0.5
-        choice:
-            xpos 0.0 ypos 1.5
-            ease 8.0 xpos 0.3 ypos -0.5
-
-        repeat
-
 image solid_black:
     Solid("#000000")
 
@@ -279,6 +229,16 @@ layeredimage midground:
     always:
         At("black_fade", invisible)
 
+    if Player.location != "bg_classroom":
+        Null()
+    elif time_index <= 3:
+        "images/backgrounds/base/bg_classroom_podium_[lighting].webp"
+    else:
+        "images/backgrounds/base/bg_classroom_podium_night.webp"
+
+    if Player.location == "bg_mall" and time_index < 3:
+        "images/backgrounds/base/bg_mall_people_[lighting].webp"
+
     if Action_screen_showing:
         At(At("background", blurred_background), inverse_background_scale)
 
@@ -297,12 +257,12 @@ layeredimage foreground:
     if Player.location != "bg_classroom":
         Null()
     elif time_index <= 3:
-        "images/backgrounds/base/bg_classroom_podium_[lighting].webp"
+        "images/backgrounds/base/bg_classroom_background_[lighting].webp"
     else:
-        "images/backgrounds/base/bg_classroom_podium_night.webp"
-
-    if Player.location == "bg_mall" and time_index < 3:
-        "images/backgrounds/base/bg_mall_people_[lighting].webp"
+        "images/backgrounds/base/bg_classroom_background_night.webp"
+            
+    if Player.location == "bg_classroom" and time_index < 2 and weekday < 5 and clock >= math.ceil(0.1*Player.max_stamina):
+        "images/backgrounds/base/bg_classroom_students.webp"
 
     if Player.location == "bg_restaurant" and eating_dinner:
         "images/backgrounds/base/bg_restaurant_chair.webp"
@@ -313,9 +273,6 @@ layeredimage foreground:
         "images/backgrounds/base/bg_study_desk_[lighting].webp"
     else:
         "images/backgrounds/base/bg_study_desk_night.webp"
-            
-    if Player.location == "bg_classroom" and time_index < 2 and weekday < 5 and clock >= math.ceil(0.1*Player.max_stamina):
-        "images/backgrounds/base/bg_classroom_students.webp"
 
     transform_anchor True
     align (0.5, 0.5)
@@ -325,6 +282,13 @@ layeredimage foreground:
 layeredimage cover1:
     always:
         At("black_fade", invisible)
+
+    if Player.location != "bg_classroom":
+        Null()
+    elif time_index <= 3:
+        "images/backgrounds/base/bg_classroom_foreground_[lighting].webp"
+    else:
+        "images/backgrounds/base/bg_classroom_foreground_night.webp"
         
     if Player.location in ["bg_lockers", "bg_shower_Player", "bg_shower_Rogue", "bg_shower_Laura", "bg_shower_Jean"] and shower_steam:
         At("shower_steam_cover", fade_in(2.0))

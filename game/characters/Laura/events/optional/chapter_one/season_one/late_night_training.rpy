@@ -202,7 +202,7 @@ label Laura_chapter_one_season_one_late_night_training:
 
             $ Laura.change_face("confused3", blush = 1) 
             
-            pause 0.5 
+            pause 1.0
             
             $ Laura.change_face("confused1", eyes = "right", blush = 1)
 

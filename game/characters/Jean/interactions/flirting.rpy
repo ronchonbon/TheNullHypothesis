@@ -924,7 +924,7 @@ label Jean_flirt_b:
 
         $ Jean.change_face("pleased2", blush = 1)
 
-        pause 0.5 
+        pause 1.0
 
         $ Jean.change_face("confused1", mouth = "smirk")
 

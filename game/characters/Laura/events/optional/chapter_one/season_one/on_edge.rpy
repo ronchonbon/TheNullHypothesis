@@ -140,7 +140,7 @@ label Laura_chapter_one_season_one_on_edge:
 
             $ Laura.change_face("confused3") 
             
-            pause 0.5 
+            pause 1.0
             
             $ Laura.change_face("confused1")
 
@@ -151,7 +151,7 @@ label Laura_chapter_one_season_one_on_edge:
 
             $ Laura.change_face("neutral", eyes = "right") 
             
-            pause 0.5 
+            pause 1.0
             
             $ Laura.change_face("angry1", eyes = "right")
 

@@ -29,7 +29,7 @@ label study:
             "Grounds":
                 call travel("bg_campus") from _call_travel_34
             "Approach. . ." if Offscreen:
-                call approach_Characters
+                call approach_Characters from _call_approach_Characters_7
             "Wait" if time_index < 3:
                 call wait_around from _call_wait_around_28
             "Wait (locked)" if time_index > 2:

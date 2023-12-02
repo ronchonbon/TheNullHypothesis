@@ -393,7 +393,7 @@ label Rogue_chapter_one_season_one_standoffish_part_two:
             
             $ Rogue.change_face("worried2") 
             
-            pause 0.5 
+            pause 1.0
             
             $ Rogue.change_face("sad", eyes = "right")
 

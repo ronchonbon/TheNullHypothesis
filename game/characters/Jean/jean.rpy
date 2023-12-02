@@ -58,8 +58,8 @@ init -1:
         "follow": [0, 100],
 
         "friendship": [50, 25],
-        "dating": [75, 50],
-        "relationship": [125, 125],
+        "dating": [125, 75],
+        "relationship": [175, 150],
         "love": [800, 775],
 
         "sleepover": [0, 0],

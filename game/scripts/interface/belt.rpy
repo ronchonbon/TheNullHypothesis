@@ -205,7 +205,7 @@ screen belt_screen():
 
                 tooltip "Sweaty"
 
-        if Player.History.check("attended_class", tracker = "weekly") >= 3:
+        if Player.attendance_bonus:
             imagebutton align (0.5, 0.5):
                 idle At("images/interface/belt/attendance.webp", interface) hover At("images/interface/belt/attendance.webp", interface)
 

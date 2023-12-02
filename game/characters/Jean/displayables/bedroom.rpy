@@ -18,5 +18,3 @@ layeredimage bg_Jean:
 
     if Jean.clothes_on_floor:
         "characters/Jean/images/bedroom/bg_Jean_clothes_[lighting].webp"
-
-    zoom background_adjustment

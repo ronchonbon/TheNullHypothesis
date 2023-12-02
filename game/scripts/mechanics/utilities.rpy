@@ -37,6 +37,10 @@ init python:
 
         sorted_Characters = sort_Characters_by_approval(temp_Characters[:])
 
+        for C in temp_Offscreen:
+            if C in sorted_Characters:
+                sorted_Characters.remove(C)
+
         if traveling:
             if sorted_Characters:
                 temp_middle_Slot = sorted_Characters[0]
@@ -120,21 +124,21 @@ label approach_Characters:
     menu:
         "Approach. . ."
         "[temp_Characters[0].name]" if temp_Characters:
-            call add_Characters(temp_Characters[0], direction = "middle", greetings = True)
+            call add_Characters(temp_Characters[0], direction = "middle", greetings = True) from _call_add_Characters_15
         "[temp_Characters[1].name]" if len(temp_Characters) >= 2:
-            call add_Characters(temp_Characters[1], direction = "middle", greetings = True)
+            call add_Characters(temp_Characters[1], direction = "middle", greetings = True) from _call_add_Characters_16
         "[temp_Characters[2].name]" if len(temp_Characters) >= 3:
-            call add_Characters(temp_Characters[2], direction = "middle", greetings = True)
+            call add_Characters(temp_Characters[2], direction = "middle", greetings = True) from _call_add_Characters_17
         "[temp_Characters[3].name]" if len(temp_Characters) >= 4:
-            call add_Characters(temp_Characters[3], direction = "middle", greetings = True)
+            call add_Characters(temp_Characters[3], direction = "middle", greetings = True) from _call_add_Characters_31
         "[temp_Characters[4].name]" if len(temp_Characters) >= 5:
-            call add_Characters(temp_Characters[4], direction = "middle", greetings = True)
+            call add_Characters(temp_Characters[4], direction = "middle", greetings = True) from _call_add_Characters_32
         "[temp_Characters[5].name]" if len(temp_Characters) >= 6:
-            call add_Characters(temp_Characters[5], direction = "middle", greetings = True)
+            call add_Characters(temp_Characters[5], direction = "middle", greetings = True) from _call_add_Characters_33
         "[temp_Characters[6].name]" if len(temp_Characters) >= 7:
-            call add_Characters(temp_Characters[6], direction = "middle", greetings = True)
+            call add_Characters(temp_Characters[6], direction = "middle", greetings = True) from _call_add_Characters_35
         "[temp_Characters[7].name]" if len(temp_Characters) >= 8:
-            call add_Characters(temp_Characters[7], direction = "middle", greetings = True)
+            call add_Characters(temp_Characters[7], direction = "middle", greetings = True) from _call_add_Characters_47
         "Back":
             pass
 

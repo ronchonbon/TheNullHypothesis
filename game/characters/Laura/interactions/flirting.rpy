@@ -969,7 +969,7 @@ label Laura_flirt_b:
 
         $ Laura.change_face("confused2", blush = 1)
 
-        pause 0.5 
+        pause 1.0
 
         $ Laura.change_face("sly", blush = 1)
 

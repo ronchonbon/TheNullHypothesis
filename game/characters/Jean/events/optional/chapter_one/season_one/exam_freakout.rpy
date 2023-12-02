@@ -134,13 +134,13 @@ label Jean_chapter_one_season_one_exam_freakout:
         extend ""
         "But why are you stressed? The exam's over - knowing you, you probably aced it.":
             call change_Companion_stat(Jean, "love", medium_stat) from _call_change_Companion_stat_107
-            call change_Companion_stat(Jean, "trust", small_stat) from _call_change_Companion_stat_108
 
             $ Jean.change_face("angry1", eyes = "right")
 
             ch_Jean "UGH! Not this time I didn't. . ."
         "Don't worry, no hard feelings. I'm sure you aced the exam anyway.":
-            call change_Companion_stat(Jean, "love", large_stat) from _call_change_Companion_stat_109
+            call change_Companion_stat(Jean, "love", medium_stat) from _call_change_Companion_stat_109
+            call change_Companion_stat(Jean, "trust", small_stat) from _call_change_Companion_stat_108
             
             $ Jean.change_face("angry1", mouth = "smirk", eyes = "right")
 
@@ -225,7 +225,7 @@ label Jean_chapter_one_season_one_exam_freakout:
             
             $ Jean.change_face("worried3") 
             
-            pause 0.5 
+            pause 1.0
             
             $ Jean.change_face("worried1", eyes = "right")
 

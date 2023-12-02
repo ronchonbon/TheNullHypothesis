@@ -164,8 +164,14 @@ label wait_around(fade = True, silent = False, Events = True):
         $ EventScheduler.Events["inclement_weather"].start()
 
     if not silent:
-        if was_teaching and was_teaching.behavior != "teaching":
-            call add_Characters(was_teaching)
+        if was_teaching and was_teaching.behavior != "teaching" and was_teaching.location == Player.location:
+            $ renpy.dynamic(temp_destination = was_teaching.destination)
+            $ renpy.dynamic(temp_location = was_teaching.location)
+
+            call add_Characters(was_teaching) from _call_add_Characters_2
+
+            $ was_teaching.destination = temp_destination
+            $ was_teaching.location = temp_location
 
         if leaving_Characters:
             call Characters_leave(leaving_Characters) from _call_Characters_leave_7
@@ -215,9 +221,11 @@ label start_new_day(fast = False):
 
     if weekday == 0 and time_index == 0:
         if Player.History.check("attended_class", tracker = "weekly") >= 3:
-            $ Player.stat_modifier = 1.2
+            $ check_attendance = True
         else:
-            $ Player.stat_modifier = 1.0
+            $ check_attendance = False
+    else:
+        $ check_attendance = None
 
     if day > 3:
         $ Player.cash += Player.income
@@ -255,5 +263,15 @@ label start_new_day(fast = False):
     $ Player.schedule = {}
     $ Player.date_planned = {}
     $ Player.History.increment()
+
+    if check_attendance is not None:
+        if check_attendance:
+            $ Player.attendance_bonus = True
+
+            $ Player.stat_modifier = 1.2
+        else:
+            $ Player.attendance_bonus = False
+
+            $ Player.stat_modifier = 1.0
 
     return
