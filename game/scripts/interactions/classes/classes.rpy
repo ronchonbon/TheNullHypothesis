@@ -27,7 +27,7 @@ label find_a_seat:
             "Sit next to [temp_Characters[0].name]":
                 call set_the_scene(location = "bg_classroom", fade = False) from _call_set_the_scene_287
 
-                if not renpy.showing(f"{temp_Characters[0].tag}_sprite"):
+                if renpy.showing(f"{temp_Characters[0].tag}_sprite"):
                     call Characters_greet_Player(temp_Characters[0]) from _call_Characters_greet_Player
             "Find a random seat":
                 "You find the nearest open chair and take a seat."
@@ -47,21 +47,21 @@ label find_a_seat:
 
                     call set_the_scene(location = "bg_classroom", fade = False) from _call_set_the_scene_288
 
-                    if not renpy.showing(f"{temp_Characters[0].tag}_sprite"):
+                    if renpy.showing(f"{temp_Characters[0].tag}_sprite"):
                         call Characters_greet_Player(temp_Characters[0]) from _call_Characters_greet_Player_1
                 "Sit next to [temp_Characters[1].name]":
                     $ send_Characters_Offscreen(temp_Characters[0])
 
                     call set_the_scene(location = "bg_classroom", fade = False) from _call_set_the_scene_289
 
-                    if not renpy.showing(f"{temp_Characters[1].tag}_sprite"):
+                    if renpy.showing(f"{temp_Characters[1].tag}_sprite"):
                         call Characters_greet_Player(temp_Characters[1]) from _call_Characters_greet_Player_2
                 "Sit between them":
                     call set_the_scene(location = "bg_classroom", fade = False) from _call_set_the_scene_290
                         
                     $ sorted_Characters = sort_Characters_by_approval(temp_Characters[:])[:]
 
-                    if not renpy.showing(f"{sorted_Characters[0].tag}_sprite") or not renpy.showing(f"{sorted_Characters[1].tag}_sprite"):
+                    if renpy.showing(f"{sorted_Characters[0].tag}_sprite") and renpy.showing(f"{sorted_Characters[1].tag}_sprite"):
                         call Characters_greet_Player(sorted_Characters[0]) from _call_Characters_greet_Player_3
                 "Find a random seat":
                     "You find the nearest open chair and take a seat."
@@ -80,14 +80,14 @@ label find_a_seat:
 
                     call set_the_scene(location = "bg_classroom", fade = False) from _call_set_the_scene_291
                     
-                    if not renpy.showing(f"{temp_Characters[0].tag}_sprite"):
+                    if renpy.showing(f"{temp_Characters[0].tag}_sprite"):
                         call Characters_greet_Player(temp_Characters[0]) from _call_Characters_greet_Player_4
                 "Sit next to [temp_Characters[1].name]":
                     $ send_Characters_Offscreen(temp_Characters[0])
 
                     call set_the_scene(location = "bg_classroom", fade = False) from _call_set_the_scene_292
                         
-                    if not renpy.showing(f"{temp_Characters[1].tag}_sprite"):
+                    if renpy.showing(f"{temp_Characters[1].tag}_sprite"):
                         call Characters_greet_Player(temp_Characters[1]) from _call_Characters_greet_Player_5
                 "Find a random seat":
                     "You find the nearest open chair and take a seat."
@@ -108,7 +108,7 @@ label find_a_seat:
 
                     call set_the_scene(location = "bg_classroom", fade = False) from _call_set_the_scene_293
                     
-                    if not renpy.showing(f"{temp_Characters[0].tag}_sprite"):
+                    if renpy.showing(f"{temp_Characters[0].tag}_sprite"):
                         call Characters_greet_Player(temp_Characters[0]) from _call_Characters_greet_Player_6
                 "Sit next to [temp_Characters[1].name]":
                     $ send_Characters_Offscreen(temp_Characters[0])
@@ -116,7 +116,7 @@ label find_a_seat:
 
                     call set_the_scene(location = "bg_classroom", fade = False) from _call_set_the_scene_294
                         
-                    if not renpy.showing(f"{temp_Characters[1].tag}_sprite"):
+                    if renpy.showing(f"{temp_Characters[1].tag}_sprite"):
                         call Characters_greet_Player(temp_Characters[1]) from _call_Characters_greet_Player_7
                 "Sit next to [temp_Characters[2].name]":
                     $ send_Characters_Offscreen(temp_Characters[0])
@@ -124,14 +124,14 @@ label find_a_seat:
 
                     call set_the_scene(location = "bg_classroom", fade = False) from _call_set_the_scene_295
                         
-                    if not renpy.showing(f"{temp_Characters[2].tag}_sprite"):
+                    if renpy.showing(f"{temp_Characters[2].tag}_sprite"):
                         call Characters_greet_Player(temp_Characters[2]) from _call_Characters_greet_Player_8
                 "Sit in the middle of the group":
                     call set_the_scene(location = "bg_classroom", fade = False) from _call_set_the_scene_296
                         
                     $ sorted_Characters = sort_Characters_by_approval(temp_Characters[:])[:]
 
-                    if not renpy.showing(f"{sorted_Characters[0].tag}_sprite") or not renpy.showing(f"{sorted_Characters[1].tag}_sprite") or not renpy.showing(f"{sorted_Characters[2].tag}_sprite"):
+                    if renpy.showing(f"{sorted_Characters[0].tag}_sprite") and renpy.showing(f"{sorted_Characters[1].tag}_sprite") and renpy.showing(f"{sorted_Characters[2].tag}_sprite"):
                         call Characters_greet_Player(sorted_Characters[0]) from _call_Characters_greet_Player_9
                 "Find a random seat":
                     "You find the nearest open chair and take a seat."
@@ -151,7 +151,7 @@ label find_a_seat:
 
                     call set_the_scene(location = "bg_classroom", fade = False) from _call_set_the_scene_297
                         
-                    if not renpy.showing(f"{temp_Characters[0].tag}_sprite"):
+                    if renpy.showing(f"{temp_Characters[0].tag}_sprite"):
                         call Characters_greet_Player(temp_Characters[0]) from _call_Characters_greet_Player_10
                 "Sit next to [temp_Characters[1].name]":
                     $ send_Characters_Offscreen(temp_Characters[0])
@@ -159,7 +159,7 @@ label find_a_seat:
 
                     call set_the_scene(location = "bg_classroom", fade = False) from _call_set_the_scene_298
                         
-                    if not renpy.showing(f"{temp_Characters[1].tag}_sprite"):
+                    if renpy.showing(f"{temp_Characters[1].tag}_sprite"):
                         call Characters_greet_Player(temp_Characters[1]) from _call_Characters_greet_Player_11
                 "Sit next to [temp_Characters[2].name]":
                     $ send_Characters_Offscreen(temp_Characters[0])
@@ -167,7 +167,7 @@ label find_a_seat:
 
                     call set_the_scene(location = "bg_classroom", fade = False) from _call_set_the_scene_299
                     
-                    if not renpy.showing(f"{temp_Characters[2].tag}_sprite"):
+                    if renpy.showing(f"{temp_Characters[2].tag}_sprite"):
                         call Characters_greet_Player(temp_Characters[2]) from _call_Characters_greet_Player_12
                 "Find a random seat":
                     "You find the nearest open chair and take a seat."

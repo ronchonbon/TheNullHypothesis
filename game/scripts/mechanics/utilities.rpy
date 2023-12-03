@@ -104,7 +104,7 @@ init python:
 
                                     break
 
-                        for C_alt in Background:
+                        for C_alt in temp_Present:
                             if C != C_alt and S["position"] == C_alt.sprite_position:
                                 occupied = True
 
@@ -124,23 +124,25 @@ label approach_Characters:
     menu:
         "Approach. . ."
         "[temp_Characters[0].name]" if temp_Characters:
-            call add_Characters(temp_Characters[0], direction = "middle", greetings = True) from _call_add_Characters_15
+            $ new_Characters = [temp_Characters[0]]
         "[temp_Characters[1].name]" if len(temp_Characters) >= 2:
-            call add_Characters(temp_Characters[1], direction = "middle", greetings = True) from _call_add_Characters_16
+            $ new_Characters = [temp_Characters[1]]
         "[temp_Characters[2].name]" if len(temp_Characters) >= 3:
-            call add_Characters(temp_Characters[2], direction = "middle", greetings = True) from _call_add_Characters_17
+            $ new_Characters = [temp_Characters[2]]
         "[temp_Characters[3].name]" if len(temp_Characters) >= 4:
-            call add_Characters(temp_Characters[3], direction = "middle", greetings = True) from _call_add_Characters_31
+            $ new_Characters = [temp_Characters[3]]
         "[temp_Characters[4].name]" if len(temp_Characters) >= 5:
-            call add_Characters(temp_Characters[4], direction = "middle", greetings = True) from _call_add_Characters_32
+            $ new_Characters = [temp_Characters[4]]
         "[temp_Characters[5].name]" if len(temp_Characters) >= 6:
-            call add_Characters(temp_Characters[5], direction = "middle", greetings = True) from _call_add_Characters_33
+            $ new_Characters = [temp_Characters[5]]
         "[temp_Characters[6].name]" if len(temp_Characters) >= 7:
-            call add_Characters(temp_Characters[6], direction = "middle", greetings = True) from _call_add_Characters_35
+            $ new_Characters = [temp_Characters[6]]
         "[temp_Characters[7].name]" if len(temp_Characters) >= 8:
-            call add_Characters(temp_Characters[7], direction = "middle", greetings = True) from _call_add_Characters_47
+            $ new_Characters = [temp_Characters[7]]
         "Back":
-            pass
+            return
+
+    call set_the_scene(greetings = True, fade = False, selected_Character = new_Characters[0]) from _call_set_the_scene_404
 
     return
 

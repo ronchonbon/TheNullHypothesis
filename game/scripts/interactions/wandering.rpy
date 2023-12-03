@@ -105,7 +105,7 @@ label Characters_arrive(arriving_Characters, invited = False, greetings = True, 
                 else:
                     call expression f"{grouped_Characters[0].tag}_simple_greeting" from _call_expression_364
 
-                if grouped_Characters[0] in all_Companions and grouped_Characters[0].location == Player.location:
+                if grouped_Characters[0] in [left_Slot, middle_Slot, right_Slot] and grouped_Characters[0].location == Player.location:
                     $ Characters_to_greet = []
 
                     python:
@@ -114,7 +114,7 @@ label Characters_arrive(arriving_Characters, invited = False, greetings = True, 
                                 Characters_to_greet.append(C)
                                 
                     while Characters_to_greet:
-                        if Characters_to_greet[0] in all_Companions:
+                        if Characters_to_greet[0] in [left_Slot, middle_Slot, right_Slot]:
                             call expression f"{grouped_Characters[0].tag}_greets_{Characters_to_greet[0].tag}" from _call_expression_365
 
                         $ Characters_to_greet.remove(Characters_to_greet[0])

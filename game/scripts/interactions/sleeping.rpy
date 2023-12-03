@@ -124,7 +124,7 @@ label sleepover(Characters):
                     temp_Characters.remove(C)
                     temp_Characters.insert(0, C)
 
-    $ sleeping_Characters = []
+    $ renpy.dynamic(sleeping_Characters = [])
 
     $ also_leaving = False
 

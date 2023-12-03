@@ -49,12 +49,10 @@ init python:
 
         return
 
-label show_Character(Character, t = None, sprite_anchor = None, x = None, y = None, sprite_zoom = None, sprite_rotation = None, sprite_layer = None, color_transforms = None, animation_transforms = None, fade = True):
+label show_Character(Character, t = None, sprite_anchor = None, x = None, y = None, sprite_zoom = None, sprite_rotation = None, sprite_layer = None, color_transforms = None, animation_transforms = None, fade = 0.5):
     $ check_predicted_images()
     
     $ Character.position = "standing"
-
-    $ Character.sprite_position = [Character.sprite_position[0], eval(f"{Character.tag}_standing_height")]
 
     if Player.location == "bg_restaurant" and eating_dinner:
         if not x:
@@ -80,6 +78,7 @@ label show_Character(Character, t = None, sprite_anchor = None, x = None, y = No
     if sprite_anchor is None:
         $ sprite_anchor = eval(f"{Character.tag}_standing_anchor")
     elif sprite_anchor[1] == 1.0:
+        $ sprite_anchor[0] = eval(f"{Character.tag}_standing_anchor")[0]
         $ sprite_anchor[1] = eval(f"{Character.tag}_standing_bottom")
 
     if Character.sprite_anchor[0] != sprite_anchor[0] and Character.sprite_anchor[1] != sprite_anchor[1]:
@@ -98,6 +97,8 @@ label show_Character(Character, t = None, sprite_anchor = None, x = None, y = No
             $ different = True
 
         $ Character.sprite_position[1] = y
+    else:
+        $ Character.sprite_position[1] = eval(f"{Character.tag}_standing_height")
 
     if sprite_zoom is None:
         $ sprite_zoom = eval(f"{Character.tag}_standing_zoom")
@@ -121,9 +122,13 @@ label show_Character(Character, t = None, sprite_anchor = None, x = None, y = No
     else:
         $ Character.sprite_layer = 7
 
-    if not renpy.showing(f"{Character.tag}_sprite standing") or different or color_transforms or s:
+    if (Character in all_Companions and not renpy.showing(f"{Character.tag}_sprite standing")) or (Character in all_NPCs and not renpy.showing(f"{Character.tag}_sprite")) or different or color_transforms or animation_transforms:
         $ renpy.hide(f"{Character.tag}_sprite")
         
+        if fade:
+            if (((Character in all_Companions and renpy.showing(f"{Character.tag}_sprite standing")) or (Character in all_NPCs and renpy.showing(f"{Character.tag}_sprite"))) and not different) or animation_transforms:
+                $ fade = False
+
         if t is not None and not black_screen and not Character.behavior == "teaching":
             $ transform_list = [
                 change_sprite_anchor(Character.sprite_anchor[0], Character.sprite_anchor[1]),
@@ -155,18 +160,22 @@ label show_Character(Character, t = None, sprite_anchor = None, x = None, y = No
         else:
             $ renpy.show(f"{Character.tag}_sprite", at_list = transform_list, zorder = Character.sprite_layer, tag = f"{Character.tag}_sprite")
 
-    if fade:
-        with dissolve
+        if fade:
+            with Dissolve(fade)
 
     return
 
-label hide_Character(Character, fade = True, send_Offscreen = True):
+label hide_Character(Character, fade = 0.5, send_Offscreen = True):
     $ check_predicted_images()
+
+    if fade:
+        if not renpy.showing(f"{Character.tag}_sprite"):
+            $ fade = False
 
     $ renpy.hide(f"{Character.tag}_sprite")
 
     if fade:
-        with dissolve
+        with Dissolve(fade)
 
     $ Character.sprite_position = [0.0, eval(f"{Character.tag}_standing_height")]
 
@@ -196,7 +205,6 @@ label show_pose(Companion, pose, t = None, x = None, y = None, sprite_zoom = Non
     $ check_predicted_images()
     
     $ Companion.sprite_anchor = eval(f"{Companion.tag}_{pose}_anchor")
-    $ Companion.sprite_position = [Companion.sprite_position[0], eval(f"{Companion.tag}_{pose}_height")]
 
     $ different = False
 
@@ -211,6 +219,8 @@ label show_pose(Companion, pose, t = None, x = None, y = None, sprite_zoom = Non
             $ different = True
 
         $ Companion.sprite_position[1] = y
+    else:
+        $ Character.sprite_position[1] = eval(f"{Character.tag}_{pose}_height")
 
     if sprite_zoom is None:
         $ sprite_zoom = eval(f"{Companion.tag}_{pose}_zoom")
@@ -233,6 +243,10 @@ label show_pose(Companion, pose, t = None, x = None, y = None, sprite_zoom = Non
         $ Companion.sprite_layer = sprite_layer
     
     if not renpy.showing(f"{Companion.tag}_sprite {pose}") or different or color_transforms or animation_transforms:
+        if fade:
+            if (renpy.showing(f"{Character.tag}_sprite {pose}") and not different) or animation_transforms:
+                $ fade = False
+
         if pose != "standing":
             if t is not None and not black_screen:
                 $ transform_list = [
@@ -272,26 +286,10 @@ label show_pose(Companion, pose, t = None, x = None, y = None, sprite_zoom = Non
             python:
                 for a_t in animation_transforms:
                     transform_list.append(a_t)
-    else:
-        if pose != "standing":
-            $ transform_list = [
-                change_sprite_anchor(Companion.sprite_anchor[0], Companion.sprite_anchor[1]),
-                zoom_sprite(Companion.sprite_zoom),
-                move_sprite(Companion.sprite_position[0], Companion.sprite_position[1]),
-                rotate_sprite(Companion.sprite_rotation)]
-        else:
-            $ transform_list = [
-                change_sprite_anchor(Companion.sprite_anchor[0], Companion.sprite_anchor[1]),
-                zoom_sprite(Companion.sprite_zoom),
-                move_sprite(Companion.sprite_position[0], Companion.sprite_position[1]),
-                rotate_sprite(Companion.sprite_rotation)]
-            
-        $ color_transform = get_color_transform(location = Player.location)
-        $ transform_list.append(color_transform)
 
-    $ renpy.show(f"{Companion.tag}_sprite {pose}", at_list = transform_list, zorder = Companion.sprite_layer, tag = f"{Companion.tag}_sprite")
-    
-    if fade:
-        with dissolve
+        $ renpy.show(f"{Companion.tag}_sprite {pose}", at_list = transform_list, zorder = Companion.sprite_layer, tag = f"{Companion.tag}_sprite")
+        
+        if fade:
+            with Dissolve(fade)
 
     return
