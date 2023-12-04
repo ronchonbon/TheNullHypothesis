@@ -274,7 +274,7 @@ label show_pose(Companion, pose, t = None, x = None, y = None, sprite_zoom = Non
                     move_sprite(Companion.sprite_position[0], Companion.sprite_position[1]),
                     rotate_sprite(Companion.sprite_rotation)]
 
-        if color_transform:
+        if color_transforms:
             python:
                 for c_t in color_transforms:
                     transform_list.append(c_t)

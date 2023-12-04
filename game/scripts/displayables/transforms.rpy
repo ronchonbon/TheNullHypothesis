@@ -1,36 +1,43 @@
 init -99:
 
     transform change_anchor(x, y):
+        subpixel True
         transform_anchor True
 
         anchor (x, y)
 
     transform change_pos(x, y):
+        subpixel True
         transform_anchor True
 
         pos (x, y)
 
     transform change_offset(x, y):
+        subpixel True
         transform_anchor True
 
         offset (x, y)
 
     transform change_sprite_anchor(x, y):
+        subpixel True
         transform_anchor True
 
         anchor (x, y)
 
     transform move_sprite(x, y, t = 0.0):
+        subpixel True
         transform_anchor True
 
         ease t pos (x, y)
 
     transform zoom_sprite(factor, t = 0.0):
+        subpixel True
         transform_anchor True
         
         ease t zoom factor
 
     transform rotate_sprite(theta, t = 0.0):
+        subpixel True
         transform_anchor True
         
         ease t rotate theta
@@ -93,7 +100,9 @@ init -99:
         matrixcolor TintMatrix("#f3a3b3")
 
     transform spinning_element:
+        subpixel True
         transform_anchor True
+        animation
 
         block:
             rotate 0

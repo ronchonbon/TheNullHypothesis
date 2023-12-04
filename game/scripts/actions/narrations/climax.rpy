@@ -112,19 +112,15 @@ label Character_orgasm_narrations(Character):
         if dice_roll == 1:
             $ Character.change_face("surprised2", mouth = "lipbite", blush = 2) 
             
-            "[Character.name]'s body shudders uncontrollably and she tightens, orgasming around your cock." 
+            "[Character.name]'s body shudders uncontrollably and she tightens, orgasming around your cock." with orgasm_shake
         elif dice_roll == 2:
             $ Character.change_face("sly", mouth = "lipbite", blush = 2) 
             
-            "[Character.name]'s legs wrap around you as she convulses and tightens around your cock, the orgasm racking her body."
- 
-        with orgasm_shake
+            "[Character.name]'s legs wrap around you as she convulses and tightens around your cock, the orgasm racking her body." with orgasm_shake
     elif Character.mouth_Actions and Character.mouth_Actions[0].animation_type in ["blowjob", "deepthroat"]:
         $ Character.change_face("surprised2", mouth = "lipbite", blush = 2) 
         
-        "[Character.name]'s body shudders as waves of pleasure flow throughout her body." 
- 
-        with orgasm_shake
+        "[Character.name]'s body shudders as waves of pleasure flow throughout her body." with orgasm_shake
 
         $ Character.change_face("sexy", blush = 2) 
         
@@ -135,12 +131,10 @@ label Character_orgasm_narrations(Character):
         if dice_roll == 1:
             $ Character.change_face("surprised2", mouth = "lipbite", blush = 2) 
             
-            "[Character.name] starts twitching uncontrollably as the orgasm takes over her body. It lasts for a minute before she's able to calm down."
+            "[Character.name] starts twitching uncontrollably as the orgasm takes over her body. It lasts for a minute before she's able to calm down." with orgasm_shake
         elif dice_roll == 2:
             $ Character.change_face("surprised2", mouth = "lipbite", blush = 2) 
             
-            "[Character.name] moans as waves of pleasure run through her. The orgasm causes her to shake uncontrollably."
- 
-        with orgasm_shake
+            "[Character.name] moans as waves of pleasure run through her. The orgasm causes her to shake uncontrollably." with orgasm_shake
 
     return

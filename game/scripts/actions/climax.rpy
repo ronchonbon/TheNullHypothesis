@@ -22,6 +22,11 @@ label Character_orgasms(Character):
 
     $ Character.status["horny"] = False
 
+    if not Character.stamina:
+        $ stop_Actions(Character, organ = "clitoris")
+        $ stop_Actions(Character, organ = "vagina")
+        $ stop_Actions(Character, organ = "anus")
+
     $ has_progression_control = True
     $ has_Action_control = True
     $ has_position_control = True
@@ -253,8 +258,6 @@ label Player_orgasms:
 
     $ Player.History.update("orgasmed")
 
-    $ Player.cock_Actions[0].mode = 0
-
     $ Player.orgasming = None
 
     $ speed = 1.0
@@ -263,6 +266,13 @@ label Player_orgasms:
     $ Player.desire = 0
 
     $ Player.stamina -= 1 if Player.stamina > 0 else 0
+
+    if Player.stamina:
+        $ Player.cock_Actions[0].mode = 0
+    else:
+        "Looks like you're running on empty - maybe give yourself a break."
+
+        $ stop_Actions(Player, organ = "cock")
 
     $ has_progression_control = True
     $ has_Action_control = True

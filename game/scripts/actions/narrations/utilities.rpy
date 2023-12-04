@@ -1,90 +1,279 @@
 init python:
 
+    import math
+
     def sex_faces(Characters):
         for C in Characters:
             if not C.mouth_Actions:
-                if C in [Rogue]:
-                    if C.desire >= 90:
-                        C.change_face("worried2", mouth = "lipbite", blush = 3)
-                    elif C.desire >= 75:
-                        C.change_face("worried1", mouth = "lipbite", blush = 3)
-                    elif C.desire >= 50:
-                        C.change_face("sexy", blush = 2)
-                    else:
-                        C.change_face("worried1", mouth = "smirk", blush = 1)
-                elif C in [Laura]:
-                    if C.desire >= 90:
-                        C.change_face("worried2", mouth = "lipbite", blush = 3)
-                    elif C.desire >= 75:
-                        C.change_face("sly", mouth = "lipbite", blush = 3)
-                    elif C.desire >= 50:
-                        C.change_face("sexy", blush = 2)
-                    else:
-                        C.change_face("sly", blush = 1)
-                elif C in [Jean]:
-                    if C.desire >= 90:
-                        C.change_face("worried2", mouth = "lipbite", blush = 3)
-                    elif C.desire >= 75:
-                        C.change_face("worried1", mouth = "lipbite", blush = 3)
-                    elif C.desire >= 50:
-                        C.change_face("sexy", blush = 2)
-                    else:
-                        C.change_face("confused1", mouth = "smirk", blush = 1)
+                if hookup_length >= max_hookup_length*math.sqrt(C.max_stamina) and C.desire <= 75:
+                    brows = None
+                    eyes = None
+                    mouth = None
+
+                    dice_roll = renpy.random.randint(1, 2)
+
+                    if dice_roll == 1:
+                        brows = "neutral"
+                    elif dice_roll == 2:
+                        brows = "cocked"
+
+                    dice_roll = renpy.random.randint(1, 4)
+
+                    if dice_roll == 1:
+                        eyes = "left"
+                    elif dice_roll == 2:
+                        eyes = "right"
+                    elif dice_roll == 3:
+                        eyes = "squint"
+                    elif dice_roll == 4:
+                        eyes = "neutral"
+
+                    dice_roll = renpy.random.randint(1, 2)
+
+                    if dice_roll == 1:
+                        mouth = "frown"
+                    elif dice_roll == 2:
+                        mouth = "neutral"
+
+                    C.change_face(brows = brows, eyes = eyes, mouth = mouth)
+                elif C.desire >= 90:
+                    eyes = None
+                    mouth = None
+
+                    dice_roll = renpy.random.randint(1, 3)
+
+                    if dice_roll == 1:
+                        eyes = "down"
+                    elif dice_roll == 2:
+                        eyes = "up"
+                    elif dice_roll == 3:
+                        eyes = "sexy"
+
+                    dice_roll = renpy.random.randint(1, 3)
+
+                    if dice_roll == 1:
+                        mouth = "lipbite"
+                    elif dice_roll == 2:
+                        mouth = "open"
+                    elif dice_roll == 3:
+                        mouth = "agape"
+
+                    C.change_face(brows = "worried", eyes = eyes, mouth = mouth, blush = 3)
+                elif C.desire >= 75:
+                    eyes = None
+                    mouth = None
+
+                    dice_roll = renpy.random.randint(1, 2)
+
+                    if dice_roll == 1:
+                        eyes = "down"
+                    elif dice_roll == 2:
+                        eyes = "sexy"
+
+                    dice_roll = renpy.random.randint(1, 2)
+
+                    if dice_roll == 1:
+                        mouth = "lipbite"
+                    elif dice_roll == 2:
+                        mouth = "open"
+
+                    C.change_face(brows = "worried", eyes = eyes, mouth = mouth, blush = 2)
+                elif C.desire >= 50:
+                    eyes = None
+                    mouth = None
+
+                    dice_roll = renpy.random.randint(1, 2)
+
+                    if dice_roll == 1:
+                        eyes = "down"
+                    elif dice_roll == 2:
+                        eyes = "sexy"
+
+                    dice_roll = renpy.random.randint(1, 3)
+
+                    if dice_roll == 1:
+                        mouth = "lipbite"
+                    elif dice_roll == 2:
+                        mouth = "open"
+                    elif dice_roll == 3:
+                        mouth = "smirk"
+
+                    C.change_face(brows = "neutral", eyes = eyes, mouth = mouth, blush = 1)
+                else:
+                    eyes = None
+                    mouth = None
+
+                    dice_roll = renpy.random.randint(1, 2)
+
+                    if dice_roll == 1:
+                        eyes = "neutral"
+                    elif dice_roll == 2:
+                        eyes = "sexy"
+
+                    dice_roll = renpy.random.randint(1, 3)
+
+                    if dice_roll == 1:
+                        mouth = "lipbite"
+                    elif dice_roll == 2:
+                        mouth = "smirk"
+                    elif dice_roll == 3:
+                        mouth = "happy"
+
+                    C.change_face(brows = "neutral", eyes = eyes, mouth = mouth)
 
         return
 
     def sex_talk(Characters):
         for C in Characters:
-            if C in [Rogue]:
-                if C.mouth_Actions and ((C.mouth_Actions[0].animation_type == "blowjob" and C.mouth_Actions[0].mode == 3) or C.mouth_Actions[0].animation_type == "deepthroat"):
-                    dice_roll = renpy.random.randint(1, 2)
+            if C.mouth_Actions and ((C.mouth_Actions[0].Action_type == "blowjob" and C.mouth_Actions[0].mode == 3) or C.mouth_Actions[0].Action_type == "deepthroat"):
+                dice_pool = [1]
 
-                    if dice_roll == 1:
-                        renpy.say(C.voice, "*gag*")
-                    elif dice_roll == 2:
-                        renpy.say(C.voice, "*cough*")
+                if C.desire >= 50:
+                    dice_pool.append(2)
+                
+                if C.History.check(C.mouth_Actions[0].Action_type) >= 10:
+                    dice_pool.append(3)
                 else:
-                    dice_roll = renpy.random.randint(1, 3)
+                    dice_pool.append(4)
+
+                dice_roll = renpy.random.choice(dice_pool)
+
+                if dice_roll == 1:
+                    renpy.say(C.voice, "*gag*")
+                elif dice_roll == 2:
+                    renpy.say(C.voice, "Mmmmm.")
+                elif dice_roll == 3:
+                    renpy.say(C.voice, "*hum*")
+                elif dice_roll == 4:
+                    renpy.say(C.voice, "*cough*")
+            elif C in [Rogue]:
+                if hookup_length < max_hookup_length*math.sqrt(C.max_stamina) or C.desire > 75:
+                    dice_pool = [1, 2]
+
+                    if C.desire > 50:
+                        dice_pool.append(3)
+
+                    if C.desire > 75:
+                        dice_pool.append(4)
+                        dice_pool.append(5)
+
+                    if C.desire > 90:
+                        dice_pool.append(6)
+
+                    dice_roll = renpy.random.choice(dice_pool)
 
                     if dice_roll == 1:
-                        renpy.say(C.voice, "*gasp*")
-                    elif dice_roll == 2:
-                        renpy.say(C.voice, f"Oh lord. . . {C.Player_petname}, please don't stop.")
-                    elif dice_roll == 3:
                         renpy.say(C.voice, "Mmmmh. . .")
-            elif C in [Laura]:
-                if C.mouth_Actions and C.mouth_Actions[0].animation_type in ["blowjob", "deepthroat"]:
-                    dice_roll = renpy.random.randint(1, 2)
-
-                    if dice_roll == 1:
-                        renpy.say(C.voice, "*gag*")
                     elif dice_roll == 2:
-                        renpy.say(C.voice, "*cough*")
-                else:
-                    dice_roll = renpy.random.randint(1, 3)
-
-                    if dice_roll == 1:
-                        renpy.say(C.voice, "{i}Grrrrrr{/i}. . .")
-                    elif dice_roll == 2:
-                        renpy.say(C.voice, "Hnnng. . .")
+                        renpy.say(C.voice, "That's nice. . .")
                     elif dice_roll == 3:
-                        renpy.say(C.voice, "Hmmm. . .")
-            elif C in [Jean]:
-                if C.mouth_Actions and C.mouth_Actions[0].animation_type in ["blowjob", "deepthroat"]:
-                    dice_roll = renpy.random.randint(1, 2)
+                        renpy.say(C.voice, "Ohhh. . .")
+                    elif dice_roll == 4:
+                        renpy.say(C.voice, "*gasp*")
+                    elif dice_roll == 5:
+                        renpy.say(C.voice, f"Oh lord. . . {C.Player_petname}, please don't stop.")
+                    elif dice_roll == 6:
+                        renpy.say(C.voice, f"Ah'm so close. . .")
+                else:
+                    if renpy.random.random() > 0.75:
+                        if renpy.random.random() > 0.5:
+                            renpy.say(C.voice, f"Mmmm, ready for a break soon, {C.Player_petname}?")
+                        else:
+                            renpy.say(C.voice, "Ah could really use a break. . .")
+            elif C in [Laura]:
+                if hookup_length < max_hookup_length*math.sqrt(C.max_stamina) or C.desire > 75:
+                    dice_pool = [1, 2]
+
+                    if C.desire > 50:
+                        dice_pool.append(3)
+
+                    if C.desire > 75:
+                        dice_pool.append(4)
+                        dice_pool.append(5)
+
+                    if C.desire > 90:
+                        dice_pool.append(6)
+
+                    dice_roll = renpy.random.choice(dice_pool)
 
                     if dice_roll == 1:
-                        renpy.say(C.voice, "*gag*")
+                        renpy.say(C.voice, "Hmmm. . .")
                     elif dice_roll == 2:
-                        renpy.say(C.voice, "*cough*")
+                        renpy.say(C.voice, "That's. . . mmm.")
+                    elif dice_roll == 3:
+                        renpy.say(C.voice, "I like that. . .")
+                    elif dice_roll == 4:
+                        renpy.say(C.voice, "{i}Grrrrrr{/i}. . .")
+                    elif dice_roll == 5:
+                        renpy.say(C.voice, "Hnnng. . .")
+                    elif dice_roll == 6:
+                        renpy.say(C.voice, "I'm. . . gonna. . .")
                 else:
-                    dice_roll = renpy.random.randint(1, 3)
+                    if renpy.random.random() > 0.75:
+                        if renpy.random.random() > 0.5:
+                            renpy.say(C.voice, "I'm getting bored.")
+                        else:
+                            renpy.say(C.voice, "Does this normally take this long?")
+            elif C in [Jean]:
+                if hookup_length < max_hookup_length*math.sqrt(C.max_stamina) or C.desire > 75:
+                    dice_pool = [1]
+
+                    if C.desire > 50:
+                        dice_pool.append(3)
+
+                    if C.desire > 75:
+                        dice_pool.append(4)
+                        dice_pool.append(5)
+
+                    if C.desire > 90:
+                        dice_pool.append(6)
+
+                    dice_roll = renpy.random.choice(dice_pool)
 
                     if dice_roll == 1:
                         renpy.say(C.voice, "Oh. . .")
                     elif dice_roll == 2:
-                        renpy.say(C.voice, "*gasp*")
-                    elif dice_roll == 3:
                         renpy.say(C.voice, f"Mmmm, {C.Player_petname}, keep going.")
+                    elif dice_roll == 3:
+                        renpy.say(C.voice, "*gasp*")
+                    elif dice_roll == 4:
+                        renpy.say(C.voice, "Oh god, that feels good.")
+                    elif dice_roll == 5:
+                        renpy.say(C.voice, "How did you get this good. . . ?")
+                    elif dice_roll == 6:
+                        renpy.say(C.voice, f"I'm so close, {C.Player_petname}. . .")
+                else:
+                    if renpy.random.random() > 0.75:
+                        if renpy.random.random() > 0.5:
+                            renpy.say(C.voice, "Maybe we could take a break soon?")
+                        else:
+                            renpy.say(C.voice, "You're not tired at all?")
+
+        return
+
+    def desire_increases(Characters):
+        for C in Characters:
+            if not C.stamina:
+                if C == Player and C.cock_Actions:
+                    renpy.say(None, "Looks like you're running on empty - maybe give yourself a break.")
+            
+                continue
+            elif hookup_length < max_hookup_length*math.sqrt(C.max_stamina) or C.desire > 75:
+                pass
+            else:
+                continue
+
+            for A in C.all_Actions:
+                base = eval(f"{C.tag}_base_Action_desire")*eval(f"{C.tag}_Action_desires['{A.Action_type}'][{int(C.desire/20 % 5)}]")
+
+                modifier = 1.0
+
+                if len(A.modes) > 1:
+                    modifier *= (A.modes.index(A.mode) + 1)/len(A.modes)
+
+                if A.speed:
+                    modifier *= speed
+
+                C.desire += base*modifier
 
         return

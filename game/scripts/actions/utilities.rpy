@@ -875,37 +875,55 @@ label start_Action(Action):
             $ Action.max_intensity[1] *= Action.Targets[0].anal_training/3
 
         if not ongoing_Event or has_Action_control:
-            call expression f"{Action.Action_type}_initiations" pass (Action = Action) from _call_expression_124
+            $ has_stamina = True
+
+            python:
+                for C in temp_Characters:
+                    if not C.stamina:
+                        if C == Player and Action.Action_type in cock_Action_types:
+                            has_stamina = False
+                        elif C in all_Companions:
+                            has_stamina = False 
+
+            if has_stamina:
+                call expression f"{Action.Action_type}_initiations" pass (Action = Action) from _call_expression_124
 
     return
 
 label continue_Actions:
+    $ hookup_length += 1
+
     $ selected_Event = EventScheduler.choose_Event(hooking_up = True)
 
     if selected_Event:
         call start_Event(selected_Event) from _call_start_Event_6
     else:
+        $ renpy.dynamic(unique_Actions = [])
+
         python:
-            unique_Actions = []
+            for A in Player.all_Actions:
+                if A not in unique_Actions:
+                    unique_Actions.append(A)
 
-            for O in Player.all_Organs:
-                Actions = getattr(Player, f"{O}_Actions")
-
-                for A in Actions:
-                    if Action not in unique_Actions:
+            for G in Present:
+                for A in G.all_Actions:
+                    if A not in unique_Actions:
                         unique_Actions.append(A)
 
-            for G in active_Companions:
-                for O in G.all_Organs:
-                    Actions = getattr(G, f"{O}_Actions")
+        if not Player.stamina and Player.cock_Actions:
+            $ unique_Actions.remove(Player.cock_Actions[0])
 
-                    for A in Actions:
-                        if Action not in unique_Actions:
-                            unique_Actions.append(A)
+        python:
+            for G in Present:
+                if not G.stamina:
+                    for A in G.all_Actions:
+                        if A in unique_Actions and A not in G.mouth_Actions:
+                            unique_Actions.remove(A)
 
         if ongoing_Actions:
             $ sex_faces(Present[:])
-            $ sex_talk(Present[:])
+            
+            $ desire_increases([Player] + Present[:])
 
             $ renpy.random.shuffle(unique_Actions)
 
@@ -916,6 +934,8 @@ label continue_Actions:
                 $ unique_Actions[0].counter += 1
 
                 $ unique_Actions.remove(unique_Actions[0])
+
+            $ sex_talk(Present[:])
 
         $ renpy.dynamic(temp_Characters = Present[:])
 

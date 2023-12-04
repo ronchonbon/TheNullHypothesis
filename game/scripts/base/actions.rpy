@@ -1,5 +1,9 @@
 init -2:
 
+    default hookup_length = 0
+    
+    define max_hookup_length = 20
+
     default ongoing_Actions = []
 
     define all_poses = [
@@ -431,11 +435,8 @@ init -2 python:
             elif Action_type == "finger_pussy":
                 self.modes = [1]
 
-                self.speed = 1.0
+                self.speed = None
                 self.intensity = None
-
-                self.min_speed = [0.1]
-                self.max_speed = [2.0]
 
                 self.available_poses = ["masturbation", "missionary"]
 
@@ -443,11 +444,8 @@ init -2 python:
             elif Action_type == "finger_ass":
                 self.modes = [1]
 
-                self.speed = 1.0
+                self.speed = None
                 self.intensity = None
-
-                self.min_speed = [0.1]
-                self.max_speed = [2.0]
 
                 self.available_poses = ["masturbation", "missionary", "doggy"]
 
@@ -553,11 +551,8 @@ init -2 python:
             elif Action_type in dildo_Action_types:
                 self.modes = [1]
 
-                self.speed = 1.0
+                self.speed = None
                 self.intensity = None
-
-                self.min_speed = [0.1]
-                self.max_speed = [2.0]
 
                 self.available_poses = ["masturbation", "missionary", "doggy"]
 

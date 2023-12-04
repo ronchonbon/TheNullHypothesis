@@ -96,10 +96,17 @@ label Jean_accepts_hookup_love:
     return
 
 label Jean_rejects_Action_asked_once:
+    $ Jean.change_face("confused1")
+
+    ch_Jean "Are you really ignoring me?"
 
     return
 
-label Jean_rejects_Action_asked_twice:        
+label Jean_rejects_Action_asked_twice:       
+    $ Jean.change_face("angry1")
+
+    ch_Jean "Okay, stop."
+
     call getting_kicked_out(Jean) from _call_getting_kicked_out
 
     return

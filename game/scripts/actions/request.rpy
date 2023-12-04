@@ -117,6 +117,8 @@ label request_hookup(Character):
             if not C.History.check("hookup", tracker = "recent"):
                 C.History.update("hookup")
 
+                hookup_length = 0
+
     $ Character_picker_disabled = False
 
     show screen Action_screen()
@@ -177,6 +179,8 @@ label request_Action(Action_type, Actors, Targets):
 
         if _return:
             call start_Action(Action) from _call_start_Action_4
+
+            $ hookup_length += 0.25
         else:
             $ focused_Companion.History.update(f"rejected_double_penetrate")
     else:
@@ -218,16 +222,28 @@ label request_mode(Action, mode):
 
 label request_position(Companion, new_position, Action = None, automatic = False):
     if not automatic:
-        if new_position == "standing":
-            ch_Player "Can you stand up for me?"
-        elif new_position == "masturbation":
-            ch_Player "Can you lean back?"
-        elif new_position == "hands_and_knees":
-            ch_Player "Can you get on your hands and knees?"
-        elif new_position == "missionary":
-            ch_Player "Can you lay on your back?"
-        elif new_position == "doggy":
-            ch_Player "Can you turn around?"
+        if not Companion.History.check(new_position, tracker = "recent"):
+            if new_position == "standing":
+                ch_Player "Can you stand back up for me?"
+            elif new_position == "masturbation":
+                ch_Player "Can you lean back?"
+            elif new_position == "hands_and_knees":
+                ch_Player "Can you get on your hands and knees?"
+            elif new_position == "missionary":
+                ch_Player "Can you lay on your back?"
+            elif new_position == "doggy":
+                ch_Player "Can you turn around?"
+        else:
+            if new_position == "standing":
+                ch_Player "Stand back up for me."
+            elif new_position == "masturbation":
+                ch_Player "Lean back again."
+            elif new_position == "hands_and_knees":
+                ch_Player "Get on your hands and knees again."
+            elif new_position == "missionary":
+                ch_Player "Lay on your back again."
+            elif new_position == "doggy":
+                ch_Player "Turn back around for me."
 
     if new_position != "standing":
         $ proceed = True    
@@ -245,17 +261,17 @@ label request_position(Companion, new_position, Action = None, automatic = False
             $ proceed = _return
 
         if automatic or (proceed and approval_check(Companion, threshold = new_position)):
-            if not automatic:
-                if not Companion.History.check(new_position, tracker = "recent"):
-                    if not Companion.History.check(new_position):
-                        call expression f"{Companion.tag}_accepts_{new_position}_first_time" from _call_expression_78
+            # if not automatic:
+            #     if not Companion.History.check(new_position, tracker = "recent"):
+            #         if not Companion.History.check(new_position):
+            #             call expression f"{Companion.tag}_accepts_{new_position}_first_time" from _call_expression_78
 
-                    elif Companion.History.check(new_position) == 1:
-                        call expression f"{Companion.tag}_accepts_{new_position}_second_time" from _call_expression_79
-                    elif approval_check(Companion, threshold = "love"):
-                        call expression f"{Companion.tag}_accepts_{new_position}_love" from _call_expression_80
-                    else:
-                        call expression f"{Companion.tag}_accepts_{new_position}" from _call_expression_81
+            #         elif Companion.History.check(new_position) == 1:
+            #             call expression f"{Companion.tag}_accepts_{new_position}_second_time" from _call_expression_79
+            #         elif approval_check(Companion, threshold = "love"):
+            #             call expression f"{Companion.tag}_accepts_{new_position}_love" from _call_expression_80
+            #         else:
+            #             call expression f"{Companion.tag}_accepts_{new_position}" from _call_expression_81
 
             python:
                 for A in Companion.all_Actions:
@@ -286,6 +302,22 @@ label request_position(Companion, new_position, Action = None, automatic = False
 
             $ Companion.History.update(new_position)
 
+            $ hookup_length += 0.25
+
+            if new_position == "hands_and_knees":
+                $ Player.naked = True
+                $ Player.cock_out = True
+
+                $ renpy.dynamic(temp_Characters = Present[:])
+
+                while temp_Characters:
+                    if not temp_Characters[0].History.check("seen_Player_naked"):
+                        $ EventScheduler.Events[f"{temp_Characters[0].tag}_seeing_penis"].start()
+
+                    $ temp_Characters[0].History.update("seen_Player_naked")
+                    
+                    $ temp_Characters.remove(temp_Characters[0])
+
             return True
         else:
             if Companion.History.check(f"rejected_{new_position}", tracker = "recent") >= 2:
@@ -313,6 +345,24 @@ label request_position(Companion, new_position, Action = None, automatic = False
             $ Action.position = new_position
 
         call show_pose(Companion, new_position) from _call_show_pose_1
+
+        $ Companion.History.update(new_position)
+
+        $ hookup_length += 0.25
+
+        if new_position == "hands_and_knees":
+            $ Player.naked = True
+            $ Player.cock_out = True
+
+            $ renpy.dynamic(temp_Characters = Present[:])
+
+            while temp_Characters:
+                if not temp_Characters[0].History.check("seen_Player_naked"):
+                    $ EventScheduler.Events[f"{temp_Characters[0].tag}_seeing_penis"].start()
+
+                $ temp_Characters[0].History.update("seen_Player_naked")
+                
+                $ temp_Characters.remove(temp_Characters[0])
 
         return True
 

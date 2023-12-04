@@ -56,6 +56,8 @@ init python:
     config.default_music_volume = 0.4
     config.default_sfx_volume = 0.25
     
+    config.keymap["rollback"] = ["any_K_PAGEUP", "any_KP_PAGEUP", "K_AC_BACK"]
+
     preferences.text_cps = 0
     preferences.afm_time = 10
 

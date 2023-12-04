@@ -753,6 +753,20 @@ label day_three_end:
 
     $ EventScheduler.update_conditions()
 
+
+    $ season = 4
+
+    python:
+        for C in all_Companions:
+            C.love = 1000
+            C.trust = 1000
+            Partners.append(C)
+
+    $ EventScheduler.Events["Rogue_first_sex"].completed = True
+    $ EventScheduler.Events["Laura_first_sex_part_two"].completed = True
+    $ EventScheduler.Events["Jean_first_sex_part_two"].completed = True
+
+
     call refresh_season_content from _call_refresh_season_content_3
 
     if black_screen:
