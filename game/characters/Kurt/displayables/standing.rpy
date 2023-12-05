@@ -106,6 +106,11 @@ layeredimage Kurt_standing:
 
     if Kurt.teleporting_out or Kurt.smoke:
         Null()
+    elif Kurt.left_arm in ["rub_neck"]:
+        "characters/Kurt/images/left_forearm_[Kurt.left_arm].webp"
+
+    if Kurt.teleporting_out or Kurt.smoke:
+        Null()
     else:
         At("Kurt_standing_right_arm", Kurt_standing_right_arm_animation)
 
@@ -126,18 +131,28 @@ layeredimage Kurt_standing:
 
     if Kurt.teleporting_out or Kurt.smoke:
         Null()
-    else:
-        "characters/Kurt/images/left_arm_shadow.webp"
+    elif Kurt.left_arm in ["crossed", "neutral", "rub_neck"]:
+        "characters/Kurt/images/left_arm_[Kurt.left_arm]_shadow.webp"
 
     if Kurt.teleporting_out or Kurt.smoke:
         Null()
-    else:
+    elif Kurt.left_arm in ["crossed", "fight", "fist", "neutral", "rub_neck"]:
         At("Kurt_standing_left_arm", Kurt_standing_left_arm_animation)
 
     if Kurt.teleporting_out or Kurt.smoke:
         Null()
     else:
         At("Kurt_standing_head", Kurt_standing_head_animation)
+
+    if Kurt.teleporting_out or Kurt.smoke:
+        Null()
+    elif Kurt.left_arm in ["extended", "fight"]:
+        "characters/Kurt/images/left_forearm_[Kurt.left_arm].webp"
+
+    if Kurt.teleporting_out or Kurt.smoke:
+        Null()
+    elif Kurt.right_arm in ["extended2", "fight"]:
+        "characters/Kurt/images/right_forearm_[Kurt.right_arm].webp"
 
     if not Kurt.teleporting_out and not Kurt.teleporting_in and not Kurt.smoke:
         Null()
@@ -151,13 +166,13 @@ image Kurt_standing_tail:
     offset (int(1250*character_sampling), int(2400*character_sampling))
 
 image Kurt_standing_right_arm:
-    "characters/Kurt/images/right_arm.webp"
+    "characters/Kurt/images/right_arm_[Kurt.right_arm].webp"
     
     anchor (int(900*character_sampling), int(1630*character_sampling))
     offset (int(900*character_sampling), int(1630*character_sampling))
 
 image Kurt_standing_left_arm:
-    "characters/Kurt/images/left_arm.webp"
+    "characters/Kurt/images/left_arm_[Kurt.left_arm].webp"
     
     anchor (int(1615*character_sampling), int(1620*character_sampling))
     offset (int(1615*character_sampling), int(1620*character_sampling))

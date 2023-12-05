@@ -615,7 +615,7 @@ screen head_screen(Companion):
                         
                         null width 85
 
-            if False:
+            if True:
                 $ brows = [
                     "neutral", "cocked", "furrowed", "raised", "wink", "worried"]
 

@@ -22,10 +22,11 @@ label Character_orgasms(Character):
 
     $ Character.status["horny"] = False
 
-    if not Character.stamina:
-        $ stop_Actions(Character, organ = "clitoris")
-        $ stop_Actions(Character, organ = "vagina")
-        $ stop_Actions(Character, organ = "anus")
+    if not Character.stamina or hookup_length >= max_hookup_length:
+        python:
+            for A in Character.all_Actions:
+                if A not in Player.cock_Actions:
+                    stop_Action(A)
 
     $ has_progression_control = True
     $ has_Action_control = True
@@ -260,9 +261,6 @@ label Player_orgasms:
 
     $ Player.orgasming = None
 
-    $ speed = 1.0
-    $ intensity = 1.0
-
     $ Player.desire = 0
 
     $ Player.stamina -= 1 if Player.stamina > 0 else 0
@@ -270,9 +268,12 @@ label Player_orgasms:
     if Player.stamina:
         $ Player.cock_Actions[0].mode = 0
     else:
+        $ stop_Actions(Player, organ = "cock")
+        
         "Looks like you're running on empty - maybe give yourself a break."
 
-        $ stop_Actions(Player, organ = "cock")
+    $ speed = 1.0
+    $ intensity = 1.0
 
     $ has_progression_control = True
     $ has_Action_control = True

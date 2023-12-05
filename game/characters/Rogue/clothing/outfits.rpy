@@ -12,6 +12,16 @@ init python:
             "top": Rogue_black_lowcut_top(),
             "gloves": Rogue_black_gloves(), "sleeves": Rogue_black_spiked_bracelets()})
 
+        Outfits.append(OutfitClass("Hero (Chapter I)", activewear = True))
+
+        Outfits[-1].Clothes.update({
+            "face_inner_accessory": Rogue_green_headband(), "hair": Rogue_asymmetric_hair(),
+            "bra": Rogue_black_sports_bra(), "underwear": Rogue_yellow_panties(),
+            "bodysuit": Rogue_greenyellow_classic_suit(),
+            "footwear": Rogue_yellow_classic_boots(),
+            "gloves": Rogue_yellow_gloves(), "belt": Rogue_brown_utility_belt(),
+            "jacket": Rogue_brown_classic_jacket()})
+
         Outfits.append(OutfitClass("Swimsuit (Bikini)", swimwear = True))
 
         Outfits[-1].Clothes.update({

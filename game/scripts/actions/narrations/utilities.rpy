@@ -17,15 +17,13 @@ init python:
                     elif dice_roll == 2:
                         brows = "cocked"
 
-                    dice_roll = renpy.random.randint(1, 4)
+                    dice_roll = renpy.random.randint(1, 3)
 
                     if dice_roll == 1:
                         eyes = "left"
                     elif dice_roll == 2:
                         eyes = "right"
                     elif dice_roll == 3:
-                        eyes = "squint"
-                    elif dice_roll == 4:
                         eyes = "neutral"
 
                     dice_roll = renpy.random.randint(1, 2)

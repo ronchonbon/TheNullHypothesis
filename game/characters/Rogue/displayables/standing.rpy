@@ -89,10 +89,20 @@ layeredimage Rogue_standing:
     if Rogue.left_arm in ["bra", "touch_ass"]:
         "characters/Rogue/images/standing/left_forearm_[Rogue.left_arm].webp"
 
+    if not Rogue.Clothes["bodysuit"].string:
+        Null()
+    elif Rogue.left_arm in ["bra", "touch_ass"]:
+        "characters/Rogue/images/standing/bodysuit_[Rogue.Clothes[bodysuit].string]_left_forearm_sleeve_[Rogue.left_arm].webp"
+
     if not Rogue.Clothes["top"].string:
         Null()
     elif Rogue.left_arm in ["bra", "touch_ass"]:
         "characters/Rogue/images/standing/top_[Rogue.Clothes[top].string]_left_forearm_sleeve_[Rogue.left_arm].webp"
+
+    if Rogue.Clothes["gloves"].string not in ["yellow_gloves"]:
+        Null()
+    elif Rogue.left_arm in ["bra", "touch_ass"]:
+        "characters/Rogue/images/standing/gloves_[Rogue.Clothes[gloves].string]_left_[Rogue.left_arm].webp"
 
     if not Rogue.Clothes["sleeves"].string:
         Null()
@@ -120,7 +130,7 @@ layeredimage Rogue_standing:
     else:
         "Rogue_standing_left_arm"
 
-    if not Rogue.Clothes["bra"].string:
+    if not Rogue.Clothes["bra"].string or Rogue.Clothes["bodysuit"].string or Rogue.Clothes["jacket"].string:
         Null()
     elif Rogue.left_arm == "crossed" and Rogue.right_arm == "crossed":
         "characters/Rogue/images/standing/bra_[Rogue.Clothes[bra].string]_left_shoulder_[Rogue.Clothes[bra].state]_crossed.webp"
@@ -129,7 +139,7 @@ layeredimage Rogue_standing:
     else:
         "characters/Rogue/images/standing/bra_[Rogue.Clothes[bra].string]_left_shoulder_[Rogue.Clothes[bra].state].webp"
 
-    if Rogue.left_arm not in ["bra", "extended", "fight", "fist", "grope", "hip", "neutral", "rub_neck", "touch_ass"]:
+    if Rogue.left_arm not in ["bra", "fight", "fist", "grope", "hip", "neutral", "rub_neck", "touch_ass"]:
         Null()
     elif renpy.get_screen("Wardrobe_screen"):
         "Rogue_standing_left_sleeve"
@@ -140,6 +150,11 @@ layeredimage Rogue_standing:
 
     if Rogue.right_arm in ["fight", "touch_pussy"]:
         "characters/Rogue/images/standing/right_forearm_[Rogue.right_arm].webp"
+
+    if not Rogue.Clothes["bodysuit"].string:
+        Null()
+    elif Rogue.right_arm in ["fight", "touch_pussy"]:
+        "characters/Rogue/images/standing/bodysuit_[Rogue.Clothes[bodysuit].string]_right_forearm_sleeve_[Rogue.right_arm].webp"
 
     if not Rogue.Clothes["top"].string:
         Null()
@@ -155,9 +170,19 @@ layeredimage Rogue_standing:
         Null()
     elif Rogue.right_arm in ["fight", "touch_pussy"]:
         "characters/Rogue/images/standing/sleeves_[Rogue.Clothes[sleeves].string]_right_[Rogue.right_arm].webp"
+
+    if not Rogue.Clothes["jacket"].string:
+        Null()
+    elif Rogue.right_arm in ["fight"]:
+        "characters/Rogue/images/standing/jacket_[Rogue.Clothes[jacket].string]_right_forearm_sleeve_[Rogue.right_arm].webp"
         
     if Rogue.left_arm in ["extended", "fight", "grope", "rub_neck"]:
         "characters/Rogue/images/standing/left_forearm_[Rogue.left_arm].webp"
+
+    if not Rogue.Clothes["bodysuit"].string:
+        Null()
+    elif Rogue.left_arm in ["extended", "fight", "grope", "rub_neck"]:
+        "characters/Rogue/images/standing/bodysuit_[Rogue.Clothes[bodysuit].string]_left_forearm_sleeve_[Rogue.left_arm].webp"
 
     if not Rogue.Clothes["top"].string:
         Null()
@@ -173,6 +198,11 @@ layeredimage Rogue_standing:
         Null()
     elif Rogue.left_arm in ["extended", "fight", "grope", "rub_neck"]:
         "characters/Rogue/images/standing/sleeves_[Rogue.Clothes[sleeves].string]_left_[Rogue.left_arm].webp"
+
+    if not Rogue.Clothes["jacket"].string:
+        Null()
+    elif Rogue.left_arm in ["extended", "grope"]:
+        "characters/Rogue/images/standing/jacket_[Rogue.Clothes[jacket].string]_left_forearm_sleeve_[Rogue.left_arm].webp"
 
     if not Player.left_hand_Actions or Rogue not in Player.left_hand_Actions[0].Targets:
         Null()
@@ -240,6 +270,9 @@ layeredimage Rogue_standing_right_arm:
     always:
         "characters/Rogue/images/standing/right_arm_[Rogue.right_arm].webp"
 
+    if Rogue.Clothes["bodysuit"].string in ["greenyellow_classic_suit"] and Rogue.right_arm in ["bra", "extended", "fist", "neutral"]:
+        "characters/Rogue/images/standing/bodysuit_[Rogue.Clothes[bodysuit].string]_right_sleeve_[Rogue.right_arm].webp"
+
     if Rogue.Clothes["top"].string in ["black_fishnet_top"] and Rogue.right_arm in ["extended", "neutral"]:
         "characters/Rogue/images/standing/top_[Rogue.Clothes[top].string]_right_sleeve_[Rogue.right_arm].webp"
     elif Rogue.Clothes["top"].string in ["black_lowcut_top"]:
@@ -257,10 +290,20 @@ layeredimage Rogue_standing_right_arm:
     elif Rogue.right_arm in ["extended", "fist", "neutral"]:
         "characters/Rogue/images/standing/sleeves_[Rogue.Clothes[sleeves].string]_right_[Rogue.right_arm].webp"
 
+    if not Rogue.Clothes["jacket"].string:
+        Null()
+    elif Rogue.right_arm == "fist":
+        "characters/Rogue/images/standing/jacket_[Rogue.Clothes[jacket].string]_right_sleeve_neutral.webp"
+    elif Rogue.Clothes["jacket"].string in ["brown_classic_jacket"] and Rogue.right_arm in ["extended", "neutral", "touch_pussy"]:
+        "characters/Rogue/images/standing/jacket_[Rogue.Clothes[jacket].string]_right_sleeve_[Rogue.right_arm].webp"
+
     anchor (int(1075*character_sampling), int(1545*character_sampling))
     offset (int(1075*character_sampling), int(1545*character_sampling))
 
 layeredimage Rogue_standing_body:
+    if Rogue.Clothes["jacket"].string:
+        "characters/Rogue/images/standing/jacket_[Rogue.Clothes[jacket].string]_back.webp"
+
     always:
         "characters/Rogue/images/standing/body.webp"
 
@@ -270,24 +313,37 @@ layeredimage Rogue_standing_body:
     always:
         "characters/Rogue/images/standing/left_foot.webp"
 
-    if Rogue.Clothes["footwear"].string:
-        "characters/Rogue/images/standing/footwear_[Rogue.Clothes[footwear].string].webp"
-
     if Rogue.Clothes["underwear"].string:
         "characters/Rogue/images/standing/underwear_[Rogue.Clothes[underwear].string]_[Rogue.Clothes[underwear].state].webp"
+
+    if Rogue.Clothes["bodysuit"].string:
+        "characters/Rogue/images/standing/bodysuit_[Rogue.Clothes[bodysuit].string]_lower.webp"
 
     if Rogue.Clothes["pants"].string:
         "characters/Rogue/images/standing/pants_[Rogue.Clothes[pants].string]_[Rogue.Clothes[pants].state].webp"
 
+    if Rogue.Clothes["belt"].string:
+        "characters/Rogue/images/standing/belt_[Rogue.Clothes[belt].string].webp"
+
+    if Rogue.Clothes["footwear"].string:
+        "characters/Rogue/images/standing/footwear_[Rogue.Clothes[footwear].string].webp"
+
+    if not Rogue.Clothes["bodysuit"].string:
+        Null()
+    elif Rogue.right_arm in ["bra", "extended", "fight", "hip", "neutral", "touch_pussy"]:
+        "characters/Rogue/images/standing/bodysuit_[Rogue.Clothes[bodysuit].string]_right_shoulder_[Rogue.right_arm].webp"
+
     if Rogue.Clothes["top"].string not in ["black_fishnet_top", "green_mesh_top"]:
         Null()
-    elif Rogue.right_arm in ["bra", "extended", "hip", "neutral", "touch_pussy"]:
-        "characters/Rogue/images/standing/top_[Rogue.Clothes[top].string]_right_shoulder_sleeve_[Rogue.right_arm].webp"
+    elif Rogue.right_arm in ["bra", "extended", "fight", "neutral", "touch_pussy"]:
+        "characters/Rogue/images/standing/top_[Rogue.Clothes[top].string]_right_shoulder_[Rogue.right_arm].webp"
 
     if not Rogue.Clothes["jacket"].string:
         Null()
-    elif Rogue.right_arm in ["bra", "extended", "hip", "neutral", "touch_pussy"]:
-        "characters/Rogue/images/standing/jacket_[Rogue.Clothes[jacket].string]_right_shoulder_sleeve_[Rogue.right_arm].webp"
+    elif Rogue.right_arm == "fist":
+        "characters/Rogue/images/standing/jacket_[Rogue.Clothes[jacket].string]_right_shoulder_neutral.webp"
+    elif Rogue.Clothes["jacket"].string == "brown_classic_jacket" and Rogue.right_arm in ["bra", "extended", "fight", "neutral", "touch_pussy"]:
+        "characters/Rogue/images/standing/jacket_[Rogue.Clothes[jacket].string]_right_shoulder_[Rogue.right_arm].webp"
 
     if Rogue.right_arm in ["crossed"]:
         "characters/Rogue/images/standing/right_arm_[Rogue.right_arm].webp"
@@ -297,6 +353,11 @@ layeredimage Rogue_standing_body:
 
     if Rogue.right_arm in ["hip"]:
         "characters/Rogue/images/standing/right_forearm_[Rogue.right_arm].webp"
+
+    if not Rogue.Clothes["bodysuit"].string:
+        Null()
+    elif Rogue.right_arm in ["hip"]:
+        "characters/Rogue/images/standing/bodysuit_[Rogue.Clothes[bodysuit].string]_right_forearm_sleeve_[Rogue.right_arm].webp"
 
     if not Rogue.Clothes["top"].string:
         Null()
@@ -312,6 +373,11 @@ layeredimage Rogue_standing_body:
         Null()
     elif Rogue.right_arm in ["hip"]:
         "characters/Rogue/images/standing/sleeves_[Rogue.Clothes[sleeves].string]_right_[Rogue.right_arm].webp"
+
+    if not Rogue.Clothes["jacket"].string:
+        Null()
+    elif Rogue.right_arm in ["hip"]:
+        "characters/Rogue/images/standing/jacket_[Rogue.Clothes[jacket].string]_right_forearm_sleeve_[Rogue.right_arm].webp"
 
     if Rogue.left_arm == "crossed" and Rogue.right_arm == "crossed":
         "characters/Rogue/images/standing/breasts_crossed_shadow.webp"
@@ -332,12 +398,21 @@ layeredimage Rogue_standing_body:
         
     if not Rogue.Clothes["bra"].string:
         Null()
+    elif Rogue.Clothes["bodysuit"].string in ["greenyellow_classic_suit"]:
+        Null()
     elif Rogue.left_arm == "crossed" and Rogue.right_arm == "crossed":
         "characters/Rogue/images/standing/bra_[Rogue.Clothes[bra].string]_[Rogue.Clothes[bra].state]_crossed.webp"
     elif Rogue.left_arm == "grope" and Rogue.Clothes["bra"].state == 1:
         "characters/Rogue/images/standing/bra_[Rogue.Clothes[bra].string]_1_grope.webp"
     else:
         "characters/Rogue/images/standing/bra_[Rogue.Clothes[bra].string]_[Rogue.Clothes[bra].state].webp"
+
+    if not Rogue.Clothes["bodysuit"].string:
+        Null()
+    elif Rogue.left_arm == "crossed" and Rogue.right_arm == "crossed":
+        "characters/Rogue/images/standing/bodysuit_[Rogue.Clothes[bodysuit].string]_[Rogue.Clothes[bodysuit].state]_crossed.webp"
+    else:
+        "characters/Rogue/images/standing/bodysuit_[Rogue.Clothes[bodysuit].string]_[Rogue.Clothes[bodysuit].state].webp"
 
     if not Rogue.Clothes["top"].string:
         Null()
@@ -353,11 +428,13 @@ layeredimage Rogue_standing_body:
     if not Rogue.Clothes["jacket"].string:
         Null()
     elif Rogue.left_arm == "crossed" and Rogue.right_arm == "crossed":
-        "characters/Rogue/images/standing/jacket_[Rogue.Clothes[jacket].string]_crossed.webp"
-    elif Rogue.breasts_supported:
-        "characters/Rogue/images/standing/jacket_[Rogue.Clothes[jacket].string]_supported.webp"
+        "characters/Rogue/images/standing/jacket_[Rogue.Clothes[jacket].string]_[Rogue.Clothes[jacket].state]_crossed.webp"
+    elif Rogue.left_arm == "grope" and Rogue.Clothes["jacket"].string in ["brown_classic_jacket"]:
+        "characters/Rogue/images/standing/jacket_[Rogue.Clothes[jacket].string]_1_grope.webp"
+    elif Rogue.left_arm == "grope" and Rogue.Clothes["jacket"].state == 1:
+        "characters/Rogue/images/standing/jacket_[Rogue.Clothes[jacket].string]_1_grope.webp"
     else:
-        "characters/Rogue/images/standing/jacket_[Rogue.Clothes[jacket].string].webp"
+        "characters/Rogue/images/standing/jacket_[Rogue.Clothes[jacket].string]_[Rogue.Clothes[jacket].state].webp"
 
 image Rogue_standing_left_arm:
     "characters/Rogue/images/standing/left_arm_[Rogue.left_arm].webp"
@@ -366,12 +443,15 @@ image Rogue_standing_left_arm:
     offset (int(1590*character_sampling), int(1530*character_sampling))
 
 layeredimage Rogue_standing_left_sleeve:
+    if not Rogue.Clothes["bodysuit"].string:
+        Null()
+    else:
+        "characters/Rogue/images/standing/bodysuit_[Rogue.Clothes[bodysuit].string]_left_sleeve_[Rogue.left_arm].webp"
+
     if not Rogue.Clothes["top"].string:
         Null()
     elif Rogue.Clothes["top"].string not in ["black_lowcut_top"] and Rogue.left_arm == "fist":
         "characters/Rogue/images/standing/top_[Rogue.Clothes[top].string]_left_sleeve_neutral.webp"
-    elif Rogue.Clothes["top"].string in ["black_lowcut_top"] and Rogue.left_arm == "extended":
-        Null()
     else:
         "characters/Rogue/images/standing/top_[Rogue.Clothes[top].string]_left_sleeve_[Rogue.left_arm].webp"
 
@@ -415,6 +495,9 @@ layeredimage Rogue_standing_head:
 
     always:
         "characters/Rogue/images/standing/makeup_purple_eyeshadow.webp"
+
+    if Rogue.Clothes["face_inner_accessory"].string:
+        "characters/Rogue/images/standing/face_inner_accessory_[Rogue.Clothes[face_inner_accessory].string].webp"
 
     # if Rogue.wet or Rogue.Clothes["hair"].string == "wet":
     #     "characters/Rogue/images/standing/hair_wet_shadow.webp"

@@ -2,7 +2,7 @@ init -2:
 
     default hookup_length = 0
     
-    define max_hookup_length = 20
+    define max_hookup_length = 10
 
     default ongoing_Actions = []
 

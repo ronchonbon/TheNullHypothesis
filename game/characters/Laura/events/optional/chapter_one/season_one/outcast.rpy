@@ -83,7 +83,7 @@ label Laura_chapter_one_season_one_outcast:
     call set_the_scene(location = "bg_classroom") from _call_set_the_scene_403
 
     "Upon entering the classroom, you see a curious sight."
-    "[Laura.name] is seated at the desk, but while most other students are packed in next to each other, nobody is sitting within 10 feet of her."
+    "[Laura.name] is seated at the desk, but while most other students are packed in next to each other, nobody is sitting within ten feet of her."
     "She doesn't seem to notice, but hushed conversation around the room tells you the others are very aware of her presence."
 
     menu:

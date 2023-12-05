@@ -15,7 +15,7 @@ label spank(Companion):
 
             $ Companion.desire += base
 
-        call spank_narrations(Companion)
+        call spank_narrations(Companion) from _call_spank_narrations
 
         if not Companion.History.check("spank", tracker = "recent"):
             if not Companion.History.check("spank"):
@@ -27,7 +27,7 @@ label spank(Companion):
             else:
                 call expression f"{Companion.tag}_accepts_spank" from _call_expression_94
     else:
-        call spank_narrations(Companion)
+        call spank_narrations(Companion) from _call_spank_narrations_1
 
         if Companion.History.check("rejected_spank", tracker = "recent") >= 2:
             call change_Companion_stat(Companion, "love", -5) from _call_change_Companion_stat_831

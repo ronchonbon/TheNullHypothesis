@@ -862,6 +862,24 @@ label start_Action(Action):
                         elif Action.Action_type in ["self_dildo_ass", "anal", "dildo_ass"] and C in Action.Targets:
                             C.anal_training += 1 if C.anal_training < 3 else 0
 
+                    for A in C.all_Actions:
+                        if A.Action_type in ["touch_thighs_over_clothes", "touch_thighs_higher_over_clothes"] and not C.thighs_covered:
+                            stop_Action(A)
+                        elif A.Action_type == "touch_breasts_over_clothes" and not C.breasts_covered:
+                            stop_Action(A)
+                        elif A.Action_type == "touch_pussy_over_clothes" and not C.pussy_covered:
+                            stop_Action(A)
+                        elif A.Action_type == "grab_ass_over_clothes" and not C.ass_covered:
+                            stop_Action(A)
+                        elif A.Action_type in ["touch_thighs", "touch_thighs_higher"] and C.thighs_covered:
+                            stop_Action(A)
+                        elif A.Action_type in ["touch_breasts", "pinch_nipples", "suck_nipples"] and C.breasts_covered:
+                            stop_Action(A)
+                        elif A.Action_type in ["touch_pussy", "finger_pussy", "eat_pussy", "self_touch_pussy", "self_vibrator", "self_dildo_pussy", "sex", "vibrator", "dildo_pussy"] and C.pussy_covered:
+                            stop_Action(A)
+                        elif A.Action_type in ["finger_ass", "eat_ass", "self_finger_ass", "self_dildo_ass", "anal", "dildo_ass"] and C.anus_covered:
+                            stop_Action(A)
+
         if Action.Action_type == "deepthroat":
             $ Action.max_speed[0] *= Action.Actors[0].throat_training/4
             

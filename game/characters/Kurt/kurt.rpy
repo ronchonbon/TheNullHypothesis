@@ -77,7 +77,28 @@ init -2 python:
         return brows, eyes, mouth
 
     def Kurt_arms(pose):
-        return "neutral", "neutral"
+        if pose == "neutral":
+            left_arm = "neutral"
+            right_arm = "neutral"
+        elif pose == "angry":
+            left_arm = "fist"
+            right_arm = "fist"
+        elif pose == "crossed":
+            left_arm = "crossed"
+            right_arm = "crossed"
+        elif pose == "fight":
+            left_arm = "fight"
+            right_arm = "fight"
+        elif pose == "shrug":
+            left_arm = "extended"
+            right_arm = "extended1"
+        elif pose == "sheepish":
+            left_arm = "rub_neck"
+            right_arm = "extended2"
+        else:
+            return "wrong", "wrong"
+
+        return left_arm, right_arm
 
     def Kurt_locations():
         possible_locations = []

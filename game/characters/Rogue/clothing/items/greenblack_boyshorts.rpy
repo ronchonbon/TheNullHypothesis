@@ -37,9 +37,11 @@ init -1 python:
                 "anus": [0]}}
 
         covered_by = {
-            "black_jeans": [0]}
+            "black_jeans": [0],
+            "greenyellow_classic_suit": [0]}
         blocked_by = {
-            "black_jeans": [0, 1]}
+            "black_jeans": [0, 1],
+            "greenyellow_classic_suit": [0]}
 
         supports_breasts = False
         

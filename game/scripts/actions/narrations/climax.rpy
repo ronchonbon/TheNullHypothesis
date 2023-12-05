@@ -79,7 +79,7 @@ label Player_cumshot_narrations(Character, location):
     elif "breasts" in location:
         "You lose control, your cum shooting all over her tits, slowly dripping down their curves."
     elif location == "cumshot_face":
-        "Your cum lands on her face causing her to flinch, but lean in trying to catch every last drop."
+        "She flinches at first as your cum lands on her face, then she leans in to try to catch every last drop."
     elif location == "cumshot_hair":
         "You shudder and finally lose control, showering her with cum, getting it all in her hair."
     elif location == "cumshot_back":

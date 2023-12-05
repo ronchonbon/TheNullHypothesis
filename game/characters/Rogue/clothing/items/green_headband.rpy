@@ -1,11 +1,11 @@
 init -1 python:
 
-    def Rogue_black_lowcut_top():
-        name = "black lowcut top"
-        short_name = "top"
-        string = "black_lowcut_top"
+    def Rogue_green_headband():
+        name = "green headband"
+        short_name = "headband"
+        string = "green_headband"
         
-        Clothing_type = "top"
+        Clothing_type = "face_inner_accessory"
 
         shop_type = "clothing"
         chapter = 0
@@ -18,33 +18,24 @@ init -1 python:
         
         price = 0
         
-        shame = [5, 5]
+        shame = [0, 0]
         
         available_states = {
-            "standing": [0, 1]}
+            "standing": [0]}
         undressed_states = {
-            "standing": 1}
+            "standing": 0}
         
         covers = {
-            "standing": {
-                "bra": [0],
-                "breasts": [0],
-                "back": [0],
-                "belly": [0]}}
+            "standing": {}}
         hides = {
-            "standing": {
-                "bra": [0],
-                "breasts": [0],
-                "back": [0],
-                "belly": [0]}}
+            "standing": {}}
 
         covered_by = {}
         blocked_by = {}
 
         supports_breasts = False
         
-        incompatibilities = [
-            "yellow_gloves"]
+        incompatibilities = []
         
         return ClothingClass(
             Rogue, 
@@ -58,40 +49,40 @@ init -1 python:
             supports_breasts = supports_breasts,
             incompatibilities = incompatibilities)
 
-label Rogue_black_lowcut_top_shopping_accept:
+label Rogue_green_headband_shopping_accept:
 
     return
 
-label Rogue_black_lowcut_top_shopping_reject:
+label Rogue_green_headband_shopping_reject:
 
     return
 
-label Rogue_black_lowcut_top_gift_accept:
+label Rogue_green_headband_gift_accept:
 
     return
 
-label Rogue_black_lowcut_top_gift_reject:
+label Rogue_green_headband_gift_reject:
 
     return
 
-label Rogue_black_lowcut_top_change_private_before:
+label Rogue_green_headband_change_private_before:
+
+    return
+
+label Rogue_green_headband_change_private_after:
     $ Rogue.change_face("smirk2")
 
-    ch_Rogue "This one's real nice."
+    ch_Rogue "Iconic."
 
     return
 
-label Rogue_black_lowcut_top_change_private_after:
+label Rogue_green_headband_change_public_before:
 
     return
 
-label Rogue_black_lowcut_top_change_public_before:
+label Rogue_green_headband_change_public_after:
     $ Rogue.change_face("smirk2")
 
-    ch_Rogue "This one's real nice."
-
-    return
-
-label Rogue_black_lowcut_top_change_public_after:
+    ch_Rogue "Iconic."
 
     return

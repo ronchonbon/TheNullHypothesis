@@ -33,9 +33,13 @@ init -1 python:
                 "breasts": [0]}}
 
         covered_by = {
-            "black_lowcut_top": [0]}
+            "black_lowcut_top": [0],
+            "brown_classic_jacket": [0],
+            "greenyellow_classic_suit": [0]}
         blocked_by = {
-            "black_lowcut_top": [0, 1]}
+            "black_lowcut_top": [0],
+            "brown_classic_jacket": [0],
+            "greenyellow_classic_suit": [0]}
 
         supports_breasts = False
         
