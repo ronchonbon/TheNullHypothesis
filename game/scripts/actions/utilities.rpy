@@ -951,6 +951,14 @@ label continue_Actions:
 
                 $ unique_Actions[0].counter += 1
 
+                if unique_Actions[0].counter == boredom_threshold:
+                    $ renpy.dynamic(temp_Characters = Present[:])
+
+                    while temp_Characters:
+                        $ temp_Characters[0].History.update(unique_Actions[0].Action_type)
+
+                        $ temp_Characters.remove(temp_Characters[0])
+
                 $ unique_Actions.remove(unique_Actions[0])
 
             $ sex_talk(Present[:])

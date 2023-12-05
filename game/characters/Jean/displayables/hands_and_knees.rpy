@@ -535,26 +535,34 @@ layeredimage Jean_hands_and_knees_tongue:
     offset (int(2175*sex_sampling), int(1849*sex_sampling))
 
 layeredimage Jean_hands_and_knees_hair:
-    # if (Jean.wet or Jean.Clothes["hair"].string == "wet") and Player.orgasming == "cum_down_throat" and focused_Companion == Jean:
+    # if (Jean.wet or Jean.Clothes["hair"].string == "wet") and Player.orgasming == "cum_on_face" and focused_Companion == Jean:
+    #     "characters/Jean/images/hands_and_knees/hair_shadow_wet.webp"
+    # elif (Jean.wet or Jean.Clothes["hair"].string == "wet") and Player.orgasming == "cum_down_throat" and focused_Companion == Jean:
     #     "characters/Jean/images/hands_and_knees/hair_shadow_wet_deepthroat.webp"
     # elif (Jean.wet or Jean.Clothes["hair"].string == "wet") and Jean.mouth_Actions and Jean.mouth_Actions[0].animation_type == "deepthroat":
     #     "characters/Jean/images/hands_and_knees/hair_shadow_wet_deepthroat.webp"
     # elif Jean.wet or Jean.Clothes["hair"].string == "wet":
     #     "characters/Jean/images/hands_and_knees/hair_shadow_wet.webp"
-    if Player.orgasming == "cum_down_throat" and focused_Companion == Jean:
+    if Player.orgasming == "cum_on_face" and focused_Companion == Jean:
+        "characters/Jean/images/hands_and_knees/hair_shadow_[Jean.Clothes[hair].string].webp"
+    elif Player.orgasming == "cum_down_throat" and focused_Companion == Jean:
         "characters/Jean/images/hands_and_knees/hair_shadow_[Jean.Clothes[hair].string]_deepthroat.webp"
     elif Jean.mouth_Actions and Jean.mouth_Actions[0].animation_type == "deepthroat":
         "characters/Jean/images/hands_and_knees/hair_shadow_[Jean.Clothes[hair].string]_deepthroat.webp"
     else:
         "characters/Jean/images/hands_and_knees/hair_shadow_[Jean.Clothes[hair].string].webp"
 
-    # if (Jean.wet or Jean.Clothes["hair"].string == "wet") and Player.orgasming == "cum_down_throat" and focused_Companion == Jean:
+    # if (Jean.wet or Jean.Clothes["hair"].string == "wet") and Player.orgasming == "cum_on_face" and focused_Companion == Jean:
+    #     "characters/Jean/images/hands_and_knees/hair_wet.webp"
+    # elif (Jean.wet or Jean.Clothes["hair"].string == "wet") and Player.orgasming == "cum_down_throat" and focused_Companion == Jean:
     #     "characters/Jean/images/hands_and_knees/hair_wet_deepthroat.webp"
     # elif (Jean.wet or Jean.Clothes["hair"].string == "wet") and Jean.mouth_Actions and Jean.mouth_Actions[0].animation_type == "deepthroat":
     #     "characters/Jean/images/hands_and_knees/hair_wet_deepthroat.webp"
     # elif Jean.wet or Jean.Clothes["hair"].string == "wet":
     #     "characters/Jean/images/hands_and_knees/hair_wet.webp"
-    if Player.orgasming == "cum_down_throat" and focused_Companion == Jean:
+    if Player.orgasming == "cum_on_face" and focused_Companion == Jean:
+        "characters/Jean/images/hands_and_knees/hair_[Jean.Clothes[hair].string].webp"
+    elif Player.orgasming == "cum_down_throat" and focused_Companion == Jean:
         "characters/Jean/images/hands_and_knees/hair_[Jean.Clothes[hair].string]_deepthroat.webp"
     elif Jean.mouth_Actions and Jean.mouth_Actions[0].animation_type == "deepthroat":
         "characters/Jean/images/hands_and_knees/hair_[Jean.Clothes[hair].string]_deepthroat.webp"

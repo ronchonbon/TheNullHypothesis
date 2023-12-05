@@ -3,6 +3,8 @@ init python:
     import copy
 
 label Character_orgasms(Character):
+    $ Action_auto_progress = False
+
     $ has_progression_control = False
     $ has_Action_control = False
     $ has_position_control = False
@@ -37,6 +39,8 @@ label Character_orgasms(Character):
     return
 
 label Player_orgasms:
+    $ Action_auto_progress = False
+    
     $ has_progression_control = False
     $ has_Action_control = False
     $ has_position_control = False

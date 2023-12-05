@@ -91,10 +91,10 @@ init -2 python:
             right_arm = "fight"
         elif pose == "shrug":
             left_arm = "extended"
-            right_arm = "extended1"
+            right_arm = "extended"
         elif pose == "sheepish":
             left_arm = "rub_neck"
-            right_arm = "extended2"
+            right_arm = "question"
         else:
             return "wrong", "wrong"
 

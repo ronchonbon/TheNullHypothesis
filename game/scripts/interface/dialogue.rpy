@@ -38,6 +38,9 @@ screen say(who, what, two_window = False, hide_after = None):
     if hide_after:
         timer hide_after action Hide("say")
 
+    if Action_screen_showing and Action_auto_progress:
+        timer 5.0/(len(ongoing_Actions) + 1) action Return()
+
     if Action_screen_showing:
         $ dialogue_anchor = [0.5, 0.0]
         $ dialogue_position = [0.12, 0.15]

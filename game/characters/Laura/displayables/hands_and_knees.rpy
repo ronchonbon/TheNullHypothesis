@@ -539,26 +539,34 @@ layeredimage Laura_hands_and_knees_tongue:
     offset (int(2175*sex_sampling), int(1849*sex_sampling))
 
 layeredimage Laura_hands_and_knees_hair:
-    # if (Laura.wet or Laura.Clothes["hair"].string == "wet") and Player.orgasming == "cum_down_throat" and focused_Companion == Laura:
+    # if (Laura.wet or Laura.Clothes["hair"].string == "wet") and Player.orgasming == "cum_on_face" and focused_Companion == Laura:
+    #     "characters/Laura/images/hands_and_knees/hair_shadow_wet.webp"
+    # elif (Laura.wet or Laura.Clothes["hair"].string == "wet") and Player.orgasming == "cum_down_throat" and focused_Companion == Laura:
     #     "characters/Laura/images/hands_and_knees/hair_shadow_wet_deepthroat.webp"
     # elif (Laura.wet or Laura.Clothes["hair"].string == "wet") and Laura.mouth_Actions and Laura.mouth_Actions[0].animation_type == "deepthroat":
     #     "characters/Laura/images/hands_and_knees/hair_shadow_wet_deepthroat.webp"
     # elif Laura.wet or Laura.Clothes["hair"].string == "wet":
     #     "characters/Laura/images/hands_and_knees/hair_shadow_wet.webp"
-    if Player.orgasming == "cum_down_throat" and focused_Companion == Laura:
+    if Player.orgasming == "cum_on_face" and focused_Companion == Laura:
+        "characters/Laura/images/hands_and_knees/hair_shadow_[Laura.Clothes[hair].string].webp"
+    elif Player.orgasming == "cum_down_throat" and focused_Companion == Laura:
         "characters/Laura/images/hands_and_knees/hair_shadow_[Laura.Clothes[hair].string]_deepthroat.webp"
     elif Laura.mouth_Actions and Laura.mouth_Actions[0].animation_type == "deepthroat":
         "characters/Laura/images/hands_and_knees/hair_shadow_[Laura.Clothes[hair].string]_deepthroat.webp"
     else:
         "characters/Laura/images/hands_and_knees/hair_shadow_[Laura.Clothes[hair].string].webp"
 
-    # if (Laura.wet or Laura.Clothes["hair"].string == "wet") and Player.orgasming == "cum_down_throat" and focused_Companion == Laura:
+    # if (Laura.wet or Laura.Clothes["hair"].string == "wet") and Player.orgasming == "cum_on_face" and focused_Companion == Laura:
+    #     "characters/Laura/images/hands_and_knees/hair_wet.webp"
+    # elif (Laura.wet or Laura.Clothes["hair"].string == "wet") and Player.orgasming == "cum_down_throat" and focused_Companion == Laura:
     #     "characters/Laura/images/hands_and_knees/hair_wet_deepthroat.webp"
     # elif (Laura.wet or Laura.Clothes["hair"].string == "wet") and Laura.mouth_Actions and Laura.mouth_Actions[0].animation_type == "deepthroat":
     #     "characters/Laura/images/hands_and_knees/hair_wet_deepthroat.webp"
     # elif Laura.wet or Laura.Clothes["hair"].string == "wet":
     #     "characters/Laura/images/hands_and_knees/hair_wet.webp"
-    if Player.orgasming == "cum_down_throat" and focused_Companion == Laura:
+    if Player.orgasming == "cum_on_face" and focused_Companion == Laura:
+        "characters/Laura/images/hands_and_knees/hair_[Laura.Clothes[hair].string].webp"
+    elif Player.orgasming == "cum_down_throat" and focused_Companion == Laura:
         "characters/Laura/images/hands_and_knees/hair_[Laura.Clothes[hair].string]_deepthroat.webp"
     elif Laura.mouth_Actions and Laura.mouth_Actions[0].animation_type == "deepthroat":
         "characters/Laura/images/hands_and_knees/hair_[Laura.Clothes[hair].string]_deepthroat.webp"

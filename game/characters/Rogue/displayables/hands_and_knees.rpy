@@ -539,13 +539,17 @@ layeredimage Rogue_hands_and_knees_tongue:
     offset (int(2175*sex_sampling), int(1849*sex_sampling))
 
 layeredimage Rogue_hands_and_knees_hair:
-    # if (Rogue.wet or Rogue.Clothes["hair"].string == "wet") and Player.orgasming == "cum_down_throat" and focused_Companion == Rogue:
+    # if (Rogue.wet or Rogue.Clothes["hair"].string == "wet") and Player.orgasming == "cum_on_face" and focused_Companion == Rogue:
+    #     "characters/Rogue/images/hands_and_knees/hair_wet.webp"
+    # elif (Rogue.wet or Rogue.Clothes["hair"].string == "wet") and Player.orgasming == "cum_down_throat" and focused_Companion == Rogue:
     #     "characters/Rogue/images/hands_and_knees/hair_wet_deepthroat.webp"
     # elif (Rogue.wet or Rogue.Clothes["hair"].string == "wet") and Rogue.mouth_Actions and Rogue.mouth_Actions[0].animation_type == "deepthroat":
     #     "characters/Rogue/images/hands_and_knees/hair_wet_deepthroat.webp"
     # elif Rogue.wet or Rogue.Clothes["hair"].string == "wet":
     #     "characters/Rogue/images/hands_and_knees/hair_wet.webp"
-    if Player.orgasming == "cum_down_throat" and focused_Companion == Rogue:
+    if Player.orgasming == "cum_on_face" and focused_Companion == Rogue:
+        "characters/Rogue/images/hands_and_knees/hair_[Rogue.Clothes[hair].string].webp"
+    elif Player.orgasming == "cum_down_throat" and focused_Companion == Rogue:
         "characters/Rogue/images/hands_and_knees/hair_[Rogue.Clothes[hair].string]_deepthroat.webp"
     elif Rogue.mouth_Actions and Rogue.mouth_Actions[0].animation_type == "deepthroat":
         "characters/Rogue/images/hands_and_knees/hair_[Rogue.Clothes[hair].string]_deepthroat.webp"

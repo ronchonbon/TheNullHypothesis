@@ -151,7 +151,7 @@ layeredimage Kurt_standing:
 
     if Kurt.teleporting_out or Kurt.smoke:
         Null()
-    elif Kurt.right_arm in ["extended2", "fight"]:
+    elif Kurt.right_arm in ["question", "fight"]:
         "characters/Kurt/images/right_forearm_[Kurt.right_arm].webp"
 
     if not Kurt.teleporting_out and not Kurt.teleporting_in and not Kurt.smoke:

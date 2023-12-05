@@ -272,6 +272,9 @@ init python:
                 if A.speed:
                     modifier *= speed
 
+                if C.History.check(A.Action_type, tracker = "weekly") >= boredom_threshold:
+                    modifier *= boredom_penalty
+
                 C.desire += base*modifier
 
         return

@@ -1,8 +1,12 @@
 init -2:
 
     default hookup_length = 0
-    
-    define max_hookup_length = 10
+    define max_hookup_length = 15
+
+    define unknown_threshold = 5
+
+    define boredom_penalty = 0.25
+    define boredom_threshold = 10
 
     default ongoing_Actions = []
 

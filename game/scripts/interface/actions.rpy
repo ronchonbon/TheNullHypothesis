@@ -5,6 +5,12 @@ init -1:
 
     default Action_screen_tab = "pose"
 
+    default Action_auto_progress = False
+    default Action_auto_progress_timer = 0.0
+
+    default Action_hover_type = None
+    default Action_hover_size = 1.0
+
 style Action_screen is default
 
 style Action_screen_button:
@@ -30,6 +36,15 @@ screen Action_screen(automatic = False):
         Hide("interactions_screen"),
         SetVariable("choice_disabled", True)]
 
+    if Action_auto_progress:
+        if Action_auto_progress_timer < 5.0:
+            timer 0.1 repeat True action SetVariable("Action_auto_progress_timer", Action_auto_progress_timer + 0.1)
+        else:
+            timer 0.1 repeat True action [
+                SetVariable("Action_auto_progress_timer", 0.0),
+                Call("continue_Actions", from_current = True),
+                Return()]
+
     if not black_screen:
         $ focused_Companion_index = 0
 
@@ -38,6 +53,59 @@ screen Action_screen(automatic = False):
                 $ focused_Companion_index = g
 
         add "images/interface/Action_menu/background.webp" zoom interface_new_adjustment
+
+        text f"{Player.stamina}" anchor (0.5, 0.5) pos (0.839, 0.03752):
+            size 35
+
+            text_align 0.5
+
+            color "#ffffff"
+
+        text f"{focused_Companion.stamina}" anchor (0.5, 0.5) pos (0.839, 0.0952):
+            size 35
+
+            text_align 0.5
+
+            color "#ffffff"
+
+        if Action_hover_type:
+            add At(At(At("images/interface/Action_menu/popup.webp", change_anchor(0.5, 0.5)), change_pos(0.825, 0.28)), zoom_sprite(0.5))
+
+            if hookup_length >= max_hookup_length*math.sqrt(focused_Companion.max_stamina) and focused_Companion.desire <= 75:
+                add At(At(At("images/interface/Action_menu/low.webp", change_anchor(0.5, 0.5)), change_pos(0.825, 0.283)), zoom_sprite(0.2))
+            elif Action_hover_type in ["high", "low"] and Action_hover_size >= 0.9:
+                add At(At(At("images/interface/Action_menu/[Action_hover_type].webp", change_anchor(0.5, 0.5)), change_pos(0.825, 0.283)), zoom_sprite(0.5))
+            elif Action_hover_type in ["high", "low"] and Action_hover_size >= 0.8:
+                add At(At(At("images/interface/Action_menu/[Action_hover_type].webp", change_anchor(0.5, 0.5)), change_pos(0.825, 0.283)), zoom_sprite(0.45))
+            elif Action_hover_type in ["high", "low"] and Action_hover_size >= 0.7:
+                add At(At(At("images/interface/Action_menu/[Action_hover_type].webp", change_anchor(0.5, 0.5)), change_pos(0.825, 0.283)), zoom_sprite(0.4))
+            elif Action_hover_type in ["high", "low"] and Action_hover_size >= 0.6:
+                add At(At(At("images/interface/Action_menu/[Action_hover_type].webp", change_anchor(0.5, 0.5)), change_pos(0.825, 0.283)), zoom_sprite(0.35))
+            elif Action_hover_type in ["high", "low"] and Action_hover_size >= 0.5:
+                add At(At(At("images/interface/Action_menu/[Action_hover_type].webp", change_anchor(0.5, 0.5)), change_pos(0.825, 0.283)), zoom_sprite(0.3))
+            elif Action_hover_type in ["high", "low"] and Action_hover_size >= 0.4:
+                add At(At(At("images/interface/Action_menu/[Action_hover_type].webp", change_anchor(0.5, 0.5)), change_pos(0.825, 0.283)), zoom_sprite(0.25))
+            elif Action_hover_type in ["high", "low"] and Action_hover_size >= 0.3:
+                add At(At(At("images/interface/Action_menu/[Action_hover_type].webp", change_anchor(0.5, 0.5)), change_pos(0.825, 0.283)), zoom_sprite(0.2))
+            elif Action_hover_type in ["high", "low"] and Action_hover_size >= 0.2:
+                add At(At(At("images/interface/Action_menu/[Action_hover_type].webp", change_anchor(0.5, 0.5)), change_pos(0.825, 0.283)), zoom_sprite(0.15))
+            elif Action_hover_type in ["high", "low"] and Action_hover_size >= 0.1:
+                add At(At(At("images/interface/Action_menu/[Action_hover_type].webp", change_anchor(0.5, 0.5)), change_pos(0.825, 0.283)), zoom_sprite(0.1))
+            elif Action_hover_type in ["high", "low"] and Action_hover_size >= 0.0:
+                add At(At(At("images/interface/Action_menu/[Action_hover_type].webp", change_anchor(0.5, 0.5)), change_pos(0.825, 0.283)), zoom_sprite(0.05))
+            else:
+                add At(At(At("images/interface/Action_menu/[Action_hover_type].webp", change_anchor(0.5, 0.5)), change_pos(0.825, 0.283)), zoom_sprite(0.5))
+
+        if Player.desire >= 90:
+            add At("images/interface/Action_menu/lightning_male.webp", pulse(intensity = 1.0)) zoom interface_new_adjustment
+        elif Player.desire >= 80:
+            add At("images/interface/Action_menu/lightning_male.webp", pulse(intensity = 0.8)) zoom interface_new_adjustment
+        elif Player.desire >= 70:
+            add At("images/interface/Action_menu/lightning_male.webp", pulse(intensity = 0.6)) zoom interface_new_adjustment
+        elif Player.desire >= 60:
+            add At("images/interface/Action_menu/lightning_male.webp", pulse(intensity = 0.4)) zoom interface_new_adjustment
+        elif Player.desire >= 50:
+            add At("images/interface/Action_menu/lightning_male.webp", pulse(intensity = 0.2)) zoom interface_new_adjustment
 
         bar value Player.desire range 100 anchor (0.5, 0.5) pos (0.94, 0.0478) xysize (int(291*interface_new_adjustment), int(37*interface_new_adjustment)):
             left_bar Frame("images/interface/Action_menu/climax_male.webp")
@@ -48,6 +116,28 @@ screen Action_screen(automatic = False):
 
             tooltip f"{Player.first_name}'s Desire"
 
+        if Player.desire >= 90:
+            add At("images/interface/Action_menu/glow_male.webp", pulse(intensity = 1.0)) zoom interface_new_adjustment
+        elif Player.desire >= 80:
+            add At("images/interface/Action_menu/glow_male.webp", pulse(intensity = 0.8)) zoom interface_new_adjustment
+        elif Player.desire >= 70:
+            add At("images/interface/Action_menu/glow_male.webp", pulse(intensity = 0.6)) zoom interface_new_adjustment
+        elif Player.desire >= 60:
+            add At("images/interface/Action_menu/glow_male.webp", pulse(intensity = 0.4)) zoom interface_new_adjustment
+        elif Player.desire >= 50:
+            add At("images/interface/Action_menu/glow_male.webp", pulse(intensity = 0.2)) zoom interface_new_adjustment
+
+        if focused_Companion.desire >= 90:
+            add At("images/interface/Action_menu/lightning_female.webp", pulse(intensity = 1.0)) zoom interface_new_adjustment
+        elif focused_Companion.desire >= 80:
+            add At("images/interface/Action_menu/lightning_female.webp", pulse(intensity = 0.8)) zoom interface_new_adjustment
+        elif focused_Companion.desire >= 70:
+            add At("images/interface/Action_menu/lightning_female.webp", pulse(intensity = 0.6)) zoom interface_new_adjustment
+        elif focused_Companion.desire >= 60:
+            add At("images/interface/Action_menu/lightning_female.webp", pulse(intensity = 0.4)) zoom interface_new_adjustment
+        elif focused_Companion.desire >= 50:
+            add At("images/interface/Action_menu/lightning_female.webp", pulse(intensity = 0.2)) zoom interface_new_adjustment
+
         bar value focused_Companion.desire range 100 anchor (0.5, 0.5) pos (0.94, 0.0851) xysize (int(291*interface_new_adjustment), int(37*interface_new_adjustment)):
             left_bar Frame("images/interface/Action_menu/climax_female.webp")
             right_bar Frame("images/interface/Action_menu/climax_empty.webp")
@@ -56,6 +146,17 @@ screen Action_screen(automatic = False):
             thumb_offset 0
 
             tooltip f"{focused_Companion.name}'s Desire"
+
+        if focused_Companion.desire >= 90:
+            add At("images/interface/Action_menu/glow_female.webp", pulse(intensity = 1.0)) zoom interface_new_adjustment
+        elif focused_Companion.desire >= 80:
+            add At("images/interface/Action_menu/glow_female.webp", pulse(intensity = 0.8)) zoom interface_new_adjustment
+        elif focused_Companion.desire >= 70:
+            add At("images/interface/Action_menu/glow_female.webp", pulse(intensity = 0.6)) zoom interface_new_adjustment
+        elif focused_Companion.desire >= 60:
+            add At("images/interface/Action_menu/glow_female.webp", pulse(intensity = 0.4)) zoom interface_new_adjustment
+        elif focused_Companion.desire >= 50:
+            add At("images/interface/Action_menu/glow_female.webp", pulse(intensity = 0.2)) zoom interface_new_adjustment
 
         if has_progression_control:
             if has_position_control:
@@ -223,6 +324,23 @@ screen Action_screen(automatic = False):
                         button align (0.5, 0.5) xysize (int(447*interface_new_adjustment), int(177*interface_new_adjustment)):
                             idle_background At("images/interface/Action_menu/button_off.webp", interface) hover_background At("images/interface/Action_menu/button_on.webp", interface) selected_idle_background At("images/interface/Action_menu/button_on.webp", interface)
 
+                            if focused_Companion.History.check(Action_type) < unknown_threshold:
+                                hovered [
+                                    SetVariable("Action_hover_type", "unknown"),
+                                    SetVariable("Action_hover_size", 1.0)]
+                            elif focused_Companion.History.check(Action_type, tracker = "weekly") >= boredom_threshold:
+                                hovered [
+                                    SetVariable("Action_hover_type", "low"),
+                                    SetVariable("Action_hover_size", 0.2)]
+                            else:
+                                hovered [
+                                    SetVariable("Action_hover_type", "high"),
+                                    SetVariable("Action_hover_size", eval(f"{focused_Companion.tag}_base_Action_desire")*eval(f"{focused_Companion.tag}_Action_desires['{Action_type}'][{int(focused_Companion.desire/20 % 5)}]"))]
+                            
+                            unhovered [
+                                SetVariable("Action_hover_type", None),
+                                SetVariable("Action_hover_size", 1.0)]
+
                             text "Spank" align (0.5, 0.5):
                                 size 35
 
@@ -250,6 +368,23 @@ screen Action_screen(automatic = False):
                                 idle_background At("images/interface/Action_menu/button_off.webp", interface) hover_background At("images/interface/Action_menu/button_on.webp", interface) selected_idle_background At("images/interface/Action_menu/button_on.webp", interface)
 
                                 selected ongoing_Action
+
+                                if focused_Companion.History.check(Action_type) < unknown_threshold:
+                                    hovered [
+                                        SetVariable("Action_hover_type", "unknown"),
+                                        SetVariable("Action_hover_size", 1.0)]
+                                elif focused_Companion.History.check(Action_type, tracker = "weekly") >= boredom_threshold:
+                                    hovered [
+                                        SetVariable("Action_hover_type", "low"),
+                                        SetVariable("Action_hover_size", 0.2)]
+                                else:
+                                    hovered [
+                                        SetVariable("Action_hover_type", "high"),
+                                        SetVariable("Action_hover_size", eval(f"{focused_Companion.tag}_base_Action_desire")*eval(f"{focused_Companion.tag}_Action_desires['{Action_type}'][{int(focused_Companion.desire/20 % 5)}]"))]
+                                
+                                unhovered [
+                                    SetVariable("Action_hover_type", None),
+                                    SetVariable("Action_hover_size", 1.0)]
 
                                 text f"{Action_name}" align (0.5, 0.5):
                                     if len(Action_name) > 18:
@@ -297,35 +432,58 @@ screen Action_screen(automatic = False):
                         unscrollable "hide"
             #     elif Action_screen_tab == "strip":
 
-            imagebutton:
-                idle At("images/interface/Action_menu/continue_idle.webp", interface) hover At("images/interface/Action_menu/continue.webp", interface)
-
-                action Call("continue_Actions", from_current = True)
-
-                tooltip "Keep Going"
-                
-                focus_mask True
-
-            if has_movement_control:
+            if ongoing_Actions:
                 imagebutton:
-                    idle At("images/interface/Action_menu/pause_idle.webp", interface) hover At("images/interface/Action_menu/pause.webp", interface)
+                    idle At("images/interface/Action_menu/continue_idle.webp", interface) hover At("images/interface/Action_menu/continue.webp", interface)
 
-                    if Player.cock_Actions:
-                        action [
-                            SetVariable("speed", 0.001),
-                            SetVariable("intensity", 0.001),
-                            SetField(Player.cock_Actions[0], "mode", 0)]
-                    else:
-                        action [
-                            SetVariable("speed", 0.001),
-                            SetVariable("intensity", 0.001)]
+                    action Call("continue_Actions", from_current = True)
 
-                    tooltip "Pause Action"
+                    tooltip "Keep Going"
                     
                     focus_mask True
 
+                if has_movement_control:
+                    imagebutton:
+                        idle At("images/interface/Action_menu/pause_idle.webp", interface) hover At("images/interface/Action_menu/pause.webp", interface)
+
+                        if Player.cock_Actions:
+                            action [
+                                SetVariable("speed", 0.001),
+                                SetVariable("intensity", 0.001),
+                                SetField(Player.cock_Actions[0], "mode", 0)]
+                        else:
+                            action [
+                                SetVariable("speed", 0.001),
+                                SetVariable("intensity", 0.001)]
+
+                        tooltip "Pause Action"
+                        
+                        focus_mask True
+
+                imagebutton:
+                    idle At("images/interface/Action_menu/auto_idle.webp", interface) hover At("images/interface/Action_menu/auto.webp", interface) selected_idle At("images/interface/Action_menu/auto.webp", interface)
+
+                    selected Action_auto_progress
+
+                    action [
+                        ToggleVariable("Action_auto_progress"),
+                        SetVariable("Action_auto_progress_timer", 0.0)]
+
+                    tooltip "Auto Progress"
+                    
+                    focus_mask True
+
+                bar value Action_auto_progress_timer range 5.0 anchor (0.5, 0.5) pos (0.9281, 0.825) xysize (int(419*interface_new_adjustment), int(78*interface_new_adjustment)):
+                    left_bar Frame("images/interface/Action_menu/progress_full.webp")
+                    right_bar Frame("images/interface/Action_menu/progress_empty.webp")
+
+                    thumb None
+                    thumb_offset 0
+
+                    tooltip "Auto Progress Timer"
+
             if has_Action_control and Player.cock_Actions and len(Player.cock_Actions[0].modes) > 1:
-                hbox anchor (0.5, 0.5) pos (0.9281, 0.857) xysize (int(475*interface_new_adjustment), int(177*interface_new_adjustment)):
+                hbox anchor (0.5, 0.5) pos (0.9281, 0.88) xysize (int(475*interface_new_adjustment), int(177*interface_new_adjustment)):
                     spacing -14
 
                     for mode in Player.cock_Actions[0].modes:
@@ -349,7 +507,7 @@ screen Action_screen(automatic = False):
                             else:
                                 action NullAction()
 
-                            tooltip "Change Mode"
+                            tooltip f"{Player.cock_Actions[0].mode_names[Player.cock_Actions[0].modes.index(mode)]}"
 
             $ different_intensities_available = False
 
