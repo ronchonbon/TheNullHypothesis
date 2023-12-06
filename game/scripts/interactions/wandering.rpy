@@ -19,17 +19,17 @@ label Characters_arrive(arriving_Characters, invited = False, greetings = True, 
 
         if greetings:
             python:
-                in_Companions_bedroom = False
+                in_Characters_bedroom = False
 
                 for C in grouped_Characters:
                     if Player.location == C.home:
-                        in_Companions_bedroom = True
+                        in_Characters_bedroom = True
 
             if invited or Player.location != Player.home:
                 $ verb = "arrives"
 
                 if Player.location in bedrooms or "bg_shower" in Player.location:
-                    if in_Companions_bedroom:
+                    if in_Characters_bedroom:
                         if len(grouped_Characters) > 1:
                             "You hear some voices chatting outside the door, followed by the turn of the doorknob."
                         else:
@@ -43,7 +43,7 @@ label Characters_arrive(arriving_Characters, invited = False, greetings = True, 
                             "You hear a quick knock at the door."
 
                 if "bg_shower" in Player.location:
-                    if in_Companions_bedroom or grouped_Characters[0].has_keys_to_Players_room:
+                    if in_Characters_bedroom or grouped_Characters[0].has_keys_to_Players_room:
                         "You hear them enter the room."
 
                         python:
@@ -105,7 +105,7 @@ label Characters_arrive(arriving_Characters, invited = False, greetings = True, 
                 else:
                     call expression f"{grouped_Characters[0].tag}_simple_greeting" from _call_expression_364
 
-                if grouped_Characters[0] in [left_Slot, middle_Slot, right_Slot] and grouped_Characters[0].location == Player.location:
+                if grouped_Characters[0] in all_Companions and grouped_Characters[0] in [left_Slot, middle_Slot, right_Slot] and grouped_Characters[0].location == Player.location:
                     $ Characters_to_greet = []
 
                     python:
@@ -114,7 +114,7 @@ label Characters_arrive(arriving_Characters, invited = False, greetings = True, 
                                 Characters_to_greet.append(C)
                                 
                     while Characters_to_greet:
-                        if Characters_to_greet[0] in [left_Slot, middle_Slot, right_Slot]:
+                        if Characters_to_greet[0] in all_Companions and Characters_to_greet[0] in [left_Slot, middle_Slot, right_Slot]:
                             call expression f"{grouped_Characters[0].tag}_greets_{Characters_to_greet[0].tag}" from _call_expression_365
 
                         $ Characters_to_greet.remove(Characters_to_greet[0])

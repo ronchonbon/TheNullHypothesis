@@ -161,7 +161,7 @@ label touch_thighs_higher_over_clothes_continuations(Action):
         if dice_roll == 1:
             "As your hand moves higher up [temp_Characters[0].name]'s thigh, brushing up against her crotch, you can feel the warmth even through her clothes."        
         elif dice_roll == 2:
-            "[temp_Characters[0].name] can't help but twitch, as your hand makes its way up her thigh, briefly touching her crotch through her clothes."
+            "[temp_Characters[0].name] can't help but twitch as your hand makes its way up her thigh, briefly touching her crotch through her clothes."
         elif dice_roll == 3:
             "You gently caress [temp_Characters[0].name]'s inner thigh, going as high as her crotch, feeling her warmth even through her clothes."
 
@@ -200,7 +200,7 @@ label touch_thighs_higher_continuations(Action):
         if dice_roll == 1:
             "As your hand moves higher up [temp_Characters[0].name]'s thigh, brushing up against her crotch, you can feel the warmth as she shudders from your touch."
         elif dice_roll == 2:
-            "[temp_Characters[0].name] can't help but twitch, as your hand makes its way up her thigh, briefly touching her crotch."
+            "[temp_Characters[0].name] can't help but twitch as your hand makes its way up her thigh, briefly touching her crotch."
         elif dice_roll == 3:
             "You gently caress [temp_Characters[0].name]'s inner thigh, going as high as her crotch, feeling her warmth through her skin."
 

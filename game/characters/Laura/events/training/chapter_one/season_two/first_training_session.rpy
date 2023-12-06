@@ -147,15 +147,15 @@ label Laura_chapter_one_season_two_first_training_session:
         "Holy shit. . . that was exhilarating.":
             $ Laura.change_face("confused2") 
             
-            call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_447
+            call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_447
         "Maybe a fucking warning next time ?!":
             $ Laura.change_face("appalled1") 
             
-            call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_448
+            call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_448
         "What if I didn't duck in time. . . ?":
             $ Laura.change_face("angry1") 
             
-            call change_Companion_stat(Laura, "trust", 0) from _call_change_Companion_stat_449
+            call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_449
 
     pause 1.0
 

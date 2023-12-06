@@ -155,21 +155,21 @@ label Rogue_chapter_one_season_one_jogging:
     menu: 
         extend ""
         "Really. Besides, I can always use the extra cardio!":
-            call change_Companion_stat(Rogue, "love", small_stat) from _call_change_Companion_stat_127
-            call change_Companion_stat(Rogue, "trust", medium_stat) from _call_change_Companion_stat_128
+            call change_Character_stat(Rogue, "love", small_stat) from _call_change_Character_stat_127
+            call change_Character_stat(Rogue, "trust", medium_stat) from _call_change_Character_stat_128
 
             $ Rogue.change_face("worried1", mouth = "smirk", blush = 1)
 
             ch_Rogue "Ah mean, if you're sure, it'd be nice to have some company for once." 
         "Of course. It's not fair you always have to work out alone.":
-            call change_Companion_stat(Rogue, "love", medium_stat) from _call_change_Companion_stat_135
-            call change_Companion_stat(Rogue, "trust", medium_stat) from _call_change_Companion_stat_136
+            call change_Character_stat(Rogue, "love", medium_stat) from _call_change_Character_stat_135
+            call change_Character_stat(Rogue, "trust", medium_stat) from _call_change_Character_stat_136
 
             $ Rogue.change_face("worried1", eyes = "right", mouth = "smirk", blush = 1)
 
             ch_Rogue "That's really kind of you. . . Ah dunno what to say." 
         "Absolutely! And you can't say you don't want to know which of us is faster, right?":
-            call change_Companion_stat(Rogue, "trust", medium_stat) from _call_change_Companion_stat_137
+            call change_Character_stat(Rogue, "trust", medium_stat) from _call_change_Character_stat_137
 
             $ Rogue.change_face("confused1", eyes = "squint", mouth = "smirk", blush = 1)
 

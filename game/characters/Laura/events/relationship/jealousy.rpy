@@ -87,7 +87,7 @@ label Laura_jealousy_went_on_date:
     $ cheating_date = 0
 
     python:
-        for C in all_Characters:
+        for C in all_Companions:
             if Player.History.check(f"cheated_on_Laura_with_{C.tag}_date") and Player.History.check_when(f"cheated_on_Laura_with_{C.tag}_date") > cheating_date:
                 cheating_Character = C
                 cheating_date = Player.History.check_when(f"cheated_on_Laura_with_{C.tag}_date")
@@ -151,7 +151,7 @@ label Laura_jealousy_went_on_date:
     "*SLAM*"
     ". . . and slamming the door on the way out."
 
-    call change_Companion_stat(Laura, "trust", 0) from _call_change_Companion_stat_940
+    call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_940
 
     ". . ."
     ch_Player "Well shit. . ."
@@ -250,7 +250,7 @@ label Laura_jealousy_flirted:
 
     $ Laura.change_face("furious", eyes = "left")
 
-    if Player.temp in all_Characters and Player.temp != Laura:
+    if Player.temp in all_Companions and Player.temp != Laura:
         $ Player.temp.face("confused1")
 
     "She just grabs your arm and drags you to her room."
@@ -269,7 +269,7 @@ label Laura_jealousy_flirted:
     $ cheating_date = 0
 
     python:
-        for C in all_Characters:
+        for C in all_Companions:
             if Player.History.check(f"cheated_on_Laura_with_{C.tag}_flirting_in_public") and Player.History.check_when(f"cheated_on_Laura_with_{C.tag}_flirting_in_public") > cheating_date:
                 cheating_Character = C
                 cheating_date = Player.History.check_when(f"cheated_on_Laura_with_{C.tag}_flirting_in_public")
@@ -325,7 +325,7 @@ label Laura_jealousy_flirted:
     "*SLAM*"
     ". . . and slamming the door behind you."
 
-    call change_Companion_stat(Laura, "trust", 0) from _call_change_Companion_stat_941
+    call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_941
 
     ". . ."
     ch_Player "Well shit. . ."
@@ -582,7 +582,7 @@ label Laura_jealousy_went_on_date_anyways:
     $ cheating_date = 0
 
     python:
-        for C in all_Characters:
+        for C in all_Companions:
             if Player.History.check(f"cheated_on_Laura_with_{C.tag}_date") and Player.History.check_when(f"cheated_on_Laura_with_{C.tag}_date") > cheating_date:
                 cheating_Character = C
                 cheating_date = Player.History.check_when(f"cheated_on_Laura_with_{C.tag}_date")
@@ -616,7 +616,7 @@ label Laura_jealousy_went_on_date_anyways:
     "She has no mercy on the door either."
     ch_Player "Shit. . ."
 
-    call change_Companion_stat(Laura, "trust", 0) from _call_change_Companion_stat_942
+    call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_942
 
     $ Laura.give_status("mad")
 
@@ -660,7 +660,7 @@ label Laura_jealousy_flirted_anyways:
 
     $ Laura.change_face("furious", eyes = "left")
 
-    if Player.temp in all_Characters and Player.temp != Laura:
+    if Player.temp in all_Companions and Player.temp != Laura:
         $ Player.temp.face("confused1")
 
     "She just grabs your arm and drags you to her room."
@@ -681,7 +681,7 @@ label Laura_jealousy_flirted_anyways:
     $ cheating_date = 0
 
     python:
-        for C in all_Characters:
+        for C in all_Companions:
             if Player.History.check(f"cheated_on_Laura_with_{C.tag}_flirting_in_public") and Player.History.check_when(f"cheated_on_Laura_with_{C.tag}_flirting_in_public") > cheating_date:
                 cheating_Character = C
                 cheating_date = Player.History.check_when(f"cheated_on_Laura_with_{C.tag}_flirting_in_public")
@@ -713,7 +713,7 @@ label Laura_jealousy_flirted_anyways:
     ". . ."
     ch_Player "Well, shit. . ."
 
-    call change_Companion_stat(Laura, "trust", 0) from _call_change_Companion_stat_1039
+    call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_1039
 
     $ Laura.give_status("mad")
 

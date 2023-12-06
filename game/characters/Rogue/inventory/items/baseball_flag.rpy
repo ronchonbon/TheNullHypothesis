@@ -16,8 +16,8 @@ label Rogue_baseball_flag_shopping_accept:
 
     ch_Rogue "Thank you, [Rogue.Player_petname], ah really appreciate it."
 
-    call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_1533
-    call change_Companion_stat(Rogue, "trust", 0) from _call_change_Companion_stat_1534
+    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1533
+    call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_1534
 
     return True
 
@@ -43,8 +43,8 @@ label Rogue_baseball_flag_gift_accept:
 
     ch_Rogue "Thank you, [Rogue.Player_petname], ah really appreciate it."
 
-    call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_1535
-    call change_Companion_stat(Rogue, "trust", 0) from _call_change_Companion_stat_1536
+    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1535
+    call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_1536
 
     return True
 

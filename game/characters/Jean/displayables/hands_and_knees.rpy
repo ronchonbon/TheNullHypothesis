@@ -222,7 +222,7 @@ layeredimage Jean_hands_and_knees_controls_temp:
         At(At("Jean_hands_and_knees", speed_000), intensity_000)
 
 layeredimage Jean_hands_and_knees:
-    if Player.orgasming and focused_Companion == Jean:
+    if Player.orgasming and focused_Character == Jean:
         "Jean_hands_and_knees_ass_handjob_animation0"
     elif Player.cock_Actions and Jean in Player.cock_Actions[0].Actors:
         "Jean_hands_and_knees_ass_[Player.cock_Actions[0].animation_type]_animation[Player.cock_Actions[0].mode]"
@@ -231,25 +231,25 @@ layeredimage Jean_hands_and_knees:
 
     if not Player.body_visible:
         Null()
-    elif Player.orgasming and focused_Companion == Jean:
+    elif Player.orgasming and focused_Character == Jean:
         "Jean_hands_and_knees_male_left_foot_animation0"
     elif Player.cock_Actions and Jean in Player.cock_Actions[0].Actors:
         "Jean_hands_and_knees_male_left_foot_animation[Player.cock_Actions[0].mode]"
     else: 
         "Jean_hands_and_knees_male_left_foot_animation0"
 
-    if Player.orgasming == "cumshot" and focused_Companion == Jean:
+    if Player.orgasming == "cumshot" and focused_Character == Jean:
         "Jean_hands_and_knees_torso_handjob_animation0"
-    elif Player.orgasming in ["cum_in_mouth", "cum_down_throat"] and focused_Companion == Jean:
+    elif Player.orgasming in ["cum_in_mouth", "cum_down_throat"] and focused_Character == Jean:
         "Jean_hands_and_knees_torso_[Player.orgasming]_animation"
     elif Player.cock_Actions and Jean in Player.cock_Actions[0].Actors:
         "Jean_hands_and_knees_torso_[Player.cock_Actions[0].animation_type]_animation[Player.cock_Actions[0].mode]"
     else: 
         "Jean_hands_and_knees_torso_handjob_animation0"
 
-    if Player.orgasming == "cumshot" and focused_Companion == Jean:
+    if Player.orgasming == "cumshot" and focused_Character == Jean:
         "Jean_hands_and_knees_head_handjob_animation0"
-    elif Player.orgasming in ["cum_in_mouth", "cum_down_throat"] and focused_Companion == Jean:
+    elif Player.orgasming in ["cum_in_mouth", "cum_down_throat"] and focused_Character == Jean:
         "Jean_hands_and_knees_head_[Player.orgasming]_animation"
     elif Player.cock_Actions and Jean in Player.cock_Actions[0].Actors:
         "Jean_hands_and_knees_head_[Player.cock_Actions[0].animation_type]_animation[Player.cock_Actions[0].mode]"
@@ -263,9 +263,9 @@ layeredimage Jean_hands_and_knees:
     else: 
         "Jean_hands_and_knees_male_body_handjob_animation0"
 
-    if Player.orgasming in ["cumshot", "cum_in_mouth"] and focused_Companion == Jean:
+    if Player.orgasming in ["cumshot", "cum_in_mouth"] and focused_Character == Jean:
         "Jean_hands_and_knees_thumb_[Player.orgasming]_animation"
-    elif Player.orgasming == "cum_down_throat" and focused_Companion == Jean:
+    elif Player.orgasming == "cum_down_throat" and focused_Character == Jean:
         Null()
     elif Player.cock_Actions and Jean in Player.cock_Actions[0].Actors and Player.cock_Actions[0].animation_type != "deepthroat":
         "Jean_hands_and_knees_thumb_[Player.cock_Actions[0].animation_type]_animation[Player.cock_Actions[0].mode]"
@@ -274,9 +274,9 @@ layeredimage Jean_hands_and_knees:
     else: 
         "Jean_hands_and_knees_thumb_handjob_animation0"
 
-    if Player.orgasming in ["cum_in_mouth", "cum_down_throat"] and focused_Companion == Jean:
+    if Player.orgasming in ["cum_in_mouth", "cum_down_throat"] and focused_Character == Jean:
         AlphaMask("Jean_hands_and_knees_cock_animations", "Jean_hands_and_knees_mask_animations")
-    elif Player.orgasming and focused_Companion == Jean:
+    elif Player.orgasming and focused_Character == Jean:
         "Jean_hands_and_knees_cock_animations"
     elif Jean.mouth_Actions and ((Jean.mouth_Actions[0].animation_type == "blowjob" and Jean.mouth_Actions[0].mode == 3) or Jean.mouth_Actions[0].animation_type == "deepthroat"):
         AlphaMask("Jean_hands_and_knees_cock_animations", "Jean_hands_and_knees_mask_animations")
@@ -285,12 +285,12 @@ layeredimage Jean_hands_and_knees:
     else:
         "Jean_hands_and_knees_cock_handjob_animation0"
 
-    if Player.orgasming == "cumshot" and focused_Companion == Jean:
+    if Player.orgasming == "cumshot" and focused_Character == Jean:
         "Jean_hands_and_knees_cumshot"
 
-    if Player.orgasming in ["cumshot", "cum_in_mouth"] and focused_Companion == Jean:
+    if Player.orgasming in ["cumshot", "cum_in_mouth"] and focused_Character == Jean:
         "Jean_hands_and_knees_hand_[Player.orgasming]_animation"
-    elif Player.orgasming == "cum_down_throat" and focused_Companion == Jean:
+    elif Player.orgasming == "cum_down_throat" and focused_Character == Jean:
         Null()
     elif Player.cock_Actions and Jean in Player.cock_Actions[0].Actors and Player.cock_Actions[0].animation_type != "deepthroat":
         "Jean_hands_and_knees_hand_[Player.cock_Actions[0].animation_type]_animation[Player.cock_Actions[0].mode]"
@@ -316,9 +316,9 @@ image Jean_hands_and_knees_male_left_foot:
     offset (int(1316*sex_sampling), int(2877*sex_sampling))
 
 layeredimage Jean_hands_and_knees_torso:
-    if Player.orgasming in ["cumshot", "cum_down_throat"] and focused_Companion == Jean:
+    if Player.orgasming in ["cumshot", "cum_down_throat"] and focused_Character == Jean:
         "Jean_hands_and_knees_left_arm_handjob_animation0"
-    elif Player.orgasming == "cum_in_mouth" and focused_Companion == Jean:
+    elif Player.orgasming == "cum_in_mouth" and focused_Character == Jean:
         "Jean_hands_and_knees_left_arm_cum_in_mouth_animation"
     elif Player.cock_Actions and Jean in Player.cock_Actions[0].Actors:
         "Jean_hands_and_knees_left_arm_[Player.cock_Actions[0].animation_type]_animation[Player.cock_Actions[0].mode]"
@@ -332,7 +332,7 @@ layeredimage Jean_hands_and_knees_torso:
     else:
         "characters/Jean/images/hands_and_knees/torso.webp"
 
-    if Player.orgasming and focused_Companion == Jean:
+    if Player.orgasming and focused_Character == Jean:
         "Jean_hands_and_knees_right_arm_handjob_animation0"
     elif Jean.right_hand_Actions and Jean.right_hand_Actions[0].animation_type == "self_touch_pussy":
         Null()
@@ -341,19 +341,19 @@ layeredimage Jean_hands_and_knees_torso:
     else:
         "Jean_hands_and_knees_right_arm_handjob_animation0"
 
-    if Player.orgasming and focused_Companion == Jean:
+    if Player.orgasming and focused_Character == Jean:
         "Jean_hands_and_knees_breasts_handjob_animation0"
     elif Player.cock_Actions and Jean in Player.cock_Actions[0].Actors:
         "Jean_hands_and_knees_breasts_[Player.cock_Actions[0].animation_type]_animation[Player.cock_Actions[0].mode]"
     else:
         "Jean_hands_and_knees_breasts_handjob_animation0"
 
-    if Player.orgasming and focused_Companion == Jean:
+    if Player.orgasming and focused_Character == Jean:
         Null()
     elif Jean.right_hand_Actions and Jean.right_hand_Actions[0].animation_type == "fondle_balls":
         "Jean_hands_and_knees_right_forearm_fondle_balls_animation[Jean.right_hand_Actions[0].mode]"
 
-    if Player.orgasming and focused_Companion == Jean:
+    if Player.orgasming and focused_Character == Jean:
         "Jean_hands_and_knees_hair_back_handjob_animation0"
     elif Player.cock_Actions and Jean in Player.cock_Actions[0].Actors:
         "Jean_hands_and_knees_hair_back_[Player.cock_Actions[0].animation_type]_animation[Player.cock_Actions[0].mode]"
@@ -370,7 +370,7 @@ image Jean_hands_and_knees_left_arm:
     offset (int(2624*sex_sampling), int(1754*sex_sampling))
 
 layeredimage Jean_hands_and_knees_right_arm:
-    if Player.orgasming and focused_Companion == Jean:
+    if Player.orgasming and focused_Character == Jean:
         "characters/Jean/images/hands_and_knees/right_arm.webp"
     elif Jean.right_hand_Actions and Jean.right_hand_Actions[0].animation_type == "fondle_balls":
         "characters/Jean/images/hands_and_knees/right_arm_fondle.webp"
@@ -425,11 +425,11 @@ image Jean_hands_and_knees_hair_back:
     offset (int(2138*sex_sampling), int(1585*sex_sampling))
 
 layeredimage Jean_hands_and_knees_head:
-    if Player.orgasming == "cum_in_mouth" and focused_Companion == Jean:
+    if Player.orgasming == "cum_in_mouth" and focused_Character == Jean:
         "characters/Jean/images/hands_and_knees/head_agape.webp"
-    elif Player.orgasming == "cum_down_throat" and focused_Companion == Jean:
+    elif Player.orgasming == "cum_down_throat" and focused_Character == Jean:
         "characters/Jean/images/hands_and_knees/head_deepthroat.webp"
-    elif (Player.orgasming and focused_Companion == Jean) or not Jean.mouth_Actions:
+    elif (Player.orgasming and focused_Character == Jean) or not Jean.mouth_Actions:
         "characters/Jean/images/hands_and_knees/head_[Jean.mouth].webp"
     elif Jean.mouth_Actions[0].animation_type == "deepthroat":
         "characters/Jean/images/hands_and_knees/head_deepthroat.webp"
@@ -438,9 +438,9 @@ layeredimage Jean_hands_and_knees_head:
     else:
         "characters/Jean/images/hands_and_knees/head_kiss.webp"
 
-    if Player.orgasming == "cum_down_throat" and focused_Companion == Jean:
+    if Player.orgasming == "cum_down_throat" and focused_Character == Jean:
         Null()
-    elif (Player.orgasming and focused_Companion == Jean) or not Jean.mouth_Actions:
+    elif (Player.orgasming and focused_Character == Jean) or not Jean.mouth_Actions:
         "characters/Jean/images/hands_and_knees/eyes_[Jean.eyes].webp"
     elif Jean.mouth_Actions[0].animation_type == "deepthroat":
         Null()
@@ -449,39 +449,39 @@ layeredimage Jean_hands_and_knees_head:
     else:
         "Jean_hands_and_knees_blinking"
 
-    if Player.orgasming == "cum_down_throat" and focused_Companion == Jean:
+    if Player.orgasming == "cum_down_throat" and focused_Character == Jean:
         Null()
-    elif (Player.orgasming and focused_Companion == Jean) or not Jean.mouth_Actions:
+    elif (Player.orgasming and focused_Character == Jean) or not Jean.mouth_Actions:
         "characters/Jean/images/hands_and_knees/brows_[Jean.brows].webp"
     elif Jean.mouth_Actions[0].animation_type != "deepthroat":
         "characters/Jean/images/hands_and_knees/brows_[Jean.brows].webp"
 
-    if Player.orgasming in ["cum_in_mouth", "cum_down_throat"] and focused_Companion == Jean:
+    if Player.orgasming in ["cum_in_mouth", "cum_down_throat"] and focused_Character == Jean:
         "Jean_hands_and_knees_mouth_[Player.orgasming]_animation"
-    elif (Player.orgasming and focused_Companion == Jean) or not Jean.mouth_Actions:
+    elif (Player.orgasming and focused_Character == Jean) or not Jean.mouth_Actions:
         Null()
     elif Jean.mouth_Actions[0].animation_type == "deepthroat":
         "Jean_hands_and_knees_mouth_deepthroat_animation[Jean.mouth_Actions[0].mode]"
     elif Jean.mouth_Actions[0].mode != 2:
         "Jean_hands_and_knees_mouth_blowjob_animation[Jean.mouth_Actions[0].mode]"
 
-    if Player.orgasming and focused_Companion == Jean:
+    if Player.orgasming and focused_Character == Jean:
         Null()
     elif Jean.mouth_Actions and Jean.mouth_Actions[0].animation_type == "blowjob" and Jean.mouth_Actions[0].mode == 2:
         "Jean_hands_and_knees_tongue_blowjob_animation[Jean.mouth_Actions[0].mode]"
 
     if not Jean.blush:
         Null()
-    elif Player.orgasming == "cum_down_throat" and focused_Companion == Jean:
+    elif Player.orgasming == "cum_down_throat" and focused_Character == Jean:
         "characters/Jean/images/hands_and_knees/blush[Jean.blush]_deepthroat.webp"
-    elif (Player.orgasming and focused_Companion == Jean) or not Jean.mouth_Actions:
+    elif (Player.orgasming and focused_Character == Jean) or not Jean.mouth_Actions:
         "characters/Jean/images/hands_and_knees/blush[Jean.blush].webp"
     elif Jean.mouth_Actions[0].animation_type == "deepthroat":
         "characters/Jean/images/hands_and_knees/blush[Jean.blush]_deepthroat.webp"
 
     if not Jean.spunk["chin"]:
         Null()
-    elif Player.orgasming in ["cum_in_mouth", "cum_down_throat"] and focused_Companion == Jean:
+    elif Player.orgasming in ["cum_in_mouth", "cum_down_throat"] and focused_Character == Jean:
         Null()
     elif Jean.mouth_Actions and Jean.mouth_Actions[0].animation_type == "deepthroat":
         Null()
@@ -493,7 +493,7 @@ layeredimage Jean_hands_and_knees_head:
     if Jean.spunk["face"]:
         "characters/Jean/images/hands_and_knees/spunk_face.webp"
 
-    if Player.orgasming and focused_Companion == Jean:
+    if Player.orgasming and focused_Character == Jean:
         "Jean_hands_and_knees_hair_handjob_animation0"
     elif Player.cock_Actions and Jean in Player.cock_Actions[0].Actors:
         "Jean_hands_and_knees_hair_[Player.cock_Actions[0].animation_type]_animation[Player.cock_Actions[0].mode]"
@@ -535,34 +535,34 @@ layeredimage Jean_hands_and_knees_tongue:
     offset (int(2175*sex_sampling), int(1849*sex_sampling))
 
 layeredimage Jean_hands_and_knees_hair:
-    # if (Jean.wet or Jean.Clothes["hair"].string == "wet") and Player.orgasming == "cum_on_face" and focused_Companion == Jean:
+    # if (Jean.wet or Jean.Clothes["hair"].string == "wet") and Player.orgasming == "cum_on_face" and focused_Character == Jean:
     #     "characters/Jean/images/hands_and_knees/hair_shadow_wet.webp"
-    # elif (Jean.wet or Jean.Clothes["hair"].string == "wet") and Player.orgasming == "cum_down_throat" and focused_Companion == Jean:
+    # elif (Jean.wet or Jean.Clothes["hair"].string == "wet") and Player.orgasming == "cum_down_throat" and focused_Character == Jean:
     #     "characters/Jean/images/hands_and_knees/hair_shadow_wet_deepthroat.webp"
     # elif (Jean.wet or Jean.Clothes["hair"].string == "wet") and Jean.mouth_Actions and Jean.mouth_Actions[0].animation_type == "deepthroat":
     #     "characters/Jean/images/hands_and_knees/hair_shadow_wet_deepthroat.webp"
     # elif Jean.wet or Jean.Clothes["hair"].string == "wet":
     #     "characters/Jean/images/hands_and_knees/hair_shadow_wet.webp"
-    if Player.orgasming == "cum_on_face" and focused_Companion == Jean:
+    if Player.orgasming == "cum_on_face" and focused_Character == Jean:
         "characters/Jean/images/hands_and_knees/hair_shadow_[Jean.Clothes[hair].string].webp"
-    elif Player.orgasming == "cum_down_throat" and focused_Companion == Jean:
+    elif Player.orgasming == "cum_down_throat" and focused_Character == Jean:
         "characters/Jean/images/hands_and_knees/hair_shadow_[Jean.Clothes[hair].string]_deepthroat.webp"
     elif Jean.mouth_Actions and Jean.mouth_Actions[0].animation_type == "deepthroat":
         "characters/Jean/images/hands_and_knees/hair_shadow_[Jean.Clothes[hair].string]_deepthroat.webp"
     else:
         "characters/Jean/images/hands_and_knees/hair_shadow_[Jean.Clothes[hair].string].webp"
 
-    # if (Jean.wet or Jean.Clothes["hair"].string == "wet") and Player.orgasming == "cum_on_face" and focused_Companion == Jean:
+    # if (Jean.wet or Jean.Clothes["hair"].string == "wet") and Player.orgasming == "cum_on_face" and focused_Character == Jean:
     #     "characters/Jean/images/hands_and_knees/hair_wet.webp"
-    # elif (Jean.wet or Jean.Clothes["hair"].string == "wet") and Player.orgasming == "cum_down_throat" and focused_Companion == Jean:
+    # elif (Jean.wet or Jean.Clothes["hair"].string == "wet") and Player.orgasming == "cum_down_throat" and focused_Character == Jean:
     #     "characters/Jean/images/hands_and_knees/hair_wet_deepthroat.webp"
     # elif (Jean.wet or Jean.Clothes["hair"].string == "wet") and Jean.mouth_Actions and Jean.mouth_Actions[0].animation_type == "deepthroat":
     #     "characters/Jean/images/hands_and_knees/hair_wet_deepthroat.webp"
     # elif Jean.wet or Jean.Clothes["hair"].string == "wet":
     #     "characters/Jean/images/hands_and_knees/hair_wet.webp"
-    if Player.orgasming == "cum_on_face" and focused_Companion == Jean:
+    if Player.orgasming == "cum_on_face" and focused_Character == Jean:
         "characters/Jean/images/hands_and_knees/hair_[Jean.Clothes[hair].string].webp"
-    elif Player.orgasming == "cum_down_throat" and focused_Companion == Jean:
+    elif Player.orgasming == "cum_down_throat" and focused_Character == Jean:
         "characters/Jean/images/hands_and_knees/hair_[Jean.Clothes[hair].string]_deepthroat.webp"
     elif Jean.mouth_Actions and Jean.mouth_Actions[0].animation_type == "deepthroat":
         "characters/Jean/images/hands_and_knees/hair_[Jean.Clothes[hair].string]_deepthroat.webp"
@@ -1389,21 +1389,21 @@ image Jean_hands_and_knees_mask_cum_down_throat_animation:
         hands_and_knees_head_cum_down_throat_animation
         
 layeredimage Jean_hands_and_knees_cock_animations:
-    if Player.orgasming and focused_Companion == Jean:
+    if Player.orgasming and focused_Character == Jean:
         "Jean_hands_and_knees_cock_[Player.orgasming]_animation"
     else:
         "Jean_hands_and_knees_cock_[Player.cock_Actions[0].animation_type]_animation[Player.cock_Actions[0].mode]"
 
     if not Player.saliva:
         Null()
-    elif Player.orgasming and focused_Companion == Jean:
+    elif Player.orgasming and focused_Character == Jean:
         "Jean_hands_and_knees_saliva_[Player.orgasming]_animation"
     else:
         "Jean_hands_and_knees_saliva_[Player.cock_Actions[0].animation_type]_animation[Player.cock_Actions[0].mode]"
 
     if not Player.spunk and not Player.orgasming:
         Null()
-    elif Player.orgasming and focused_Companion == Jean:
+    elif Player.orgasming and focused_Character == Jean:
         "Jean_hands_and_knees_spunk_tip_[Player.orgasming]_animation"
     else:
         "Jean_hands_and_knees_spunk_tip_[Player.cock_Actions[0].animation_type]_animation[Player.cock_Actions[0].mode]"
@@ -1599,7 +1599,7 @@ layeredimage Jean_hands_and_knees_mask_animations:
         At(At("Jean_hands_and_knees_mask_animations_temp", speed_000), intensity_000)
 
 layeredimage Jean_hands_and_knees_mask_animations_temp:
-    if Player.orgasming in ["cum_in_mouth", "cum_down_throat"] and focused_Companion == Jean:
+    if Player.orgasming in ["cum_in_mouth", "cum_down_throat"] and focused_Character == Jean:
         "Jean_hands_and_knees_mask_[Player.orgasming]_animation"
     elif Jean.mouth_Actions and ((Jean.mouth_Actions[0].animation_type == "blowjob" and Jean.mouth_Actions[0].mode == 3) or Jean.mouth_Actions[0].animation_type == "deepthroat"):
         "Jean_hands_and_knees_mask_[Player.cock_Actions[0].animation_type]_animation[Player.cock_Actions[0].mode]"

@@ -64,7 +64,7 @@ label Rogue_texting_study_response:
         call receive_text(Rogue, "I just thought") from _call_receive_text_461
         call receive_text(Rogue, "Sorry") from _call_receive_text_462
         
-        call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_604
+        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_604
 
         $ Rogue.History.update("Player_rejected_studying")
 
@@ -128,7 +128,7 @@ label Rogue_texting_training_response:
         if time_index > 2:
             call receive_text(Rogue, "Too late. . .") from _call_receive_text_824
             
-            call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_1606
+            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1606
         else:
             call send_text(Rogue, "I'll be right there") from _call_send_text_34
             call receive_text(Rogue, "Sweet") from _call_receive_text_467
@@ -145,7 +145,7 @@ label Rogue_texting_training_response:
         call receive_text(Rogue, "Okay") from _call_receive_text_470
         call receive_text(Rogue, "Sorry") from _call_receive_text_471
         
-        call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_605
+        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_605
 
         $ Rogue.History.update("Player_rejected_training")
 
@@ -208,20 +208,20 @@ label Rogue_texting_date_response:
         if time_index > 2:
             call receive_text(Rogue, "It's a little too late for that. . .") from _call_receive_text_821
             
-            call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_1601
+            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1601
         else:
             call receive_text(Rogue, "Can't wait :)))") from _call_receive_text_476
 
-            call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_606
+            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_606
 
-            $ Player.date_planned[Rogue] = "Companion_initiated_primary"
+            $ Player.date_planned[Rogue] = "Character_initiated_primary"
 
             if time_index == 2:
                 $ EventScheduler.Events["Rogue_date"].start()
     elif Rogue.text_history[-1][1] == temp[2]:
         call receive_text(Rogue, "Sorry. . .") from _call_receive_text_477
         
-        call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_607
+        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_607
 
     return
 
@@ -276,12 +276,12 @@ label Rogue_texting_ask_to_masturbate_response:
         call receive_text(Rogue, "Alright, [Rogue.Player_petname]") from _call_receive_text_483
         call receive_text(Rogue, "Please don't make me wait too long") from _call_receive_text_484
 
-        call change_Companion_stat(Rogue, "desire", 0) from _call_change_Companion_stat_608
+        call change_Character_stat(Rogue, "desire", 0) from _call_change_Character_stat_608
     elif Rogue.text_history[-1][1] == temp[1]:
         call receive_text(Rogue, "Please, [Rogue.Player_petname]") from _call_receive_text_485
         call send_text(Rogue, "good, go ahead") from _call_send_text_35
         
-        call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_609
+        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_609
             
         if Rogue.location in [Rogue.home, Player.home]:
             $ Rogue.behavior = "masturbating"

@@ -79,7 +79,7 @@ screen shop_screen(shop_type, discount = False, restricted = True):
 
                 if restricted:
                     for I in shop_inventory[shop_type].values():
-                        if not "piercing" in I.string or focused_Companion in Present:
+                        if not "piercing" in I.string or focused_Character in Present:
                             button xysize (490, 93):
                                 idle_background "images/interface/shop/Item.webp" hover_background "images/interface/shop/Item_selected.webp" selected_idle_background "images/interface/shop/Item_selected.webp"
                                 
@@ -97,7 +97,7 @@ screen shop_screen(shop_type, discount = False, restricted = True):
                                     text f"{I.price}" anchor (1.0, 0.5) pos (0.99, 0.5) size 30
                 else:
                     for I in unrestricted_shop_inventory[shop_type].values():
-                        if not "piercing" in I.string or focused_Companion in Present:
+                        if not "piercing" in I.string or focused_Character in Present:
                             button xysize (490, 93):
                                 idle_background "images/interface/shop/Item.webp" hover_background "images/interface/shop/Item_selected.webp" selected_idle_background "images/interface/shop/Item_selected.webp"
                                 
@@ -220,10 +220,10 @@ screen shop_screen(shop_type, discount = False, restricted = True):
                                 Return(True)]
                 else:
                     if "piercing" in current_shop_Item.string:
-                        action Show("piercings_screen", Companions = Present, Piercing = current_shop_Item, discount = discount)
+                        action Show("piercings_screen", Characters = Present, Piercing = current_shop_Item, discount = discount)
                     elif shop_type in ["gift", "sex"]:
                         action [
-                            Show("buy_gift_screen", Companions = Present, Item = current_shop_Item, discount = discount),
+                            Show("buy_gift_screen", Characters = Present, Item = current_shop_Item, discount = discount),
                             SetScreenVariable("current_shop_Item", None)]
                     elif current_shop_Item.Owner not in Present:
                         if shop_type in ["clothing", "lingerie"]:
@@ -307,7 +307,7 @@ screen shop_screen(shop_type, discount = False, restricted = True):
     if tooltips_enabled:
         use tooltips
 
-screen buy_gift_screen(Companions, Item, discount = False):
+screen buy_gift_screen(Characters, Item, discount = False):
     style_prefix "shop"
 
     modal True
@@ -332,12 +332,12 @@ screen buy_gift_screen(Companions, Item, discount = False):
                 else:
                     $ quantities = 0
 
-                for G in Companions:
-                    if G in all_Companions and Item.string not in G.inventory.keys() and (not Item.Owner or Item.Owner == G):
-                        textbutton f"{G.name}":
+                for C in Characters:
+                    if C in all_Companions and Item.string not in C.inventory.keys() and (not Item.Owner or Item.Owner == C):
+                        textbutton f"{C.name}":
                             action [
                                 Hide("buy_gift_screen"),
-                                Call("buy_Character_gift", G, Item, discounted = discount, from_current = True)]
+                                Call("buy_Character_gift", C, Item, discounted = discount, from_current = True)]
 
                             text_size 36
 
@@ -388,7 +388,7 @@ screen buy_gift_screen(Companions, Item, discount = False):
 
             unscrollable "hide"
 
-screen piercings_screen(Companions, Piercing, discount = False):
+screen piercings_screen(Characters, Piercing, discount = False):
     style_prefix "shop"
 
     modal True
@@ -403,11 +403,11 @@ screen piercings_screen(Companions, Piercing, discount = False):
                 text "Who should get a piercing?" align (0.5, 0.5):
                     size 36
 
-                for G in Companions:
-                    if G in all_Companions:
-                        if Piercing.string not in G.inventory.keys():
-                            textbutton f"{G.name}":
-                                action Call("give_Character_piercing", G, Piercing, mall = True, discounted = discount, from_current = True)
+                for C in Characters:
+                    if C in all_Companions:
+                        if Piercing.string not in C.inventory.keys():
+                            textbutton f"{C.name}":
+                                action Call("give_Character_piercing", C, Piercing, mall = True, discounted = discount, from_current = True)
 
                                 text_size 36
 

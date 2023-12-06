@@ -46,11 +46,11 @@ screen Action_screen(automatic = False):
                 Return()]
 
     if not black_screen:
-        $ focused_Companion_index = 0
+        $ focused_Character_index = 0
 
         for g, G in enumerate(Present):
-            if G == focused_Companion:
-                $ focused_Companion_index = g
+            if G == focused_Character:
+                $ focused_Character_index = g
 
         add "images/interface/Action_menu/background.webp" zoom interface_new_adjustment
 
@@ -61,7 +61,7 @@ screen Action_screen(automatic = False):
 
             color "#ffffff"
 
-        text f"{focused_Companion.stamina}" anchor (0.5, 0.5) pos (0.839, 0.0952):
+        text f"{focused_Character.stamina}" anchor (0.5, 0.5) pos (0.839, 0.0952):
             size 35
 
             text_align 0.5
@@ -71,7 +71,7 @@ screen Action_screen(automatic = False):
         if Action_hover_type:
             add At(At(At("images/interface/Action_menu/popup.webp", change_anchor(0.5, 0.5)), change_pos(0.825, 0.28)), zoom_sprite(0.5))
 
-            if hookup_length >= max_hookup_length*math.sqrt(focused_Companion.max_stamina) and focused_Companion.desire <= 75:
+            if hookup_length >= max_hookup_length*math.sqrt(focused_Character.max_stamina) and focused_Character.desire <= 75:
                 add At(At(At("images/interface/Action_menu/low.webp", change_anchor(0.5, 0.5)), change_pos(0.825, 0.283)), zoom_sprite(0.2))
             elif Action_hover_type in ["high", "low"] and Action_hover_size >= 0.9:
                 add At(At(At("images/interface/Action_menu/[Action_hover_type].webp", change_anchor(0.5, 0.5)), change_pos(0.825, 0.283)), zoom_sprite(0.5))
@@ -127,35 +127,35 @@ screen Action_screen(automatic = False):
         elif Player.desire >= 50:
             add At("images/interface/Action_menu/glow_male.webp", pulse(intensity = 0.2)) zoom interface_new_adjustment
 
-        if focused_Companion.desire >= 90:
+        if focused_Character.desire >= 90:
             add At("images/interface/Action_menu/lightning_female.webp", pulse(intensity = 1.0)) zoom interface_new_adjustment
-        elif focused_Companion.desire >= 80:
+        elif focused_Character.desire >= 80:
             add At("images/interface/Action_menu/lightning_female.webp", pulse(intensity = 0.8)) zoom interface_new_adjustment
-        elif focused_Companion.desire >= 70:
+        elif focused_Character.desire >= 70:
             add At("images/interface/Action_menu/lightning_female.webp", pulse(intensity = 0.6)) zoom interface_new_adjustment
-        elif focused_Companion.desire >= 60:
+        elif focused_Character.desire >= 60:
             add At("images/interface/Action_menu/lightning_female.webp", pulse(intensity = 0.4)) zoom interface_new_adjustment
-        elif focused_Companion.desire >= 50:
+        elif focused_Character.desire >= 50:
             add At("images/interface/Action_menu/lightning_female.webp", pulse(intensity = 0.2)) zoom interface_new_adjustment
 
-        bar value focused_Companion.desire range 100 anchor (0.5, 0.5) pos (0.94, 0.0851) xysize (int(291*interface_new_adjustment), int(37*interface_new_adjustment)):
+        bar value focused_Character.desire range 100 anchor (0.5, 0.5) pos (0.94, 0.0851) xysize (int(291*interface_new_adjustment), int(37*interface_new_adjustment)):
             left_bar Frame("images/interface/Action_menu/climax_female.webp")
             right_bar Frame("images/interface/Action_menu/climax_empty.webp")
 
             thumb None
             thumb_offset 0
 
-            tooltip f"{focused_Companion.name}'s Desire"
+            tooltip f"{focused_Character.name}'s Desire"
 
-        if focused_Companion.desire >= 90:
+        if focused_Character.desire >= 90:
             add At("images/interface/Action_menu/glow_female.webp", pulse(intensity = 1.0)) zoom interface_new_adjustment
-        elif focused_Companion.desire >= 80:
+        elif focused_Character.desire >= 80:
             add At("images/interface/Action_menu/glow_female.webp", pulse(intensity = 0.8)) zoom interface_new_adjustment
-        elif focused_Companion.desire >= 70:
+        elif focused_Character.desire >= 70:
             add At("images/interface/Action_menu/glow_female.webp", pulse(intensity = 0.6)) zoom interface_new_adjustment
-        elif focused_Companion.desire >= 60:
+        elif focused_Character.desire >= 60:
             add At("images/interface/Action_menu/glow_female.webp", pulse(intensity = 0.4)) zoom interface_new_adjustment
-        elif focused_Companion.desire >= 50:
+        elif focused_Character.desire >= 50:
             add At("images/interface/Action_menu/glow_female.webp", pulse(intensity = 0.2)) zoom interface_new_adjustment
 
         if has_progression_control:
@@ -199,7 +199,7 @@ screen Action_screen(automatic = False):
                         action [
                             SetVariable("Action_auto_progress", False),
                             SetVariable("Action_auto_progress_timer", 0.0),
-                            Call("ask_to_undress", focused_Companion, from_current = True)]
+                            Call("ask_to_undress", focused_Character, from_current = True)]
                     else:
                         action None
 
@@ -213,9 +213,9 @@ screen Action_screen(automatic = False):
 
                     for pose in pose_names.keys():
                         if pose in pose_list:
-                            if focused_Companion.available_poses and pose not in focused_Companion.available_poses:
+                            if focused_Character.available_poses and pose not in focused_Character.available_poses:
                                 $ pose_list.remove(pose)
-                            elif focused_Companion.possible_poses and pose not in focused_Companion.possible_poses:
+                            elif focused_Character.possible_poses and pose not in focused_Character.possible_poses:
                                 $ pose_list.remove(pose)
 
                     if len(pose_list) <= 6:
@@ -237,7 +237,7 @@ screen Action_screen(automatic = False):
                             button align (0.5, 0.5) xysize (int(447*interface_new_adjustment), int(177*interface_new_adjustment)):
                                 idle_background At("images/interface/Action_menu/button_off.webp", interface) hover_background At("images/interface/Action_menu/button_on.webp", interface) selected_idle_background At("images/interface/Action_menu/button_on.webp", interface)
 
-                                selected focused_Companion.position == pose
+                                selected focused_Character.position == pose
 
                                 text f"{pose_name}" align (0.5, 0.5):
                                     if len(pose_name) > 18:
@@ -253,11 +253,11 @@ screen Action_screen(automatic = False):
 
                                     color "#ffffff"
 
-                                if focused_Companion.position != pose:
+                                if focused_Character.position != pose:
                                     action [
                                         SetVariable("Action_auto_progress", False),
                                         SetVariable("Action_auto_progress_timer", 0.0),
-                                        Call("request_position", focused_Companion, pose, from_current = True)]
+                                        Call("request_position", focused_Character, pose, from_current = True)]
                                 else:
                                     action NullAction()
 
@@ -274,43 +274,43 @@ screen Action_screen(automatic = False):
 
                     for Action_type in all_Action_types:
                         if Action_type in current_Action_list:
-                            if focused_Companion.available_Actions and Action_type not in focused_Companion.available_Actions:
+                            if focused_Character.available_Actions and Action_type not in focused_Character.available_Actions:
                                 $ current_Action_list.remove(Action_type)
-                            elif focused_Companion.possible_Actions and Action_type not in focused_Companion.possible_Actions:
+                            elif focused_Character.possible_Actions and Action_type not in focused_Character.possible_Actions:
                                 $ current_Action_list.remove(Action_type)
                             elif "touch_thighs" in Action_type:
-                                if focused_Companion.thighs_covered and "over_clothes" not in Action_type:
+                                if focused_Character.thighs_covered and "over_clothes" not in Action_type:
                                     $ current_Action_list.remove(Action_type)
-                                elif not focused_Companion.thighs_covered and "over_clothes" in Action_type:
+                                elif not focused_Character.thighs_covered and "over_clothes" in Action_type:
                                     $ current_Action_list.remove(Action_type)
                             elif "touch_breasts" in Action_type:
-                                if focused_Companion.breasts_covered and "over_clothes" not in Action_type:
+                                if focused_Character.breasts_covered and "over_clothes" not in Action_type:
                                     $ current_Action_list.remove(Action_type)
-                                elif not focused_Companion.breasts_covered and "over_clothes" in Action_type:
+                                elif not focused_Character.breasts_covered and "over_clothes" in Action_type:
                                     $ current_Action_list.remove(Action_type)
                             elif "grab_ass" in Action_type:
-                                if focused_Companion.ass_covered and "over_clothes" not in Action_type:
+                                if focused_Character.ass_covered and "over_clothes" not in Action_type:
                                     $ current_Action_list.remove(Action_type)
-                                elif not focused_Companion.ass_covered and "over_clothes" in Action_type:
+                                elif not focused_Character.ass_covered and "over_clothes" in Action_type:
                                     $ current_Action_list.remove(Action_type)
                             elif "touch_pussy" in Action_type and Action_type != "self_touch_pussy":
-                                if focused_Companion.pussy_covered and "over_clothes" not in Action_type:
+                                if focused_Character.pussy_covered and "over_clothes" not in Action_type:
                                     $ current_Action_list.remove(Action_type)
-                                elif not focused_Companion.pussy_covered and "over_clothes" in Action_type:
+                                elif not focused_Character.pussy_covered and "over_clothes" in Action_type:
                                     $ current_Action_list.remove(Action_type)
 
                     for Action_type in toy_Action_types:
                         if Action_type in current_Action_list:
-                            if Action_type in dildo_Action_types and not ("dildo" in Player.inventory.keys() or "dildo" in focused_Companion.inventory.keys()):
+                            if Action_type in dildo_Action_types and not ("dildo" in Player.inventory.keys() or "dildo" in focused_Character.inventory.keys()):
                                 $ current_Action_list.remove(Action_type)
-                            elif Action_type in ["self_vibrator", "vibrator"] and not ("vibrator" in Player.inventory.keys() or "vibrator" in focused_Companion.inventory.keys()):
+                            elif Action_type in ["self_vibrator", "vibrator"] and not ("vibrator" in Player.inventory.keys() or "vibrator" in focused_Character.inventory.keys()):
                                 $ current_Action_list.remove(Action_type)
 
                     for Action_type in all_Action_types:
                         if Action_type in current_Action_list:
                             $ test_Action = ActionClass(Action_type, None)
 
-                            if focused_Companion.position not in test_Action.available_poses:
+                            if focused_Character.position not in test_Action.available_poses:
                                 $ current_Action_list.remove(Action_type)
 
                     if len(current_Action_list) <= 5:
@@ -329,18 +329,18 @@ screen Action_screen(automatic = False):
                         button align (0.5, 0.5) xysize (int(447*interface_new_adjustment), int(177*interface_new_adjustment)):
                             idle_background At("images/interface/Action_menu/button_off.webp", interface) hover_background At("images/interface/Action_menu/button_on.webp", interface) selected_idle_background At("images/interface/Action_menu/button_on.webp", interface)
 
-                            if focused_Companion.History.check(Action_type) < unknown_threshold:
+                            if focused_Character.History.check(Action_type) < unknown_threshold:
                                 hovered [
                                     SetVariable("Action_hover_type", "unknown"),
                                     SetVariable("Action_hover_size", 1.0)]
-                            elif focused_Companion.History.check(Action_type, tracker = "weekly") >= boredom_threshold:
+                            elif focused_Character.History.check(Action_type, tracker = "weekly") >= boredom_threshold:
                                 hovered [
                                     SetVariable("Action_hover_type", "low"),
                                     SetVariable("Action_hover_size", 0.2)]
                             else:
                                 hovered [
                                     SetVariable("Action_hover_type", "high"),
-                                    SetVariable("Action_hover_size", eval(f"{focused_Companion.tag}_base_Action_desire")*eval(f"{focused_Companion.tag}_Action_desires['{Action_type}'][{int(focused_Companion.desire/20 % 5)}]"))]
+                                    SetVariable("Action_hover_size", eval(f"{focused_Character.tag}_base_Action_desire")*eval(f"{focused_Character.tag}_Action_desires['{Action_type}'][{int(focused_Character.desire/20 % 5)}]"))]
                             
                             unhovered [
                                 SetVariable("Action_hover_type", None),
@@ -353,7 +353,7 @@ screen Action_screen(automatic = False):
 
                                 color "#ffffff"
 
-                            action Call("spank", focused_Companion, from_current = True)
+                            action Call("spank", focused_Character, from_current = True)
 
                         for Action_type in current_Action_list:
                             $ Action_name = Action_names[Action_type]
@@ -365,7 +365,7 @@ screen Action_screen(automatic = False):
                                     $ ongoing_Action = A
 
                             if not ongoing_Action:
-                                for A in focused_Companion.all_Actions:
+                                for A in focused_Character.all_Actions:
                                     if A.Action_type == Action_type:
                                         $ ongoing_Action = A
 
@@ -374,18 +374,18 @@ screen Action_screen(automatic = False):
 
                                 selected ongoing_Action
 
-                                if focused_Companion.History.check(Action_type) < unknown_threshold:
+                                if focused_Character.History.check(Action_type) < unknown_threshold:
                                     hovered [
                                         SetVariable("Action_hover_type", "unknown"),
                                         SetVariable("Action_hover_size", 1.0)]
-                                elif focused_Companion.History.check(Action_type, tracker = "weekly") >= boredom_threshold:
+                                elif focused_Character.History.check(Action_type, tracker = "weekly") >= boredom_threshold:
                                     hovered [
                                         SetVariable("Action_hover_type", "low"),
                                         SetVariable("Action_hover_size", 0.2)]
                                 else:
                                     hovered [
                                         SetVariable("Action_hover_type", "high"),
-                                        SetVariable("Action_hover_size", eval(f"{focused_Companion.tag}_base_Action_desire")*eval(f"{focused_Companion.tag}_Action_desires['{Action_type}'][{int(focused_Companion.desire/20 % 5)}]"))]
+                                        SetVariable("Action_hover_size", eval(f"{focused_Character.tag}_base_Action_desire")*eval(f"{focused_Character.tag}_Action_desires['{Action_type}'][{int(focused_Character.desire/20 % 5)}]"))]
                                 
                                 unhovered [
                                     SetVariable("Action_hover_type", None),
@@ -414,19 +414,19 @@ screen Action_screen(automatic = False):
                                             SetVariable("speed", 1.0),
                                             SetVariable("intensity", 1.0),
                                             SetVariable("starting_depth", 0.0),
-                                            Call("request_Action", Action_type, focused_Companion, focused_Companion, from_current = True)]
+                                            Call("request_Action", Action_type, focused_Character, focused_Character, from_current = True)]
                                     elif Action_type in active_Action_types:
                                         action [
                                             SetVariable("speed", 1.0),
                                             SetVariable("intensity", 1.0),
                                             SetVariable("starting_depth", 0.0),
-                                            Call("request_Action", Action_type, Player, focused_Companion, from_current = True)]
+                                            Call("request_Action", Action_type, Player, focused_Character, from_current = True)]
                                     elif Action_type in passive_Action_types:
                                         action [
                                             SetVariable("speed", 1.0),
                                             SetVariable("intensity", 1.0),
                                             SetVariable("starting_depth", 0.0),
-                                            Call("request_Action", Action_type, focused_Companion, Player, from_current = True)]
+                                            Call("request_Action", Action_type, focused_Character, Player, from_current = True)]
 
                     vbar value YScrollValue("Action_viewport") anchor (0.0, 0.0) pos (0.98, 0.276) xysize (int(29*interface_new_adjustment), int(980*interface_new_adjustment)):
                         base_bar Frame("images/interface/Action_menu/scrollbar.webp")

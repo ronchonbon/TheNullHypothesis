@@ -135,8 +135,8 @@ label Laura_chapter_one_season_one_on_edge:
     menu:
         extend ""
         "A strange noise?! Are we under attack?":
-            call change_Companion_stat(Laura, "love", -small_stat) from _call_change_Companion_stat_883
-            call change_Companion_stat(Laura, "trust", small_stat) from _call_change_Companion_stat_893
+            call change_Character_stat(Laura, "love", -small_stat) from _call_change_Character_stat_883
+            call change_Character_stat(Laura, "trust", small_stat) from _call_change_Character_stat_893
 
             $ Laura.change_face("confused3") 
             
@@ -146,8 +146,8 @@ label Laura_chapter_one_season_one_on_edge:
 
             ch_Laura "No. At least, not on this occasion."
         "Was it anything worth worrying about?":
-            call change_Companion_stat(Laura, "love", medium_stat) from _call_change_Companion_stat_894
-            call change_Companion_stat(Laura, "trust", medium_stat) from _call_change_Companion_stat_897
+            call change_Character_stat(Laura, "love", medium_stat) from _call_change_Character_stat_894
+            call change_Character_stat(Laura, "trust", medium_stat) from _call_change_Character_stat_897
 
             $ Laura.change_face("neutral", eyes = "right") 
             
@@ -157,8 +157,8 @@ label Laura_chapter_one_season_one_on_edge:
 
             ch_Laura "I do not believe it was. I. . . overreacted."
         "Do you. . . do you recognise every little noise you hear out here?":
-            call change_Companion_stat(Laura, "love", small_stat) from _call_change_Companion_stat_898
-            call change_Companion_stat(Laura, "trust", -small_stat) from _call_change_Companion_stat_902
+            call change_Character_stat(Laura, "love", small_stat) from _call_change_Character_stat_898
+            call change_Character_stat(Laura, "trust", -small_stat) from _call_change_Character_stat_902
 
             $ Laura.change_face("confused1", eyes = "squint") 
 
@@ -238,7 +238,7 @@ label Laura_chapter_one_season_one_on_edge:
 
             "You stand and talk to [Laura.name] for a bit. After a while, she seems to feel more like herself and heads back to her room.."
 
-            call change_Companion_stat(Laura, "trust", medium_stat) from _call_change_Companion_stat_903
+            call change_Character_stat(Laura, "trust", medium_stat) from _call_change_Character_stat_903
 
             call remove_Characters(Laura) from _call_remove_Characters_339
         "Head on your way":

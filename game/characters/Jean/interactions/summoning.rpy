@@ -107,13 +107,13 @@ label Jean_dismiss_accept:
 
             ch_Jean "Whatever, bye." 
 
-            call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_251
+            call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_251
         "Leave, give us some privacy." if len(Present) > 1:
             $ Jean.change_face("worried1") 
 
             ch_Jean "Don't have to be such an ass about it. . ." 
 
-            call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_252
+            call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_252
         "Back":
             return False
 
@@ -134,13 +134,13 @@ label Jean_dismiss_reject:
 
             ch_Jean "I think you should be nicer." 
 
-            call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_253
+            call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_253
         "Leave, give us some privacy." if len(Present) > 1:
             $ Jean.change_face("angry1") 
 
             ch_Jean "Really thought being rude would work?"
 
-            call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_254
+            call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_254
         "Back":
             return False
 

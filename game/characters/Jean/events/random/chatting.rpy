@@ -54,7 +54,7 @@ label Jean_chatting_study:
             ch_Jean "Aw. . ."
             ch_Jean "Fine, your loss."
 
-            call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_63
+            call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_63
 
             $ Jean.History.update("Player_rejected_studying")
 
@@ -113,7 +113,7 @@ label Jean_chatting_training:
             ch_Jean "What the hell?"
             ch_Jean "Ass. . ."
 
-            call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_64
+            call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_64
 
             $ Jean.History.update("Player_rejected_training")
 
@@ -190,7 +190,7 @@ label Jean_chatting_date:
     menu:
         extend ""
         "Count me in.":
-            $ Player.date_planned[Jean] = "Companion_initiated_primary"
+            $ Player.date_planned[Jean] = "Character_initiated_primary"
 
             if time_index == 2:
                 $ EventScheduler.Events["Jean_date"].start()

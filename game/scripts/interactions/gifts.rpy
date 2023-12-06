@@ -1,14 +1,14 @@
-label buy_Character_gift(Companion, Item, discounted = False):
+label buy_Character_gift(Character, Item, discounted = False):
     if "plant" in Item.string:
         $ Item_string = "plant"
     else:
         $ Item_string = Item.string
 
-    if (Item.shop_type in ["sex", "lingerie"] and approval_check(Companion, threshold = Item.threshold, extra_condition = "sexy_gifts")) or approval_check(Companion, threshold = Item.threshold):
-        $ Item.Owner = Companion
+    if (Item.shop_type in ["sex", "lingerie"] and approval_check(Character, threshold = Item.threshold, extra_condition = "sexy_gifts")) or approval_check(Character, threshold = Item.threshold):
+        $ Item.Owner = Character
             
-        if Item.string not in Companion.inventory.keys():
-            call expression f"{Companion.tag}_{Item_string}_shopping_accept" from _call_expression_234
+        if Item.string not in Character.inventory.keys():
+            call expression f"{Character.tag}_{Item_string}_shopping_accept" from _call_expression_234
         else:
             $ _return = True
 
@@ -18,55 +18,55 @@ label buy_Character_gift(Companion, Item, discounted = False):
             else:
                 $ Player.cash -= Item.price
 
-            if Item.string in Companion.inventory.keys():
-                $ Companion.inventory[Item.string].append(Item)
+            if Item.string in Character.inventory.keys():
+                $ Character.inventory[Item.string].append(Item)
             else:
-                $ Companion.inventory[Item.string] = [Item]
+                $ Character.inventory[Item.string] = [Item]
 
             if Item.filter_type == "key_gifts":
                 $ del shop_inventory[Item.shop_type][Item.string]
                 $ del unrestricted_shop_inventory[Item.shop_type][Item.string]
 
-            $ Companion.History.update(f"given_{Item_string}")
+            $ Character.History.update(f"given_{Item_string}")
         else:
             $ Item.Owner = None
             
-            $ Companion.History.update(f"said_no_to_{Item_string}")
+            $ Character.History.update(f"said_no_to_{Item_string}")
     else:
-        if Companion.History.check(f"said_no_to_{Item_string}", tracker = "recent") >= 2:
-            call change_Companion_stat(Companion, "love", -5) from _call_change_Companion_stat_976
-            call change_Companion_stat(Companion, "trust", -5) from _call_change_Companion_stat_977
+        if Character.History.check(f"said_no_to_{Item_string}", tracker = "recent") >= 2:
+            call change_Character_stat(Character, "love", -5) from _call_change_Character_stat_976
+            call change_Character_stat(Character, "trust", -5) from _call_change_Character_stat_977
 
-            call expression f"{Companion.tag}_rejected_gift_twice" from _call_expression_236
-        elif Companion.History.check(f"said_no_to_{Item_string}", tracker = "recent") == 1:
-            call change_Companion_stat(Companion, "love", -2) from _call_change_Companion_stat_978
+            call expression f"{Character.tag}_rejected_gift_twice" from _call_expression_236
+        elif Character.History.check(f"said_no_to_{Item_string}", tracker = "recent") == 1:
+            call change_Character_stat(Character, "love", -2) from _call_change_Character_stat_978
 
-            call expression f"{Companion.tag}_rejected_gift_once" from _call_expression_237
+            call expression f"{Character.tag}_rejected_gift_once" from _call_expression_237
         else:
-            call expression f"{Companion.tag}_{Item_string}_shopping_reject" from _call_expression_238
+            call expression f"{Character.tag}_{Item_string}_shopping_reject" from _call_expression_238
 
-        $ Companion.History.update(f"said_no_to_{Item_string}")
+        $ Character.History.update(f"said_no_to_{Item_string}")
 
     return
 
-label give_Character_gift(Companion, Item):
+label give_Character_gift(Character, Item):
     hide screen Player_menu
 
     $ temp_Character_picker_disabled = Character_picker_disabled
 
     $ Character_picker_disabled = True
 
-    if Item.Owner and Item.Owner != Companion:
+    if Item.Owner and Item.Owner != Character:
         "Pretty sure you bought that with someone else in mind."
 
-        show screen interactions_screen(Companion)
+        show screen interactions_screen(Character)
         
         return
 
-    if ("piercing" in Item.string or "plug" in Item.string) and Item.string in Companion.inventory.keys():
+    if ("piercing" in Item.string or "plug" in Item.string) and Item.string in Character.inventory.keys():
         "She already owns this."
 
-        show screen interactions_screen(Companion)
+        show screen interactions_screen(Character)
 
         return
 
@@ -75,46 +75,46 @@ label give_Character_gift(Companion, Item):
     else:
         $ Item_string = Item.string
 
-    if (Item.shop_type in ["sex", "lingerie"] and approval_check(Companion, threshold = Item.threshold, extra_condition = "sexy_gifts")) or approval_check(Companion, threshold = Item.threshold):
-        if Item.string not in Companion.inventory.keys():
-            call expression f"{Companion.tag}_{Item_string}_gift_accept" from _call_expression_239
+    if (Item.shop_type in ["sex", "lingerie"] and approval_check(Character, threshold = Item.threshold, extra_condition = "sexy_gifts")) or approval_check(Character, threshold = Item.threshold):
+        if Item.string not in Character.inventory.keys():
+            call expression f"{Character.tag}_{Item_string}_gift_accept" from _call_expression_239
         else:
             $ _return = True
 
         if _return:
-            $ Item.Owner = Companion
+            $ Item.Owner = Character
 
-            if Item.string in Companion.inventory.keys():
-                $ Companion.inventory[Item.string].append(Item)
+            if Item.string in Character.inventory.keys():
+                $ Character.inventory[Item.string].append(Item)
             else:
-                $ Companion.inventory[Item.string] = [Item]
+                $ Character.inventory[Item.string] = [Item]
 
             if len(Player.inventory[Item.string]) > 1:
                 $ Player.inventory[Item.string].remove(Item)
             else:
                 $ del Player.inventory[Item.string]
                 
-            $ Companion.History.update(f"given_{Item_string}")
+            $ Character.History.update(f"given_{Item_string}")
         else:
-            $ Companion.History.update(f"said_no_to_{Item_string}")
+            $ Character.History.update(f"said_no_to_{Item_string}")
     else:
-        if Companion.History.check(f"said_no_to_{Item_string}", tracker = "recent") >= 2:
-            call change_Companion_stat(Companion, "love", -5) from _call_change_Companion_stat_979
-            call change_Companion_stat(Companion, "trust", -5) from _call_change_Companion_stat_980
+        if Character.History.check(f"said_no_to_{Item_string}", tracker = "recent") >= 2:
+            call change_Character_stat(Character, "love", -5) from _call_change_Character_stat_979
+            call change_Character_stat(Character, "trust", -5) from _call_change_Character_stat_980
 
-            call expression f"{Companion.tag}_rejected_gift_twice" from _call_expression_241
-        elif Companion.History.check(f"said_no_to_{Item_string}", tracker = "recent") == 1:
-            call change_Companion_stat(Companion, "love", -2) from _call_change_Companion_stat_981
+            call expression f"{Character.tag}_rejected_gift_twice" from _call_expression_241
+        elif Character.History.check(f"said_no_to_{Item_string}", tracker = "recent") == 1:
+            call change_Character_stat(Character, "love", -2) from _call_change_Character_stat_981
 
-            call expression f"{Companion.tag}_rejected_gift_once" from _call_expression_242
+            call expression f"{Character.tag}_rejected_gift_once" from _call_expression_242
         else:
-            call expression f"{Companion.tag}_{Item_string}_gift_reject" from _call_expression_243
+            call expression f"{Character.tag}_{Item_string}_gift_reject" from _call_expression_243
 
-        $ Companion.History.update(f"said_no_to_{Item_string}")
+        $ Character.History.update(f"said_no_to_{Item_string}")
 
     $ Character_picker_disabled = temp_Character_picker_disabled
 
-    if Companion.location == Player.location:
-        show screen interactions_screen(Companion)
+    if Character.location == Player.location:
+        show screen interactions_screen(Character)
 
     return

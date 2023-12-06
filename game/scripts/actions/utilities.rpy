@@ -849,7 +849,7 @@ init python:
                         
                         break
 
-        score = 0.0
+        score = total_Character_orgasms*(1.0 + 0.1*total_unique_Actions) + 0.5*total_Player_orgasms
 
         return total_Character_orgasms, total_Player_orgasms, total_unique_Actions, score
 
@@ -1484,6 +1484,9 @@ label stop_all_Actions(close_interface = True, automatic = False):
     while temp_Characters:
         $ stop_Actions(temp_Characters[0])
 
+        $ temp_Characters[0].change_face("sexy")
+        $ temp_Characters[0].change_arms("neutral")
+
         if not automatic:
             call show_Character(temp_Characters[0]) from _call_show_Character_2
 
@@ -1529,11 +1532,6 @@ label stop_all_Actions(close_interface = True, automatic = False):
                 if Player.location == C.home:
                     C.clothes_on_floor = False
 
-            C.left_arm = "neutral"
-            C.right_arm = "neutral"
-
-            C.change_face()
-
     if Player.location == Player.home:
         $ Player.clothes_on_floor = False
 
@@ -1545,14 +1543,16 @@ label stop_all_Actions(close_interface = True, automatic = False):
 
     if close_interface:
         if not ongoing_Event:
-            $ total_Character_orgasms, total_Player_orgasms, total_unique_Actions, score = get_hookup_summary()
+            if focused_Character and focused_Character.location == Player.location:
+                $ total_Character_orgasms, total_Player_orgasms, total_unique_Actions, score = get_hookup_summary()
 
-            if focused_Companion and focused_Companion.location == Player.location:
                 $ Player.weekly_performance += score
 
-                call expression f"{focused_Companion.tag}_hookup_summary" pass (total_Character_orgasms = total_Character_orgasms, total_Player_orgasms = total_Player_orgasms, total_unique_Actions = total_unique_Actions) from _call_expression_87
+                call change_Character_stat(focused_Character, "love", orgasm_bonus*score) from _call_change_Character_stat_350
 
-                show screen interactions_screen(focused_Companion)
+                call expression f"{focused_Character.tag}_hookup_summary" pass (total_Character_orgasms = total_Character_orgasms, total_Player_orgasms = total_Player_orgasms, total_unique_Actions = total_unique_Actions) from _call_expression_87
+
+                show screen interactions_screen(focused_Character)
     else:
         $ belt_disabled = False
 

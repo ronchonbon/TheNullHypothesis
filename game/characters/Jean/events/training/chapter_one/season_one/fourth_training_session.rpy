@@ -28,8 +28,8 @@ label Jean_chapter_one_season_one_fourth_training_session:
     menu:
         extend ""
         "But you have been making progress, that's all that matters.":
-            call change_Companion_stat(Jean, "love", medium_stat) from _call_change_Companion_stat_846
-            call change_Companion_stat(Jean, "trust", small_stat) from _call_change_Companion_stat_847
+            call change_Character_stat(Jean, "love", medium_stat) from _call_change_Character_stat_846
+            call change_Character_stat(Jean, "trust", small_stat) from _call_change_Character_stat_847
 
             $ Jean.change_face("worried1") 
             
@@ -46,8 +46,8 @@ label Jean_chapter_one_season_one_fourth_training_session:
             
             $ Jean.change_face("smirk2") 
         "I'm sure it'll work out. . .":
-            call change_Companion_stat(Jean, "love", small_stat) from _call_change_Companion_stat_848
-            call change_Companion_stat(Jean, "trust", small_stat) from _call_change_Companion_stat_849
+            call change_Character_stat(Jean, "love", small_stat) from _call_change_Character_stat_848
+            call change_Character_stat(Jean, "trust", small_stat) from _call_change_Character_stat_849
 
             $ Jean.change_face("worried1", eyes = "right")
 
@@ -64,8 +64,8 @@ label Jean_chapter_one_season_one_fourth_training_session:
             
             $ Jean.change_face("smirk2") 
         "Yeah. . . I'd be worried too.":
-            call change_Companion_stat(Jean, "love", -medium_stat) from _call_change_Companion_stat_850
-            call change_Companion_stat(Jean, "trust", -small_stat) from _call_change_Companion_stat_851
+            call change_Character_stat(Jean, "love", -medium_stat) from _call_change_Character_stat_850
+            call change_Character_stat(Jean, "trust", -small_stat) from _call_change_Character_stat_851
 
             $ Jean.change_face("angry1", eyes = "right")
 

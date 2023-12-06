@@ -57,13 +57,13 @@ label refresh_season_content:
             C.possible_poses = []
 
             for pose in pose_names.keys():
-                if approval_check(C, threshold = eval(f"[1.1*{C.tag}_thresholds['{pose}'][0], 1.1*{C.tag}_thresholds['{pose}'][1]]")):
+                if approval_check(C, threshold = eval(f"[0.9*{C.tag}_thresholds['{pose}'][0], 0.9*{C.tag}_thresholds['{pose}'][1]]")):
                     C.possible_poses.append(pose)
 
             C.possible_Actions = []
 
             for Action_type in all_Action_types:
-                if approval_check(C, threshold = eval(f"[1.1*{C.tag}_thresholds['{Action_type}'][0], 1.1*{C.tag}_thresholds['{Action_type}'][1]]")):
+                if approval_check(C, threshold = eval(f"[0.9*{C.tag}_thresholds['{Action_type}'][0], 0.9*{C.tag}_thresholds['{Action_type}'][1]]")):
                     C.possible_Actions.append(Action_type)
 
     if not game_started:

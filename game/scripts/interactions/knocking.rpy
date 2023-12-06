@@ -29,12 +29,12 @@ label Player_knocks(host):
 
     if time_index == 3 and not approval_check(sorted_Characters[0], threshold = "talk_late"):
         if sorted_Characters[0].History.check("said_too_late_to_talk", tracker = "recent") >= 2:
-            call change_Companion_stat(sorted_Characters[0], "love", -5) from _call_change_Companion_stat_982
-            call change_Companion_stat(sorted_Characters[0], "trust", -5) from _call_change_Companion_stat_983
+            call change_Character_stat(sorted_Characters[0], "love", -5) from _call_change_Character_stat_982
+            call change_Character_stat(sorted_Characters[0], "trust", -5) from _call_change_Character_stat_983
 
             call expression f"{sorted_Characters[0].tag}_greets_Player_knocking_late_asked_twice" from _call_expression_250
         elif sorted_Characters[0].History.check("said_too_late_to_talk", tracker = "recent") == 1:
-            call change_Companion_stat(sorted_Characters[0], "love", -2) from _call_change_Companion_stat_984
+            call change_Character_stat(sorted_Characters[0], "love", -2) from _call_change_Character_stat_984
 
             call expression f"{sorted_Characters[0].tag}_greets_Player_knocking_late_asked_once" from _call_expression_251
         else:
@@ -54,20 +54,20 @@ label Player_knocks(host):
             call expression f"{sorted_Characters[0].tag}_greets_Player_knocking_relationship" pass (welcoming_Characters = sorted_Characters) from _call_expression_255
         else:
             if sorted_Characters[0].History.check("rejected_knock_on_door", tracker = "recent") > 2:
-                call change_Companion_stat(sorted_Characters[0], "love", -5) from _call_change_Companion_stat_985
-                call change_Companion_stat(sorted_Characters[0], "trust", -5) from _call_change_Companion_stat_986
+                call change_Character_stat(sorted_Characters[0], "love", -5) from _call_change_Character_stat_985
+                call change_Character_stat(sorted_Characters[0], "trust", -5) from _call_change_Character_stat_986
 
                 if renpy.random.random() > 0.25:
                     call expression f"{sorted_Characters[0].tag}_greets_Player_knocking_reject_asked_twice" from _call_expression_257
                 else:
                     "You are being ignored."
             elif sorted_Characters[0].History.check("rejected_knock_on_door", tracker = "recent") == 2:
-                call change_Companion_stat(sorted_Characters[0], "love", -5) from _call_change_Companion_stat_987
-                call change_Companion_stat(sorted_Characters[0], "trust", -5) from _call_change_Companion_stat_988
+                call change_Character_stat(sorted_Characters[0], "love", -5) from _call_change_Character_stat_987
+                call change_Character_stat(sorted_Characters[0], "trust", -5) from _call_change_Character_stat_988
 
                 call expression f"{sorted_Characters[0].tag}_greets_Player_knocking_reject_asked_twice" from _call_expression_258
             elif sorted_Characters[0].History.check("rejected_knock_on_door", tracker = "recent") == 1:
-                call change_Companion_stat(sorted_Characters[0], "love", -2) from _call_change_Companion_stat_989
+                call change_Character_stat(sorted_Characters[0], "love", -2) from _call_change_Character_stat_989
 
                 call expression f"{sorted_Characters[0].tag}_greets_Player_knocking_reject_asked_once" from _call_expression_259
             else:

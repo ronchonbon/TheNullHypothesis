@@ -85,7 +85,7 @@ label Rogue_text_how_are_you:
     call receive_text(Rogue, "Not too bad") from _call_receive_text_531
     call receive_text(Rogue, "Thanks for askin :))") from _call_receive_text_532
     
-    call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_783
+    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_783
 
     return
 
@@ -95,7 +95,7 @@ label Rogue_text_how_are_you_late_accept:
     call receive_text(Rogue, "But I could. . .") from _call_receive_text_535
     call receive_text(Rogue, "Stay up a bit longer if ya wanted to chat") from _call_receive_text_536
 
-    call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_784
+    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_784
 
     return
 
@@ -123,7 +123,7 @@ label Rogue_text_how_are_you_relationship:
     call receive_text(Rogue, "Pretty good") from _call_receive_text_545
     call receive_text(Rogue, "Could be better if we were hangin") from _call_receive_text_546
 
-    call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_785
+    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_785
 
     return
 
@@ -143,11 +143,11 @@ label Rogue_text_how_are_you_love:
     elif Rogue.text_history[-1][1] == temp[1]:
         call receive_text(Rogue, "Really hope you come by later :)))") from _call_receive_text_551
 
-        call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_786
+        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_786
     elif Rogue.text_history[-1][1] == temp[2]:
         call receive_text(Rogue, "Sorry") from _call_receive_text_552
 
-        call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_787
+        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_787
 
     return
 
@@ -169,7 +169,7 @@ label Rogue_text_how_are_you_horny:
     call receive_text(Rogue, "Im alright") from _call_receive_text_559
     call receive_text(Rogue, "Would be a might better if I could lay my eyes on you. . .") from _call_receive_text_560
     
-    call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_788
+    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_788
 
     return
 
@@ -177,7 +177,7 @@ label Rogue_text_how_are_you_nympho:
     call receive_text(Rogue, "All hot and bothered") from _call_receive_text_561
     call receive_text(Rogue, "Only a good dose of you could cool me off. . .") from _call_receive_text_562
 
-    call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_789
+    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_789
 
     return
 
@@ -192,14 +192,14 @@ label Rogue_text_good_morning:
         call receive_text(Rogue, "Howdy!") from _call_receive_text_565
         call receive_text(Rogue, "Hope ya slept well") from _call_receive_text_566
 
-    call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_790
+    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_790
 
     return
 
 label Rogue_text_good_morning_relationship:
     call receive_text(Rogue, "Mornin [Rogue.Player_petname] :)))") from _call_receive_text_567
 
-    call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_791
+    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_791
 
     return
 
@@ -210,7 +210,7 @@ label Rogue_text_good_morning_love:
         call receive_text(Rogue, "Mornin lover") from _call_receive_text_568
         call receive_text(Rogue, "Had a dream bout ya last night") from _call_receive_text_569
 
-        call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_792
+        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_792
     elif dice_roll == 2:
         call receive_text(Rogue, "Mornin darlin") from _call_receive_text_570
         call receive_text(Rogue, "Sleep well") from _call_receive_text_571
@@ -227,7 +227,7 @@ label Rogue_text_good_morning_love:
             call receive_text(Rogue, "Well") from _call_receive_text_573
             call receive_text(Rogue, "You know I always wanna :)))") from _call_receive_text_574
 
-            call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_793
+            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_793
         elif Rogue.text_history[-1][1] == temp[2]:
             call receive_text(Rogue, "Oh no! Im sorry hon") from _call_receive_text_575
 
@@ -248,7 +248,7 @@ label Rogue_text_good_morning_horny:
     call receive_text(Rogue, f"Good mornin {Rogue.Player_petname}") from _call_receive_text_579
     call receive_text(Rogue, "Was just thinkin bout you") from _call_receive_text_580
 
-    call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_794
+    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_794
 
     return
 
@@ -256,7 +256,7 @@ label Rogue_text_good_morning_nympho:
     call receive_text(Rogue, "Wish you could tell me in person") from _call_receive_text_581
     call receive_text(Rogue, "Wouldnt mind you bein in bed with me. . .") from _call_receive_text_582
 
-    call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_795
+    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_795
 
     return
 
@@ -271,7 +271,7 @@ label Rogue_text_goodnight:
         call receive_text(Rogue, "Gnight") from _call_receive_text_585
         call receive_text(Rogue, "See ya tomorrow :)") from _call_receive_text_586
 
-    call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_796
+    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_796
 
     return
 
@@ -279,7 +279,7 @@ label Rogue_text_goodnight_relationship:
     call receive_text(Rogue, "Night hon") from _call_receive_text_587
     call receive_text(Rogue, "Sleep tight") from _call_receive_text_588
 
-    call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_797
+    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_797
 
     return
 
@@ -290,7 +290,7 @@ label Rogue_text_goodnight_love:
         call receive_text(Rogue, "Gnight [Rogue.Player_petname]") from _call_receive_text_589
         call receive_text(Rogue, "Love you") from _call_receive_text_590
 
-        call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_798
+        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_798
     elif dice_roll == 2:
         call receive_text(Rogue, "Gnight") from _call_receive_text_591
         call receive_text(Rogue, ":(") from _call_receive_text_592
@@ -308,12 +308,12 @@ label Rogue_text_goodnight_love:
             call receive_text(Rogue, "I will be") from _call_receive_text_594
             call receive_text(Rogue, "I promise") from _call_receive_text_595
 
-            call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_799
+            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_799
         elif Rogue.text_history[-1][1] == temp[2]:
             call receive_text(Rogue, "Do I really snore?") from _call_receive_text_596
             call receive_text(Rogue, "Sorry. . .") from _call_receive_text_597
 
-            call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_800
+            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_800
 
     return
 
@@ -336,7 +336,7 @@ label Rogue_text_goodnight_horny:
     call receive_text(Rogue, "Never mind, maybe tomorrow") from _call_receive_text_605
     call receive_text(Rogue, "Gnight! :)") from _call_receive_text_606
 
-    call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_801
+    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_801
 
     return
 
@@ -346,7 +346,7 @@ label Rogue_text_goodnight_nympho:
     call receive_text(Rogue, "I could really use some attention. . .") from _call_receive_text_609
     call receive_text(Rogue, "Or at least havin you to press up against. . .") from _call_receive_text_610
 
-    call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_802
+    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_802
 
     return
 
@@ -354,7 +354,7 @@ label Rogue_text_ignored:
     call receive_text(Rogue, "Oh") from _call_receive_text_611
     call receive_text(Rogue, "Well okay") from _call_receive_text_612
 
-    call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_803
+    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_803
 
     return
 

@@ -22,7 +22,7 @@ init -2 python:
             self.sprite_zoom = 1.0
             self.sprite_rotation = 0.0
 
-            # sprite_layer = [background_characters (eg. teachers), midground (eg. shower_steam), midground_characters (eg. teachers), foreground (eg. podium), foreground_characters (eg. Present), focused_Companion, cover (eg. shower_steam)]
+            # sprite_layer = [background_characters (eg. teachers), midground (eg. shower_steam), midground_characters (eg. teachers), foreground (eg. podium), foreground_characters (eg. Present), focused_Character, cover (eg. shower_steam)]
             self.sprite_layer = 7
 
             self.hovered = False

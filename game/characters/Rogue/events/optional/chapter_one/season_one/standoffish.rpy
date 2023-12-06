@@ -143,21 +143,21 @@ label Rogue_chapter_one_season_one_standoffish_part_one:
     menu:
         extend ""
         "Don't mean to pry, but is everything okay? I'm here if you wanna talk or even just vent.":
-            call change_Companion_stat(Rogue, "love", small_stat) from _call_change_Companion_stat_190
-            call change_Companion_stat(Rogue, "trust", small_stat) from _call_change_Companion_stat_196
+            call change_Character_stat(Rogue, "love", small_stat) from _call_change_Character_stat_190
+            call change_Character_stat(Rogue, "trust", small_stat) from _call_change_Character_stat_196
 
             $ Rogue.change_face("worried1", eyes = "right")
 
             ch_Rogue "Ah. . . just. . . reckon everythin' is not okay. . ."
         "Are you okay? That didn't seem like a happy conversation, so if you wanted someone else to talk to. . .":
-            call change_Companion_stat(Rogue, "love", small_stat) from _call_change_Companion_stat_197
-            call change_Companion_stat(Rogue, "trust", small_stat) from _call_change_Companion_stat_209
+            call change_Character_stat(Rogue, "love", small_stat) from _call_change_Character_stat_197
+            call change_Character_stat(Rogue, "trust", small_stat) from _call_change_Character_stat_209
 
             $ Rogue.change_face("worried1", mouth = "smirk")
 
             ch_Rogue "It. . . wasn't a very happy conversation. . ."
         "Something about you not getting along with people and pushing them away? What's up with that?":
-            call change_Companion_stat(Rogue, "love", -small_stat) from _call_change_Companion_stat_215
+            call change_Character_stat(Rogue, "love", -small_stat) from _call_change_Character_stat_215
 
             $ Rogue.change_face("worried1", eyes = "down")
 
@@ -232,20 +232,20 @@ label Rogue_chapter_one_season_one_standoffish_part_one:
     menu:
         extend ""
         "I'm always happy to listen. Maybe I could give you a different perspective than you're used to, since I'm so new here.":
-            call change_Companion_stat(Rogue, "trust", medium_stat) from _call_change_Companion_stat_216
+            call change_Character_stat(Rogue, "trust", medium_stat) from _call_change_Character_stat_216
 
             $ Rogue.change_face("worried1", mouth = "smirk")
 
             ch_Rogue "Maybe you could, but as much as ah appreciate it, ah can't. . ."
         "I'm all ears if you're willing. Maybe my perspective could be useful.":
-            call change_Companion_stat(Rogue, "love", small_stat) from _call_change_Companion_stat_383
-            call change_Companion_stat(Rogue, "trust", medium_stat) from _call_change_Companion_stat_384
+            call change_Character_stat(Rogue, "love", small_stat) from _call_change_Character_stat_383
+            call change_Character_stat(Rogue, "trust", medium_stat) from _call_change_Character_stat_384
 
             $ Rogue.change_face("worried1", mouth = "smirk")
 
             ch_Rogue "Ah appreciate yer willingness, ah really do, but ah can't. . ."
         "Well, then give me the full story, I'm willing to listen. You can't expect people to understand your situation when they don't have all the information.":
-            call change_Companion_stat(Rogue, "love", -medium_stat) from _call_change_Companion_stat_394
+            call change_Character_stat(Rogue, "love", -medium_stat) from _call_change_Character_stat_394
 
             $ Rogue.change_face("worried1", eyes = "down")
 
@@ -376,20 +376,20 @@ label Rogue_chapter_one_season_one_standoffish_part_two:
     menu:
         extend ""
         "Did something happen? You looked pretty upset there before bumping into me.":
-            call change_Companion_stat(Rogue, "trust", small_stat) from _call_change_Companion_stat_395
+            call change_Character_stat(Rogue, "trust", small_stat) from _call_change_Character_stat_395
 
             $ Rogue.change_face("worried1", eyes = "right")
 
             ch_Rogue "Nothin' happened, don't worry. . ."
         "I'm fine, but are {i}you{/i} okay? You looked like someone just killed your cat. . .":
-            call change_Companion_stat(Rogue, "love", small_stat) from _call_change_Companion_stat_396
-            call change_Companion_stat(Rogue, "trust", small_stat) from _call_change_Companion_stat_397
+            call change_Character_stat(Rogue, "love", small_stat) from _call_change_Character_stat_396
+            call change_Character_stat(Rogue, "trust", small_stat) from _call_change_Character_stat_397
 
             $ Rogue.change_face("worried1", eyes = "right")
 
             ch_Rogue "Ah'm the same as ever. . ."
         "You sure? It looked like you just killed someone or something. . .":
-            call change_Companion_stat(Rogue, "love", -medium_stat) from _call_change_Companion_stat_403
+            call change_Character_stat(Rogue, "love", -medium_stat) from _call_change_Character_stat_403
             
             $ Rogue.change_face("worried2") 
             

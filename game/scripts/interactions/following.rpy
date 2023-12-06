@@ -11,12 +11,12 @@ label start_following(Character):
         return
     elif time_index == 3 and not approval_check(Character, threshold = "talk_late"):
         if Character.History.check("said_no_to_following", tracker = "recent") >= 2:
-            call change_Companion_stat(Character, "love", -5) from _call_change_Companion_stat_970
-            call change_Companion_stat(Character, "trust", -5) from _call_change_Companion_stat_971
+            call change_Character_stat(Character, "love", -5) from _call_change_Character_stat_970
+            call change_Character_stat(Character, "trust", -5) from _call_change_Character_stat_971
 
             call expression f"{Character.tag}_follow_reject_asked_twice" from _call_expression_216
         elif Character.History.check("said_no_to_following", tracker = "recent") == 1:
-            call change_Companion_stat(Character, "love", -2) from _call_change_Companion_stat_972
+            call change_Character_stat(Character, "love", -2) from _call_change_Character_stat_972
 
             call expression f"{Character.tag}_follow_reject_asked_once" from _call_expression_217
         else:
@@ -40,12 +40,12 @@ label start_following(Character):
             call expression f"{Character.tag}_follow_temporary" from _call_expression_224
         else:
             if Character.History.check("said_no_to_following", tracker = "recent") >= 2:
-                call change_Companion_stat(Character, "love", -5) from _call_change_Companion_stat_973
-                call change_Companion_stat(Character, "trust", -5) from _call_change_Companion_stat_974
+                call change_Character_stat(Character, "love", -5) from _call_change_Character_stat_973
+                call change_Character_stat(Character, "trust", -5) from _call_change_Character_stat_974
 
                 call expression f"{Character.tag}_follow_reject_asked_twice" from _call_expression_226
             elif Character.History.check("said_no_to_following", tracker = "recent") == 1:                    
-                call change_Companion_stat(Character, "love", -2) from _call_change_Companion_stat_975
+                call change_Character_stat(Character, "love", -2) from _call_change_Character_stat_975
 
                 call expression f"{Character.tag}_follow_reject_asked_once" from _call_expression_227
             else:

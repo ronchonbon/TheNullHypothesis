@@ -8,6 +8,8 @@ init -2:
     define boredom_penalty = -0.25
     define boredom_threshold = 5
 
+    define orgasm_bonus = 10
+
     default ongoing_Actions = []
 
     define all_poses = [
@@ -335,10 +337,10 @@ init -2 python:
 
     class ActionClass(object):
         def __init__(self, Action_type, Actors, Targets = None):
-            if Actors in all_Characters or Actors == Player:
+            if Actors in all_Companions or Actors == Player:
                 Actors = [Actors]
 
-            if Targets in all_Characters or Targets == Player:
+            if Targets in all_Companions or Targets == Player:
                 Targets = [Targets]
 
             if not Targets:

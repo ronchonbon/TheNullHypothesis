@@ -214,13 +214,13 @@ label ch1_Juggernaut_attack:
     menu:
         extend ""
         "We both know that's not a good idea. You're more than powerful enough, but the instability. . .":
-            call change_Companion_stat(Jean, "love", small_stat) from _call_change_Companion_stat_837
-            call change_Companion_stat(Jean, "trust", medium_stat) from _call_change_Companion_stat_838
+            call change_Character_stat(Jean, "love", small_stat) from _call_change_Character_stat_837
+            call change_Character_stat(Jean, "trust", medium_stat) from _call_change_Character_stat_838
         "[temp], are you sure. . . ? What if you lose control again?":
-            call change_Companion_stat(Jean, "love", -small_stat) from _call_change_Companion_stat_839
+            call change_Character_stat(Jean, "love", -small_stat) from _call_change_Character_stat_839
         "Don't act all confident, you need to face reality. You and I both know you're not stable enough for that.":
-            call change_Companion_stat(Jean, "love", -medium_stat) from _call_change_Companion_stat_840  
-            call change_Companion_stat(Jean, "trust", small_stat) from _call_change_Companion_stat_841
+            call change_Character_stat(Jean, "love", -medium_stat) from _call_change_Character_stat_840  
+            call change_Character_stat(Jean, "trust", small_stat) from _call_change_Character_stat_841
 
     $ Jean.change_face("angry1") 
 
@@ -325,8 +325,8 @@ label ch1_Juggernaut_attack:
     menu:
         extend ""
         "I think [Rogue.name] might be in trouble, I need to find her.":
-            call change_Companion_stat(Laura, "love", medium_stat) from _call_change_Companion_stat_1080
-            call change_Companion_stat(Laura, "trust", small_stat) from _call_change_Companion_stat_1086
+            call change_Character_stat(Laura, "love", medium_stat) from _call_change_Character_stat_1080
+            call change_Character_stat(Laura, "trust", small_stat) from _call_change_Character_stat_1086
 
             ch_Player "She always picks up her phone." 
             ch_Laura "Part of being a friend is to tell you when you're being an idiot, right?" 
@@ -335,7 +335,7 @@ label ch1_Juggernaut_attack:
             ch_Player "I'm sorry, but I'm going. She's our friend too."
             ch_Player "I might be able to help, they won't be expecting my power."
         "I'm not going to sit around - I'll be fine. With all the training you've put me through, I can handle it.":
-            call change_Companion_stat(Laura, "trust", -small_stat) from _call_change_Companion_stat_1087
+            call change_Character_stat(Laura, "trust", -small_stat) from _call_change_Character_stat_1087
 
             ch_Laura "You're being an idiot." 
             ch_Laura "Scenarios are nothing like the real thing." 
@@ -801,7 +801,7 @@ label ch1_Juggernaut_attack:
     "You have a deep, dreamless sleep that feels like it drags on forever."
 
     python:
-        for C in all_Characters:
+        for C in all_Companions:
             C.timed_text_options = {}
 
     $ counter = 0
@@ -810,7 +810,7 @@ label ch1_Juggernaut_attack:
         call start_new_day from _call_start_new_day_2
 
         python:
-            for C in all_Characters:
+            for C in all_Companions:
                 C.timed_text_options = {}
 
         $ counter += 1
@@ -955,8 +955,8 @@ label ch1_Juggernaut_attack:
     menu:
         extend ""
         "I'd still do it all over again, I had to help [Rogue.name].":
-            call change_Companion_stat(Laura, "love", medium_stat) from _call_change_Companion_stat_1587
-            call change_Companion_stat(Laura, "trust", medium_stat) from _call_change_Companion_stat_1588
+            call change_Character_stat(Laura, "love", medium_stat) from _call_change_Character_stat_1587
+            call change_Character_stat(Laura, "trust", medium_stat) from _call_change_Character_stat_1588
 
             $ Laura.change_face("angry1", eyes = "right") 
             
@@ -967,7 +967,7 @@ label ch1_Juggernaut_attack:
             
             ch_Laura "Then I'll have to keep an even closer eye on you."
         "Yeah. . . I don't know what I was thinking.":
-            call change_Companion_stat(Laura, "love", small_stat) from _call_change_Companion_stat_1589
+            call change_Character_stat(Laura, "love", small_stat) from _call_change_Character_stat_1589
 
             $ Laura.change_face("suspicious2") 
             
@@ -981,7 +981,7 @@ label ch1_Juggernaut_attack:
             
             ch_Laura "Next time, just stay behind me."
         "Oh come on, I'm fine!":
-            call change_Companion_stat(Laura, "trust", -small_stat) from _call_change_Companion_stat_1590
+            call change_Character_stat(Laura, "trust", -small_stat) from _call_change_Character_stat_1590
 
             $ Laura.change_face("suspicious2") 
             
@@ -1107,7 +1107,7 @@ label ch1_Juggernaut_attack:
         menu:
             extend ""
             "No, you can. . . I just wasn't expecting it. (encourage_quirk)":
-                call change_Companion_stat(Jean, "love", medium_stat) from _call_change_Companion_stat_1591
+                call change_Character_stat(Jean, "love", medium_stat) from _call_change_Character_stat_1591
                 
                 $ Jean.change_face("worried2", mouth = "lipbite", blush = 2)
 
@@ -1155,8 +1155,8 @@ label ch1_Juggernaut_attack:
                 
                 ch_Player "Eventually I snapped out of it, but maybe if I acted sooner things would've been different."
                 
-                call change_Companion_stat(Jean, "love", medium_stat) from _call_change_Companion_stat_1592
-                call change_Companion_stat(Jean, "trust", small_stat) from _call_change_Companion_stat_1593
+                call change_Character_stat(Jean, "love", medium_stat) from _call_change_Character_stat_1592
+                call change_Character_stat(Jean, "trust", small_stat) from _call_change_Character_stat_1593
 
                 ch_Jean "I'm glad she's okay." 
                 ch_Jean "But she was already hurt by the time you got there." 
@@ -1170,8 +1170,8 @@ label ch1_Juggernaut_attack:
                 
                 ch_Jean "Once my power cooperates. . ."
             "Maybe if I tried helping Colossus instead, things would've been different.":
-                call change_Companion_stat(Jean, "love", small_stat) from _call_change_Companion_stat_1594
-                call change_Companion_stat(Jean, "trust", -small_stat) from _call_change_Companion_stat_1595
+                call change_Character_stat(Jean, "love", small_stat) from _call_change_Character_stat_1594
+                call change_Character_stat(Jean, "trust", -small_stat) from _call_change_Character_stat_1595
                 
                 $ Jean.change_face("angry1")
                 
@@ -1194,8 +1194,8 @@ label ch1_Juggernaut_attack:
                 ch_Player "She was unconscious, looked hurt pretty bad." 
                 ch_Player "I couldn't just stand around." 
                 
-                call change_Companion_stat(Jean, "love", medium_stat) from _call_change_Companion_stat_1596
-                call change_Companion_stat(Jean, "trust", medium_stat) from _call_change_Companion_stat_1597
+                call change_Character_stat(Jean, "love", medium_stat) from _call_change_Character_stat_1596
+                call change_Character_stat(Jean, "trust", medium_stat) from _call_change_Character_stat_1597
 
                 $ Jean.change_face("sad") 
 
@@ -1205,7 +1205,7 @@ label ch1_Juggernaut_attack:
                 
                 ch_Player "I tried nullifying the big guy, but it didn't work for some reason. . ."
             "When I got there, sure the guy looked big, but I thought I could just nullify him.":
-                call change_Companion_stat(Jean, "trust", -medium_stat) from _call_change_Companion_stat_1602
+                call change_Character_stat(Jean, "trust", -medium_stat) from _call_change_Character_stat_1602
 
                 $ Jean.change_face("appalled1") 
                 
@@ -1300,8 +1300,8 @@ label ch1_Juggernaut_attack:
     menu:
         extend ""
         "Don't worry about me. I'd do it again, no question.":
-            call change_Companion_stat(Rogue, "love", medium_stat) from _call_change_Companion_stat_855 
-            call change_Companion_stat(Rogue, "trust", medium_stat) from _call_change_Companion_stat_856
+            call change_Character_stat(Rogue, "love", medium_stat) from _call_change_Character_stat_855 
+            call change_Character_stat(Rogue, "trust", medium_stat) from _call_change_Character_stat_856
 
             $ Rogue.change_face("worried2", blush = 2) 
             
@@ -1315,7 +1315,7 @@ label ch1_Juggernaut_attack:
             
             ch_Rogue "And next time, ah'll be right there fightin' alongside ya."
         "It's not your fault.":
-            call change_Companion_stat(Rogue, "trust", medium_stat) from _call_change_Companion_stat_635
+            call change_Character_stat(Rogue, "trust", medium_stat) from _call_change_Character_stat_635
 
             $ Rogue.change_face("worried1", blush = 1) 
             
@@ -1326,7 +1326,7 @@ label ch1_Juggernaut_attack:
             
             ch_Rogue "Next time, ah'll be right there fightin' alongside ya."
         "Yeah. . . it wasn't fun.":
-            call change_Companion_stat(Rogue, "love", -small_stat) from _call_change_Companion_stat_636
+            call change_Character_stat(Rogue, "love", -small_stat) from _call_change_Character_stat_636
 
             $ Rogue.change_face("worried1", eyes = "down", blush = 1) 
             
@@ -1537,8 +1537,8 @@ label ch1_Juggernaut_attack:
         "I've been better. . . but don't apologize, I wanted to thank you.":
             $ Ororo.change_face("worried2") 
             
-            call change_Companion_stat(Ororo, "love", 0) from _call_change_Companion_stat_858 
-            call change_Companion_stat(Ororo, "trust", 0) from _call_change_Companion_stat_859
+            call change_Character_stat(Ororo, "love", 0) from _call_change_Character_stat_858 
+            call change_Character_stat(Ororo, "trust", 0) from _call_change_Character_stat_859
         
             ch_Ororo "I do not deserve your thanks." 
             
@@ -1548,13 +1548,13 @@ label ch1_Juggernaut_attack:
         "I am exhausted, the past few days have really done a number on me. . .":
             $ Ororo.change_face("worried1", eyes = "right") 
             
-            call change_Companion_stat(Ororo, "love", 0) from _call_change_Companion_stat_860
+            call change_Character_stat(Ororo, "love", 0) from _call_change_Character_stat_860
         
             ch_Ororo "That is why I am here. . ."
         "I was about to go to bed, this can't wait?":
             $ Ororo.change_face("confused1", eyes = "squint") 
             
-            call change_Companion_stat(Ororo, "love", 0) from _call_change_Companion_stat_861
+            call change_Character_stat(Ororo, "love", 0) from _call_change_Character_stat_861
 
             ch_Ororo "It cannot. . ."
 
@@ -1577,13 +1577,13 @@ label ch1_Juggernaut_attack:
         "None of this is your fault, but I still really appreciate it.":
             $ Ororo.change_face("worried1", mouth = "smirk") 
             
-            call change_Companion_stat(Ororo, "love", 0) from _call_change_Companion_stat_862 
+            call change_Character_stat(Ororo, "love", 0) from _call_change_Character_stat_862 
         "Well, luckily I wasn't too badly injured. . .":
             $ Ororo.change_face("worried1", mouth = "smirk")
         "Yeah. . . I was wondering what the hell took you so long. . .": 
             $ Ororo.change_face("worried1", eyes = "right") 
             
-            call change_Companion_stat(Ororo, "love", 0) from _call_change_Companion_stat_863
+            call change_Character_stat(Ororo, "love", 0) from _call_change_Character_stat_863
 
     $ Ororo.change_face("worried1")
 

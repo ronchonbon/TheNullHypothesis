@@ -378,7 +378,7 @@ screen inventory_screen():
                     if giving_gift:
                         action [
                             SetVariable("current_inventory_Item", Item_string),
-                            Show("confirm_gift_screen", Companion = focused_Companion, Item = Item)]
+                            Show("confirm_gift_screen", Character = focused_Character, Item = Item)]
                     else:
                         action SetVariable("current_inventory_Item", Item_string)
             else:
@@ -399,10 +399,10 @@ screen inventory_screen():
 
                     add At(f"images/interface/phone/icons/{Clothing.Owner.tag}.webp", humhum_icon) anchor (0.5, 0.5) pos (0.93, 0.89)
 
-                    if giving_gift and focused_Companion == Clothing.Owner:
+                    if giving_gift and focused_Character == Clothing.Owner:
                         action [
                             SetVariable("current_inventory_Item", Clothing),
-                            Show("confirm_gift_screen", Companion = focused_Companion, Item = Clothing)]
+                            Show("confirm_gift_screen", Character = focused_Character, Item = Clothing)]
                     else:
                         action SetVariable("current_inventory_Item", Clothing)
 
@@ -472,7 +472,7 @@ screen inventory_screen():
 
         color "#512908"
 
-screen confirm_gift_screen(Companion, Item):
+screen confirm_gift_screen(Character, Item):
     modal True
 
     style_prefix "confirm"
@@ -483,7 +483,7 @@ screen confirm_gift_screen(Companion, Item):
         vbox:
             spacing 25
 
-            text f"Give {Companion.name} the {Item.name}?" xalign 0.5:
+            text f"Give {Character.name} the {Item.name}?" xalign 0.5:
                 size 40
                 
             hbox:
@@ -495,11 +495,11 @@ screen confirm_gift_screen(Companion, Item):
                     if hasattr(Item, "available_states"):
                         action [
                             Hide("confirm_gift_screen"),
-                            Call("give_Character_Clothing", Companion, Item, from_current = True)]
+                            Call("give_Character_Clothing", Character, Item, from_current = True)]
                     else:
                         action [
                             Hide("confirm_gift_screen"),
-                            Call("give_Character_gift", Companion, Item, from_current = True)]
+                            Call("give_Character_gift", Character, Item, from_current = True)]
 
                 textbutton _("No") xminimum int(config.screen_width*0.1) yminimum int(config.screen_height*0.07): 
                     text_size 36

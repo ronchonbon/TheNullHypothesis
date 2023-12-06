@@ -400,16 +400,16 @@ label Rogue_confession:
     menu:
         extend ""
         "Better than. . . back home.":
-            call change_Companion_stat(Rogue, "love", medium_stat) from _call_change_Companion_stat_618
-            call change_Companion_stat(Rogue, "trust", medium_stat) from _call_change_Companion_stat_404
+            call change_Character_stat(Rogue, "love", medium_stat) from _call_change_Character_stat_618
+            call change_Character_stat(Rogue, "trust", medium_stat) from _call_change_Character_stat_404
 
             if Player.has_family:
                 ch_Player "I hope my family's doing alright. . ."
         "Sure beats the food I got back home.":
             ch_Player "At least there's a plus side to all of this. . ."
         "Still not as good as. . . back home.":
-            call change_Companion_stat(Rogue, "love", medium_stat) from _call_change_Companion_stat_421
-            call change_Companion_stat(Rogue, "trust", medium_stat) from _call_change_Companion_stat_422
+            call change_Character_stat(Rogue, "love", medium_stat) from _call_change_Character_stat_421
+            call change_Character_stat(Rogue, "trust", medium_stat) from _call_change_Character_stat_422
 
             if Player.has_family:
                 ch_Player "I still miss my mom's cooking sometimes."
@@ -508,24 +508,24 @@ label Rogue_confession:
     menu:
         extend ""
         "Okay [Rogue.name], c'mon, what did you {i}actually{/i} come here to talk about?":
-            call change_Companion_stat(Rogue, "love", -small_stat) from _call_change_Companion_stat_427
-            call change_Companion_stat(Rogue, "trust", -small_stat) from _call_change_Companion_stat_428
+            call change_Character_stat(Rogue, "love", -small_stat) from _call_change_Character_stat_427
+            call change_Character_stat(Rogue, "trust", -small_stat) from _call_change_Character_stat_428
 
             $ Rogue.change_face("worried1")
 
             ch_Rogue "Alright, fine."
             ch_Rogue "Well. . ."
         "Sorry for bringing down the mood, but what did you actually want to talk about?":
-            call change_Companion_stat(Rogue, "love", small_stat) from _call_change_Companion_stat_429
-            call change_Companion_stat(Rogue, "trust", medium_stat) from _call_change_Companion_stat_430
+            call change_Character_stat(Rogue, "love", small_stat) from _call_change_Character_stat_429
+            call change_Character_stat(Rogue, "trust", medium_stat) from _call_change_Character_stat_430
 
             $ Rogue.change_face("worried1")
 
             ch_Rogue "Don't worry hon', ah appreciate the honesty."
             ch_Rogue "Well. . ."
         "Now I kinda want more cornbread. Wanna grab some food?":
-            call change_Companion_stat(Rogue, "love", medium_stat) from _call_change_Companion_stat_431
-            call change_Companion_stat(Rogue, "trust", small_stat) from _call_change_Companion_stat_442
+            call change_Character_stat(Rogue, "love", medium_stat) from _call_change_Character_stat_431
+            call change_Character_stat(Rogue, "trust", small_stat) from _call_change_Character_stat_442
 
             $ Rogue.change_face("pleased1")
 
@@ -547,12 +547,12 @@ label Rogue_confession:
     menu:
         extend ""
         "For sure.":
-            call change_Companion_stat(Rogue, "love", medium_stat) from _call_change_Companion_stat_445
-            call change_Companion_stat(Rogue, "trust", small_stat) from _call_change_Companion_stat_446
+            call change_Character_stat(Rogue, "love", medium_stat) from _call_change_Character_stat_445
+            call change_Character_stat(Rogue, "trust", small_stat) from _call_change_Character_stat_446
 
             $ Rogue.change_face("pleased1", blush = 1)
         "Yeah, I'd like to think so.":
-            call change_Companion_stat(Rogue, "love", small_stat) from _call_change_Companion_stat_450
+            call change_Character_stat(Rogue, "love", small_stat) from _call_change_Character_stat_450
 
     ch_Rogue "Well, ah was thinkin'. . ."
 
@@ -583,14 +583,14 @@ label Rogue_confession:
 
                 $ asked_what_had_in_mind = True
             "Uh, sure. . . we can be more than friends." if asked_more_than_friends or asked_dating:
-                call change_Companion_stat(Rogue, "love", -small_stat) from _call_change_Companion_stat_460
-                call change_Companion_stat(Rogue, "trust", -small_stat) from _call_change_Companion_stat_461
+                call change_Character_stat(Rogue, "love", -small_stat) from _call_change_Character_stat_460
+                call change_Character_stat(Rogue, "trust", -small_stat) from _call_change_Character_stat_461
 
                 $ Rogue.change_face("confused1")
 
                 $ chatting = False
             "I'd really like that." if asked_more_than_friends or asked_dating:
-                call change_Companion_stat(Rogue, "love", medium_stat) from _call_change_Companion_stat_580
+                call change_Character_stat(Rogue, "love", medium_stat) from _call_change_Character_stat_580
 
                 ch_Player "To be {i}more{/i} than friends."
 
@@ -652,8 +652,8 @@ label Rogue_confession_1A:
 
     ch_Player "Makes my blood boil."
 
-    call change_Companion_stat(Rogue, "love", medium_stat) from _call_change_Companion_stat_619
-    call change_Companion_stat(Rogue, "trust", -small_stat) from _call_change_Companion_stat_620
+    call change_Character_stat(Rogue, "love", medium_stat) from _call_change_Character_stat_619
+    call change_Character_stat(Rogue, "trust", -small_stat) from _call_change_Character_stat_620
 
     ch_Rogue "It really ain't fair. . ."
     ch_Rogue "For any of us."
@@ -679,8 +679,8 @@ label Rogue_confession_1B:
 
     ch_Player "It's been taking a while to really process everything. . ."
     
-    call change_Companion_stat(Rogue, "love", small_stat) from _call_change_Companion_stat_621
-    call change_Companion_stat(Rogue, "trust", medium_stat) from _call_change_Companion_stat_622
+    call change_Character_stat(Rogue, "love", small_stat) from _call_change_Character_stat_621
+    call change_Character_stat(Rogue, "trust", medium_stat) from _call_change_Character_stat_622
 
     ch_Rogue "Ah know how you feel."
     ch_Rogue "It's a lot to go through."
@@ -707,8 +707,8 @@ label Rogue_confession_1C:
 
     ch_Player "Then it won't matter what catches up to me."
     
-    call change_Companion_stat(Rogue, "love", medium_stat) from _call_change_Companion_stat_623
-    call change_Companion_stat(Rogue, "trust", medium_stat) from _call_change_Companion_stat_624
+    call change_Character_stat(Rogue, "love", medium_stat) from _call_change_Character_stat_623
+    call change_Character_stat(Rogue, "trust", medium_stat) from _call_change_Character_stat_624
 
     ch_Rogue "Reality sure ain't kind to people like us."
     ch_Rogue "I reckon that's not. . . the worst way to deal with the stress."
@@ -773,14 +773,14 @@ label Rogue_confession_2B:
     menu:
         extend ""
         "I really, {i}really{/i} like you too.":
-            call change_Companion_stat(Rogue, "love", medium_stat) from _call_change_Companion_stat_625
+            call change_Character_stat(Rogue, "love", medium_stat) from _call_change_Character_stat_625
             
             ch_Player "I'm glad you feel the same way."
             ch_Player "To be honest, I was working up the courage to ask you out too."
 
             $ Rogue.change_face("pleased2", blush = 2)
         "Oh. . . uh, yeah, that could be cool.":
-            call change_Companion_stat(Rogue, "love", small_stat) from _call_change_Companion_stat_626
+            call change_Character_stat(Rogue, "love", small_stat) from _call_change_Character_stat_626
             
             $ Rogue.change_face("perplexed")
 
@@ -802,27 +802,27 @@ label Rogue_confession_2C:
     menu:
         extend ""
         "So you're saying I can't kiss you right now?":
-            call change_Companion_stat(Rogue, "love", medium_stat) from _call_change_Companion_stat_627
-            call change_Companion_stat(Rogue, "desire", small_stat) from _call_change_Companion_stat_628
+            call change_Character_stat(Rogue, "love", medium_stat) from _call_change_Character_stat_627
+            call change_Character_stat(Rogue, "desire", small_stat) from _call_change_Character_stat_628
 
             $ Rogue.change_face("pleased2", mouth = "lipbite", blush = 2)
 
             ch_Rogue "Let's at least go on a date 'fore any of that. . ."
         "That's fine by me, no rush to jump into anything.":
-            call change_Companion_stat(Rogue, "love", small_stat) from _call_change_Companion_stat_629
-            call change_Companion_stat(Rogue, "trust", medium_stat) from _call_change_Companion_stat_630
+            call change_Character_stat(Rogue, "love", small_stat) from _call_change_Character_stat_629
+            call change_Character_stat(Rogue, "trust", medium_stat) from _call_change_Character_stat_630
 
             $ Rogue.change_face("smirk2")
         ". . .":
-            call change_Companion_stat(Rogue, "love", -small_stat) from _call_change_Companion_stat_1614
+            call change_Character_stat(Rogue, "love", -small_stat) from _call_change_Character_stat_1614
 
             $ Rogue.change_face("worried1")
 
     return
 
 label Rogue_confession_2D:
-    call change_Companion_stat(Rogue, "love", -medium_stat) from _call_change_Companion_stat_1615
-    call change_Companion_stat(Rogue, "trust", medium_stat) from _call_change_Companion_stat_1616
+    call change_Character_stat(Rogue, "love", -medium_stat) from _call_change_Character_stat_1615
+    call change_Character_stat(Rogue, "trust", medium_stat) from _call_change_Character_stat_1616
 
     $ Rogue.change_face("worried2")
 

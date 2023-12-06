@@ -621,7 +621,7 @@ label Jean_accepts_show_breasts_after_first_time:
         "Absolutely perfect. . .":
             $ Jean.change_face("worried1", mouth = "lipbite", blush = 1) 
             
-            call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_139
+            call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_139
         "They are pretty great.":
             $ Jean.change_face("smirk2")
 
@@ -631,7 +631,7 @@ label Jean_accepts_show_breasts_after_first_time:
         "They're. . . not bad. . .":
             $ Jean.change_face("worried2", blush = 1) 
             
-            call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_381
+            call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_381
 
     return
 
@@ -804,7 +804,7 @@ label Jean_accepts_show_pussy_after_first_time:
             
             ch_Jean "I knew you would." 
             
-            call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_382
+            call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_382
         "Yeah, it's great. . .":
             $ Jean.change_face("worried1", mouth = "smirk", blush = 1) 
             

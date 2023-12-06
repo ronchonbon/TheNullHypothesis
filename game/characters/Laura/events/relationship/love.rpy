@@ -40,7 +40,7 @@ label Laura_I_love_you:
     if Rogue.text_history[-1][1] == temp[0]:
         call receive_text(Rogue, "Aint you sweet :)") from _call_receive_text_711
 
-        call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_1040
+        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1040
     elif Rogue.text_history[-1][1] == temp[1]:
         call receive_text(Rogue, "Glad it wasnt too bad") from _call_receive_text_712
     elif Rogue.text_history[-1][1] == temp[2]:
@@ -156,15 +156,15 @@ label Laura_I_love_you:
             ch_Rogue "Thanks, ah also think it's important." 
             ch_Rogue "Ah reckon this was inevitable with her." 
             
-            call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_1041 
-            call change_Companion_stat(Rogue, "trust", 0) from _call_change_Companion_stat_1042
+            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1041 
+            call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_1042
         "I. . . just never expected. . . No, thank you for letting me know, this is important.":
             $ Rogue.change_face("confused1", mouth = "smirk")
 
             ch_Rogue "Ah'm sorry, [Rogue.Player_petname], but how could ya not expect this?" 
             ch_Rogue "Ah reckon this was inevitable with her." 
             
-            call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_1043
+            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1043
         "No, it really isn't your place to be giving me advice about my relationship, but regardless, thanks for letting me know.":
             $ Rogue.change_face("worried1", eyes = "down")
 
@@ -174,7 +174,7 @@ label Laura_I_love_you:
             
             ch_Rogue "But, ah reckon this was inevitable with her." 
             
-            call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_1044
+            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1044
 
     $ Rogue.change_face("worried1", mouth = "smirk")
 
@@ -198,13 +198,13 @@ label Laura_I_love_you:
     menu:
         extend ""
         "I know you're struggling with parts of yourself, but I want you to feel like you can let me share some of that burden.":
-            call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_1045 
-            call change_Companion_stat(Laura, "trust", 0) from _call_change_Companion_stat_1046
+            call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1045 
+            call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_1046
         "[Laura.name], I know you've been talking to [Rogue.name] about what you're struggling with, but I'm your boyfriend. You can come to me for support too. . .":
-            call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_1047
+            call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1047
         "Seriously, [Laura.name], I am your boyfriend. I know you've been leaning on [Rogue.name], but you need to start coming to me for support.":
-            call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_1048 
-            call change_Companion_stat(Laura, "trust", 0) from _call_change_Companion_stat_1049
+            call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1048 
+            call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_1049
 
     $ Laura.change_face("furious", blush = 1)
 
@@ -237,7 +237,7 @@ label Laura_I_love_you:
         "Let her keep going.":
             call Laura_I_love_you_2A from _call_Laura_I_love_you_2A
         "[Laura.name], if it makes it easier. . . I love you.":
-            call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_1050
+            call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1050
             
             call Laura_I_love_you_2B from _call_Laura_I_love_you_2B
 
@@ -327,12 +327,12 @@ label Laura_I_love_you:
         menu:
             extend ""
             "I was hoping you'd say that. . . use me to your heart's content.":
-                call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_1051
+                call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1051
             "I'm sorry I frustrate you so much. . . don't hesitate to make me pay for it.":
-                call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_1052 
-                call change_Companion_stat(Laura, "trust", 0) from _call_change_Companion_stat_1053
+                call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1052 
+                call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_1053
             "It's not my fault you're so horny all the time, but fine, you know I'll be available.":
-                call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_1054
+                call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1054
 
         $ Laura.change_face("furious", blush = 2)
 
@@ -367,12 +367,12 @@ label Laura_I_love_you:
         menu:
             extend ""
             "I'm also looking forward to it, and I will do my best to alleviate your frustrations.":
-                call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_1055
+                call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1055
             "I'm sorry I frustrate you so much. . . but don't worry, I'll help alleviate your frustrations the best I can.":
-                call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_1056 
-                call change_Companion_stat(Laura, "trust", 0) from _call_change_Companion_stat_1057
+                call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1056 
+                call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_1057
             "It's not my fault you're so horny all the time, but yeah, we'll figure it out.":
-                call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_1058
+                call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1058
 
         $ Laura.change_face("worried1", eyes = "right", mouth = "lipbite", blush = 1)
 
@@ -500,9 +500,9 @@ label Laura_I_love_you_1B:
         pause
 
     if Laura.text_history[-1][1] == temp[0]:
-        call change_Companion_stat(Laura, "trust", 0) from _call_change_Companion_stat_1059
+        call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_1059
     elif Laura.text_history[-1][1] == temp[2]:
-        call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_1060
+        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1060
 
     call receive_text(Laura, "I'm coming") from _call_receive_text_724
 

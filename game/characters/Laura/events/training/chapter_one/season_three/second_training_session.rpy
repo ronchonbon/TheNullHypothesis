@@ -30,7 +30,7 @@ label Laura_chapter_one_season_three_second_training_session:
             ch_Laura "Shut up." 
             ch_Laura "Answer the question." 
             
-            call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_443
+            call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_443
         "Not bad at all.":
             $ Laura.change_face("neutral") 
 
@@ -42,7 +42,7 @@ label Laura_chapter_one_season_three_second_training_session:
             
             $ Laura.change_face("angry1") 
             
-            call change_Companion_stat(Laura, "trust", 0) from _call_change_Companion_stat_444
+            call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_444
 
     ch_Player "Okay, well, I was pretty exhausted for a while afterwards."
 

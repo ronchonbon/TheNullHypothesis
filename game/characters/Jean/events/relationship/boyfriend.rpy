@@ -239,14 +239,14 @@ label Jean_boyfriend:
 
                 ch_Jean "Good. . ."
                 
-                call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_89 
-                call change_Companion_stat(Jean, "desire", 0) from _call_change_Companion_stat_90
+                call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_89 
+                call change_Character_stat(Jean, "desire", 0) from _call_change_Character_stat_90
             "I do. . .":
                 $ Jean.change_face("confused1", eyes = "squint", mouth = "smirk", blush = 1)
 
                 ch_Jean "I didn't say you could talk yet. . ."
                 
-                call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_91
+                call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_91
             "Yeah. . . but what are you getting at?":
                 $ Jean.change_face("worried1", blush = 1)
 
@@ -263,8 +263,8 @@ label Jean_boyfriend:
 
                 ch_Jean "I can tell. . ."
                 
-                call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_92
-                call change_Companion_stat(Jean, "desire", 0) from _call_change_Companion_stat_93
+                call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_92
+                call change_Character_stat(Jean, "desire", 0) from _call_change_Character_stat_93
             "You are drop dead gorgeous.":
                 $ Jean.change_face("worried2", mouth = "smirk", blush = 2)
 
@@ -278,7 +278,7 @@ label Jean_boyfriend:
                 
                 ch_Jean "But I didn't say you could speak yet. . ."
                 
-                call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_94
+                call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_94
             "Yeah, not too bad. . .":
                 $ Jean.change_face("confused2", blush = 2)
                 
@@ -288,7 +288,7 @@ label Jean_boyfriend:
                 
                 ch_Jean "I still didn't say you could speak yet. . ."
                 
-                call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_95
+                call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_95
 
         $ Jean.change_face("worried1", eyes = "right", mouth = "lipbite", blush = 1)
 
@@ -383,7 +383,7 @@ label Jean_boyfriend:
 
                 ch_Jean "I'm glad you agree."
                 
-                call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_96
+                call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_96
             "I do. I really, really do.":
                 $ Jean.change_face("worried2", mouth = "lipbite", blush = 2)
 
@@ -393,8 +393,8 @@ label Jean_boyfriend:
                 
                 ch_Jean "Good. . . I enjoy it too. . ."
                 
-                call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_97 
-                call change_Companion_stat(Jean, "desire", 0) from _call_change_Companion_stat_98
+                call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_97 
+                call change_Character_stat(Jean, "desire", 0) from _call_change_Character_stat_98
             "It's not the worst time. . .":
                 $ Jean.change_face("confused1", blush = 1) 
 
@@ -404,7 +404,7 @@ label Jean_boyfriend:
                 
                 ch_Jean "Well, I really enjoy it. . ."
                 
-                call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_99
+                call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_99
 
         $ Jean.change_face("worried1", mouth = "lipbite", blush = 1)
 
@@ -417,12 +417,12 @@ label Jean_boyfriend:
             "Of course. Hard not to with someone like you. . .":
                 $ Jean.change_face("worried1", eyes = "right", mouth = "lipbite", blush = 1) 
                 
-                call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_100 
-                call change_Companion_stat(Jean, "desire", 0) from _call_change_Companion_stat_101
+                call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_100 
+                call change_Character_stat(Jean, "desire", 0) from _call_change_Character_stat_101
             "Pretty well. . . I guess. . .":
                 $ Jean.change_face("worried1", eyes = "right", blush = 1) 
                 
-                call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_102
+                call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_102
 
         $ Jean.change_face("worried1", mouth = "lipbite", blush = 1)
 
@@ -435,7 +435,7 @@ label Jean_boyfriend:
 
                 ch_Jean "I can tell. . ."
                 
-                call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_103
+                call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_103
             "You are drop dead gorgeous.":
                 $ Jean.change_face("worried2", mouth = "smirk", blush = 2)
 
@@ -445,8 +445,8 @@ label Jean_boyfriend:
                 
                 ch_Jean "Well. . . I, uh. . . thanks. . ."
                 
-                call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_104 
-                call change_Companion_stat(Jean, "desire", 0) from _call_change_Companion_stat_105
+                call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_104 
+                call change_Character_stat(Jean, "desire", 0) from _call_change_Character_stat_105
             "Yeah, not too bad. . .":
                 $ Jean.change_face("confused2", blush = 2)
 
@@ -456,7 +456,7 @@ label Jean_boyfriend:
                 
                 ch_Jean "Oh. . ."
                 
-                call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_106
+                call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_106
 
         $ Jean.change_face("worried1", mouth = "smirk", blush = 1)
 

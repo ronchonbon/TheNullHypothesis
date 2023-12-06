@@ -37,8 +37,8 @@ label Rogue_acoustic_guitar_shopping_accept:
 
     ch_Rogue ". . . so much."
 
-    call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_1529
-    call change_Companion_stat(Rogue, "trust", 0) from _call_change_Companion_stat_1530
+    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1529
+    call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_1530
 
     return True
 
@@ -85,8 +85,8 @@ label Rogue_acoustic_guitar_gift_accept:
 
     ch_Rogue ". . . so much."
 
-    call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_1531
-    call change_Companion_stat(Rogue, "trust", 0) from _call_change_Companion_stat_1532
+    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1531
+    call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_1532
 
     return True
 

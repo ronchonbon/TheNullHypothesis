@@ -126,7 +126,7 @@ init python:
                             predict = True
 
             if not predict:
-                if renpy.get_screen("Wardrobe_screen") and focused_Companion == Character:
+                if renpy.get_screen("Wardrobe_screen") and focused_Character == Character:
                     for C in Character.Wardrobe.Clothes.values():
                         if C.string and C.string in file:
                             predict = True

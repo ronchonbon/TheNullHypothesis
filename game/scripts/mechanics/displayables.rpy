@@ -201,50 +201,50 @@ label hide_Character(Character, fade = 0.5, send_Offscreen = True):
 
     return
 
-label show_pose(Companion, pose, t = None, x = None, y = None, sprite_zoom = None, sprite_rotation = None, sprite_layer = None, color_transforms = None, animation_transforms = None, fade = False):
-    $ Companion.position = pose
+label show_pose(Character, pose, t = None, x = None, y = None, sprite_zoom = None, sprite_rotation = None, sprite_layer = None, color_transforms = None, animation_transforms = None, fade = False):
+    $ Character.position = pose
 
     $ check_predicted_images()
     
-    $ Companion.sprite_anchor = eval(f"{Companion.tag}_{pose}_anchor")
+    $ Character.sprite_anchor = eval(f"{Character.tag}_{pose}_anchor")
 
     $ different = False
 
     if x is not None:
-        if Companion.sprite_position[0] != x:
+        if Character.sprite_position[0] != x:
             $ different = True
 
-        $ Companion.sprite_position[0] = x
+        $ Character.sprite_position[0] = x
 
     if y is not None:
-        if Companion.sprite_position[1] != y:
+        if Character.sprite_position[1] != y:
             $ different = True
 
-        $ Companion.sprite_position[1] = y
+        $ Character.sprite_position[1] = y
     else:
         $ Character.sprite_position[1] = eval(f"{Character.tag}_{pose}_height")
 
     if sprite_zoom is None:
-        $ sprite_zoom = eval(f"{Companion.tag}_{pose}_zoom")
+        $ sprite_zoom = eval(f"{Character.tag}_{pose}_zoom")
 
-    if Companion.sprite_zoom != sprite_zoom:
+    if Character.sprite_zoom != sprite_zoom:
         $ different = True
 
-        $ Companion.sprite_zoom = sprite_zoom
+        $ Character.sprite_zoom = sprite_zoom
     
     if sprite_rotation is not None:
-        if Companion.sprite_rotation != sprite_rotation:
+        if Character.sprite_rotation != sprite_rotation:
             $ different = True
 
-        $ Companion.sprite_rotation = sprite_rotation
+        $ Character.sprite_rotation = sprite_rotation
 
     if sprite_layer is not None:
-        if Companion.sprite_layer != sprite_layer:
+        if Character.sprite_layer != sprite_layer:
             $ different = True
 
-        $ Companion.sprite_layer = sprite_layer
+        $ Character.sprite_layer = sprite_layer
     
-    if not renpy.showing(f"{Companion.tag}_sprite {pose}") or different or color_transforms or animation_transforms:
+    if not renpy.showing(f"{Character.tag}_sprite {pose}") or different or color_transforms or animation_transforms:
         if fade:
             if (renpy.showing(f"{Character.tag}_sprite {pose}") and not different) or animation_transforms:
                 $ fade = False
@@ -252,29 +252,29 @@ label show_pose(Companion, pose, t = None, x = None, y = None, sprite_zoom = Non
         if pose != "standing":
             if t is not None and not black_screen:
                 $ transform_list = [
-                    change_sprite_anchor(Companion.sprite_anchor[0], Companion.sprite_anchor[1]),
-                    zoom_sprite(Companion.sprite_zoom, t = t),
-                    move_sprite(Companion.sprite_position[0], Companion.sprite_position[1], t = t),
-                    rotate_sprite(Companion.sprite_rotation, t = t)]
+                    change_sprite_anchor(Character.sprite_anchor[0], Character.sprite_anchor[1]),
+                    zoom_sprite(Character.sprite_zoom, t = t),
+                    move_sprite(Character.sprite_position[0], Character.sprite_position[1], t = t),
+                    rotate_sprite(Character.sprite_rotation, t = t)]
             else:
                 $ transform_list = [
-                    change_sprite_anchor(Companion.sprite_anchor[0], Companion.sprite_anchor[1]),
-                    zoom_sprite(Companion.sprite_zoom),
-                    move_sprite(Companion.sprite_position[0], Companion.sprite_position[1]),
-                    rotate_sprite(Companion.sprite_rotation)]
+                    change_sprite_anchor(Character.sprite_anchor[0], Character.sprite_anchor[1]),
+                    zoom_sprite(Character.sprite_zoom),
+                    move_sprite(Character.sprite_position[0], Character.sprite_position[1]),
+                    rotate_sprite(Character.sprite_rotation)]
         else:
             if t is not None and not black_screen:
                 $ transform_list = [
-                    change_sprite_anchor(Companion.sprite_anchor[0], Companion.sprite_anchor[1]),
-                    zoom_sprite(Companion.sprite_zoom, t = t),
-                    move_sprite(Companion.sprite_position[0], Companion.sprite_position[1], t = t),
-                    rotate_sprite(Companion.sprite_rotation, t = t)]
+                    change_sprite_anchor(Character.sprite_anchor[0], Character.sprite_anchor[1]),
+                    zoom_sprite(Character.sprite_zoom, t = t),
+                    move_sprite(Character.sprite_position[0], Character.sprite_position[1], t = t),
+                    rotate_sprite(Character.sprite_rotation, t = t)]
             else:
                 $ transform_list = [
-                    change_sprite_anchor(Companion.sprite_anchor[0], Companion.sprite_anchor[1]),
-                    zoom_sprite(Companion.sprite_zoom),
-                    move_sprite(Companion.sprite_position[0], Companion.sprite_position[1]),
-                    rotate_sprite(Companion.sprite_rotation)]
+                    change_sprite_anchor(Character.sprite_anchor[0], Character.sprite_anchor[1]),
+                    zoom_sprite(Character.sprite_zoom),
+                    move_sprite(Character.sprite_position[0], Character.sprite_position[1]),
+                    rotate_sprite(Character.sprite_rotation)]
 
         if color_transforms:
             python:
@@ -289,7 +289,7 @@ label show_pose(Companion, pose, t = None, x = None, y = None, sprite_zoom = Non
                 for a_t in animation_transforms:
                     transform_list.append(a_t)
 
-        $ renpy.show(f"{Companion.tag}_sprite {pose}", at_list = transform_list, zorder = Companion.sprite_layer, tag = f"{Companion.tag}_sprite")
+        $ renpy.show(f"{Character.tag}_sprite {pose}", at_list = transform_list, zorder = Character.sprite_layer, tag = f"{Character.tag}_sprite")
         
         if fade:
             with Dissolve(fade)

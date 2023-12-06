@@ -40,17 +40,17 @@ label Rogue_chapter_one_season_three_second_training_session:
         "Of course I'm not mad.":
             $ Rogue.change_face("worried2") 
             
-            call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_671 
-            call change_Companion_stat(Rogue, "trust", 0) from _call_change_Companion_stat_672
+            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_671 
+            call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_672
         "Definitely not mad. Worried about you, if anything.": 
             $ Rogue.change_face("worried1", eyes = "down") 
             
-            call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_673
+            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_673
         "Just don't lie again and I'll be fine.":
             $ Rogue.change_face("worried1", eyes = "right")
 
-            call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_674 
-            call change_Companion_stat(Rogue, "trust", 0) from _call_change_Companion_stat_675
+            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_674 
+            call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_675
 
     $ Rogue.change_face("worried1")
 

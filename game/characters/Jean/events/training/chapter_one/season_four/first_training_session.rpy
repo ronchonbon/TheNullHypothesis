@@ -61,23 +61,23 @@ label Jean_chapter_one_season_four_first_training_session:
             
             ch_Jean "Don't know what I would've done if I saw you in that infirmary again." 
             
-            call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_142
-            call change_Companion_stat(Jean, "trust", 0) from _call_change_Companion_stat_143
+            call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_142
+            call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_143
         "I'm more glad than anyone. . . but it can't stay like this.":
             $ Jean.change_face("worried2")
 
             ch_Jean "What do you mean?" 
             ch_Jean "Any stronger and you definitely would've killed someone." 
             
-            call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_144
+            call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_144
         "Trust me, it feels great finally being powerful. . . but even I know there's something missing.":
             $ Jean.change_face("confused1") 
 
             ch_Jean "What are you talking about?" 
             ch_Jean "You still don't think you're strong enough?"
             
-            call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_145
-            call change_Companion_stat(Jean, "trust", 0) from _call_change_Companion_stat_146
+            call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_145
+            call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_146
 
     ch_Player "I need more control."
 
@@ -99,15 +99,15 @@ label Jean_chapter_one_season_four_first_training_session:
                 ch_Jean "You do need to be careful. . ."
                 ch_Jean "But regardless of what happened, I know you. . . you'll never be as bad as them." 
                 
-                call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_147 
-                call change_Companion_stat(Jean, "trust", 0) from _call_change_Companion_stat_148
+                call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_147 
+                call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_148
             else:
                 ch_Jean "No, you won't be." 
                 ch_Jean "I know you, [Jean.Player_petname]." 
                 ch_Jean "You're an infinitely better person than them, regardless of what happened." 
                 
-                call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_149
-                call change_Companion_stat(Jean, "trust", 0) from _call_change_Companion_stat_150
+                call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_149
+                call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_150
         "It's scary. . . not being able to control myself. . . I might go too far. . .":
             $ Jean.change_face("worried2")
 
@@ -115,15 +115,15 @@ label Jean_chapter_one_season_four_first_training_session:
                 ch_Jean "Are you okay?" 
                 ch_Jean "You know I'm always here, to help you through it all." 
                 
-                call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_151
-                call change_Companion_stat(Jean, "trust", 0) from _call_change_Companion_stat_152
+                call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_151
+                call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_152
             else:
                 ch_Jean "I know it's scary, but that's why you have me." 
                 ch_Jean "I'll help you through it all." 
                 ch_Jean "Make sure nothing happens." 
                 
-                call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_153
-                call change_Companion_stat(Jean, "trust", 0) from _call_change_Companion_stat_154 
+                call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_153
+                call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_154 
         "Maybe those people deserved worse than I gave them, but that should be my choice, not my power's.":
             $ Jean.change_face("angry1")
 
@@ -133,14 +133,14 @@ label Jean_chapter_one_season_four_first_training_session:
                 ch_Jean "[temp], don't be like that." 
                 ch_Jean "Don't stoop to their level." 
                 
-                call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_155
-                call change_Companion_stat(Jean, "trust", 0) from _call_change_Companion_stat_156
+                call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_155
+                call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_156
             else:
                 ch_Jean "What's gotten into you?" 
                 ch_Jean "You can't let what happened affect you this much. . ." 
                 
-                call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_157
-                call change_Companion_stat(Jean, "trust", 0) from _call_change_Companion_stat_158
+                call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_157
+                call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_158
 
     $ Jean.change_face("angry1")
 

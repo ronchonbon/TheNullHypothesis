@@ -288,13 +288,13 @@ label Laura_boyfriend:
     menu:
         extend ""
         "I'm being serious. I care about you too much not to worry about these things.": 
-            call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_355 
-            call change_Companion_stat(Laura, "trust", 0) from _call_change_Companion_stat_356
+            call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_355 
+            call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_356
         ". . . probably? But, c'mon, it's not that far-fetched. I really care about you, and I'm worried. . .":
-            call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_357
+            call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_357
         "That's rude, and don't tell me you can't see where I'm coming from. I'm not so sure I can trust your judgment. . .": 
-            call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_358 
-            call change_Companion_stat(Laura, "trust", 0) from _call_change_Companion_stat_359
+            call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_358 
+            call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_359
 
     $ Laura.change_face("suspicious1", blush = 1)
 

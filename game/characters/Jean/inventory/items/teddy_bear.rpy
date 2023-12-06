@@ -11,8 +11,8 @@ label Jean_teddy_bear_shopping_accept:
 
     ch_Jean "This little guy's going right on my bed. . ."
 
-    call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1321
-    call change_Companion_stat(Jean, "trust", 0) from _call_change_Companion_stat_1322
+    call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1321
+    call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_1322
 
     return True
 
@@ -38,8 +38,8 @@ label Jean_teddy_bear_gift_accept:
 
     ch_Jean "This little guy's going right on my bed. . ."
 
-    call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1323
-    call change_Companion_stat(Jean, "trust", 0) from _call_change_Companion_stat_1324
+    call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1323
+    call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_1324
 
     return True
 

@@ -147,20 +147,20 @@ label Rogue_chapter_one_season_one_people_watching:
     menu:
         extend ""
         "You sit alone to feel. . . less alone?":   
-            call change_Companion_stat(Rogue, "love", small_stat) from _call_change_Companion_stat_138
+            call change_Character_stat(Rogue, "love", small_stat) from _call_change_Character_stat_138
 
             $ Rogue.change_face("confused1", mouth = "smirk")
 
             ch_Rogue "Yeah, that's. . . that ain't exactly what ah mean."
         "Because you're surrounded by other people?":
-            call change_Companion_stat(Rogue, "love", medium_stat) from _call_change_Companion_stat_140
-            call change_Companion_stat(Rogue, "trust", medium_stat) from _call_change_Companion_stat_141
+            call change_Character_stat(Rogue, "love", medium_stat) from _call_change_Character_stat_140
+            call change_Character_stat(Rogue, "trust", medium_stat) from _call_change_Character_stat_141
 
             $ Rogue.change_face("confused1")
 
             ch_Rogue "Ah mean. . . kinda?"
         "Maybe being out is good for you then? Staying cooped up doesn't help anyone.":
-            call change_Companion_stat(Rogue, "trust", small_stat) from _call_change_Companion_stat_159
+            call change_Character_stat(Rogue, "trust", small_stat) from _call_change_Character_stat_159
 
             $ Rogue.change_face("angry1")
 
@@ -202,21 +202,21 @@ label Rogue_chapter_one_season_one_people_watching:
     menu:
         extend ""
         "I don't know if I exactly get it, but if it helps you, it can't be all bad, right?":
-            call change_Companion_stat(Rogue, "love", medium_stat) from _call_change_Companion_stat_160
-            call change_Companion_stat(Rogue, "trust", medium_stat) from _call_change_Companion_stat_180
+            call change_Character_stat(Rogue, "love", medium_stat) from _call_change_Character_stat_160
+            call change_Character_stat(Rogue, "trust", medium_stat) from _call_change_Character_stat_180
 
             $ Rogue.change_face("worried2")
 
             ch_Rogue ". . . really? That's. . . that's sweet of you to say so, thanks."
         "As long as you're not keeping detailed lists of what everyone's up to, I think it's okay.":
-            call change_Companion_stat(Rogue, "love", medium_stat) from _call_change_Companion_stat_181
+            call change_Character_stat(Rogue, "love", medium_stat) from _call_change_Character_stat_181
             
             $ Rogue.change_face("confused1", mouth = "smirk")
 
             ch_Rogue "Ha! Some of the stuff ah've heard, maybe ah should think about it!"
         "I've heard of worse coping mechanisms.":
-            call change_Companion_stat(Rogue, "love", small_stat) from _call_change_Companion_stat_182
-            call change_Companion_stat(Rogue, "trust", medium_stat) from _call_change_Companion_stat_183
+            call change_Character_stat(Rogue, "love", small_stat) from _call_change_Character_stat_182
+            call change_Character_stat(Rogue, "trust", medium_stat) from _call_change_Character_stat_183
 
             $ Rogue.change_face("worried1", mouth = "smirk")
 

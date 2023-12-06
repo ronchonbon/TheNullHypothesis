@@ -27,8 +27,8 @@ label Laura_steamy_romance_novel_shopping_accept:
 
         ch_Laura "Thank you."
 
-        call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_1481
-        call change_Companion_stat(Laura, "desire", 0) from _call_change_Companion_stat_1482
+        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1481
+        call change_Character_stat(Laura, "desire", 0) from _call_change_Character_stat_1482
 
         return True
     else:
@@ -82,8 +82,8 @@ label Laura_steamy_romance_novel_gift_accept:
 
         ch_Laura "Thank you."
 
-        call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_1483
-        call change_Companion_stat(Laura, "desire", 0) from _call_change_Companion_stat_1484
+        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1483
+        call change_Character_stat(Laura, "desire", 0) from _call_change_Character_stat_1484
 
         return True
     else:

@@ -50,11 +50,11 @@ label Laura_texting_save_cum_response:
         call receive_text(Laura, "Fine") from _call_receive_text_263
         call receive_text(Laura, "I'll just get off by myself") from _call_receive_text_264
 
-        call change_Companion_stat(Laura, "desire", 0) from _call_change_Companion_stat_347
+        call change_Character_stat(Laura, "desire", 0) from _call_change_Character_stat_347
     elif Laura.text_history[-1][1] == temp[1]:
         call receive_text(Laura, "Good") from _call_receive_text_265
         
-        call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_348
+        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_348
 
         $ Player.schedule[3] = [["True", "EventScheduler.Events['Laura_saving_cum'].start()"]]
     elif Laura.text_history[-1][1] == temp[2]:
@@ -64,7 +64,7 @@ label Laura_texting_save_cum_response:
 
         call set_the_scene(Laura, location = Laura.location) from _call_set_the_scene_118
 
-        call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_349
+        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_349
 
     return
 

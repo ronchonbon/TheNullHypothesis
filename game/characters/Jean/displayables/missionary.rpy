@@ -222,7 +222,7 @@ layeredimage Jean_missionary_controls_temp:
         At(At("Jean_missionary", speed_000), intensity_000)
  
 layeredimage Jean_missionary:
-    if Player.orgasming and focused_Companion == Jean:
+    if Player.orgasming and focused_Character == Jean:
         "Jean_missionary_thighs_animation0"
     elif Player.cock_Actions and Jean in Player.cock_Actions[0].Targets:
         "Jean_missionary_thighs_animation[Player.cock_Actions[0].mode]"
@@ -230,7 +230,7 @@ layeredimage Jean_missionary:
         "Jean_missionary_thighs_animation0"
     
 layeredimage Jean_missionary_thighs:
-    if Player.orgasming and focused_Companion == Jean:
+    if Player.orgasming and focused_Character == Jean:
         "Jean_missionary_torso_animation0"
     elif Player.cock_Actions and Jean in Player.cock_Actions[0].Targets:
         "Jean_missionary_torso_animation[Player.cock_Actions[0].mode]"
@@ -240,7 +240,7 @@ layeredimage Jean_missionary_thighs:
     always:
         "characters/Jean/images/missionary/thighs.webp"
 
-    if Player.orgasming == "anal_creampie" and focused_Companion == Jean:
+    if Player.orgasming == "anal_creampie" and focused_Character == Jean:
         "Jean_missionary_anus_anal_creampie_animation"
     elif not Jean.anus_Actions:
         "Jean_missionary_anus_closed"
@@ -250,18 +250,18 @@ layeredimage Jean_missionary_thighs:
         "Jean_missionary_anus_dildo_ass_animation[Jean.anus_Actions[0].mode]"
     elif Jean.anus_Actions[0].animation_type == "finger_ass":
         "Jean_missionary_anus_finger_ass_animation[Jean.anus_Actions[0].mode]"
-    elif Player.orgasming and focused_Companion == Jean:
+    elif Player.orgasming and focused_Character == Jean:
         "Jean_missionary_anus_closed"
     else:
         "Jean_missionary_anus_[Jean.anus_Actions[0].animation_type]_animation[Jean.anus_Actions[0].mode]"
 
-    if Player.orgasming == "creampie" and focused_Companion == Jean:
+    if Player.orgasming == "creampie" and focused_Character == Jean:
         "Jean_missionary_pussy_creampie_animation"
     elif Jean.vagina_Actions and Jean.vagina_Actions[0].animation_type in ["dildo_pussy", "self_dildo_pussy"]:
         "Jean_missionary_pussy_dildo_pussy_animation[Jean.vagina_Actions[0].mode]"
     elif Jean.vagina_Actions and Jean.vagina_Actions[0].animation_type in ["finger_pussy", "self_touch_pussy"]:
         "Jean_missionary_pussy_[Jean.vagina_Actions[0].animation_type]_animation[Jean.vagina_Actions[0].mode]"
-    elif Player.orgasming and focused_Companion == Jean:
+    elif Player.orgasming and focused_Character == Jean:
         "Jean_missionary_pussy_closed"
     elif Jean.vagina_Actions:
         "Jean_missionary_pussy_[Jean.vagina_Actions[0].animation_type]_animation[Jean.vagina_Actions[0].mode]"
@@ -276,7 +276,7 @@ layeredimage Jean_missionary_thighs:
     if Jean.tan_lines["full"]:
         "characters/Jean/images/missionary/tan_lines_[Jean.tan_lines[full]]_thighs.webp"
 
-    if Player.orgasming == "anal_creampie" and focused_Companion == Jean:
+    if Player.orgasming == "anal_creampie" and focused_Character == Jean:
         "Jean_missionary_anal_creampie"
     elif not Jean.creampie["anus"]:
         Null()
@@ -299,12 +299,12 @@ layeredimage Jean_missionary_thighs:
 
     if not Player.body_visible:
         Null()
-    elif Player.orgasming and focused_Companion == Jean:
+    elif Player.orgasming and focused_Character == Jean:
         "Jean_missionary_male_body_[Player.orgasming]_animation"
     elif Player.cock_Actions and Jean in Player.cock_Actions[0].Targets:
         "Jean_missionary_male_body_[Player.cock_Actions[0].animation_type]_animation[Player.cock_Actions[0].mode]"
 
-    if Player.orgasming == "creampie" and focused_Companion == Jean:
+    if Player.orgasming == "creampie" and focused_Character == Jean:
         "Jean_missionary_creampie"
     elif not Jean.creampie["pussy"]:
         Null()
@@ -330,7 +330,7 @@ layeredimage Jean_missionary_thighs:
     if Jean.remote_vibrator:
         "characters/Jean/images/missionary/remote_vibrator.webp"
 
-    if Player.orgasming and focused_Companion == Jean:
+    if Player.orgasming and focused_Character == Jean:
         Null()
     elif not Jean.anus_Actions or Jean.anus_Actions[0].animation_type != "finger_ass":
         Null()
@@ -339,14 +339,14 @@ layeredimage Jean_missionary_thighs:
     elif Player.right_hand_Actions and Jean in Player.right_hand_Actions[0].Targets and Player.right_hand_Actions[0].animation_type == "finger_ass":
         AlphaMask("Jean_missionary_male_right_arm_finger_animations", "Jean_missionary_mask_anus_animations")
 
-    if Player.orgasming == "anal_creampie" and focused_Companion == Jean:
+    if Player.orgasming == "anal_creampie" and focused_Character == Jean:
         AlphaMask("Jean_missionary_cock_animations", "Jean_missionary_mask_anus_animations")
-    elif Player.orgasming and focused_Companion == Jean:
+    elif Player.orgasming and focused_Character == Jean:
         Null()
     elif Player.cock_Actions and Jean in Player.cock_Actions[0].Targets and Player.cock_Actions[0].animation_type == "anal":
         AlphaMask("Jean_missionary_cock_animations", "Jean_missionary_mask_anus_animations")
 
-    if Player.orgasming and focused_Companion == Jean:
+    if Player.orgasming and focused_Character == Jean:
         Null()
     elif not Jean.vagina_Actions or Jean.vagina_Actions[0].animation_type != "finger_pussy":
         Null()
@@ -358,9 +358,9 @@ layeredimage Jean_missionary_thighs:
     if Jean.vagina_Actions and Jean.vagina_Actions[0].animation_type in ["dildo_pussy", "self_dildo_pussy"]:
         AlphaMask("Jean_missionary_dildo_pussy_animations", "Jean_missionary_mask_pussy_animations")
 
-    if Player.orgasming == "creampie" and focused_Companion == Jean:
+    if Player.orgasming == "creampie" and focused_Character == Jean:
         AlphaMask("Jean_missionary_cock_animations", "Jean_missionary_mask_pussy_animations")
-    elif Player.orgasming and focused_Companion == Jean:
+    elif Player.orgasming and focused_Character == Jean:
         Null()
     elif Player.cock_Actions and Jean in Player.cock_Actions[0].Targets and Player.cock_Actions[0].animation_type == "sex":
         AlphaMask("Jean_missionary_cock_animations", "Jean_missionary_mask_pussy_animations")
@@ -368,14 +368,14 @@ layeredimage Jean_missionary_thighs:
     if Jean.right_hand_Actions and Jean.right_hand_Actions[0].animation_type == "self_touch_pussy":
         "Jean_missionary_right_forearm_self_touch_pussy_animation[Jean.right_hand_Actions[0].mode]"
 
-    if Player.orgasming and focused_Companion == Jean:
+    if Player.orgasming and focused_Character == Jean:
         "Jean_missionary_left_leg_animation0"
     elif Player.cock_Actions and Jean in Player.cock_Actions[0].Targets:
         "Jean_missionary_left_leg_animation[Player.cock_Actions[0].mode]"
     else:
         "Jean_missionary_left_leg_animation0"
 
-    if Player.orgasming and focused_Companion == Jean:
+    if Player.orgasming and focused_Character == Jean:
         "Jean_missionary_right_leg_animation0"
     elif Player.cock_Actions and Jean in Player.cock_Actions[0].Targets:
         "Jean_missionary_right_leg_animation[Player.cock_Actions[0].mode]"
@@ -385,17 +385,17 @@ layeredimage Jean_missionary_thighs:
     if Jean.clitoris_Actions and Jean.clitoris_Actions[0].animation_type in ["vibrator", "self_vibrator"]:
         "Jean_missionary_vibrator_animation[Jean.clitoris_Actions[0].mode]"
 
-    if Player.orgasming == "cumshot" and focused_Companion == Jean:
+    if Player.orgasming == "cumshot" and focused_Character == Jean:
         "Jean_missionary_cock_animations"
     elif Player.cock_Actions and Jean in Player.cock_Actions[0].Targets and Player.cock_Actions[0].animation_type in ["grind_pussy", "grind_ass"]:
         "Jean_missionary_cock_animations"
         
-    if Player.orgasming == "cumshot" and focused_Companion == Jean:
+    if Player.orgasming == "cumshot" and focused_Character == Jean:
         "Jean_missionary_cumshot"
 
     if not Player.body_visible:
         Null()
-    elif Player.orgasming and focused_Companion == Jean:
+    elif Player.orgasming and focused_Character == Jean:
         "Jean_missionary_male_knees_[Player.orgasming]_animation"
     elif Player.cock_Actions and Jean in Player.cock_Actions[0].Targets:
         "Jean_missionary_male_knees_[Player.cock_Actions[0].animation_type]_animation[Player.cock_Actions[0].mode]"
@@ -422,7 +422,7 @@ layeredimage Jean_missionary_thighs:
     elif Player.right_hand_Actions[0].animation_type == "pinch_nipples" and Jean.left_nipple_Actions and Player.right_hand_Actions[0].animation_type == Jean.left_nipple_Actions[0].animation_type:
         At("Jean_missionary_male_right_arm_touch_left_breast_animation[Player.right_hand_Actions[0].mode]", change_offset(Jean_missionary_left_nipple_position[0], Jean_missionary_left_nipple_position[1]))
 
-    if Player.orgasming and focused_Companion == Jean:
+    if Player.orgasming and focused_Character == Jean:
         Null()
     elif not Player.mouth_Actions or Jean not in Player.mouth_Actions[0].Targets:
         Null()
@@ -439,14 +439,14 @@ layeredimage Jean_missionary_thighs:
     offset (int(1992*sex_sampling), int(2446*sex_sampling))
     
 layeredimage Jean_missionary_torso:
-    if Player.orgasming and focused_Companion == Jean:
+    if Player.orgasming and focused_Character == Jean:
         "Jean_missionary_hair_back_animation0"
     elif Player.cock_Actions and Jean in Player.cock_Actions[0].Targets:
         "Jean_missionary_hair_back_animation[Player.cock_Actions[0].mode]"
     else:
         "Jean_missionary_hair_back_animation0"
 
-    if Player.orgasming and focused_Companion == Jean:
+    if Player.orgasming and focused_Character == Jean:
         "Jean_missionary_left_arm_animation0"
     elif Player.cock_Actions and Jean in Player.cock_Actions[0].Targets:
         "Jean_missionary_left_arm_animation[Player.cock_Actions[0].mode]"
@@ -455,7 +455,7 @@ layeredimage Jean_missionary_torso:
 
     if Jean.right_hand_Actions and Jean.right_hand_Actions[0].animation_type == "self_touch_pussy":
         Null()
-    elif Player.orgasming and focused_Companion == Jean:
+    elif Player.orgasming and focused_Character == Jean:
         "Jean_missionary_right_arm_animation0"
     elif Player.cock_Actions and Jean in Player.cock_Actions[0].Targets:
         "Jean_missionary_right_arm_animation[Player.cock_Actions[0].mode]"
@@ -474,7 +474,7 @@ layeredimage Jean_missionary_torso:
     if Jean.right_hand_Actions and Jean.right_hand_Actions[0].animation_type == "self_touch_pussy":
         "Jean_missionary_right_arm_self_touch_pussy_animation[Jean.right_hand_Actions[0].mode]"
 
-    if Player.orgasming and focused_Companion == Jean:
+    if Player.orgasming and focused_Character == Jean:
         "Jean_missionary_breasts_animation0"
     elif Player.cock_Actions and Jean in Player.cock_Actions[0].Targets:
         "Jean_missionary_breasts_animation[Player.cock_Actions[0].mode]"
@@ -491,7 +491,7 @@ layeredimage Jean_missionary_torso:
     elif Player.right_hand_Actions[0].animation_type == "choke":
         At("Jean_missionary_male_right_arm_choke_animation[Player.right_hand_Actions[0].mode]", change_offset(Jean_missionary_neck_position[0], Jean_missionary_neck_position[1]))
 
-    if Player.orgasming and focused_Companion == Jean:
+    if Player.orgasming and focused_Character == Jean:
         "Jean_missionary_head_animation0"
     elif Player.cock_Actions and Jean in Player.cock_Actions[0].Targets:
         "Jean_missionary_head_animation[Player.cock_Actions[0].mode]"
@@ -574,7 +574,7 @@ layeredimage Jean_missionary_head:
     if Jean.spunk["face"]:
         "characters/Jean/images/missionary/spunk_face.webp"
 
-    if Player.orgasming and focused_Companion == Jean:
+    if Player.orgasming and focused_Character == Jean:
         "Jean_missionary_hair_animation0"
     elif Player.cock_Actions and Jean in Player.cock_Actions[0].Targets:
         "Jean_missionary_hair_animation[Player.cock_Actions[0].mode]"
@@ -656,7 +656,7 @@ layeredimage Jean_missionary_left_leg:
     always:
         "characters/Jean/images/missionary/left_leg.webp"
 
-    if Player.orgasming and focused_Companion == Jean:
+    if Player.orgasming and focused_Character == Jean:
         "Jean_missionary_left_foot_animation0"
     elif Player.cock_Actions and Jean in Player.cock_Actions[0].Targets:
         "Jean_missionary_left_foot_animation[Player.cock_Actions[0].mode]"
@@ -677,7 +677,7 @@ layeredimage Jean_missionary_right_leg:
     always:
         "characters/Jean/images/missionary/right_leg.webp"
 
-    if Player.orgasming and focused_Companion == Jean:
+    if Player.orgasming and focused_Character == Jean:
         "Jean_missionary_right_foot_animation0"
     elif Player.cock_Actions and Jean in Player.cock_Actions[0].Targets:
         "Jean_missionary_right_foot_animation[Player.cock_Actions[0].mode]"
@@ -1602,14 +1602,14 @@ image Jean_missionary_mask_anal_creampie_animation:
     missionary_mask_anal_creampie_animation
 
 layeredimage Jean_missionary_cock_animations:
-    if Player.orgasming and focused_Companion == Jean:
+    if Player.orgasming and focused_Character == Jean:
         "Jean_missionary_cock_[Player.orgasming]_animation"
     else:
         "Jean_missionary_cock_[Player.cock_Actions[0].animation_type]_animation[Player.cock_Actions[0].mode]"
 
     if not Player.spunk and not Player.orgasming:
         Null()
-    elif Player.orgasming and focused_Companion == Jean:
+    elif Player.orgasming and focused_Character == Jean:
         "Jean_missionary_spunk_tip_[Player.orgasming]_animation"
     else:
         "Jean_missionary_spunk_tip_[Player.cock_Actions[0].animation_type]_animation[Player.cock_Actions[0].mode]"
@@ -1631,7 +1631,7 @@ layeredimage Jean_missionary_dildo_ass_animations:
         "Jean_missionary_dildo_ass_animation[Jean.anus_Actions[0].mode]"
 
 layeredimage Jean_missionary_mask_anus_animations:
-    if Player.orgasming == "anal_creampie" and focused_Companion == Jean:
+    if Player.orgasming == "anal_creampie" and focused_Character == Jean:
         "Jean_missionary_mask_anal_creampie_animation"
     elif Jean.anus_Actions[0].animation_type in ["dildo_ass", "self_dildo_ass"]:
         "Jean_missionary_mask_dildo_ass_animation[Jean.anus_Actions[0].mode]"
@@ -1639,7 +1639,7 @@ layeredimage Jean_missionary_mask_anus_animations:
         "Jean_missionary_mask_[Jean.anus_Actions[0].animation_type]_animation[Jean.anus_Actions[0].mode]"
 
 layeredimage Jean_missionary_mask_pussy_animations:
-    if Player.orgasming == "creampie" and focused_Companion == Jean:
+    if Player.orgasming == "creampie" and focused_Character == Jean:
         "Jean_missionary_mask_creampie_animation"
     elif Jean.vagina_Actions[0].animation_type in ["dildo_pussy", "self_dildo_pussy"]:
         "Jean_missionary_mask_dildo_pussy_animation[Jean.vagina_Actions[0].mode]"

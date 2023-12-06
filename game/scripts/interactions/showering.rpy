@@ -3,47 +3,47 @@ label take_a_shower:
     $ belt_disabled = True
 
     python:
-        showering_Companions = []
-        not_showering_Companions = []
+        showering_Characters = []
+        not_showering_Characters = []
 
         for G in active_Companions:
             if G.location == Player.location:
                 if Player.location == "bg_lockers" and time_index in G.schedule and (G.schedule[time_index] == ["bg_lockers", "showering"] or G.schedule[time_index] == ["bg_lockers", "changing"]):
-                    showering_Companions.append(G)
+                    showering_Characters.append(G)
                 elif G.behavior == "showering" and Player.location == "bg_lockers" and approval_check(G, threshold = "friendship"):
-                    showering_Companions.append(G)
+                    showering_Characters.append(G)
                 elif "bg_shower" in Player.location and approval_check(G, threshold = "see_pussy"):
-                    showering_Companions.append(G)
+                    showering_Characters.append(G)
                 else:
-                    not_showering_Companions.append(G)
+                    not_showering_Characters.append(G)
 
-                # if G in showering_Companions and not are_Characters_friends(showering_Companions + G):
-                #     showering_Companions.remove(G)
-                #     not_showering_Companions.append(G)
+                # if G in showering_Characters and not are_Characters_friends(showering_Characters + G):
+                #     showering_Characters.remove(G)
+                #     not_showering_Characters.append(G)
 
-    if not_showering_Companions:
+    if not_showering_Characters:
         python:
-            for C in not_showering_Companions:
+            for C in not_showering_Characters:
                 if C in Party:
                     Party.remove(C)
 
-        $ set_Character_locations(not_showering_Companions)
-        $ set_Character_behavior(not_showering_Companions)
+        $ set_Character_locations(not_showering_Characters)
+        $ set_Character_behavior(not_showering_Characters)
 
-        call Characters_leave(not_showering_Companions[:]) from _call_Characters_leave_5
-        call set_Character_Outfits(not_showering_Companions) from _call_set_Character_Outfits_11
+        call Characters_leave(not_showering_Characters[:]) from _call_Characters_leave_5
+        call set_Character_Outfits(not_showering_Characters) from _call_set_Character_Outfits_11
 
-    if showering_Companions:
-        $ renpy.random.shuffle(showering_Companions)
+    if showering_Characters:
+        $ renpy.random.shuffle(showering_Characters)
 
         python:
-            for C in showering_Companions:
+            for C in showering_Characters:
                 C.behavior = "showering"
 
         if Player.location == "bg_lockers":
-            call set_Character_Outfits(showering_Companions, instant = False) from _call_set_Character_Outfits_12
+            call set_Character_Outfits(showering_Characters, instant = False) from _call_set_Character_Outfits_12
         elif "bg_shower" in Player.location:
-            $ renpy.dynamic(temp_Characters = showering_Companions[:])
+            $ renpy.dynamic(temp_Characters = showering_Characters[:])
 
             while temp_Characters:
                 call change_Outfit(temp_Characters[0], temp_Characters[0].Wardrobe.Outfits["Nude"]) from _call_change_Outfit_42
@@ -59,8 +59,8 @@ label take_a_shower:
         $ Player.naked = True
         $ Player.cock_out = True
 
-        if showering_Companions:
-            $ renpy.dynamic(temp_Characters = showering_Companions[:])
+        if showering_Characters:
+            $ renpy.dynamic(temp_Characters = showering_Characters[:])
 
             while temp_Characters:
                 if not temp_Characters[0].History.check("seen_Player_naked"):
@@ -84,15 +84,15 @@ label take_a_shower:
     $ Player.grool = False
     $ Player.dirty_cock = False
 
-    if showering_Companions:
+    if showering_Characters:
         python:
-            for G in showering_Companions:
+            for G in showering_Characters:
                 G.wet = True
 
                 for location in G.spunk.keys():
                     G.spunk[location] = False
 
-    $ renpy.dynamic(temp_Characters = showering_Companions[:])
+    $ renpy.dynamic(temp_Characters = showering_Characters[:])
 
     while temp_Characters:
         if not temp_Characters[0].History.check("showered_with_Player", tracker = "recent"):
@@ -124,8 +124,8 @@ label take_a_shower:
 
         pause 1.0
 
-    if showering_Companions:
-        $ renpy.dynamic(temp_Characters = showering_Companions[:])
+    if showering_Characters:
+        $ renpy.dynamic(temp_Characters = showering_Characters[:])
 
         while temp_Characters:
             # call try_on(temp_Characters[0], temp_Characters[0].Wardrobe.Clothes["towel"]) from _call_try_on_14

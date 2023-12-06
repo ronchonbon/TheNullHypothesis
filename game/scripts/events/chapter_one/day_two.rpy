@@ -47,13 +47,13 @@ label day_two_intro:
     menu:
         extend ""
         "Too good, that bed is amazing. I'm just worried about what my family must be thinking right now. I feel a bit guilty." if Player.has_family:
-            call change_Companion_stat(Rogue, "trust", medium_stat) from _call_change_Companion_stat_904
+            call change_Character_stat(Rogue, "trust", medium_stat) from _call_change_Character_stat_904
             
             $ Rogue.change_face("worried1")
           
             ch_Rogue "Ah know how you feel. But trust me, you're doin' them a favor by stayin' away."
         "Too good, that bed is amazing. Way better than my old one. . . I wonder how my roommates are doing, I feel a bit guilty." if not Player.has_family:
-            call change_Companion_stat(Rogue, "trust", medium_stat) from _call_change_Companion_stat_1622
+            call change_Character_stat(Rogue, "trust", medium_stat) from _call_change_Character_stat_1622
             
             $ Rogue.change_face("worried1")
           
@@ -393,12 +393,12 @@ label day_two_tutoring_session:
         $ Rogue.change_face("smirk2")
         
         if Player.scholarship == "academic":
-            call change_Companion_stat(Rogue, "love", large_stat) from _call_change_Companion_stat_641
+            call change_Character_stat(Rogue, "love", large_stat) from _call_change_Character_stat_641
             
             ch_Player "I know how important it is to stay on top of my studies. Plus, I enjoy it."
             ch_Player "It helps. . . distract me. . ."
         else:
-            call change_Companion_stat(Rogue, "love", medium_stat) from _call_change_Companion_stat_908
+            call change_Character_stat(Rogue, "love", medium_stat) from _call_change_Character_stat_908
 
             ch_Player "I wasn't a very good student before coming here, thought this was a chance to fix that."
     else:
@@ -417,7 +417,7 @@ label day_two_tutoring_session:
         menu:
             extend ""
             "They're from playing guitar. (artistic)":
-                call change_Companion_stat(Rogue, "love", medium_stat) from _call_change_Companion_stat_910
+                call change_Character_stat(Rogue, "love", medium_stat) from _call_change_Character_stat_910
 
                 ch_Player "Doesn't seem like my guitar made it to the mansion with me, though. . ."
 
@@ -431,7 +431,7 @@ label day_two_tutoring_session:
                 ch_Rogue ". . . maybe you could play for me sometime."
                 ch_Player "Sounds like a deal."
             "Yeah. . . I like to draw. (artistic)":
-                call change_Companion_stat(Rogue, "love", medium_stat) from _call_change_Companion_stat_657
+                call change_Character_stat(Rogue, "love", medium_stat) from _call_change_Character_stat_657
                 
                 ch_Player "Doesn't seem like any of my supplies made it to the mansion with me, though. . ."
 
@@ -576,8 +576,8 @@ label day_two_after_tutoring:
     menu:
         extend ""
         "I don't know. . . I'm sorry, I'm just worried about getting hurt.":
-            call change_Companion_stat(Rogue, "love", -small_stat) from _call_change_Companion_stat_658
-            call change_Companion_stat(Rogue, "trust", small_stat) from _call_change_Companion_stat_659
+            call change_Character_stat(Rogue, "love", -small_stat) from _call_change_Character_stat_658
+            call change_Character_stat(Rogue, "trust", small_stat) from _call_change_Character_stat_659
 
             $ Rogue.change_face("sad")
 
@@ -588,8 +588,8 @@ label day_two_after_tutoring:
 
             ch_Player "Okay, okay, we can give it a try."
         "Fine by me!":
-            call change_Companion_stat(Rogue, "love", small_stat) from _call_change_Companion_stat_660
-            call change_Companion_stat(Rogue, "trust", -medium_stat) from _call_change_Companion_stat_670
+            call change_Character_stat(Rogue, "love", small_stat) from _call_change_Character_stat_660
+            call change_Character_stat(Rogue, "trust", -medium_stat) from _call_change_Character_stat_670
         
             "You stick your hand out for her to touch."
 
@@ -598,8 +598,8 @@ label day_two_after_tutoring:
             ch_Rogue "Uhm. . . [Rogue.Player_petname], are you sure?"
             ch_Player "100\%."
         "This means a lot to you, doesn't it? Sure, I'm willing to try.":
-            call change_Companion_stat(Rogue, "love", medium_stat) from _call_change_Companion_stat_676
-            call change_Companion_stat(Rogue, "trust", medium_stat) from _call_change_Companion_stat_677
+            call change_Character_stat(Rogue, "love", medium_stat) from _call_change_Character_stat_676
+            call change_Character_stat(Rogue, "trust", medium_stat) from _call_change_Character_stat_677
             
             $ Rogue.change_face("surprised2")
 
@@ -640,11 +640,11 @@ label day_two_after_tutoring:
 
             ch_Rogue "Do you feel alright?"
             
-            call change_Companion_stat(Rogue, "trust", medium_stat) from _call_change_Companion_stat_682
+            call change_Character_stat(Rogue, "trust", medium_stat) from _call_change_Character_stat_682
 
             ch_Player "I feel great. I'm holding hands with a beautiful girl, after all."
 
-            call change_Companion_stat(Rogue, "love", large_stat) from _call_change_Companion_stat_915
+            call change_Character_stat(Rogue, "love", large_stat) from _call_change_Character_stat_915
 
             $ Rogue.change_face("surprised2", blush = 1)
             # $ Rogue.right_arm = 1
@@ -672,8 +672,8 @@ label day_two_after_tutoring:
             
             $ Rogue.change_face("furious")
             
-            call change_Companion_stat(Rogue, "love", -large_stat) from _call_change_Companion_stat_918
-            call change_Companion_stat(Rogue, "trust", -massive_stat) from _call_change_Companion_stat_919
+            call change_Character_stat(Rogue, "love", -large_stat) from _call_change_Character_stat_918
+            call change_Character_stat(Rogue, "trust", -massive_stat) from _call_change_Character_stat_919
 
             ch_Rogue "Well, ah'm glad someone's havin' fun."
             "She grabs her things and walks out of your room in a huff."

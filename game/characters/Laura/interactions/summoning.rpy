@@ -67,7 +67,7 @@ label Laura_summon_reject:
 label Laura_summon_reject_asked_once:
     call receive_text(Laura, "Can't you read?") from _call_receive_text_316
 
-    call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_497
+    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_497
 
     return
 
@@ -96,13 +96,13 @@ label Laura_dismiss_accept:
 
             ch_Laura "Fine. . ."
 
-            call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_498
+            call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_498
         "Leave, give us some privacy." if len(Present) > 1:
             $ Laura.change_face("appalled1")
 
             ch_Laura ". . ."
 
-            call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_499
+            call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_499
         "Back":
             return False
 
@@ -123,13 +123,13 @@ label Laura_dismiss_reject:
 
             ch_Laura "I'm fine right here."
 
-            call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_500
+            call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_500
         "Leave, give us some privacy." if len(Present) > 1:
             $ Laura.change_face("appalled2")
 
             ch_Laura "Don't try and order me around."
 
-            call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_501
+            call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_501
         "Back":
             return False
 
@@ -140,7 +140,7 @@ label Laura_dismiss_reject_asked_once:
 
     ch_Laura "I'm not going anywhere."
 
-    call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_502
+    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_502
 
     return
 

@@ -21,7 +21,7 @@ label Laura_knocks(arriving_Characters):
             "I'd rather not. . .":
                 ch_Laura "Fine."
 
-                call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_491
+                call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_491
     elif dice_roll == 2:
         "You hear knocking at your door."
         ch_Player "Who is it?"
@@ -46,7 +46,7 @@ label Laura_knocks(arriving_Characters):
                 else:
                     ch_Laura "Fine, I'll be back later."
             "No, I'm busy.":
-                call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_492
+                call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_492
 
     return
 
@@ -77,7 +77,7 @@ label Laura_knocks_relationship(arriving_Characters):
             ch_Laura "Fine. . ."
             ch_Laura "I'll be back later."
 
-            call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_493
+            call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_493
 
     return
 
@@ -121,7 +121,7 @@ label Laura_knocks_love(arriving_Characters):
             "I'm busy.":
                 ch_Laura "Bad excuse. . ."
 
-                call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_494
+                call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_494
     else:
         if len(arriving_Characters) == 2:
             ch_Laura "It's me and [arriving_Characters[1].name]."
@@ -162,7 +162,7 @@ label Laura_knocks_love(arriving_Characters):
             "Kinda in the middle of something.":
                 ch_Laura "Yeah, right."
 
-                call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_495
+                call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_495
 
     return
 
@@ -220,7 +220,7 @@ label Laura_knocks_heartbroken(arriving_Characters):
         "Stay silent":
             ch_Laura ". . . I know you're ignoring me."
 
-            call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_496
+            call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_496
 
     return
 

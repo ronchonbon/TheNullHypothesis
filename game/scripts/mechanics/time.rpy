@@ -123,8 +123,8 @@ label wait_around(fade = True, silent = False, Events = True):
         $ Player.stamina += 1 if Player.stamina < Player.max_stamina else 0
 
         python:
-            for G in all_Companions:
-                G.messy_bed = False
+            for C in all_Companions:
+                C.messy_bed = False
                 
         $ Player.messy_bed = False
 
@@ -236,8 +236,8 @@ label start_new_day(fast = False):
     $ Player.stamina = Player.max_stamina
 
     python:
-        for G in all_Companions:
-            G.messy_bed = True
+        for C in all_Companions:
+            C.messy_bed = True
             
     $ Player.messy_bed = True
 
@@ -251,7 +251,7 @@ label start_new_day(fast = False):
         if temp_Characters[0].timed_text_options:
             $ temp_Characters[0].timed_text_options = {}
 
-            call change_Companion_stat(temp_Characters[0], "love", -5) from _call_change_Companion_stat_1038
+            call change_Character_stat(temp_Characters[0], "love", -5) from _call_change_Character_stat_1038
 
         $ temp_Characters.remove(temp_Characters[0])
 

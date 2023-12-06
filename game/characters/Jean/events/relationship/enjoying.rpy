@@ -66,7 +66,7 @@ label Jean_enjoying_being_girlfriend:
             
             ch_Jean "Got a bit carried away when I saw you." 
             
-            call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1094
+            call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1094
         "Gently extricate yourself from her":
             $ Jean.change_face("worried1")
 
@@ -159,8 +159,8 @@ label Jean_enjoying_being_girlfriend:
         "I won't say no to having my beautiful big sis' spoil me. . . (encourage_quirk)":
             $ Jean.change_face("sly", mouth = "lipbite", blush = 1) 
             
-            call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1095 
-            call change_Companion_stat(Jean, "desire", 0) from _call_change_Companion_stat_1096
+            call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1095 
+            call change_Character_stat(Jean, "desire", 0) from _call_change_Character_stat_1096
 
             ch_Jean "Of course you wouldn't." 
             ch_Jean "You should be super thankful."
@@ -194,8 +194,8 @@ label Jean_enjoying_being_girlfriend:
 
             ch_Jean "Good. . . that makes me even happier. . ." 
             
-            call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1097 
-            call change_Companion_stat(Jean, "trust", 0) from _call_change_Companion_stat_1098
+            call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1097 
+            call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_1098
         "Are you kidding me? I couldn't ask for a better girlfriend. . .":
             $ Jean.change_face("worried2", mouth = "lipbite", blush = 1) 
             
@@ -206,7 +206,7 @@ label Jean_enjoying_being_girlfriend:
             
             ch_Jean "I really am the best. . ." 
             
-            call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1099
+            call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1099
         "Well. . . yeah, it's not too bad. . .":
             $ Jean.change_face("confused2", blush = 1)
             
@@ -217,7 +217,7 @@ label Jean_enjoying_being_girlfriend:
             
             ch_Jean "Oh come on, don't be like that." 
             
-            call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1100
+            call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1100
 
     $ Jean.change_face("sexy", blush = 1)
 

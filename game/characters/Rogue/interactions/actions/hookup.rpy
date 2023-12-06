@@ -49,9 +49,9 @@ label Rogue_rejects_hookup_threesome:
     $ Rogue.change_face("perplexed", eyes = "right", blush = 1)
 
     python:
-        for G in Present:
-            if G in all_Companions and G != Rogue:
-                G.change_face("suspicious1", blush = 1)
+        for C in Present:
+            if C in all_Companions and C != Rogue:
+                C.change_face("suspicious1", blush = 1)
 
     pause 1.0
 
@@ -59,8 +59,8 @@ label Rogue_rejects_hookup_threesome:
 
     ch_Rogue "Ah know yer aware we're not alone. . ."
 
-    call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_684
-    call change_Companion_stat(Rogue, "trust", 0) from _call_change_Companion_stat_685
+    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_684
+    call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_685
 
     $ Rogue.change_face("suspicious1")
 

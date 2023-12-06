@@ -808,10 +808,8 @@ label ch1_Sentinel_attack:
         call start_new_day(fast = True) from _call_start_new_day_4
 
         python:
-            for C in all_Characters:
+            for C in all_Companions:
                 C.timed_text_options = {}
-
-                C.wet = False
 
         $ counter += 1
 
@@ -1034,8 +1032,8 @@ label ch1_Sentinel_attack:
             
             ch_Jean "Because I really like being your 'big sis''." 
             
-            call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_864 
-            call change_Companion_stat(Jean, "desire", 0) from _call_change_Companion_stat_865
+            call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_864 
+            call change_Character_stat(Jean, "desire", 0) from _call_change_Character_stat_865
 
             $ Jean.petname = "big sis'"
 
@@ -1208,7 +1206,7 @@ label ch1_Sentinel_attack:
             
             $ Rogue.change_face("worried1", mouth = "lipbite", blush = 1) 
             
-            call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_866
+            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_866
 
             $ Rogue.History.update("quirk_encouraged")
         "Hurt? Nothing hurts now that you're here. (discourage_quirk)":
@@ -1230,8 +1228,8 @@ label ch1_Sentinel_attack:
             ch_Rogue "Of course." 
             ch_Rogue "Ah just hope next time ah can actually help ya not get injured in the first place. . ." 
             
-            call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_867 
-            call change_Companion_stat(Rogue, "trust", 0) from _call_change_Companion_stat_868
+            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_867 
+            call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_868
 
             $ Rogue.History.update("quirk_discouraged")
 
@@ -1262,7 +1260,7 @@ label ch1_Sentinel_attack:
             
             $ Rogue.change_face("worried1", mouth = "lipbite", blush = 2)
 
-            call change_Companion_stat(Rogue, "desire", 0) from _call_change_Companion_stat_869
+            call change_Character_stat(Rogue, "desire", 0) from _call_change_Character_stat_869
 
             ch_Rogue "Thanks. . ."
 
@@ -1448,8 +1446,8 @@ label ch1_Sentinel_attack:
             
             ch_Laura "I also. . . like the feeling it gives me. . ." 
             
-            call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_870 
-            call change_Companion_stat(Laura, "desire", 0) from _call_change_Companion_stat_871
+            call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_870 
+            call change_Character_stat(Laura, "desire", 0) from _call_change_Character_stat_871
 
             $ Laura.History.update("quirk_encouraged")
         "Discourage her protectiveness (discourage_quirk)":

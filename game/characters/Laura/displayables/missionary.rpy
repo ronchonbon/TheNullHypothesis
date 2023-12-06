@@ -222,7 +222,7 @@ layeredimage Laura_missionary_controls_temp:
         At(At("Laura_missionary", speed_000), intensity_000)
  
 layeredimage Laura_missionary:
-    if Player.orgasming and focused_Companion == Laura:
+    if Player.orgasming and focused_Character == Laura:
         "Laura_missionary_thighs_animation0"
     elif Player.cock_Actions and Laura in Player.cock_Actions[0].Targets:
         "Laura_missionary_thighs_animation[Player.cock_Actions[0].mode]"
@@ -230,7 +230,7 @@ layeredimage Laura_missionary:
         "Laura_missionary_thighs_animation0"
     
 layeredimage Laura_missionary_thighs:
-    if Player.orgasming and focused_Companion == Laura:
+    if Player.orgasming and focused_Character == Laura:
         "Laura_missionary_torso_animation0"
     elif Player.cock_Actions and Laura in Player.cock_Actions[0].Targets:
         "Laura_missionary_torso_animation[Player.cock_Actions[0].mode]"
@@ -240,7 +240,7 @@ layeredimage Laura_missionary_thighs:
     always:
         "characters/Laura/images/missionary/thighs.webp"
 
-    if Player.orgasming == "anal_creampie" and focused_Companion == Laura:
+    if Player.orgasming == "anal_creampie" and focused_Character == Laura:
         "Laura_missionary_anus_anal_creampie_animation"
     elif not Laura.anus_Actions:
         "Laura_missionary_anus_closed"
@@ -250,18 +250,18 @@ layeredimage Laura_missionary_thighs:
         "Laura_missionary_anus_dildo_ass_animation[Laura.anus_Actions[0].mode]"
     elif Laura.anus_Actions[0].animation_type == "finger_ass":
         "Laura_missionary_anus_finger_ass_animation[Laura.anus_Actions[0].mode]"
-    elif Player.orgasming and focused_Companion == Laura:
+    elif Player.orgasming and focused_Character == Laura:
         "Laura_missionary_anus_closed"
     else:
         "Laura_missionary_anus_[Laura.anus_Actions[0].animation_type]_animation[Laura.anus_Actions[0].mode]"
 
-    if Player.orgasming == "creampie" and focused_Companion == Laura:
+    if Player.orgasming == "creampie" and focused_Character == Laura:
         "Laura_missionary_pussy_creampie_animation"
     elif Laura.vagina_Actions and Laura.vagina_Actions[0].animation_type in ["dildo_pussy", "self_dildo_pussy"]:
         "Laura_missionary_pussy_dildo_pussy_animation[Laura.vagina_Actions[0].mode]"
     elif Laura.vagina_Actions and Laura.vagina_Actions[0].animation_type in ["finger_pussy", "self_touch_pussy"]:
         "Laura_missionary_pussy_[Laura.vagina_Actions[0].animation_type]_animation[Laura.vagina_Actions[0].mode]"
-    elif Player.orgasming and focused_Companion == Laura:
+    elif Player.orgasming and focused_Character == Laura:
         "Laura_missionary_pussy_closed"
     elif Laura.vagina_Actions:
         "Laura_missionary_pussy_[Laura.vagina_Actions[0].animation_type]_animation[Laura.vagina_Actions[0].mode]"
@@ -276,7 +276,7 @@ layeredimage Laura_missionary_thighs:
     if Laura.tan_lines["full"]:
         "characters/Laura/images/missionary/tan_lines_[Laura.tan_lines[full]]_thighs.webp"
 
-    if Player.orgasming == "anal_creampie" and focused_Companion == Laura:
+    if Player.orgasming == "anal_creampie" and focused_Character == Laura:
         "Laura_missionary_anal_creampie"
     elif not Laura.creampie["anus"]:
         Null()
@@ -299,12 +299,12 @@ layeredimage Laura_missionary_thighs:
 
     if not Player.body_visible:
         Null()
-    elif Player.orgasming and focused_Companion == Laura:
+    elif Player.orgasming and focused_Character == Laura:
         "Laura_missionary_male_body_[Player.orgasming]_animation"
     elif Player.cock_Actions and Laura in Player.cock_Actions[0].Targets:
         "Laura_missionary_male_body_[Player.cock_Actions[0].animation_type]_animation[Player.cock_Actions[0].mode]"
 
-    if Player.orgasming == "creampie" and focused_Companion == Laura:
+    if Player.orgasming == "creampie" and focused_Character == Laura:
         "Laura_missionary_creampie"
     elif not Laura.creampie["pussy"]:
         Null()
@@ -330,7 +330,7 @@ layeredimage Laura_missionary_thighs:
     if Laura.remote_vibrator:
         "characters/Laura/images/missionary/remote_vibrator.webp"
 
-    if Player.orgasming and focused_Companion == Laura:
+    if Player.orgasming and focused_Character == Laura:
         Null()
     elif not Laura.anus_Actions or Laura.anus_Actions[0].animation_type != "finger_ass":
         Null()
@@ -339,14 +339,14 @@ layeredimage Laura_missionary_thighs:
     elif Player.right_hand_Actions and Laura in Player.right_hand_Actions[0].Targets and Player.right_hand_Actions[0].animation_type == "finger_ass":
         AlphaMask("Laura_missionary_male_right_arm_finger_animations", "Laura_missionary_mask_anus_animations")
 
-    if Player.orgasming == "anal_creampie" and focused_Companion == Laura:
+    if Player.orgasming == "anal_creampie" and focused_Character == Laura:
         AlphaMask("Laura_missionary_cock_animations", "Laura_missionary_mask_anus_animations")
-    elif Player.orgasming and focused_Companion == Laura:
+    elif Player.orgasming and focused_Character == Laura:
         Null()
     elif Player.cock_Actions and Laura in Player.cock_Actions[0].Targets and Player.cock_Actions[0].animation_type == "anal":
         AlphaMask("Laura_missionary_cock_animations", "Laura_missionary_mask_anus_animations")
 
-    if Player.orgasming and focused_Companion == Laura:
+    if Player.orgasming and focused_Character == Laura:
         Null()
     elif not Laura.vagina_Actions or Laura.vagina_Actions[0].animation_type != "finger_pussy":
         Null()
@@ -358,9 +358,9 @@ layeredimage Laura_missionary_thighs:
     if Laura.vagina_Actions and Laura.vagina_Actions[0].animation_type in ["dildo_pussy", "self_dildo_pussy"]:
         AlphaMask("Laura_missionary_dildo_pussy_animations", "Laura_missionary_mask_pussy_animations")
 
-    if Player.orgasming == "creampie" and focused_Companion == Laura:
+    if Player.orgasming == "creampie" and focused_Character == Laura:
         AlphaMask("Laura_missionary_cock_animations", "Laura_missionary_mask_pussy_animations")
-    elif Player.orgasming and focused_Companion == Laura:
+    elif Player.orgasming and focused_Character == Laura:
         Null()
     elif Player.cock_Actions and Laura in Player.cock_Actions[0].Targets and Player.cock_Actions[0].animation_type == "sex":
         AlphaMask("Laura_missionary_cock_animations", "Laura_missionary_mask_pussy_animations")
@@ -368,7 +368,7 @@ layeredimage Laura_missionary_thighs:
     if Laura.right_hand_Actions and Laura.right_hand_Actions[0].animation_type == "self_touch_pussy":
         "Laura_missionary_right_forearm_self_touch_pussy_animation[Laura.right_hand_Actions[0].mode]"
 
-    if Player.orgasming and focused_Companion == Laura:
+    if Player.orgasming and focused_Character == Laura:
         "Laura_missionary_left_leg_animation0"
     elif Player.cock_Actions and Laura in Player.cock_Actions[0].Targets:
         "Laura_missionary_left_leg_animation[Player.cock_Actions[0].mode]"
@@ -380,7 +380,7 @@ layeredimage Laura_missionary_thighs:
 
     # if not Player.body_visible:
     #     Null()
-    # elif Player.orgasming and focused_Companion == Laura:
+    # elif Player.orgasming and focused_Character == Laura:
     #     AlphaMask("Laura_missionary_male_shadow_animations", "Laura_missionary_right_leg_animations")
     # elif Player.cock_Actions and Laura in Player.cock_Actions[0].Targets:
     #     AlphaMask("Laura_missionary_male_shadow_animations", "Laura_missionary_right_leg_animations")
@@ -388,17 +388,17 @@ layeredimage Laura_missionary_thighs:
     if Laura.clitoris_Actions and Laura.clitoris_Actions[0].animation_type in ["vibrator", "self_vibrator"]:
         "Laura_missionary_vibrator_animation[Laura.clitoris_Actions[0].mode]"
 
-    if Player.orgasming == "cumshot" and focused_Companion == Laura:
+    if Player.orgasming == "cumshot" and focused_Character == Laura:
         "Laura_missionary_cock_animations"
     elif Player.cock_Actions and Laura in Player.cock_Actions[0].Targets and Player.cock_Actions[0].animation_type in ["grind_pussy", "grind_ass"]:
         "Laura_missionary_cock_animations"
         
-    if Player.orgasming == "cumshot" and focused_Companion == Laura:
+    if Player.orgasming == "cumshot" and focused_Character == Laura:
         "Laura_missionary_cumshot"
 
     if not Player.body_visible:
         Null()
-    elif Player.orgasming and focused_Companion == Laura:
+    elif Player.orgasming and focused_Character == Laura:
         "Laura_missionary_male_knees_[Player.orgasming]_animation"
     elif Player.cock_Actions and Laura in Player.cock_Actions[0].Targets:
         "Laura_missionary_male_knees_[Player.cock_Actions[0].animation_type]_animation[Player.cock_Actions[0].mode]"
@@ -425,7 +425,7 @@ layeredimage Laura_missionary_thighs:
     elif Player.right_hand_Actions[0].animation_type == "pinch_nipples" and Laura.left_nipple_Actions and Player.right_hand_Actions[0].animation_type == Laura.left_nipple_Actions[0].animation_type:
         At("Laura_missionary_male_right_arm_touch_left_breast_animation[Player.right_hand_Actions[0].mode]", change_offset(Laura_missionary_left_nipple_position[0], Laura_missionary_left_nipple_position[1]))
 
-    if Player.orgasming and focused_Companion == Laura:
+    if Player.orgasming and focused_Character == Laura:
         Null()
     elif not Player.mouth_Actions or Laura not in Player.mouth_Actions[0].Targets:
         Null()
@@ -442,14 +442,14 @@ layeredimage Laura_missionary_thighs:
     offset (int(1992*sex_sampling), int(2446*sex_sampling))
     
 layeredimage Laura_missionary_torso:
-    if Player.orgasming and focused_Companion == Laura:
+    if Player.orgasming and focused_Character == Laura:
         "Laura_missionary_hair_back_animation0"
     elif Player.cock_Actions and Laura in Player.cock_Actions[0].Targets:
         "Laura_missionary_hair_back_animation[Player.cock_Actions[0].mode]"
     else:
         "Laura_missionary_hair_back_animation0"
 
-    if Player.orgasming and focused_Companion == Laura:
+    if Player.orgasming and focused_Character == Laura:
         "Laura_missionary_left_arm_animation0"
     elif Player.cock_Actions and Laura in Player.cock_Actions[0].Targets:
         "Laura_missionary_left_arm_animation[Player.cock_Actions[0].mode]"
@@ -458,7 +458,7 @@ layeredimage Laura_missionary_torso:
 
     if Laura.right_hand_Actions and Laura.right_hand_Actions[0].animation_type == "self_touch_pussy":
         Null()
-    elif Player.orgasming and focused_Companion == Laura:
+    elif Player.orgasming and focused_Character == Laura:
         "Laura_missionary_right_arm_animation0"
     elif Player.cock_Actions and Laura in Player.cock_Actions[0].Targets:
         "Laura_missionary_right_arm_animation[Player.cock_Actions[0].mode]"
@@ -477,7 +477,7 @@ layeredimage Laura_missionary_torso:
     if Laura.right_hand_Actions and Laura.right_hand_Actions[0].animation_type == "self_touch_pussy":
         "Laura_missionary_right_arm_self_touch_pussy_animation[Laura.right_hand_Actions[0].mode]"
 
-    if Player.orgasming and focused_Companion == Laura:
+    if Player.orgasming and focused_Character == Laura:
         "Laura_missionary_breasts_animation0"
     elif Player.cock_Actions and Laura in Player.cock_Actions[0].Targets:
         "Laura_missionary_breasts_animation[Player.cock_Actions[0].mode]"
@@ -494,7 +494,7 @@ layeredimage Laura_missionary_torso:
     elif Player.right_hand_Actions[0].animation_type == "choke":
         At("Laura_missionary_male_right_arm_choke_animation[Player.right_hand_Actions[0].mode]", change_offset(Laura_missionary_neck_position[0], Laura_missionary_neck_position[1]))
 
-    if Player.orgasming and focused_Companion == Laura:
+    if Player.orgasming and focused_Character == Laura:
         "Laura_missionary_head_animation0"
     elif Player.cock_Actions and Laura in Player.cock_Actions[0].Targets:
         "Laura_missionary_head_animation[Player.cock_Actions[0].mode]"
@@ -580,7 +580,7 @@ layeredimage Laura_missionary_head:
     if Laura.spunk["face"]:
         "characters/Laura/images/missionary/spunk_face.webp"
 
-    if Player.orgasming and focused_Companion == Laura:
+    if Player.orgasming and focused_Character == Laura:
         "Laura_missionary_hair_animation0"
     elif Player.cock_Actions and Laura in Player.cock_Actions[0].Targets:
         "Laura_missionary_hair_animation[Player.cock_Actions[0].mode]"
@@ -656,7 +656,7 @@ layeredimage Laura_missionary_left_leg:
     always:
         "characters/Laura/images/missionary/left_leg.webp"
 
-    if Player.orgasming and focused_Companion == Laura:
+    if Player.orgasming and focused_Character == Laura:
         "Laura_missionary_left_foot_animation0"
     elif Player.cock_Actions and Laura in Player.cock_Actions[0].Targets:
         "Laura_missionary_left_foot_animation[Player.cock_Actions[0].mode]"
@@ -677,7 +677,7 @@ layeredimage Laura_missionary_right_leg:
     always:
         "characters/Laura/images/missionary/right_leg.webp"
 
-    if Player.orgasming and focused_Companion == Laura:
+    if Player.orgasming and focused_Character == Laura:
         "Laura_missionary_right_foot_animation0"
     elif Player.cock_Actions and Laura in Player.cock_Actions[0].Targets:
         "Laura_missionary_right_foot_animation[Player.cock_Actions[0].mode]"
@@ -1608,7 +1608,7 @@ image Laura_missionary_mask_anal_creampie_animation:
     missionary_mask_anal_creampie_animation
 
 layeredimage Laura_missionary_right_leg_animations:
-    if Player.orgasming and focused_Companion == Laura:
+    if Player.orgasming and focused_Character == Laura:
         "Laura_missionary_right_leg_animation0"
     elif Player.cock_Actions and Laura in Player.cock_Actions[0].Targets:
         "Laura_missionary_right_leg_animation[Player.cock_Actions[0].mode]"
@@ -1618,20 +1618,20 @@ layeredimage Laura_missionary_right_leg_animations:
 # layeredimage Laura_missionary_male_shadow_animations:
 #     if not Player.body_visible:
 #         Null()
-#     elif Player.orgasming and focused_Companion == Laura:
+#     elif Player.orgasming and focused_Character == Laura:
 #         "Laura_missionary_male_shadow_[Player.orgasming]_animation"
 #     elif Player.cock_Actions and Laura in Player.cock_Actions[0].Targets:
 #         "Laura_missionary_male_shadow_[Player.cock_Actions[0].animation_type]_animation[Player.cock_Actions[0].mode]"
 
 layeredimage Laura_missionary_cock_animations:
-    if Player.orgasming and focused_Companion == Laura:
+    if Player.orgasming and focused_Character == Laura:
         "Laura_missionary_cock_[Player.orgasming]_animation"
     else:
         "Laura_missionary_cock_[Player.cock_Actions[0].animation_type]_animation[Player.cock_Actions[0].mode]"
 
     if not Player.spunk and not Player.orgasming:
         Null()
-    elif Player.orgasming and focused_Companion == Laura:
+    elif Player.orgasming and focused_Character == Laura:
         "Laura_missionary_spunk_tip_[Player.orgasming]_animation"
     else:
         "Laura_missionary_spunk_tip_[Player.cock_Actions[0].animation_type]_animation[Player.cock_Actions[0].mode]"
@@ -1653,7 +1653,7 @@ layeredimage Laura_missionary_dildo_ass_animations:
         "Laura_missionary_dildo_ass_animation[Laura.anus_Actions[0].mode]"
 
 layeredimage Laura_missionary_mask_anus_animations:
-    if Player.orgasming == "anal_creampie" and focused_Companion == Laura:
+    if Player.orgasming == "anal_creampie" and focused_Character == Laura:
         "Laura_missionary_mask_anal_creampie_animation"
     elif Laura.anus_Actions[0].animation_type in ["dildo_ass", "self_dildo_ass"]:
         "Laura_missionary_mask_dildo_ass_animation[Laura.anus_Actions[0].mode]"
@@ -1661,7 +1661,7 @@ layeredimage Laura_missionary_mask_anus_animations:
         "Laura_missionary_mask_[Laura.anus_Actions[0].animation_type]_animation[Laura.anus_Actions[0].mode]"
 
 layeredimage Laura_missionary_mask_pussy_animations:
-    if Player.orgasming == "creampie" and focused_Companion == Laura:
+    if Player.orgasming == "creampie" and focused_Character == Laura:
         "Laura_missionary_mask_creampie_animation"
     elif Laura.vagina_Actions[0].animation_type in ["dildo_pussy", "self_dildo_pussy"]:
         "Laura_missionary_mask_dildo_pussy_animation[Laura.vagina_Actions[0].mode]"

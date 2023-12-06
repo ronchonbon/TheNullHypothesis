@@ -65,8 +65,8 @@ label Laura_chapter_one_season_one_first_study_session:
     menu:
         extend ""
         "I know you think class is a waste of time, but it's important in its own way.":
-            call change_Companion_stat(Laura, "love", medium_stat) from _call_change_Companion_stat_912
-            call change_Companion_stat(Laura, "trust", small_stat) from _call_change_Companion_stat_913
+            call change_Character_stat(Laura, "love", medium_stat) from _call_change_Character_stat_912
+            call change_Character_stat(Laura, "trust", small_stat) from _call_change_Character_stat_913
 
             $ Laura.change_face("angry1")
 
@@ -79,7 +79,7 @@ label Laura_chapter_one_season_one_first_study_session:
             
             $ Laura.change_face("suspicious1") 
         "C'mon, [Laura.name], do you really think class is such a waste of time?":
-            call change_Companion_stat(Laura, "love", medium_stat) from _call_change_Companion_stat_914
+            call change_Character_stat(Laura, "love", medium_stat) from _call_change_Character_stat_914
             
             $ Laura.change_face("angry1", eyes = "right")
 
@@ -93,7 +93,7 @@ label Laura_chapter_one_season_one_first_study_session:
             
             ch_Laura "That's why they're all so weak." 
         "Seriously, [Laura.name], are you trying to fail?":
-            call change_Companion_stat(Laura, "love", -medium_stat) from _call_change_Companion_stat_916
+            call change_Character_stat(Laura, "love", -medium_stat) from _call_change_Character_stat_916
 
             $ Laura.change_face("appalled1")
 
@@ -123,8 +123,8 @@ label Laura_chapter_one_season_one_first_study_session:
     menu:
         extend ""
         "I'll try my best.":
-            call change_Companion_stat(Laura, "love", medium_stat) from _call_change_Companion_stat_917
-            call change_Companion_stat(Laura, "trust", small_stat) from _call_change_Companion_stat_993
+            call change_Character_stat(Laura, "love", medium_stat) from _call_change_Character_stat_917
+            call change_Character_stat(Laura, "trust", small_stat) from _call_change_Character_stat_993
 
             $ Laura.change_face("surprised1") 
             
@@ -138,8 +138,8 @@ label Laura_chapter_one_season_one_first_study_session:
             
             ch_Laura "Now keep going, I didn't get that last part." 
         "I guess I can. . .":            
-            call change_Companion_stat(Laura, "love", small_stat) from _call_change_Companion_stat_994
-            call change_Companion_stat(Laura, "trust", small_stat) from _call_change_Companion_stat_1016
+            call change_Character_stat(Laura, "love", small_stat) from _call_change_Character_stat_994
+            call change_Character_stat(Laura, "trust", small_stat) from _call_change_Character_stat_1016
 
             ch_Player "But I don't know if I'll be any good at teaching."
         
@@ -147,7 +147,7 @@ label Laura_chapter_one_season_one_first_study_session:
             ch_Laura "Now, continue." 
             ch_Laura "None of this makes sense." 
         "Can't you just pay more attention during lecture?":
-            call change_Companion_stat(Laura, "trust", -small_stat) from _call_change_Companion_stat_1017
+            call change_Character_stat(Laura, "trust", -small_stat) from _call_change_Character_stat_1017
             
             $ Laura.change_face("confused1") 
             

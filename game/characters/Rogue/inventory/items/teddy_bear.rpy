@@ -15,8 +15,8 @@ label Rogue_teddy_bear_shopping_accept:
 
     ch_Rogue "Ah'll make sure to treasure this one."
 
-    call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_1579
-    call change_Companion_stat(Rogue, "trust", 0) from _call_change_Companion_stat_1580
+    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1579
+    call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_1580
 
     return True
 
@@ -49,8 +49,8 @@ label Rogue_teddy_bear_gift_accept:
 
     ch_Rogue "Ah'll make sure to treasure this one."
 
-    call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_1581
-    call change_Companion_stat(Rogue, "trust", 0) from _call_change_Companion_stat_1582
+    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1581
+    call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_1582
 
     return True
 

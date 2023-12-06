@@ -349,7 +349,7 @@ label day_one_intro:
         "It's great to meet you, [Ororo.name]. I can't believe I'm talking to one of the X-Men.":
             $ Ororo.change_face("happy", blush = 1)
 
-            call change_Companion_stat(Ororo, "love", 0) from _call_change_Companion_stat_872
+            call change_Character_stat(Ororo, "love", 0) from _call_change_Character_stat_872
         "Nice to meet you, too.":
             pass
 
@@ -373,7 +373,7 @@ label day_one_intro:
         "Thank you, [Charles.name]. I might be dead if not for you.":
             $ Ororo.change_face("smirk1")
 
-            call change_Companion_stat(Ororo, "love", 0) from _call_change_Companion_stat_873
+            call change_Character_stat(Ororo, "love", 0) from _call_change_Character_stat_873
 
             ch_Charles "You are very welcome, [Player.first_name]."
 
@@ -496,14 +496,14 @@ label meet_Rogue:
         "Damn, and here I thought I could get away from freshman psychology.":
             $ Ororo.change_face("neutral", eyes = "squint")
 
-            call change_Companion_stat(Ororo, "love", 0) from _call_change_Companion_stat_874
-            call change_Companion_stat(Ororo, "trust", 0) from _call_change_Companion_stat_875
+            call change_Character_stat(Ororo, "love", 0) from _call_change_Character_stat_874
+            call change_Character_stat(Ororo, "trust", 0) from _call_change_Character_stat_875
 
             ch_Ororo "I'm afraid not, [Player.first_name]."
         "How would you compare the difficulty of the curriculum to a normal university's? (academic)" if Player.scholarship == "academic":
             $ Ororo.change_face("pleased1")
 
-            call change_Companion_stat(Ororo, "love", 0) from _call_change_Companion_stat_876
+            call change_Character_stat(Ororo, "love", 0) from _call_change_Character_stat_876
 
             ch_Ororo "Well, I'd venture to say even the introductory courses are quite advanced. . ."
 
@@ -547,7 +547,7 @@ label meet_Rogue:
     menu:
         extend ""
         "Looks like the rumors are a bit exaggerated. Xavier seems to think my power only makes me impervious to other mutant powers.":
-            call change_Companion_stat(Rogue, "trust", medium_stat) from _call_change_Companion_stat_637
+            call change_Character_stat(Rogue, "trust", medium_stat) from _call_change_Character_stat_637
 
             $ Rogue.change_face("pleased2")
             
@@ -557,7 +557,7 @@ label meet_Rogue:
 
             ch_Rogue "So. . . ya see, my ability allows me to absorb the memories, talents, and powers of those ah touch."
         "No, looks like my power only makes me immune to other powers. Why do you care?":
-            call change_Companion_stat(Rogue, "love", -medium_stat) from _call_change_Companion_stat_877
+            call change_Character_stat(Rogue, "love", -medium_stat) from _call_change_Character_stat_877
             
             $ Rogue.change_face("worried2")
 
@@ -588,11 +588,11 @@ label meet_Rogue:
     menu:
         extend ""
         ". . . Yes, [Rogue.name] has just been telling me a little about the Institute.":
-            call change_Companion_stat(Rogue, "trust", medium_stat) from _call_change_Companion_stat_638
+            call change_Character_stat(Rogue, "trust", medium_stat) from _call_change_Character_stat_638
             
             $ Rogue.change_face("pleased1", blush = 1)
         "Definitely! I can tell we're going to get along really well.":
-            call change_Companion_stat(Rogue, "love", medium_stat) from _call_change_Companion_stat_878
+            call change_Character_stat(Rogue, "love", medium_stat) from _call_change_Character_stat_878
             
             $ Rogue.change_face("surprised2", eyes = "down", blush = 1)
 
@@ -600,8 +600,8 @@ label meet_Rogue:
 
             $ Rogue.History.update("Player_looked_at_glove")
         "We are. Thank you very much, [Ororo.name], I'll make sure to study hard.":
-            call change_Companion_stat(Rogue, "trust", small_stat) from _call_change_Companion_stat_639
-            call change_Companion_stat(Ororo, "love", 0) from _call_change_Companion_stat_879
+            call change_Character_stat(Rogue, "trust", small_stat) from _call_change_Character_stat_639
+            call change_Character_stat(Ororo, "love", 0) from _call_change_Character_stat_879
 
             $ Rogue.change_face("pleased1", blush = 1)
 
@@ -734,7 +734,7 @@ label meet_Laura:
         ch_Laura "And he looks well built."
         ch_Laura "Interesting."
 
-        call change_Companion_stat(Laura, "love", medium_stat) from _call_change_Companion_stat_880
+        call change_Character_stat(Laura, "love", medium_stat) from _call_change_Character_stat_880
     else:
         ch_Laura "He looks reasonably well-built."
     
@@ -845,7 +845,7 @@ label meet_Laura:
 
                 $ Laura.change_face("neutral")
 
-                call change_Companion_stat(Laura, "trust", medium_stat) from _call_change_Companion_stat_882
+                call change_Character_stat(Laura, "trust", medium_stat) from _call_change_Character_stat_882
 
                 $ Laura.History.update("was_warned_about_Player_power")
 
@@ -892,7 +892,7 @@ label meet_Laura_1A:
 
     menu:
         "Whoa! Sick!":
-            call change_Companion_stat(Laura, "love", small_stat) from _call_change_Companion_stat_884
+            call change_Character_stat(Laura, "love", small_stat) from _call_change_Character_stat_884
 
             $ Laura.change_face("smirk2")
 
@@ -900,7 +900,7 @@ label meet_Laura_1A:
         "Damn, those look wicked sharp.":
             ch_Laura "They are."
         "Doesn't that hurt?":
-            call change_Companion_stat(Laura, "love", -small_stat) from _call_change_Companion_stat_885
+            call change_Character_stat(Laura, "love", -small_stat) from _call_change_Character_stat_885
 
             $ Laura.change_face("neutral", eyes = "squint")
 
@@ -975,8 +975,8 @@ label day_one_tour_farewell:
 
             "A shiver runs up the professor's arm as you shake her hand."
 
-            call change_Companion_stat(Ororo, "love", 0) from _call_change_Companion_stat_886
-            call change_Companion_stat(Ororo, "trust", 0) from _call_change_Companion_stat_887
+            call change_Character_stat(Ororo, "love", 0) from _call_change_Character_stat_886
+            call change_Character_stat(Ororo, "trust", 0) from _call_change_Character_stat_887
 
             ch_Ororo "{i}Ahem{/i}. . . Well, goodbye, [Player.first_name]. I have a mission to attend to."
         "Are you sure?":
@@ -988,8 +988,8 @@ label day_one_tour_farewell:
 
             "A shiver runs up the professor's arm as you shake her hand."
 
-            call change_Companion_stat(Ororo, "love", 0) from _call_change_Companion_stat_888
-            call change_Companion_stat(Ororo, "trust", 0) from _call_change_Companion_stat_889
+            call change_Character_stat(Ororo, "love", 0) from _call_change_Character_stat_888
+            call change_Character_stat(Ororo, "trust", 0) from _call_change_Character_stat_889
 
             ch_Ororo "Wow, that was. . . unexpected. I will see you when I return from my mission, [Player.first_name]."
 

@@ -12,7 +12,7 @@ init python:
             "top": Rogue_black_lowcut_top(),
             "gloves": Rogue_black_gloves(), "sleeves": Rogue_black_spiked_bracelets()})
 
-        Outfits.append(OutfitClass("Hero (Chapter I)", activewear = True))
+        Outfits.append(OutfitClass("Hero (Chapter I)", superwear = True))
 
         Outfits[-1].Clothes.update({
             "face_inner_accessory": Rogue_green_headband(), "hair": Rogue_asymmetric_hair(),

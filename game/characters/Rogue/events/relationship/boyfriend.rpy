@@ -243,13 +243,13 @@ label Rogue_boyfriend:
     menu:
         extend ""
         "It's true, [Rogue.name], I really do like you. And I care about you very much.":
-            call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_611 
-            call change_Companion_stat(Rogue, "trust", 0) from _call_change_Companion_stat_612
+            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_611 
+            call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_612
         "Of course I like you, [Rogue.name]. How couldn't I?":
-            call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_613
+            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_613
         "You really need to relax. Why would I continuously go on dates with you if I didn't like you?":
-            call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_614 
-            call change_Companion_stat(Rogue, "trust", 0) from _call_change_Companion_stat_615
+            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_614 
+            call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_615
 
     $ Rogue.change_face("worried3", blush  = 1)
 
@@ -432,7 +432,7 @@ label Rogue_boyfriend:
         "If you say please. (encourage_quirk)":
             $ Rogue.change_face("worried1", mouth = "lipbite", blush = 1) 
             
-            call change_Companion_stat(Rogue, "desire", 0) from _call_change_Companion_stat_616
+            call change_Character_stat(Rogue, "desire", 0) from _call_change_Character_stat_616
 
             ch_Rogue "Ah promise ah will, from now on." 
 
@@ -440,7 +440,7 @@ label Rogue_boyfriend:
 
             ch_Rogue "Can ah have a kiss, please?" 
 
-            call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_617
+            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_617
 
             $ Rogue.change_face("kiss1", blush = 1)
 

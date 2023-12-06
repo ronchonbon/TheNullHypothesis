@@ -184,21 +184,21 @@ label Laura_chapter_one_season_one_late_night_training:
     menu:
         extend ""
         "What are you doing here so late? I take it you can't settle either?":
-            call change_Companion_stat(Laura, "love", small_stat) from _call_change_Companion_stat_852
-            call change_Companion_stat(Laura, "trust", small_stat) from _call_change_Companion_stat_853
+            call change_Character_stat(Laura, "love", small_stat) from _call_change_Character_stat_852
+            call change_Character_stat(Laura, "trust", small_stat) from _call_change_Character_stat_853
 
             $ Laura.change_face("neutral")
 
             ch_Laura "I simply had the opportunity for an extended training session. I took it."
         "I know people say you practically live down here, but you haven't actually moved in, have you?":
-            call change_Companion_stat(Laura, "love", -small_stat) from _call_change_Companion_stat_854
+            call change_Character_stat(Laura, "love", -small_stat) from _call_change_Character_stat_854
             
             $ Laura.change_face("suspicious1")
 
             ch_Laura "No. Apparently the Danger Room and associated areas have no provisions for long-term habitation, except in a dire emergency."
         "Everything okay? Looks like you've been in here a while.":
-            call change_Companion_stat(Laura, "love", medium_stat) from _call_change_Companion_stat_857
-            call change_Companion_stat(Laura, "trust", small_stat) from _call_change_Companion_stat_881
+            call change_Character_stat(Laura, "love", medium_stat) from _call_change_Character_stat_857
+            call change_Character_stat(Laura, "trust", small_stat) from _call_change_Character_stat_881
 
             $ Laura.change_face("confused3", blush = 1) 
             

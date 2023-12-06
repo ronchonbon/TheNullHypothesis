@@ -97,7 +97,7 @@ label Rogue_busy:
                 "Great, now that I'm with you.":
                     $ Rogue.change_face("pleased1", blush = 1) 
                     
-                    call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_686
+                    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_686
                 "I'm okay.":
                     $ Rogue.change_face("neutral")
                 "Really? Never mind. . .":
@@ -105,7 +105,7 @@ label Rogue_busy:
                     
                     ch_Rogue "Sorry. . ." 
                     
-                    call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_687
+                    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_687
 
     return
 
@@ -477,7 +477,7 @@ label Rogue_ask_about_Jean:
 
                         ch_Rogue "Ah'm just lookin' out for ya. . ." 
 
-                        call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_688
+                        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_688
         else:
             $ Rogue.change_face("confused2")  
 

@@ -8,17 +8,17 @@ define max_stats = [250, 500, 750, 1000]
 
 init python:
 
-    def approval_check(Companion, flavor = None, threshold = None, extra_condition = None):
-        if Companion not in all_Companions:
+    def approval_check(Character, flavor = None, threshold = None, extra_condition = None):
+        if Character not in all_Companions:
             return 0
 
         if flavor is not None:
-            value = getattr(Companion, flavor)
+            value = getattr(Character, flavor)
         else:
-            value = Companion.love + Companion.trust
+            value = Character.love + Character.trust
 
         if extra_condition:
-            conditions = eval(f"{Companion.tag}_conditions")
+            conditions = eval(f"{Character.tag}_conditions")
 
             if extra_condition in conditions.keys():
                 for condition in conditions[extra_condition]:
@@ -28,8 +28,8 @@ init python:
         if not threshold:
             return value
         elif isinstance(threshold, str):
-            if Companion.love >= eval(f"{Companion.tag}_thresholds['{threshold}'][0]") and Companion.trust >= eval(f"{Companion.tag}_thresholds['{threshold}'][1]"):
-                conditions = eval(f"{Companion.tag}_conditions")
+            if Character.love >= eval(f"{Character.tag}_thresholds['{threshold}'][0]") and Character.trust >= eval(f"{Character.tag}_thresholds['{threshold}'][1]"):
+                conditions = eval(f"{Character.tag}_conditions")
 
                 if threshold not in conditions.keys():
                     return True
@@ -43,7 +43,7 @@ init python:
             if value >= threshold:
                 return True
         elif len(threshold) > 1:
-            if Companion.love >= threshold[0] and Companion.trust >= threshold[1]:
+            if Character.love >= threshold[0] and Character.trust >= threshold[1]:
                 return True
         else:
             error("Something unexpected happened.")
@@ -83,15 +83,15 @@ label change_Player_stat(flavor, update):
 
     return
 
-label change_Companion_stat(Companion, flavor, update, alternate_values = None):
+label change_Character_stat(Character, flavor, update, alternate_values = None):
     if not alternate_values:
         $ alternate_values = {}
 
-    if Companion in alternate_values.keys():
-        $ check = alternate_values[Companion][0]
-        $ update = alternate_values[Companion][1]
+    if Character in alternate_values.keys():
+        $ check = alternate_values[Character][0]
+        $ update = alternate_values[Character][1]
 
-    $ stat = getattr(Companion, flavor)
+    $ stat = getattr(Character, flavor)
 
     if update:
         if flavor == "love":
@@ -103,12 +103,12 @@ label change_Companion_stat(Companion, flavor, update, alternate_values = None):
 
         if flavor in ["love", "trust"]:
             if update > 0:
-                $ update *= Player.stat_modifier*Companion.stat_modifier
+                $ update *= Player.stat_modifier*Character.stat_modifier
             elif update < 0:
-                $ update *= 1.0 - (Player.stat_modifier*Companion.stat_modifier - 1.0)
+                $ update *= 1.0 - (Player.stat_modifier*Character.stat_modifier - 1.0)
 
             if flavor == "love":
-                if Player.location == Companion.location and Player.sweat >= Player.sweaty_threshold:
+                if Player.location == Character.location and Player.sweat >= Player.sweaty_threshold:
                     if update > 0:
                         $ update *= 0.8
                     elif update < 0:
@@ -116,14 +116,14 @@ label change_Companion_stat(Companion, flavor, update, alternate_values = None):
 
             $ update = int(update)
 
-            $ list_of_Companions = eval(f"ch{chapter}_Companions")
+            $ list_of_Characters = eval(f"ch{chapter}_Companions")
 
-            if Companion in list_of_Companions:
+            if Character in list_of_Characters:
                 $ update = max_stats[season - 1] - stat if stat + update >= max_stats[season - 1] else update
             else:
                 $ update = 1000 - stat if stat + update >= 1000 else update
         else:
-            if Player.location == Companion.location and Player.sweat >= Player.sweaty_threshold:
+            if Player.location == Character.location and Player.sweat >= Player.sweaty_threshold:
                 if update > 0:
                     $ update *= 0.75
                 elif update < 0:
@@ -138,34 +138,34 @@ label change_Companion_stat(Companion, flavor, update, alternate_values = None):
         if update:
             $ stat += update
 
-            $ setattr(Companion, flavor, stat)
+            $ setattr(Character, flavor, stat)
             
-            if Companion.desire >= 75:
-                $ Companion.grool = 2
-            elif Companion.desire >= 50:
-                $ Companion.grool = 1
+            if Character.desire >= 75:
+                $ Character.grool = 2
+            elif Character.desire >= 50:
+                $ Character.grool = 1
             else:
-                $ Companion.grool = 0
+                $ Character.grool = 0
 
-            $ Companion.check_statuses()
+            $ Character.check_statuses()
 
             if flavor == "desire":
                 if not Action_screen_showing:
-                    if Companion.desire >= 90:
-                        $ update_messages.append("{color=%s}%s{/color} {color=%s}is really squirming{/color}" % (eval(f"{Companion.tag}_color"), Companion.name, shade))
-                    elif Companion.desire >= 75:
-                        $ update_messages.append("{color=%s}%s{/color} {color=%s}crosses and uncrosses her legs{/color}" % (eval(f"{Companion.tag}_color"), Companion.name, shade))
-                    elif Companion.desire >= 50:
-                        $ update_messages.append("{color=%s}%s{/color} {color=%s}looks at you intensely{/color}" % (eval(f"{Companion.tag}_color"), Companion.name, shade))
-                    elif Companion.desire >= 25:
-                        $ update_messages.append("{color=%s}%s{/color} {color=%s}fidgets a little{/color}" % (eval(f"{Companion.tag}_color"), Companion.name, shade))
-                    # elif Companion.desire >= 10:
-                    #     $ update_messages.append("{color=%s}%s{/color} {color=%s}seems distracted{/color}" % (eval(f"{Companion.tag}_color"), Companion.name, shade))
+                    if Character.desire >= 90:
+                        $ update_messages.append("{color=%s}%s{/color} {color=%s}is really squirming{/color}" % (eval(f"{Character.tag}_color"), Character.name, shade))
+                    elif Character.desire >= 75:
+                        $ update_messages.append("{color=%s}%s{/color} {color=%s}crosses and uncrosses her legs{/color}" % (eval(f"{Character.tag}_color"), Character.name, shade))
+                    elif Character.desire >= 50:
+                        $ update_messages.append("{color=%s}%s{/color} {color=%s}looks at you intensely{/color}" % (eval(f"{Character.tag}_color"), Character.name, shade))
+                    elif Character.desire >= 25:
+                        $ update_messages.append("{color=%s}%s{/color} {color=%s}fidgets a little{/color}" % (eval(f"{Character.tag}_color"), Character.name, shade))
+                    # elif Character.desire >= 10:
+                    #     $ update_messages.append("{color=%s}%s{/color} {color=%s}seems distracted{/color}" % (eval(f"{Character.tag}_color"), Character.name, shade))
             else:
                 if update > 0:
-                    $ update_messages.append("{color=%s}%s{/color} gained {color=%s}%s %s{/color}" % (eval(f"{Companion.tag}_color"), Companion.name, shade, update, flavor.capitalize()))
+                    $ update_messages.append("{color=%s}%s{/color} gained {color=%s}%s %s{/color}" % (eval(f"{Character.tag}_color"), Character.name, shade, update, flavor.capitalize()))
                 elif update < 0:
-                    $ update_messages.append("{color=%s}%s{/color} lost {color=%s}%s %s{/color}" % (eval(f"{Companion.tag}_color"), Companion.name, shade, -update, flavor.capitalize()))
+                    $ update_messages.append("{color=%s}%s{/color} lost {color=%s}%s %s{/color}" % (eval(f"{Character.tag}_color"), Character.name, shade, -update, flavor.capitalize()))
 
     $ EventScheduler.update_conditions()
     

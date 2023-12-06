@@ -121,18 +121,18 @@ label Jean_I_love_you:
 
                 ch_Jean "Thanks." 
                 
-                call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1112 
-                call change_Companion_stat(Jean, "trust", 0) from _call_change_Companion_stat_1113
+                call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1112 
+                call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_1113
             "Of course, I'm all ears.":
                 $ Jean.change_face("worried1", mouth = "smirk")
 
                 ch_Jean "Good boy." 
                 
-                call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1114
+                call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1114
             "Oh god, don't tell me you're going to start monologuing.":
                 $ Jean.change_face("angry1") 
                 
-                call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1115
+                call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1115
 
                 ch_Jean "Ugh, this is serious." 
                 ch_Jean "Just pay attention."
@@ -177,20 +177,20 @@ label Jean_I_love_you:
 
                 ch_Jean "It really, {i}really{/i} has." 
                 
-                call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1116 
-                call change_Companion_stat(Jean, "trust", 0) from _call_change_Companion_stat_1117
+                call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1116 
+                call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_1117
             "You really mean it? Because it's made me happy too.":
                 $ Jean.change_face("worried1", mouth = "lipbite")
 
                 ch_Jean "Of course I mean it." 
                 
-                call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1118
+                call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1118
             "Good for you. . . I guess. It hasn't been the worst thing in the world.":
                 $ Jean.change_face("angry1")
 
                 ch_Jean "I'm not joking around, [Player.first_name]." 
                 
-                call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1119
+                call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1119
 
         $ Jean.change_face("worried1")
 
@@ -222,13 +222,13 @@ label Jean_I_love_you:
     menu:
         extend ""
         "You don't know how glad it makes me to know that I've been able to have such a positive impact on you. Our relationship means the world to me, and so do you.":
-            call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1120 
-            call change_Companion_stat(Jean, "trust", 0) from _call_change_Companion_stat_1121
+            call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1120 
+            call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_1121
         "You know I want nothing more than you to be happy, and I'm so glad that's the case. Our relationship is the most important thing in the world to me, and I'll do whatever I can to keep you happy.":
-            call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1122
+            call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1122
         "Look, [Jean.name], I'm not just something you can use to fix whatever problems you're facing. I'm my own person with, with my own struggles too. That being said, I want you to be happy, and am glad our relationship has been helping you with that.":
-            call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1123 
-            call change_Companion_stat(Jean, "trust", 0) from _call_change_Companion_stat_1124
+            call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1123 
+            call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_1124
 
     $ Jean.change_face("worried1", mouth = "lipbite", blush = 1)
 
@@ -289,12 +289,12 @@ label Jean_I_love_you:
         menu:
             extend ""
             "Talking like that. . . you're already making me twitch. . .":
-                call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1125 
-                call change_Companion_stat(Jean, "trust", 0) from _call_change_Companion_stat_1126
+                call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1125 
+                call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_1126
             "Please do. . . I promise I'll be the best little brother you could ever want.":
-                call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1127
+                call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1127
             "You better not tease me too much, it gets kinda annoying. . . but yeah, it'll be fun.":
-                call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1128
+                call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1128
 
         $ Jean.change_face("confused1", mouth = "lipbite", blush = 1)
 
@@ -318,12 +318,12 @@ label Jean_I_love_you:
         menu:
             extend ""
             "I'm also looking forward to it, very much.":
-                call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1129 
-                call change_Companion_stat(Jean, "trust", 0) from _call_change_Companion_stat_1130
+                call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1129 
+                call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_1130
             "I will do my absolute best to make you feel very good.":
-                call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1131
+                call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1131
             "[Jean.name], we both know you don't really know what you're doing. . . we'll figure it out. . . with lots of practice.":
-                call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1132
+                call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1132
 
         $ Jean.change_face("confused1", eyes = "squint", mouth = "lipbite", blush = 1)
 

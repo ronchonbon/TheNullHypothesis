@@ -32,21 +32,21 @@ label Jean_chapter_one_season_three_second_training_session:
 
             ch_Jean "Thanks for being so understanding. . ." 
             
-            call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_191
-            call change_Companion_stat(Jean, "trust", 0) from _call_change_Companion_stat_192
+            call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_191
+            call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_192
         "It made me a little sad to have you upset at me. . . But don't worry, I understand.":
             $ Jean.change_face("worried2")
 
             ch_Jean "I don't like it when you're sad, [Jean.Player_petname]." 
             
-            call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_193
+            call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_193
         "A little bit to be honest. . . it was pretty uncalled for. But it's fine, I'd be frustrated too if I were in your shoes.":
             $ Jean.change_face("confused2")
 
             ch_Jean "At least you get it. . . I guess." 
             
-            call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_194
-            call change_Companion_stat(Jean, "trust", 0) from _call_change_Companion_stat_195
+            call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_194
+            call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_195
 
     $ Jean.change_face("worried1")
 

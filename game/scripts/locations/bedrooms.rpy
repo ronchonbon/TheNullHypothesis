@@ -134,7 +134,7 @@ label Player_room:
                 
     call move_location(Player.location) from _call_move_location_4
 
-label Companion_room:
+label Character_room:
     $ lights_on = True
     $ door_locked = False
 

@@ -133,21 +133,21 @@ label Jean_chapter_one_season_one_exam_freakout:
     menu:
         extend ""
         "But why are you stressed? The exam's over - knowing you, you probably aced it.":
-            call change_Companion_stat(Jean, "love", medium_stat) from _call_change_Companion_stat_107
+            call change_Character_stat(Jean, "love", medium_stat) from _call_change_Character_stat_107
 
             $ Jean.change_face("angry1", eyes = "right")
 
             ch_Jean "UGH! Not this time I didn't. . ."
         "Don't worry, no hard feelings. I'm sure you aced the exam anyway.":
-            call change_Companion_stat(Jean, "love", medium_stat) from _call_change_Companion_stat_109
-            call change_Companion_stat(Jean, "trust", small_stat) from _call_change_Companion_stat_108
+            call change_Character_stat(Jean, "love", medium_stat) from _call_change_Character_stat_109
+            call change_Character_stat(Jean, "trust", small_stat) from _call_change_Character_stat_108
             
             $ Jean.change_face("angry1", mouth = "smirk", eyes = "right")
 
             ch_Jean "Ha, yeah right. This time was different. . ."
         "It's fine I guess, not like it's my fault. You probably aced the exam anyway.":
-            call change_Companion_stat(Jean, "love", -small_stat) from _call_change_Companion_stat_110
-            call change_Companion_stat(Jean, "trust", small_stat) from _call_change_Companion_stat_111
+            call change_Character_stat(Jean, "love", -small_stat) from _call_change_Character_stat_110
+            call change_Character_stat(Jean, "trust", small_stat) from _call_change_Character_stat_111
             
             $ Jean.change_face("confused1", mouth = "smirk")
 
@@ -205,23 +205,23 @@ label Jean_chapter_one_season_one_exam_freakout:
     menu:
         extend ""
         "I care much more about taking your mind off things than some lecture.":
-            call change_Companion_stat(Jean, "love", medium_stat) from _call_change_Companion_stat_112
-            call change_Companion_stat(Jean, "trust", medium_stat) from _call_change_Companion_stat_113
+            call change_Character_stat(Jean, "love", medium_stat) from _call_change_Character_stat_112
+            call change_Character_stat(Jean, "trust", medium_stat) from _call_change_Character_stat_113
             
             $ Jean.change_face("worried3")
 
             ch_Jean "You. . . do?"
         "Really, it's okay. I just wanna hang out with you for a bit.":
-            call change_Companion_stat(Jean, "love", medium_stat) from _call_change_Companion_stat_114
-            call change_Companion_stat(Jean, "trust", small_stat) from _call_change_Companion_stat_115
+            call change_Character_stat(Jean, "love", medium_stat) from _call_change_Character_stat_114
+            call change_Character_stat(Jean, "trust", small_stat) from _call_change_Character_stat_115
             
             $ Jean.change_face("worried3")
 
             ch_Jean "Are you sure?" 
             ch_Player "Yep."
         "I mean look at you, you're holding on by a thread. You need a distraction.":
-            call change_Companion_stat(Jean, "love", -small_stat) from _call_change_Companion_stat_116
-            call change_Companion_stat(Jean, "trust", medium_stat) from _call_change_Companion_stat_131
+            call change_Character_stat(Jean, "love", -small_stat) from _call_change_Character_stat_116
+            call change_Character_stat(Jean, "trust", medium_stat) from _call_change_Character_stat_131
             
             $ Jean.change_face("worried3") 
             

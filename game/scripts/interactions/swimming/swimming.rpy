@@ -34,25 +34,25 @@ label swim:
 
     return
 
-label ask_to_swim(Companion):   
-    $ status = Companion.get_status()
+label ask_to_swim(Character):   
+    $ status = Character.get_status()
 
-    if Companion.swimming_Outfit.name != Companion.indoor_Outfit.name and Companion.is_in_normal_mood() and approval_check(Companion, threshold = "friendship") and (not time_index >= 3 or approval_check(Companion, threshold = "talk_late")):
-        call expression f"{Companion.tag}_accept_swim" from _call_expression_330
+    if Character.swimming_Outfit.name != Character.indoor_Outfit.name and Character.is_in_normal_mood() and approval_check(Character, threshold = "friendship") and (not time_index >= 3 or approval_check(Character, threshold = "talk_late")):
+        call expression f"{Character.tag}_accept_swim" from _call_expression_330
     else:
-        if Companion.History.check("said_no_to_swimming", tracker = "recent") >= 2:
-            call change_Companion_stat(Companion, "love", -5) from _call_change_Companion_stat_1018
-            call change_Companion_stat(Companion, "trust", -5) from _call_change_Companion_stat_1019
+        if Character.History.check("said_no_to_swimming", tracker = "recent") >= 2:
+            call change_Character_stat(Character, "love", -5) from _call_change_Character_stat_1018
+            call change_Character_stat(Character, "trust", -5) from _call_change_Character_stat_1019
 
-            call expression f"{Companion.tag}_reject_swim_asked_twice" from _call_expression_331
-        elif Companion.History.check("said_no_to_swimming", tracker = "recent") == 1:
-            call change_Companion_stat(Companion, "love", -2) from _call_change_Companion_stat_1020
+            call expression f"{Character.tag}_reject_swim_asked_twice" from _call_expression_331
+        elif Character.History.check("said_no_to_swimming", tracker = "recent") == 1:
+            call change_Character_stat(Character, "love", -2) from _call_change_Character_stat_1020
 
-            call expression f"{Companion.tag}_reject_swim_asked_once" from _call_expression_332
+            call expression f"{Character.tag}_reject_swim_asked_once" from _call_expression_332
         else:
-            call expression f"{Companion.tag}_reject_swim" from _call_expression_333
+            call expression f"{Character.tag}_reject_swim" from _call_expression_333
 
-        $ Companion.History.update("said_no_to_swimming")
+        $ Character.History.update("said_no_to_swimming")
 
         return False
 
@@ -70,9 +70,9 @@ label actually_swim(swimming_Characters):
 
     while temp_Characters:
         if temp_Characters[0].desire <= 50:
-            call change_Companion_stat(temp_Characters[0], "desire", 5) from _call_change_Companion_stat_1021
+            call change_Character_stat(temp_Characters[0], "desire", 5) from _call_change_Character_stat_1021
         else:
-            call change_Companion_stat(temp_Characters[0], "desire", 60 - temp_Characters[0].desire) from _call_change_Companion_stat_1022
+            call change_Character_stat(temp_Characters[0], "desire", 60 - temp_Characters[0].desire) from _call_change_Character_stat_1022
 
         $ temp_Characters.remove(temp_Characters[0])
 

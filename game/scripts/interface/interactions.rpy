@@ -32,12 +32,12 @@ screen Character_picker():
 
                         if C == middle_Slot:
                             action [
-                                SetVariable("focused_Companion", C),
+                                SetVariable("focused_Character", C),
                                 SetField(C, "hovered", False),
                                 Show("interactions_screen", Character = C)]
                         else:
                             action [
-                                SetVariable("focused_Companion", C),
+                                SetVariable("focused_Character", C),
                                 SetField(C, "hovered", False),
                                 Call("set_the_scene", fade = False, selected_Character = C)]
 
@@ -188,7 +188,7 @@ screen interactions_screen(Character):
 
                             action [
                                 Hide("interactions_screen"), 
-                                Show("Wardrobe_screen", Companion = Character)]
+                                Show("Wardrobe_screen", Character = Character)]
 
                             tooltip "Open Wardrobe"
                     else:

@@ -184,7 +184,7 @@ label Laura_penultimate_quirk:
         menu:
             extend ""
             "I will admit. . . I do enjoy it when you are assertive like that. . . (encourage_quirk)":
-                call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_1061
+                call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1061
 
                 $ Laura.change_face("sexy", eyes = "squint", blush = 2) 
                 
@@ -196,7 +196,7 @@ label Laura_penultimate_quirk:
                 menu:
                     extend ""
                     "I am. . . but let's not jump into this blindly. (encourage_quirk)":
-                        call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_1062
+                        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1062
 
                         while Laura.History.check("quirk_encouraged") < Laura.History.check("quirk_discouraged"):
                             $ Laura.History.update("quirk_encouraged")

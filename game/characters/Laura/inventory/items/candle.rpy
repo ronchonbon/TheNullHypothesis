@@ -15,8 +15,8 @@ label Laura_candle_shopping_accept:
     ch_Laura "I do. . ."
     ch_Laura "Thank you."
 
-    call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_1451
-    call change_Companion_stat(Laura, "trust", 0) from _call_change_Companion_stat_1452
+    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1451
+    call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_1452
 
     return True
 
@@ -48,8 +48,8 @@ label Laura_candle_gift_accept:
     ch_Laura "I do. . ."
     ch_Laura "Thank you."
 
-    call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_1453
-    call change_Companion_stat(Laura, "trust", 0) from _call_change_Companion_stat_1454
+    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1453
+    call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_1454
 
     return True
 

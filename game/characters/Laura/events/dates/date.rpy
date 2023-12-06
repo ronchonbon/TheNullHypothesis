@@ -68,7 +68,7 @@ label Laura_date:
     $ first_event = {}
     $ second_event = {}
 
-    if "Companion_initiated" in Player.date_planned[Laura]:
+    if "Character_initiated" in Player.date_planned[Laura]:
         if renpy.random.random() > 0.5:
             ch_Laura "I want to go to dinner."
 
@@ -112,7 +112,7 @@ label Laura_date:
     call set_the_scene(location = "bg_mall") from _call_set_the_scene_76
     call send_Characters(Laura, "bg_mall", behavior = "on_date") from _call_send_Characters_66
 
-    if "Companion_initiated" in Player.date_planned[Laura]:
+    if "Character_initiated" in Player.date_planned[Laura]:
         if renpy.random.random() > 0.25:
             $ dice_roll = renpy.random.random()
 
@@ -600,7 +600,7 @@ label Laura_date_dinner:
 
         ch_Laura "You picked {i}very{/i} well."
 
-        call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_279
+        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_279
     elif not Player_picked_food and chosen_meal[Laura] not in ["ribeye", "salmon", "short ribs"] and chosen_meal[Player] in ["ribeye", "salmon", "short ribs"]:
         $ Laura.change_face("neutral", eyes = "squint", mouth = "lipbite", blush = 1)
 
@@ -619,7 +619,7 @@ label Laura_date_dinner:
 
                 ch_Laura "Thanks."
 
-                call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_280
+                call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_280
             "Don't give her a bite":
                 $ Laura.change_face("suspicious1") 
 
@@ -653,7 +653,7 @@ label Laura_date_dinner:
                 if Player.cash >= restaurant_bill[Player] + restaurant_bill[Laura]:
                     "You pay the bill and head back into the mall." 
                     
-                    call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_281
+                    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_281
 
                     $ Player.cash -= restaurant_bill[Player] + restaurant_bill[Laura]
                 else:
@@ -668,7 +668,7 @@ label Laura_date_dinner:
                     ch_Laura "Here." 
                     "[Laura.name] pays the difference." 
                     
-                    call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_282 
+                    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_282 
 
                     $ Player.cash = 0
             else:
@@ -684,7 +684,7 @@ label Laura_date_dinner:
                 "[Laura.name] pays the bill, and the waitress basically sprints away."
                 "You both head back into the mall."
 
-                call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_283
+                call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_283
         "Recommend splitting the check":
             if "Player_initiated" in Player.date_planned[Laura]:
                 $ Laura.change_face("confused1")
@@ -711,7 +711,7 @@ label Laura_date_dinner:
                     ch_Laura "Here." 
                     "[Laura.name] pays the difference." 
                     
-                    call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_284 
+                    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_284 
 
                     $ Player.cash = 0
             else:
@@ -727,7 +727,7 @@ label Laura_date_dinner:
                 "[Laura.name] pays the bill, and the waitress basically sprints away."
                 "You both head back into the mall."
 
-                call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_285
+                call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_285
 
     return
 
@@ -864,8 +864,8 @@ label Laura_date_dinner_sex_handjob:
 
     ch_Laura "I can tell you enjoyed that."
 
-    call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_286
-    call change_Companion_stat(Laura, "desire", 0) from _call_change_Companion_stat_287
+    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_286
+    call change_Character_stat(Laura, "desire", 0) from _call_change_Character_stat_287
 
     return
 
@@ -939,8 +939,8 @@ label Laura_date_dinner_sex_blowjob:
 
     ch_Laura "The best meal they serve in this place."
 
-    call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_288
-    call change_Companion_stat(Laura, "desire", 0) from _call_change_Companion_stat_289
+    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_288
+    call change_Character_stat(Laura, "desire", 0) from _call_change_Character_stat_289
 
     $ Laura.History.update("swallow_cum")
 
@@ -1006,8 +1006,8 @@ label Laura_date_dinner_sex_sex:
 
     ch_Laura "I enjoyed that. . . {i}a lot{/i}."
 
-    call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_290
-    call change_Companion_stat(Laura, "desire", 0) from _call_change_Companion_stat_291
+    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_290
+    call change_Character_stat(Laura, "desire", 0) from _call_change_Character_stat_291
 
     $ Laura.available_Actions = []
     $ Laura.available_poses = []
@@ -1052,8 +1052,8 @@ label Laura_date_dinner_sex_eat_pussy:
 
     ch_Laura "I enjoyed that. . . {i}a lot{/i}."
 
-    call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_292
-    call change_Companion_stat(Laura, "desire", 0) from _call_change_Companion_stat_293
+    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_292
+    call change_Character_stat(Laura, "desire", 0) from _call_change_Character_stat_293
 
     $ Laura.available_Actions = []
     $ Laura.available_poses = []
@@ -1163,7 +1163,7 @@ label Laura_date_movie:
                 if Player.cash >= 2*ticket_price:
                     "You pay for the tickets." 
                     
-                    call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_294
+                    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_294
 
                     $ Player.cash -= 2*ticket_price
                 else:
@@ -1178,7 +1178,7 @@ label Laura_date_movie:
                     ch_Laura "Here." 
                     "[Laura.name] pays the difference." 
                     
-                    call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_295
+                    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_295
 
                     $ Player.cash = 0
             else:
@@ -1193,7 +1193,7 @@ label Laura_date_movie:
                 ch_Laura "You're. . . welcome."
                 "[Laura.name] pays for the tickets."
 
-                call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_296
+                call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_296
         "Recommend splitting the ticket price":
             if "Player_initiated" in Player.date_planned[Laura]:
                 $ Laura.change_face("confused1")
@@ -1220,7 +1220,7 @@ label Laura_date_movie:
                     ch_Laura "Here." 
                     "[Laura.name] pays the difference." 
 
-                    call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_297 
+                    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_297 
 
                     $ Player.cash = 0
             else:
@@ -1268,7 +1268,7 @@ label Laura_date_movie_ron_bic1:
 
     $ Laura.change_face("angry1")
 
-    call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_298
+    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_298
 
     return
 
@@ -1317,7 +1317,7 @@ label Laura_date_movie_ron_bic2:
 
     ch_Laura "I do not like 'cliffhangers.'"
 
-    call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_299
+    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_299
 
     return
 
@@ -1372,7 +1372,7 @@ label Laura_date_movie_hamburg_portfolio:
 
     ch_Laura "I wouldn't hesitate, like him."
 
-    call change_Companion_stat(Laura, "trust", 0) from _call_change_Companion_stat_300
+    call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_300
 
     return
 
@@ -1406,8 +1406,8 @@ label Laura_date_movie_beautiful_flower:
 
     ch_Laura "Hmm. . ."
 
-    call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_301
-    call change_Companion_stat(Laura, "trust", 0) from _call_change_Companion_stat_302
+    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_301
+    call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_302
 
     return
 
@@ -1442,7 +1442,7 @@ label Laura_date_movie_fated:
 
     "Instead the two become friends with benefits, ending the night with a very graphic sex scene."
 
-    call change_Companion_stat(Laura, "desire", 0) from _call_change_Companion_stat_303
+    call change_Character_stat(Laura, "desire", 0) from _call_change_Character_stat_303
 
     $ Laura.change_face("surprised1", eyes = "right", blush = 2)
 
@@ -1461,8 +1461,8 @@ label Laura_date_movie_fated:
 
     ch_Laura "Hmm. . ."
 
-    call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_304
-    call change_Companion_stat(Laura, "desire", 0) from _call_change_Companion_stat_305
+    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_304
+    call change_Character_stat(Laura, "desire", 0) from _call_change_Character_stat_305
 
     return
 
@@ -1503,8 +1503,8 @@ label Laura_date_movie_refilling_empty_glass:
     ch_Laura "I like that character. . ."
     ch_Laura "She's a badass."
 
-    call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_306
-    call change_Companion_stat(Laura, "desire", 0) from _call_change_Companion_stat_307
+    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_306
+    call change_Character_stat(Laura, "desire", 0) from _call_change_Character_stat_307
 
     return
 
@@ -1541,8 +1541,8 @@ label Laura_date_movie_stale_air:
 
     ch_Laura "That was. . . interesting. . ."
 
-    call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_308
-    call change_Companion_stat(Laura, "trust", 0) from _call_change_Companion_stat_309
+    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_308
+    call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_309
 
     return
 
@@ -1591,7 +1591,7 @@ label Laura_date_movie_devils_spring_break:
 
     ch_Laura "Was I supposed to root for the demon?"
 
-    call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_310
+    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_310
 
     return
 
@@ -1648,7 +1648,7 @@ label Laura_date_movie_unsanctioned_crusade:
 
     ch_Laura "Never mind."
 
-    call change_Companion_stat(Laura, "trust", 0) from _call_change_Companion_stat_311
+    call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_311
 
     return
 
@@ -1739,8 +1739,8 @@ label Laura_date_movie_sex_makeout:
     ch_Laura "Mmm. . ."
     ch_Laura "You taste {i}good{/i}."
 
-    call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_312
-    call change_Companion_stat(Laura, "desire", 0) from _call_change_Companion_stat_313
+    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_312
+    call change_Character_stat(Laura, "desire", 0) from _call_change_Character_stat_313
 
     return
 
@@ -1830,8 +1830,8 @@ label Laura_date_movie_sex_handjob:
 
     ch_Laura "I enjoy the way you squirm."
 
-    call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_314
-    call change_Companion_stat(Laura, "desire", 0) from _call_change_Companion_stat_315
+    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_314
+    call change_Character_stat(Laura, "desire", 0) from _call_change_Character_stat_315
 
     return
 
@@ -1887,8 +1887,8 @@ label Laura_date_movie_sex_touch_pussy:
 
     ch_Laura "Mmm. . ."
 
-    call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_316
-    call change_Companion_stat(Laura, "desire", 0) from _call_change_Companion_stat_317
+    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_316
+    call change_Character_stat(Laura, "desire", 0) from _call_change_Character_stat_317
 
     return
 
@@ -1944,8 +1944,8 @@ label Laura_date_movie_sex_finger_pussy:
 
     ch_Laura "Mmm. . ."
 
-    call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_318
-    call change_Companion_stat(Laura, "desire", 0) from _call_change_Companion_stat_319
+    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_318
+    call change_Character_stat(Laura, "desire", 0) from _call_change_Character_stat_319
 
     return
 
@@ -2019,8 +2019,8 @@ label Laura_date_movie_sex_blowjob:
 
     ch_Laura "I always want more."
 
-    call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_320
-    call change_Companion_stat(Laura, "desire", 0) from _call_change_Companion_stat_321
+    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_320
+    call change_Character_stat(Laura, "desire", 0) from _call_change_Character_stat_321
 
     $ Laura.History.update("swallow_cum")
 
@@ -2089,8 +2089,8 @@ label Laura_date_mall_wander:
                 
                 $ Laura.change_face("smirk2", mouth = "lipbite", eyes = "right", blush = 1) 
                 
-                call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_322
-                call change_Companion_stat(Laura, "trust", 0) from _call_change_Companion_stat_323
+                call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_322
+                call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_323
 
                 $ holding_hands = True
             "Just grab [Laura.name]'s hand.": 
@@ -2101,7 +2101,7 @@ label Laura_date_mall_wander:
                 
                 $ Laura.change_face("smirk2", mouth = "lipbite", eyes = "right", blush = 1) 
                 
-                call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_324
+                call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_324
 
                 $ holding_hands = True
             "Do nothing":
@@ -2130,7 +2130,7 @@ label Laura_date_mall_wander:
 
     "Time flies by, spent well, doing nothing much at all aside from being close to each other."
 
-    call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_325
+    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_325
 
     return
 

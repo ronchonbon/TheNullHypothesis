@@ -34,25 +34,25 @@ label sunbathe:
 
     return
 
-label ask_to_sunbathe(Companion):   
-    $ status = Companion.get_status()
+label ask_to_sunbathe(Character):   
+    $ status = Character.get_status()
 
-    if Companion.is_in_normal_mood() and approval_check(Companion, threshold = "dating"):
-        call expression f"{Companion.tag}_accept_sunbathe" from _call_expression_325
+    if Character.is_in_normal_mood() and approval_check(Character, threshold = "dating"):
+        call expression f"{Character.tag}_accept_sunbathe" from _call_expression_325
     else:
-        if Companion.History.check("said_no_to_sunbathing", tracker = "recent") >= 2:
-            call change_Companion_stat(Companion, "love", -5) from _call_change_Companion_stat_1013
-            call change_Companion_stat(Companion, "trust", -5) from _call_change_Companion_stat_1014
+        if Character.History.check("said_no_to_sunbathing", tracker = "recent") >= 2:
+            call change_Character_stat(Character, "love", -5) from _call_change_Character_stat_1013
+            call change_Character_stat(Character, "trust", -5) from _call_change_Character_stat_1014
 
-            call expression f"{Companion.tag}_reject_sunbathe_asked_twice" from _call_expression_326
-        elif Companion.History.check("said_no_to_sunbathing", tracker = "recent") == 1:
-            call change_Companion_stat(Companion, "love", -2) from _call_change_Companion_stat_1015
+            call expression f"{Character.tag}_reject_sunbathe_asked_twice" from _call_expression_326
+        elif Character.History.check("said_no_to_sunbathing", tracker = "recent") == 1:
+            call change_Character_stat(Character, "love", -2) from _call_change_Character_stat_1015
 
-            call expression f"{Companion.tag}_reject_sunbathe_asked_once" from _call_expression_327
+            call expression f"{Character.tag}_reject_sunbathe_asked_once" from _call_expression_327
         else:
-            call expression f"{Companion.tag}_reject_sunbathe" from _call_expression_328
+            call expression f"{Character.tag}_reject_sunbathe" from _call_expression_328
 
-        $ Companion.History.update("said_no_to_sunbathing")
+        $ Character.History.update("said_no_to_sunbathing")
 
         return False
 

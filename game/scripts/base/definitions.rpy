@@ -2,7 +2,7 @@ init -2:
 
     default black_screen = False
 
-    default focused_Companion = None
+    default focused_Character = None
 
     default Present = []
     default left_Slot = None

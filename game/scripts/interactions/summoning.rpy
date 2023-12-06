@@ -18,12 +18,12 @@ label summon(Character):
 
     if time_index == 3 and not approval_check(Character, threshold = "talk_late"):
         if Character.History.check("said_too_late_to_text", tracker = "recent") >= 2:
-            call change_Companion_stat(Character, "love", -5) from _call_change_Companion_stat_1004
-            call change_Companion_stat(Character, "trust", -5) from _call_change_Companion_stat_1005
+            call change_Character_stat(Character, "love", -5) from _call_change_Character_stat_1004
+            call change_Character_stat(Character, "trust", -5) from _call_change_Character_stat_1005
 
             call expression f"{Character.tag}_summon_reject_asked_twice" from _call_expression_303
         elif Character.History.check("said_too_late_to_text", tracker = "recent") == 1:
-            call change_Companion_stat(Character, "love", -2) from _call_change_Companion_stat_1006
+            call change_Character_stat(Character, "love", -2) from _call_change_Character_stat_1006
 
             call expression f"{Character.tag}_summon_reject_asked_once" from _call_expression_304
         else:
@@ -58,12 +58,12 @@ label summon(Character):
                 call expression f"{Character.tag}_summon_temporary" from _call_expression_313
             else:
                 if Character.History.check("said_no_to_summon", tracker = "recent") >= 2:
-                    call change_Companion_stat(Character, "love", -5) from _call_change_Companion_stat_1007
-                    call change_Companion_stat(Character, "trust", -5) from _call_change_Companion_stat_1008
+                    call change_Character_stat(Character, "love", -5) from _call_change_Character_stat_1007
+                    call change_Character_stat(Character, "trust", -5) from _call_change_Character_stat_1008
 
                     call expression f"{Character.tag}_summon_reject_asked_twice" from _call_expression_315
                 elif Character.History.check("said_no_to_summon", tracker = "recent") == 1:
-                    call change_Companion_stat(Character, "love", -2) from _call_change_Companion_stat_1009
+                    call change_Character_stat(Character, "love", -2) from _call_change_Character_stat_1009
 
                     call expression f"{Character.tag}_summon_reject_asked_once" from _call_expression_316
                 else:
@@ -101,12 +101,12 @@ label dismiss(Character):
                 call remove_Characters(Character) from _call_remove_Characters_235
         else:
             if Character.History.check("said_no_to_dismiss", tracker = "recent") >= 2:
-                call change_Companion_stat(Character, "love", -5) from _call_change_Companion_stat_1010
-                call change_Companion_stat(Character, "trust", -5) from _call_change_Companion_stat_1011
+                call change_Character_stat(Character, "love", -5) from _call_change_Character_stat_1010
+                call change_Character_stat(Character, "trust", -5) from _call_change_Character_stat_1011
 
                 call expression f"{Character.tag}_dismiss_reject_asked_twice" from _call_expression_321
             elif Character.History.check("said_no_to_dismiss", tracker = "recent") == 1:
-                call change_Companion_stat(Character, "love", -2) from _call_change_Companion_stat_1012
+                call change_Character_stat(Character, "love", -2) from _call_change_Character_stat_1012
 
                 call expression f"{Character.tag}_dismiss_reject_asked_once" from _call_expression_322
             else:

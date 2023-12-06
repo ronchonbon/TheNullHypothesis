@@ -68,7 +68,7 @@ style Wardrobe_image_button:
     # hover_sound "sounds/interface/hover.ogg"
     activate_sound "sounds/interface/press.ogg"
 
-screen Wardrobe_screen(Companion):
+screen Wardrobe_screen(Character):
     layer "interface"
 
     style_prefix "Wardrobe"
@@ -81,25 +81,25 @@ screen Wardrobe_screen(Companion):
         SetVariable("Character_picker_disabled", True),
         SetVariable("tab", "default"),
         SetVariable("changed_pubes", False),
-        SetField(Companion, "previous_Outfit", Companion.Outfit.name)]
+        SetField(Character, "previous_Outfit", Character.Outfit.name)]
     on "hide" action [
         SetVariable("current_Wardrobe_screen", None),
         SetVariable("current_Wardrobe_Outfit_page", 0)]
 
     $ Outfit_list = []
 
-    for O in Companion.Wardrobe.Outfits.values():
+    for O in Character.Wardrobe.Outfits.values():
         if O.Outfit_type == Wardrobe_tab:
             $ Outfit_list.append(O)
 
     add "images/interface/wardrobe/background.webp" align (0.5, 0.5)
 
-    add At(f"{Companion.tag}_sprite standing", color_shade(eval(f"{Companion.tag}_color"))):
+    add At(f"{Character.tag}_sprite standing", color_shade(eval(f"{Character.tag}_color"))):
         transform_anchor True
 
-        anchor (eval(f"{Companion.tag}_standing_anchor")[0], eval(f"{Companion.tag}_standing_anchor")[1]) 
-        pos (0.4, eval(f"{Companion.tag}_standing_height")) 
-        zoom eval(f"{Companion.tag}_standing_zoom")
+        anchor (eval(f"{Character.tag}_standing_anchor")[0], eval(f"{Character.tag}_standing_anchor")[1]) 
+        pos (0.4, eval(f"{Character.tag}_standing_height")) 
+        zoom eval(f"{Character.tag}_standing_zoom")
 
     imagebutton align (0.5, 0.5):
         idle "images/interface/wardrobe/default_idle.webp" hover "images/interface/wardrobe/default.webp" selected_idle "images/interface/wardrobe/default_selected.webp" selected_hover "images/interface/wardrobe/default_selected.webp"
@@ -153,22 +153,22 @@ screen Wardrobe_screen(Companion):
         $ flag = are_Characters_in_Partners(Present)
 
         for i in range(3*current_Wardrobe_Outfit_page, 3*current_Wardrobe_Outfit_page + 3):
-            if i <= len(Outfit_list) - 1 and approval_check(Companion, threshold = 0.4*Outfit_list[i].shame):
+            if i <= len(Outfit_list) - 1 and approval_check(Character, threshold = 0.4*Outfit_list[i].shame):
                 imagebutton:
                     idle f"images/interface/wardrobe/{Outfit_list[i].color}_idle.webp" hover f"images/interface/wardrobe/{Outfit_list[i].color}.webp" selected_idle "images/interface/wardrobe/outfit_selected.webp"
                     
-                    selected Companion.Outfit.name == Outfit_list[i].name
+                    selected Character.Outfit.name == Outfit_list[i].name
 
                     hovered SetScreenVariable("hovered_Outfit_name", Outfit_list[i].name)
                     unhovered SetScreenVariable("hovered_Outfit_name", False)
 
-                    if Companion.Outfit.name != Outfit_list[i].name:
-                        action Call("ask_Character_to_change_Outfit", Companion, Outfit_list[i].name, instant = True, from_current = True)
+                    if Character.Outfit.name != Outfit_list[i].name:
+                        action Call("ask_Character_to_change_Outfit", Character, Outfit_list[i].name, instant = True, from_current = True)
                     else:
                         action NullAction()
 
                     tooltip "Change Outfits"
-            elif i <= len(Outfit_list) - 1 and not approval_check(Companion, threshold = 0.4*Outfit_list[i].shame):
+            elif i <= len(Outfit_list) - 1 and not approval_check(Character, threshold = 0.4*Outfit_list[i].shame):
                 add f"images/interface/wardrobe/{Outfit_list[i].color}_idle.webp"
             else:
                 null width 108
@@ -191,15 +191,15 @@ screen Wardrobe_screen(Companion):
         text hovered_Outfit_name anchor (1.0, 0.5) pos (0.85, 0.258):
             size 46
     else:
-        text Companion.Outfit.name anchor (1.0, 0.5) pos (0.85, 0.258):
+        text Character.Outfit.name anchor (1.0, 0.5) pos (0.85, 0.258):
             size 46
 
-    add f"{Companion.tag}_sprite standing":
+    add f"{Character.tag}_sprite standing":
         transform_anchor True
 
-        anchor (eval(f"{Companion.tag}_standing_anchor")[0], eval(f"{Companion.tag}_standing_anchor")[1]) 
-        pos (0.36, eval(f"{Companion.tag}_standing_height")) 
-        zoom eval(f"{Companion.tag}_standing_zoom")
+        anchor (eval(f"{Character.tag}_standing_anchor")[0], eval(f"{Character.tag}_standing_anchor")[1]) 
+        pos (0.36, eval(f"{Character.tag}_standing_height")) 
+        zoom eval(f"{Character.tag}_standing_zoom")
 
     imagebutton align (0.5, 0.5):
         idle "images/interface/wardrobe/accessories_idle.webp" hover "images/interface/wardrobe/accessories.webp" selected_idle "images/interface/wardrobe/accessories_selected.webp"
@@ -248,26 +248,26 @@ screen Wardrobe_screen(Companion):
     imagebutton align (0.5, 0.5):
         idle "images/interface/wardrobe/exit_idle.webp" hover "images/interface/wardrobe/exit.webp"
         
-        action Call("review_Outfit", Companion, from_current = True)
+        action Call("review_Outfit", Character, from_current = True)
 
         focus_mask True
 
         tooltip "Exit"
 
     if current_Wardrobe_screen == "accessory":
-        use accessory_screen(Companion)
+        use accessory_screen(Character)
     elif current_Wardrobe_screen == "head":
-        use head_screen(Companion)
+        use head_screen(Character)
     elif current_Wardrobe_screen == "upper":
-        use upper_screen(Companion)
+        use upper_screen(Character)
     elif current_Wardrobe_screen == "lower":
-        use lower_screen(Companion)
+        use lower_screen(Character)
 
     hbox anchor (0.5, 0.5) pos (0.715, 0.915):
         spacing 10
                 
         imagebutton:
-            if Companion.Outfit.disabled:
+            if Character.Outfit.disabled:
                 idle "images/interface/wardrobe/disabled_idle.webp" hover "images/interface/wardrobe/disabled.webp"
 
                 tooltip "Enable Outfit"
@@ -276,15 +276,15 @@ screen Wardrobe_screen(Companion):
 
                 tooltip "Disable Outfit"
             
-            action ToggleField(Companion.Outfit, "disabled")
+            action ToggleField(Character.Outfit, "disabled")
 
-        if Companion.Outfit.Outfit_type == "custom":
+        if Character.Outfit.Outfit_type == "custom":
             imagebutton:
                 idle "images/interface/wardrobe/rename_idle.webp" hover "images/interface/wardrobe/rename.webp"
                 
                 action [
-                    SetVariable("current_input", Companion.Outfit.name),
-                    Show("edit_Outfit_screen", Companion = Companion)]
+                    SetVariable("current_input", Character.Outfit.name),
+                    Show("edit_Outfit_screen", Character = Character)]
 
                 tooltip "Rename Outfit"
         else:
@@ -293,15 +293,15 @@ screen Wardrobe_screen(Companion):
         imagebutton:
             idle "images/interface/wardrobe/save_idle.webp" hover "images/interface/wardrobe/save.webp"
             
-            action Show("save_Outfit_screen", Companion = Companion)
+            action Show("save_Outfit_screen", Character = Character)
 
             tooltip "Save Outfit"
             
-        if Companion.Outfit.Outfit_type == "custom":
+        if Character.Outfit.Outfit_type == "custom":
             imagebutton:
                 idle "images/interface/wardrobe/delete_idle.webp" hover "images/interface/wardrobe/delete.webp"
                 
-                action Show("delete_Outfit_screen", Companion = Companion, name = Companion.Outfit.name)
+                action Show("delete_Outfit_screen", Character = Character, name = Character.Outfit.name)
 
                 tooltip "Delete Outfit"
         else:
@@ -313,7 +313,7 @@ screen Wardrobe_screen(Companion):
         hover_sound None
         activate_sound None
 
-        text f"{int(0.25*(Companion.love + Companion.trust))}" align (1.0, 0.5):
+        text f"{int(0.25*(Character.love + Character.trust))}" align (1.0, 0.5):
             size 36
 
             color "#000000"
@@ -328,7 +328,7 @@ screen Wardrobe_screen(Companion):
         hover_sound None
         activate_sound None
 
-        text f"{int(0.4*(Companion.love + Companion.trust))}" align (1.0, 0.5):
+        text f"{int(0.4*(Character.love + Character.trust))}" align (1.0, 0.5):
             size 36
 
             color "#000000"
@@ -348,7 +348,7 @@ screen Wardrobe_screen(Companion):
         hover_sound None
         activate_sound None
 
-        text f"{Companion.Outfit.shame}" align (1.0, 0.5):
+        text f"{Character.Outfit.shame}" align (1.0, 0.5):
             size 36
 
             color "#000000"
@@ -374,7 +374,7 @@ screen Wardrobe_screen(Companion):
     if tooltips_enabled:
         use tooltips
 
-screen accessory_screen(Companion):
+screen accessory_screen(Character):
     style_prefix "Wardrobe"
 
     viewport id "accessory_screen_viewport" anchor (0.5, 0.0) pos (0.71, 0.3) xysize (int(591*2*interface_sampling), int(548*2*interface_sampling)):
@@ -386,13 +386,13 @@ screen accessory_screen(Companion):
         vbox align (0.0, 0.0):
             spacing 5
 
-            for i, Item in enumerate(Companion.Wardrobe.Clothes.values()):
+            for i, Item in enumerate(Character.Wardrobe.Clothes.values()):
                 if Item.Clothing_type in accessory_Clothing_types:
                     hbox align (0.5, 0.5):
                         spacing 5
 
                         fixed xysize (85, 85):
-                            if Companion.Clothes[Item.Clothing_type].string == Item.string and Companion.Clothes[Item.Clothing_type].covered or (("swimsuit" in Item.name or "bikini" in Item.name) and Companion.location == "bg_pool"):
+                            if Character.Clothes[Item.Clothing_type].string == Item.string and Character.Clothes[Item.Clothing_type].covered or (("swimsuit" in Item.name or "bikini" in Item.name) and Character.location == "bg_pool"):
                                 text f"{Item.shame[0]}" anchor (0.5, 0.5) pos (0.37, 0.5):
                                     size 36
 
@@ -405,22 +405,22 @@ screen accessory_screen(Companion):
 
                         button xysize (411, 85) xalign 0.5:
                             idle_background "images/interface/wardrobe/clothing_idle.webp" hover_background "images/interface/wardrobe/clothing.webp" selected_background "images/interface/wardrobe/clothing_selected.webp"
-                            selected Companion.Clothes[Item.Clothing_type].string == Item.string
+                            selected Character.Clothes[Item.Clothing_type].string == Item.string
 
-                            if Companion.Clothes[Item.Clothing_type].string != Item.string:
+                            if Character.Clothes[Item.Clothing_type].string != Item.string:
                                 action Call("ask_Character_to_try_on", Item, instant = True, from_current = True)
                             else:
                                 action Call("ask_Character_to_take_off", Item, instant = True, from_current = True)
 
                             text Item.name align (0.5, 0.5) size 36
 
-                        if Companion.Clothes[Item.Clothing_type].string == Item.string and len(Companion.Clothes[Item.Clothing_type].available_states["standing"]) > 1 and not Companion.Clothes[Item.Clothing_type].covered:
+                        if Character.Clothes[Item.Clothing_type].string == Item.string and len(Character.Clothes[Item.Clothing_type].available_states["standing"]) > 1 and not Character.Clothes[Item.Clothing_type].covered:
                             imagebutton yoffset 1:
                                 idle "images/interface/wardrobe/undress_idle.webp" hover "images/interface/wardrobe/undress.webp" selected_idle "images/interface/wardrobe/undress_selected.webp"
 
-                                selected Companion.Clothes[Item.Clothing_type].state != 0
+                                selected Character.Clothes[Item.Clothing_type].state != 0
 
-                                if Companion.Clothes[Item.Clothing_type].state == 0:
+                                if Character.Clothes[Item.Clothing_type].state == 0:
                                     action Call("ask_Character_to_undress", Item, instant = True, from_current = True)
                                 else:
                                     action Call("ask_Character_to_redress", Item, instant = True, from_current = True)
@@ -429,7 +429,7 @@ screen accessory_screen(Companion):
 
             for body_part in ["nipple", "labia"]:
                 for piercing_type in ["barbell", "ring"]:
-                    if f"{piercing_type}_{body_part}_piercings" in Companion.inventory.keys():
+                    if f"{piercing_type}_{body_part}_piercings" in Character.inventory.keys():
                         hbox align (0.5, 0.5):
                             spacing 5
                             
@@ -438,23 +438,23 @@ screen accessory_screen(Companion):
                             button xysize (411, 85) xalign 0.5:
                                 idle_background "images/interface/wardrobe/clothing_idle.webp" hover_background "images/interface/wardrobe/clothing.webp" selected_background "images/interface/wardrobe/clothing_selected.webp"
                     
-                                selected Companion.piercings[body_part] in [piercing_type, "both"]
+                                selected Character.piercings[body_part] in [piercing_type, "both"]
 
-                                if Companion.piercings[body_part] == piercing_type:
-                                    action SetDict(Companion.piercings, body_part, False)
-                                elif Companion.piercings[body_part] == "both":
+                                if Character.piercings[body_part] == piercing_type:
+                                    action SetDict(Character.piercings, body_part, False)
+                                elif Character.piercings[body_part] == "both":
                                     if piercing_type == "barbell":
-                                        action SetDict(Companion.piercings, body_part, "ring")
+                                        action SetDict(Character.piercings, body_part, "ring")
                                     elif piercing_type == "ring":
-                                        action SetDict(Companion.piercings, body_part, "barbell")
+                                        action SetDict(Character.piercings, body_part, "barbell")
                                 else:
-                                    action Call("give_Character_piercing", Companion, Companion.inventory[f"{piercing_type}_{body_part}_piercings"], from_current = True)
+                                    action Call("give_Character_piercing", Character, Character.inventory[f"{piercing_type}_{body_part}_piercings"], from_current = True)
 
                                 text f"{piercing_type} {body_part} piercings" align (0.5, 0.5) size 36
                             
                             null width 85
 
-            if "belly_piercing" in Companion.inventory.keys():
+            if "belly_piercing" in Character.inventory.keys():
                 hbox align (0.5, 0.5):
                     spacing 5
                     
@@ -463,18 +463,18 @@ screen accessory_screen(Companion):
                     button xysize (411, 85) xalign 0.5:
                         idle_background "images/interface/wardrobe/clothing_idle.webp" hover_background "images/interface/wardrobe/clothing.webp" selected_background "images/interface/wardrobe/clothing_selected.webp"
                     
-                        selected Companion.piercings["belly"]
+                        selected Character.piercings["belly"]
 
-                        if Companion.piercings["belly"]:
-                            action SetDict(Companion.piercings, "belly", False)
+                        if Character.piercings["belly"]:
+                            action SetDict(Character.piercings, "belly", False)
                         else:
-                            action Call("give_Character_piercing", Companion, Companion.inventory["belly_piercing"], from_current = True)
+                            action Call("give_Character_piercing", Character, Character.inventory["belly_piercing"], from_current = True)
 
                         text "belly piercing" align (0.5, 0.5) size 36
                             
                     null width 85
 
-            if "remote_vibrator" in Companion.inventory.keys():
+            if "remote_vibrator" in Character.inventory.keys():
                 hbox align (0.5, 0.5):
                     spacing 5
                     
@@ -483,19 +483,19 @@ screen accessory_screen(Companion):
                     button xysize (411, 85) xalign 0.5:
                         idle_background "images/interface/wardrobe/clothing_idle.webp" hover_background "images/interface/wardrobe/clothing.webp" selected_background "images/interface/wardrobe/clothing_selected.webp"
                     
-                        selected Companion.remote_vibrator
+                        selected Character.remote_vibrator
 
-                        if Companion.remote_vibrator:
-                            action SetField(Companion, "remote_vibrator", None)
+                        if Character.remote_vibrator:
+                            action SetField(Character, "remote_vibrator", None)
                         else:
-                            action Call("ask_Character_to_use_Toy", Companion, Companion.inventory["remote_vibrator"][0], from_current = True)
+                            action Call("ask_Character_to_use_Toy", Character, Character.inventory["remote_vibrator"][0], from_current = True)
 
                         text "remote vibrator" align (0.5, 0.5) size 36
                             
                     null width 85
 
             for buttplug in ["heart_anal_plug", "round_anal_plug"]:
-                if buttplug in Companion.inventory.keys():
+                if buttplug in Character.inventory.keys():
                     for plug_size in ["XS", "S", "M", "L"]:
                         hbox align (0.5, 0.5):
                             spacing 5
@@ -506,43 +506,43 @@ screen accessory_screen(Companion):
                                 idle_background "images/interface/wardrobe/clothing_idle.webp" hover_background "images/interface/wardrobe/clothing.webp" selected_background "images/interface/wardrobe/clothing_selected.webp"
                     
                                 if plug_size == "XS":
-                                    selected Companion.buttplug == Companion.inventory[buttplug][0] and Companion.buttplug_size == 0
+                                    selected Character.buttplug == Character.inventory[buttplug][0] and Character.buttplug_size == 0
 
-                                    if Companion.buttplug == Companion.inventory[buttplug][0] and Companion.buttplug_size == 0:
+                                    if Character.buttplug == Character.inventory[buttplug][0] and Character.buttplug_size == 0:
                                         action [
-                                            SetField(Companion, "buttplug", None),
-                                            SetField(Companion, "buttplug_size", None)]
+                                            SetField(Character, "buttplug", None),
+                                            SetField(Character, "buttplug_size", None)]
                                     else:
-                                        action Call("ask_Character_to_use_Toy", Companion, Companion.inventory[buttplug][0], 0, from_current = True)
+                                        action Call("ask_Character_to_use_Toy", Character, Character.inventory[buttplug][0], 0, from_current = True)
                                 elif plug_size == "S":
-                                    selected Companion.buttplug == Companion.inventory[buttplug][0] and Companion.buttplug_size == 1
+                                    selected Character.buttplug == Character.inventory[buttplug][0] and Character.buttplug_size == 1
 
-                                    if Companion.buttplug == Companion.inventory[buttplug][0] and Companion.buttplug_size == 1:
+                                    if Character.buttplug == Character.inventory[buttplug][0] and Character.buttplug_size == 1:
                                         action [
-                                            SetField(Companion, "buttplug", None),
-                                            SetField(Companion, "buttplug_size", None)]
+                                            SetField(Character, "buttplug", None),
+                                            SetField(Character, "buttplug_size", None)]
                                     else:
-                                        action Call("ask_Character_to_use_Toy", Companion, Companion.inventory[buttplug][0], 1, from_current = True)
+                                        action Call("ask_Character_to_use_Toy", Character, Character.inventory[buttplug][0], 1, from_current = True)
                                 elif plug_size == "M":
-                                    selected Companion.buttplug == Companion.inventory[buttplug][0] and Companion.buttplug_size == 2
+                                    selected Character.buttplug == Character.inventory[buttplug][0] and Character.buttplug_size == 2
 
-                                    if Companion.buttplug == Companion.inventory[buttplug][0] and Companion.buttplug_size == 2:
+                                    if Character.buttplug == Character.inventory[buttplug][0] and Character.buttplug_size == 2:
                                         action [
-                                            SetField(Companion, "buttplug", None),
-                                            SetField(Companion, "buttplug_size", None)]
+                                            SetField(Character, "buttplug", None),
+                                            SetField(Character, "buttplug_size", None)]
                                     else:
-                                        action Call("ask_Character_to_use_Toy", Companion, Companion.inventory[buttplug][0], 2, from_current = True)
+                                        action Call("ask_Character_to_use_Toy", Character, Character.inventory[buttplug][0], 2, from_current = True)
                                 elif plug_size == "L":
-                                    selected Companion.buttplug == Companion.inventory[buttplug][0] and Companion.buttplug_size == 3
+                                    selected Character.buttplug == Character.inventory[buttplug][0] and Character.buttplug_size == 3
 
-                                    if Companion.buttplug == Companion.inventory[buttplug][0] and Companion.buttplug_size == 3:
+                                    if Character.buttplug == Character.inventory[buttplug][0] and Character.buttplug_size == 3:
                                         action [
-                                            SetField(Companion, "buttplug", None),
-                                            SetField(Companion, "buttplug_size", None)]
+                                            SetField(Character, "buttplug", None),
+                                            SetField(Character, "buttplug_size", None)]
                                     else:
-                                        action Call("ask_Character_to_use_Toy", Companion, Companion.inventory[buttplug][0], 3, from_current = True)
+                                        action Call("ask_Character_to_use_Toy", Character, Character.inventory[buttplug][0], 3, from_current = True)
 
-                                $ temp = Companion.inventory[buttplug][0].name
+                                $ temp = Character.inventory[buttplug][0].name
 
                                 text f"{temp}, {plug_size}" align (0.5, 0.5) size 36
                                     
@@ -556,7 +556,7 @@ screen accessory_screen(Companion):
 
         unscrollable "hide"
 
-screen head_screen(Companion):
+screen head_screen(Character):
     style_prefix "Wardrobe"
 
     viewport id "head_screen_viewport" anchor (0.5, 0.0) pos (0.71, 0.3) xysize (int(591*2*interface_sampling), int(548*2*interface_sampling)):
@@ -568,7 +568,7 @@ screen head_screen(Companion):
         vbox align (0.0, 0.0):
             spacing 5
 
-            for I in Companion.Wardrobe.Clothes.values():
+            for I in Character.Wardrobe.Clothes.values():
                 if I.Clothing_type == "hair":
                     hbox align (0.5, 0.5):
                         spacing 5
@@ -578,9 +578,9 @@ screen head_screen(Companion):
                         button xysize (411, 85) xalign 0.5:
                             idle_background "images/interface/wardrobe/clothing_idle.webp" hover_background "images/interface/wardrobe/clothing.webp" selected_background "images/interface/wardrobe/clothing_selected.webp"
                     
-                            selected Companion.Clothes["hair"].string == I.string
+                            selected Character.Clothes["hair"].string == I.string
 
-                            if Companion.Clothes["hair"].string != I.string:
+                            if Character.Clothes["hair"].string != I.string:
                                 action Call("ask_Character_to_try_on", I, instant = True, from_current = True)
                             else:
                                 action NullAction()
@@ -589,7 +589,7 @@ screen head_screen(Companion):
 
                         null width 85
 
-            if Companion.customizable_pubes:
+            if Character.customizable_pubes:
                 for hair_style in ["bush", "growing", "hairy", "null", "shaven", "strip", "triangle"]:
                     hbox align (0.5, 0.5):
                         spacing 5
@@ -600,16 +600,16 @@ screen head_screen(Companion):
                             idle_background "images/interface/wardrobe/clothing_idle.webp" hover_background "images/interface/wardrobe/clothing.webp" selected_background "images/interface/wardrobe/clothing_selected.webp"
                     
                             if hair_style == "shaven":
-                                selected Companion.desired_pubes == None
+                                selected Character.desired_pubes == None
                             else:
-                                selected Companion.desired_pubes == hair_style
+                                selected Character.desired_pubes == hair_style
 
-                            if Companion.desired_pubes == hair_style:
+                            if Character.desired_pubes == hair_style:
                                 action NullAction()
                             else:
                                 action [
                                     SetVariable("changed_pubes", True),
-                                    Call("ask_Character_to_shave", Companion, hair_style, from_current = True)]
+                                    Call("ask_Character_to_shave", Character, hair_style, from_current = True)]
 
                             text f"pubic hair: {hair_style}" align (0.5, 0.5) size 36
                         
@@ -628,7 +628,7 @@ screen head_screen(Companion):
                         button xysize (411, 85) xalign 0.5:
                             idle_background "images/interface/wardrobe/clothing_idle.webp" hover_background "images/interface/wardrobe/clothing.webp" selected_background "images/interface/wardrobe/clothing_selected.webp"
 
-                            action SetField(Companion, "brows", brow)
+                            action SetField(Character, "brows", brow)
 
                             text f"brows: {brow}" align (0.5, 0.5) size 36
 
@@ -646,13 +646,13 @@ screen head_screen(Companion):
                         button xysize (411, 85) xalign 0.5:
                             idle_background "images/interface/wardrobe/clothing_idle.webp" hover_background "images/interface/wardrobe/clothing.webp" selected_background "images/interface/wardrobe/clothing_selected.webp"
 
-                            action SetField(Companion, "eyes", eye)
+                            action SetField(Character, "eyes", eye)
 
                             text f"eyes: {eye}" align (0.5, 0.5) size 36
 
                         null width 85
 
-                if Companion in [Laura]:
+                if Character in [Laura]:
                     $ mouths = [
                         "neutral", "agape", "frown", "happy", "kiss", "lipbite", "open", "smile", "smirk", "snarl", "tongue"]
                 else:
@@ -668,13 +668,13 @@ screen head_screen(Companion):
                         button xysize (411, 85) xalign 0.5:
                             idle_background "images/interface/wardrobe/clothing_idle.webp" hover_background "images/interface/wardrobe/clothing.webp" selected_background "images/interface/wardrobe/clothing_selected.webp"
 
-                            action SetField(Companion, "mouth", mouth)
+                            action SetField(Character, "mouth", mouth)
 
                             text f"mouth: {mouth}" align (0.5, 0.5) size 36
 
                         null width 85
 
-                if Companion in [Laura]:
+                if Character in [Laura]:
                     $ faces = [
                         "neutral", "angry1", "angry2", "appalled1", "appalled2", "appalled3", 
                         "confused1", "confused2", "confused3", "devious",
@@ -700,19 +700,19 @@ screen head_screen(Companion):
                         button xysize (411, 85) xalign 0.5:
                             idle_background "images/interface/wardrobe/clothing_idle.webp" hover_background "images/interface/wardrobe/clothing.webp" selected_background "images/interface/wardrobe/clothing_selected.webp"
 
-                            action Function(Companion.change_face, face)
+                            action Function(Character.change_face, face)
 
                             text f"face: {face}" align (0.5, 0.5) size 36
 
                         null width 85
 
-                if Companion in [Rogue]:
+                if Character in [Rogue]:
                     $ left_arms = [
                         "bra", "crossed", "extended", "fight", "fist", "grope", "hip", "neutral", "rub_neck", "touch_ass"]
-                elif Companion in [Laura]:
+                elif Character in [Laura]:
                     $ left_arms = [
                         "bra", "claws", "crossed", "extended", "fight", "fist", "grope", "hip", "neutral", "rub_neck", "touch_ass", "X"]
-                elif Companion in [Jean]:
+                elif Character in [Jean]:
                     $ left_arms = [
                         "bra", "crossed", "extended", "fight", "fist", "grope", "hip", "neutral", "psychic1", "psychic2", "rub_neck", "touch_ass"]
 
@@ -727,26 +727,26 @@ screen head_screen(Companion):
 
                             if left_arm == "crossed":
                                 action [
-                                    SetField(Companion, "left_arm", left_arm),
-                                    SetField(Companion, "right_arm", left_arm)]
-                            elif Companion.right_arm == "crossed":
+                                    SetField(Character, "left_arm", left_arm),
+                                    SetField(Character, "right_arm", left_arm)]
+                            elif Character.right_arm == "crossed":
                                 action [
-                                    SetField(Companion, "left_arm", left_arm),
-                                    SetField(Companion, "right_arm", "neutral")]
+                                    SetField(Character, "left_arm", left_arm),
+                                    SetField(Character, "right_arm", "neutral")]
                             else:
-                                action SetField(Companion, "left_arm", left_arm)
+                                action SetField(Character, "left_arm", left_arm)
 
                             text f"left arm: {left_arm}" align (0.5, 0.5) size 36
 
                         null width 85
 
-                if Companion in [Rogue]:
+                if Character in [Rogue]:
                     $ right_arms = [
                         "bra", "crossed", "extended", "fight", "fist", "hip", "neutral", "touch_pussy"]
-                elif Companion in [Laura]:
+                elif Character in [Laura]:
                     $ right_arms = [
                         "bra", "claws", "extended", "fight", "fist", "hip", "neutral", "touch_pussy", "X"]
-                elif Companion in [Jean]:
+                elif Character in [Jean]:
                     $ right_arms = [
                         "bra", "extended", "fight", "fist", "hip", "neutral", "psychic1", "psychic2", "touch_pussy"]
 
@@ -761,14 +761,14 @@ screen head_screen(Companion):
 
                             if right_arm == "crossed":
                                 action [
-                                    SetField(Companion, "left_arm", right_arm),
-                                    SetField(Companion, "right_arm", right_arm)]
-                            elif Companion.left_arm == "crossed":
+                                    SetField(Character, "left_arm", right_arm),
+                                    SetField(Character, "right_arm", right_arm)]
+                            elif Character.left_arm == "crossed":
                                 action [
-                                    SetField(Companion, "left_arm", "neutral"),
-                                    SetField(Companion, "right_arm", right_arm)]
+                                    SetField(Character, "left_arm", "neutral"),
+                                    SetField(Character, "right_arm", right_arm)]
                             else:
-                                action SetField(Companion, "right_arm", right_arm)
+                                action SetField(Character, "right_arm", right_arm)
 
                             text f"right arm: {right_arm}" align (0.5, 0.5) size 36
 
@@ -782,7 +782,7 @@ screen head_screen(Companion):
 
         unscrollable "hide"
 
-screen upper_screen(Companion):
+screen upper_screen(Character):
     style_prefix "Wardrobe"
 
     viewport id "upper_screen_viewport" anchor (0.5, 0.0) pos (0.71, 0.3) xysize (int(591*2*interface_sampling), int(548*2*interface_sampling)):
@@ -794,13 +794,13 @@ screen upper_screen(Companion):
         vbox align (0.0, 0.0):
             spacing 5
 
-            for i, Item in enumerate(Companion.Wardrobe.Clothes.values()):
+            for i, Item in enumerate(Character.Wardrobe.Clothes.values()):
                 if Item.Clothing_type in upper_Clothing_types:
                     hbox align (0.5, 0.5):
                         spacing 5
 
                         fixed xysize (85, 85):
-                            if Companion.Clothes[Item.Clothing_type].string == Item.string and Companion.Clothes[Item.Clothing_type].covered or (("swimsuit" in Item.name or "bikini" in Item.name) and Companion.location == "bg_pool"):
+                            if Character.Clothes[Item.Clothing_type].string == Item.string and Character.Clothes[Item.Clothing_type].covered or (("swimsuit" in Item.name or "bikini" in Item.name) and Character.location == "bg_pool"):
                                 text f"{Item.shame[0]}" anchor (0.5, 0.5) pos (0.37, 0.5):
                                     size 36
 
@@ -814,22 +814,22 @@ screen upper_screen(Companion):
                         button xysize (411, 85) xalign 0.5:
                             idle_background "images/interface/wardrobe/clothing_idle.webp" hover_background "images/interface/wardrobe/clothing.webp" selected_background "images/interface/wardrobe/clothing_selected.webp"
                     
-                            selected Companion.Clothes[Item.Clothing_type].string == Item.string
+                            selected Character.Clothes[Item.Clothing_type].string == Item.string
 
-                            if Companion.Clothes[Item.Clothing_type].string != Item.string:
+                            if Character.Clothes[Item.Clothing_type].string != Item.string:
                                 action Call("ask_Character_to_try_on", Item, instant = True, from_current = True)
                             else:
                                 action Call("ask_Character_to_take_off", Item, instant = True, from_current = True)
 
                             text Item.name align (0.5, 0.5) size 36
 
-                        if Companion.Clothes[Item.Clothing_type].string == Item.string and len(Companion.Clothes[Item.Clothing_type].available_states["standing"]) > 1 and not Companion.Clothes[Item.Clothing_type].covered:
+                        if Character.Clothes[Item.Clothing_type].string == Item.string and len(Character.Clothes[Item.Clothing_type].available_states["standing"]) > 1 and not Character.Clothes[Item.Clothing_type].covered:
                             imagebutton yoffset 1:
                                 idle "images/interface/wardrobe/undress_idle.webp" hover "images/interface/wardrobe/undress.webp" selected_idle "images/interface/wardrobe/undress_selected.webp"
                     
-                                selected Companion.Clothes[Item.Clothing_type].state != 0
+                                selected Character.Clothes[Item.Clothing_type].state != 0
 
-                                if Companion.Clothes[Item.Clothing_type].state == 0:
+                                if Character.Clothes[Item.Clothing_type].state == 0:
                                     action Call("ask_Character_to_undress", Item, instant = True, from_current = True)
                                 else:
                                     action Call("ask_Character_to_redress", Item, instant = True, from_current = True)
@@ -844,7 +844,7 @@ screen upper_screen(Companion):
 
         unscrollable "hide"
 
-screen lower_screen(Companion):
+screen lower_screen(Character):
     style_prefix "Wardrobe"
     
     viewport id "lower_screen_viewport" anchor (0.5, 0.0) pos (0.71, 0.3) xysize (int(591*2*interface_sampling), int(548*2*interface_sampling)):
@@ -856,13 +856,13 @@ screen lower_screen(Companion):
         vbox align (0.0, 0.0):
             spacing 5
 
-            for i, Item in enumerate(Companion.Wardrobe.Clothes.values()):
+            for i, Item in enumerate(Character.Wardrobe.Clothes.values()):
                 if Item.Clothing_type in lower_Clothing_types:
                     hbox align (0.5, 0.5):
                         spacing 5
 
                         fixed xysize (85, 85):
-                            if Companion.Clothes[Item.Clothing_type].string == Item.string and Companion.Clothes[Item.Clothing_type].covered or (("swimsuit" in Item.name or "bikini" in Item.name) and Companion.location == "bg_pool"):
+                            if Character.Clothes[Item.Clothing_type].string == Item.string and Character.Clothes[Item.Clothing_type].covered or (("swimsuit" in Item.name or "bikini" in Item.name) and Character.location == "bg_pool"):
                                 text f"{Item.shame[0]}" anchor (0.5, 0.5) pos (0.37, 0.5):
                                     size 36
 
@@ -876,22 +876,22 @@ screen lower_screen(Companion):
                         button xysize (411, 85) xalign 0.5:
                             idle_background "images/interface/wardrobe/clothing_idle.webp" hover_background "images/interface/wardrobe/clothing.webp" selected_background "images/interface/wardrobe/clothing_selected.webp"
                     
-                            selected Companion.Clothes[Item.Clothing_type].string == Item.string
+                            selected Character.Clothes[Item.Clothing_type].string == Item.string
 
-                            if Companion.Clothes[Item.Clothing_type].string != Item.string:
+                            if Character.Clothes[Item.Clothing_type].string != Item.string:
                                 action Call("ask_Character_to_try_on", Item, instant = True, from_current = True)
                             else:
                                 action Call("ask_Character_to_take_off", Item, instant = True, from_current = True)
 
                             text Item.name align (0.5, 0.5) size 36
 
-                        if Companion.Clothes[Item.Clothing_type].string == Item.string and len(Companion.Clothes[Item.Clothing_type].available_states["standing"]) > 1 and not Companion.Clothes[Item.Clothing_type].covered:
+                        if Character.Clothes[Item.Clothing_type].string == Item.string and len(Character.Clothes[Item.Clothing_type].available_states["standing"]) > 1 and not Character.Clothes[Item.Clothing_type].covered:
                             imagebutton yoffset 1:
                                 idle "images/interface/wardrobe/undress_idle.webp" hover "images/interface/wardrobe/undress.webp" selected_idle "images/interface/wardrobe/undress_selected.webp"
 
-                                selected Companion.Clothes[Item.Clothing_type].state != 0
+                                selected Character.Clothes[Item.Clothing_type].state != 0
 
-                                if Companion.Clothes[Item.Clothing_type].state == 0:
+                                if Character.Clothes[Item.Clothing_type].state == 0:
                                     action Call("ask_Character_to_undress", Item, instant = True, from_current = True)
                                 else:
                                     action Call("ask_Character_to_redress", Item, instant = True, from_current = True)
@@ -906,7 +906,7 @@ screen lower_screen(Companion):
 
         unscrollable "hide"
 
-screen save_Outfit_screen(Companion):
+screen save_Outfit_screen(Character):
     modal True
 
     style_prefix "Wardrobe"
@@ -924,7 +924,7 @@ screen save_Outfit_screen(Companion):
 
     $ Outfit_list = []
 
-    for O in Companion.Wardrobe.Outfits.values():
+    for O in Character.Wardrobe.Outfits.values():
         if O.Outfit_type == Wardrobe_tab:
             $ Outfit_list.append(O)
 
@@ -1002,25 +1002,25 @@ screen save_Outfit_screen(Companion):
         imagebutton anchor (1.0, 1.0) pos (0.79, 0.975):
             idle "small_save_idle" hover "small_save"
 
-            if current_input in Companion.Wardrobe.Outfits.keys() and Companion.Wardrobe.Outfits[current_input].Outfit_type == "custom":
+            if current_input in Character.Wardrobe.Outfits.keys() and Character.Wardrobe.Outfits[current_input].Outfit_type == "custom":
                 action [
                     Hide("save_Outfit_screen"), 
-                    Show("confirm_overwrite_screen", Companion = Companion)]
-            elif current_input in Companion.Wardrobe.Outfits.keys() and Companion.Wardrobe.Outfits[current_input].Outfit_type == "default":
+                    Show("confirm_overwrite_screen", Character = Character)]
+            elif current_input in Character.Wardrobe.Outfits.keys() and Character.Wardrobe.Outfits[current_input].Outfit_type == "default":
                 action [
                     Hide("save_Outfit_screen"), 
-                    Show("cannot_overwrite_screen", Companion = Companion)]
+                    Show("cannot_overwrite_screen", Character = Character)]
 
                 tooltip "Save Outfit"
             elif current_input:
                 if len(Outfit_list) < 27:
                     action [
                         Hide("save_Outfit_screen"), 
-                        Call("save_new_Outfit", Companion, current_input, current_Outfit_color, current_flags, from_current = True)]
+                        Call("save_new_Outfit", Character, current_input, current_Outfit_color, current_flags, from_current = True)]
                 else:
                     action [
                         Hide("save_Outfit_screen"), 
-                        Show("cannot_save_screen", Companion = Companion)]
+                        Show("cannot_save_screen", Character = Character)]
 
         imagebutton anchor (1.0, 1.0) pos (0.975, 0.975):
             idle "small_delete_idle" hover "small_delete"
@@ -1032,22 +1032,22 @@ screen save_Outfit_screen(Companion):
     if tooltips_enabled:
         use tooltips
 
-screen edit_Outfit_screen(Companion):
+screen edit_Outfit_screen(Character):
     modal True
 
     style_prefix "Wardrobe"
 
     on "show" action [
-        SetVariable("current_input", Companion.Outfit.name),
-        SetDict(current_flags, "wear_in_public", Companion.Outfit.wear_in_public),
-        SetDict(current_flags, "wear_in_private", Companion.Outfit.wear_in_private),
-        SetDict(current_flags, "activewear", Companion.Outfit.activewear),
-        SetDict(current_flags, "superwear", Companion.Outfit.superwear),
-        SetDict(current_flags, "swimwear", Companion.Outfit.swimwear),
-        SetDict(current_flags, "datewear", Companion.Outfit.datewear),
-        SetDict(current_flags, "sexwear", Companion.Outfit.sexwear),
-        SetDict(current_flags, "sleepwear", Companion.Outfit.sleepwear),
-        SetDict(current_flags, "winterwear", Companion.Outfit.winterwear)]
+        SetVariable("current_input", Character.Outfit.name),
+        SetDict(current_flags, "wear_in_public", Character.Outfit.wear_in_public),
+        SetDict(current_flags, "wear_in_private", Character.Outfit.wear_in_private),
+        SetDict(current_flags, "activewear", Character.Outfit.activewear),
+        SetDict(current_flags, "superwear", Character.Outfit.superwear),
+        SetDict(current_flags, "swimwear", Character.Outfit.swimwear),
+        SetDict(current_flags, "datewear", Character.Outfit.datewear),
+        SetDict(current_flags, "sexwear", Character.Outfit.sexwear),
+        SetDict(current_flags, "sleepwear", Character.Outfit.sleepwear),
+        SetDict(current_flags, "winterwear", Character.Outfit.winterwear)]
 
     window anchor (0.5, 0.5) pos (0.5, 0.6) xysize (607, 750):
         background "images/interface/wardrobe/save_background.webp"
@@ -1123,18 +1123,18 @@ screen edit_Outfit_screen(Companion):
         imagebutton anchor (1.0, 1.0) pos (0.79, 0.975):
             idle "small_save_idle" hover "small_save"
 
-            if current_input in Companion.Wardrobe.Outfits.keys() and Companion.Wardrobe.Outfits[current_input].Outfit_type == "custom":
+            if current_input in Character.Wardrobe.Outfits.keys() and Character.Wardrobe.Outfits[current_input].Outfit_type == "custom":
                 action [
                     Hide("edit_Outfit_screen"), 
-                    Show("confirm_overwrite_screen", Companion = Companion, editing = True)]
-            elif current_input in Companion.Wardrobe.Outfits.keys() and Companion.Wardrobe.Outfits[current_input].Outfit_type == "default":
+                    Show("confirm_overwrite_screen", Character = Character, editing = True)]
+            elif current_input in Character.Wardrobe.Outfits.keys() and Character.Wardrobe.Outfits[current_input].Outfit_type == "default":
                 action [
                     Hide("edit_Outfit_screen"), 
-                    Show("cannot_overwrite_screen", Companion = Companion)]
+                    Show("cannot_overwrite_screen", Character = Character)]
             elif current_input:
                 action [
                     Hide("edit_Outfit_screen"), 
-                    Call("edit_Outfit", Companion, Companion.Outfit, current_input, current_Outfit_color, current_flags, from_current = True)]
+                    Call("edit_Outfit", Character, Character.Outfit, current_input, current_Outfit_color, current_flags, from_current = True)]
 
             tooltip "Save Outfit"
 
@@ -1148,7 +1148,7 @@ screen edit_Outfit_screen(Companion):
     if tooltips_enabled:
         use tooltips
 
-screen delete_Outfit_screen(Companion, name):
+screen delete_Outfit_screen(Character, name):
     modal True
 
     style_prefix "confirm"
@@ -1167,8 +1167,8 @@ screen delete_Outfit_screen(Companion, name):
                 textbutton _("Yes"):
                     action [
                         Hide("delete_Outfit_screen"),
-                        SetField(Companion, "Outfit", Companion.Wardrobe.indoor_Outfit),
-                        Function(Companion.Wardrobe.remove_Outfit, name),
+                        SetField(Character, "Outfit", Character.Wardrobe.indoor_Outfit),
+                        Function(Character.Wardrobe.remove_Outfit, name),
                         SetVariable("current_Wardrobe_Outfit_page", 0)] 
                         
                     text_size 36
@@ -1178,7 +1178,7 @@ screen delete_Outfit_screen(Companion, name):
                     
                     text_size 36
 
-screen confirm_overwrite_screen(Companion, editing = False):
+screen confirm_overwrite_screen(Character, editing = False):
     modal True
 
     style_prefix "confirm"
@@ -1201,18 +1201,18 @@ screen confirm_overwrite_screen(Companion, editing = False):
                     if editing:
                         action [
                             Hide("confirm_overwrite_screen"),
-                            Call("edit_Outfit", Companion, Companion.Outfit, current_input, current_Outfit_color, current_flags, from_current = True)]
+                            Call("edit_Outfit", Character, Character.Outfit, current_input, current_Outfit_color, current_flags, from_current = True)]
                     else:
                         action [
                             Hide("confirm_overwrite_screen"),
-                            Call("save_new_Outfit", Companion, current_input, current_Outfit_color, current_flags, from_current = True)]
+                            Call("save_new_Outfit", Character, current_input, current_Outfit_color, current_flags, from_current = True)]
 
                 textbutton _("No") xminimum int(config.screen_width*0.1) yminimum int(config.screen_height*0.07): 
                     text_size 36
 
                     action Hide("confirm_overwrite_screen")
                     
-screen cannot_overwrite_screen(Companion):
+screen cannot_overwrite_screen(Character):
     modal True
 
     style_prefix "confirm"
@@ -1231,9 +1231,9 @@ screen cannot_overwrite_screen(Companion):
 
                 action [
                     Hide("cannot_overwrite_screen"), 
-                    Show("save_Outfit_screen", Companion = Companion)]
+                    Show("save_Outfit_screen", Character = Character)]
                     
-screen cannot_save_screen(Companion):
+screen cannot_save_screen(Character):
     modal True
 
     style_prefix "confirm"
@@ -1252,4 +1252,4 @@ screen cannot_save_screen(Companion):
 
                 action [
                     Hide("cannot_save_screen"), 
-                    Show("save_Outfit_screen", Companion = Companion)]
+                    Show("save_Outfit_screen", Character = Character)]

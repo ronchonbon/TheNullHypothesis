@@ -59,72 +59,72 @@ label study_session:
 
     return
 
-label ask_to_study(Companion):
-    $ status = Companion.get_status()
+label ask_to_study(Character):
+    $ status = Character.get_status()
 
-    if Companion in Present:
+    if Character in Present:
         ch_Player "Wanna study together?"
 
-        if Companion.is_in_normal_mood() and not Companion.History.check("studied_with_Player", tracker = "daily"):
-            call expression f"{Companion.tag}_accept_study" from _call_expression_287
+        if Character.is_in_normal_mood() and not Character.History.check("studied_with_Player", tracker = "daily"):
+            call expression f"{Character.tag}_accept_study" from _call_expression_287
         else:
-            if Companion.History.check("said_no_to_studying", tracker = "recent") >= 2:
-                call change_Companion_stat(Companion, "love", -5) from _call_change_Companion_stat_995
-                call change_Companion_stat(Companion, "trust", -5) from _call_change_Companion_stat_996
+            if Character.History.check("said_no_to_studying", tracker = "recent") >= 2:
+                call change_Character_stat(Character, "love", -5) from _call_change_Character_stat_995
+                call change_Character_stat(Character, "trust", -5) from _call_change_Character_stat_996
                 
-                call expression f"{Companion.tag}_reject_study_asked_twice" from _call_expression_288
-            elif Companion.History.check("said_no_to_studying", tracker = "recent") == 1:
-                call change_Companion_stat(Companion, "love", -2) from _call_change_Companion_stat_997
+                call expression f"{Character.tag}_reject_study_asked_twice" from _call_expression_288
+            elif Character.History.check("said_no_to_studying", tracker = "recent") == 1:
+                call change_Character_stat(Character, "love", -2) from _call_change_Character_stat_997
 
-                call expression f"{Companion.tag}_reject_study_asked_once" from _call_expression_289
+                call expression f"{Character.tag}_reject_study_asked_once" from _call_expression_289
             else:
-                call expression f"{Companion.tag}_reject_study" from _call_expression_290
+                call expression f"{Character.tag}_reject_study" from _call_expression_290
 
-            $ Companion.History.update("said_no_to_studying")
+            $ Character.History.update("said_no_to_studying")
 
             return False
     else:
-        call open_texts(Companion) from _call_open_texts_20
-        call send_text(Companion, "hey, wanna study?") from _call_send_text_79
+        call open_texts(Character) from _call_open_texts_20
+        call send_text(Character, "hey, wanna study?") from _call_send_text_79
 
         if time_index == 3:
-            if time_index not in Companion.schedule.keys() and approval_check(Companion, threshold = "talk_late") and not Companion.History.check("studied_with_Player", tracker = "daily"):
-                call expression f"{Companion.tag}_accept_study_text" from _call_expression_291
+            if time_index not in Character.schedule.keys() and approval_check(Character, threshold = "talk_late") and not Character.History.check("studied_with_Player", tracker = "daily"):
+                call expression f"{Character.tag}_accept_study_text" from _call_expression_291
             else:
-                if Companion.History.check("said_too_late_to_text", tracker = "recent") >= 2:
-                    call change_Companion_stat(Companion, "love", -5) from _call_change_Companion_stat_998
-                    call change_Companion_stat(Companion, "trust", -5) from _call_change_Companion_stat_999
+                if Character.History.check("said_too_late_to_text", tracker = "recent") >= 2:
+                    call change_Character_stat(Character, "love", -5) from _call_change_Character_stat_998
+                    call change_Character_stat(Character, "trust", -5) from _call_change_Character_stat_999
 
-                    call expression f"{Companion.tag}_summon_reject_asked_twice" from _call_expression_293
-                elif Companion.History.check("said_too_late_to_text", tracker = "recent") == 1:
-                    call change_Companion_stat(Companion, "love", -2) from _call_change_Companion_stat_1000
+                    call expression f"{Character.tag}_summon_reject_asked_twice" from _call_expression_293
+                elif Character.History.check("said_too_late_to_text", tracker = "recent") == 1:
+                    call change_Character_stat(Character, "love", -2) from _call_change_Character_stat_1000
 
-                    call expression f"{Companion.tag}_summon_reject_asked_once" from _call_expression_294
+                    call expression f"{Character.tag}_summon_reject_asked_once" from _call_expression_294
                 else:
-                    call expression f"{Companion.tag}_summon_busy_late" from _call_expression_295
+                    call expression f"{Character.tag}_summon_busy_late" from _call_expression_295
 
-                $ Companion.History.update("said_too_late_to_text")
+                $ Character.History.update("said_too_late_to_text")
 
                 $ phone_interactable = True 
 
                 return False
         else:
-            if time_index not in Companion.schedule.keys() and Companion.is_in_normal_mood() and not Companion.History.check("studied_with_Player", tracker = "daily"):
-                call expression f"{Companion.tag}_accept_study_text" from _call_expression_296
+            if time_index not in Character.schedule.keys() and Character.is_in_normal_mood() and not Character.History.check("studied_with_Player", tracker = "daily"):
+                call expression f"{Character.tag}_accept_study_text" from _call_expression_296
             else:
-                if Companion.History.check("said_no_to_studying", tracker = "recent") >= 2:
-                    call change_Companion_stat(Companion, "love", -5) from _call_change_Companion_stat_1002
-                    call change_Companion_stat(Companion, "trust", -5) from _call_change_Companion_stat_1003
+                if Character.History.check("said_no_to_studying", tracker = "recent") >= 2:
+                    call change_Character_stat(Character, "love", -5) from _call_change_Character_stat_1002
+                    call change_Character_stat(Character, "trust", -5) from _call_change_Character_stat_1003
 
-                    call expression f"{Companion.tag}_reject_study_asked_twice_text" from _call_expression_298
-                elif Companion.History.check("said_no_to_studying", tracker = "recent") == 1:
-                    call change_Companion_stat(Companion, "love", -2) from _call_change_Companion_stat_1001
+                    call expression f"{Character.tag}_reject_study_asked_twice_text" from _call_expression_298
+                elif Character.History.check("said_no_to_studying", tracker = "recent") == 1:
+                    call change_Character_stat(Character, "love", -2) from _call_change_Character_stat_1001
                     
-                    call expression f"{Companion.tag}_reject_study_asked_once_text" from _call_expression_297
+                    call expression f"{Character.tag}_reject_study_asked_once_text" from _call_expression_297
                 else:
-                    call expression f"{Companion.tag}_reject_study_text" from _call_expression_299
+                    call expression f"{Character.tag}_reject_study_text" from _call_expression_299
 
-                $ Companion.History.update("said_no_to_studying")
+                $ Character.History.update("said_no_to_studying")
 
                 $ phone_interactable = True 
 
@@ -136,14 +136,14 @@ label ask_to_study(Companion):
 
     return True
 
-label actually_study(Companion):        
+label actually_study(Character):        
     hide screen phone_screen
 
-    if Companion:
+    if Character:
         $ Player.behavior = "studying" 
-        $ Player.behavior_Partners = [Companion]
+        $ Player.behavior_Partners = [Character]
 
-        $ Companion.behavior = "studying"
+        $ Character.behavior = "studying"
 
     if black_screen:
         $ fade_in_from_black(0.4)
@@ -153,21 +153,21 @@ label actually_study(Companion):
     $ selected_Event = EventScheduler.choose_Event()
 
     if selected_Event:
-        if Companion:
-            if Companion not in Present:
-                $ Companion.destination = Player.location
+        if Character:
+            if Character not in Present:
+                $ Character.destination = Player.location
 
-                if Companion.Outfit.name != Companion.Wardrobe.indoor_Outfit.name:
-                    call set_Character_Outfits(Companion, instant = True) from _call_set_Character_Outfits_15    
+                if Character.Outfit.name != Character.Wardrobe.indoor_Outfit.name:
+                    call set_Character_Outfits(Character, instant = True) from _call_set_Character_Outfits_15    
 
-                call Characters_arrive(Companion, invited = True) from _call_Characters_arrive
+                call Characters_arrive(Character, invited = True) from _call_Characters_arrive
 
-                $ Companion.location = Companion.destination
+                $ Character.location = Character.destination
             else:
-                if Companion.Outfit.name != Companion.Wardrobe.indoor_Outfit.name:
-                    call set_Character_Outfits(Companion, instant = False) from _call_set_Character_Outfits_14
+                if Character.Outfit.name != Character.Wardrobe.indoor_Outfit.name:
+                    call set_Character_Outfits(Character, instant = False) from _call_set_Character_Outfits_14
 
-            call remove_everyone_but(Companion) from _call_remove_everyone_but_7
+            call remove_everyone_but(Character) from _call_remove_everyone_but_7
             
         call start_Event(selected_Event) from _call_start_Event_11
     else:

@@ -125,7 +125,7 @@ label Laura_enjoying_being_girlfriend:
             ch_Laura "Fine. . ." 
             ch_Laura "I will stop." 
             
-            call change_Companion_stat(Laura, "trust", 0) from _call_change_Companion_stat_932
+            call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_932
 
             $ Laura.History.update("quirk_discouraged")
         "That's. . . actually really sweet, and it's not that I want you to stop, but I don't want you losing sleep for my sake. (encourage_quirk)":
@@ -135,7 +135,7 @@ label Laura_enjoying_being_girlfriend:
             
             ch_Laura "And. . . it brings me comfort. . . knowing you're safe. . ." 
             
-            call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_933
+            call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_933
 
             $ Laura.History.update("quirk_encouraged")
 

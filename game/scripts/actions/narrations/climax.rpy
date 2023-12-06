@@ -74,38 +74,44 @@ label Player_orgasm_narrations(Character, location):
     return
 
 label Player_cumshot_narrations(Character, location):
+    $ renpy.pause(1.0, hard = True)
+
     if location == "cumshot_belly":
-        "You lose control, your cum shooting all over her stomach."
+        "You lose control, your cum shooting all over her stomach." with orgasm_shake
     elif "breasts" in location:
-        "You lose control, your cum shooting all over her tits, slowly dripping down their curves."
+        "You lose control, your cum shooting all over her tits, slowly dripping down their curves." with orgasm_shake
     elif location == "cumshot_face":
-        "She flinches at first as your cum lands on her face, then she leans in to try to catch every last drop."
+        "She flinches at first as your cum lands on her face, then she leans in to try to catch every last drop." with orgasm_shake
     elif location == "cumshot_hair":
-        "You shudder and finally lose control, showering her with cum, getting it all in her hair."
+        "You shudder and finally lose control, showering her with cum, getting it all in her hair." with orgasm_shake
     elif location == "cumshot_back":
-        "You shudder, as your cum shoots all over her back."
+        "You shudder, as your cum shoots all over her back." with orgasm_shake
     elif location == "cumshot_ass":
-        "Your cum sprays all over her ass, dripping down its curves."
+        "Your cum sprays all over her ass, dripping down its curves." with orgasm_shake
     elif location == "cumshot_feet":
-        "Her feet and toes are covered, as you shudder and spray all over them."
+        "Her feet and toes are covered, as you shudder and spray all over them." with orgasm_shake
     elif location == "creampie":
-        "You can't help but shudder as you fill her, cumming right inside her pussy."
+        "You can't help but shudder as you fill her, cumming right inside her pussy." with orgasm_shake
     elif location == "cum_in_mouth":
-        "Her lips tighten around you as your cum sprays into the back of her mouth."
+        "Her lips tighten around you as your cum sprays into the back of her mouth." with orgasm_shake
     elif location == "cumshot_tongue":
-        "You spray across her tongue, getting most of the cum on it, but some ends up in the back of her mouth."
+        "You spray across her tongue, getting most of the cum on it, but some ends up in the back of her mouth." with orgasm_shake
     elif location == "cum_down_throat":
-        "[Character.name] gags and sputters as you cum down her throat. She struggles to swallow with you still deep inside her."
+        "[Character.name] gags and sputters as you cum down her throat. She struggles to swallow with you still deep inside her." with orgasm_shake
     elif location == "anal_creampie":
-        "Her ass tightens around you as you cum inside, filling it to the brim."
+        "Her ass tightens around you as you cum inside, filling it to the brim." with orgasm_shake
     elif location == "bukkake":
-        "You convulse as waves of pleasure flow through you, your cum spraying all over her body."
+        "You convulse as waves of pleasure flow through you, your cum spraying all over her body." with orgasm_shake
     elif location == "floor":
-        "You spray across the room, landing on some towels you set up beforehand."
+        "You spray across the room, landing on some towels you set up beforehand." with orgasm_shake
+
+    $ renpy.pause(1.0, hard = True)
 
     return
 
 label Character_orgasm_narrations(Character):
+    $ renpy.pause(1.0, hard = True)
+
     if (Character.vagina_Actions and Character.vagina_Actions[0].animation_type == "sex") or (Character.anus_Actions and Character.anus_Actions[0].animation_type == "anal"):
         $ dice_roll = renpy.random.randint(1, 2)
 
@@ -136,5 +142,7 @@ label Character_orgasm_narrations(Character):
             $ Character.change_face("surprised2", mouth = "lipbite", blush = 2) 
             
             "[Character.name] moans as waves of pleasure run through her. The orgasm causes her to shake uncontrollably." with orgasm_shake
+
+    $ renpy.pause(1.0, hard = True)
 
     return

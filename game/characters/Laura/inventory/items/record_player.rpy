@@ -26,8 +26,8 @@ label Laura_record_player_shopping_accept:
 
     ch_Laura "You will join me in listening sometime soon."
 
-    call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_1477
-    call change_Companion_stat(Laura, "trust", 0) from _call_change_Companion_stat_1478
+    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1477
+    call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_1478
 
     return True
 
@@ -63,8 +63,8 @@ label Laura_record_player_gift_accept:
 
     ch_Laura "You will join me in listening sometime soon."
 
-    call change_Companion_stat(Laura, "love", 0) from _call_change_Companion_stat_1479
-    call change_Companion_stat(Laura, "trust", 0) from _call_change_Companion_stat_1480
+    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1479
+    call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_1480
 
     return True
 

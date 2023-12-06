@@ -44,15 +44,15 @@ label Laura_rejects_hookup_threesome:
     $ Laura.change_face("appalled2", eyes = "right", blush = 1)
 
     python:
-        for G in Present:
-            if G in all_Companions and G != Laura:
-                G.change_face("suspicious1", blush = 1)
+        for C in Present:
+            if C in all_Companions and C != Laura:
+                C.change_face("suspicious1", blush = 1)
 
     pause 1.0
 
     $ Laura.change_face("furious", blush = 1)
 
-    call change_Companion_stat(Laura, "trust", 0) from _call_change_Companion_stat_462
+    call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_462
 
     if len(Present) > 2:
         ch_Laura "{i}If{/i} they leave."

@@ -45,7 +45,7 @@ init -1 python:
             "green_jacket"]
 
         return ClothingClass(
-            Companion, 
+            Character, 
             name, short_name, string, Clothing_type, 
             shop_type, chapter, season,
             thresholds,
@@ -56,34 +56,34 @@ init -1 python:
             supports_breasts = supports_breasts,
             incompatibilities = incompatibilities)
 
-label Companion_string_shopping_accept:
+label Character_string_shopping_accept:
 
     return
 
-label Companion_string_shopping_reject:
+label Character_string_shopping_reject:
 
     return
 
-label Companion_string_gift_accept:
+label Character_string_gift_accept:
 
     return
 
-label Companion_string_gift_reject:
+label Character_string_gift_reject:
 
     return
 
-label Companion_string_change_private_before:
+label Character_string_change_private_before:
 
     return
 
-label Companion_string_change_private_after:
+label Character_string_change_private_after:
 
     return
 
-label Companion_string_change_public_before:
+label Character_string_change_public_before:
 
     return
 
-label Companion_string_change_public_after:
+label Character_string_change_public_after:
 
     return

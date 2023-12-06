@@ -7,7 +7,7 @@ default chosen_meal = {}
 default restaurant_bill = {}
 
 label restaurant_menu(menu_Characters, cuisine):
-    if menu_Characters == Player or menu_Characters in all_Characters:
+    if menu_Characters == Player or menu_Characters in all_Companions:
         $ menu_Characters = [menu_Characters]
 
     while menu_Characters:

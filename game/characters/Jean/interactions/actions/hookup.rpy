@@ -47,9 +47,9 @@ label Jean_rejects_hookup_threesome:
     $ Jean.change_face("surprised3", eyes = "right", blush = 1)
 
     python:
-        for G in Present:
-            if G in all_Companions and G != Jean:
-                G.change_face("suspicious1", blush = 1)
+        for C in Present:
+            if C in all_Companions and C != Jean:
+                C.change_face("suspicious1", blush = 1)
 
     pause 1.0
 
@@ -57,7 +57,7 @@ label Jean_rejects_hookup_threesome:
 
     ch_Jean "What the hell, [Jean.Player_petname]."
 
-    call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1598
+    call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1598
 
     $ Jean.change_face("suspicious1")
 

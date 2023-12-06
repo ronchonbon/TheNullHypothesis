@@ -105,8 +105,8 @@ label Jean_chapter_one_season_one_first_training_session:
         menu:
             extend ""
             "You are pretty damn smart." if not smart:
-                call change_Companion_stat(Jean, "love", medium_stat) from _call_change_Companion_stat_392
-                call change_Companion_stat(Jean, "trust", small_stat) from _call_change_Companion_stat_393
+                call change_Character_stat(Jean, "love", medium_stat) from _call_change_Character_stat_392
+                call change_Character_stat(Jean, "trust", small_stat) from _call_change_Character_stat_393
                 
                 $ Jean.change_face("pleased2", blush = 1)
 
@@ -121,7 +121,7 @@ label Jean_chapter_one_season_one_first_training_session:
 
                 $ smart = True
             "Eventually? I guess you'll be helpful. . ." if not smart:
-                call change_Companion_stat(Jean, "love", -medium_stat) from _call_change_Companion_stat_423
+                call change_Character_stat(Jean, "love", -medium_stat) from _call_change_Character_stat_423
 
                 $ Jean.change_face("worried1")
 
@@ -149,7 +149,7 @@ label Jean_chapter_one_season_one_first_training_session:
 
                 $ chatting = False
             "Sure, I wouldn't mind the help." if smart and not control:
-                call change_Companion_stat(Jean, "love", -small_stat) from _call_change_Companion_stat_424
+                call change_Character_stat(Jean, "love", -small_stat) from _call_change_Character_stat_424
                 
                 $ Jean.change_face("angry1")
 
@@ -195,7 +195,7 @@ label Jean_chapter_one_season_one_first_training_session:
         "However, all the beatdowns from training with [Laura.name] weren't for nothing."
         "You have a long way to go, but you're a quick learner and it's obvious you've been training."
 
-        call change_Companion_stat(Jean, "love", small_stat) from _call_change_Companion_stat_425
+        call change_Character_stat(Jean, "love", small_stat) from _call_change_Character_stat_425
         
         $ Jean.change_face("pleased2")
 
@@ -332,7 +332,7 @@ label Jean_chapter_one_season_one_first_training_session:
     menu:
         extend ""
         "I'm glad you're not hurt.":
-            call change_Companion_stat(Jean, "love", small_stat) from _call_change_Companion_stat_426
+            call change_Character_stat(Jean, "love", small_stat) from _call_change_Character_stat_426
                         
             $ Jean.change_face("neutral", blush = 1)
 
@@ -344,7 +344,7 @@ label Jean_chapter_one_season_one_first_training_session:
 
             $ Jean.blush = 2
         "Good thing I was here, someone might've gotten hurt.":
-            call change_Companion_stat(Jean, "trust", -small_stat) from _call_change_Companion_stat_683
+            call change_Character_stat(Jean, "trust", -small_stat) from _call_change_Character_stat_683
             
             $ Jean.change_face("angry1", blush = 1)
 
@@ -405,8 +405,8 @@ label Jean_chapter_one_season_one_first_training_session_1A:
         "I want to help however I can.":
             ch_Player "I know I'm new to all this, but I don't care."
 
-            call change_Companion_stat(Jean, "love", medium_stat) from _call_change_Companion_stat_828
-            call change_Companion_stat(Jean, "trust", small_stat) from _call_change_Companion_stat_829
+            call change_Character_stat(Jean, "love", medium_stat) from _call_change_Character_stat_828
+            call change_Character_stat(Jean, "trust", small_stat) from _call_change_Character_stat_829
 
             $ Jean.change_face("pleased1", blush = 1)
 
@@ -421,8 +421,8 @@ label Jean_chapter_one_season_one_first_training_session_1A:
 
             ch_Jean "It's for your own good."
         "I don't know if I can be of much help.":
-            call change_Companion_stat(Jean, "love", small_stat) from _call_change_Companion_stat_830
-            call change_Companion_stat(Jean, "trust", -small_stat) from _call_change_Companion_stat_842
+            call change_Character_stat(Jean, "love", small_stat) from _call_change_Character_stat_830
+            call change_Character_stat(Jean, "trust", -small_stat) from _call_change_Character_stat_842
             
             $ Jean.change_face("sad")
 
@@ -444,14 +444,14 @@ label Jean_chapter_one_season_one_first_training_session_1B:
     menu:
         extend ""
         "Uh, I guess. . .":
-            call change_Companion_stat(Jean, "love", -medium_stat) from _call_change_Companion_stat_843
+            call change_Character_stat(Jean, "love", -medium_stat) from _call_change_Character_stat_843
             
             $ Jean.change_face("worried1")
 
             ch_Jean "You don't sound so happy about it. . ."
         "Thanks, [Jean.petname], I really appreciate it.":
-            call change_Companion_stat(Jean, "love", medium_stat) from _call_change_Companion_stat_844
-            call change_Companion_stat(Jean, "trust", small_stat) from _call_change_Companion_stat_845
+            call change_Character_stat(Jean, "love", medium_stat) from _call_change_Character_stat_844
+            call change_Character_stat(Jean, "trust", small_stat) from _call_change_Character_stat_845
 
             $ Jean.change_face("happy", blush = 1)
 

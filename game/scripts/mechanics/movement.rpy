@@ -85,7 +85,7 @@ label move_location(destination):
         $ current_bedroom = destination
         $ Player.destination = current_bedroom.home
 
-        jump Companion_room
+        jump Character_room
     elif "bg_shower" in destination:
         jump shower
     elif destination == "bg_classroom":

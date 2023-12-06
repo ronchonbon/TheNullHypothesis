@@ -57,7 +57,7 @@ label Rogue_disclosing_wants_to_date_others:
 
     ch_Player "Of course."
 
-    call change_Companion_stat(Rogue, "trust", 0) from _call_change_Companion_stat_1141
+    call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_1141
 
     $ Rogue.History.update("told_wants_multiple_partners")
 
@@ -105,7 +105,7 @@ label Rogue_disclosing_wants_to_date_Laura:
 
     ch_Rogue "Thanks for askin', [Rogue.Player_petname]." 
 
-    call change_Companion_stat(Rogue, "trust", 0) from _call_change_Companion_stat_1142
+    call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_1142
 
     $ Rogue.knows_about.append(Laura)
     
@@ -163,7 +163,7 @@ label Rogue_disclosing_wants_to_date_Jean:
 
     ch_Rogue "And, thanks for askin'. . ." 
 
-    call change_Companion_stat(Rogue, "trust", 0) from _call_change_Companion_stat_1143
+    call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_1143
 
     $ Rogue.knows_about.append(Jean)
 

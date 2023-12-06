@@ -110,7 +110,7 @@ label go_to_sleep(automatic = False):
     return
 
 label sleepover(Characters):
-    if Characters in all_Characters:
+    if Characters in all_Companions:
         $ Characters = [Characters]
 
     $ Characters = sort_Characters_by_approval(Characters[:])[:]

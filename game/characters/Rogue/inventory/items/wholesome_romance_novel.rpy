@@ -20,8 +20,8 @@ label Rogue_wholesome_romance_novel_shopping_accept:
 
     ch_Rogue "Thank you."
 
-    call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_1583
-    call change_Companion_stat(Rogue, "trust", 0) from _call_change_Companion_stat_1584
+    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1583
+    call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_1584
 
     return True
 
@@ -54,8 +54,8 @@ label Rogue_wholesome_romance_novel_gift_accept:
 
     ch_Rogue "Thank you."
 
-    call change_Companion_stat(Rogue, "love", 0) from _call_change_Companion_stat_1585
-    call change_Companion_stat(Rogue, "trust", 0) from _call_change_Companion_stat_1586
+    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1585
+    call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_1586
 
     return True
 

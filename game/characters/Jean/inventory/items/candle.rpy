@@ -24,8 +24,8 @@ label Jean_candle_shopping_accept:
 
     ch_Jean "Heh, sorry, spaced out for a second. . ."
 
-    call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1295
-    call change_Companion_stat(Jean, "trust", 0) from _call_change_Companion_stat_1296
+    call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1295
+    call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_1296
 
     return True
 
@@ -64,8 +64,8 @@ label Jean_candle_gift_accept:
 
     ch_Jean "Heh, sorry, spaced out for a second. . ."
 
-    call change_Companion_stat(Jean, "love", 0) from _call_change_Companion_stat_1297
-    call change_Companion_stat(Jean, "trust", 0) from _call_change_Companion_stat_1298
+    call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1297
+    call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_1298
 
     return True
 
