@@ -59,6 +59,422 @@ init python:
 
         return
 
+    def get_conflicting_Actions(Action_type, Actors, Targets):
+        if Action_type == "makeout":
+            for A in Actors:
+                if A.mouth_Actions:
+                    return True
+
+            for T in Targets:
+                if T.mouth_Actions:
+                    return True
+        elif Action_type in ["choke"]:
+            for A in Actors:
+                if A.right_hand_Actions and A.left_hand_Actions:
+                    return True
+
+            for T in Targets:
+                if T.neck_Actions:
+                    return True
+        elif Action_type in ["touch_thighs_over_clothes", "touch_thighs_higher_over_clothes", "touch_thighs", "touch_thighs_higher"]:
+            for A in Actors:
+                if A.right_hand_Actions and A.left_hand_Actions:
+                    return True
+
+            for T in Targets:
+                if T.right_thigh_Actions and T.left_thigh_Actions:
+                    return True
+        elif Action_type in ["touch_breasts_over_clothes", "touch_breasts", "pinch_nipples"]:
+            for A in Actors:
+                if A.right_hand_Actions and A.left_hand_Actions:
+                    return True
+
+            for T in Targets:
+                if T.right_breast_Actions and T.left_breast_Actions:
+                    return True
+
+                if T.right_nipple_Actions and T.left_nipple_Actions:
+                    return True
+        elif Action_type == "suck_nipples":
+            for A in Actors:
+                if A.mouth_Actions:
+                    return True
+
+            for T in Targets:
+                if T.right_nipple_Actions and T.left_nipple_Actions:
+                    return True
+        elif Action_type in ["grab_ass_over_clothes", "grab_ass"]:
+            for A in Actors:
+                if A.right_hand_Actions and A.left_hand_Actions:
+                    return True
+
+            for T in Targets:
+                if T.ass_Actions:
+                    return True
+        elif Action_type in ["touch_pussy_over_clothes", "touch_pussy", "vibrator"]:
+            for A in Actors:
+                if A.right_hand_Actions and A.left_hand_Actions:
+                    return True
+
+                if A.position not in ["69", "doggy"]:
+                    for other_Action in A.cock_Actions:
+                        return True
+
+                    for other_Action in A.balls_Actions:
+                        return True
+
+            for T in Targets:
+                if T.clitoris_Actions:
+                    return True
+
+                if T.remote_vibrator:
+                    return True
+        elif Action_type == "finger_pussy":
+            for A in Actors:
+                if Jean in Targets and Jean.position == "doggy" and Jean.left_hand_Actions:
+                    return True
+                elif A.right_hand_Actions and A.left_hand_Actions:
+                    return True
+
+                if A.position not in ["69", "doggy"]:
+                    for other_Action in A.cock_Actions:
+                        return True
+
+                    for other_Action in A.balls_Actions:
+                        return True
+
+            for T in Targets:
+                if T.vagina_Actions:
+                    return True
+
+                if T.remote_vibrator:
+                    return True
+        elif Action_type == "finger_ass":
+            for A in Actors:
+                if Jean in Targets and Jean.position == "doggy" and Jean.left_hand_Actions:
+                    return True
+                elif Rogue in Targets and Rogue.position == "doggy" and Rogue.right_hand_Actions:
+                    return True
+                elif Laura in Targets and Laura.position == "doggy" and Laura.right_hand_Actions:
+                    return True
+                elif A.right_hand_Actions and A.left_hand_Actions:
+                    return True
+
+                if A.position not in ["69", "doggy"]:
+                    for other_Action in A.cock_Actions:
+                        return True
+
+                    for other_Action in A.balls_Actions:
+                        return True
+
+            for T in Targets:
+                if T.anus_Actions:
+                    return True
+
+                if T.buttplug:
+                    return True
+        elif Action_type == "eat_pussy":
+            for A in Actors:
+                if A.mouth_Actions:
+                    return True
+
+                if A.position != "69":
+                    for other_Action in A.cock_Actions:
+                        return True
+
+                    for other_Action in A.balls_Actions:
+                        return True
+
+            for T in Targets:
+                if T.clitoris_Actions:
+                    return True
+
+                if T.vagina_Actions:
+                    return True
+
+                if T.remote_vibrator:
+                    return True
+        elif Action_type == "eat_ass":
+            for A in Actors:
+                if A.mouth_Actions:
+                    return True
+
+                if A.position != "69":
+                    for other_Action in A.cock_Actions:
+                        return True
+
+                    for other_Action in A.balls_Actions:
+                        return True
+
+            for T in Targets:
+                if T.anus_Actions:
+                    return True
+
+                if T.buttplug:
+                    return True
+        elif Action_type == "handjob":
+            for A in Actors:
+                if A.left_hand_Actions:
+                    return True
+
+                for other_Action in A.all_Actions:
+                    if other_Action.Action_type in job_Action_types:
+                        return True
+
+                if A.position != "69":
+                    for other_Action in A.vagina_Actions:
+                        return True
+
+                    for other_Action in A.clitoris_Actions:
+                        return True
+
+                    for other_Action in A.anus_Actions:
+                        return True
+
+            for T in Targets:
+                for other_Action in T.cock_Actions:
+                    if other_Action.Action_type in insertion_Action_types or any(Target in Actors for Target in other_Action.Targets):
+                        return True
+
+                if T.position != "69":
+                    for other_Action in T.mouth_Actions:
+                        return True
+
+                    if T.left_hand_Actions:
+                        return True
+
+                    if T.right_hand_Actions:
+                        return True
+        elif Action_type == "fondle_balls":
+            for A in Actors:
+                if A.right_hand_Actions and A.left_hand_Actions:
+                    return True
+                
+                if A.position != "69":
+                    for other_Action in A.vagina_Actions:
+                        return True
+
+                    for other_Action in A.clitoris_Actions:
+                        return True
+
+                    for other_Action in A.anus_Actions:
+                        return True
+
+            for T in Targets:
+                if T.balls_Actions:
+                    return True
+
+                if T.position != "69":
+                    for other_Action in T.mouth_Actions:
+                        return True
+
+                    if T.left_hand_Actions:
+                        return True
+
+                    if T.right_hand_Actions:
+                        return True
+        elif Action_type in ["blowjob", "deepthroat"]:
+            for A in Actors:
+                if A.mouth_Actions:
+                    return True
+
+                for other_Action in A.all_Actions:
+                    if other_Action.Action_type in job_Action_types:
+                        return True
+
+                if A.position != "69":
+                    for other_Action in A.vagina_Actions:
+                        return True
+
+                    for other_Action in A.clitoris_Actions:
+                        return True
+
+                    for other_Action in A.anus_Actions:
+                        return True
+
+                if A.position == "hands_and_knees":
+                    if A.right_hand_Actions:
+                        return True
+
+            for T in Targets:
+                for other_Action in T.cock_Actions:
+                    if other_Action.Action_type in insertion_Action_types or any(Target in Actors for Target in other_Action.Targets):
+                        return True
+
+                if T.position != "69":
+                    for other_Action in T.mouth_Actions:
+                        return True
+
+                    if T.left_hand_Actions:
+                        return True
+
+                    if T.right_hand_Actions:
+                        return True
+        elif Action_type == "suck_balls":
+            for A in Actors:
+                if A.mouth_Actions:
+                    return True
+
+                if A.position != "69":
+                    for other_Action in A.vagina_Actions:
+                        return True
+
+                    for other_Action in A.clitoris_Actions:
+                        return True
+
+                    for other_Action in A.anus_Actions:
+                        return True
+
+            for T in Targets:
+                if T.balls_Actions:
+                    return True
+
+                if T.position != "69":
+                    for other_Action in T.mouth_Actions:
+                        return True
+
+                if T.left_hand_Actions:
+                    return True
+
+                if T.right_hand_Actions:
+                    return True
+        elif Action_type in ["self_touch_pussy"]:
+            for A in Actors:
+                if A.right_hand_Actions:
+                    return True
+
+            for T in Targets:
+                if T.clitoris_Actions:
+                    return True
+
+                if T.remote_vibrator:
+                    return True
+        elif Action_type in ["self_finger_ass"]:
+            for A in Actors:
+                if A.right_hand_Actions:
+                    return True
+
+            for T in Targets:
+                if T.anus_Actions:
+                    return True
+
+                if T.buttplug:
+                    return True
+        elif Action_type in ["self_vibrator"]:
+            for A in Actors:
+                if A.right_hand_Actions and A.left_hand_Actions:
+                    return True
+
+            for T in Targets:
+                if T.clitoris_Actions:
+                    return True
+
+                if T.remote_vibrator:
+                    return True
+        elif Action_type in ["self_dildo_pussy", "dildo_pussy"]:
+            for A in Actors:
+                if A.right_hand_Actions and A.left_hand_Actions:
+                    return True
+
+            for T in Targets:
+                if T.clitoris_Actions:
+                    return True
+
+                if T.vagina_Actions:
+                    return True
+
+                if T.remote_vibrator:
+                    return True
+        elif Action_type in ["self_dildo_ass", "dildo_ass"]:
+            for A in Actors:
+                if A.right_hand_Actions and A.left_hand_Actions:
+                    return True
+
+            for T in Targets:
+                if T.anus_Actions:
+                    return True
+
+                if T.buttplug:
+                    return True
+        elif Action_type in ["grind_pussy"]:
+            for A in Actors:
+                if A.cock_Actions:
+                    return True
+
+                if A.balls_Actions:
+                    return True
+
+                if A.position != "69":
+                    for other_Action in A.mouth_Actions:
+                        return True
+
+            for T in Targets:
+                if T.vagina_Actions:
+                    return True
+
+                if T.position == "doggy":
+                    if T.anus_Actions:
+                        return True
+
+                T.remote_vibrator = False
+        elif Action_type in ["sex"]:
+            for A in Actors:
+                if A.cock_Actions:
+                    return True
+
+                if A.balls_Actions:
+                    return True
+
+                if A.position != "69":
+                    for other_Action in A.mouth_Actions:
+                        return True
+
+            for T in Targets:
+                if T.vagina_Actions:
+                    return True
+
+                if T.remote_vibrator:
+                    return True
+        elif Action_type in ["grind_ass"]:
+            for A in Actors:
+                if A.cock_Actions:
+                    return True
+
+                if A.balls_Actions:
+                    return True
+
+                if A.position != "69":
+                    for other_Action in A.mouth_Actions:
+                        return True
+
+            for T in Targets:
+                if T.anus_Actions:
+                    return True
+
+                if T.position == "doggy":
+                    if T.vagina_Actions:
+                        return True
+        elif Action_type in ["anal"]:
+            for A in Actors:
+                if A.cock_Actions:
+                    return True
+
+                if A.balls_Actions:
+                    return True
+
+                if A.position != "69":
+                    for other_Action in A.mouth_Actions:
+                        return True
+
+            for T in Targets:
+                if T.anus_Actions:
+                    return True
+
+                if T.buttplug:
+                    return True
+
+        return False
+
     def stop_conflicting_Actions(Action_type, Actors, Targets):
         if Action_type == "makeout":
             for A in Actors:
@@ -458,7 +874,7 @@ init python:
 
         return
 
-label start_Action(Action):
+label start_Action(Action, initiator = None):
     $ Actors = Action.Actors
     $ Targets = Action.Targets
 
@@ -945,65 +1361,65 @@ label continue_Actions:
     if selected_Event:
         call start_Event(selected_Event) from _call_start_Event_6
     else:
-        $ renpy.dynamic(unique_Actions = [])
+        $ renpy.dynamic(temp_Actions = [])
 
         python:
             for A in Player.all_Actions:
-                if A not in unique_Actions:
-                    unique_Actions.append(A)
+                if A not in temp_Actions:
+                    temp_Actions.append(A)
 
             for G in Present:
                 for A in G.all_Actions:
-                    if A not in unique_Actions:
-                        unique_Actions.append(A)
+                    if A not in temp_Actions:
+                        temp_Actions.append(A)
 
         if not Player.stamina and Player.cock_Actions:
-            $ unique_Actions.remove(Player.cock_Actions[0])
+            $ temp_Actions.remove(Player.cock_Actions[0])
 
         python:
             for G in Present:
                 if not G.stamina:
                     for A in G.all_Actions:
-                        if A in unique_Actions and A not in Player.cock_Actions:
-                            unique_Actions.remove(A)
+                        if A in temp_Actions and A not in Player.cock_Actions:
+                            temp_Actions.remove(A)
 
         if ongoing_Actions:
             $ sex_faces(Present[:])
             
             $ desire_increases([Player] + Present[:])
 
-            $ renpy.random.shuffle(unique_Actions)
+            $ renpy.random.shuffle(temp_Actions)
 
-            while unique_Actions:
-                if unique_Actions[0].counter > 0:
+            while temp_Actions:
+                if temp_Actions[0].counter > 0:
                     $ not_warmed_up_Character = None
                     $ bored_Character = None
 
-                    $ renpy.dynamic(temp_Characters = get_Action_Characters(unique_Actions[0]))
+                    $ renpy.dynamic(temp_Characters = get_Action_Characters(temp_Actions[0]))
 
                     while temp_Characters:
-                        if unique_Actions[0].counter % boredom_threshold == 0:
-                            $ temp_Characters[0].History.update(unique_Actions[0].Action_type)
+                        if temp_Actions[0].counter % boredom_threshold == 0:
+                            $ temp_Characters[0].History.update(temp_Actions[0].Action_type)
 
                         if temp_Characters[0] in all_Companions:
-                            if temp_Characters[0].desire < eval(f"{temp_Characters[0].tag}_Action_desire_thresholds['{unique_Actions[0].Action_type}']"):
+                            if temp_Characters[0].desire < eval(f"{temp_Characters[0].tag}_Action_desire_thresholds['{temp_Actions[0].Action_type}']"):
                                 $ not_warmed_up_Character = temp_Characters[0]
 
-                            if temp_Characters[0].History.check(unique_Actions[0].Action_type, tracker = "weekly") >= boredom_threshold:
+                            if temp_Characters[0].History.check(temp_Actions[0].Action_type, tracker = "weekly") >= boredom_threshold:
                                 $ bored_Character = temp_Characters[0]
 
                         $ temp_Characters.remove(temp_Characters[0])
 
                     if not_warmed_up_Character and renpy.random.random() > 0.25:
-                        call expression f"{not_warmed_up_Character.tag}_not_warmed_up_for_Action" pass (Action = unique_Actions[0])
+                        call expression f"{not_warmed_up_Character.tag}_not_warmed_up_for_Action" pass (Action = temp_Actions[0]) from _call_expression_80
                     elif bored_Character and renpy.random.random() > 0.75:
-                        call expression f"{bored_Character.tag}_bored_by_Action" pass (Action = unique_Actions[0])
+                        call expression f"{bored_Character.tag}_bored_by_Action" pass (Action = temp_Actions[0]) from _call_expression_81
                     else:
-                        call expression f"{unique_Actions[0].Action_type}_continuations" pass (Action = unique_Actions[0]) from _call_expression_101
+                        call expression f"{temp_Actions[0].Action_type}_continuations" pass (Action = temp_Actions[0]) from _call_expression_101
 
-                $ unique_Actions[0].counter += 1
+                $ temp_Actions[0].counter += 1
 
-                $ unique_Actions.remove(unique_Actions[0])
+                $ temp_Actions.remove(temp_Actions[0])
 
             $ sex_talk(Present[:])
 
@@ -1014,6 +1430,31 @@ label continue_Actions:
                 call Character_orgasms(temp_Characters[0]) from _call_Character_orgasms
                 
                 return
+
+            $ renpy.dynamic(temp_Action_types = passive_Action_types[:])
+
+            python:
+                for Action_type in toy_Action_types:
+                    if Action_type in temp_Action_types:
+                        if Action_type in dildo_Action_types and not ("dildo" in Player.inventory.keys() or "dildo" in temp_Characters[0].inventory.keys()):
+                            temp_Action_types.remove(Action_type)
+                        elif Action_type in ["self_vibrator", "vibrator"] and not ("vibrator" in Player.inventory.keys() or "vibrator" in temp_Characters[0].inventory.keys()):
+                            temp_Action_types.remove(Action_type)
+
+            while temp_Action_types:
+                $ renpy.dynamic(temp_Action = None)
+
+                if temp_Characters[0].desire >= eval(f"{temp_Characters[0].tag}_Action_desire_thresholds['{temp_Action_types[0]}']") and temp_Characters[0].History.check(temp_Action_types[0]):
+                    if renpy.random.random() > 0.5:
+                        if "self" in temp_Action_types[0] and not get_conflicting_Actions(temp_Action_types[0], [temp_Characters[0]], [temp_Characters[0]]):
+                            $ temp_Action = ActionClass(temp_Action_types[0], temp_Characters[0], temp_Characters[0])
+                        elif not get_conflicting_Actions(temp_Action_types[0], [temp_Characters[0]], [Player]):
+                            $ temp_Action = ActionClass(temp_Action_types[0], temp_Characters[0], Player)
+
+                        if temp_Action and temp_Characters[0].position in Action.available_poses:
+                            call start_Action(temp_Action, initiator = temp_Characters[0]) from _call_start_Action
+
+                $ temp_Action_types.remove(temp_Action_types[0])
 
             $ temp_Characters.remove(temp_Characters[0])
 
@@ -1109,7 +1550,7 @@ label stop_all_Actions(close_interface = True, automatic = False):
             if focused_Companion and focused_Companion.location == Player.location:
                 $ Player.weekly_performance += score
 
-                call expression f"{focused_Companion.tag}_hookup_summary" pass (total_Character_orgasms = total_Character_orgasms, total_Player_orgasms = total_Player_orgasms, total_unique_Actions = total_unique_Actions)
+                call expression f"{focused_Companion.tag}_hookup_summary" pass (total_Character_orgasms = total_Character_orgasms, total_Player_orgasms = total_Player_orgasms, total_unique_Actions = total_unique_Actions) from _call_expression_87
 
                 show screen interactions_screen(focused_Companion)
     else:

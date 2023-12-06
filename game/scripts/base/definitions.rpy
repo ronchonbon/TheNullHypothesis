@@ -49,4 +49,5 @@ init -2:
     default temp_Clothes = [ClothingClass(None, "Placeholder", "Placholder", "placeholder", "placeholder", "placeholder", 0, 0, {})]
     default temp_Clothing_types = ["placeholder"]
     default temp_body_parts = ["placeholder"]
-    default unique_Actions = [ActionClass("placeholder", None)]
+    default temp_Actions = [ActionClass("placeholder", None)]
+    default temp_Action_types = ["placeholder"]

@@ -91,7 +91,7 @@ label request_hookup(Character):
                 call expression f"{temp_Characters[0].tag}_accepts_hookup" from _call_expression_68
 
             if temp_Characters[0].History.check("hookup") >= 3:
-                call expression f"{temp_Characters[0].tag}_weekly_summary"
+                call expression f"{temp_Characters[0].tag}_weekly_summary" from _call_expression_78
         else:
             if temp_Characters[0].History.check("rejected_hookup", tracker = "recent") >= 2:
                 call change_Companion_stat(temp_Characters[0], "love", -5) from _call_change_Companion_stat_819
@@ -103,7 +103,7 @@ label request_hookup(Character):
 
                 call expression f"{temp_Characters[0].tag}_rejects_Action_asked_once" from _call_expression_70
             elif not Player.stamina and not temp_Characters[0].stamina:
-                call expression f"{temp_Characters[0].tag}_rejects_hookup_later"
+                call expression f"{temp_Characters[0].tag}_rejects_hookup_later" from _call_expression_79
             else:
                 call expression f"{temp_Characters[0].tag}_rejects_hookup" from _call_expression_71
 

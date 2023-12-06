@@ -409,7 +409,7 @@ screen Action_screen(automatic = False):
                                     action [
                                         Function(stop_Action, ongoing_Action)]
                                 else:
-                                    if Action_type in ["self_touch_pussy", "self_finger_ass", "self_vibrator", "self_dildo_pussy", "self_dildo_ass"]:
+                                    if "self" in Action_type:
                                         action [
                                             SetVariable("speed", 1.0),
                                             SetVariable("intensity", 1.0),
