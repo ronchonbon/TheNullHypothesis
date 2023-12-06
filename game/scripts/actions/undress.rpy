@@ -323,23 +323,6 @@ label ask_to_undress(Character):
                         if Player.location == C.home:
                             C.clothes_on_floor = True
 
-        python:
-            for A in Character.all_Actions:
-                if A.Action_type in ["touch_thighs_over_clothes", "touch_thighs_higher_over_clothes"] and not Character.thighs_covered:
-                    stop_Action(A)
-                elif A.Action_type == "touch_breasts_over_clothes" and not Character.breasts_covered:
-                    stop_Action(A)
-                elif A.Action_type == "touch_pussy_over_clothes" and not Character.pussy_covered:
-                    stop_Action(A)
-                elif A.Action_type == "grab_ass_over_clothes" and not Character.ass_covered:
-                    stop_Action(A)
-                elif A.Action_type in ["touch_thighs", "touch_thighs_higher"] and Character.thighs_covered:
-                    stop_Action(A)
-                elif A.Action_type in ["touch_breasts", "pinch_nipples", "suck_nipples"] and Character.breasts_covered:
-                    stop_Action(A)
-                elif A.Action_type in ["touch_pussy", "finger_pussy", "eat_pussy", "self_touch_pussy", "self_vibrator", "self_dildo_pussy", "sex", "vibrator", "dildo_pussy"] and Character.pussy_covered:
-                    stop_Action(A)
-                elif A.Action_type in ["finger_ass", "eat_ass", "self_finger_ass", "self_dildo_ass", "anal", "dildo_ass"] and Character.anus_covered:
-                    stop_Action(A)
+        $ check_for_clothed_Actions(Character)
 
     return

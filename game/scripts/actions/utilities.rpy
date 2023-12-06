@@ -413,6 +413,51 @@ init python:
 
         return Characters
 
+    def get_hookup_summary():
+        total_Character_orgasms = 0
+        total_Player_orgasms = 0
+        total_unique_Actions = 0
+
+        for C in Present:
+            total_Character_orgasms += C.History.check("orgasmed_with_Player", tracker = "recent")
+
+        total_Player_orgasms = Player.History.check("orgasmed", tracker = "recent")
+
+        for Action_type in all_Action_types:
+            if Player.History.check(Action_type, tracker = "recent"):
+                total_unique_Actions += 1
+            else:
+                for C in Present:
+                    if C.History.check(Action_type, tracker = "recent"):
+                        total_unique_Actions += 1
+                        
+                        break
+
+        score = 0.0
+
+        return total_Character_orgasms, total_Player_orgasms, total_unique_Actions, score
+
+    def check_for_clothed_Actions(Character):
+        for A in Character.all_Actions:
+            if A.Action_type in ["touch_thighs_over_clothes", "touch_thighs_higher_over_clothes"] and not Character.thighs_covered:
+                stop_Action(A)
+            elif A.Action_type == "touch_breasts_over_clothes" and not Character.breasts_covered:
+                stop_Action(A)
+            elif A.Action_type == "touch_pussy_over_clothes" and not Character.pussy_covered:
+                stop_Action(A)
+            elif A.Action_type == "grab_ass_over_clothes" and not Character.ass_covered:
+                stop_Action(A)
+            elif A.Action_type in ["touch_thighs", "touch_thighs_higher"] and Character.thighs_covered:
+                stop_Action(A)
+            elif A.Action_type in ["touch_breasts", "pinch_nipples", "suck_nipples"] and Character.breasts_covered:
+                stop_Action(A)
+            elif A.Action_type in ["touch_pussy", "finger_pussy", "eat_pussy", "self_touch_pussy", "self_vibrator", "self_dildo_pussy", "sex", "vibrator", "dildo_pussy"] and Character.pussy_covered:
+                stop_Action(A)
+            elif A.Action_type in ["finger_ass", "eat_ass", "self_finger_ass", "self_dildo_ass", "anal", "dildo_ass"] and Character.anus_covered:
+                stop_Action(A)
+
+        return
+
 label start_Action(Action):
     $ Actors = Action.Actors
     $ Targets = Action.Targets
@@ -862,23 +907,7 @@ label start_Action(Action):
                         elif Action.Action_type in ["self_dildo_ass", "anal", "dildo_ass"] and C in Action.Targets:
                             C.anal_training += 1 if C.anal_training < 3 else 0
 
-                    for A in C.all_Actions:
-                        if A.Action_type in ["touch_thighs_over_clothes", "touch_thighs_higher_over_clothes"] and not C.thighs_covered:
-                            stop_Action(A)
-                        elif A.Action_type == "touch_breasts_over_clothes" and not C.breasts_covered:
-                            stop_Action(A)
-                        elif A.Action_type == "touch_pussy_over_clothes" and not C.pussy_covered:
-                            stop_Action(A)
-                        elif A.Action_type == "grab_ass_over_clothes" and not C.ass_covered:
-                            stop_Action(A)
-                        elif A.Action_type in ["touch_thighs", "touch_thighs_higher"] and C.thighs_covered:
-                            stop_Action(A)
-                        elif A.Action_type in ["touch_breasts", "pinch_nipples", "suck_nipples"] and C.breasts_covered:
-                            stop_Action(A)
-                        elif A.Action_type in ["touch_pussy", "finger_pussy", "eat_pussy", "self_touch_pussy", "self_vibrator", "self_dildo_pussy", "sex", "vibrator", "dildo_pussy"] and C.pussy_covered:
-                            stop_Action(A)
-                        elif A.Action_type in ["finger_ass", "eat_ass", "self_finger_ass", "self_dildo_ass", "anal", "dildo_ass"] and C.anus_covered:
-                            stop_Action(A)
+                    check_for_clothed_Actions(C)
 
         if Action.Action_type == "deepthroat":
             $ Action.max_speed[0] *= Action.Actors[0].throat_training/4
@@ -935,7 +964,7 @@ label continue_Actions:
             for G in Present:
                 if not G.stamina:
                     for A in G.all_Actions:
-                        if A in unique_Actions and A not in G.mouth_Actions:
+                        if A in unique_Actions and A not in Player.cock_Actions:
                             unique_Actions.remove(A)
 
         if ongoing_Actions:
@@ -947,17 +976,32 @@ label continue_Actions:
 
             while unique_Actions:
                 if unique_Actions[0].counter > 0:
-                    call expression f"{unique_Actions[0].Action_type}_continuations" pass (Action = unique_Actions[0]) from _call_expression_101
+                    $ not_warmed_up_Character = None
+                    $ bored_Character = None
 
-                $ unique_Actions[0].counter += 1
-
-                if unique_Actions[0].counter == boredom_threshold:
-                    $ renpy.dynamic(temp_Characters = Present[:])
+                    $ renpy.dynamic(temp_Characters = get_Action_Characters(unique_Actions[0]))
 
                     while temp_Characters:
-                        $ temp_Characters[0].History.update(unique_Actions[0].Action_type)
+                        if unique_Actions[0].counter % boredom_threshold == 0:
+                            $ temp_Characters[0].History.update(unique_Actions[0].Action_type)
+
+                        if temp_Characters[0] in all_Companions:
+                            if temp_Characters[0].desire < eval(f"{temp_Characters[0].tag}_Action_desire_thresholds['{unique_Actions[0].Action_type}']"):
+                                $ not_warmed_up_Character = temp_Characters[0]
+
+                            if temp_Characters[0].History.check(unique_Actions[0].Action_type, tracker = "weekly") >= boredom_threshold:
+                                $ bored_Character = temp_Characters[0]
 
                         $ temp_Characters.remove(temp_Characters[0])
+
+                    if not_warmed_up_Character and renpy.random.random() > 0.25:
+                        call expression f"{not_warmed_up_Character.tag}_not_warmed_up_for_Action" pass (Action = unique_Actions[0])
+                    elif bored_Character and renpy.random.random() > 0.75:
+                        call expression f"{bored_Character.tag}_bored_by_Action" pass (Action = unique_Actions[0])
+                    else:
+                        call expression f"{unique_Actions[0].Action_type}_continuations" pass (Action = unique_Actions[0]) from _call_expression_101
+
+                $ unique_Actions[0].counter += 1
 
                 $ unique_Actions.remove(unique_Actions[0])
 
@@ -980,7 +1024,7 @@ label continue_Actions:
 
     return
 
-label stop_all_Actions(close_interface = False, automatic = False):
+label stop_all_Actions(close_interface = True, automatic = False):
     if close_interface:
         hide screen Action_screen
 
@@ -1013,15 +1057,18 @@ label stop_all_Actions(close_interface = False, automatic = False):
     $ Player.Lovers = {}
 
     if (not ongoing_Event or has_Action_control) and not automatic:
-        $ needs_to_clean = False
+        $ needs_to_clean = []
 
         python:
-            for location in focused_Companion.spunk.keys():
-                if focused_Companion.spunk[location] and location != "mouth":
-                    needs_to_clean = True
+            for C in Present:
+                for location in C.spunk.keys():
+                    if C.spunk[location] and location != "mouth":
+                        needs_to_clean.append(C)
 
-        if needs_to_clean:
-            call clean_cum_mess(focused_Companion) from _call_clean_cum_mess
+        while needs_to_clean:
+            call clean_cum_mess(needs_to_clean[0]) from _call_clean_cum_mess
+
+            $ needs_to_clean.remove(needs_to_clean[0])
 
         $ renpy.pause(1.0, hard = True)
 
@@ -1056,8 +1103,15 @@ label stop_all_Actions(close_interface = False, automatic = False):
     $ Character_picker_disabled = False
 
     if close_interface:
-        if not ongoing_Event and focused_Companion.location == Player.location:
-            show screen interactions_screen(focused_Companion)
+        if not ongoing_Event:
+            $ total_Character_orgasms, total_Player_orgasms, total_unique_Actions, score = get_hookup_summary()
+
+            if focused_Companion and focused_Companion.location == Player.location:
+                $ Player.weekly_performance += score
+
+                call expression f"{focused_Companion.tag}_hookup_summary" pass (total_Character_orgasms = total_Character_orgasms, total_Player_orgasms = total_Player_orgasms, total_unique_Actions = total_unique_Actions)
+
+                show screen interactions_screen(focused_Companion)
     else:
         $ belt_disabled = False
 

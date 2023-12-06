@@ -38,8 +38,10 @@ init -1 python:
                 "back": [0],
                 "belly": [0]}}
 
-        covered_by = {}
-        blocked_by = {}
+        covered_by = {
+            "brown_classic_jacket": [0, 1]}
+        blocked_by = {
+            "brown_classic_jacket": [0, 1]}
 
         supports_breasts = False
         

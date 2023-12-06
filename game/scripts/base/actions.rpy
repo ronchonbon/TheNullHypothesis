@@ -1,12 +1,12 @@
 init -2:
 
     default hookup_length = 0
-    define max_hookup_length = 15
+    define max_hookup_length = 1e8
 
     define unknown_threshold = 5
 
-    define boredom_penalty = 0.25
-    define boredom_threshold = 10
+    define boredom_penalty = -0.25
+    define boredom_threshold = 5
 
     default ongoing_Actions = []
 
@@ -603,5 +603,7 @@ init -2 python:
                     self.lines = ["Can we have sex?", "Want me inside you?", "I want to be inside you."]
                 elif Action_type == "anal":
                     self.lines = ["Can we do anal?", "Want me to put my cock in your ass?", "I want to fuck your ass."]
+            else:
+                self.modes = [1]
 
             self.mode = self.modes[0]

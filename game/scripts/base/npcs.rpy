@@ -92,6 +92,9 @@ init -2 python:
 
             return
 
+        def default_face(self):
+            return "neutral"
+
         def change_arms(self, pose = None, **kwargs):
             pose = self.default_arms() if not pose else pose
 
@@ -114,6 +117,9 @@ init -2 python:
                 self.right_arm = "crossed"
 
             return
+
+        def default_arms(self):
+            return "neutral"
 
         def travel(self):
             if self.location != "hold":

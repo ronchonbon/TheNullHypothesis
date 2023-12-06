@@ -5,6 +5,10 @@ label Laura_rejects_hookup:
 
     return
 
+label Laura_rejects_hookup_later:
+
+    return
+
 label Laura_rejects_hookup_mad:
     $ Laura.change_face("appalled3")
 
@@ -111,7 +115,7 @@ label Laura_rejects_Action_asked_twice:
 
     ch_Laura "{i}Grrrrrr{/i}"
 
-    call stop_all_Actions(close_interface = True) from _call_stop_all_Actions
+    call stop_all_Actions from _call_stop_all_Actions
 
     if Player.location == Laura.home:
         "She forcefully shoves you out of the room, slamming the door shut behind you."
@@ -149,5 +153,21 @@ label Laura_accepts_Action_again:
         $ Laura.change_face("sexy", blush = 1)
 
         ch_Laura "Good. . ."
+
+    return
+
+label Laura_bored_by_Action(Action):
+
+    return
+
+label Laura_not_warmed_up_for_Action(Action):
+
+    return
+
+label Laura_hookup_summary(total_Character_orgasms, total_Player_orgasms, total_unique_Actions):
+
+    return
+
+label Laura_weekly_summary:
 
     return

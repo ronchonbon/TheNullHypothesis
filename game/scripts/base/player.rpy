@@ -53,6 +53,8 @@ init -3 python:
             self.ringtone = 0
 
             self.attendance_bonus = False
+
+            self.weekly_performance = 0.0
             
             self.sweat = 0
             self.sweaty_threshold = 2

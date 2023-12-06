@@ -12,7 +12,7 @@ init python:
         description = "Attend class every week so you don't fall behind on your studies"
 
         objectives = {
-            "Attend class this week": ["Player.History.check('attended_class', tracker = 'weekly')", 3]}
+            "Attend class this week": [f"Player.History.check('attended_class', tracker = 'weekly', after = {day - weekday})", 3]}
 
         optional_objectives = {}
 

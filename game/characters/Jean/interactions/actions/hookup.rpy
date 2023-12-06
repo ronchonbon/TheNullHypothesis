@@ -9,6 +9,10 @@ label Jean_rejects_hookup:
 
     return
 
+label Jean_rejects_hookup_later:
+
+    return
+
 label Jean_rejects_hookup_mad:
     $ Jean.change_face("appalled2")
 
@@ -138,5 +142,21 @@ label Jean_accepts_Action_again:
         $ Jean.change_face("sexy", blush = 1)
 
         ch_Jean "I'm down. . ."
+
+    return
+
+label Jean_bored_by_Action(Action):
+
+    return
+
+label Jean_not_warmed_up_for_Action(Action):
+
+    return
+
+label Jean_hookup_summary(total_Character_orgasms, total_Player_orgasms, total_unique_Actions):
+
+    return
+
+label Jean_weekly_summary:
 
     return

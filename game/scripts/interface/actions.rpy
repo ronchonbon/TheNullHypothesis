@@ -196,8 +196,10 @@ screen Action_screen(automatic = False):
                     selected Action_screen_tab == "strip"
 
                     if has_Action_control:
-                        action Call("ask_to_undress", focused_Companion, from_current = True)
-                        # action SetVariable("Action_screen_tab", "strip")
+                        action [
+                            SetVariable("Action_auto_progress", False),
+                            SetVariable("Action_auto_progress_timer", 0.0),
+                            Call("ask_to_undress", focused_Companion, from_current = True)]
                     else:
                         action None
 
@@ -252,7 +254,10 @@ screen Action_screen(automatic = False):
                                     color "#ffffff"
 
                                 if focused_Companion.position != pose:
-                                    action Call("request_position", focused_Companion, pose, from_current = True)
+                                    action [
+                                        SetVariable("Action_auto_progress", False),
+                                        SetVariable("Action_auto_progress_timer", 0.0),
+                                        Call("request_position", focused_Companion, pose, from_current = True)]
                                 else:
                                     action NullAction()
 
@@ -436,7 +441,10 @@ screen Action_screen(automatic = False):
                 imagebutton:
                     idle At("images/interface/Action_menu/continue_idle.webp", interface) hover At("images/interface/Action_menu/continue.webp", interface)
 
-                    action Call("continue_Actions", from_current = True)
+                    action [
+                        SetVariable("Action_auto_progress", False),
+                        SetVariable("Action_auto_progress_timer", 0.0),
+                        Call("continue_Actions", from_current = True)]
 
                     tooltip "Keep Going"
                     
@@ -448,6 +456,8 @@ screen Action_screen(automatic = False):
 
                         if Player.cock_Actions:
                             action [
+                                SetVariable("Action_auto_progress", False),
+                                SetVariable("Action_auto_progress_timer", 0.0),
                                 SetVariable("speed", 0.001),
                                 SetVariable("intensity", 0.001),
                                 SetField(Player.cock_Actions[0], "mode", 0)]
@@ -581,18 +591,18 @@ screen Action_screen(automatic = False):
                 if automatic:
                     action [
                         SetVariable("Action_screen_showing", False),
-                        Call("stop_all_Actions", close_interface = True),
+                        Call("stop_all_Actions"),
                         Return()]
                 else:
                     action [
                         SetVariable("Action_screen_showing", False),
-                        Call("stop_all_Actions", close_interface = True, from_current = True)]
+                        Call("stop_all_Actions", from_current = True)]
 
                 tooltip "Finish"
 
                 focus_mask True
 
-    if black_screen or renpy.get_screen("say"):
+    if black_screen or (renpy.get_screen("say") and not Action_auto_progress):
         button align (0.5, 0.5) xysize (config.screen_width, config.screen_height):
             background None
 

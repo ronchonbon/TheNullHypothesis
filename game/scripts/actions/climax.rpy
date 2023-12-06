@@ -4,6 +4,7 @@ init python:
 
 label Character_orgasms(Character):
     $ Action_auto_progress = False
+    $ Action_auto_progress_timer = 0.0
 
     $ has_progression_control = False
     $ has_Action_control = False
@@ -12,23 +13,26 @@ label Character_orgasms(Character):
 
     $ Character.orgasming = True
 
-    $ Character.History.update("orgasmed_with_Player")
-
     call Character_orgasm_narrations(Character) from _call_Character_orgasm_narrations
+
+    $ Character.History.update("orgasmed_with_Player")
 
     $ Character.orgasming = False
 
-    $ Character.desire = int(100 - 50/Character.History.check("orgasmed_with_Player", tracker = "recent"))
-
     $ Character.stamina -= 1 if Character.stamina > 0 else 0
+
+    if Character.stamina:
+        $ Character.desire = int(100 - 50/Character.History.check("orgasmed_with_Player", tracker = "recent"))
+    else:
+        $ Character.desire = 0
 
     $ Character.status["horny"] = False
 
-    if not Character.stamina or hookup_length >= max_hookup_length:
-        python:
-            for A in Character.all_Actions:
-                if A not in Player.cock_Actions:
-                    stop_Action(A)
+    # if not Character.stamina or hookup_length >= max_hookup_length:
+    #     python:
+    #         for A in Character.all_Actions:
+    #             if A not in Player.cock_Actions:
+    #                 stop_Action(A)
 
     $ has_progression_control = True
     $ has_Action_control = True
@@ -40,6 +44,7 @@ label Character_orgasms(Character):
 
 label Player_orgasms:
     $ Action_auto_progress = False
+    $ Action_auto_progress_timer = 0.0
     
     $ has_progression_control = False
     $ has_Action_control = False

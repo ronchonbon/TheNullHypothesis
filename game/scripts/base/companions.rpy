@@ -247,15 +247,15 @@ init -2 python:
 
         def default_face(self):
             if self.status["miffed"] or self.status["mad"]:
-                face = "neutral"
+                face = "furious"
             elif self.status["heartbroken"]:
-                face = "neutral"
+                face = "sad"
             elif self.status["horny"]:
-                face = "neutral"
+                face = "sexy"
             elif self.status["nympho"]:
-                face = "neutral"
-            # elif approval_check(self, threshold = "love"):
-            #     face = "neutral"
+                face = "sexy"
+            elif approval_check(self, threshold = "love"):
+                face = "smirk2"
             else:
                 face = "neutral"
 

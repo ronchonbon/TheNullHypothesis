@@ -10,6 +10,10 @@ label Rogue_rejects_hookup:
 
     return
 
+label Rogue_rejects_hookup_later:
+
+    return
+
 label Rogue_rejects_hookup_mad:
     $ Rogue.change_face("appalled2")
 
@@ -152,5 +156,21 @@ label Rogue_accepts_Action_again:
         $ Rogue.change_face("sexy", blush = 2)
 
         ch_Rogue "Won't have to convince me. . ."
+
+    return
+
+label Rogue_bored_by_Action(Action):
+
+    return
+
+label Rogue_not_warmed_up_for_Action(Action):
+
+    return
+
+label Rogue_hookup_summary(total_Character_orgasms, total_Player_orgasms, total_unique_Actions):
+
+    return
+
+label Rogue_weekly_summary:
 
     return

@@ -28,10 +28,10 @@ init -2:
     define time_options = ["morning", "midday", "evening", "night", "late night"]
     define week = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
 
-    define subtle_screenshake = Move((0, 2), (0, -2), 0.10, bounce = True, repeat = True, delay = 0.25)
-    define small_screenshake = Move((0, 10), (0, -10), 0.10, bounce = True, repeat = True, delay = 0.275)
-    define big_screenshake = Move((0, 20), (0, -20), 0.10, bounce = True, repeat = True, delay = 0.5)
-    define orgasm_shake = Move((0, 10), (0, -10), 0.10, bounce = True, repeat = True, delay = 0.275)
+    define subtle_screenshake = Move((0, 2), (0, -2), 0.10, bounce = True, repeat = True, delay = 0.225)
+    define small_screenshake = Move((0, 10), (0, -10), 0.10, bounce = True, repeat = True, delay = 0.325)
+    define big_screenshake = Move((0, 20), (0, -20), 0.10, bounce = True, repeat = True, delay = 0.525)
+    define orgasm_shake = Move((0, 20), (0, -20), 0.10, bounce = True, repeat = True, delay = 0.525)
     define fast_dissolve = Dissolve(1.0)
     define faster_dissolve = Dissolve(0.5)
     define fastest_dissolve = Dissolve(0.1)
@@ -49,3 +49,4 @@ init -2:
     default temp_Clothes = [ClothingClass(None, "Placeholder", "Placholder", "placeholder", "placeholder", "placeholder", 0, 0, {})]
     default temp_Clothing_types = ["placeholder"]
     default temp_body_parts = ["placeholder"]
+    default unique_Actions = [ActionClass("placeholder", None)]

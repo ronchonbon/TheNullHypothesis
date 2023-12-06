@@ -80,26 +80,30 @@ label request_hookup(Character):
     $ renpy.dynamic(temp_Characters = Present[:])
 
     while temp_Characters:
-        if approval_check(temp_Characters[0], threshold = "hookup"):
-            if not temp_Characters[0].History.check("hookup", tracker = "recent"):
-                if not temp_Characters[0].History.check("hookup"):
-                    call expression f"{temp_Characters[0].tag}_accepts_hookup_first_time" from _call_expression_65
-                elif temp_Characters[0].History.check("hookup") == 1:
-                    call expression f"{temp_Characters[0].tag}_accepts_hookup_second_time" from _call_expression_66
-                elif approval_check(temp_Characters[0], threshold = "love"):
-                    call expression f"{temp_Characters[0].tag}_accepts_hookup_love" from _call_expression_67
-                else:
-                    call expression f"{temp_Characters[0].tag}_accepts_hookup" from _call_expression_68
+        if approval_check(temp_Characters[0], threshold = "hookup") and Player.stamina and temp_Characters[0].stamina:
+            if not temp_Characters[0].History.check("hookup"):
+                call expression f"{temp_Characters[0].tag}_accepts_hookup_first_time" from _call_expression_65
+            elif temp_Characters[0].History.check("hookup") == 1:
+                call expression f"{temp_Characters[0].tag}_accepts_hookup_second_time" from _call_expression_66
+            elif approval_check(temp_Characters[0], threshold = "love"):
+                call expression f"{temp_Characters[0].tag}_accepts_hookup_love" from _call_expression_67
+            else:
+                call expression f"{temp_Characters[0].tag}_accepts_hookup" from _call_expression_68
+
+            if temp_Characters[0].History.check("hookup") >= 3:
+                call expression f"{temp_Characters[0].tag}_weekly_summary"
         else:
             if temp_Characters[0].History.check("rejected_hookup", tracker = "recent") >= 2:
                 call change_Companion_stat(temp_Characters[0], "love", -5) from _call_change_Companion_stat_819
                 call change_Companion_stat(temp_Characters[0], "trust", -5) from _call_change_Companion_stat_820
 
-                call expression f"{temp_Characters[0].tag}_rejects_hookup_asked_twice" from _call_expression_69
+                call expression f"{temp_Characters[0].tag}_rejects_Action_asked_twice" from _call_expression_69
             elif temp_Characters[0].History.check("rejected_hookup", tracker = "recent") == 1:
                 call change_Companion_stat(temp_Characters[0], "love", -2) from _call_change_Companion_stat_821
 
-                call expression f"{temp_Characters[0].tag}_rejects_hookup_asked_once" from _call_expression_70
+                call expression f"{temp_Characters[0].tag}_rejects_Action_asked_once" from _call_expression_70
+            elif not Player.stamina and not temp_Characters[0].stamina:
+                call expression f"{temp_Characters[0].tag}_rejects_hookup_later"
             else:
                 call expression f"{temp_Characters[0].tag}_rejects_hookup" from _call_expression_71
 
@@ -114,10 +118,9 @@ label request_hookup(Character):
 
     python:
         for C in Present:
-            if not C.History.check("hookup", tracker = "recent"):
-                C.History.update("hookup")
+            C.History.update("hookup")
 
-                hookup_length = 0
+            hookup_length = 0
 
     $ Character_picker_disabled = False
 
@@ -298,6 +301,8 @@ label request_position(Companion, new_position, Action = None, automatic = False
             if Action:
                 $ Action.position = new_position
 
+            $ check_for_clothed_Actions(Companion)
+
             call show_pose(Companion, new_position) from _call_show_pose
 
             $ Companion.History.update(new_position)
@@ -343,6 +348,8 @@ label request_position(Companion, new_position, Action = None, automatic = False
 
         if Action:
             $ Action.position = new_position
+
+        $ check_for_clothed_Actions(Companion)
 
         call show_pose(Companion, new_position) from _call_show_pose_1
 

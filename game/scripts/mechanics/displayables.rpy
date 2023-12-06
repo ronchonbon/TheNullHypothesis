@@ -177,6 +177,8 @@ label hide_Character(Character, fade = 0.5, send_Offscreen = True):
     if fade:
         with Dissolve(fade)
 
+        $ renpy.pause(fade, hard = True)
+
     $ Character.sprite_position = [0.0, eval(f"{Character.tag}_standing_height")]
 
     $ Character.left_arm = "neutral"
