@@ -23,8 +23,8 @@ style game_menu_vbox:
     spacing 5
     
 style game_menu_button:
-    idle_background Frame("images/interface/box1.webp", 5, 5)
-    hover_background Frame("images/interface/box2.webp", 5, 5)
+    idle_background Frame("images/interface/box1.webp", 10, 10)
+    hover_background Frame("images/interface/box2.webp", 10, 10)
 
     padding (15, 15, 15, 15)
 
@@ -36,8 +36,8 @@ style game_menu_text:
 style files is default
 
 style files_button:
-    idle_background Frame("images/interface/box1.webp", 5, 5)
-    hover_background Frame("images/interface/box2.webp", 5, 5)
+    idle_background Frame("images/interface/box1.webp", 10, 10)
+    hover_background Frame("images/interface/box2.webp", 10, 10)
 
     padding (30, 10, 30, 10)
 

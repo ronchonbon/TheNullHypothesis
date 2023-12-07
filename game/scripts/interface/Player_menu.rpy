@@ -150,7 +150,7 @@ screen Player_menu():
             use map_screen
 
     if black_screen or renpy.get_screen("say"):
-        button xysize (config.screen_width, config.screen_height):
+        button xysize (1.0, 1.0):
             background None
             
             if not renpy.get_screen("choice"):
@@ -232,7 +232,7 @@ screen database_screen():
         if database_length >= 1:
             if current_database_page < len(current_database_Character.database["description"]):
                 frame anchor (0.5, 0.0) pos (0.5825, 0.25) xsize 0.25:
-                    background Frame("images/interface/Player_menu/database_text_frame.webp", 5, 5)
+                    background Frame("images/interface/Player_menu/database_text_frame.webp", 10, 10)
 
                     text current_database_Character.database["stats"]:
                         size 24
@@ -242,7 +242,7 @@ screen database_screen():
                         text_align 0.0
 
                 frame anchor (0.5, 0.0) pos (0.8375, 0.25) xsize 0.225:
-                    background Frame("images/interface/Player_menu/database_text_frame.webp", 5, 5)
+                    background Frame("images/interface/Player_menu/database_text_frame.webp", 10, 10)
 
                     text current_database_Character.database["study_materials"]:
                         size 28
@@ -252,7 +252,7 @@ screen database_screen():
                         text_align 0.0
 
                 frame anchor (0.0, 0.0) pos (0.33, 0.55) xsize 0.62:
-                    background Frame("images/interface/Player_menu/database_text_frame.webp", 5, 5)
+                    background Frame("images/interface/Player_menu/database_text_frame.webp", 10, 10)
 
                     text current_database_Character.database["description"][current_database_page]:
                         if len(current_database_Character.database["description"][current_database_page]) < 800:
@@ -267,7 +267,7 @@ screen database_screen():
                         text_align 0.0
             elif "wiki" in current_database_Character.database.keys():
                 frame anchor (0.0, 0.0) pos (0.4575, 0.25) xsize 0.475:
-                    background Frame("images/interface/Player_menu/database_text_frame.webp", 5, 5)
+                    background Frame("images/interface/Player_menu/database_text_frame.webp", 10, 10)
 
                     text current_database_Character.database["wiki"]:
                         size 36
@@ -279,7 +279,7 @@ screen database_screen():
                 vbox anchor (0.0, 1.0) pos (0.33, 0.9) xsize 0.62:
                     for comment in current_database_Character.database["comments"]:
                         frame xalign 0.0 xsize 0.62:
-                            background Frame("images/interface/Player_menu/database_text_frame.webp", 5, 5)
+                            background Frame("images/interface/Player_menu/database_text_frame.webp", 10, 10)
 
                             text comment xalign 0.0:
                                 size 24

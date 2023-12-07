@@ -17,7 +17,7 @@ style updates is default
 style updates_frame:
     anchor (1.0, 0.5)
 
-    background Frame("images/interface/belt/update.webp", 5, 5)
+    background Frame("images/interface/belt/update.webp", 10, 10)
 
     padding (15, 15, 15, 15)
 

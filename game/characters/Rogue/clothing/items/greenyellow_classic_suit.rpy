@@ -21,9 +21,9 @@ init -1 python:
         shame = [15, 15]
         
         available_states = {
-            "standing": [0]}
+            "standing": [0, 1]}
         undressed_states = {
-            "standing": 0}
+            "standing": 1}
         
         covers = {
             "standing": {
@@ -31,26 +31,26 @@ init -1 python:
                 "breasts": [0],
                 "back": [0],
                 "belly": [0],
-                "thighs": [0],
-                "underwear": [0],
-                "ass": [0],
-                "pussy": [0],
-                "anus": [0]}}
+                "thighs": [0, 1],
+                "underwear": [0, 1],
+                "ass": [0, 1],
+                "pussy": [0, 1],
+                "anus": [0, 1]}}
         hides = {
             "standing": {
                 "bra": [0],
                 "breasts": [0],
                 "back": [0],
                 "belly": [0],
-                "thighs": [0],
-                "underwear": [0],
-                "ass": [0],
-                "pussy": [0],
-                "anus": [0]}}
+                "thighs": [0, 1],
+                "underwear": [0, 1],
+                "ass": [0, 1],
+                "pussy": [0, 1],
+                "anus": [0, 1]}}
 
         covered_by = {
-            "black_lowcut_top": [0],
-            "brown_classic_jacket": [0]}
+            "black_lowcut_top": [0, 1],
+            "brown_classic_jacket": [0, 1]}
         blocked_by = {
             "black_jeans": [0, 1],
             "black_lowcut_top": [0, 1],

@@ -759,8 +759,8 @@ screen text_screen():
                 if current_phone_Character.location != "hold": 
                     for message in text_options:
                         button xalign 0.0:
-                            idle_background Frame("images/interface/phone/text_frame_Player_idle.webp", 5, 5)
-                            hover_background Frame("images/interface/phone/text_frame_Player.webp", 5, 5)
+                            idle_background Frame("images/interface/phone/text_frame_Player_idle.webp", 10, 10)
+                            hover_background Frame("images/interface/phone/text_frame_Player.webp", 10, 10)
 
                             activate_sound None
 
@@ -816,7 +816,7 @@ screen text_history(Character):
                                     size 30
 
                             frame:
-                                background Frame("images/interface/phone/text_frame.webp", 5, 5)
+                                background Frame("images/interface/phone/text_frame.webp", 10, 10)
 
                                 padding (15, 15, 15, 15)
                                 minimum (50, 0)
@@ -849,7 +849,7 @@ screen text_history(Character):
 
                         vbox align (1.0, 0.5):
                             frame:
-                                background Frame("images/interface/phone/text_frame_Player.webp", 5, 5)
+                                background Frame("images/interface/phone/text_frame_Player.webp", 10, 10)
 
                                 padding (15, 15, 15, 15)
                                 minimum (50, 0)

@@ -91,6 +91,8 @@ layeredimage Rogue_standing:
 
     if not Rogue.Clothes["bodysuit"].string:
         Null()
+    elif Rogue.Clothes["bodysuit"].string in ["greenyellow_classic_suit"] and Rogue.Clothes["bodysuit"].state == 1:
+        Null()
     elif Rogue.left_arm in ["bra", "touch_ass"]:
         "characters/Rogue/images/standing/bodysuit_[Rogue.Clothes[bodysuit].string]_left_forearm_sleeve_[Rogue.left_arm].webp"
 
@@ -153,6 +155,8 @@ layeredimage Rogue_standing:
 
     if not Rogue.Clothes["bodysuit"].string:
         Null()
+    elif Rogue.Clothes["bodysuit"].string in ["greenyellow_classic_suit"] and Rogue.Clothes["bodysuit"].state == 1:
+        Null()
     elif Rogue.right_arm in ["fight", "touch_pussy"]:
         "characters/Rogue/images/standing/bodysuit_[Rogue.Clothes[bodysuit].string]_right_forearm_sleeve_[Rogue.right_arm].webp"
 
@@ -180,6 +184,8 @@ layeredimage Rogue_standing:
         "characters/Rogue/images/standing/left_forearm_[Rogue.left_arm].webp"
 
     if not Rogue.Clothes["bodysuit"].string:
+        Null()
+    elif Rogue.Clothes["bodysuit"].string in ["greenyellow_classic_suit"] and Rogue.Clothes["bodysuit"].state == 1:
         Null()
     elif Rogue.left_arm in ["extended", "fight", "grope", "rub_neck"]:
         "characters/Rogue/images/standing/bodysuit_[Rogue.Clothes[bodysuit].string]_left_forearm_sleeve_[Rogue.left_arm].webp"
@@ -270,7 +276,11 @@ layeredimage Rogue_standing_right_arm:
     always:
         "characters/Rogue/images/standing/right_arm_[Rogue.right_arm].webp"
 
-    if Rogue.Clothes["bodysuit"].string in ["greenyellow_classic_suit"] and Rogue.right_arm in ["bra", "extended", "fist", "neutral"]:
+    if not Rogue.Clothes["bodysuit"].string:
+        Null()
+    elif Rogue.Clothes["bodysuit"].string in ["greenyellow_classic_suit"] and Rogue.Clothes["bodysuit"].state == 1:
+        Null()
+    elif Rogue.Clothes["bodysuit"].string in ["greenyellow_classic_suit"] and Rogue.right_arm in ["bra", "extended", "fist", "neutral"]:
         "characters/Rogue/images/standing/bodysuit_[Rogue.Clothes[bodysuit].string]_right_sleeve_[Rogue.right_arm].webp"
 
     if Rogue.Clothes["top"].string in ["black_fishnet_top"] and Rogue.right_arm in ["extended", "neutral"]:
@@ -330,6 +340,8 @@ layeredimage Rogue_standing_body:
 
     if not Rogue.Clothes["bodysuit"].string:
         Null()
+    elif Rogue.Clothes["bodysuit"].string in ["greenyellow_classic_suit"] and Rogue.Clothes["bodysuit"].state == 1:
+        Null()
     elif Rogue.right_arm == "fist":
         "characters/Rogue/images/standing/bodysuit_[Rogue.Clothes[bodysuit].string]_right_shoulder_neutral.webp"
     elif Rogue.right_arm in ["bra", "extended", "fight", "hip", "neutral", "touch_pussy"]:
@@ -357,6 +369,8 @@ layeredimage Rogue_standing_body:
         "characters/Rogue/images/standing/right_forearm_[Rogue.right_arm].webp"
 
     if not Rogue.Clothes["bodysuit"].string:
+        Null()
+    elif Rogue.Clothes["bodysuit"].string in ["greenyellow_classic_suit"] and Rogue.Clothes["bodysuit"].state == 1:
         Null()
     elif Rogue.right_arm in ["hip"]:
         "characters/Rogue/images/standing/bodysuit_[Rogue.Clothes[bodysuit].string]_right_forearm_sleeve_[Rogue.right_arm].webp"
@@ -411,7 +425,7 @@ layeredimage Rogue_standing_body:
 
     if not Rogue.Clothes["bodysuit"].string:
         Null()
-    elif Rogue.left_arm == "crossed" and Rogue.right_arm == "crossed":
+    elif Rogue.left_arm == "crossed" and Rogue.right_arm == "crossed" and Rogue.Clothes["bodysuit"].state != 1:
         "characters/Rogue/images/standing/bodysuit_[Rogue.Clothes[bodysuit].string]_[Rogue.Clothes[bodysuit].state]_crossed.webp"
     else:
         "characters/Rogue/images/standing/bodysuit_[Rogue.Clothes[bodysuit].string]_[Rogue.Clothes[bodysuit].state].webp"
@@ -446,6 +460,8 @@ image Rogue_standing_left_arm:
 
 layeredimage Rogue_standing_left_sleeve:
     if not Rogue.Clothes["bodysuit"].string:
+        Null()
+    elif Rogue.Clothes["bodysuit"].string in ["greenyellow_classic_suit"] and Rogue.Clothes["bodysuit"].state == 1:
         Null()
     else:
         "characters/Rogue/images/standing/bodysuit_[Rogue.Clothes[bodysuit].string]_left_sleeve_[Rogue.left_arm].webp"

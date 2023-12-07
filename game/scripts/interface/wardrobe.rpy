@@ -53,8 +53,8 @@ image small_delete_idle:
 style Wardrobe is default
 
 style Wardrobe_button:
-    idle_background Frame("images/interface/wardrobe/clothing_idle.webp", 5, 5)
-    hover_background Frame("images/interface/wardrobe/clothing.webp", 5, 5)
+    idle_background Frame("images/interface/wardrobe/clothing_idle.webp", 10, 10)
+    hover_background Frame("images/interface/wardrobe/clothing.webp", 10, 10)
 
     padding (10, 10, 10, 10)
 
@@ -354,7 +354,7 @@ screen Wardrobe_screen(Character):
         tooltip "Current Outfit Shame"
 
     if black_screen or renpy.get_screen("say"):
-        button xysize (config.screen_width, config.screen_height):
+        button xysize (1.0, 1.0):
             background None
 
             hover_sound None

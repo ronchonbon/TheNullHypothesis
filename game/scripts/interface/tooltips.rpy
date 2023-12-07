@@ -10,7 +10,7 @@ screen tooltips():
             prefer_top True
 
             frame:
-                background Frame("images/interface/text_boxes/white.webp", 5, 5)
+                background Frame("images/interface/text_boxes/white.webp", 10, 10)
 
                 text tooltip:
                     font "agency_fb.ttf"

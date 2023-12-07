@@ -20,8 +20,8 @@ init python:
 style shop is default
 
 style shop_button:
-    idle_background Frame("images/interface/box1.webp", 5, 5)
-    hover_background Frame("images/interface/box2.webp", 5, 5)
+    idle_background Frame("images/interface/box1.webp", 10, 10)
+    hover_background Frame("images/interface/box2.webp", 10, 10)
 
     padding (20, 20, 20, 20)
 
@@ -323,7 +323,7 @@ screen buy_gift_screen(Characters, Item, discount = False):
         $ modifier = 1.0
 
     frame xysize (0.25, 0.45):
-        background Frame("images/interface/box1.webp", 5, 5)
+        background Frame("images/interface/box1.webp", 10, 10)
 
         viewport id "buy_gift_screen_viewport" align (0.5, 0.5) xysize (0.8, 0.9):
             vbox align (0.5, 0.0) xsize 1.0:
@@ -407,7 +407,7 @@ screen piercings_screen(Characters, Piercing, discount = False):
     modal True
 
     frame xysize (0.25, 0.45):
-        background Frame("images/interface/box1.webp", 5, 5)
+        background Frame("images/interface/box1.webp", 10, 10)
 
         viewport id "piercings_screen_viewport" align (0.5, 0.5) xysize (0.8, 0.9):
             vbox align (0.5, 0.0) xsize 1.0:

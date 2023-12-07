@@ -7,8 +7,8 @@ init -3:
 style choice is default
 
 style choice_button:
-    idle_background Frame("images/interface/text_boxes/red_idle.webp", 5, 5)
-    hover_background Frame("images/interface/text_boxes/red.webp", 5, 5)
+    idle_background Frame("images/interface/text_boxes/red_idle.webp", 10, 10)
+    hover_background Frame("images/interface/text_boxes/red.webp", 10, 10)
 
     padding (15, 15, 15, 15)
 
@@ -25,13 +25,13 @@ style choice_text:
 style confirm is default
 
 style confirm_frame:
-    background Frame("images/interface/box1.webp", 5, 5)
+    background Frame("images/interface/box1.webp", 10, 10)
 
     padding (25, 25, 25, 25)
 
 style confirm_button:
-    idle_background Frame("images/interface/box1.webp", 5, 5)
-    hover_background Frame("images/interface/box2.webp", 5, 5)
+    idle_background Frame("images/interface/box1.webp", 10, 10)
+    hover_background Frame("images/interface/box2.webp", 10, 10)
 
     padding (15, 15, 15, 15)
 
@@ -95,15 +95,15 @@ screen say(who, what, two_window = False, hide_after = None):
                 padding (15, 15, 15, 15)
 
                 if who in ["Reporter", "Dr. Samson"]:
-                    background Frame("images/interface/text_boxes/blue.webp", 5, 5)
+                    background Frame("images/interface/text_boxes/blue.webp", 10, 10)
                 elif who in ["Cashier", "Protest Leader", "Protester", "???"]:
-                    background Frame("images/interface/text_boxes/white.webp", 5, 5)
+                    background Frame("images/interface/text_boxes/white.webp", 10, 10)
                 elif C == Player:
-                    background Frame("images/interface/text_boxes/red.webp", 5, 5)
+                    background Frame("images/interface/text_boxes/red.webp", 10, 10)
                 elif C.electronic or C.telepathic:
-                    background Frame("images/interface/text_boxes/blue.webp", 5, 5)
+                    background Frame("images/interface/text_boxes/blue.webp", 10, 10)
                 else:
-                    background Frame("images/interface/text_boxes/white.webp", 5, 5)
+                    background Frame("images/interface/text_boxes/white.webp", 10, 10)
 
                 if C:
                     text name id "who" align (0.5, 0.5):
@@ -137,17 +137,17 @@ screen say(who, what, two_window = False, hide_after = None):
             padding (15, 15, 15, 15)
             
             if not who:
-                background Frame("images/interface/text_boxes/yellow.webp", 5, 5)
+                background Frame("images/interface/text_boxes/yellow.webp", 10, 10)
             elif who in ["Reporter", "Dr. Samson"]:
-                background Frame("images/interface/text_boxes/blue.webp", 5, 5)
+                background Frame("images/interface/text_boxes/blue.webp", 10, 10)
             elif who in ["Cashier", "Protest Leader", "Protester", "???"]:
-                background Frame("images/interface/text_boxes/white.webp", 5, 5)
+                background Frame("images/interface/text_boxes/white.webp", 10, 10)
             elif C == Player:
-                background Frame("images/interface/text_boxes/red.webp", 5, 5)
+                background Frame("images/interface/text_boxes/red.webp", 10, 10)
             elif C.electronic or C.telepathic:
-                background Frame("images/interface/text_boxes/blue.webp", 5, 5)
+                background Frame("images/interface/text_boxes/blue.webp", 10, 10)
             else:
-                background Frame("images/interface/text_boxes/white.webp", 5, 5)
+                background Frame("images/interface/text_boxes/white.webp", 10, 10)
 
                 if renpy.showing(f"{C.tag}_sprite"):
                     xmaximum 0.75
@@ -193,7 +193,7 @@ screen choice(items, menu_location = None):
 
                         if " (locked)" in caption:
                             button:
-                                hover_background Frame("images/interface/text_boxes/red_idle.webp", 5, 5)
+                                hover_background Frame("images/interface/text_boxes/red_idle.webp", 10, 10)
                                 
                                 text caption.replace(" (locked)", ""):
                                     color "#666666"
