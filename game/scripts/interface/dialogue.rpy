@@ -4,30 +4,38 @@ init -3:
     default say_obscured = False
     default choice_disabled = False
 
+style choice is default
+
 style choice_button:
-    idle_background Frame("images/interface/text_boxes/red_idle.webp", 30, 30)
-    hover_background Frame("images/interface/text_boxes/red.webp", 30, 30)
+    idle_background Frame("images/interface/text_boxes/red_idle.webp", 5, 5)
+    hover_background Frame("images/interface/text_boxes/red.webp", 5, 5)
 
-    minimum (int(config.screen_width*0.2), int(config.screen_height*0.07))
-    xmaximum int(config.screen_width*0.2)
+    padding (15, 15, 15, 15)
 
-    # hover_sound "sounds/interface/hover.ogg"
-    activate_sound "sounds/interface/press.ogg"
+    xsize 1.0
+    yminimum 0.07
+
+style choice_text:
+    font "agency_fb.ttf"
+
+    size 36
+
+    color "#000000"
+
+style confirm is default
 
 style confirm_frame:
-    background Frame("images/interface/box1.webp", 30, 30)
+    background Frame("images/interface/box1.webp", 5, 5)
+
+    padding (25, 25, 25, 25)
 
 style confirm_button:
-    idle_background Frame("images/interface/box1.webp", 30, 30)
-    hover_background Frame("images/interface/box2.webp", 30, 30)
+    idle_background Frame("images/interface/box1.webp", 5, 5)
+    hover_background Frame("images/interface/box2.webp", 5, 5)
 
-    minimum (int(config.screen_width*0.1), int(config.screen_height*0.0))
+    padding (15, 15, 15, 15)
 
-    # hover_sound "sounds/interface/hover.ogg"
-    activate_sound "sounds/interface/press.ogg"
-
-style confirm_text:
-    xalign 0.5
+    minimum (0.1, 0.07)
 
 screen say(who, what, two_window = False, hide_after = None):
     on "show" action [
@@ -79,64 +87,78 @@ screen say(who, what, two_window = False, hide_after = None):
     elif who:
         $ C = None
             
-    vbox anchor (dialogue_anchor[0], dialogue_anchor[1]) pos (dialogue_position[0], dialogue_position[1]) xsize int(config.screen_width*0.2):
+    vbox anchor (dialogue_anchor[0], dialogue_anchor[1]) pos (dialogue_position[0], dialogue_position[1]) xsize 0.2:
         if who:
             frame:
-                if who in ["Reporter", "Dr. Samson"]:
-                    background Frame("images/interface/text_boxes/blue.webp", 30, 30)
-                elif who in ["Cashier", "Protest Leader", "Protester", "???"]:
-                    background Frame("images/interface/text_boxes/white.webp", 30, 30)
-                elif C == Player:
-                    background Frame("images/interface/text_boxes/red.webp", 30, 30)
-                elif C.electronic or C.telepathic:
-                    background Frame("images/interface/text_boxes/blue.webp", 30, 30)
-                else:
-                    background Frame("images/interface/text_boxes/white.webp", 30, 30)
-
-                minimum (int(config.screen_width*0.05), int(config.screen_height*0.07))
+                minimum (0.25, 0.07)
 
                 padding (15, 15, 15, 15)
 
+                if who in ["Reporter", "Dr. Samson"]:
+                    background Frame("images/interface/text_boxes/blue.webp", 5, 5)
+                elif who in ["Cashier", "Protest Leader", "Protester", "???"]:
+                    background Frame("images/interface/text_boxes/white.webp", 5, 5)
+                elif C == Player:
+                    background Frame("images/interface/text_boxes/red.webp", 5, 5)
+                elif C.electronic or C.telepathic:
+                    background Frame("images/interface/text_boxes/blue.webp", 5, 5)
+                else:
+                    background Frame("images/interface/text_boxes/white.webp", 5, 5)
+
                 if C:
                     text name id "who" align (0.5, 0.5):
+                        font "agency_fb_bold.ttf"
+
                         size 32
+
+                        text_align 0.5
 
                         if C != Player and (C.electronic or C.telepathic):
                             color "#000000"
                         else:
                             color eval(f"{C.tag}_color")
+
+                        bold False
                 else:
                     text who id "who" align (0.5, 0.5):
+                        font "agency_fb_bold.ttf"
+
                         size 32
+
+                        text_align 0.5
 
                         color "#000000"
 
+                        bold False
+
         frame:
-            if not who:
-                background Frame("images/interface/text_boxes/yellow.webp", 30, 30)
-            elif who in ["Reporter", "Dr. Samson"]:
-                background Frame("images/interface/text_boxes/blue.webp", 30, 30)
-            elif who in ["Cashier", "Protest Leader", "Protester", "???"]:
-                background Frame("images/interface/text_boxes/white.webp", 30, 30)
-            elif C == Player:
-                background Frame("images/interface/text_boxes/red.webp", 30, 30)
-            elif C.electronic or C.telepathic:
-                background Frame("images/interface/text_boxes/blue.webp", 30, 30)
-            else:
-                background Frame("images/interface/text_boxes/white.webp", 30, 30)
-
-                if renpy.showing(f"{C.tag}_sprite"):
-                    xmaximum int(config.screen_width*0.15)
-
-            minimum (int(config.screen_width*0.05), int(config.screen_height*0.07))
+            minimum (0.25, 0.07)
 
             padding (15, 15, 15, 15)
+            
+            if not who:
+                background Frame("images/interface/text_boxes/yellow.webp", 5, 5)
+            elif who in ["Reporter", "Dr. Samson"]:
+                background Frame("images/interface/text_boxes/blue.webp", 5, 5)
+            elif who in ["Cashier", "Protest Leader", "Protester", "???"]:
+                background Frame("images/interface/text_boxes/white.webp", 5, 5)
+            elif C == Player:
+                background Frame("images/interface/text_boxes/red.webp", 5, 5)
+            elif C.electronic or C.telepathic:
+                background Frame("images/interface/text_boxes/blue.webp", 5, 5)
+            else:
+                background Frame("images/interface/text_boxes/white.webp", 5, 5)
+
+                if renpy.showing(f"{C.tag}_sprite"):
+                    xmaximum 0.75
 
             text what id "what" align (0.5, 0.5):
-                text_align 0.5
-                
+                font "agency_fb.ttf"
+
                 size 32
 
+                text_align 0.5
+                
                 if C == Player or who in Cast or who in Cameos:
                     if C != Player and (C.electronic or C.telepathic):
                         color "#000000"
@@ -159,7 +181,7 @@ screen choice(items, menu_location = None):
         on "show" action Call("move_location", Player.location)
 
     if not dialogue_hidden and not choice_disabled and (not current_phone_Character or not current_phone_Character.mandatory_text_options):
-        fixed anchor (0.5, 0.0) pos (0.12, 0.32) xysize (int(config.screen_width*0.2), int(config.screen_height*0.45)):
+        fixed anchor (0.5, 0.0) pos (0.12, 0.32) xysize (0.2, 0.45):
             viewport id "choice_viewport":
                 draggable True
                 mousewheel True
@@ -171,174 +193,127 @@ screen choice(items, menu_location = None):
 
                         if " (locked)" in caption:
                             button:
-                                idle_background Frame("images/interface/text_boxes/red_idle.webp", 30, 30) hover_background Frame("images/interface/text_boxes/red_idle.webp", 30, 30)
-
-                                padding (10, 10, 10, 10)
+                                hover_background Frame("images/interface/text_boxes/red_idle.webp", 5, 5)
                                 
-                                text caption.replace(" (locked)", "") align (0.5, 0.5):
-                                    size 36
-
+                                text caption.replace(" (locked)", ""):
                                     color "#666666"
 
                                 action NullAction()
                         elif " (academic)" in caption:
                             button:
-                                padding (10, 10, 10, 10)
-                                
-                                hbox align (0.5, 0.5) xsize 1.0:
+                                hbox xsize 1.0:
                                     null width 4
 
-                                    fixed yalign 0.5 xysize (int(262*0.15), int(262*0.15)):
-                                        add "images/interface/dialogue/academic.webp" yalign 0.5 zoom 0.15
+                                    fixed xysize (int(262*0.15), int(262*0.15)):
+                                        add "images/interface/dialogue/academic.webp" zoom 0.15
 
                                     null width 4
 
-                                    frame yalign 0.5 xsize 0.97:
-                                        background None
-
-                                        text caption.replace(" (academic)", "") xalign 0.5 xsize 1.0:
-                                            size 36
+                                    frame xsize 0.97:
+                                        text caption.replace(" (academic)", "") xsize 1.0
 
                                 action action
                         elif " (athletic)" in caption:
                             button:
-                                padding (10, 10, 10, 10)
-                                
-                                hbox align (0.5, 0.5) xsize 1.0:
+                                hbox xsize 1.0:
                                     null width 4
 
-                                    fixed yalign 0.5 xysize (int(262*0.15), int(262*0.15)):
-                                        add "images/interface/dialogue/athletic.webp" yalign 0.5 zoom 0.15
+                                    fixed xysize (int(262*0.15), int(262*0.15)):
+                                        add "images/interface/dialogue/athletic.webp" zoom 0.15
 
                                     null width 4
 
-                                    frame yalign 0.5 xsize 0.97:
-                                        background None
-
-                                        text caption.replace(" (athletic)", "") xalign 0.5 xsize 1.0:
-                                            size 36
+                                    frame xsize 0.97:
+                                        text caption.replace(" (athletic)", "") xsize 1.0
 
                                 action action
                         elif " (artistic)" in caption:
                             button:
-                                padding (10, 10, 10, 10)
-                                
-                                hbox align (0.5, 0.5) xsize 1.0:
+                                hbox xsize 1.0:
                                     null width 4
 
-                                    fixed yalign 0.5 xysize (int(262*0.15), int(262*0.15)):
-                                        add "images/interface/dialogue/artistic.webp" yalign 0.5 zoom 0.15
+                                    fixed xysize (int(262*0.15), int(262*0.15)):
+                                        add "images/interface/dialogue/artistic.webp" zoom 0.15
 
                                     null width 4
 
-                                    frame yalign 0.5 xsize 0.97:
-                                        background None
-
-                                        text caption.replace(" (artistic)", "") xalign 0.5 xsize 1.0:
-                                            size 36
+                                    frame xsize 0.97:
+                                        text caption.replace(" (artistic)", "") xsize 1.0
 
                                 action action
                         elif " (bitter)" in caption:
                             button:
-                                padding (10, 10, 10, 10)
-                                
-                                hbox align (0.5, 0.5) xsize 1.0:
+                                hbox xsize 1.0:
                                     null width 4
 
-                                    fixed yalign 0.5 xysize (int(262*0.15), int(262*0.15)):
-                                        add "images/interface/dialogue/bitter.webp" yalign 0.5 zoom 0.15
+                                    fixed xysize (int(262*0.15), int(262*0.15)):
+                                        add "images/interface/dialogue/bitter.webp" zoom 0.15
 
                                     null width 4
 
-                                    frame yalign 0.5 xsize 0.97:
-                                        background None
-
-                                        text caption.replace(" (bitter)", "") xalign 0.5 xsize 1.0:
-                                            size 36
+                                    frame xsize 0.97:
+                                        text caption.replace(" (bitter)", "") xsize 1.0
 
                                 action action
                         elif " (determined)" in caption:
                             button:
-                                padding (10, 10, 10, 10)
-                                
-                                hbox align (0.5, 0.5) xsize 1.0:
+                                hbox xsize 1.0:
                                     null width 4
 
-                                    fixed yalign 0.5 xysize (int(262*0.15), int(262*0.15)):
-                                        add "images/interface/dialogue/determined.webp" yalign 0.5 zoom 0.15
+                                    fixed xysize (int(262*0.15), int(262*0.15)):
+                                        add "images/interface/dialogue/determined.webp" zoom 0.15
 
                                     null width 4
 
-                                    frame yalign 0.5 xsize 0.97:
-                                        background None
-
-                                        text caption.replace(" (determined)", "") xalign 0.5 xsize 1.0:
-                                            size 36
+                                    frame xsize 0.97:
+                                        text caption.replace(" (determined)", "") xsize 1.0
 
                                 action action
                         elif " (reluctant)" in caption:
                             button:
-                                padding (10, 10, 10, 10)
-                                
-                                hbox align (0.5, 0.5) xsize 1.0:
+                                hbox xsize 1.0:
                                     null width 4
 
-                                    fixed yalign 0.5 xysize (int(262*0.15), int(262*0.15)):
-                                        add "images/interface/dialogue/reluctant.webp" yalign 0.5 zoom 0.15
+                                    fixed xysize (int(262*0.15), int(262*0.15)):
+                                        add "images/interface/dialogue/reluctant.webp" zoom 0.15
 
                                     null width 4
 
-                                    frame yalign 0.5 xsize 0.97:
-                                        background None
-
-                                        text caption.replace(" (reluctant)", "") xalign 0.5 xsize 1.0:
-                                            size 36
+                                    frame xsize 0.97:
+                                        text caption.replace(" (reluctant)", "") xsize 1.0
 
                                 action action
                         elif " (encourage_quirk)" in caption:
                             button:
-                                padding (10, 10, 10, 10)
-                                
-                                hbox align (0.5, 0.5) xsize 1.0:
+                                hbox xsize 1.0:
                                     null width 4
 
-                                    fixed yalign 0.5 xysize (int(262*0.15), int(262*0.15)):
-                                        add "images/interface/dialogue/encourage_quirk.webp" yalign 0.5 zoom 0.15
+                                    fixed xysize (int(262*0.15), int(262*0.15)):
+                                        add "images/interface/dialogue/encourage_quirk.webp" zoom 0.15
 
                                     null width 4
 
-                                    frame yalign 0.5 xsize 0.97:
-                                        background None
-
-                                        text caption.replace(" (encourage_quirk)", "") xalign 0.5 xsize 1.0:
-                                            size 36
+                                    frame xsize 0.97:
+                                        text caption.replace(" (encourage_quirk)", "") xsize 1.0
 
                                 action action
                         elif " (discourage_quirk)" in caption:
                             button:
-                                padding (10, 10, 10, 10)
-                                
-                                hbox align (0.5, 0.5) xsize 1.0:
+                                hbox xsize 1.0:
                                     null width 4
 
-                                    fixed yalign 0.5 xysize (int(262*0.15), int(262*0.15)):
-                                        add "images/interface/dialogue/discourage_quirk.webp" yalign 0.5 zoom 0.15
+                                    fixed xysize (int(262*0.15), int(262*0.15)):
+                                        add "images/interface/dialogue/discourage_quirk.webp" zoom 0.15
 
                                     null width 4
 
-                                    frame yalign 0.5 xsize 0.97:
-                                        background None
-
-                                        text caption.replace(" (discourage_quirk)", "") xalign 0.5 xsize 1.0:
-                                            size 36
+                                    frame xsize 0.97:
+                                        text caption.replace(" (discourage_quirk)", "") xsize 1.0
 
                                 action action
                         else:
                             button:
-                                padding (10, 10, 10, 10)
-
-                                text caption align (0.5, 0.5):
-                                    size 36
+                                text caption
 
                                 action action
 
@@ -352,48 +327,53 @@ screen choice(items, menu_location = None):
 
     use quick_menu
 
-screen input(prompt):
-    style_prefix "confirm"
-
-    frame anchor (0.5, 0.5) pos (0.5, 0.75):
-        padding (25, 25, 25, 25)
-
-        vbox:
-            text prompt:
-                size 42
-                
-            input id "input" xalign 0.5:
-                size 50
-
-                color "#ffffff"
-
-    use quick_menu
-
 screen confirm(message, yes_action, no_action):
     style_prefix "confirm"
 
     modal True
 
-    frame anchor (0.5, 0.5) pos (0.5, 0.75):
-        padding (25, 25, 25, 25)
+    if message == "Are you sure you want to quit?":
+        add At("images/interface/exit_popup.webp", interface) align (0.5, 0.5)
+                    
+        hbox anchor (0.5, 0.5) pos (0.5, 0.64):
+            spacing 100
 
-        vbox:
-            spacing 25
+            textbutton _("YES"): 
+                text_size 36
 
-            text _(message):
-                size 40
-                
-            hbox:
-                spacing 100
+                text_color "#ffffff"
 
-                textbutton _("Yes"): 
-                    action yes_action
+                action yes_action
 
-                    text_size 36
+            textbutton _("NO"): 
+                text_size 36
 
-                textbutton _("No"): 
-                    action no_action
+                text_color "#ffffff"
 
-                    text_size 36
+                action no_action
+    else:
+        frame:
+            vbox:
+                spacing 10
 
-    use quick_menu
+                text _(message):
+                    font "agency_fb.ttf"
+
+                    size 40
+                    
+                hbox:
+                    spacing 100
+
+                    textbutton _("YES"): 
+                        text_size 36
+
+                        text_color "#ffffff"
+
+                        action yes_action
+
+                    textbutton _("NO"): 
+                        text_size 36
+
+                        text_color "#ffffff"
+
+                        action no_action

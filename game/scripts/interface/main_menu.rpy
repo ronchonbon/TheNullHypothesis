@@ -26,14 +26,6 @@ image menu_comic:
 
 style main_menu is default
 
-style main_menu_button:
-    # hover_sound "sounds/interface/hover.ogg"
-    activate_sound "sounds/interface/press.ogg"
-
-style main_menu_image_button:
-    # hover_sound "sounds/interface/hover.ogg"
-    activate_sound "sounds/interface/press.ogg"
-
 screen main_menu():
     tag menu
 
@@ -50,46 +42,32 @@ screen main_menu():
     add "menu_comic"
 
     text f"{config.version}" anchor (1.0, 0.5) pos (0.155, 0.96):
-        font "agency_fb_bold.ttf"
-
         size 25
-
-        color "#ffffff"
 
     imagebutton:
         idle At("images/interface/main_menu/patreon_idle.webp", interface) hover At("images/interface/main_menu/patreon.webp", interface)
 
         action OpenURL("https://patreon.com/ronchon")
 
-        focus_mask True
-
     imagebutton:
         idle At("images/interface/main_menu/soundcloud_idle.webp", interface) hover At("images/interface/main_menu/soundcloud.webp", interface)
 
         action OpenURL("https://soundcloud.com/grey_scale")
-
-        focus_mask True
 
     imagebutton:
         idle At("images/interface/main_menu/discord_idle.webp", interface) hover At("images/interface/main_menu/discord.webp", interface)
 
         action OpenURL("https://discord.gg/kFjf49QVns")
 
-        focus_mask True
-
     imagebutton:
         idle At("images/interface/main_menu/quit_idle.webp", interface) hover At("images/interface/main_menu/quit.webp", interface)
 
-        action Quit(confirm = False)
-
-        focus_mask True
+        action Quit(confirm = True)
 
     imagebutton:
         idle At("images/interface/main_menu/new_game_idle.webp", interface) hover At("images/interface/main_menu/new_game.webp", interface)
 
         action Start()
-
-        focus_mask True
 
     $ last_save = renpy.newest_slot()
 
@@ -104,11 +82,7 @@ screen main_menu():
         else:
             action NullAction()
 
-        focus_mask True
-
     imagebutton:
         idle At("images/interface/main_menu/options_idle.webp", interface) hover At("images/interface/main_menu/options.webp", interface)
 
         action ShowMenu("preferences")
-
-        focus_mask True

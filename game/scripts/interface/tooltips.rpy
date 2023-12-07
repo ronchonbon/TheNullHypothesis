@@ -5,15 +5,16 @@ screen tooltips():
 
     if tooltip:
         nearrect:
-            # focus "tooltip"
             rect (get_mouse_position()[0], get_mouse_position()[1], 0, 0)
 
             prefer_top True
 
-            frame anchor (0.5, 0.5):
-                background Frame("images/interface/text_boxes/white.webp")
+            frame:
+                background Frame("images/interface/text_boxes/white.webp", 5, 5)
 
                 text tooltip:
+                    font "agency_fb.ttf"
+                    
                     size 24
 
                     color "#000000"

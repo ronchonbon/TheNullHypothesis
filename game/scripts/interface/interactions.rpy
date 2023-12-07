@@ -9,13 +9,8 @@ init -1:
 
 style interactions is default
 
-style interactions_button:
-    # hover_sound "sounds/interface/hover.ogg"
-    activate_sound "sounds/interface/press.ogg"
-
-style interactions_image_button:
-    # hover_sound "sounds/interface/hover.ogg"
-    activate_sound "sounds/interface/press.ogg"
+style interactions_text:
+    font "agency_fb.ttf"
 
 screen Character_picker():
     layer "interface"
@@ -75,7 +70,7 @@ screen interactions_screen(Character):
         SetVariable("Character_picker_disabled", False)]
 
     if not interactions_screen_disabled:
-        button xysize (config.screen_width, config.screen_height):
+        button xysize (1.0, 1.0):
             background None
 
             hover_sound None
@@ -92,13 +87,15 @@ screen interactions_screen(Character):
             $ frame_anchor = [0.0, 0.0]
             $ frame_position = [Character.sprite_position[0] + 0.05, Character.sprite_position[1] - 0.1]
 
-        vbox anchor (frame_anchor[0], frame_anchor[1]) pos (frame_position[0], frame_position[1]) xysize (int(450*interface_new_adjustment), int(1100*interface_new_adjustment)):           
+        vbox anchor (frame_anchor[0], frame_anchor[1]) pos (frame_position[0], frame_position[1]) xysize (int(450*interface_new_adjustment), int(1100*interface_new_adjustment)):
             if Character in all_Companions:
-                button xalign 0.5 xysize (int(409*interface_new_adjustment), int(130*interface_new_adjustment)):
+                button xysize (int(409*interface_new_adjustment), int(130*interface_new_adjustment)):
                     if Character.sprite_position[0] > stage_far_far_left:
-                        idle_background At("images/interface/interactions/love_left.webp", interface) hover_background At("images/interface/interactions/love_left.webp", interface)
+                        idle_background At("images/interface/interactions/love_left.webp", interface)
+                        hover_background At("images/interface/interactions/love_left.webp", interface)
                     else:
-                        idle_background At("images/interface/interactions/love_right.webp", interface) hover_background At("images/interface/interactions/love_right.webp", interface)
+                        idle_background At("images/interface/interactions/love_right.webp", interface) 
+                        hover_background At("images/interface/interactions/love_right.webp", interface)
 
                     action NullAction()
 
@@ -115,11 +112,13 @@ screen interactions_screen(Character):
 
                     tooltip "Love"
 
-                button xalign 0.5 xysize (int(409*interface_new_adjustment), int(130*interface_new_adjustment)):
+                button xysize (int(409*interface_new_adjustment), int(130*interface_new_adjustment)):
                     if Character.sprite_position[0] > stage_far_far_left:
-                        idle_background At("images/interface/interactions/trust_left.webp", interface) hover_background At("images/interface/interactions/trust_left.webp", interface)
+                        idle_background At("images/interface/interactions/trust_left.webp", interface) 
+                        hover_background At("images/interface/interactions/trust_left.webp", interface)
                     else:
-                        idle_background At("images/interface/interactions/trust_right.webp", interface) hover_background At("images/interface/interactions/trust_right.webp", interface)
+                        idle_background At("images/interface/interactions/trust_right.webp", interface) 
+                        hover_background At("images/interface/interactions/trust_right.webp", interface)
 
                     action NullAction()
 

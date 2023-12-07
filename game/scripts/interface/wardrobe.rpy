@@ -53,20 +53,18 @@ image small_delete_idle:
 style Wardrobe is default
 
 style Wardrobe_button:
-    idle_background Frame("images/interface/wardrobe/clothing_idle.webp", 30, 30)
-    hover_background Frame("images/interface/wardrobe/clothing.webp", 30, 30)
+    idle_background Frame("images/interface/wardrobe/clothing_idle.webp", 5, 5)
+    hover_background Frame("images/interface/wardrobe/clothing.webp", 5, 5)
 
     padding (10, 10, 10, 10)
 
     minimum (int(config.screen_width*0.2), int(config.screen_height*0.07))
     xmaximum int(config.screen_width*0.2)
 
-    # hover_sound "sounds/interface/hover.ogg"
-    activate_sound "sounds/interface/press.ogg"
+style Wardrobe_text:
+    font "agency_fb.ttf"
 
-style Wardrobe_image_button:
-    # hover_sound "sounds/interface/hover.ogg"
-    activate_sound "sounds/interface/press.ogg"
+    color "#000000"
 
 screen Wardrobe_screen(Character):
     layer "interface"
@@ -92,7 +90,7 @@ screen Wardrobe_screen(Character):
         if O.Outfit_type == Wardrobe_tab:
             $ Outfit_list.append(O)
 
-    add "images/interface/wardrobe/background.webp" align (0.5, 0.5)
+    add "images/interface/wardrobe/background.webp"
 
     add At(f"{Character.tag}_sprite standing", color_shade(eval(f"{Character.tag}_color"))):
         transform_anchor True
@@ -101,8 +99,11 @@ screen Wardrobe_screen(Character):
         pos (0.4, eval(f"{Character.tag}_standing_height")) 
         zoom eval(f"{Character.tag}_standing_zoom")
 
-    imagebutton align (0.5, 0.5):
-        idle "images/interface/wardrobe/default_idle.webp" hover "images/interface/wardrobe/default.webp" selected_idle "images/interface/wardrobe/default_selected.webp" selected_hover "images/interface/wardrobe/default_selected.webp"
+    imagebutton:
+        idle "images/interface/wardrobe/default_idle.webp" 
+        hover "images/interface/wardrobe/default.webp" 
+        selected_idle "images/interface/wardrobe/default_selected.webp" 
+        selected_hover "images/interface/wardrobe/default_selected.webp"
 
         selected "Wardrobe_tab" == "default"
 
@@ -110,12 +111,13 @@ screen Wardrobe_screen(Character):
             SetScreenVariable("current_Wardrobe_Outfit_page", 0),
             SetVariable("Wardrobe_tab", "default")]
 
-        focus_mask True
-
         tooltip "Default Outfits"
 
-    imagebutton align (0.5, 0.5):
-        idle "images/interface/wardrobe/custom_idle.webp" hover "images/interface/wardrobe/custom.webp" selected_idle "images/interface/wardrobe/custom_selected.webp" selected_hover "images/interface/wardrobe/custom_selected.webp"
+    imagebutton:
+        idle "images/interface/wardrobe/custom_idle.webp" 
+        hover "images/interface/wardrobe/custom.webp" 
+        selected_idle "images/interface/wardrobe/custom_selected.webp" 
+        selected_hover "images/interface/wardrobe/custom_selected.webp"
 
         selected "Wardrobe_tab" == "custom"
 
@@ -123,29 +125,25 @@ screen Wardrobe_screen(Character):
             SetScreenVariable("current_Wardrobe_Outfit_page", 0),
             SetVariable("Wardrobe_tab", "custom")]
 
-        focus_mask True
-
         tooltip "Custom Outfits"
 
-    imagebutton align (0.5, 0.5):
-        idle "images/interface/wardrobe/left_idle.webp" hover "images/interface/wardrobe/left.webp"
+    imagebutton:
+        idle "images/interface/wardrobe/left_idle.webp" 
+        hover "images/interface/wardrobe/left.webp"
         
         if len(Outfit_list) > 0:
             action SetScreenVariable("current_Wardrobe_Outfit_page", (current_Wardrobe_Outfit_page - 1) % math.ceil(len(Outfit_list)/3))    
         else:
             action None
 
-        focus_mask True
-
-    imagebutton align (0.5, 0.5):
-        idle "images/interface/wardrobe/right_idle.webp" hover "images/interface/wardrobe/right.webp"
+    imagebutton:
+        idle "images/interface/wardrobe/right_idle.webp" 
+        hover "images/interface/wardrobe/right.webp"
 
         if len(Outfit_list) > 0:
             action SetScreenVariable("current_Wardrobe_Outfit_page", (current_Wardrobe_Outfit_page + 1) % math.ceil(len(Outfit_list)/3))    
         else:
             action None
-
-        focus_mask True
 
     hbox anchor (0.5, 0.5) pos (0.718, 0.11):
         spacing 5
@@ -155,7 +153,9 @@ screen Wardrobe_screen(Character):
         for i in range(3*current_Wardrobe_Outfit_page, 3*current_Wardrobe_Outfit_page + 3):
             if i <= len(Outfit_list) - 1 and approval_check(Character, threshold = 0.4*Outfit_list[i].shame):
                 imagebutton:
-                    idle f"images/interface/wardrobe/{Outfit_list[i].color}_idle.webp" hover f"images/interface/wardrobe/{Outfit_list[i].color}.webp" selected_idle "images/interface/wardrobe/outfit_selected.webp"
+                    idle f"images/interface/wardrobe/{Outfit_list[i].color}_idle.webp" 
+                    hover f"images/interface/wardrobe/{Outfit_list[i].color}.webp" 
+                    selected_idle "images/interface/wardrobe/outfit_selected.webp"
                     
                     selected Character.Outfit.name == Outfit_list[i].name
 
@@ -201,56 +201,55 @@ screen Wardrobe_screen(Character):
         pos (0.36, eval(f"{Character.tag}_standing_height")) 
         zoom eval(f"{Character.tag}_standing_zoom")
 
-    imagebutton align (0.5, 0.5):
-        idle "images/interface/wardrobe/accessories_idle.webp" hover "images/interface/wardrobe/accessories.webp" selected_idle "images/interface/wardrobe/accessories_selected.webp"
+    imagebutton:
+        idle "images/interface/wardrobe/accessories_idle.webp" 
+        hover "images/interface/wardrobe/accessories.webp" 
+        selected_idle "images/interface/wardrobe/accessories_selected.webp"
         
         selected current_Wardrobe_screen == "accessory"
         
         action SetVariable("current_Wardrobe_screen", "accessory")
 
-        focus_mask True
-
         tooltip "Accessories"
 
-    imagebutton align (0.5, 0.5):
-        idle "images/interface/wardrobe/head_idle.webp" hover "images/interface/wardrobe/head.webp" selected_idle "images/interface/wardrobe/head_selected.webp"
+    imagebutton:
+        idle "images/interface/wardrobe/head_idle.webp" 
+        hover "images/interface/wardrobe/head.webp" 
+        selected_idle "images/interface/wardrobe/head_selected.webp"
         
         selected current_Wardrobe_screen == "head"
         
         action SetVariable("current_Wardrobe_screen", "head")
 
-        focus_mask True
-
         tooltip "Hair"
 
-    imagebutton align (0.5, 0.5):
-        idle "images/interface/wardrobe/upper_idle.webp" hover "images/interface/wardrobe/upper.webp" selected_idle "images/interface/wardrobe/upper_selected.webp"
+    imagebutton:
+        idle "images/interface/wardrobe/upper_idle.webp" 
+        hover "images/interface/wardrobe/upper.webp" 
+        selected_idle "images/interface/wardrobe/upper_selected.webp"
         
         selected current_Wardrobe_screen == "upper"
         
         action SetVariable("current_Wardrobe_screen", "upper")
 
-        focus_mask True
-
         tooltip "Upper Body"
         
-    imagebutton align (0.5, 0.5):
-        idle "images/interface/wardrobe/lower_idle.webp" hover "images/interface/wardrobe/lower.webp" selected_idle "images/interface/wardrobe/lower_selected.webp"
+    imagebutton:
+        idle "images/interface/wardrobe/lower_idle.webp" 
+        hover "images/interface/wardrobe/lower.webp" 
+        selected_idle "images/interface/wardrobe/lower_selected.webp"
         
         selected current_Wardrobe_screen == "lower"
         
         action SetVariable("current_Wardrobe_screen", "lower")
 
-        focus_mask True
-
         tooltip "Lower Body"
 
-    imagebutton align (0.5, 0.5):
-        idle "images/interface/wardrobe/exit_idle.webp" hover "images/interface/wardrobe/exit.webp"
+    imagebutton:
+        idle "images/interface/wardrobe/exit_idle.webp" 
+        hover "images/interface/wardrobe/exit.webp"
         
         action Call("review_Outfit", Character, from_current = True)
-
-        focus_mask True
 
         tooltip "Exit"
 
@@ -268,11 +267,13 @@ screen Wardrobe_screen(Character):
                 
         imagebutton:
             if Character.Outfit.disabled:
-                idle "images/interface/wardrobe/disabled_idle.webp" hover "images/interface/wardrobe/disabled.webp"
+                idle "images/interface/wardrobe/disabled_idle.webp" 
+                hover "images/interface/wardrobe/disabled.webp"
 
                 tooltip "Enable Outfit"
             else:
-                idle "images/interface/wardrobe/enabled_idle.webp" hover "images/interface/wardrobe/enabled.webp"
+                idle "images/interface/wardrobe/enabled_idle.webp" 
+                hover "images/interface/wardrobe/enabled.webp"
 
                 tooltip "Disable Outfit"
             
@@ -280,7 +281,8 @@ screen Wardrobe_screen(Character):
 
         if Character.Outfit.Outfit_type == "custom":
             imagebutton:
-                idle "images/interface/wardrobe/rename_idle.webp" hover "images/interface/wardrobe/rename.webp"
+                idle "images/interface/wardrobe/rename_idle.webp" 
+                hover "images/interface/wardrobe/rename.webp"
                 
                 action [
                     SetVariable("current_input", Character.Outfit.name),
@@ -291,7 +293,8 @@ screen Wardrobe_screen(Character):
             null width 132
 
         imagebutton:
-            idle "images/interface/wardrobe/save_idle.webp" hover "images/interface/wardrobe/save.webp"
+            idle "images/interface/wardrobe/save_idle.webp" 
+            hover "images/interface/wardrobe/save.webp"
             
             action Show("save_Outfit_screen", Character = Character)
 
@@ -299,7 +302,8 @@ screen Wardrobe_screen(Character):
             
         if Character.Outfit.Outfit_type == "custom":
             imagebutton:
-                idle "images/interface/wardrobe/delete_idle.webp" hover "images/interface/wardrobe/delete.webp"
+                idle "images/interface/wardrobe/delete_idle.webp" 
+                hover "images/interface/wardrobe/delete.webp"
                 
                 action Show("delete_Outfit_screen", Character = Character, name = Character.Outfit.name)
 
@@ -316,8 +320,6 @@ screen Wardrobe_screen(Character):
         text f"{int(0.25*(Character.love + Character.trust))}" align (1.0, 0.5):
             size 36
 
-            color "#000000"
-
         action NullAction()
 
         tooltip "Shame Limit for Public Outfits"
@@ -331,16 +333,12 @@ screen Wardrobe_screen(Character):
         text f"{int(0.4*(Character.love + Character.trust))}" align (1.0, 0.5):
             size 36
 
-            color "#000000"
-
         action NullAction()
 
         tooltip "Shame Limit for Private Outfits"
 
     text "CURRENT" anchor (0.0, 0.5) pos (0.066, 0.884):
         size 36
-
-        color "#000000"
 
     button anchor (1.0, 0.5) pos (0.22, 0.884):
         background None
@@ -351,14 +349,12 @@ screen Wardrobe_screen(Character):
         text f"{Character.Outfit.shame}" align (1.0, 0.5):
             size 36
 
-            color "#000000"
-
         action NullAction()
 
         tooltip "Current Outfit Shame"
 
     if black_screen or renpy.get_screen("say"):
-        button align (0.5, 0.5) xysize (config.screen_width, config.screen_height):
+        button xysize (config.screen_width, config.screen_height):
             background None
 
             hover_sound None
@@ -377,7 +373,7 @@ screen Wardrobe_screen(Character):
 screen accessory_screen(Character):
     style_prefix "Wardrobe"
 
-    viewport id "accessory_screen_viewport" anchor (0.5, 0.0) pos (0.71, 0.3) xysize (int(591*2*interface_sampling), int(548*2*interface_sampling)):
+    viewport id "accessory_screen_viewport" anchor (0.5, 0.0) pos (0.71, 0.3) xysize (int(591*interface_new_sampling), int(548*interface_new_sampling)):
         draggable True
         mousewheel True
 
@@ -388,23 +384,22 @@ screen accessory_screen(Character):
 
             for i, Item in enumerate(Character.Wardrobe.Clothes.values()):
                 if Item.Clothing_type in accessory_Clothing_types:
-                    hbox align (0.5, 0.5):
+                    hbox:
                         spacing 5
 
                         fixed xysize (85, 85):
                             if Character.Clothes[Item.Clothing_type].string == Item.string and Character.Clothes[Item.Clothing_type].covered or (("swimsuit" in Item.name or "bikini" in Item.name) and Character.location == "bg_pool"):
                                 text f"{Item.shame[0]}" anchor (0.5, 0.5) pos (0.37, 0.5):
                                     size 36
-
-                                    color "#000000"
                             else:
                                 text f"{Item.shame[1]}" anchor (0.5, 0.5) pos (0.37, 0.5):
                                     size 36
 
-                                    color "#000000"
+                        button xysize (411, 85):
+                            idle_background "images/interface/wardrobe/clothing_idle.webp" 
+                            hover_background "images/interface/wardrobe/clothing.webp" 
+                            selected_background "images/interface/wardrobe/clothing_selected.webp"
 
-                        button xysize (411, 85) xalign 0.5:
-                            idle_background "images/interface/wardrobe/clothing_idle.webp" hover_background "images/interface/wardrobe/clothing.webp" selected_background "images/interface/wardrobe/clothing_selected.webp"
                             selected Character.Clothes[Item.Clothing_type].string == Item.string
 
                             if Character.Clothes[Item.Clothing_type].string != Item.string:
@@ -412,11 +407,13 @@ screen accessory_screen(Character):
                             else:
                                 action Call("ask_Character_to_take_off", Item, instant = True, from_current = True)
 
-                            text Item.name align (0.5, 0.5) size 36
+                            text Item.name size 36
 
                         if Character.Clothes[Item.Clothing_type].string == Item.string and len(Character.Clothes[Item.Clothing_type].available_states["standing"]) > 1 and not Character.Clothes[Item.Clothing_type].covered:
                             imagebutton yoffset 1:
-                                idle "images/interface/wardrobe/undress_idle.webp" hover "images/interface/wardrobe/undress.webp" selected_idle "images/interface/wardrobe/undress_selected.webp"
+                                idle "images/interface/wardrobe/undress_idle.webp"
+                                hover "images/interface/wardrobe/undress.webp" 
+                                selected_idle "images/interface/wardrobe/undress_selected.webp"
 
                                 selected Character.Clothes[Item.Clothing_type].state != 0
 
@@ -430,13 +427,15 @@ screen accessory_screen(Character):
             for body_part in ["nipple", "labia"]:
                 for piercing_type in ["barbell", "ring"]:
                     if f"{piercing_type}_{body_part}_piercings" in Character.inventory.keys():
-                        hbox align (0.5, 0.5):
+                        hbox:
                             spacing 5
                             
                             null width 85
                             
-                            button xysize (411, 85) xalign 0.5:
-                                idle_background "images/interface/wardrobe/clothing_idle.webp" hover_background "images/interface/wardrobe/clothing.webp" selected_background "images/interface/wardrobe/clothing_selected.webp"
+                            button xysize (411, 85):
+                                idle_background "images/interface/wardrobe/clothing_idle.webp" 
+                                hover_background "images/interface/wardrobe/clothing.webp" 
+                                selected_background "images/interface/wardrobe/clothing_selected.webp"
                     
                                 selected Character.piercings[body_part] in [piercing_type, "both"]
 
@@ -450,18 +449,20 @@ screen accessory_screen(Character):
                                 else:
                                     action Call("give_Character_piercing", Character, Character.inventory[f"{piercing_type}_{body_part}_piercings"], from_current = True)
 
-                                text f"{piercing_type} {body_part} piercings" align (0.5, 0.5) size 36
+                                text f"{piercing_type} {body_part} piercings" size 36
                             
                             null width 85
 
             if "belly_piercing" in Character.inventory.keys():
-                hbox align (0.5, 0.5):
+                hbox:
                     spacing 5
                     
                     null width 85
 
-                    button xysize (411, 85) xalign 0.5:
-                        idle_background "images/interface/wardrobe/clothing_idle.webp" hover_background "images/interface/wardrobe/clothing.webp" selected_background "images/interface/wardrobe/clothing_selected.webp"
+                    button xysize (411, 85):
+                        idle_background "images/interface/wardrobe/clothing_idle.webp" 
+                        hover_background "images/interface/wardrobe/clothing.webp" 
+                        selected_background "images/interface/wardrobe/clothing_selected.webp"
                     
                         selected Character.piercings["belly"]
 
@@ -470,18 +471,20 @@ screen accessory_screen(Character):
                         else:
                             action Call("give_Character_piercing", Character, Character.inventory["belly_piercing"], from_current = True)
 
-                        text "belly piercing" align (0.5, 0.5) size 36
+                        text "belly piercing" size 36
                             
                     null width 85
 
             if "remote_vibrator" in Character.inventory.keys():
-                hbox align (0.5, 0.5):
+                hbox:
                     spacing 5
                     
                     null width 85
 
-                    button xysize (411, 85) xalign 0.5:
-                        idle_background "images/interface/wardrobe/clothing_idle.webp" hover_background "images/interface/wardrobe/clothing.webp" selected_background "images/interface/wardrobe/clothing_selected.webp"
+                    button xysize (411, 85):
+                        idle_background "images/interface/wardrobe/clothing_idle.webp" 
+                        hover_background "images/interface/wardrobe/clothing.webp" 
+                        selected_background "images/interface/wardrobe/clothing_selected.webp"
                     
                         selected Character.remote_vibrator
 
@@ -490,20 +493,22 @@ screen accessory_screen(Character):
                         else:
                             action Call("ask_Character_to_use_Toy", Character, Character.inventory["remote_vibrator"][0], from_current = True)
 
-                        text "remote vibrator" align (0.5, 0.5) size 36
+                        text "remote vibrator" size 36
                             
                     null width 85
 
             for buttplug in ["heart_anal_plug", "round_anal_plug"]:
                 if buttplug in Character.inventory.keys():
                     for plug_size in ["XS", "S", "M", "L"]:
-                        hbox align (0.5, 0.5):
+                        hbox:
                             spacing 5
                             
                             null width 85
 
-                            button xysize (411, 85) xalign 0.5:
-                                idle_background "images/interface/wardrobe/clothing_idle.webp" hover_background "images/interface/wardrobe/clothing.webp" selected_background "images/interface/wardrobe/clothing_selected.webp"
+                            button xysize (411, 85):
+                                idle_background "images/interface/wardrobe/clothing_idle.webp" 
+                                hover_background "images/interface/wardrobe/clothing.webp" 
+                                selected_background "images/interface/wardrobe/clothing_selected.webp"
                     
                                 if plug_size == "XS":
                                     selected Character.buttplug == Character.inventory[buttplug][0] and Character.buttplug_size == 0
@@ -544,7 +549,7 @@ screen accessory_screen(Character):
 
                                 $ temp = Character.inventory[buttplug][0].name
 
-                                text f"{temp}, {plug_size}" align (0.5, 0.5) size 36
+                                text f"{temp}, {plug_size}" size 36
                                     
                             null width 85
 
@@ -559,7 +564,7 @@ screen accessory_screen(Character):
 screen head_screen(Character):
     style_prefix "Wardrobe"
 
-    viewport id "head_screen_viewport" anchor (0.5, 0.0) pos (0.71, 0.3) xysize (int(591*2*interface_sampling), int(548*2*interface_sampling)):
+    viewport id "head_screen_viewport" anchor (0.5, 0.0) pos (0.71, 0.3) xysize (int(591*interface_new_sampling), int(548*interface_new_sampling)):
         draggable True
         mousewheel True
 
@@ -570,13 +575,15 @@ screen head_screen(Character):
 
             for I in Character.Wardrobe.Clothes.values():
                 if I.Clothing_type == "hair":
-                    hbox align (0.5, 0.5):
+                    hbox:
                         spacing 5
 
                         null width 85
 
-                        button xysize (411, 85) xalign 0.5:
-                            idle_background "images/interface/wardrobe/clothing_idle.webp" hover_background "images/interface/wardrobe/clothing.webp" selected_background "images/interface/wardrobe/clothing_selected.webp"
+                        button xysize (411, 85):
+                            idle_background "images/interface/wardrobe/clothing_idle.webp" 
+                            hover_background "images/interface/wardrobe/clothing.webp" 
+                            selected_background "images/interface/wardrobe/clothing_selected.webp"
                     
                             selected Character.Clothes["hair"].string == I.string
 
@@ -585,19 +592,21 @@ screen head_screen(Character):
                             else:
                                 action NullAction()
 
-                            text f"hair: {I.string}" align (0.5, 0.5) size 36
+                            text f"hair: {I.string}" size 36
 
                         null width 85
 
             if Character.customizable_pubes:
                 for hair_style in ["bush", "growing", "hairy", "null", "shaven", "strip", "triangle"]:
-                    hbox align (0.5, 0.5):
+                    hbox:
                         spacing 5
 
                         null width 85
                         
-                        button xysize (411, 85) xalign 0.5:
-                            idle_background "images/interface/wardrobe/clothing_idle.webp" hover_background "images/interface/wardrobe/clothing.webp" selected_background "images/interface/wardrobe/clothing_selected.webp"
+                        button xysize (411, 85):
+                            idle_background "images/interface/wardrobe/clothing_idle.webp" 
+                            hover_background "images/interface/wardrobe/clothing.webp" 
+                            selected_background "images/interface/wardrobe/clothing_selected.webp"
                     
                             if hair_style == "shaven":
                                 selected Character.desired_pubes == None
@@ -611,7 +620,7 @@ screen head_screen(Character):
                                     SetVariable("changed_pubes", True),
                                     Call("ask_Character_to_shave", Character, hair_style, from_current = True)]
 
-                            text f"pubic hair: {hair_style}" align (0.5, 0.5) size 36
+                            text f"pubic hair: {hair_style}" size 36
                         
                         null width 85
 
@@ -620,17 +629,19 @@ screen head_screen(Character):
                     "neutral", "cocked", "furrowed", "raised", "wink", "worried"]
 
                 for brow in brows:
-                    hbox align (0.5, 0.5):
+                    hbox:
                         spacing 5
 
                         null width 85
 
-                        button xysize (411, 85) xalign 0.5:
-                            idle_background "images/interface/wardrobe/clothing_idle.webp" hover_background "images/interface/wardrobe/clothing.webp" selected_background "images/interface/wardrobe/clothing_selected.webp"
+                        button xysize (411, 85):
+                            idle_background "images/interface/wardrobe/clothing_idle.webp" 
+                            hover_background "images/interface/wardrobe/clothing.webp" 
+                            selected_background "images/interface/wardrobe/clothing_selected.webp"
 
                             action SetField(Character, "brows", brow)
 
-                            text f"brows: {brow}" align (0.5, 0.5) size 36
+                            text f"brows: {brow}" size 36
 
                         null width 85
 
@@ -638,17 +649,19 @@ screen head_screen(Character):
                     "neutral", "blink1", "blink2", "closed", "down", "left", "right", "sexy", "squint", "up", "wide", "wink"]
 
                 for eye in eyes:
-                    hbox align (0.5, 0.5):
+                    hbox:
                         spacing 5
 
                         null width 85
 
-                        button xysize (411, 85) xalign 0.5:
-                            idle_background "images/interface/wardrobe/clothing_idle.webp" hover_background "images/interface/wardrobe/clothing.webp" selected_background "images/interface/wardrobe/clothing_selected.webp"
+                        button xysize (411, 85):
+                            idle_background "images/interface/wardrobe/clothing_idle.webp" 
+                            hover_background "images/interface/wardrobe/clothing.webp" 
+                            selected_background "images/interface/wardrobe/clothing_selected.webp"
 
                             action SetField(Character, "eyes", eye)
 
-                            text f"eyes: {eye}" align (0.5, 0.5) size 36
+                            text f"eyes: {eye}" size 36
 
                         null width 85
 
@@ -660,17 +673,19 @@ screen head_screen(Character):
                         "neutral", "agape", "frown", "happy", "kiss", "lipbite", "open", "smile", "smirk", "tongue"]
 
                 for mouth in mouths:
-                    hbox align (0.5, 0.5):
+                    hbox:
                         spacing 5
 
                         null width 85
 
-                        button xysize (411, 85) xalign 0.5:
-                            idle_background "images/interface/wardrobe/clothing_idle.webp" hover_background "images/interface/wardrobe/clothing.webp" selected_background "images/interface/wardrobe/clothing_selected.webp"
+                        button xysize (411, 85):
+                            idle_background "images/interface/wardrobe/clothing_idle.webp"
+                            hover_background "images/interface/wardrobe/clothing.webp" 
+                            selected_background "images/interface/wardrobe/clothing_selected.webp"
 
                             action SetField(Character, "mouth", mouth)
 
-                            text f"mouth: {mouth}" align (0.5, 0.5) size 36
+                            text f"mouth: {mouth}" size 36
 
                         null width 85
 
@@ -692,17 +707,19 @@ screen head_screen(Character):
                         "suspicious1", "suspicious2", "wink", "worried1", "worried2", "worried3", "worried4"]
 
                 for face in faces:
-                    hbox align (0.5, 0.5):
+                    hbox:
                         spacing 5
 
                         null width 85
 
-                        button xysize (411, 85) xalign 0.5:
-                            idle_background "images/interface/wardrobe/clothing_idle.webp" hover_background "images/interface/wardrobe/clothing.webp" selected_background "images/interface/wardrobe/clothing_selected.webp"
+                        button xysize (411, 85):
+                            idle_background "images/interface/wardrobe/clothing_idle.webp" 
+                            hover_background "images/interface/wardrobe/clothing.webp" 
+                            selected_background "images/interface/wardrobe/clothing_selected.webp"
 
                             action Function(Character.change_face, face)
 
-                            text f"face: {face}" align (0.5, 0.5) size 36
+                            text f"face: {face}" size 36
 
                         null width 85
 
@@ -717,13 +734,15 @@ screen head_screen(Character):
                         "bra", "crossed", "extended", "fight", "fist", "grope", "hip", "neutral", "psychic1", "psychic2", "rub_neck", "touch_ass"]
 
                 for left_arm in left_arms:
-                    hbox align (0.5, 0.5):
+                    hbox:
                         spacing 5
 
                         null width 85
 
-                        button xysize (411, 85) xalign 0.5:
-                            idle_background "images/interface/wardrobe/clothing_idle.webp" hover_background "images/interface/wardrobe/clothing.webp" selected_background "images/interface/wardrobe/clothing_selected.webp"
+                        button xysize (411, 85):
+                            idle_background "images/interface/wardrobe/clothing_idle.webp" 
+                            hover_background "images/interface/wardrobe/clothing.webp" 
+                            selected_background "images/interface/wardrobe/clothing_selected.webp"
 
                             if left_arm == "crossed":
                                 action [
@@ -736,7 +755,7 @@ screen head_screen(Character):
                             else:
                                 action SetField(Character, "left_arm", left_arm)
 
-                            text f"left arm: {left_arm}" align (0.5, 0.5) size 36
+                            text f"left arm: {left_arm}" size 36
 
                         null width 85
 
@@ -751,13 +770,15 @@ screen head_screen(Character):
                         "bra", "extended", "fight", "fist", "hip", "neutral", "psychic1", "psychic2", "touch_pussy"]
 
                 for right_arm in right_arms:
-                    hbox align (0.5, 0.5):
+                    hbox:
                         spacing 5
 
                         null width 85
 
-                        button xysize (411, 85) xalign 0.5:
-                            idle_background "images/interface/wardrobe/clothing_idle.webp" hover_background "images/interface/wardrobe/clothing.webp" selected_background "images/interface/wardrobe/clothing_selected.webp"
+                        button xysize (411, 85):
+                            idle_background "images/interface/wardrobe/clothing_idle.webp" 
+                            hover_background "images/interface/wardrobe/clothing.webp" 
+                            selected_background "images/interface/wardrobe/clothing_selected.webp"
 
                             if right_arm == "crossed":
                                 action [
@@ -770,7 +791,7 @@ screen head_screen(Character):
                             else:
                                 action SetField(Character, "right_arm", right_arm)
 
-                            text f"right arm: {right_arm}" align (0.5, 0.5) size 36
+                            text f"right arm: {right_arm}" size 36
 
                         null width 85
 
@@ -785,7 +806,7 @@ screen head_screen(Character):
 screen upper_screen(Character):
     style_prefix "Wardrobe"
 
-    viewport id "upper_screen_viewport" anchor (0.5, 0.0) pos (0.71, 0.3) xysize (int(591*2*interface_sampling), int(548*2*interface_sampling)):
+    viewport id "upper_screen_viewport" anchor (0.5, 0.0) pos (0.71, 0.3) xysize (int(591*interface_new_sampling), int(548*interface_new_sampling)):
         draggable True
         mousewheel True
 
@@ -796,23 +817,21 @@ screen upper_screen(Character):
 
             for i, Item in enumerate(Character.Wardrobe.Clothes.values()):
                 if Item.Clothing_type in upper_Clothing_types:
-                    hbox align (0.5, 0.5):
+                    hbox:
                         spacing 5
 
                         fixed xysize (85, 85):
                             if Character.Clothes[Item.Clothing_type].string == Item.string and Character.Clothes[Item.Clothing_type].covered or (("swimsuit" in Item.name or "bikini" in Item.name) and Character.location == "bg_pool"):
                                 text f"{Item.shame[0]}" anchor (0.5, 0.5) pos (0.37, 0.5):
                                     size 36
-
-                                    color "#000000"
                             else:
                                 text f"{Item.shame[1]}" anchor (0.5, 0.5) pos (0.37, 0.5):
                                     size 36
 
-                                    color "#000000"
-
-                        button xysize (411, 85) xalign 0.5:
-                            idle_background "images/interface/wardrobe/clothing_idle.webp" hover_background "images/interface/wardrobe/clothing.webp" selected_background "images/interface/wardrobe/clothing_selected.webp"
+                        button xysize (411, 85):
+                            idle_background "images/interface/wardrobe/clothing_idle.webp" 
+                            hover_background "images/interface/wardrobe/clothing.webp" 
+                            selected_background "images/interface/wardrobe/clothing_selected.webp"
                     
                             selected Character.Clothes[Item.Clothing_type].string == Item.string
 
@@ -821,11 +840,13 @@ screen upper_screen(Character):
                             else:
                                 action Call("ask_Character_to_take_off", Item, instant = True, from_current = True)
 
-                            text Item.name align (0.5, 0.5) size 36
+                            text Item.name size 36
 
                         if Character.Clothes[Item.Clothing_type].string == Item.string and len(Character.Clothes[Item.Clothing_type].available_states["standing"]) > 1 and not Character.Clothes[Item.Clothing_type].covered:
                             imagebutton yoffset 1:
-                                idle "images/interface/wardrobe/undress_idle.webp" hover "images/interface/wardrobe/undress.webp" selected_idle "images/interface/wardrobe/undress_selected.webp"
+                                idle "images/interface/wardrobe/undress_idle.webp" 
+                                hover "images/interface/wardrobe/undress.webp" 
+                                selected_idle "images/interface/wardrobe/undress_selected.webp"
                     
                                 selected Character.Clothes[Item.Clothing_type].state != 0
 
@@ -847,7 +868,7 @@ screen upper_screen(Character):
 screen lower_screen(Character):
     style_prefix "Wardrobe"
     
-    viewport id "lower_screen_viewport" anchor (0.5, 0.0) pos (0.71, 0.3) xysize (int(591*2*interface_sampling), int(548*2*interface_sampling)):
+    viewport id "lower_screen_viewport" anchor (0.5, 0.0) pos (0.71, 0.3) xysize (int(591*interface_new_sampling), int(548*interface_new_sampling)):
         draggable True
         mousewheel True
 
@@ -858,23 +879,21 @@ screen lower_screen(Character):
 
             for i, Item in enumerate(Character.Wardrobe.Clothes.values()):
                 if Item.Clothing_type in lower_Clothing_types:
-                    hbox align (0.5, 0.5):
+                    hbox:
                         spacing 5
 
                         fixed xysize (85, 85):
                             if Character.Clothes[Item.Clothing_type].string == Item.string and Character.Clothes[Item.Clothing_type].covered or (("swimsuit" in Item.name or "bikini" in Item.name) and Character.location == "bg_pool"):
                                 text f"{Item.shame[0]}" anchor (0.5, 0.5) pos (0.37, 0.5):
                                     size 36
-
-                                    color "#000000"
                             else:
                                 text f"{Item.shame[1]}" anchor (0.5, 0.5) pos (0.37, 0.5):
                                     size 36
 
-                                    color "#000000"
-
-                        button xysize (411, 85) xalign 0.5:
-                            idle_background "images/interface/wardrobe/clothing_idle.webp" hover_background "images/interface/wardrobe/clothing.webp" selected_background "images/interface/wardrobe/clothing_selected.webp"
+                        button xysize (411, 85):
+                            idle_background "images/interface/wardrobe/clothing_idle.webp" 
+                            hover_background "images/interface/wardrobe/clothing.webp" 
+                            selected_background "images/interface/wardrobe/clothing_selected.webp"
                     
                             selected Character.Clothes[Item.Clothing_type].string == Item.string
 
@@ -883,11 +902,13 @@ screen lower_screen(Character):
                             else:
                                 action Call("ask_Character_to_take_off", Item, instant = True, from_current = True)
 
-                            text Item.name align (0.5, 0.5) size 36
+                            text Item.name size 36
 
                         if Character.Clothes[Item.Clothing_type].string == Item.string and len(Character.Clothes[Item.Clothing_type].available_states["standing"]) > 1 and not Character.Clothes[Item.Clothing_type].covered:
                             imagebutton yoffset 1:
-                                idle "images/interface/wardrobe/undress_idle.webp" hover "images/interface/wardrobe/undress.webp" selected_idle "images/interface/wardrobe/undress_selected.webp"
+                                idle "images/interface/wardrobe/undress_idle.webp" 
+                                hover "images/interface/wardrobe/undress.webp" 
+                                selected_idle "images/interface/wardrobe/undress_selected.webp"
 
                                 selected Character.Clothes[Item.Clothing_type].state != 0
 
@@ -938,6 +959,7 @@ screen save_Outfit_screen(Character):
 
         input id "input" value VariableInputValue("current_input", default = True) anchor (0.5, 0.5) pos (0.5, 0.14):
             size 50
+
             color "#000000"
                         
             length 25
@@ -956,7 +978,8 @@ screen save_Outfit_screen(Character):
 
                     selected current_Outfit_color == Outfit_color
 
-                    idle f"images/interface/wardrobe/{Outfit_color}_icon.webp" hover f"images/interface/wardrobe/{Outfit_color}_icon.webp"
+                    idle f"images/interface/wardrobe/{Outfit_color}_icon.webp" 
+                    hover f"images/interface/wardrobe/{Outfit_color}_icon.webp"
 
                     action SetVariable("current_Outfit_color", Outfit_color)
                     
@@ -969,7 +992,10 @@ screen save_Outfit_screen(Character):
             spacing 5
 
             imagebutton:
-                idle "images/interface/wardrobe/public_idle.webp" hover "images/interface/wardrobe/public.webp" selected_idle "images/interface/wardrobe/public_selected.webp" selected_hover "images/interface/wardrobe/public_selected.webp"
+                idle "images/interface/wardrobe/public_idle.webp" 
+                hover "images/interface/wardrobe/public.webp" 
+                selected_idle "images/interface/wardrobe/public_selected.webp" 
+                selected_hover "images/interface/wardrobe/public_selected.webp"
 
                 selected current_flags["wear_in_public"]
 
@@ -978,7 +1004,10 @@ screen save_Outfit_screen(Character):
                 tooltip "Public"
 
             imagebutton:
-                idle "images/interface/wardrobe/private_idle.webp" hover "images/interface/wardrobe/private.webp" selected_idle "images/interface/wardrobe/private_selected.webp" selected_hover "images/interface/wardrobe/private_selected.webp"
+                idle "images/interface/wardrobe/private_idle.webp" 
+                hover "images/interface/wardrobe/private.webp" 
+                selected_idle "images/interface/wardrobe/private_selected.webp" 
+                selected_hover "images/interface/wardrobe/private_selected.webp"
 
                 selected current_flags["wear_in_private"]
 
@@ -991,7 +1020,10 @@ screen save_Outfit_screen(Character):
 
             for wear_type in ["activewear", "swimwear", "datewear", "sexwear", "sleepwear", "winterwear"]:
                 imagebutton:
-                    idle f"images/interface/wardrobe/{wear_type}_idle.webp" hover f"images/interface/wardrobe/{wear_type}.webp" selected_idle f"images/interface/wardrobe/{wear_type}_selected.webp" selected_hover f"images/interface/wardrobe/{wear_type}_selected.webp"
+                    idle f"images/interface/wardrobe/{wear_type}_idle.webp" 
+                    hover f"images/interface/wardrobe/{wear_type}.webp" 
+                    selected_idle f"images/interface/wardrobe/{wear_type}_selected.webp" 
+                    selected_hover f"images/interface/wardrobe/{wear_type}_selected.webp"
 
                     selected current_flags[wear_type]
 
@@ -1059,6 +1091,7 @@ screen edit_Outfit_screen(Character):
 
         input id "input" value VariableInputValue("current_input", default = True) anchor (0.5, 0.5) pos (0.5, 0.14):
             size 50
+
             color "#000000"
                         
             length 25
@@ -1077,7 +1110,8 @@ screen edit_Outfit_screen(Character):
 
                     selected current_Outfit_color == Outfit_color
 
-                    idle f"images/interface/wardrobe/{Outfit_color}_icon.webp" hover f"images/interface/wardrobe/{Outfit_color}_icon.webp"
+                    idle f"images/interface/wardrobe/{Outfit_color}_icon.webp" 
+                    hover f"images/interface/wardrobe/{Outfit_color}_icon.webp"
 
                     action SetVariable("current_Outfit_color", Outfit_color)
                     
@@ -1090,7 +1124,10 @@ screen edit_Outfit_screen(Character):
             spacing 5
 
             imagebutton:
-                idle "images/interface/wardrobe/public_idle.webp" hover "images/interface/wardrobe/public.webp" selected_idle "images/interface/wardrobe/public_selected.webp" selected_hover "images/interface/wardrobe/public_selected.webp"
+                idle "images/interface/wardrobe/public_idle.webp" 
+                hover "images/interface/wardrobe/public.webp" 
+                selected_idle "images/interface/wardrobe/public_selected.webp" 
+                selected_hover "images/interface/wardrobe/public_selected.webp"
 
                 selected current_flags["wear_in_public"]
 
@@ -1099,7 +1136,10 @@ screen edit_Outfit_screen(Character):
                 tooltip "Public"
 
             imagebutton:
-                idle "images/interface/wardrobe/private_idle.webp" hover "images/interface/wardrobe/private.webp" selected_idle "images/interface/wardrobe/private_selected.webp" selected_hover "images/interface/wardrobe/private_selected.webp"
+                idle "images/interface/wardrobe/private_idle.webp" 
+                hover "images/interface/wardrobe/private.webp" 
+                selected_idle "images/interface/wardrobe/private_selected.webp" 
+                selected_hover "images/interface/wardrobe/private_selected.webp"
 
                 selected current_flags["wear_in_private"]
 
@@ -1112,7 +1152,10 @@ screen edit_Outfit_screen(Character):
 
             for wear_type in ["activewear", "swimwear", "datewear", "sexwear", "sleepwear", "winterwear"]:
                 imagebutton:
-                    idle f"images/interface/wardrobe/{wear_type}_idle.webp" hover f"images/interface/wardrobe/{wear_type}.webp" selected_idle f"images/interface/wardrobe/{wear_type}_selected.webp" selected_hover f"images/interface/wardrobe/{wear_type}_selected.webp"
+                    idle f"images/interface/wardrobe/{wear_type}_idle.webp" 
+                    hover f"images/interface/wardrobe/{wear_type}.webp" 
+                    selected_idle f"images/interface/wardrobe/{wear_type}_selected.webp" 
+                    selected_hover f"images/interface/wardrobe/{wear_type}_selected.webp"
 
                     selected current_flags[wear_type]
 
@@ -1189,7 +1232,7 @@ screen confirm_overwrite_screen(Character, editing = False):
         vbox:
             spacing 25
 
-            text f"Overwrite {current_input}?" xalign 0.5:
+            text f"Overwrite {current_input}?":
                 size 40
                 
             hbox:

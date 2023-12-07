@@ -1,12 +1,12 @@
 style quick_button:
     background None
 
-    padding (5, 5, 0, 0)
-
     # hover_sound "sounds/interface/hover.ogg"
     activate_sound "sounds/interface/press.ogg"
 
 style quick_button_text:
+    font "agency_fb.ttf"
+
     size 32
 
     idle_color "#9c9b9b"

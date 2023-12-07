@@ -115,34 +115,65 @@ init -99:
     transform inverse_background_scale:
         transform_anchor True
 
+        align (0.5, 0.5)
         zoom 1.0/background_adjustment
 
     transform interface:
+        transform_anchor True
+
+        align (0.5, 0.5)
         zoom interface_new_adjustment
 
     transform customization_portrait:
+        transform_anchor True
+
+        align (0.5, 0.5)
         zoom 0.5
 
     transform database_photo:
+        transform_anchor True
+
+        align (0.5, 0.5)
         zoom 0.45
 
     transform call_photo:
+        transform_anchor True
+
+        align (0.5, 0.5)
         zoom 0.55
 
     transform humhum_photo:
+        transform_anchor True
+
+        align (0.5, 0.5)
         zoom 0.5
 
     transform phone_icon:
+        transform_anchor True
+
+        align (0.5, 0.5)
         zoom 0.5
 
     transform call_icon:
+        transform_anchor True
+
+        align (0.5, 0.5)
         zoom 0.35
 
     transform humhum_icon:
+        transform_anchor True
+
+        align (0.5, 0.5)
         zoom 0.18
 
     transform mini_humhum_icon:
+        transform_anchor True
+
+        align (0.5, 0.5)
         zoom 0.12
 
     transform map_icon:
+        transform_anchor True
+
+        align (0.5, 0.5)
         zoom 0.15

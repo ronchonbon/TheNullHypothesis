@@ -73,6 +73,11 @@ style phone_button:
 style phone_image_button:
     activate_sound "sounds/interface/phone.ogg"
 
+style phone_text:
+    font "agency_fb.ttf"
+
+    color "#000000"
+
 screen phone_screen():
     layer "interface"
 
@@ -108,15 +113,15 @@ screen phone_screen():
     timer 0.5 action SetVariable("booting", False)
     
     if not black_screen:
-        fixed align (0.5, 0.5) xysize (500, 965):
+        fixed xysize (500, 965):
             if booting:
-                add "images/interface/phone/wallpaper_1.webp" align (0.5, 0.5)
+                add "images/interface/phone/wallpaper_1.webp"
                 add "images/interface/phone/intro.webp" align (0.5, 0.5)
             else:
-                add f"images/interface/phone/wallpaper_{Player.phone_wallpaper + 1}.webp" align (0.5, 0.5)
+                add f"images/interface/phone/wallpaper_{Player.phone_wallpaper + 1}.webp"
 
                 fixed anchor (0.5, 0.0) pos (0.5, 0.0) xysize (504, 42):
-                    add "images/interface/phone/status.webp" align (0.5, 0.5)
+                    add "images/interface/phone/status.webp"
 
                     if unread_messages:
                         add "images/interface/phone/message.webp" anchor (0.5, 0.5) pos (0.08, 0.5)
@@ -171,14 +176,16 @@ screen phone_screen():
                         spacing 50
 
                         imagebutton:
+                            idle "images/interface/phone/back_idle.webp" 
+
                             if Player.phone_wallpaper in [0, 5]:
-                                idle "images/interface/phone/back_idle.webp" hover "images/interface/phone/back_orange.webp"
+                                hover "images/interface/phone/back_orange.webp"
                             elif Player.phone_wallpaper in [1]:
-                                idle "images/interface/phone/back_idle.webp" hover "images/interface/phone/back_blue.webp"
+                                hover "images/interface/phone/back_blue.webp"
                             elif Player.phone_wallpaper in [2, 3, 6]:
-                                idle "images/interface/phone/back_idle.webp" hover "images/interface/phone/back_red.webp"
+                                hover "images/interface/phone/back_red.webp"
                             elif Player.phone_wallpaper in [4]:
-                                idle "images/interface/phone/back_idle.webp" hover "images/interface/phone/back_green.webp"
+                                hover "images/interface/phone/back_green.webp"
 
                             if phone_interactable and not phone_disabled and (not current_phone_Character or not current_phone_Character.mandatory_text_options):
                                 if current_phone_screen in ["call", "humhum"]:
@@ -193,14 +200,16 @@ screen phone_screen():
                                 action None
 
                         imagebutton:
+                            idle "images/interface/phone/home_idle.webp"
+
                             if Player.phone_wallpaper in [0, 5]:
-                                idle "images/interface/phone/home_idle.webp" hover "images/interface/phone/home_orange.webp"
+                                hover "images/interface/phone/home_orange.webp"
                             elif Player.phone_wallpaper in [1]:
-                                idle "images/interface/phone/home_idle.webp" hover "images/interface/phone/home_blue.webp"
+                                hover "images/interface/phone/home_blue.webp"
                             elif Player.phone_wallpaper in [2, 6]:
-                                idle "images/interface/phone/home_idle.webp" hover "images/interface/phone/home_red.webp"
+                                hover "images/interface/phone/home_red.webp"
                             elif Player.phone_wallpaper in [3, 4]:
-                                idle "images/interface/phone/home_idle.webp" hover "images/interface/phone/home_green.webp"
+                                hover "images/interface/phone/home_green.webp"
 
                             if phone_interactable and not phone_disabled and (not current_phone_Character or not current_phone_Character.mandatory_text_options):
                                 if current_phone_screen == "home":
@@ -217,14 +226,16 @@ screen phone_screen():
                                 action None
 
                         imagebutton:
+                            idle "images/interface/phone/apps_idle.webp"
+
                             if Player.phone_wallpaper in [0, 5]:
-                                idle "images/interface/phone/apps_idle.webp" hover "images/interface/phone/apps_orange.webp"
+                                hover "images/interface/phone/apps_orange.webp"
                             elif Player.phone_wallpaper in [1, 3]:
-                                idle "images/interface/phone/apps_idle.webp" hover "images/interface/phone/apps_blue.webp"
+                                hover "images/interface/phone/apps_blue.webp"
                             elif Player.phone_wallpaper in [2, 6]:
-                                idle "images/interface/phone/apps_idle.webp" hover "images/interface/phone/apps_red.webp"
+                                hover "images/interface/phone/apps_red.webp"
                             elif Player.phone_wallpaper in [4]:
-                                idle "images/interface/phone/apps_idle.webp" hover "images/interface/phone/apps_green.webp"
+                                hover "images/interface/phone/apps_green.webp"
 
                             if phone_interactable and not phone_disabled and (not current_phone_Character or not current_phone_Character.mandatory_text_options):
                                 if current_phone_screen == "text":
@@ -237,7 +248,7 @@ screen phone_screen():
                                 action None
 
             if Player.phone_cracked:
-                add "images/interface/phone/cracked.webp" align (0.5, 0.5) alpha 0.2
+                add "images/interface/phone/cracked.webp" alpha 0.2
 
         fixed anchor (0.5, 0.5) pos (0.498675, 0.499) xysize (577, 1080):
             add f"images/interface/phone/frame_{Player.phone_frame + 1}.webp"
@@ -253,29 +264,33 @@ screen home_screen():
     fixed anchor (0.5, 0.5) pos (0.5, 0.4815) xysize (500, 854):
         fixed anchor (0.5, 0.5) pos (0.5, 0.08) xysize (488, 101):
             if weather:
-                add f"images/interface/phone/clock_{time_index}_{weather}.webp" align (0.5, 0.5)
+                add f"images/interface/phone/clock_{time_index}_{weather}.webp"
             else:
-                add f"images/interface/phone/clock_{time_index}.webp" align (0.5, 0.5)
+                add f"images/interface/phone/clock_{time_index}.webp"
 
             text f"{temperature[time_index]} " + u"\u00b0C" anchor (0.5, 0.5) pos (0.0775, 0.28):
-                color "#ffffff"
-                
                 size 25
+
+                color "#ffffff"
             
             text f"{week[weekday][0:3]}" anchor (0.5, 0.5) pos (0.895, 0.32):
-                color "#ffffff"
-                
+                font "magneto_bold.ttf"
+
                 size 45
+
+                color "#ffffff"
             
             text f"{time_options[time_index].capitalize()}" anchor (0.5, 0.5) pos (0.898, 0.77):
-                color "#ffffff"
-
                 size 30
+
+                color "#ffffff"
 
         fixed anchor (0.5, 0.5) pos (0.5, 0.195) xysize (489, 65):
             if phone_interactable and not phone_disabled:
-                imagebutton align (0.5, 0.5):
-                    idle "images/interface/phone/search_bar_idle.webp" hover "images/interface/phone/search_bar.webp" selected_idle "images/interface/phone/search_bar.webp"
+                imagebutton:
+                    idle "images/interface/phone/search_bar_idle.webp" 
+                    hover "images/interface/phone/search_bar.webp" 
+                    selected_idle "images/interface/phone/search_bar.webp"
 
                     selected input_cheats
 
@@ -283,9 +298,9 @@ screen home_screen():
 
                 if input_cheats:
                     input id "cheat_input" value VariableInputValue("current_input", default = True) anchor (0.0, 0.5) pos (0.13, 0.58):
-                        color "#000000"
-                        
                         size 30
+
+                        color "#000000"
 
                         length 25
 
@@ -300,7 +315,7 @@ screen home_screen():
 
             fixed anchor (0.5, 0.5) pos (0.5, 0.385) xysize (489, 220):
                 fixed anchor (0.5, 0.0) pos (0.5, 0.0) xysize (489, 38):
-                    add "images/interface/phone/home_humhum_bar.webp" align (0.5, 0.5)
+                    add "images/interface/phone/home_humhum_bar.webp"
 
                     text "#LatestHums" anchor (0.0, 0.5) pos (0.01, 0.5):
                         size 30
@@ -308,7 +323,8 @@ screen home_screen():
                         color "#d56cc4"
 
                     imagebutton anchor (0.5, 0.5) pos (0.82, 0.57):
-                        idle "images/interface/phone/home_humhum_left_idle.webp" hover "images/interface/phone/home_humhum_left.webp"
+                        idle "images/interface/phone/home_humhum_left_idle.webp" 
+                        hover "images/interface/phone/home_humhum_left.webp"
 
                         if phone_interactable and not phone_disabled:
                             action [
@@ -318,7 +334,8 @@ screen home_screen():
                             action None
 
                     imagebutton anchor (0.5, 0.5) pos (0.94, 0.57):
-                        idle "images/interface/phone/home_humhum_right_idle.webp" hover "images/interface/phone/home_humhum_right.webp"
+                        idle "images/interface/phone/home_humhum_right_idle.webp" 
+                        hover "images/interface/phone/home_humhum_right.webp"
 
                         if phone_interactable and not phone_disabled:
                             action [
@@ -343,8 +360,8 @@ screen home_screen():
                         draggable True
                         mousewheel True
 
-                        vbox xalign 0.5 xsize 453:
-                            fixed xalign 0.5 xysize (435, 115):
+                        vbox xsize 453:
+                            fixed xysize (435, 115):
                                 text humhumthread_to_display.HumHums[0].body anchor (0.0, 0.0) pos (0.01, 0.015):
                                     if len(humhumthread_to_display.HumHums[0].body) > 125:
                                         size 24
@@ -360,14 +377,14 @@ screen home_screen():
                                     text_align 0.0
 
                             if len(humhumthread_to_display.HumHums) > 1:
-                                frame xalign 0.5 xsize 453:
+                                frame xsize 453:
                                     background Frame("images/interface/phone/home_humhum_reply_box.webp", 0, 15, 0, 15)
 
-                                    vbox xalign 0.5 xsize 453:
+                                    vbox xsize 453:
                                         null height 15
 
                                         for h in range(1, len(humhumthread_to_display.HumHums)):
-                                            hbox xalign 0.5 xsize 425:
+                                            hbox xsize 425:
                                                 if humhumthread_to_display.HumHums[h].Owner != Player:
                                                     add At(f"images/interface/phone/icons/{humhumthread_to_display.HumHums[h].Owner.tag}.webp", humhum_icon) yalign 0.0
                                                 else:
@@ -395,7 +412,7 @@ screen home_screen():
                                             null height 4
 
                 fixed anchor (1.0, 1.0) pos (1.0, 1.0) xysize (33, 180):
-                    add "images/interface/phone/home_humhum_scrollbar_background.webp" align (0.5, 0.5)
+                    add "images/interface/phone/home_humhum_scrollbar_background.webp"
 
                     vbar value YScrollValue("home_humhum_viewport") anchor (0.5, 0.5) pos (0.5, 0.5) xysize (13, 159):
                         base_bar Frame("images/interface/phone/home_humhum_scrollbar.webp")
@@ -439,7 +456,7 @@ screen app_screen():
     style_prefix "phone"
 
     fixed anchor (0.5, 0.5) pos (0.5, 0.4815) xysize (500, 854):
-        add "images/interface/phone/app_list.webp" align (0.5, 0.5)
+        add "images/interface/phone/app_list.webp"
 
         text "APPS" anchor (0.0, 0.5) pos (0.02, 0.034):
             size 50
@@ -535,7 +552,7 @@ screen call_choice_screen():
     style_prefix "phone"
 
     fixed anchor (0.5, 0.5) pos (0.5, 0.4815) xysize (500, 854):
-        add "images/interface/phone/call_contacts.webp" align (0.5, 0.5)
+        add "images/interface/phone/call_contacts.webp"
 
         add "images/interface/phone/call_top.webp" anchor (0.5, 0.0) pos (0.5, 0.0)
 
@@ -547,8 +564,6 @@ screen call_choice_screen():
         text "Contact List" anchor (0.0, 0.5) pos (0.02, 0.11):
             size 40
 
-            color "#ffffff"
-
         vpgrid id "call_choice_screen_viewport" anchor (0.5, 0.0) pos (0.52, 0.17) xysize (500, 698):
             cols 1
 
@@ -558,15 +573,14 @@ screen call_choice_screen():
             mousewheel True
 
             for C in Contacts:
-                button align (0.5, 0.5) xysize (460, 100):
-                    idle_background "images/interface/phone/call_contact_idle.webp" hover_background "images/interface/phone/call_contact.webp"
+                button xysize (460, 100):
+                    idle_background "images/interface/phone/call_contact_idle.webp" 
+                    hover_background "images/interface/phone/call_contact.webp"
 
                     add At(f"images/interface/phone/icons/{C.tag}.webp", call_icon) anchor (0.5, 0.5) pos (0.1, 0.5)
 
                     text f"{C.name}" anchor (0.0, 0.5) pos (0.215, 0.5):
                         size 40
-
-                        color "#000000"
                     
                     if phone_interactable and not phone_disabled:
                         if C.History.check("said_goodnight", tracker = "daily"):
@@ -599,7 +613,7 @@ screen call_screen():
     style_prefix "phone"
 
     fixed anchor (0.5, 0.5) pos (0.5, 0.4815) xysize (500, 854):
-        add "images/interface/phone/call_calling.webp" align (0.5, 0.5)
+        add "images/interface/phone/call_calling.webp"
 
         add "images/interface/phone/call_top.webp" anchor (0.5, 0.0) pos (0.5, 0.0)
 
@@ -613,8 +627,6 @@ screen call_screen():
         text f"Calling {current_phone_Character.name}. . ." anchor (0.0, 0.5) pos (0.15, 0.62):
             size 48
 
-            color "#ffffff"
-
 screen text_choice_screen():
     style_prefix "phone"
 
@@ -622,9 +634,9 @@ screen text_choice_screen():
 
     fixed anchor (0.5, 0.5) pos (0.5, 0.4815) xysize (500, 854):
         if loading:
-            add "images/interface/phone/blah_intro.webp" align (0.5, 0.5)
+            add "images/interface/phone/blah_intro.webp"
         else:
-            add "images/interface/phone/blah_contacts.webp" align (0.5, 0.5)
+            add "images/interface/phone/blah_contacts.webp"
 
             add "images/interface/phone/blah_top.webp" anchor (0.5, 0.0) pos (0.5, 0.0)
 
@@ -636,8 +648,6 @@ screen text_choice_screen():
             text "Contact List" anchor (0.0, 0.5) pos (0.02, 0.11):
                 size 40
 
-                color "#ffffff"
-
             vpgrid id "text_choice_screen_viewport" anchor (0.5, 0.0) pos (0.52, 0.17) xysize (500, 698):
                 cols 1
 
@@ -647,8 +657,10 @@ screen text_choice_screen():
                 mousewheel True
 
                 for C in Contacts:
-                    button align (0.5, 0.5) xysize (460, 100):
-                        idle_background "images/interface/phone/blah_contact_idle.webp" hover_background "images/interface/phone/blah_contact.webp" selected_idle_background "images/interface/phone/blah_contact.webp"
+                    button xysize (460, 100):
+                        idle_background "images/interface/phone/blah_contact_idle.webp" 
+                        hover_background "images/interface/phone/blah_contact.webp" 
+                        selected_idle_background "images/interface/phone/blah_contact.webp"
 
                         selected C in unread_messages.keys()
 
@@ -656,8 +668,6 @@ screen text_choice_screen():
 
                         text f"{C.name}" anchor (0.0, 0.5) pos (0.215, 0.5):
                             size 40
-
-                            color "#000000"
                         
                         if phone_interactable and not phone_disabled:
                             action [
@@ -690,13 +700,9 @@ screen text_screen():
         if current_phone_Character in Contacts:
             text f"Chatting with {current_phone_Character.name}" anchor (0.0, 0.5) pos (0.02, 0.11):
                 size 40
-
-                color "#ffffff"
         else:
             text f"Chatting with Unknown Number" anchor (0.0, 0.5) pos (0.02, 0.11):
                 size 40
-
-                color "#ffffff"
 
         use text_history(current_phone_Character)
 
@@ -753,8 +759,8 @@ screen text_screen():
                 if current_phone_Character.location != "hold": 
                     for message in text_options:
                         button xalign 0.0:
-                            idle_background Frame("images/interface/phone/text_frame_Player_idle.webp", 30, 30)
-                            hover_background Frame("images/interface/phone/text_frame_Player.webp", 30, 30)
+                            idle_background Frame("images/interface/phone/text_frame_Player_idle.webp", 5, 5)
+                            hover_background Frame("images/interface/phone/text_frame_Player.webp", 5, 5)
 
                             activate_sound None
 
@@ -762,7 +768,7 @@ screen text_screen():
                             minimum (100, 0)
                             xmaximum 300
 
-                            text message align (0.5, 0.5):
+                            text message:
                                 size 32
 
                             if current_phone_Character.mandatory_text_options:
@@ -791,7 +797,7 @@ screen text_history(Character):
 
             for Owner, content, status in Character.text_history:
                 if last_status == "read" and status in ["unread", "current", "recently_read"]:
-                    add "images/interface/phone/texts_end.webp" xalign 0.5
+                    add "images/interface/phone/texts_end.webp"
 
                 if Owner != Player:
                     hbox align (0.0, 0.0):
@@ -810,7 +816,7 @@ screen text_history(Character):
                                     size 30
 
                             frame:
-                                background Frame("images/interface/phone/text_frame.webp", 30, 30)
+                                background Frame("images/interface/phone/text_frame.webp", 5, 5)
 
                                 padding (15, 15, 15, 15)
                                 minimum (50, 0)
@@ -843,7 +849,7 @@ screen text_history(Character):
 
                         vbox align (1.0, 0.5):
                             frame:
-                                background Frame("images/interface/phone/text_frame_Player.webp", 30, 30)
+                                background Frame("images/interface/phone/text_frame_Player.webp", 5, 5)
 
                                 padding (15, 15, 15, 15)
                                 minimum (50, 0)
@@ -865,7 +871,7 @@ screen profile_screen():
     style_prefix "phone"
 
     fixed anchor (0.5, 0.5) pos (0.5, 0.4815) xysize (500, 854):
-        add "images/interface/phone/profile_background.webp" align (0.5, 0.5)
+        add "images/interface/phone/profile_background.webp"
 
         text "PROFILE" anchor (0.0, 0.5) pos (0.15, 0.034):
             size 50
@@ -874,11 +880,13 @@ screen profile_screen():
 
         add At("Player_portrait", humhum_photo) pos (0.275, 0.285) zoom 0.7
 
-        text "Name" anchor (0.0, 0.5) pos (0.52, 0.21) size 32
+        text "Name" anchor (0.0, 0.5) pos (0.52, 0.21):
+            size 32
 
         text f"{Player.first_name} {Player.last_name[0]}." anchor (1.0, 0.5) pos (0.92, 0.21) size 32
         
-        text "XP" anchor (0.0, 0.5) pos (0.075, 0.562) size 32
+        text "XP" anchor (0.0, 0.5) pos (0.075, 0.562):
+            size 32
 
         bar value Player.XP - int(Player.XP_goal/1.75) range Player.XP_goal - int(Player.XP_goal/1.75) anchor (0.0, 0.5) pos (0.175, 0.5625) xysize (372, 26):
             left_bar Frame("images/interface/phone/profile_xp.webp")
@@ -886,11 +894,14 @@ screen profile_screen():
 
             thumb None
                 
-        text "Mutation Level" anchor (0.0, 0.5) pos (0.074, 0.635) size 32
+        text "Mutation Level" anchor (0.0, 0.5) pos (0.074, 0.635):
+            size 32
 
-        text f"{Player.level}" anchor (1.0, 0.5) pos (0.915, 0.635) size 32
+        text f"{Player.level}" anchor (1.0, 0.5) pos (0.915, 0.635):
+            size 32
 
-        text "Stamina" anchor (0.0, 0.5) pos (0.074, 0.702) size 32
+        text "Stamina" anchor (0.0, 0.5) pos (0.074, 0.702):
+            size 32
 
         hbox anchor (0.0, 0.5) pos (0.28, 0.707):
             for i in range(Player.stamina):
@@ -916,7 +927,7 @@ screen music_screen():
             $ current_song = f
 
     fixed anchor (0.5, 0.5) pos (0.5, 0.4815) xysize (500, 854):
-        add "images/interface/phone/music_background.webp" align (0.5, 0.5)
+        add "images/interface/phone/music_background.webp"
 
         text "MUSIC PLAYER" anchor (0.0, 0.5) pos (0.15, 0.034):
             size 50
@@ -938,7 +949,8 @@ screen music_screen():
             spacing 5
 
             imagebutton:
-                idle "images/interface/phone/music_shuffle_idle.webp" hover "images/interface/phone/music_shuffle.webp"
+                idle "images/interface/phone/music_shuffle_idle.webp"
+                hover "images/interface/phone/music_shuffle.webp"
 
                 if phone_interactable and not phone_disabled:
                     action Play("music", song_list[(renpy.random.randint(0, len(song_list))) % len(song_list)], loop = repeating)
@@ -946,7 +958,8 @@ screen music_screen():
                     action None
 
             imagebutton:
-                idle "images/interface/phone/music_left_idle.webp" hover "images/interface/phone/music_left.webp"
+                idle "images/interface/phone/music_left_idle.webp" 
+                hover "images/interface/phone/music_left.webp"
                 
                 if phone_interactable and not phone_disabled:
                     action Play("music", song_list[(current_song - 1) % len(song_list)], loop = repeating)
@@ -955,7 +968,8 @@ screen music_screen():
 
             if renpy.music.get_pause():
                 imagebutton:
-                    idle "images/interface/phone/music_play.webp" hover "images/interface/phone/music_pause.webp"
+                    idle "images/interface/phone/music_play.webp" 
+                    hover "images/interface/phone/music_pause.webp"
                     
                     if phone_interactable and not phone_disabled:
                         action PauseAudio("music", value = False)
@@ -963,7 +977,8 @@ screen music_screen():
                         action None
             else:
                 imagebutton:
-                    idle "images/interface/phone/music_pause.webp" hover "images/interface/phone/music_play.webp"
+                    idle "images/interface/phone/music_pause.webp" 
+                    hover "images/interface/phone/music_play.webp"
                     
                     if phone_interactable and not phone_disabled:
                         action PauseAudio("music", value = True)
@@ -971,7 +986,8 @@ screen music_screen():
                         action None
 
             imagebutton:
-                idle "images/interface/phone/music_right_idle.webp" hover "images/interface/phone/music_right.webp"
+                idle "images/interface/phone/music_right_idle.webp"
+                hover "images/interface/phone/music_right.webp"
                 
                 if phone_interactable and not phone_disabled:
                     action Play("music", song_list[(current_song + 1) % len(song_list)], loop = repeating)
@@ -979,7 +995,9 @@ screen music_screen():
                     action None
 
             imagebutton:
-                idle "images/interface/phone/music_repeat_idle.webp" hover "images/interface/phone/music_repeat.webp" selected_idle "images/interface/phone/music_repeat.webp"
+                idle "images/interface/phone/music_repeat_idle.webp" 
+                hover "images/interface/phone/music_repeat.webp" 
+                selected_idle "images/interface/phone/music_repeat.webp"
                 
                 selected repeating
 
@@ -1004,7 +1022,9 @@ screen music_screen():
 
                 for file in song_list:
                     button xalign 0.0 xysize (424, 70):
-                        idle_background "images/interface/phone/music_song_idle.webp" hover_background "images/interface/phone/music_song.webp" selected_idle_background "images/interface/phone/music_song.webp"
+                        idle_background "images/interface/phone/music_song_idle.webp" 
+                        hover_background "images/interface/phone/music_song.webp" 
+                        selected_idle_background "images/interface/phone/music_song.webp"
 
                         selected file == renpy.music.get_playing()
 
@@ -1031,9 +1051,9 @@ screen humhum_home_screen():
 
     fixed anchor (0.5, 0.5) pos (0.5, 0.4815) xysize (500, 854):
         if loading:
-            add "humhum_animation" align (0.5, 0.5)
+            add "humhum_animation"
         else:
-            add "images/interface/phone/humhum_background.webp" align (0.5, 0.5)
+            add "images/interface/phone/humhum_background.webp"
 
             text "HUMHUM" anchor (0.0, 0.5) pos (0.15, 0.034):
                 size 50
@@ -1044,9 +1064,9 @@ screen humhum_home_screen():
                 draggable True
                 mousewheel True
             
-                vbox xalign 0.5 xsize 453:
+                vbox xsize 453:
                     for H in HumHumPool.HumHumThreads.values():
-                        fixed xalign 0.5 xsize 453:
+                        fixed xsize 453:
                             yfit True
                             
                             add "images/interface/phone/home_humhum_box.webp"
@@ -1079,11 +1099,11 @@ screen humhum_home_screen():
                                 frame anchor (0.5, 0.0) pos (0.5, 170) xsize 453:
                                     background Frame("images/interface/phone/home_humhum_reply_box.webp", 0, 15, 0, 15)
 
-                                    vbox xalign 0.5 xsize 453:
+                                    vbox xsize 453:
                                         null height 15
 
                                         for h in range(1, len(H.HumHums)):
-                                            hbox xalign 0.5 xsize 425:
+                                            hbox xsize 425:
                                                 if H.HumHums[h].Owner != Player:
                                                     add At(f"images/interface/phone/icons/{H.HumHums[h].Owner.tag}.webp", humhum_icon) yalign 0.0
                                                 else:
@@ -1121,13 +1141,14 @@ screen humhum_home_screen():
                 unscrollable "hide"
 
             fixed anchor (0.5, 1.0) pos (0.5, 1.0) xysize (500, 103):
-                add "images/interface/phone/humhum_bar.webp" align (0.5, 0.5)
+                add "images/interface/phone/humhum_bar.webp"
 
                 hbox anchor (0.5, 0.5) pos (0.5, 0.5):
                     spacing 50
 
                     imagebutton:
-                        idle "images/interface/phone/humhum_home.webp" hover "images/interface/phone/humhum_home.webp"
+                        idle "images/interface/phone/humhum_home.webp" 
+                        hover "images/interface/phone/humhum_home.webp"
 
                         if phone_interactable and not phone_disabled:
                             action SetVariable("current_phone_screen", "humhum_home")
@@ -1135,7 +1156,8 @@ screen humhum_home_screen():
                             action None
 
                     # imagebutton:
-                    #     idle "images/interface/phone/humhum_gallery_idle.webp" hover "images/interface/phone/humhum_gallery.webp"
+                    #     idle "images/interface/phone/humhum_gallery_idle.webp" 
+                    #     hover "images/interface/phone/humhum_gallery.webp"
 
                     #     if phone_interactable and not phone_disabled:
                     #         action SetVariable("current_phone_screen", "humhum_gallery")
@@ -1145,7 +1167,8 @@ screen humhum_home_screen():
                     null width 44
 
                     imagebutton:
-                        idle "images/interface/phone/humhum_friends_idle.webp" hover "images/interface/phone/humhum_friends.webp"
+                        idle "images/interface/phone/humhum_friends_idle.webp" 
+                        hover "images/interface/phone/humhum_friends.webp"
 
                         if phone_interactable and not phone_disabled:
                             action SetVariable("current_phone_screen", "humhum_choice")
@@ -1156,7 +1179,7 @@ screen humhum_choice_screen():
     style_prefix "phone"
 
     fixed anchor (0.5, 0.5) pos (0.5, 0.4815) xysize (500, 854):
-        add "images/interface/phone/humhum_background.webp" align (0.5, 0.5)
+        add "images/interface/phone/humhum_background.webp"
 
         text "HUMHUM" anchor (0.0, 0.5) pos (0.15, 0.034):
             size 50
@@ -1174,7 +1197,7 @@ screen humhum_choice_screen():
             mousewheel True
 
             for G in active_Companions:
-                imagebutton align (0.5, 0.5):
+                imagebutton:
                     idle At(f"images/interface/phone/icons/{G.tag}_idle.webp", phone_icon) hover At(f"images/interface/phone/icons/{G.tag}.webp", phone_icon)
                     
                     if phone_interactable and not phone_disabled:
@@ -1193,13 +1216,14 @@ screen humhum_choice_screen():
             unscrollable "hide"
 
         fixed anchor (0.5, 1.0) pos (0.5, 1.0) xysize (500, 103):
-            add "images/interface/phone/humhum_bar.webp" align (0.5, 0.5)
+            add "images/interface/phone/humhum_bar.webp"
 
             hbox anchor (0.5, 0.5) pos (0.5, 0.5):
                 spacing 50
 
                 imagebutton:
-                    idle "images/interface/phone/humhum_home_idle.webp" hover "images/interface/phone/humhum_home.webp"
+                    idle "images/interface/phone/humhum_home_idle.webp" 
+                    hover "images/interface/phone/humhum_home.webp"
 
                     if phone_interactable and not phone_disabled:
                         action SetVariable("current_phone_screen", "humhum_home")
@@ -1207,7 +1231,8 @@ screen humhum_choice_screen():
                         action None
 
                 # imagebutton:
-                #     idle "images/interface/phone/humhum_gallery_idle.webp" hover "images/interface/phone/humhum_gallery.webp"
+                #     idle "images/interface/phone/humhum_gallery_idle.webp" 
+                #     hover "images/interface/phone/humhum_gallery.webp"
 
                 #     if phone_interactable and not phone_disabled:
                 #         action SetVariable("current_phone_screen", "humhum_gallery")
@@ -1217,7 +1242,8 @@ screen humhum_choice_screen():
                 null width 44
 
                 imagebutton:
-                    idle "images/interface/phone/humhum_friends.webp" hover "images/interface/phone/humhum_friends.webp"
+                    idle "images/interface/phone/humhum_friends.webp" 
+                    hover "images/interface/phone/humhum_friends.webp"
 
                     if phone_interactable and not phone_disabled:
                         action SetVariable("current_phone_screen", "humhum_choice")
@@ -1228,7 +1254,7 @@ screen humhum_screen():
     style_prefix "phone"
 
     fixed anchor (0.5, 0.5) pos (0.5, 0.4815) xysize (500, 854):
-        add "images/interface/phone/humhum_background.webp" align (0.5, 0.5)
+        add "images/interface/phone/humhum_background.webp"
 
         text "HUMHUM" anchor (0.0, 0.5) pos (0.15, 0.034):
             size 50
@@ -1284,13 +1310,14 @@ screen humhum_screen():
         text f"{current_phone_Character.petname}" anchor (1.0, 0.5) pos (0.95, 0.787) size 30
 
         fixed anchor (0.5, 1.0) pos (0.5, 1.0) xysize (500, 103):
-            add "images/interface/phone/humhum_bar.webp" align (0.5, 0.5)
+            add "images/interface/phone/humhum_bar.webp"
 
             hbox anchor (0.5, 0.5) pos (0.5, 0.5):
                 spacing 50
 
                 imagebutton:
-                    idle "images/interface/phone/humhum_home_idle.webp" hover "images/interface/phone/humhum_home.webp"
+                    idle "images/interface/phone/humhum_home_idle.webp" 
+                    hover "images/interface/phone/humhum_home.webp"
 
                     if phone_interactable and not phone_disabled:
                         action SetVariable("current_phone_screen", "humhum_home")
@@ -1298,7 +1325,8 @@ screen humhum_screen():
                         action None
 
                 # imagebutton:
-                #     idle "images/interface/phone/humhum_gallery_idle.webp" hover "images/interface/phone/humhum_gallery.webp"
+                #     idle "images/interface/phone/humhum_gallery_idle.webp" 
+                #     hover "images/interface/phone/humhum_gallery.webp"
 
                 #     if phone_interactable and not phone_disabled:
                 #         action SetVariable("current_phone_screen", "humhum_gallery")
@@ -1308,7 +1336,8 @@ screen humhum_screen():
                 null width 44
 
                 imagebutton:
-                    idle "images/interface/phone/humhum_friends.webp" hover "images/interface/phone/humhum_friends.webp"
+                    idle "images/interface/phone/humhum_friends.webp" 
+                    hover "images/interface/phone/humhum_friends.webp"
 
                     if phone_interactable and not phone_disabled:
                         action SetVariable("current_phone_screen", "humhum_choice")
@@ -1319,7 +1348,7 @@ screen config_screen():
     style_prefix "phone"
 
     fixed anchor (0.5, 0.5) pos (0.5, 0.4815) xysize (500, 854):
-        add "images/interface/phone/config_background.webp" align (0.5, 0.5)
+        add "images/interface/phone/config_background.webp"
 
         text "CONFIGURATION" anchor (0.0, 0.5) pos (0.15, 0.034):
             size 50
@@ -1329,35 +1358,38 @@ screen config_screen():
         vbox anchor (0.5, 0.0) pos (0.5, 0.15) xysize (494, 650):
             xfill True
 
-            fixed xalign 0.5 xysize (465, 57):
-                add "images/interface/phone/config_box.webp" align (0.5, 0.5)
+            fixed xysize (465, 57):
+                add "images/interface/phone/config_box.webp"
 
-                text "Cellphone Frame" align (0.5, 0.5):
+                text "Cellphone Frame":
                     size 32
 
-            fixed xalign 0.5 xysize (320, 64):
+            fixed xysize (320, 64):
                 imagebutton anchor (0.0, 0.5) pos (0.0, 0.5):
-                    idle "images/interface/Player_customization/left_idle.webp" hover "images/interface/Player_customization/left.webp"
+                    idle "images/interface/Player_customization/left_idle.webp" 
+                    hover "images/interface/Player_customization/left.webp"
 
                     action SetVariable("Player.phone_frame", (Player.phone_frame - 1) % 7)
 
-                text f"TYPE {Player.phone_frame + 1}" align (0.5, 0.5):
+                text f"TYPE {Player.phone_frame + 1}":
                     size 32
 
                 imagebutton anchor (1.0, 0.5) pos (1.0, 0.5):
-                    idle "images/interface/Player_customization/right_idle.webp" hover "images/interface/Player_customization/right.webp"
+                    idle "images/interface/Player_customization/right_idle.webp" 
+                    hover "images/interface/Player_customization/right.webp"
 
                     action SetVariable("Player.phone_frame", (Player.phone_frame + 1) % 7)
 
-            fixed xalign 0.5 xysize (465, 57):
-                add "images/interface/phone/config_box.webp" align (0.5, 0.5)
+            fixed xysize (465, 57):
+                add "images/interface/phone/config_box.webp"
 
-                text "Cellphone Wallpaper" align (0.5, 0.5):
+                text "Cellphone Wallpaper":
                     size 32
 
-            fixed xalign 0.5 xysize (320, 64):
+            fixed xysize (320, 64):
                 imagebutton anchor (0.0, 0.5) pos (0.0, 0.5):
-                    idle "images/interface/Player_customization/left_idle.webp" hover "images/interface/Player_customization/left.webp"
+                    idle "images/interface/Player_customization/left_idle.webp" 
+                    hover "images/interface/Player_customization/left.webp"
 
                     action SetVariable("Player.phone_wallpaper", (Player.phone_wallpaper - 1) % 7)
 
@@ -1370,57 +1402,62 @@ screen config_screen():
                     f"{Laura.name}",
                     f"{Jean.name}"]
 
-                text wallpaper_type[Player.phone_wallpaper] align (0.5, 0.5):
+                text wallpaper_type[Player.phone_wallpaper]:
                     size 32
 
                 imagebutton anchor (1.0, 0.5) pos (1.0, 0.5):
-                    idle "images/interface/Player_customization/right_idle.webp" hover "images/interface/Player_customization/right.webp"
+                    idle "images/interface/Player_customization/right_idle.webp" 
+                    hover "images/interface/Player_customization/right.webp"
 
                     action SetVariable("Player.phone_wallpaper", (Player.phone_wallpaper + 1) % 7)
 
-            fixed xalign 0.5 xysize (465, 57):
-                add "images/interface/phone/config_box.webp" align (0.5, 0.5)
+            fixed xysize (465, 57):
+                add "images/interface/phone/config_box.webp"
 
-                text "Hide HumHum Home Widget" align (0.5, 0.5):
+                text "Hide HumHum Home Widget":
                     size 32
 
-            fixed xalign 0.5 xysize (320, 64):
+            fixed xysize (320, 64):
                 imagebutton anchor (0.0, 0.5) pos (0.0, 0.5):
-                    idle "images/interface/Player_customization/left_idle.webp" hover "images/interface/Player_customization/left.webp"
+                    idle "images/interface/Player_customization/left_idle.webp"
+                    hover "images/interface/Player_customization/left.webp"
 
                     action ToggleVariable("humhum_hidden")
 
                 if humhum_hidden:
-                    text "YES" align (0.5, 0.5):
+                    text "YES":
                         size 32
                 else:
-                    text "NO" align (0.5, 0.5):
+                    text "NO":
                         size 32
 
                 imagebutton anchor (1.0, 0.5) pos (1.0, 0.5):
-                    idle "images/interface/Player_customization/right_idle.webp" hover "images/interface/Player_customization/right.webp"
+                    idle "images/interface/Player_customization/right_idle.webp" 
+                    hover "images/interface/Player_customization/right.webp"
 
                     action ToggleVariable("humhum_hidden")
 
-            fixed xalign 0.5 xysize (465, 57):
-                add "images/interface/phone/config_box.webp" align (0.5, 0.5)
+            fixed xysize (465, 57):
+                add "images/interface/phone/config_box.webp"
 
-                text "Cellphone Ringtone" align (0.5, 0.5):
+                text "Cellphone Ringtone":
                     size 32
 
-            fixed xalign 0.5 xysize (320, 64):
+            fixed xysize (320, 64):
                 imagebutton anchor (0.0, 0.5) pos (0.0, 0.5):
-                    idle "images/interface/Player_customization/left_idle.webp" hover "images/interface/Player_customization/left.webp"
+                    idle "images/interface/Player_customization/left_idle.webp" 
+                    hover "images/interface/Player_customization/left.webp"
 
                     action [
                         Play("sound", f"sounds/ringtones/{(Player.ringtone - 1) % len(available_ringtones)}.ogg"),
                         SetVariable("Player.ringtone", (Player.ringtone - 1) % len(available_ringtones))]
 
-                text f"TYPE {Player.ringtone + 1}" align (0.5, 0.5):
+                text f"TYPE {Player.ringtone + 1}":
                     size 32
 
                 imagebutton anchor (1.0, 0.5) pos (1.0, 0.5):
-                    idle "images/interface/Player_customization/right_idle.webp" hover "images/interface/Player_customization/right.webp"
+                    idle "images/interface/Player_customization/right_idle.webp" 
+                    hover "images/interface/Player_customization/right.webp"
 
                     action [
                         Play("sound", f"sounds/ringtones/{(Player.ringtone + 1) % len(available_ringtones)}.ogg"),

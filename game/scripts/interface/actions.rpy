@@ -13,13 +13,8 @@ init -1:
 
 style Action_screen is default
 
-style Action_screen_button:
-    # hover_sound "sounds/interface/hover.ogg"
-    activate_sound "sounds/interface/press.ogg"
-
-style Action_screen_image_button:
-    # hover_sound "sounds/interface/hover.ogg"
-    activate_sound "sounds/interface/press.ogg"
+style Action_screen_text:
+    font "agency_fb.ttf"
     
 screen Action_screen(automatic = False):
     layer "interface"
@@ -57,16 +52,8 @@ screen Action_screen(automatic = False):
         text f"{Player.stamina}" anchor (0.5, 0.5) pos (0.839, 0.03752):
             size 35
 
-            text_align 0.5
-
-            color "#ffffff"
-
         text f"{focused_Character.stamina}" anchor (0.5, 0.5) pos (0.839, 0.0952):
             size 35
-
-            text_align 0.5
-
-            color "#ffffff"
 
         if Action_hover_type:
             add At(At(At("images/interface/Action_menu/popup.webp", change_anchor(0.5, 0.5)), change_pos(0.825, 0.28)), zoom_sprite(0.5))
@@ -171,8 +158,6 @@ screen Action_screen(automatic = False):
                         action None
 
                     tooltip "Open Position Menu"
-                    
-                    focus_mask True
 
             if has_Action_control:
                 imagebutton:
@@ -186,8 +171,6 @@ screen Action_screen(automatic = False):
                         action None
 
                     tooltip "Open Action Menu"
-                    
-                    focus_mask True
 
             if has_Action_control:
                 imagebutton:
@@ -204,8 +187,6 @@ screen Action_screen(automatic = False):
                         action None
 
                     tooltip "Open Undressing Menu"
-                    
-                    focus_mask True
 
             if Action_screen_tab == "pose":
                 if has_position_control:
@@ -234,12 +215,14 @@ screen Action_screen(automatic = False):
                         for pose in pose_list:
                             $ pose_name = pose_names[pose]
 
-                            button align (0.5, 0.5) xysize (int(447*interface_new_adjustment), int(177*interface_new_adjustment)):
-                                idle_background At("images/interface/Action_menu/button_off.webp", interface) hover_background At("images/interface/Action_menu/button_on.webp", interface) selected_idle_background At("images/interface/Action_menu/button_on.webp", interface)
+                            button xysize (int(447*interface_new_adjustment), int(177*interface_new_adjustment)):
+                                idle_background At("images/interface/Action_menu/button_off.webp", interface) 
+                                hover_background At("images/interface/Action_menu/button_on.webp", interface) 
+                                selected_idle_background At("images/interface/Action_menu/button_on.webp", interface)
 
                                 selected focused_Character.position == pose
 
-                                text f"{pose_name}" align (0.5, 0.5):
+                                text f"{pose_name}":
                                     if len(pose_name) > 18:
                                         size 22
                                     elif len(pose_name) > 15:
@@ -248,10 +231,6 @@ screen Action_screen(automatic = False):
                                         size 32
                                     else:
                                         size 35
-
-                                    text_align 0.5
-
-                                    color "#ffffff"
 
                                 if focused_Character.position != pose:
                                     action [
@@ -326,8 +305,10 @@ screen Action_screen(automatic = False):
 
                         spacing -10
                                             
-                        button align (0.5, 0.5) xysize (int(447*interface_new_adjustment), int(177*interface_new_adjustment)):
-                            idle_background At("images/interface/Action_menu/button_off.webp", interface) hover_background At("images/interface/Action_menu/button_on.webp", interface) selected_idle_background At("images/interface/Action_menu/button_on.webp", interface)
+                        button xysize (int(447*interface_new_adjustment), int(177*interface_new_adjustment)):
+                            idle_background At("images/interface/Action_menu/button_off.webp", interface) 
+                            hover_background At("images/interface/Action_menu/button_on.webp", interface) 
+                            selected_idle_background At("images/interface/Action_menu/button_on.webp", interface)
 
                             if focused_Character.History.check(Action_type) < unknown_threshold:
                                 hovered [
@@ -346,12 +327,8 @@ screen Action_screen(automatic = False):
                                 SetVariable("Action_hover_type", None),
                                 SetVariable("Action_hover_size", 1.0)]
 
-                            text "Spank" align (0.5, 0.5):
+                            text "Spank":
                                 size 35
-
-                                text_align 0.5
-
-                                color "#ffffff"
 
                             action Call("spank", focused_Character, from_current = True)
 
@@ -369,8 +346,10 @@ screen Action_screen(automatic = False):
                                     if A.Action_type == Action_type:
                                         $ ongoing_Action = A
 
-                            button align (0.5, 0.5) xysize (int(447*interface_new_adjustment), int(177*interface_new_adjustment)):
-                                idle_background At("images/interface/Action_menu/button_off.webp", interface) hover_background At("images/interface/Action_menu/button_on.webp", interface) selected_idle_background At("images/interface/Action_menu/button_on.webp", interface)
+                            button xysize (int(447*interface_new_adjustment), int(177*interface_new_adjustment)):
+                                idle_background At("images/interface/Action_menu/button_off.webp", interface) 
+                                hover_background At("images/interface/Action_menu/button_on.webp", interface) 
+                                selected_idle_background At("images/interface/Action_menu/button_on.webp", interface)
 
                                 selected ongoing_Action
 
@@ -391,7 +370,7 @@ screen Action_screen(automatic = False):
                                     SetVariable("Action_hover_type", None),
                                     SetVariable("Action_hover_size", 1.0)]
 
-                                text f"{Action_name}" align (0.5, 0.5):
+                                text f"{Action_name}":
                                     if len(Action_name) > 18:
                                         size 22
                                     elif len(Action_name) > 15:
@@ -400,10 +379,6 @@ screen Action_screen(automatic = False):
                                         size 32
                                     else:
                                         size 35
-
-                                    text_align 0.5
-
-                                    color "#ffffff"
 
                                 if ongoing_Action:
                                     action [
@@ -435,7 +410,6 @@ screen Action_screen(automatic = False):
                         thumb_offset 10
 
                         unscrollable "hide"
-            #     elif Action_screen_tab == "strip":
 
             if ongoing_Actions:
                 imagebutton:
@@ -447,8 +421,6 @@ screen Action_screen(automatic = False):
                         Call("continue_Actions", from_current = True)]
 
                     tooltip "Keep Going"
-                    
-                    focus_mask True
 
                 if has_movement_control:
                     imagebutton:
@@ -467,8 +439,6 @@ screen Action_screen(automatic = False):
                                 SetVariable("intensity", 0.001)]
 
                         tooltip "Pause Action"
-                        
-                        focus_mask True
 
                 imagebutton:
                     idle At("images/interface/Action_menu/auto_idle.webp", interface) hover At("images/interface/Action_menu/auto.webp", interface) selected_idle At("images/interface/Action_menu/auto.webp", interface)
@@ -480,8 +450,6 @@ screen Action_screen(automatic = False):
                         SetVariable("Action_auto_progress_timer", 0.0)]
 
                     tooltip "Auto Progress"
-                    
-                    focus_mask True
 
                 bar value Action_auto_progress_timer range 5.0 anchor (0.5, 0.5) pos (0.9281, 0.825) xysize (int(419*interface_new_adjustment), int(78*interface_new_adjustment)):
                     left_bar Frame("images/interface/Action_menu/progress_full.webp")
@@ -497,16 +465,18 @@ screen Action_screen(automatic = False):
                     spacing -14
 
                     for mode in Player.cock_Actions[0].modes:
-                        button align (0.5, 0.5) xysize (int(191*interface_new_adjustment), int(177*interface_new_adjustment)):
-                            idle_background At("images/interface/Action_menu/mode_idle.webp", interface) hover_background At("images/interface/Action_menu/mode.webp", interface) selected_background At("images/interface/Action_menu/mode.webp", interface)
+                        button xysize (int(191*interface_new_adjustment), int(177*interface_new_adjustment)):
+                            idle_background At("images/interface/Action_menu/mode_idle.webp", interface) 
+                            hover_background At("images/interface/Action_menu/mode.webp", interface) 
+                            selected_background At("images/interface/Action_menu/mode.webp", interface)
 
                             selected Player.cock_Actions[0].mode == mode
 
                             if len(Player.cock_Actions[0].modes) == 1:
-                                text "1" align (0.5, 0.5):
+                                text "1":
                                     size 32
                             else:
-                                text f"{mode}" align (0.5, 0.5):
+                                text f"{mode}":
                                     size 32
 
                             if Player.cock_Actions[0].mode != mode:
@@ -544,8 +514,6 @@ screen Action_screen(automatic = False):
                             SetVariable("intensity", 0.5)]
 
                     tooltip "Set Intensity to 1"
-                    
-                    focus_mask True
 
                 imagebutton:
                     idle At("images/interface/Action_menu/x2_idle.webp", interface) hover At("images/interface/Action_menu/x2.webp", interface) selected_idle At("images/interface/Action_menu/x2.webp", interface)
@@ -563,8 +531,6 @@ screen Action_screen(automatic = False):
                             SetVariable("intensity", 1.0)]
 
                     tooltip "Set Intensity to 2"
-                    
-                    focus_mask True
 
                 imagebutton:
                     idle At("images/interface/Action_menu/x3_idle.webp", interface) hover At("images/interface/Action_menu/x3.webp", interface) selected_idle At("images/interface/Action_menu/x3.webp", interface)
@@ -582,8 +548,6 @@ screen Action_screen(automatic = False):
                             SetVariable("intensity", 2.0)]
 
                     tooltip "Set Intensity to 3"
-                    
-                    focus_mask True
 
             imagebutton:
                 idle At("images/interface/Action_menu/close_idle.webp", interface) hover At("images/interface/Action_menu/close.webp", interface)
@@ -600,10 +564,8 @@ screen Action_screen(automatic = False):
 
                 tooltip "Finish"
 
-                focus_mask True
-
     if black_screen or (renpy.get_screen("say") and not Action_auto_progress):
-        button align (0.5, 0.5) xysize (config.screen_width, config.screen_height):
+        button xysize (1.0, 1.0):
             background None
 
             hover_sound None

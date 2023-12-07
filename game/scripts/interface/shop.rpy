@@ -20,20 +20,18 @@ init python:
 style shop is default
 
 style shop_button:
-    idle_background Frame("images/interface/box1.webp", 30, 30)
-    hover_background Frame("images/interface/box2.webp", 30, 30)
+    idle_background Frame("images/interface/box1.webp", 5, 5)
+    hover_background Frame("images/interface/box2.webp", 5, 5)
 
-    padding (10, 10, 10, 10)
+    padding (20, 20, 20, 20)
 
-    minimum (int(config.screen_width*0.2), int(config.screen_height*0.07))
-    xmaximum int(config.screen_width*0.2)
+    xsize 0.2
+    yminimum 0.07
 
-    # hover_sound "sounds/interface/hover.ogg"
-    activate_sound "sounds/interface/press.ogg"
+style shop_text:
+    font "agency_fb.ttf"
 
-style shop_image_button:
-    # hover_sound "sounds/interface/hover.ogg"
-    activate_sound "sounds/interface/press.ogg"
+    color "#000000"
 
 screen shop_screen(shop_type, discount = False, restricted = True):
     layer "interface"
@@ -81,7 +79,9 @@ screen shop_screen(shop_type, discount = False, restricted = True):
                     for I in shop_inventory[shop_type].values():
                         if not "piercing" in I.string or focused_Character in Present:
                             button xysize (490, 93):
-                                idle_background "images/interface/shop/Item.webp" hover_background "images/interface/shop/Item_selected.webp" selected_idle_background "images/interface/shop/Item_selected.webp"
+                                idle_background "images/interface/shop/Item.webp" 
+                                hover_background "images/interface/shop/Item_selected.webp" 
+                                selected_idle_background "images/interface/shop/Item_selected.webp"
                                 
                                 selected current_shop_Item and current_shop_Item.Owner == I.Owner and current_shop_Item.string == I.string
 
@@ -99,7 +99,9 @@ screen shop_screen(shop_type, discount = False, restricted = True):
                     for I in unrestricted_shop_inventory[shop_type].values():
                         if not "piercing" in I.string or focused_Character in Present:
                             button xysize (490, 93):
-                                idle_background "images/interface/shop/Item.webp" hover_background "images/interface/shop/Item_selected.webp" selected_idle_background "images/interface/shop/Item_selected.webp"
+                                idle_background "images/interface/shop/Item.webp" 
+                                hover_background "images/interface/shop/Item_selected.webp" 
+                                selected_idle_background "images/interface/shop/Item_selected.webp"
                                 
                                 selected current_shop_Item and current_shop_Item.Owner == I.Owner and current_shop_Item.string == I.string
 
@@ -153,7 +155,8 @@ screen shop_screen(shop_type, discount = False, restricted = True):
 
         if shop_type in ["clothing", "lingerie"]:
             imagebutton anchor (0.5, 0.5) pos (0.737, 0.671):
-                idle "images/interface/shop/try_idle.webp" hover "images/interface/shop/try.webp"
+                idle "images/interface/shop/try_idle.webp" 
+                hover "images/interface/shop/try.webp"
                 
                 if current_shop_Item and current_shop_Item.Owner in Present:
                     action Call("ask_Character_to_try_on", current_shop_Item, from_current = True)
@@ -163,7 +166,8 @@ screen shop_screen(shop_type, discount = False, restricted = True):
                 tooltip "Try On"
 
         imagebutton anchor (0.5, 0.5) pos (0.737, 0.805):
-            idle "images/interface/shop/buy_idle.webp" hover "images/interface/shop/buy.webp"
+            idle "images/interface/shop/buy_idle.webp" 
+            hover "images/interface/shop/buy.webp"
             
             if current_shop_Item and Player.cash >= int(modifier*current_shop_Item.price):
                 if ongoing_Event:
@@ -281,7 +285,8 @@ screen shop_screen(shop_type, discount = False, restricted = True):
             tooltip "Buy"
 
         imagebutton anchor (0.5, 0.5) pos (0.9105, 0.7505):
-            idle "images/interface/shop/back_idle.webp" hover "images/interface/shop/back.webp"
+            idle "images/interface/shop/back_idle.webp" 
+            hover "images/interface/shop/back.webp"
 
             if ongoing_Event:
                 action Return(False)
@@ -294,7 +299,7 @@ screen shop_screen(shop_type, discount = False, restricted = True):
         add f"{current_shop_Item.Owner.tag}_sprite standing" anchor (current_shop_Item.Owner.sprite_anchor[0], current_shop_Item.Owner.sprite_anchor[1]) pos (0.85, eval(f"{current_shop_Item.Owner.tag}_standing_height")) zoom eval(f"{current_shop_Item.Owner.tag}_standing_zoom")
         
     if black_screen or renpy.get_screen("say"):
-        button align (0.5, 0.5) xysize (config.screen_height, config.screen_height):
+        button xysize (1.0, 1.0):
             background None
             
             if not renpy.get_screen("choice"):
@@ -317,15 +322,17 @@ screen buy_gift_screen(Characters, Item, discount = False):
     else:
         $ modifier = 1.0
 
-    frame xysize (int(config.screen_width*0.25), int(config.screen_height*0.45)):
-        background Frame("images/interface/box1.webp", 30, 30)
+    frame xysize (0.25, 0.45):
+        background Frame("images/interface/box1.webp", 5, 5)
 
-        viewport id "buy_gift_screen_viewport" anchor (0.5, 0.0) pos (0.59, 0.05) ysize (int(config.screen_height*0.39)):
-            vbox align (0.5, 0.0):
+        viewport id "buy_gift_screen_viewport" align (0.5, 0.5) xysize (0.8, 0.9):
+            vbox align (0.5, 0.0) xsize 1.0:
                 spacing 5
 
-                text "Give to whom?" align (0.5, 0.5):
+                text "Give to whom?" xsize 1.0:
                     size 36
+
+                    color "#ffffff"
 
                 if Item.string in Player.inventory.keys():
                     $ quantities = len(Player.inventory[Item.string])
@@ -334,14 +341,18 @@ screen buy_gift_screen(Characters, Item, discount = False):
 
                 for C in Characters:
                     if C in all_Companions and Item.string not in C.inventory.keys() and (not Item.Owner or Item.Owner == C):
-                        textbutton f"{C.name}":
+                        textbutton f"{C.name}" xsize 1.0:
+                            text_font "agency_fb.ttf"
+
                             action [
                                 Hide("buy_gift_screen"),
                                 Call("buy_Character_gift", C, Item, discounted = discount, from_current = True)]
 
                             text_size 36
 
-                textbutton "Put in bag":
+                textbutton "Put in bag" xsize 1.0:
+                    text_font "agency_fb.ttf"
+
                     if Item.filter_type == "key_gifts":
                         if Item.string in Player.inventory.keys():
                             action [
@@ -375,12 +386,14 @@ screen buy_gift_screen(Characters, Item, discount = False):
 
                     text_size 36
 
-                textbutton _("Cancel"):
+                textbutton _("Cancel") xsize 1.0:
+                    text_font "agency_fb.ttf"
+
                     action Hide("buy_gift_screen")
 
                     text_size 36
 
-        vbar value YScrollValue("buy_gift_screen_viewport") anchor (0.0, 0.0) pos (0.925, 0.0) xsize 22:
+        vbar value YScrollValue("buy_gift_screen_viewport") anchor (0.0, 0.5) pos (0.925, 0.5) xsize 22 ysize 0.9:
             base_bar Frame("images/interface/wardrobe/scrollbar.webp")
 
             thumb "images/interface/wardrobe/scrollbar_thumb.webp"
@@ -393,30 +406,36 @@ screen piercings_screen(Characters, Piercing, discount = False):
 
     modal True
 
-    frame xysize (int(config.screen_width*0.25), int(config.screen_height*0.45)):
-        background Frame("images/interface/box1.webp", 30, 30)
+    frame xysize (0.25, 0.45):
+        background Frame("images/interface/box1.webp", 5, 5)
 
-        viewport id "piercings_screen_viewport" anchor (0.5, 0.0) pos (0.59, 0.05) ysize (int(config.screen_height*0.39)):
-            vbox align (0.5, 0.0):
+        viewport id "piercings_screen_viewport" align (0.5, 0.5) xysize (0.8, 0.9):
+            vbox align (0.5, 0.0) xsize 1.0:
                 spacing 5
 
-                text "Who should get a piercing?" align (0.5, 0.5):
+                text "Who should get a piercing?" xsize 1.0:
                     size 36
+
+                    color "#ffffff"
 
                 for C in Characters:
                     if C in all_Companions:
                         if Piercing.string not in C.inventory.keys():
-                            textbutton f"{C.name}":
+                            textbutton f"{C.name}" xsize 1.0:
+                                text_font "agency_fb.ttf"
+
                                 action Call("give_Character_piercing", C, Piercing, mall = True, discounted = discount, from_current = True)
 
                                 text_size 36
 
-                textbutton _("Cancel"):
+                textbutton _("Cancel") xsize 1.0:
+                    text_font "agency_fb.ttf"
+
                     action Hide("piercings_screen")
 
                     text_size 36
 
-        vbar value YScrollValue("piercings_screen_viewport") anchor (0.0, 0.0) pos (0.925, 0.0) xsize 22:
+        vbar value YScrollValue("piercings_screen_viewport") anchor (0.0, 0.5) pos (0.925, 0.5) xsize 22 ysize 0.9:
             base_bar Frame("images/interface/wardrobe/scrollbar.webp")
 
             thumb "images/interface/wardrobe/scrollbar_thumb.webp"

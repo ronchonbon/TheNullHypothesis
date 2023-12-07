@@ -15,31 +15,31 @@ init -1:
     default tooltips_enabled = True
 
 style game_menu is default
+
+style game_menu_hbox:
+    spacing 5
+
+style game_menu_vbox:
+    spacing 5
     
 style game_menu_button:
-    idle_background Frame("images/interface/box2.webp", 30, 30)
-    hover_background Frame("images/interface/box1.webp", 30, 30)
+    idle_background Frame("images/interface/box1.webp", 5, 5)
+    hover_background Frame("images/interface/box2.webp", 5, 5)
 
-    minimum (int(config.screen_width*0.15), int(config.screen_height*0.07))
-    xmaximum int(config.screen_width*0.15)
+    padding (15, 15, 15, 15)
 
-    # hover_sound "sounds/interface/hover.ogg"
-    activate_sound "sounds/interface/press.ogg"
+    xsize 0.15
 
-style game_menu_image_button:
-    # hover_sound "sounds/interface/hover.ogg"
-    activate_sound "sounds/interface/press.ogg"
+style game_menu_text:
+    size 30
 
 style files is default
 
 style files_button:
-    idle_background Frame("images/interface/box2.webp", 30, 30)
-    hover_background Frame("images/interface/box1.webp", 30, 30)
+    idle_background Frame("images/interface/box1.webp", 5, 5)
+    hover_background Frame("images/interface/box2.webp", 5, 5)
 
-    minimum (int(config.screen_width*0.01), int(config.screen_height*0.07))
-
-    # hover_sound "sounds/interface/hover.ogg"
-    activate_sound "sounds/interface/press.ogg"
+    padding (30, 10, 30, 10)
 
 screen navigation():
     style_prefix "game_menu"
@@ -50,33 +50,33 @@ screen navigation():
         vbox:
             spacing 2
 
-            textbutton _("Return"):
+            textbutton _("RETURN"):
                 action Return() 
                 
                 text_size 40
 
-            textbutton _("Options"):
+            textbutton _("OPTIONS"):
                 action ShowMenu("preferences") 
                 
                 text_size 40
 
-            textbutton _("Save Game"):
+            textbutton _("SAVE"):
                 action ShowMenu("save") 
                 
                 text_size 40
 
-            textbutton _("Load Game"):
+            textbutton _("LOAD"):
                 action ShowMenu("load") 
                 
                 text_size 40
             
-            textbutton _("Main Menu"):
+            textbutton _("MAIN MENU"):
                 action MainMenu() 
                 
                 text_size 40
 
-            textbutton _("Quit"):
-                action Quit() 
+            textbutton _("QUIT"):
+                action Quit(confirm = True) 
                 
                 text_size 40
 
@@ -107,40 +107,30 @@ screen file_picker():
 
             spacing 2
 
-            textbutton _("Previous"):
-                xpadding 30
+            textbutton _("PREVIOUS"):
+                action FilePagePrevious()
 
-                action FilePagePrevious() 
-                
                 text_size 32
 
-            textbutton _("Auto"):
-                xpadding 30
-
+            textbutton _("AUTO"):
                 action FilePage("auto") 
-                
+
                 text_size 32
 
-            textbutton _("Quick"):
-                xpadding 30
-
+            textbutton _("QUICK"):
                 action FilePage("quick") 
-                
+
                 text_size 32
 
             for i in range(1, 9):
                 textbutton str(i):
-                    xpadding 30
-
                     action FilePage(i)
-                    
+
                     text_size 32
                 
-            textbutton _("Next"):
-                xpadding 30
-                
+            textbutton _("NEXT"):
                 action FilePageNext() 
-                
+
                 text_size 32
 
         null height 8
@@ -152,14 +142,13 @@ screen file_picker():
             style_prefix "file_picker"
 
             transpose True
-
             xfill True
 
             spacing 5
 
             for i in range(1, columns*rows + 1):
                 $ file_name = FileSlotName(i, columns*rows)
-                $ file_time = FileTime(i, empty = _("Empty Slot."))
+                $ file_time = FileTime(i, empty = _("EMPTY"))
                 $ save_name = FileSaveName(i)
                 
                 button ysize 0.15:
@@ -170,8 +159,14 @@ screen file_picker():
 
                         add FileScreenshot(i) yalign 0.5
 
-                        text "[save_name!t]\n[file_time!t]" xalign 0.5 yalign 0.5 text_align 0.0:
+                        text "[save_name!t]\n[file_time!t]":
+                            font "agency_fb.ttf"
+
                             size 28
+
+                            color "#000000"
+
+                            text_align 0.0
 
                         key "save_delete" action FileDelete(i)
 
@@ -197,16 +192,12 @@ screen preferences():
             SetVariable("preferences_tab", "graphics"),
             SetVariable("preferences_label", "GRAPHICS OPTIONS")]
 
-        focus_mask True
-
     imagebutton:
         idle At("images/interface/preferences/audio_idle.webp", interface) hover At("images/interface/preferences/audio.webp", interface) selected_idle At("images/interface/preferences/audio.webp", interface)
 
         action [
             SetVariable("preferences_tab", "audio"),
             SetVariable("preferences_label", "AUDIO OPTIONS")]
-
-        focus_mask True
 
     imagebutton:
         idle At("images/interface/preferences/hotkeys_idle.webp", interface) hover At("images/interface/preferences/hotkeys.webp", interface) selected_idle At("images/interface/preferences/hotkeys.webp", interface)
@@ -215,8 +206,6 @@ screen preferences():
             SetVariable("preferences_tab", "hotkeys"),
             SetVariable("preferences_label", "HOTKEYS")]
 
-        focus_mask True
-
     imagebutton:
         idle At("images/interface/preferences/gameplay_idle.webp", interface) hover At("images/interface/preferences/gameplay.webp", interface) selected_idle At("images/interface/preferences/gameplay.webp", interface)
 
@@ -224,36 +213,19 @@ screen preferences():
             SetVariable("preferences_tab", "gameplay"),
             SetVariable("preferences_label", "GAMEPLAY OPTIONS")]
 
-        focus_mask True
-
     if blinking:
-        text preferences_label + "{alpha=0.0}_{/alpha}" anchor (0.5, 0.5) pos (0.123, 0.336):
-            font "agency_fb_bold.ttf"
-
-            size 30
-
-            color "#ffffff"
+        text preferences_label + "{alpha=0.0}_{/alpha}" anchor (0.5, 0.5) pos (0.123, 0.336)
     else:
-        text preferences_label + "_" anchor (0.5, 0.5) pos (0.123, 0.336):
-            font "agency_fb_bold.ttf"
-
-            size 30
-
-            color "#ffffff"
+        text preferences_label + "_" anchor (0.5, 0.5) pos (0.123, 0.336)
 
     if preferences_tab == "graphics":
         hbox anchor (0.5, 0.5) pos (0.431, 0.643) xysize (int(2800*interface_new_adjustment), int(1150*interface_new_adjustment)):
             spacing 50
 
             vbox:
-                spacing 5
+                text "FULLSCREEN" anchor (0.5, 0.5) pos (0.47, 0.5)
 
-                text "Fullscreen" xalign 0.5:
-                    size 36 
-                    
-                    color "#ffffff" 
-
-                imagebutton xalign 0.5:
+                imagebutton:
                     idle At("images/interface/preferences/off.webp", interface) hover At("images/interface/preferences/off.webp", interface) selected_idle At("images/interface/preferences/on.webp", interface) selected_hover At("images/interface/preferences/on.webp", interface)
 
                     hover_sound None
@@ -265,20 +237,13 @@ screen preferences():
                     else:
                         action Preference("display", "fullscreen")
 
-                    focus_mask True
-
             vbox:
                 spacing 20
                 
                 vbox:
-                    spacing 5
+                    text "COMIC FILTER" anchor (0.5, 0.5) pos (0.47, 0.5)
 
-                    text "Comic Filter" xalign 0.5:
-                        size 36 
-                        
-                        color "#ffffff" 
-
-                    imagebutton xalign 0.5:
+                    imagebutton:
                         idle At("images/interface/preferences/off.webp", interface) hover At("images/interface/preferences/off.webp", interface) selected_idle At("images/interface/preferences/on.webp", interface) selected_hover At("images/interface/preferences/on.webp", interface)
 
                         hover_sound None
@@ -287,17 +252,10 @@ screen preferences():
 
                         action ToggleVariable("comic_filter")
 
-                        focus_mask True
-
                 vbox:
-                    spacing 5
+                    text "CINEMATIC BARS" anchor (0.5, 0.5) pos (0.47, 0.5)
 
-                    text "Cinematic Bars" xalign 0.5:
-                        size 36 
-                        
-                        color "#ffffff" 
-
-                    imagebutton xalign 0.5:
+                    imagebutton:
                         idle At("images/interface/preferences/off.webp", interface) hover At("images/interface/preferences/off.webp", interface) selected_idle At("images/interface/preferences/on.webp", interface) selected_hover At("images/interface/preferences/on.webp", interface)
 
                         hover_sound None
@@ -306,17 +264,10 @@ screen preferences():
 
                         action ToggleVariable("cinematic_bars")
 
-                        focus_mask True
-
             vbox:
-                spacing 5
+                text "FLASHING LIGHTS" anchor (0.5, 0.5) pos (0.47, 0.5)
 
-                text "Flashing Lights" xalign 0.5:
-                    size 36 
-                    
-                    color "#ffffff" 
-
-                imagebutton xalign 0.5:
+                imagebutton:
                     idle At("images/interface/preferences/off.webp", interface) hover At("images/interface/preferences/off.webp", interface) selected_idle At("images/interface/preferences/on.webp", interface) selected_hover At("images/interface/preferences/on.webp", interface)
 
                     hover_sound None
@@ -325,20 +276,11 @@ screen preferences():
 
                     action ToggleVariable("flashing_lights")
 
-                    focus_mask True
-
             vbox:
-                spacing 20
-
                 vbox:
-                    spacing 5
+                    text "PLAYER BODY VISIBLE" anchor (0.5, 0.5) pos (0.47, 0.5)
 
-                    text "Body Visible" xalign 0.5:
-                        size 36 
-                        
-                        color "#ffffff" 
-
-                    imagebutton xalign 0.5:
+                    imagebutton:
                         idle At("images/interface/preferences/off.webp", interface) hover At("images/interface/preferences/off.webp", interface) selected_idle At("images/interface/preferences/on.webp", interface) selected_hover At("images/interface/preferences/on.webp", interface)
 
                         hover_sound None
@@ -347,17 +289,10 @@ screen preferences():
 
                         action ToggleVariable("Player.body_visible")
 
-                        focus_mask True
-
                 vbox:
-                    spacing 5
+                    text "UI VISIBLE" anchor (0.5, 0.5) pos (0.47, 0.5)
 
-                    text "UI Visible" xalign 0.5:
-                        size 36 
-                        
-                        color "#ffffff" 
-
-                    imagebutton xalign 0.5:
+                    imagebutton:
                         idle At("images/interface/preferences/off.webp", interface) hover At("images/interface/preferences/off.webp", interface) selected_idle At("images/interface/preferences/on.webp", interface) selected_hover At("images/interface/preferences/on.webp", interface)
 
                         hover_sound None
@@ -368,8 +303,6 @@ screen preferences():
                             ToggleVariable("dialogue_hidden"),
                             ToggleVariable("belt_hidden"),
                             ToggleVariable("Action_screen_hidden")]
-
-                        focus_mask True
     elif preferences_tab == "audio":
         hbox anchor (0.5, 0.5) pos (0.431, 0.643) xysize (int(2800*interface_new_adjustment), int(1150*interface_new_adjustment)):
             spacing 50
@@ -377,10 +310,7 @@ screen preferences():
             vbox:
                 spacing 25
 
-                text "Interface Volume":
-                    size 36 
-                    
-                    color "#ffffff" 
+                text "INTERFACE VOLUME"
 
                 bar value Preference("sound volume") xysize (int(1114*interface_new_adjustment), int(40*interface_new_adjustment)):
                     base_bar At("images/interface/preferences/scrollbar.webp", interface)
@@ -390,10 +320,7 @@ screen preferences():
                     
                     unscrollable "hide"
 
-                text "Music Volume":
-                    size 36 
-                    
-                    color "#ffffff" 
+                text "MUSIC VOLUME"
 
                 bar value Preference("music volume") xysize (int(1114*interface_new_adjustment), int(40*interface_new_adjustment)):
                     base_bar At("images/interface/preferences/scrollbar.webp", interface)
@@ -404,14 +331,9 @@ screen preferences():
                     unscrollable "hide"
 
             vbox:
-                spacing 5
+                text "MUTE" anchor (0.5, 0.5) pos (0.47, 0.5)
 
-                text "Mute" xalign 0.5:
-                    size 36 
-                    
-                    color "#ffffff" 
-
-                imagebutton xalign 0.5:
+                imagebutton:
                     idle At("images/interface/preferences/off.webp", interface) hover At("images/interface/preferences/off.webp", interface) selected_idle At("images/interface/preferences/on.webp", interface) selected_hover At("images/interface/preferences/on.webp", interface)
 
                     hover_sound None
@@ -426,178 +348,118 @@ screen preferences():
                         action [
                             SetVariable("volume_muted", True),
                             SetMute(["sound", "music"], True)]
-
-                    focus_mask True
     elif preferences_tab == "hotkeys":
         hbox anchor (0.5, 0.5) pos (0.431, 0.77) xysize (int(2800*interface_new_adjustment), int(1150*interface_new_adjustment)):
             spacing 10
 
             vbox yalign 0.0:
-                spacing 5
-
                 hbox xalign 0.0:
-                    spacing 5
-
                     fixed xysize (int(158*interface_new_adjustment), int(150*interface_new_adjustment)):
                         add At("images/interface/preferences/hotkey.webp", interface)
 
-                        text "I" align (0.5, 0.5):
+                        text "I":
                             size 36
 
                             color "#000000"
 
-                    text "Inventory" align (0.0, 0.5):
-                        size 36
-
-                        color "#ffffff"
+                    text "INVENTORY" align (0.0, 0.5)
 
                 hbox xalign 0.0:
-                    spacing 5
-
                     fixed xysize (int(158*interface_new_adjustment), int(150*interface_new_adjustment)):
                         add At("images/interface/preferences/hotkey.webp", interface)
 
-                        text "J" align (0.5, 0.5):
+                        text "J":
                             size 36
 
                             color "#000000"
                             
-                    text "Journal" align (0.0, 0.5):
-                        size 36
-
-                        color "#ffffff"
+                    text "JOURNAL" align (0.0, 0.5)
 
                 hbox xalign 0.0:
-                    spacing 5
-                    
                     fixed xysize (int(158*interface_new_adjustment), int(150*interface_new_adjustment)):
                         add At("images/interface/preferences/hotkey.webp", interface)
 
-                        text "M" align (0.5, 0.5):
+                        text "M":
                             size 36
 
                             color "#000000"
 
-                    text "Map" align (0.0, 0.5):
-                        size 36
-
-                        color "#ffffff"
+                    text "MAP" align (0.0, 0.5)
 
                 hbox xalign 0.0:
-                    spacing 5
-                    
                     fixed xysize (int(158*interface_new_adjustment), int(150*interface_new_adjustment)):
                         add At("images/interface/preferences/hotkey.webp", interface)
 
-                        text "P" align (0.5, 0.5):
+                        text "P":
                             size 36
 
                             color "#000000"
 
-                    text "Phone" align (0.0, 0.5):
-                        size 36
-
-                        color "#ffffff"
+                    text "PHONE" align (0.0, 0.5)
 
             vbox yalign 0.0:
-                spacing 5
-
                 hbox xalign 0.0:
-                    spacing 5
-                    
                     fixed xysize (int(158*interface_new_adjustment), int(150*interface_new_adjustment)):
                         add At("images/interface/preferences/hotkey.webp", interface)
 
-                        text "R" align (0.5, 0.5):
+                        text "R":
                             size 36
 
                             color "#000000"
 
-                    text "Go to Your Room" align (0.0, 0.5):
-                        size 36
-
-                        color "#ffffff"
+                    text "PLAYER ROOM" align (0.0, 0.5)
 
                 hbox xalign 0.0:
-                    spacing 5
-                    
                     fixed xysize (int(158*interface_new_adjustment), int(150*interface_new_adjustment)):
                         add At("images/interface/preferences/hotkey.webp", interface)
 
-                        text "C" align (0.5, 0.5):
+                        text "C":
                             size 36
 
                             color "#000000"
 
-                    text "Go to Classroom" align (0.0, 0.5):
-                        size 36
-
-                        color "#ffffff"
+                    text "CLASSROOM" align (0.0, 0.5)
                         
                 hbox xalign 0.0:
-                    spacing 5
-                    
                     fixed xysize (int(158*interface_new_adjustment), int(150*interface_new_adjustment)):
                         add At("images/interface/preferences/hotkey.webp", interface)
 
-                        text "G" align (0.5, 0.5):
+                        text "G":
                             size 36
 
                             color "#000000"
 
-                    text "Go to Danger Room" align (0.0, 0.5):
-                        size 36
-
-                        color "#ffffff"
+                    text "DANGER ROOM" align (0.0, 0.5)
 
             vbox yalign 0.0:
-                spacing 5
-
                 hbox xalign 0.0:
-                    spacing 5
-                    
                     fixed xysize (int(158*interface_new_adjustment), int(150*interface_new_adjustment)):
                         add At("images/interface/preferences/hotkey.webp", interface)
 
-                        text "Q" align (0.5, 0.5):
+                        text "Q":
                             size 36
 
                             color "#000000"
 
-                    text "Skip Day" align (0.0, 0.5):
-                        size 36
-
-                        color "#ffffff"
+                    text "SKIP DAY" align (0.0, 0.5)
 
                 hbox xalign 0.0:
-                    spacing 5
-                    
                     fixed xysize (int(158*interface_new_adjustment), int(150*interface_new_adjustment)):
                         add At("images/interface/preferences/hotkey.webp", interface)
 
-                        text "-" align (0.5, 0.5):
+                        text "-":
                             size 36
 
                             color "#000000"
 
-                    text "Toggle Mute" align (0.0, 0.5):
-                        size 36
-
-                        color "#ffffff"
+                    text "TOGGLE MUTE" align (0.0, 0.5)
     elif preferences_tab == "gameplay":
         hbox anchor (0.5, 0.5) pos (0.431, 0.643) xysize (int(2800*interface_new_adjustment), int(1150*interface_new_adjustment)):
-            spacing 5
-
             if config.rollback_enabled:
                 vbox:
-                    spacing 5
+                    text "SCROLLING ROLLBACK" anchor (0.5, 0.5) pos (0.47, 0.5)
 
-                    text "Scrolling Rollback" xalign 0.5:
-                        size 36 
-                        
-                        color "#ffffff" 
-
-                    imagebutton xalign 0.5:
+                    imagebutton:
                         idle At("images/interface/preferences/off.webp", interface) hover At("images/interface/preferences/off.webp", interface) selected_idle At("images/interface/preferences/on.webp", interface) selected_hover At("images/interface/preferences/on.webp", interface)
 
                         hover_sound None
@@ -615,17 +477,10 @@ screen preferences():
                                 SetVariable("scrolling_rollback", True),
                                 Function(renpy.clear_keymap_cache)]
 
-                        focus_mask True
-
             vbox:
-                spacing 5
+                text "TOOLTIPS" anchor (0.5, 0.5) pos (0.47, 0.5)
 
-                text "Tooltips" xalign 0.5:
-                    size 36 
-                    
-                    color "#ffffff" 
-
-                imagebutton xalign 0.5:
+                imagebutton:
                     idle At("images/interface/preferences/off.webp", interface) hover At("images/interface/preferences/off.webp", interface) selected_idle At("images/interface/preferences/on.webp", interface) selected_hover At("images/interface/preferences/on.webp", interface)
 
                     hover_sound None
@@ -633,7 +488,5 @@ screen preferences():
                     selected tooltips_enabled
 
                     action ToggleVariable("tooltips_enabled")
-
-                    focus_mask True
 
     use navigation

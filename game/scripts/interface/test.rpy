@@ -8,10 +8,6 @@ init -1:
     
 style test is default
 
-style test_image_button:
-    # hover_sound "sounds/interface/hover.ogg"
-    activate_sound "sounds/interface/press.ogg"
-
 screen test_screen():
     layer "interface"
 
@@ -20,9 +16,9 @@ screen test_screen():
     add "images/interface/test/test.webp" zoom interface_new_adjustment
 
     frame anchor (0.0, 0.5) pos (0.41, 0.145) xysize (int(400*interface_new_adjustment), int(70*interface_new_adjustment)):
-        background None
-
         input id "first_name_input" value first_name_value xalign 1.0:
+            font "agency_fb.ttf"
+
             color "#806757"
 
             size 30
@@ -30,9 +26,9 @@ screen test_screen():
             length 10
     
     frame anchor (0.0, 0.5) pos (0.41, 0.185) xysize (int(400*interface_new_adjustment), int(70*interface_new_adjustment)):
-        background None
-
         input id "last_name_input" value last_name_value xalign 1.0:
+            font "agency_fb.ttf"
+
             color "#806757"
 
             size 30
@@ -70,11 +66,9 @@ screen test_screen():
 
                     action SetVariable(item, False)
 
-    imagebutton align (0.5, 0.5):
+    imagebutton:
         idle At("images/interface/test/finish_idle.webp", interface) hover At("images/interface/test/finish.webp", interface)
 
         action Return()
-
-        focus_mask True
 
     use quick_menu

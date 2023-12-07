@@ -32,7 +32,7 @@ image black_fade:
     on hide:
         linear 0.4 alpha 0.0
 
-    xysize (config.screen_width, config.screen_height)
+    xysize (1.0, 1.0)
 
 image shower_steam_midground:
     At("images/effects/steam2.webp", inverse_background_scale)
