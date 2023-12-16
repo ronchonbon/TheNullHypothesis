@@ -138,7 +138,7 @@ layeredimage Jean_standing:
     if Jean.left_arm in ["crossed", "fist", "hip", "neutral"]:
         "characters/Jean/images/standing/left_arm_[Jean.left_arm]_shadow.webp"
 
-    if Jean.left_arm not in ["bra", "crossed", "extended", "fight", "fist", "grope", "hip", "neutral", "psychic1", "psychic2", "rub_neck", "touch_ass"]:
+    if Jean.left_arm not in ["bra", "crossed", "fight", "fist", "grope", "hip", "neutral", "psychic1", "psychic2", "rub_neck", "touch_ass"]:
         Null()
     elif renpy.get_screen("Wardrobe_screen"):
         "Jean_standing_left_arm"
@@ -174,7 +174,10 @@ layeredimage Jean_standing:
     else:
         At("Jean_standing_head", Jean_standing_head_animation)
 
-    if Jean.right_arm in ["fight", "extended", "psychic1"]:
+    if Jean.left_arm in ["extended"]:
+        "characters/Jean/images/standing/left_arm_[Jean.left_arm].webp"
+
+    if Jean.right_arm in ["extended", "fight", "psychic1"]:
         "characters/Jean/images/standing/right_forearm_[Jean.right_arm].webp"
 
     if Jean.left_arm in ["fight", "psychic1", "psychic2"]:
@@ -238,7 +241,7 @@ layeredimage Jean_standing_head:
     always:
         "characters/Jean/images/standing/mouth_[Jean.mouth].webp"
 
-    if Jean.eyes in ["closed", "down", "left", "right", "squint", "wink", "up"]:
+    if Jean.eyes in ["closed", "down", "left", "right", "squint", "up", "wink"]:
         "characters/Jean/images/standing/eyes_[Jean.eyes].webp"
     else:
         "Jean_standing_blinking"

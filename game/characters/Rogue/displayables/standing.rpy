@@ -123,7 +123,7 @@ layeredimage Rogue_standing:
     always:
         "Rogue_standing_body"
 
-    if Rogue.left_arm not in ["bra", "extended", "fight", "fist", "grope", "hip", "neutral", "rub_neck", "touch_ass"]:
+    if Rogue.left_arm not in ["bra", "fight", "fist", "grope", "hip", "neutral", "rub_neck", "touch_ass"]:
         Null()
     elif renpy.get_screen("Wardrobe_screen"):
         "Rogue_standing_left_arm"
@@ -150,64 +150,74 @@ layeredimage Rogue_standing:
     else:
         "Rogue_standing_left_sleeve"
 
-    if Rogue.right_arm in ["fight", "touch_pussy"]:
+    if Rogue.right_arm in ["hip", "touch_pussy"]:
         "characters/Rogue/images/standing/right_forearm_[Rogue.right_arm].webp"
 
     if not Rogue.Clothes["bodysuit"].string:
         Null()
     elif Rogue.Clothes["bodysuit"].string in ["greenyellow_classic_suit"] and Rogue.Clothes["bodysuit"].state == 1:
         Null()
-    elif Rogue.right_arm in ["fight", "touch_pussy"]:
+    elif Rogue.right_arm in ["hip", "touch_pussy"]:
         "characters/Rogue/images/standing/bodysuit_[Rogue.Clothes[bodysuit].string]_right_forearm_sleeve_[Rogue.right_arm].webp"
+
+    if Rogue.Clothes["gloves"].string not in ["black_gloves"]:
+        Null()
+    elif Rogue.right_arm in ["hip", "touch_pussy"]:
+        "characters/Rogue/images/standing/gloves_[Rogue.Clothes[gloves].string]_right_[Rogue.right_arm].webp"
 
     if not Rogue.Clothes["top"].string:
         Null()
-    elif Rogue.right_arm in ["fight", "touch_pussy"]:
+    elif Rogue.right_arm in ["hip", "touch_pussy"]:
         "characters/Rogue/images/standing/top_[Rogue.Clothes[top].string]_right_forearm_sleeve_[Rogue.right_arm].webp"
 
-    if not Rogue.Clothes["gloves"].string:
+    if Rogue.Clothes["gloves"].string not in ["yellow_gloves"]:
         Null()
-    elif Rogue.right_arm in ["fight", "touch_pussy"]:
+    elif Rogue.right_arm in ["hip", "touch_pussy"]:
         "characters/Rogue/images/standing/gloves_[Rogue.Clothes[gloves].string]_right_[Rogue.right_arm].webp"
         
     if not Rogue.Clothes["sleeves"].string:
         Null()
-    elif Rogue.right_arm in ["fight", "touch_pussy"]:
+    elif Rogue.right_arm in ["hip", "touch_pussy"]:
         "characters/Rogue/images/standing/sleeves_[Rogue.Clothes[sleeves].string]_right_[Rogue.right_arm].webp"
 
     if not Rogue.Clothes["jacket"].string:
         Null()
-    elif Rogue.right_arm in ["fight"]:
+    elif Rogue.right_arm in ["hip"]:
         "characters/Rogue/images/standing/jacket_[Rogue.Clothes[jacket].string]_right_forearm_sleeve_[Rogue.right_arm].webp"
         
-    if Rogue.left_arm in ["extended", "fight", "grope", "rub_neck"]:
+    if Rogue.left_arm in ["grope"]:
         "characters/Rogue/images/standing/left_forearm_[Rogue.left_arm].webp"
 
     if not Rogue.Clothes["bodysuit"].string:
         Null()
     elif Rogue.Clothes["bodysuit"].string in ["greenyellow_classic_suit"] and Rogue.Clothes["bodysuit"].state == 1:
         Null()
-    elif Rogue.left_arm in ["extended", "fight", "grope", "rub_neck"]:
+    elif Rogue.left_arm in ["grope"]:
         "characters/Rogue/images/standing/bodysuit_[Rogue.Clothes[bodysuit].string]_left_forearm_sleeve_[Rogue.left_arm].webp"
+
+    if Rogue.Clothes["gloves"].string not in ["black_gloves"]:
+        Null()
+    elif Rogue.left_arm in ["grope"]:
+        "characters/Rogue/images/standing/gloves_[Rogue.Clothes[gloves].string]_left_[Rogue.left_arm].webp"
 
     if not Rogue.Clothes["top"].string:
         Null()
-    elif Rogue.left_arm in ["extended", "fight", "grope", "rub_neck"]:
+    elif Rogue.left_arm in ["grope"]:
         "characters/Rogue/images/standing/top_[Rogue.Clothes[top].string]_left_forearm_sleeve_[Rogue.left_arm].webp"
 
-    if not Rogue.Clothes["gloves"].string:
+    if Rogue.Clothes["gloves"].string not in ["yellow_gloves"]:
         Null()
-    elif Rogue.left_arm in ["extended", "fight", "grope", "rub_neck"]:
+    elif Rogue.left_arm in ["grope"]:
         "characters/Rogue/images/standing/gloves_[Rogue.Clothes[gloves].string]_left_[Rogue.left_arm].webp"
 
     if not Rogue.Clothes["sleeves"].string:
         Null()
-    elif Rogue.left_arm in ["extended", "fight", "grope", "rub_neck"]:
+    elif Rogue.left_arm in ["grope"]:
         "characters/Rogue/images/standing/sleeves_[Rogue.Clothes[sleeves].string]_left_[Rogue.left_arm].webp"
 
     if not Rogue.Clothes["jacket"].string:
         Null()
-    elif Rogue.left_arm in ["extended", "grope"]:
+    elif Rogue.left_arm in ["grope"]:
         "characters/Rogue/images/standing/jacket_[Rogue.Clothes[jacket].string]_left_forearm_sleeve_[Rogue.left_arm].webp"
 
     if not Player.left_hand_Actions or Rogue not in Player.left_hand_Actions[0].Targets:
@@ -224,6 +234,74 @@ layeredimage Rogue_standing:
         "Rogue_standing_head"
     else:
         At("Rogue_standing_head", Rogue_standing_head_animation)
+
+    if Rogue.right_arm in ["fight"]:
+        "characters/Rogue/images/standing/right_forearm_[Rogue.right_arm].webp"
+
+    if not Rogue.Clothes["bodysuit"].string:
+        Null()
+    elif Rogue.right_arm in ["fight"]:
+        "characters/Rogue/images/standing/bodysuit_[Rogue.Clothes[bodysuit].string]_right_forearm_sleeve_[Rogue.right_arm].webp"
+
+    if Rogue.Clothes["gloves"].string not in ["black_gloves"]:
+        Null()
+    elif Rogue.right_arm in ["fight"]:
+        "characters/Rogue/images/standing/gloves_[Rogue.Clothes[gloves].string]_right_[Rogue.right_arm].webp"
+
+    if not Rogue.Clothes["top"].string:
+        Null()
+    elif Rogue.right_arm in ["fight"]:
+        "characters/Rogue/images/standing/top_[Rogue.Clothes[top].string]_right_forearm_sleeve_[Rogue.right_arm].webp"
+
+    if Rogue.Clothes["gloves"].string not in ["yellow_gloves"]:
+        Null()
+    elif Rogue.right_arm in ["fight"]:
+        "characters/Rogue/images/standing/gloves_[Rogue.Clothes[gloves].string]_right_[Rogue.right_arm].webp"
+        
+    if not Rogue.Clothes["sleeves"].string:
+        Null()
+    elif Rogue.right_arm in ["fight"]:
+        "characters/Rogue/images/standing/sleeves_[Rogue.Clothes[sleeves].string]_right_[Rogue.right_arm].webp"
+
+    if not Rogue.Clothes["jacket"].string:
+        Null()
+    elif Rogue.right_arm in ["fight"]:
+        "characters/Rogue/images/standing/jacket_[Rogue.Clothes[jacket].string]_right_forearm_sleeve_[Rogue.right_arm].webp"
+        
+    if Rogue.left_arm in ["extended"]:
+        "characters/Rogue/images/standing/left_arm_[Rogue.left_arm].webp"
+    elif Rogue.left_arm in ["fight", "rub_neck"]:
+        "characters/Rogue/images/standing/left_forearm_[Rogue.left_arm].webp"
+
+    if not Rogue.Clothes["bodysuit"].string:
+        Null()
+    elif Rogue.left_arm in ["extended", "fight", "rub_neck"]:
+        "characters/Rogue/images/standing/bodysuit_[Rogue.Clothes[bodysuit].string]_left_forearm_sleeve_[Rogue.left_arm].webp"
+
+    if Rogue.Clothes["gloves"].string not in ["black_gloves"]:
+        Null()
+    elif Rogue.left_arm in ["extended", "fight", "rub_neck"]:
+        "characters/Rogue/images/standing/gloves_[Rogue.Clothes[gloves].string]_left_[Rogue.left_arm].webp"
+
+    if not Rogue.Clothes["top"].string:
+        Null()
+    elif Rogue.left_arm in ["extended", "fight", "rub_neck"]:
+        "characters/Rogue/images/standing/top_[Rogue.Clothes[top].string]_left_forearm_sleeve_[Rogue.left_arm].webp"
+
+    if Rogue.Clothes["gloves"].string not in ["yellow_gloves"]:
+        Null()
+    elif Rogue.left_arm in ["extended", "fight", "rub_neck"]:
+        "characters/Rogue/images/standing/gloves_[Rogue.Clothes[gloves].string]_left_[Rogue.left_arm].webp"
+
+    if not Rogue.Clothes["sleeves"].string:
+        Null()
+    elif Rogue.left_arm in ["extended", "fight", "rub_neck"]:
+        "characters/Rogue/images/standing/sleeves_[Rogue.Clothes[sleeves].string]_left_[Rogue.left_arm].webp"
+
+    if not Rogue.Clothes["jacket"].string:
+        Null()
+    elif Rogue.left_arm in ["extended"]:
+        "characters/Rogue/images/standing/jacket_[Rogue.Clothes[jacket].string]_left_forearm_sleeve_[Rogue.left_arm].webp"
 
     if not Player.left_hand_Actions or Rogue not in Player.left_hand_Actions[0].Targets:
         Null()
@@ -283,14 +361,19 @@ layeredimage Rogue_standing_right_arm:
     elif Rogue.Clothes["bodysuit"].string in ["greenyellow_classic_suit"] and Rogue.right_arm in ["bra", "extended", "fist", "neutral"]:
         "characters/Rogue/images/standing/bodysuit_[Rogue.Clothes[bodysuit].string]_right_sleeve_[Rogue.right_arm].webp"
 
-    if Rogue.Clothes["top"].string in ["black_fishnet_top"] and Rogue.right_arm in ["extended", "neutral"]:
-        "characters/Rogue/images/standing/top_[Rogue.Clothes[top].string]_right_sleeve_[Rogue.right_arm].webp"
+    if Rogue.Clothes["gloves"].string not in ["black_gloves"]:
+        Null()
+    elif Rogue.right_arm in ["extended", "fist", "neutral"]:
+        "characters/Rogue/images/standing/gloves_[Rogue.Clothes[gloves].string]_right_[Rogue.right_arm].webp"
+
+    if not Rogue.Clothes["top"].string:
+        Null()
     elif Rogue.Clothes["top"].string in ["black_lowcut_top"]:
         "characters/Rogue/images/standing/top_[Rogue.Clothes[top].string]_right_sleeve_[Rogue.right_arm].webp"
     elif Rogue.Clothes["top"].string in ["green_mesh_top"] and Rogue.right_arm in ["bra", "extended", "neutral"]:
         "characters/Rogue/images/standing/top_[Rogue.Clothes[top].string]_right_sleeve_[Rogue.right_arm].webp"
 
-    if not Rogue.Clothes["gloves"].string:
+    if Rogue.Clothes["gloves"].string not in ["yellow_gloves"]:
         Null()
     elif Rogue.right_arm in ["extended", "fist", "neutral"]:
         "characters/Rogue/images/standing/gloves_[Rogue.Clothes[gloves].string]_right_[Rogue.right_arm].webp"
@@ -375,12 +458,17 @@ layeredimage Rogue_standing_body:
     elif Rogue.right_arm in ["hip"]:
         "characters/Rogue/images/standing/bodysuit_[Rogue.Clothes[bodysuit].string]_right_forearm_sleeve_[Rogue.right_arm].webp"
 
+    if Rogue.Clothes["gloves"].string not in ["black_gloves"]:
+        Null()
+    elif Rogue.right_arm in ["hip"]:
+        "characters/Rogue/images/standing/gloves_[Rogue.Clothes[gloves].string]_right_[Rogue.right_arm].webp"
+
     if not Rogue.Clothes["top"].string:
         Null()
     elif Rogue.right_arm in ["hip"]:
         "characters/Rogue/images/standing/top_[Rogue.Clothes[top].string]_right_forearm_sleeve_[Rogue.right_arm].webp"
 
-    if not Rogue.Clothes["gloves"].string:
+    if Rogue.Clothes["gloves"].string not in ["yellow_gloves"]:
         Null()
     elif Rogue.right_arm in ["hip"]:
         "characters/Rogue/images/standing/gloves_[Rogue.Clothes[gloves].string]_right_[Rogue.right_arm].webp"
@@ -466,6 +554,11 @@ layeredimage Rogue_standing_left_sleeve:
     else:
         "characters/Rogue/images/standing/bodysuit_[Rogue.Clothes[bodysuit].string]_left_sleeve_[Rogue.left_arm].webp"
 
+    if Rogue.Clothes["gloves"].string not in ["black_gloves"]:
+        Null()
+    elif Rogue.left_arm in ["fist", "hip", "neutral"]:
+        "characters/Rogue/images/standing/gloves_[Rogue.Clothes[gloves].string]_left_[Rogue.left_arm].webp"
+
     if not Rogue.Clothes["top"].string:
         Null()
     elif Rogue.Clothes["top"].string not in ["black_lowcut_top"] and Rogue.left_arm == "fist":
@@ -473,7 +566,7 @@ layeredimage Rogue_standing_left_sleeve:
     else:
         "characters/Rogue/images/standing/top_[Rogue.Clothes[top].string]_left_sleeve_[Rogue.left_arm].webp"
 
-    if not Rogue.Clothes["gloves"].string:
+    if Rogue.Clothes["gloves"].string not in ["yellow_gloves"]:
         Null()
     elif Rogue.left_arm in ["fist", "hip", "neutral"]:
         "characters/Rogue/images/standing/gloves_[Rogue.Clothes[gloves].string]_left_[Rogue.left_arm].webp"
@@ -500,7 +593,7 @@ layeredimage Rogue_standing_head:
     always:
         "characters/Rogue/images/standing/mouth_[Rogue.mouth].webp"
 
-    if Rogue.eyes in ["closed", "down", "left", "right", "squint", "wink", "up"]:
+    if Rogue.eyes in ["closed", "down", "left", "right", "squint", "up", "wink"]:
         "characters/Rogue/images/standing/eyes_[Rogue.eyes].webp"
     else:
         "Rogue_standing_blinking"

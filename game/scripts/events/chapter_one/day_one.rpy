@@ -33,8 +33,8 @@ label day_one_intro:
     call send_Characters(Ororo, "hold") from _call_send_Characters_178
     call send_Characters(Charles, "hold") from _call_send_Characters_179
     
-    # $ Rogue.Wardrobe.indoor_Outfit = Rogue.Wardrobe.Outfits["Casual 1"]
-    # $ Rogue.Wardrobe.outdoor_Outfit = Rogue.Wardrobe.Outfits["Casual 1"]
+    $ Rogue.Wardrobe.indoor_Outfit = Rogue.Wardrobe.Outfits["Casual 1"]
+    $ Rogue.Wardrobe.outdoor_Outfit = Rogue.Wardrobe.Outfits["Casual 1"]
     
     # $ Ororo.Wardrobe.indoor_Outfit = Ororo.Wardrobe.Outfits["Casual 2"]
     # $ Ororo.Wardrobe.outdoor_Outfit = Ororo.Wardrobe.Outfits["Casual 2"]
@@ -529,6 +529,7 @@ label meet_Rogue:
 
     $ Rogue.name = "Rogue"
     $ Rogue.change_face("smirk2")
+    $ Rogue.change_arms("hips")
 
     ch_Ororo "You two may acquaint yourselves while I go find extra study materials for him."
 
@@ -536,11 +537,13 @@ label meet_Rogue:
     call swap_Slots(Rogue, "middle") from _call_swap_Slots_2
 
     $ Rogue.change_face("happy")
+    $ Rogue.change_arms("neutral")
 
     ch_Rogue "Howdy! [Player.first_name] right? You can call me Rogue, everyone does. Ah'm a sophomore here."
     ch_Player "Nice to meet you, [Rogue.name]."
 
     $ Rogue.change_face("worried1")
+    $ Rogue.change_arms("sheepish")
 
     ch_Rogue "So. . . is it true what they've been sayin'? Can ya really remove a mutant's abilities?"
 
@@ -550,6 +553,7 @@ label meet_Rogue:
             call change_Character_stat(Rogue, "trust", medium_stat) from _call_change_Character_stat_637
 
             $ Rogue.change_face("pleased2")
+            $ Rogue.change_arms("neutral")
             
             ch_Rogue "Wow. . ."
 
@@ -560,30 +564,31 @@ label meet_Rogue:
             call change_Character_stat(Rogue, "love", -medium_stat) from _call_change_Character_stat_877
             
             $ Rogue.change_face("worried2")
+            $ Rogue.change_arms("angry")
 
             ch_Rogue "Because my ability has me absorb the memories, talents, and powers of those ah touch."
     
     $ Rogue.change_face("worried1")
+    $ Rogue.change_arms("crossed")
 
     ch_Rogue "Thing is, it's more of a curse to tell ya the truth. Ah can't control it too well so touchin' someone could seriously harm them."
     ch_Rogue "Ah haven't been able to touch someone in a really long time. . ."
-
-    # $ Rogue.left_arm = 2
-
     ch_Rogue "Do ya think maybe ah could. . ."
 
     $ Rogue.change_face("worried2")
+    $ Rogue.change_arms("neutral", left_arm = "extended")
 
     "She almost starts taking off one of her gloves."
     
     call add_Characters(Ororo, direction = "left") from _call_add_Characters_54
 
     $ Rogue.change_face("surprised2", eyes = "right", blush = 1)
-    # $ Rogue.left_arm = 1
+    $ Rogue.change_arms("neutral")
 
     ch_Ororo "Here we are, [Player.first_name]. These are some textbooks and study guides you will need for class. I do hope you and Rogue are getting along." 
 
     $ Rogue.change_face("neutral", mouth = "lipbite", blush = 1)
+    $ Rogue.change_arms("sheepish", right_arm = "neutral")
 
     menu:
         extend ""
@@ -610,6 +615,8 @@ label meet_Rogue:
     pause 1.0
 
     $ Rogue.change_face("smirk2", blush = False)
+    $ Rogue.change_arms("neutral")
+
     $ Ororo.change_face("smirk2")
 
     ch_Ororo "Alright, thank you, [Rogue.name], you are dismissed."
@@ -716,6 +723,8 @@ label meet_Laura:
 
     pause 1.0
 
+    $ Laura.change_arms("neutral")
+
     $ Ororo.change_face("neutral")
 
     ch_Laura "So this is the newbie?"
@@ -749,6 +758,7 @@ label meet_Laura:
     ch_Ororo "He lacks combat experience and will need to be brought up to speed relatively quickly. I am assigning you as his combat instructor so you can help him establish a good foundation."
     
     $ Laura.change_face("suspicious1")
+    $ Laura.change_arms("angry")
 
     $ Ororo.change_face("perplexed", eyes = "left")
 
@@ -772,6 +782,7 @@ label meet_Laura:
     call swap_Slots(Laura, "middle") from _call_swap_Slots_3
 
     $ Laura.change_face("confused1")
+    $ Laura.change_arms("crossed")
 
     ch_Player "So uh. . . It's nice to meet you."
     ch_Laura "Yeah, ok."
@@ -798,11 +809,13 @@ label meet_Laura:
                 ch_Player "Do you go by anything else?"
 
                 $ Laura.change_face("neutral", eyes = "squint")
+                $ Laura.change_arms("angry")
 
                 ch_Laura "I was also given the name 'Laura' later on. Only my closest allies can call me that."
                 ch_Laura "You cannot."
 
                 $ Laura.change_face("neutral")
+                $ Laura.change_arms("crossed")
 
                 $ asked_name = True
             "You must be pretty good at fighting to be a combat instructor." if not asked_fighting:

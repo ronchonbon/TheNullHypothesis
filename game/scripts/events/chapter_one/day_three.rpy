@@ -40,15 +40,21 @@ label day_three_intro:
 
     if not Rogue.History.check("Player_faked_injury"):
         $ Rogue.change_face("pleased2", blush = 1)
+        $ Rogue.change_arms("hips")
 
         ch_Player "I hope I didn't make you feel uncomfortable last night - you left in a hurry."
+        
+        $ Rogue.change_arms("sheepish", right_arm = "neutral")
+        
         ch_Rogue "Yeah, sorry 'bout that. . . You didn't make me uncomfortable, was just a bit overwhelmed."
 
         $ Rogue.blush = 2
+        $ Rogue.change_arms("sheepish")
 
         ch_Rogue "Touchin' someone for the first time in years. . . and then. . ."
 
         $ Rogue.change_face("worried2", eyes = "right", mouth = "smirk", blush = 3)
+        $ Rogue.change_arms("crossed")
 
         pause 1.0
 
@@ -57,6 +63,7 @@ label day_three_intro:
         ch_Rogue "Ah do appreciate the compliment though. . .{p}{size=-5}Ah think you're handsome too{/size}."
     else:
         $ Rogue.change_face("worried1")
+        $ Rogue.change_arms("crossed")
 
         ch_Rogue "Oh. . . it's alright. Ah just overreacted a bit. Think nothin' of it."
 
@@ -76,8 +83,12 @@ label day_three_intro:
                 call change_Character_stat(Rogue, "trust", large_stat) from _call_change_Character_stat_891
 
                 $ Rogue.change_face("smirk2")
+                $ Rogue.change_arms("hips")
 
                 ch_Rogue "It {i}was{/i} kind of a jerk thing to do."
+                
+                $ Rogue.change_arms("sheepish", right_arm = "neutral")
+                
                 ch_Rogue "But it really is okay. You've only been around other mutants a few days, and your childhood was pretty normal."
                 ch_Player "I'll be more sensitive, promise."
             "Accept her forgiveness":
@@ -88,6 +99,7 @@ label day_three_intro:
                 "Really?"
 
     $ Rogue.change_face("neutral")
+    $ Rogue.change_arms("neutral")
 
     ch_Player "So, did you wanna walk to class together again?"
     
@@ -128,6 +140,8 @@ label day_three_intro:
 
     $ fade_in_from_black(0.4)
 
+    $ Rogue.change_arms("sheepish", right_arm = "neutral")
+
     ch_Rogue "Ah'll see ya later, [Rogue.Player_petname], ah'm goin' shoppin' with some friends."
 
     call send_Characters(Rogue, "hold") from _call_send_Characters_193
@@ -139,17 +153,25 @@ label day_three_intro:
     ch_Player "Hey [Kurt.name], how's it going?"
 
     $ Kurt.change_face("confused")
+    $ Kurt.change_arms("crossed")
 
     ch_Kurt "I assume you apologized to [Rogue.name]?"
     ch_Player "Yep! Everything's cool between us."
 
     $ Kurt.change_face("neutral")
+    $ Kurt.change_arms("shrug")
 
     ch_Kurt "Cool huh? I don't know if you saw the vay she vas looking at you, but sings are a bit varmer zan cool."
+    
+    $ Kurt.change_arms("crossed")
+    
     ch_Kurt "Look mein Bruder, [Rogue.name] is a nice girl in a very unfortunate situation. You sink anyone is villing to date a person who could kill zem just by holding hands? Nein."
     ch_Kurt "But now you're here."
     ch_Kurt "Don't be surprised ven she gets attached."
     ch_Player "That's. . . a good point."
+
+    $ Kurt.change_arms("neutral")
+
     ch_Player "By the way, do you know anything about [Laura.name]?"
     ch_Player "Like how to stay on her good side since [Ororo.name] made her my combat instructor?"
 
@@ -157,9 +179,18 @@ label day_three_intro:
 
     ch_Kurt "Ha!"
     "[Kurt.name] can't help but laugh in your face."
+
+    $ Kurt.change_arms("sheepish")
+
     ch_Kurt "Sorry, you're on your own viz zat one. I don't even know anyone who'd call her zeir friend. Prepare for a beating, she fights like an animal."
+    
+    $ Kurt.change_arms("sheepish", right_arm = "neutral")
+
     ch_Kurt "I don't think she spent any time at all in zee outside vorld after escaping vatever facility held her."
     ch_Kurt "Came straight here. . . and zat was only a month ago, hence zee lack of social skills."
+    
+    $ Kurt.change_arms("neutral")
+
     ch_Player "Great. . ."
     "[Kurt.name] excuses himself, still chuckling under his breath as he leaves."
 
@@ -341,6 +372,8 @@ label day_three_combat_lesson:
     call send_Characters(Laura, "bg_danger", behavior = "training") from _call_send_Characters_196
 
     if Player.History.check("day_three_spectate") or Player.History.check("day_two_train"):
+        $ Laura.change_arms("crossed")
+
         if Player.History.check("day_three_spectate"):
             ch_Laura "What do you think you were doing?"
         else:
@@ -358,28 +391,37 @@ label day_three_combat_lesson:
         if Player.History.check("day_three_spectate") and Player.History.check("day_two_train"):
             ch_Player "I was also here yesterday to actually workout."
         
+        $ Laura.change_arms("angry")
+
         ch_Player "You know, try and familiarize myself with the basics to make up for my late start."
         
         "You feel a bit proud of yourself."
 
         $ Laura.change_face("angry1")
+        $ Laura.change_arms("hips")
 
         ch_Laura "So, you tried sabotaging yourself on purpose?"
         ch_Player "I. . . wait, how was I sabotaging myself?"
         ch_Laura "Who was teaching you those basics?"
 
         $ Laura.change_face("furious")
+        $ Laura.change_arms("angry")
 
         ch_Player "Well, I asked around for tips and pointers, it was more than one person."
         ch_Laura "So you learned the {i}basics{/i} from who knows how many people."
         ch_Laura "All of whom have different powers, combat experiences, fighting styles, levels of conditioning. . ."
+        
+        $ Laura.change_arms("crossed")
+        
         "She continues rattling off reasons why what you did was stupid."
 
         $ Laura.change_face("perplexed")
+        $ Laura.change_arms("neutral")
 
         ch_Player "Okay, okay, I get it. Honestly I just wanted a headstart so I didn't look like a fool in front of you. . ."
 
         $ Laura.change_face("angry1")
+        $ Laura.change_arms("angry")
 
         call change_Character_stat(Laura, "love", large_stat) from _call_change_Character_stat_892
 
@@ -392,12 +434,15 @@ label day_three_combat_lesson:
         $ Laura.change_face("neutral")
     else:
         $ Laura.change_face("confused1")
+        $ Laura.change_arms("crossed")
 
         ch_Player "Hey, [Laura.name], I'm ready to get started."
         ch_Laura "No, you are not."
         ch_Player "Wha. . ."
 
     ch_Laura "We will start by warming up."
+
+    $ Laura.change_arms("crossed")
 
     $ fade_to_black(0.4)
     
@@ -407,10 +452,13 @@ label day_three_combat_lesson:
 
     $ fade_in_from_black(0.4)
 
+    $ Laura.change_arms("fight", left_arm = "extended")
+
     ch_Laura ". . . No. Stagger your feet like this, arms up higher. . ."
     "She smacks one of your arms that you weren't holding in the right position."
 
     $ Laura.change_face("surprised2", blush = 1)
+    $ Laura.change_arms("X")
 
     if not Laura.History.check("was_warned_about_Player_power"):
         pause 1.0
@@ -421,10 +469,13 @@ label day_three_combat_lesson:
 
     call Laura_unsheathes_claws from _call_Laura_unsheathes_claws_6
 
+    $ Laura.change_arms("fight")
+
     "She reflexively unsheathes her claws and gets into a fighting stance."
     
     if Laura.History.check("was_warned_about_Player_power"):
         $ Laura.change_face("angry1", blush = 1)
+        $ Laura.change_arms("angry")
 
         ch_Player "Are you okay? I did say it would feel a bit weird."
 
@@ -434,12 +485,16 @@ label day_three_combat_lesson:
         ch_Laura "That felt. . . {size=-5}dangerous{/size}."
     else:
         $ Laura.change_face("furious", blush = 1)
+        $ Laura.change_arms("claws")
 
         ch_Laura "What was that?"
 
         call change_Character_stat(Laura, "trust", -medium_stat) from _call_change_Character_stat_899
 
         ch_Player "Oh shit, sorry! I forgot to tell you touching me might be a bit weird. Can't really control my powers. . ."
+        
+        $ Laura.change_arms("angry")
+        
         "[Laura.name] glares at you."
 
     pause 1.0
@@ -449,6 +504,7 @@ label day_three_combat_lesson:
     pause 1.0
 
     $ Laura.change_face("neutral", mouth = "frown")
+    $ Laura.change_arms("crossed")
 
     "You can tell the accidental touch is bothering her."
     "The lesson continues, and you're not sure if this is her normal tempo or she's going harder on purpose."
@@ -502,6 +558,7 @@ label day_three_combat_lesson:
             "You force yourself through the various exercises [Laura.name] has you perform."
 
             $ Laura.change_face("confused1")
+            $ Laura.change_arms("hips")
 
             "You realize you've gone a bit too far when you wipe out and hit the ground hard."
             "[Laura.name] just stands there waiting for you to get up."
@@ -514,9 +571,12 @@ label day_three_combat_lesson:
             call change_Character_stat(Laura, "love", small_stat) from _call_change_Character_stat_900
             call change_Character_stat(Laura, "trust", medium_stat) from _call_change_Character_stat_901
             
+            $ Laura.change_arms("crossed")
+
             ch_Laura "At least you have the willpower to go past them, unlike most of the people at this school."
         "You've hit your limit":
             $ Laura.change_face("angry1")
+            $ Laura.change_arms("angry")
 
             ch_Player "*huff*. . . I. . . don't think I can keep going. . . *huff*"            
             
@@ -524,6 +584,8 @@ label day_three_combat_lesson:
             
             ch_Laura "That's it? Why is every student at this school so weak?"
             
+    $ Laura.change_arms("angry")
+
     ch_Player "Really?!"
     ch_Player "I don't know what kind of hellish training you must've been put through, but any normal person would be exhausted after all of that. . ."
     ch_Player "I swear, I almost died like 5 times over." 
@@ -533,10 +595,16 @@ label day_three_combat_lesson:
     ch_Laura "'Normal person'?"
 
     $ Laura.change_face("confused1", mouth = "frown")
+    $ Laura.change_arms("hips", right_arm = "extended")
 
     ch_Laura "It was only 3 hours, was this tempo not expected of you when you were a child?"
+    
+    $ Laura.change_arms("neutral")
+    
     ch_Player "Absolutely not!"
     ch_Player "My parents didn't try to kill me when I was a child!" 
+
+    $ Laura.change_arms("angry")
 
     if Player.scholarship == "athletic":
         ch_Player "I've had my fair share of painful workouts."
@@ -552,6 +620,7 @@ label day_three_combat_lesson:
     ch_Player "Constantly having people try to kill me?"
 
     $ Laura.change_face("confused1", mouth = "frown")
+    $ Laura.change_arms("crossed")
 
     if Player.has_family:
         ch_Player "I mean for fuck's sake! I grew up in a normal home, had a loving family, and had normal friends."
@@ -571,20 +640,20 @@ label day_three_combat_lesson:
     ch_Laura "'Normal,' huh."
     ch_Laura "We're done. You obviously can't continue."
 
-    # $ Laura.left_arm = 2
     $ Laura.blush = 0
+    $ Laura.change_arms("neutral", left_arm = "extended")
 
     ch_Laura "Give me your phone."
     
-    # $ Laura.left_arm = 1
+    $ Laura.change_arms("neutral")
 
     pause 2.0
 
-    # $ Laura.left_arm = 2
+    $ Laura.change_arms("neutral", left_arm = "extended")
 
     "You hand her your phone. She enters her number and hands it back."
     
-    # $ Laura.left_arm = 1
+    $ Laura.change_arms("neutral")
 
     ch_Laura "Text me when you're ready for the next session."
     "She briefly shows you how to train properly on your own, then leaves."
@@ -608,6 +677,8 @@ label day_three_after_lesson:
 
     "As you get ready to leave, you see [Kurt.name] approaching you."
 
+    $ Kurt.change_arms("neutral")
+
     call send_Characters(Kurt, "bg_danger", behavior = "training") from _call_send_Characters_198
 
     ch_Kurt "I'm glad to see you survived."
@@ -615,14 +686,19 @@ label day_three_after_lesson:
     ch_Player "Yeah. . . Maybe it's an as-yet-undiscovered power of mine."
 
     $ Kurt.change_face("neutral", brows = "furrowed")
+    $ Kurt.change_arms("crossed")
 
     "[Kurt.name] looks at you with a thoughtful expression."
     ch_Player "Don't look at me like that, it's not like I'm doing it on purpose."
     "You explain what happened."
 
     $ Kurt.change_face("neutral")
+    $ Kurt.change_arms("sheepish")
 
     ch_Kurt "You really need to be more careful viz your vords."
+    
+    $ Kurt.change_arms("sheepish", right_arm = "neutral")
+
     ch_Kurt "'Normal' is. . . vell not everyone here has ever been able to feel 'normal.'"
 
     $ Kurt.change_face("neutral", brows = "furrowed")
@@ -637,6 +713,7 @@ label day_three_after_lesson:
     ch_Player "And. . . I know. I'm just not used to navigating all the baggage that comes with having superpowers. . ."
 
     $ Kurt.change_face("sad")
+    $ Kurt.change_arms("neutral")
 
     ch_Kurt "You'll learn. . . one vay or anozer."
     ch_Kurt "Gute Nacht, [Player.first_name]."
@@ -655,11 +732,15 @@ label day_three_meet_Jean:
     ch_Jean "Hey!"
     "You look around to see who it is."
 
+    $ Jean.change_arms(left_arm = "rub_neck", right_arm = "extended")
+
     # call change_Outfit(Jean, Jean.Wardrobe.Outfits["Casual 1"], instant = True) from _call_change_Outfit_35
-    
     call add_Characters(Jean) from _call_add_Characters_65
 
     ch_Jean "You're the new kid, right?"
+
+    $ Jean.change_arms("sass")
+
     ch_Player "Uh, hey, yeah that's me. Name's [Player.full_name]."
 
     $ Jean.name = "Jean"
@@ -675,6 +756,7 @@ label day_three_meet_Jean:
     pause 1.0
 
     $ Jean.change_face("worried1")
+    $ Jean.change_arms("crossed")
 
     ch_Jean "I saw you wipe out pretty hard during that training session earlier. . ." 
     ch_Jean "You okay?"
@@ -698,20 +780,24 @@ label day_three_meet_Jean:
     pause 1.0
 
     $ Jean.change_face("neutral")
+    $ Jean.change_arms("sass")
 
     ch_Jean "Well. . . I'm usually pretty busy so I don't know if you'll see me around too much. . ."
 
     $ Jean.change_face("worried1", mouth = "lipbite")
+    $ Jean.change_arms("sass", right_arm = "extended")
 
     ch_Jean "But if you do, feel free to ask if you need help with anything."
 
     $ Jean.change_face("sly")
+    $ Jean.change_arms("hips")
 
     ch_Jean "So you don't get quite so beat up next time. . ."
     ch_Player "Thanks, [Jean.name]."
     ch_Player "I appreciate that."
 
     $ Jean.change_face("happy")
+    $ Jean.change_arms("sass")
 
     ch_Jean "You're welcome!"
 

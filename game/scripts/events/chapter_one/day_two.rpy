@@ -37,6 +37,7 @@ label day_two_intro:
     call send_Characters(Rogue, "bg_hallway") from _call_send_Characters_207
 
     $ Rogue.change_face("confused1", mouth = "smirk")
+    $ Rogue.change_arms("sheepish", right_arm = "neutral")
 
     call set_the_scene(location = "bg_hallway") from _call_set_the_scene_264
 
@@ -50,30 +51,36 @@ label day_two_intro:
             call change_Character_stat(Rogue, "trust", medium_stat) from _call_change_Character_stat_904
             
             $ Rogue.change_face("worried1")
+            $ Rogue.change_arms("crossed")
           
             ch_Rogue "Ah know how you feel. But trust me, you're doin' them a favor by stayin' away."
         "Too good, that bed is amazing. Way better than my old one. . . I wonder how my roommates are doing, I feel a bit guilty." if not Player.has_family:
             call change_Character_stat(Rogue, "trust", medium_stat) from _call_change_Character_stat_1622
             
             $ Rogue.change_face("worried1")
+            $ Rogue.change_arms("crossed")
           
             ch_Rogue "Ah know how you feel. But trust me, you're doin' them a favor by stayin' away."
         "I slept like a rock. The beds in this place are really something else.":
             ch_Rogue "They sure are comfortable. We're lucky the Prof is so generous."
 
     $ Rogue.change_face("neutral")
+    $ Rogue.change_arms("neutral")
 
     ch_Player "Anyway, what brings you here this morning?"
 
     $ Rogue.change_face("smirk2")
+    $ Rogue.change_arms("sheepish")
 
     ch_Rogue "Well, we're in the same lecture this morning, and our first tutoring session will be right after class."
 
     $ Rogue.change_face("worried1", blush = 1)
+    $ Rogue.change_arms("sheepish", right_arm = "neutral")
 
     ch_Rogue "Ah just thought we could walk to class together. . ."
 
     $ Rogue.change_face("happy")
+    $ Rogue.change_arms("neutral")
 
     ch_Player "Sounds good to me, lead the way."
 
@@ -109,6 +116,7 @@ label day_two_morning_class:
     "The lecture finally begins. You quickly realize Mutant Physiology might be more interesting than expected with all of the unique powers out there."
 
     $ Rogue.change_face(brows = "neutral", eyes = "down", mouth = "lipbite", blush = 1)
+    $ Rogue.change_arms("crossed")
 
     "Out of the corner of your eye, you notice [Rogue.name] fidgeting a bit throughout the lesson."    
     "She glances at your hands more than once as you take notes." 
@@ -124,6 +132,7 @@ label day_two_morning_class:
     $ fade_in_from_black(0.4)
 
     $ Rogue.change_face("smirk2", blush = 1)
+    $ Rogue.change_arms("neutral")
 
     ch_Player "Now that class is over, where were we gonna. . ."
 
@@ -132,6 +141,7 @@ label day_two_morning_class:
     "You're interrupted by [Rogue.name]'s phone buzzing."
 
     $ Rogue.change_face("worried1", eyes = "down")
+    $ Rogue.change_arms("sheepish", right_arm = "neutral")
     
     pause 1.0
 
@@ -379,6 +389,7 @@ label day_two_tutoring_session:
 
     if Player.History.check("day_two_study"):
         $ Rogue.change_face("pleased2")
+        $ Rogue.change_arms("hips")
 
         ch_Rogue "Oh, looks like everything's already set up."
         
@@ -391,6 +402,7 @@ label day_two_tutoring_session:
         ch_Player "Yeah. . . Just wanted to get a bit of a head start."
         
         $ Rogue.change_face("smirk2")
+        $ Rogue.change_arms("neutral")
         
         if Player.scholarship == "academic":
             call change_Character_stat(Rogue, "love", large_stat) from _call_change_Character_stat_641
@@ -409,6 +421,7 @@ label day_two_tutoring_session:
 
     if Player.scholarship == "artistic":
         $ Rogue.change_face("pleased1", eyes = "down")
+        $ Rogue.change_arms("sheepish", right_arm = "neutral")
 
         ch_Rogue "Ah noticed you have calluses on yer hands. . ."
 
@@ -422,6 +435,7 @@ label day_two_tutoring_session:
                 ch_Player "Doesn't seem like my guitar made it to the mansion with me, though. . ."
 
                 $ Rogue.change_face("worried1")
+                $ Rogue.change_arms("crossed")
 
                 ch_Rogue "Ah'm sorry to hear that."
                 ch_Rogue "Well, if ya ever pick a new one up. . ."
@@ -436,6 +450,7 @@ label day_two_tutoring_session:
                 ch_Player "Doesn't seem like any of my supplies made it to the mansion with me, though. . ."
 
                 $ Rogue.change_face("worried1")
+                $ Rogue.change_arms("crossed")
 
                 ch_Rogue "Sorry to hear that."
                 ch_Rogue "If ya ever do get to drawin' again. . ."
@@ -458,6 +473,7 @@ label day_two_tutoring_session:
         ch_Rogue "Sorry, ah got sidetracked. . . let's get started."
 
     $ Rogue.change_face("smirk2")
+    $ Rogue.change_arms("neutral")
 
     "The tutoring session starts."
 
@@ -468,15 +484,19 @@ label day_two_tutoring_session:
 
     $ fade_in_from_black(0.4)
 
+    $ Rogue.change_arms(right_arm = "extended")
+
     ch_Rogue ". . . Yeah, exactly. Why don't ya try those practice questions real quick. . ."
 
     $ Rogue.eyes = "down"
+    $ Rogue.change_arms("crossed")
 
     "Again, you spot [Rogue.name] being fidgety.{p}She doesn't think you notice as she stares intently at your hands while you work."
     "You put down your pen and turn to her."
     ch_Player "Hey, so about when we met. . ."
 
     $ Rogue.change_face("surprised2", blush = 1)
+    $ Rogue.change_arms("angry")
 
     "[Rogue.name] snaps out of it, realizes what you're about to ask, and interrupts you."
     ch_Rogue "*gasp*"
@@ -485,6 +505,9 @@ label day_two_tutoring_session:
     $ Rogue.change_face("surprised2", mouth = "lipbite", blush = 1)
 
     ch_Player "Uhhh. . . a Hum-what account?"
+
+    $ Rogue.change_arms("crossed")
+    
     "[Rogue.name] regains her composure."
 
     $ Rogue.change_face("worried1", blush = 1)
@@ -495,16 +518,16 @@ label day_two_tutoring_session:
 
     ch_Player "Haven't heard of it. Honestly, I barely know how to work this fancy phone."
     
-    # $ Rogue.right_arm = 2
     $ Rogue.change_face("smirk2")
+    $ Rogue.change_arms("neutral", left_arm = "extended")      
 
     ch_Rogue "Gimme, ah'll set up an account for you."
     
     $ Rogue.eyes = "down"
 
     "You hand her your new phone."
-    
-    # $ Rogue.right_arm = 1
+
+    $ Rogue.change_arms("neutral", right_arm = "extended")
 
     pause 1.0
 
@@ -526,12 +549,12 @@ label day_two_tutoring_session:
 
     ch_Rogue "Done. Ah added myself as your friend and also put my number in there in case you get any questions while studyin'."
 
-    # $ Rogue.right_arm = 2
+    $ Rogue.change_arms(left_arm = "extended")
 
     pause 1.0
 
-    # $ Rogue.right_arm = 1
     $ Rogue.change_face("smirk2")
+    $ Rogue.change_arms("neutral")
 
     ch_Player "Thanks, [Rogue.name]. I appreciate it."
 
@@ -543,35 +566,43 @@ label day_two_after_tutoring:
     ch_Player "So. . ."
 
     $ Rogue.change_face("worried1")
+    $ Rogue.change_arms("crossed")
 
     "[Rogue.name] looks conflicted about what to say next.{p}Finally, she caves."
 
     if Rogue.History.check("Player_looked_at_glove"):
-        # $ Rogue.left_arm = 2
+        $ Rogue.change_arms("sheepish", right_arm = "neutral")
 
         ch_Rogue "Ah know you realized what ah was meanin' to ask when we first met. . ."
         
         $ Rogue.change_face("worried2", blush = 1)
+        $ Rogue.change_arms("sheepish")
         
         ch_Player "I did, y-"
         ch_Rogue "-and ah know it's kinda weird!"
         ch_Player "I don't-"
 
         $ Rogue.change_face("worried3")
+        $ Rogue.change_arms("neutral")
 
         ch_Rogue "Ahwasjustwonderin'if\nmaybeahcouldtrytouchin'\nyousinceyou'reimmune\nanditwon'thurtyou."    
     else:
-        # $ Rogue.left_arm = 2
+        $ Rogue.change_arms("sheepish")
 
         ch_Rogue "So ah told you how my power works when we first met. . ."
         ch_Player "Right."
+
+        $ Rogue.change_arms("sheepish", right_arm = "neutral")
+        
         ch_Rogue ". . . and about how ah can't control it too well. . ."
         ch_Player "Mhm."
         ch_Rogue ". . . and that ah haven't touched anyone in a really long time. . ."
+        
+        $ Rogue.change_arms("crossed")
+    
         ch_Rogue "Ah was just wonderin'. . .{p}{size=-5}if maybe{/size}. . .{p}{size=-10}ah could try touchin' you{/size}. . ."
 
     $ Rogue.change_face("worried1", mouth = "lipbite", blush = 1)
-    # $ Rogue.left_arm = 1
 
     menu:
         extend ""
@@ -580,6 +611,7 @@ label day_two_after_tutoring:
             call change_Character_stat(Rogue, "trust", small_stat) from _call_change_Character_stat_659
 
             $ Rogue.change_face("sad")
+            $ Rogue.change_arms("neutral")
 
             ch_Rogue "Please? Ah promise it'll be super quick."
             ch_Rogue "If anythin' goes wrong ah'll stop immediately."
@@ -594,6 +626,7 @@ label day_two_after_tutoring:
             "You stick your hand out for her to touch."
 
             $ Rogue.change_face("perplexed", blush = 1)
+            $ Rogue.change_arms("neutral")
 
             ch_Rogue "Uhm. . . [Rogue.Player_petname], are you sure?"
             ch_Player "100\%."
@@ -602,6 +635,7 @@ label day_two_after_tutoring:
             call change_Character_stat(Rogue, "trust", medium_stat) from _call_change_Character_stat_677
             
             $ Rogue.change_face("surprised2")
+            $ Rogue.change_arms("neutral")
 
             ch_Rogue "Really?!?!"
             ch_Player "Of course, it's worth a shot."
@@ -611,7 +645,7 @@ label day_two_after_tutoring:
     ch_Rogue "Thank you!"
 
     $ Rogue.change_face("smirk2")
-    # $ Rogue.right_arm = 2
+    $ Rogue.change_arms("neutral", left_arm = "extended")
 
     pause 1.0
 
@@ -647,7 +681,7 @@ label day_two_after_tutoring:
             call change_Character_stat(Rogue, "love", large_stat) from _call_change_Character_stat_915
 
             $ Rogue.change_face("surprised2", blush = 1)
-            # $ Rogue.right_arm = 1
+            $ Rogue.change_arms("sheepish", right_arm = "neutral")
 
             "[Rogue.name] lets go of your hand and stands up, looking quite flustered."
             
@@ -661,7 +695,7 @@ label day_two_after_tutoring:
             "She packs up and leaves in a hurry."
         "Make her jump by faking convulsions. Pranks are funny, right?":
             $ Rogue.change_face("worried4")
-            # $ Rogue.right_arm = 1
+            $ Rogue.change_arms("neutral")
 
             "[Rogue.name] looks horrified and immediately removes her hand."
 
@@ -671,6 +705,7 @@ label day_two_after_tutoring:
             "You chuckle to yourself like the dumbass you are."
             
             $ Rogue.change_face("furious")
+            $ Rogue.change_arms("angry")
             
             call change_Character_stat(Rogue, "love", -large_stat) from _call_change_Character_stat_918
             call change_Character_stat(Rogue, "trust", -massive_stat) from _call_change_Character_stat_919
@@ -704,7 +739,12 @@ label meet_Kurt:
 
     "You realize it's the demon you saw in class earlier today."
 
+    $ Kurt.change_arms("neutral", right_arm = "extended")
+
     ch_Kurt "Hallo, [Player.first_name], right?"
+    
+    $ Kurt.change_arms("neutral")
+
     ch_Player "Yeah, sorry about that. I'm not used to uh. . . You just look uh. . . different?"
 
     $ Kurt.name = "Kurt"
@@ -713,12 +753,16 @@ label meet_Kurt:
     ch_Player "Nice to meet you, [Kurt.name]."
 
     if Player.visible_mutation:
+        $ Kurt.change_arms("neutral", left_arm = "extended")
+
         ch_Kurt "You look a little different yourself."
 
         if Player.skin_color in ["blue", "green", "red"]:
             "You look down at your new skin color."
         elif Player.ears:
             "You again reach up to feel your ears."
+    
+        $ Kurt.change_arms("neutral")
         
         ch_Player "Yeah. . . good point."
     else:
@@ -729,6 +773,7 @@ label meet_Kurt:
 
     if not Rogue.History.check("Player_faked_injury"):
         $ Kurt.change_face("confused")
+        $ Kurt.change_arms("crossed")
 
         ch_Kurt "Übrigens, I passed [Rogue.name] on my vay here. She vas blushing pretty hard."
         ch_Kurt "Vat exactly did you do?"
@@ -738,9 +783,13 @@ label meet_Kurt:
 
         ch_Player "She just tried touching my hand to see if my immunity really worked."
         ch_Player "She got a bit flustered and. . . left?"
+    
+        $ Kurt.change_arms("neutral")
+
         ch_Kurt "I see. . ."
     else:
         $ Kurt.change_face("angry1")
+        $ Kurt.change_arms("crossed")
         
         ch_Kurt "Übrigens, I passed [Rogue.name] on my vay here. She looked pretty pissed."
         ch_Kurt "Vat exactly did you do?"
@@ -748,20 +797,29 @@ label meet_Kurt:
         ch_Player "I pretended like it hurt when she tried touching my hand. . ."
 
         $ Kurt.change_face("surprised")
+        $ Kurt.change_arms("shrug")
 
         ch_Kurt "Schön blöd, is something wrong viz your brain?"
         ch_Kurt "Don't have to be at zis school for a day to know zat's a touchy subject for her."
         ch_Player "I know, I know. I'm a dumbass. . ."
 
         $ Kurt.change_face("neutral")
+        $ Kurt.change_arms("angry")
 
         ch_Kurt "You better apologize to zee fraulein tomorrow."
         ch_Player "Way ahead of you."
+    
+    $ Kurt.change_arms("sheepish")
 
     ch_Kurt "So zat power of yours really vorks as advertised zen?"
     ch_Player "So it seems."
+    
+    $ Kurt.change_arms("neutral", right_arm = "extended")
+
     ch_Kurt "Huh. Anyvay, I came by to see if you vanted a tour of zee more entertaining spots around town."
     ch_Player "Sounds great! Lead the way."
+    
+    $ Kurt.change_arms("neutral")
 
     call hide_Character(Kurt) from _call_hide_Character_40
 
@@ -776,9 +834,14 @@ label day_two_tour:
 
     call set_the_scene(location = "bg_mall") from _call_set_the_scene_273
     call add_Characters(Kurt) from _call_add_Characters_71
+    
+    $ Kurt.change_arms("neutral", right_arm = "question")
 
     ch_Kurt "Zis is zee mall, it closes pretty soon but we can still valk around for a bit."
     ch_Kurt "You can get new clothing items here."
+    
+    $ Kurt.change_arms("neutral")
+
     ch_Kurt "Zere are other stores nearby vere you can get accessories."
 
     call hide_Character(Kurt) from _call_hide_Character_41
@@ -817,9 +880,13 @@ label day_two_tutorial:
 
     ch_Player "One last thing. . . can you teach me how to use this damn phone?"
     ch_Kurt "Vat? Zee Professor didn't tell you how to use it?"
+    
+    $ Kurt.change_arms("neutral", left_arm = "extended")
+
     "[Kurt.name] snatches your phone and gives you a dumbfounded look."
 
     $ Kurt.change_face("confused")
+    $ Kurt.change_arms("neutral")
 
     ch_Kurt "Dude, how did you manage to break it?"
     ch_Player "I don't want to talk about it. . ."
@@ -860,7 +927,12 @@ label day_two_tutorial:
     ch_Kurt "Zat's about it, got it?"
     ch_Player "Yeah, thanks man."
 
+    $ Kurt.change_arms("neutral", left_arm = "extended")
+
+    pause 1.0
+
     $ Kurt.change_face("happy")
+    $ Kurt.change_arms("neutral")
 
     ch_Kurt "I'm gonna head out, see you in class tomorrow."
     ch_Player "See ya."

@@ -253,13 +253,13 @@ label ch1_mutant_hate:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     show top_bar onlayer master zorder 4:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     call set_the_scene(location = "bg_town") from _call_set_the_scene_281
     call show_Character(Kurt, x = stage_center - 0.1, sprite_layer = 5, fade = True) from _call_show_Character_10
@@ -298,9 +298,9 @@ label ch1_mutant_hate:
         transform_anchor True
 
         anchor (0.496, 0.810) pos (0.496, 0.810)
-        zoom 0.5*background_adjustment
+        zoom 0.5*cinematic_adjustment
 
-        ease 30.0 zoom 0.8*background_adjustment
+        ease 30.0 zoom 0.8*cinematic_adjustment
 
     "Walking down the main road, you start hearing shouts off in the distance."
 
@@ -318,9 +318,9 @@ label ch1_mutant_hate:
         transform_anchor True
 
         anchor (0.496, 0.810) pos (0.496, 0.810)
-        zoom 0.8*background_adjustment
+        zoom 0.8*cinematic_adjustment
 
-        ease 20.0 zoom background_adjustment
+        ease 20.0 zoom cinematic_adjustment
     
     "They're moving towards you."
     "There is one man walking in front of them all, preaching anti-mutant gospel to the zealous horde."
@@ -374,9 +374,9 @@ label ch1_mutant_hate:
         transform_anchor True
 
         anchor (0.496, 0.810) pos (0.496, 0.810)
-        zoom 0.8*background_adjustment
+        zoom 0.8*cinematic_adjustment
 
-        ease 20.0 zoom background_adjustment
+        ease 20.0 zoom cinematic_adjustment
 
     hide townspeople onlayer master
 
@@ -429,7 +429,7 @@ label ch1_mutant_hate:
         transform_anchor True
 
         anchor (0.496, 0.810) pos (0.496, 0.810)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     with dissolve
 
@@ -447,7 +447,7 @@ label ch1_mutant_hate:
         transform_anchor True
 
         anchor (0.5, 0.5) pos (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     with faster_dissolve
 
@@ -465,13 +465,13 @@ label ch1_mutant_hate:
         transform_anchor True
 
         anchor (0.5, 0.5) pos (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     show expression "images/backgrounds/ch1/bg_ch1_town_Kurt.webp" as Kurt_sprite onlayer master zorder 8:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     with small_screenshake
 
@@ -503,7 +503,7 @@ label ch1_mutant_hate:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     with faster_dissolve
 
@@ -700,7 +700,7 @@ label ch1_mutant_hate:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     with dissolve
 
@@ -1412,7 +1412,7 @@ label ch1_mutant_hate_path_1:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     with faster_dissolve
 
@@ -1431,7 +1431,7 @@ label ch1_mutant_hate_path_1:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     with small_screenshake
 
@@ -1452,13 +1452,13 @@ label ch1_mutant_hate_path_1:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     show expression "images/backgrounds/ch1/bg_ch1_town_fight4b.webp" as punch onlayer master zorder 7:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     with fastest_dissolve
 
@@ -1468,7 +1468,7 @@ label ch1_mutant_hate_path_1:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     with fastest_dissolve
 
@@ -1481,7 +1481,7 @@ label ch1_mutant_hate_path_1:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     with fastest_dissolve
 
@@ -1497,7 +1497,7 @@ label ch1_mutant_hate_path_1:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     with fastest_dissolve
 
@@ -1515,7 +1515,7 @@ label ch1_mutant_hate_path_1:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     with small_screenshake
 
@@ -1533,7 +1533,7 @@ label ch1_mutant_hate_path_1:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     hide punch onlayer master
 
@@ -1545,13 +1545,13 @@ label ch1_mutant_hate_path_1:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     show expression "images/backgrounds/ch1/bg_ch1_town_fight8b.webp" as knife onlayer master zorder 7:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
         ease 2.0 yoffset 1000
 
@@ -1564,7 +1564,7 @@ label ch1_mutant_hate_path_1:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     with fastest_dissolve
 
@@ -1582,13 +1582,13 @@ label ch1_mutant_hate_path_1:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     show expression "images/backgrounds/ch1/bg_ch1_town_fight9c.webp" as spit onlayer master zorder 7:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     with small_screenshake
 
@@ -1688,7 +1688,7 @@ label ch1_mutant_hate_path_1A:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     $ fade_in_from_black(0.4)
 
@@ -1727,7 +1727,7 @@ label ch1_mutant_hate_path_1B:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     $ fade_in_from_black(0.4)
 
@@ -1767,7 +1767,7 @@ label ch1_mutant_hate_path_1C:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     $ fade_in_from_black(0.4)
 

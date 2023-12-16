@@ -398,43 +398,43 @@ label ch1_Juggernaut_attack:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     show expression "images/backgrounds/ch1/bg_ch1_danger_destruction2.webp" as destruction2 onlayer master zorder 6:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     show expression "images/backgrounds/ch1/bg_ch1_danger_hole.webp" as hole onlayer master zorder 8:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     show expression "images/backgrounds/ch1/bg_ch1_danger_destruction1.webp" as destruction1 onlayer master zorder 10:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     show top_bar onlayer master zorder 10:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     show expression "images/backgrounds/ch1/bg_ch1_danger_Rogue1.webp" as Rogue onlayer master zorder 12:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     show expression "images/backgrounds/ch1/bg_ch1_danger_Juggernaut.webp" as Juggernaut onlayer master zorder 15:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     call remove_Characters(location = "bg_danger") from _call_remove_Characters_213
     call set_the_scene(location = "bg_danger") from _call_set_the_scene_229
@@ -448,19 +448,19 @@ label ch1_Juggernaut_attack:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     show expression "images/backgrounds/ch1/bg_ch1_danger_lights_red2.webp" as lights2 onlayer master zorder 7:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     show expression "images/backgrounds/ch1/bg_ch1_danger_Juggernaut_red_blur.webp" as Juggernaut onlayer master zorder 15:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     $ Cain.name = "???"
 
@@ -509,7 +509,7 @@ label ch1_Juggernaut_attack:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     show expression "images/effects/pow.webp" as pow onlayer effects:
         anchor (0.5, 0.5) pos (0.5, 0.5)
@@ -527,7 +527,7 @@ label ch1_Juggernaut_attack:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     show expression "images/effects/pow.webp" as pow onlayer effects:
         anchor (0.5, 0.5) pos (0.5, 0.5)
@@ -551,49 +551,49 @@ label ch1_Juggernaut_attack:
         transform_anchor True
 
         anchor (0.5, 0.5) pos (1.95, -0.85)
-        zoom 2.0*background_adjustment
+        zoom 2.0*cinematic_adjustment
     
     show expression "images/backgrounds/base/bg_danger_lights_red.webp" as background_lights onlayer comic_cutout1 zorder 1:
         transform_anchor True
 
         anchor (0.5, 0.5) pos (1.95, -0.85)
-        zoom 2.0*background_adjustment
+        zoom 2.0*cinematic_adjustment
     
     show expression "images/backgrounds/ch1/bg_ch1_danger_lights_red.webp" as lights onlayer comic_cutout1 zorder 5:
         transform_anchor True
 
         anchor (0.5, 0.5) pos (1.95, -0.85)
-        zoom 2.0*background_adjustment
+        zoom 2.0*cinematic_adjustment
 
     show expression "images/backgrounds/ch1/bg_ch1_danger_destruction2.webp" as destruction2 onlayer comic_cutout1 zorder 6:
         transform_anchor True
 
         anchor (0.5, 0.5) pos (1.95, -0.85)
-        zoom 2.0*background_adjustment
+        zoom 2.0*cinematic_adjustment
     
     show expression "images/backgrounds/ch1/bg_ch1_danger_lights_red2.webp" as lights2 onlayer comic_cutout1 zorder 7:
         transform_anchor True
 
         anchor (0.5, 0.5) pos (1.95, -0.85)
-        zoom 2.0*background_adjustment
+        zoom 2.0*cinematic_adjustment
 
     show expression "images/backgrounds/ch1/bg_ch1_danger_hole.webp" as hole onlayer comic_cutout1 zorder 8:
         transform_anchor True
 
         anchor (0.5, 0.5) pos (1.95, -0.85)
-        zoom 2.0*background_adjustment
+        zoom 2.0*cinematic_adjustment
 
     show expression "images/backgrounds/ch1/bg_ch1_danger_destruction1.webp" as destruction1 onlayer comic_cutout1 zorder 10:
         transform_anchor True
 
         anchor (0.5, 0.5) pos (1.95, -0.85)
-        zoom 2.0*background_adjustment
+        zoom 2.0*cinematic_adjustment
 
     show expression "images/backgrounds/ch1/bg_ch1_danger_Rogue1.webp" as Rogue onlayer comic_cutout1 zorder 12:
         transform_anchor True
 
         anchor (0.5, 0.5) pos (1.95, -0.85)
-        zoom 2.0*background_adjustment
+        zoom 2.0*cinematic_adjustment
 
     "It's [Rogue.name], laying in a pile of rubble."
     "She's struggling to pull herself up, and it looks like she's bleeding from a head wound."
@@ -603,13 +603,13 @@ label ch1_Juggernaut_attack:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     show expression "images/backgrounds/ch1/bg_ch1_danger_Rogue2.webp" as Rogue onlayer comic_cutout1 zorder 12:
         transform_anchor True
 
         anchor (0.5, 0.5) pos (1.95, -0.8)
-        zoom 2.0*background_adjustment
+        zoom 2.0*cinematic_adjustment
 
     with {"master": dissolve, "comic_cutout1": dissolve}
 
@@ -625,7 +625,7 @@ label ch1_Juggernaut_attack:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     show expression "images/effects/pow.webp" as pow onlayer effects:
         anchor (0.5, 0.5) pos (0.5, 0.5)
@@ -687,7 +687,7 @@ label ch1_Juggernaut_attack:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     show expression "images/effects/clash.webp" as clash onlayer effects:
         anchor (0.5, 0.5) pos (0.5, 0.5)
@@ -731,7 +731,7 @@ label ch1_Juggernaut_attack:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     show expression "images/effects/pow.webp" as pow onlayer effects:
         anchor (0.5, 0.5) pos (0.5, 0.5)
@@ -852,7 +852,7 @@ label ch1_Juggernaut_attack:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     ch_Cecilia "[Player.full_name]?! You're awake already?"
     ch_Player "Uh, hey. . . yeah? How long has it been?"
@@ -1664,7 +1664,7 @@ label ch1_Juggernaut_attack_path_1A:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     show expression "images/effects/pow.webp" as pow onlayer effects:
         anchor (0.5, 0.5) pos (0.5, 0.5)
@@ -1685,7 +1685,7 @@ label ch1_Juggernaut_attack_path_1A:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     show expression "images/effects/pow.webp" as pow onlayer effects:
         anchor (0.5, 0.5) pos (0.5, 0.5)
@@ -1704,7 +1704,7 @@ label ch1_Juggernaut_attack_path_1A:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     show expression "images/effects/pow.webp" as pow onlayer effects:
         anchor (0.5, 0.5) pos (0.5, 0.5)
@@ -1767,7 +1767,7 @@ label ch1_Juggernaut_attack_path_1A:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     show expression "images/effects/pow.webp" as pow onlayer effects:
         anchor (0.5, 0.5) pos (0.5, 0.5)
@@ -1862,7 +1862,7 @@ label ch1_Juggernaut_attack_path_1A:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     show expression "images/effects/pow.webp" as pow onlayer effects:
         anchor (0.5, 0.5) pos (0.5, 0.5)
@@ -1884,19 +1884,19 @@ label ch1_Juggernaut_attack_path_1A:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     show expression "images/backgrounds/ch1/bg_ch1_danger_wall_damage.webp" as wall_damage onlayer master zorder 11:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     show expression "images/backgrounds/ch1/bg_ch1_danger_Piotr.webp" as Piotr onlayer master zorder 11:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     show expression "images/effects/clang.webp" as clang onlayer effects:
         anchor (0.5, 0.5) pos (0.5, 0.5)
@@ -1930,7 +1930,7 @@ label ch1_Juggernaut_attack_path_1A:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     with dissolve
 
@@ -1941,7 +1941,7 @@ label ch1_Juggernaut_attack_path_1A:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     with dissolve
 
@@ -1951,7 +1951,7 @@ label ch1_Juggernaut_attack_path_1A:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     pause 0.5
 
@@ -1959,7 +1959,7 @@ label ch1_Juggernaut_attack_path_1A:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     show expression "images/effects/snikt.webp" as snikt onlayer effects:
         anchor (0.5, 0.5) pos (0.6, 0.65)
@@ -1978,7 +1978,7 @@ label ch1_Juggernaut_attack_path_1A:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     with dissolve
 
@@ -1988,7 +1988,7 @@ label ch1_Juggernaut_attack_path_1A:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     with dissolve
 
@@ -1998,7 +1998,7 @@ label ch1_Juggernaut_attack_path_1A:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     with fastest_dissolve
 
@@ -2006,7 +2006,7 @@ label ch1_Juggernaut_attack_path_1A:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     with fastest_dissolve
 
@@ -2026,7 +2026,7 @@ label ch1_Juggernaut_attack_path_1A:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     with dissolve
 
@@ -2038,13 +2038,13 @@ label ch1_Juggernaut_attack_path_1A:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     show expression "images/backgrounds/ch1/bg_ch1_danger_hole_Ororo_lightning.webp" as hole onlayer master zorder 8:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     with fastest_dissolve
 
@@ -2052,7 +2052,7 @@ label ch1_Juggernaut_attack_path_1A:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     with fastest_dissolve
 
@@ -2080,7 +2080,7 @@ label ch1_Juggernaut_attack_path_1B:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
         
     show expression "images/effects/pow.webp" as pow onlayer effects:
         anchor (0.5, 0.5) pos (0.5, 0.5)
@@ -2099,7 +2099,7 @@ label ch1_Juggernaut_attack_path_1B:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     show expression "images/effects/pow.webp" as pow onlayer effects:
         anchor (0.5, 0.5) pos (0.5, 0.5)
@@ -2118,7 +2118,7 @@ label ch1_Juggernaut_attack_path_1B:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     show expression "images/effects/pow.webp" as pow onlayer effects:
         anchor (0.5, 0.5) pos (0.5, 0.5)
@@ -2139,7 +2139,7 @@ label ch1_Juggernaut_attack_path_1B:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     show expression "images/effects/pow.webp" as pow onlayer effects:
         anchor (0.5, 0.5) pos (0.5, 0.5)
@@ -2159,7 +2159,7 @@ label ch1_Juggernaut_attack_path_1B:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     show expression "images/effects/pow.webp" as pow onlayer effects:
         anchor (0.5, 0.5) pos (0.5, 0.5)
@@ -2249,7 +2249,7 @@ label ch1_Juggernaut_attack_path_1B:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     show expression "images/effects/pow.webp" as pow onlayer effects:
         anchor (0.5, 0.5) pos (0.5, 0.5)
@@ -2315,7 +2315,7 @@ label ch1_Juggernaut_attack_path_1B:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     show expression "images/effects/pow.webp" as pow onlayer effects:
         anchor (0.5, 0.5) pos (0.5, 0.5)
@@ -2337,19 +2337,19 @@ label ch1_Juggernaut_attack_path_1B:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     show expression "images/backgrounds/ch1/bg_ch1_danger_wall_damage.webp" as wall_damage onlayer master zorder 11:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     show expression "images/backgrounds/ch1/bg_ch1_danger_Piotr.webp" as Piotr onlayer master zorder 11:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     show expression "images/effects/clang.webp" as clang onlayer effects:
         anchor (0.5, 0.5) pos (0.5, 0.5)
@@ -2383,7 +2383,7 @@ label ch1_Juggernaut_attack_path_1B:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     with dissolve
 
@@ -2396,7 +2396,7 @@ label ch1_Juggernaut_attack_path_1B:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     with dissolve
 
@@ -2407,7 +2407,7 @@ label ch1_Juggernaut_attack_path_1B:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     pause 0.5
 
@@ -2415,7 +2415,7 @@ label ch1_Juggernaut_attack_path_1B:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     show expression "images/effects/snikt.webp" as snikt onlayer effects:
         anchor (0.5, 0.5) pos (0.6, 0.65)
@@ -2434,7 +2434,7 @@ label ch1_Juggernaut_attack_path_1B:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     with dissolve
 
@@ -2444,7 +2444,7 @@ label ch1_Juggernaut_attack_path_1B:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     with dissolve
 
@@ -2454,7 +2454,7 @@ label ch1_Juggernaut_attack_path_1B:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     with fastest_dissolve
 
@@ -2462,7 +2462,7 @@ label ch1_Juggernaut_attack_path_1B:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     with fastest_dissolve
 
@@ -2482,7 +2482,7 @@ label ch1_Juggernaut_attack_path_1B:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     with dissolve
 
@@ -2494,13 +2494,13 @@ label ch1_Juggernaut_attack_path_1B:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     show expression "images/backgrounds/ch1/bg_ch1_danger_hole_Ororo_lightning.webp" as hole onlayer master zorder 8:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     with fastest_dissolve
 
@@ -2508,7 +2508,7 @@ label ch1_Juggernaut_attack_path_1B:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     with fastest_dissolve
 

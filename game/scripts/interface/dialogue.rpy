@@ -71,7 +71,7 @@ screen say(who, what, two_window = False, hide_after = None):
                 $ dialogue_position = [C.sprite_position[0] - 0.02, C.sprite_position[1] - 0.4]
             elif C.sprite_position[0] < stage_far_far_right and C.position not in ["doggy", "masturbation", "missionary"]:
                 $ dialogue_anchor = [0.0, 0.0]
-                $ dialogue_position = [C.sprite_position[0] + 0.02, C.sprite_position[1] - 0.1]
+                $ dialogue_position = [C.sprite_position[0] + 0.04, C.sprite_position[1] - 0.1]
             elif C.position in ["doggy", "masturbation"]:
                 $ dialogue_anchor = [1.0, 0.0]
                 $ dialogue_position = [C.sprite_position[0] - 0.08, C.sprite_position[1] - 0.1]

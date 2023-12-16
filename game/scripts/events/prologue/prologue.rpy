@@ -43,7 +43,7 @@ label prologue:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     "As a young college student, however, a geopolitical inter-species power struggle is a little outside your worldview."
 
@@ -92,7 +92,7 @@ label prologue:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     $ fade_in_from_black(0.4)
         
@@ -114,7 +114,7 @@ label prologue:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
         blur 0
 
     ch_Amahl "Mr. [Player.last_name]!" with small_screenshake
@@ -147,7 +147,7 @@ label prologue:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     "Some time later. . ."
 
@@ -178,7 +178,7 @@ label prologue:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
         block:
             ease 1.5 blur 15
@@ -192,7 +192,7 @@ label prologue:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
         block:
             ease 1.5 blur 15
@@ -209,7 +209,7 @@ label prologue:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
         blur 0
 
     $ Player.power = 0
@@ -230,7 +230,7 @@ label prologue:
                     transform_anchor True
 
                     align (0.5, 0.5)
-                    zoom background_adjustment
+                    zoom cinematic_adjustment
             else:
                 hide bg_ch0_overlay 
 
@@ -243,7 +243,7 @@ label prologue:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     $ Amahl.telepathic = True
 
@@ -268,7 +268,7 @@ label prologue:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     "The stall door unlocks itself and begins to open."
     "You kick out wildly, trying to shut the door."
@@ -298,7 +298,7 @@ label prologue:
                     transform_anchor True
 
                     align (0.5, 0.5)
-                    zoom background_adjustment
+                    zoom cinematic_adjustment
             else:
                 hide bg_ch0_overlay 
 
@@ -311,7 +311,7 @@ label prologue:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     "Suddenly, the weight lifts off you."
     "The stall door swings lazily on its hinges."

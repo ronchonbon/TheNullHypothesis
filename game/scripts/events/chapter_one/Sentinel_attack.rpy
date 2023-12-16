@@ -210,13 +210,13 @@ label ch1_Sentinel_attack:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     show top_bar onlayer master zorder 5:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     $ fade_in_from_black(0.4)
 
@@ -292,14 +292,14 @@ label ch1_Sentinel_attack:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     show expression "images/backgrounds/ch1/bg_ch1_mall_phase2_Sentinel.webp" as Sentinel onlayer master zorder 6:
         subpixel True
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
         yoffset -int(0.025*config.screen_height)
         ease 15.0 yoffset 0
@@ -309,28 +309,28 @@ label ch1_Sentinel_attack:
         transform_anchor True
 
         anchor (0.147, 0.435) pos (0.147, 0.435)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
         parallel:
             yoffset -int(0.025*config.screen_height)
             ease 15.0 yoffset 0
         parallel:
             choice:
-                ease 0.1 xzoom background_adjustment*1.01 yzoom background_adjustment*1.01
+                ease 0.1 xzoom cinematic_adjustment*1.01 yzoom cinematic_adjustment*1.01
             choice:
-                ease 0.1 xzoom background_adjustment*1.01 yzoom background_adjustment*1.0
+                ease 0.1 xzoom cinematic_adjustment*1.01 yzoom cinematic_adjustment*1.0
             choice:
-                ease 0.1 xzoom background_adjustment*1.01 yzoom background_adjustment*0.99
+                ease 0.1 xzoom cinematic_adjustment*1.01 yzoom cinematic_adjustment*0.99
             choice:
-                ease 0.1 xzoom background_adjustment*1.0 yzoom background_adjustment*1.0
+                ease 0.1 xzoom cinematic_adjustment*1.0 yzoom cinematic_adjustment*1.0
             choice:
-                ease 0.1 xzoom background_adjustment*0.99 yzoom background_adjustment*0.99
+                ease 0.1 xzoom cinematic_adjustment*0.99 yzoom cinematic_adjustment*0.99
             choice:
-                ease 0.1 xzoom background_adjustment*0.99 yzoom background_adjustment*0.99
+                ease 0.1 xzoom cinematic_adjustment*0.99 yzoom cinematic_adjustment*0.99
             choice:
-                ease 0.1 xzoom background_adjustment*1.0 yzoom background_adjustment*1.01
+                ease 0.1 xzoom cinematic_adjustment*1.0 yzoom cinematic_adjustment*1.01
             choice:
-                ease 0.1 xzoom background_adjustment*1.01 yzoom background_adjustment*1.01
+                ease 0.1 xzoom cinematic_adjustment*1.01 yzoom cinematic_adjustment*1.01
 
             repeat
 
@@ -339,28 +339,28 @@ label ch1_Sentinel_attack:
         transform_anchor True
 
         anchor (0.380, 0.438) pos (0.380, 0.438)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
         parallel:
             yoffset -int(0.025*config.screen_height)
             ease 15.0 yoffset 0
         parallel:
             choice:
-                ease 0.1 xzoom background_adjustment*1.01 yzoom background_adjustment*1.01
+                ease 0.1 xzoom cinematic_adjustment*1.01 yzoom cinematic_adjustment*1.01
             choice:
-                ease 0.1 xzoom background_adjustment*1.01 yzoom background_adjustment*1.0
+                ease 0.1 xzoom cinematic_adjustment*1.01 yzoom cinematic_adjustment*1.0
             choice:
-                ease 0.1 xzoom background_adjustment*1.01 yzoom background_adjustment*0.99
+                ease 0.1 xzoom cinematic_adjustment*1.01 yzoom cinematic_adjustment*0.99
             choice:
-                ease 0.1 xzoom background_adjustment*1.0 yzoom background_adjustment*1.0
+                ease 0.1 xzoom cinematic_adjustment*1.0 yzoom cinematic_adjustment*1.0
             choice:
-                ease 0.1 xzoom background_adjustment*0.99 yzoom background_adjustment*0.99
+                ease 0.1 xzoom cinematic_adjustment*0.99 yzoom cinematic_adjustment*0.99
             choice:
-                ease 0.1 xzoom background_adjustment*0.99 yzoom background_adjustment*0.99
+                ease 0.1 xzoom cinematic_adjustment*0.99 yzoom cinematic_adjustment*0.99
             choice:
-                ease 0.1 xzoom background_adjustment*1.0 yzoom background_adjustment*1.01
+                ease 0.1 xzoom cinematic_adjustment*1.0 yzoom cinematic_adjustment*1.01
             choice:
-                ease 0.1 xzoom background_adjustment*1.01 yzoom background_adjustment*1.01
+                ease 0.1 xzoom cinematic_adjustment*1.01 yzoom cinematic_adjustment*1.01
 
             repeat
 
@@ -368,7 +368,7 @@ label ch1_Sentinel_attack:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     with faster_dissolve
 
@@ -424,7 +424,7 @@ label ch1_Sentinel_attack:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     with small_screenshake
 
@@ -445,13 +445,13 @@ label ch1_Sentinel_attack:
         transform_anchor True
 
         anchor (0.050, 0.397) pos (0.050, 0.397)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
         block:
             choice:
-                ease 5.0 xzoom 1.5*background_adjustment rotate -0.5
+                ease 5.0 xzoom 1.5*cinematic_adjustment rotate -0.5
             choice:
-                ease 5.0 xzoom 1.5*background_adjustment rotate 0.5
+                ease 5.0 xzoom 1.5*cinematic_adjustment rotate 0.5
 
             repeat
 
@@ -473,15 +473,15 @@ label ch1_Sentinel_attack:
         transform_anchor True
 
         anchor (0.446, 0.254) pos (0.446, 0.254)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
         block:
             choice:
-                ease 7.5 xzoom 0.9*background_adjustment rotate -1
+                ease 7.5 xzoom 0.9*cinematic_adjustment rotate -1
             choice:
-                ease 7.5 xzoom 0.95*background_adjustment rotate -0.5
+                ease 7.5 xzoom 0.95*cinematic_adjustment rotate -0.5
             choice:
-                ease 7.5 xzoom 1.0*background_adjustment rotate -0.1
+                ease 7.5 xzoom 1.0*cinematic_adjustment rotate -0.1
 
             repeat
 
@@ -506,13 +506,13 @@ label ch1_Sentinel_attack:
         transform_anchor True
 
         anchor (0.503, 0.533) pos (0.503, 0.533)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
         block:
             choice:
-                ease 7.5 xzoom 1.1*background_adjustment rotate -0.5
+                ease 7.5 xzoom 1.1*cinematic_adjustment rotate -0.5
             choice:
-                ease 7.5 xzoom 1.1*background_adjustment rotate 0.5 
+                ease 7.5 xzoom 1.1*cinematic_adjustment rotate 0.5 
 
             repeat
 
@@ -567,13 +567,13 @@ label ch1_Sentinel_attack:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     show expression "images/backgrounds/ch1/bg_ch1_mall_phase4_Sentinel.webp" as Sentinel onlayer master zorder 6:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
     $ fade_in_from_black(1.5)
 
@@ -684,7 +684,7 @@ label ch1_Sentinel_attack:
         transform_anchor True
 
         anchor (0.608, 0.473) pos (0.608, 0.473)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
         alpha 0.0
         ease 5.0 alpha 1.0
@@ -866,7 +866,7 @@ label ch1_Sentinel_attack:
         transform_anchor True
 
         align (0.5, 0.5)
-        xzoom -background_adjustment yzoom background_adjustment
+        xzoom -cinematic_adjustment yzoom cinematic_adjustment
 
     with dissolve
 
@@ -1728,13 +1728,13 @@ label ch1_Sentinel_attack_path_1A:
         transform_anchor True
 
         anchor (0.050, 0.397) pos (0.050, 0.397)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
         block:
             choice:
-                ease 5.0 xzoom 1.5*background_adjustment rotate -0.5
+                ease 5.0 xzoom 1.5*cinematic_adjustment rotate -0.5
             choice:
-                ease 5.0 xzoom 1.5*background_adjustment rotate 0.5
+                ease 5.0 xzoom 1.5*cinematic_adjustment rotate 0.5
 
             repeat
 
@@ -1751,7 +1751,7 @@ label ch1_Sentinel_attack_path_1A:
         transform_anchor True
 
         anchor (0.5, 0.5) pos (-0.9, -0.95)
-        zoom 2.0*background_adjustment
+        zoom 2.0*cinematic_adjustment
 
     "Your heart races as you remember what happened to [Rogue.name] in the fall."
     "You rush over to try and at least help the poor girl."
@@ -1778,13 +1778,13 @@ label ch1_Sentinel_attack_path_1B:
         transform_anchor True
 
         anchor (0.050, 0.397) pos (0.050, 0.397)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
         block:
             choice:
-                ease 5.0 xzoom 1.5*background_adjustment rotate -0.5
+                ease 5.0 xzoom 1.5*cinematic_adjustment rotate -0.5
             choice:
-                ease 5.0 xzoom 1.5*background_adjustment rotate 0.5
+                ease 5.0 xzoom 1.5*cinematic_adjustment rotate 0.5
 
             repeat
 
@@ -1807,15 +1807,15 @@ label ch1_Sentinel_attack_path_1B:
         transform_anchor True
 
         anchor (0.446, 0.254) pos (0.446, 0.254)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
         block:
             choice:
-                ease 7.5 xzoom 0.9*background_adjustment rotate -1
+                ease 7.5 xzoom 0.9*cinematic_adjustment rotate -1
             choice:
-                ease 7.5 xzoom 0.95*background_adjustment rotate -0.5
+                ease 7.5 xzoom 0.95*cinematic_adjustment rotate -0.5
             choice:
-                ease 7.5 xzoom 1.0*background_adjustment rotate -0.1
+                ease 7.5 xzoom 1.0*cinematic_adjustment rotate -0.1
 
             repeat
 
@@ -1852,13 +1852,13 @@ label ch1_Sentinel_attack_path_1B:
         transform_anchor True
 
         anchor (0.503, 0.533) pos (0.503, 0.533)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
         block:
             choice:
-                ease 7.5 xzoom 1.1*background_adjustment rotate -0.5
+                ease 7.5 xzoom 1.1*cinematic_adjustment rotate -0.5
             choice:
-                ease 7.5 xzoom 1.1*background_adjustment rotate 0.5 
+                ease 7.5 xzoom 1.1*cinematic_adjustment rotate 0.5 
 
             repeat
 
@@ -1875,7 +1875,7 @@ label ch1_Sentinel_attack_path_1B:
         transform_anchor True
 
         anchor (0.5, 0.5) pos (-0.9, -0.95)
-        zoom 2.0*background_adjustment
+        zoom 2.0*cinematic_adjustment
 
     "Your heart starts racing, as you remember what happened to [Rogue.name] in the first semester."
     "You rush over to try and at least help the poor girl."
@@ -1902,13 +1902,13 @@ label ch1_Sentinel_attack_path_1C:
         transform_anchor True
 
         anchor (0.050, 0.397) pos (0.050, 0.397)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
         block:
             choice:
-                ease 5.0 xzoom 1.5*background_adjustment rotate -0.5
+                ease 5.0 xzoom 1.5*cinematic_adjustment rotate -0.5
             choice:
-                ease 5.0 xzoom 1.5*background_adjustment rotate 0.5
+                ease 5.0 xzoom 1.5*cinematic_adjustment rotate 0.5
 
             repeat
 
@@ -1932,15 +1932,15 @@ label ch1_Sentinel_attack_path_1C:
         transform_anchor True
 
         anchor (0.446, 0.254) pos (0.446, 0.254)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
         block:
             choice:
-                ease 7.5 xzoom 0.9*background_adjustment rotate -1
+                ease 7.5 xzoom 0.9*cinematic_adjustment rotate -1
             choice:
-                ease 7.5 xzoom 0.95*background_adjustment rotate -0.5
+                ease 7.5 xzoom 0.95*cinematic_adjustment rotate -0.5
             choice:
-                ease 7.5 xzoom 1.0*background_adjustment rotate -0.1
+                ease 7.5 xzoom 1.0*cinematic_adjustment rotate -0.1
 
             repeat
 
@@ -1986,13 +1986,13 @@ label ch1_Sentinel_attack_path_1C:
         transform_anchor True
 
         anchor (0.503, 0.533) pos (0.503, 0.533)
-        zoom background_adjustment
+        zoom cinematic_adjustment
 
         block:
             choice:
-                ease 7.5 xzoom 1.1*background_adjustment rotate -0.5
+                ease 7.5 xzoom 1.1*cinematic_adjustment rotate -0.5
             choice:
-                ease 7.5 xzoom 1.1*background_adjustment rotate 0.5 
+                ease 7.5 xzoom 1.1*cinematic_adjustment rotate 0.5 
 
             repeat
 
@@ -2009,7 +2009,7 @@ label ch1_Sentinel_attack_path_1C:
         transform_anchor True
 
         anchor (0.5, 0.5) pos (-0.9, -0.95)
-        zoom 2.0*background_adjustment
+        zoom 2.0*cinematic_adjustment
 
     "Your heart starts racing, as you remember what happened to [Rogue.name] in the first semester."
     "You rush over to try and at least help the poor girl."

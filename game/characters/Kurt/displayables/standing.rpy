@@ -111,7 +111,7 @@ layeredimage Kurt_standing:
 
     if Kurt.teleporting_out or Kurt.smoke:
         Null()
-    else:
+    elif Kurt.right_arm in ["crossed", "extended", "fight", "fist", "neutral", "question"]:
         At("Kurt_standing_right_arm", Kurt_standing_right_arm_animation)
 
     if Kurt.teleporting_out or Kurt.smoke:
@@ -146,13 +146,13 @@ layeredimage Kurt_standing:
 
     if Kurt.teleporting_out or Kurt.smoke:
         Null()
-    elif Kurt.left_arm in ["extended", "fight"]:
-        "characters/Kurt/images/left_forearm_[Kurt.left_arm].webp"
+    elif Kurt.right_arm in ["fight", "question"]:
+        "characters/Kurt/images/right_forearm_[Kurt.right_arm].webp"
 
     if Kurt.teleporting_out or Kurt.smoke:
         Null()
-    elif Kurt.right_arm in ["question", "fight"]:
-        "characters/Kurt/images/right_forearm_[Kurt.right_arm].webp"
+    elif Kurt.left_arm in ["extended", "fight"]:
+        "characters/Kurt/images/left_forearm_[Kurt.left_arm].webp"
 
     if not Kurt.teleporting_out and not Kurt.teleporting_in and not Kurt.smoke:
         Null()

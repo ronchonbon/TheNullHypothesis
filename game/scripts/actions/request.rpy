@@ -204,7 +204,7 @@ label request_Action(Action_type, Actors, Targets):
     $ speed = temp_speed
     $ intensity = temp_intensity
 
-    call continue_Actions
+    call continue_Actions from _call_continue_Actions
 
     return
 

@@ -298,6 +298,8 @@ screen home_screen():
 
                 if input_cheats:
                     input id "cheat_input" value VariableInputValue("current_input", default = True) anchor (0.0, 0.5) pos (0.13, 0.58):
+                        font "agency_fb.ttf"
+
                         size 30
 
                         color "#000000"

@@ -732,6 +732,9 @@ screen head_screen(Character):
                 elif Character in [Jean]:
                     $ left_arms = [
                         "bra", "crossed", "extended", "fight", "fist", "grope", "hip", "neutral", "psychic1", "psychic2", "rub_neck", "touch_ass"]
+                elif Character in [Ororo]:
+                    $ left_arms = [
+                        "bra", "crossed", "extended", "fight", "fist", "grope", "hip", "neutral", "rub_neck", "storm1", "storm2", "touch_ass"]
 
                 for left_arm in left_arms:
                     hbox:
@@ -764,10 +767,13 @@ screen head_screen(Character):
                         "bra", "crossed", "extended", "fight", "fist", "hip", "neutral", "touch_pussy"]
                 elif Character in [Laura]:
                     $ right_arms = [
-                        "bra", "claws", "extended", "fight", "fist", "hip", "neutral", "touch_pussy", "X"]
+                        "bra", "claws", "crossed", "extended", "fight", "fist", "hip", "neutral", "touch_pussy", "X"]
                 elif Character in [Jean]:
                     $ right_arms = [
-                        "bra", "extended", "fight", "fist", "hip", "neutral", "psychic1", "psychic2", "touch_pussy"]
+                        "bra", "crossed", "extended", "fight", "fist", "hip", "neutral", "psychic1", "psychic2", "touch_pussy"]
+                elif Character in [Ororo]:
+                    $ right_arms = [
+                        "bra", "crossed", "extended", "fight", "fist", "hip", "neutral", "storm1", "storm2", "touch_pussy"]
 
                 for right_arm in right_arms:
                     hbox:

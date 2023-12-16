@@ -469,6 +469,10 @@ init -2 python:
             brows = "furrowed"
             eyes = "neutral"
             mouth = "frown"
+        elif face == "grimace":
+            brows = "furrowed"
+            eyes = "closed"
+            mouth = "lipbite"
         elif face == "happy":
             brows = "neutral"
             eyes = "neutral"
@@ -538,6 +542,10 @@ init -2 python:
             brows = "furrowed"
             eyes = "squint"
             mouth = "frown"
+        elif face == "wink":
+            brows = "wink"
+            eyes = "wink"
+            mouth = "kiss"
         elif face == "worried1":
             brows = "worried"
             eyes = "neutral"

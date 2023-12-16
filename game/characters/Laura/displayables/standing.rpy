@@ -129,10 +129,7 @@ layeredimage Laura_standing:
     always:
         "Laura_standing_body"
 
-    if Laura.left_arm in ["hip"]:
-        "characters/Laura/images/standing/left_arm_[Laura.left_arm]_shadow.webp"
-
-    if Laura.left_arm not in ["bra", "claws", "crossed", "extended", "fight", "fist", "grope", "hip", "neutral", "touch_ass", "X"]:
+    if Laura.left_arm not in ["bra", "claws", "crossed", "fight", "fist", "grope", "hip", "neutral", "touch_ass", "X"]:
         Null()
     elif renpy.get_screen("Wardrobe_screen"):
         "Laura_standing_left_arm"
@@ -144,7 +141,7 @@ layeredimage Laura_standing:
     if Laura.right_arm in ["hip", "touch_pussy"]:
         "characters/Laura/images/standing/right_forearm_[Laura.right_arm]_shadow.webp"
 
-    if Laura.right_arm in ["extended", "hip", "touch_pussy"]:
+    if Laura.right_arm in ["hip", "touch_pussy"]:
         "characters/Laura/images/standing/right_forearm_[Laura.right_arm].webp"
 
     if not Player.left_hand_Actions or Laura not in Player.left_hand_Actions[0].Targets:
@@ -165,10 +162,10 @@ layeredimage Laura_standing:
     if Laura.left_arm in ["rub_neck"]:
         "characters/Laura/images/standing/left_arm_[Laura.left_arm]_shadow.webp"
 
-    if Laura.left_arm in ["rub_neck"]:
+    if Laura.left_arm in ["extended", "rub_neck"]:
         "characters/Laura/images/standing/left_arm_[Laura.left_arm].webp"
 
-    if Laura.right_arm in ["fight", "X"]:
+    if Laura.right_arm in ["extended", "fight", "X"]:
         "characters/Laura/images/standing/right_forearm_[Laura.right_arm].webp"
 
     if Laura.left_arm in ["fight", "X"]:
@@ -265,7 +262,7 @@ layeredimage Laura_standing_head:
     always:
         "characters/Laura/images/standing/mouth_[Laura.mouth].webp"
 
-    if Laura.eyes in ["closed", "down", "left", "right", "squint", "wink", "up"]:
+    if Laura.eyes in ["closed", "down", "left", "right", "squint", "up", "wink"]:
         "characters/Laura/images/standing/eyes_[Laura.eyes].webp"
     else:
         "Laura_standing_blinking"
