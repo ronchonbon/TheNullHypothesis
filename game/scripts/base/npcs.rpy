@@ -33,6 +33,9 @@ init -2 python:
 
             self.left_arm = "neutral"
             self.right_arm = "neutral"
+
+            self.hair = None
+            self.beard = None
             
             self.wet = False
 
@@ -76,8 +79,11 @@ init -2 python:
             eyes = kwargs.get("eyes", None)
             mouth = kwargs.get("mouth", None)
 
-            self.brows, self.eyes, self.mouth = eval(f"{self.tag}_faces('{face}')")
+            self.brows, self.eyes, self.mouth, self.blush = eval(f"{self.tag}_faces('{face}')")
 
+            if blush:
+                self.blush = blush
+                
             if self.brows == "wrong":
                 renpy.invoke_in_new_context(renpy.say, None, "Something went wrong with a face here.")
 

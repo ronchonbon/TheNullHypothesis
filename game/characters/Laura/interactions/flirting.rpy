@@ -329,11 +329,11 @@ label Laura_flirt_ae:
     elif dice_roll == 3:
         $ Laura.change_face("appalled1")
 
-        pause 0.5
+        pause 1.0
 
         $ Laura.change_face("angry1", eyes = "down") 
 
-        pause 0.5
+        pause 1.0
 
         $ Laura.change_face("angry1")
 
@@ -361,7 +361,7 @@ label Laura_flirt_af:
     if dice_roll == 1:
         $ Laura.change_face("surprised1")
 
-        pause 0.5
+        pause 1.0
 
         $ Laura.change_face("smirk2", blush = 1) 
 
@@ -375,7 +375,7 @@ label Laura_flirt_af:
     elif dice_roll == 2:
         $ Laura.change_face("confused1")
 
-        pause 0.5
+        pause 1.0
 
         $ Laura.change_face("sly", blush = 1) 
 
@@ -404,7 +404,7 @@ label Laura_flirt_ag:
     if dice_roll == 1:
         $ Laura.change_face("confused1")
 
-        pause 0.5
+        pause 1.0
 
         $ Laura.change_face("suspicious1", blush = 1) 
 
@@ -422,7 +422,7 @@ label Laura_flirt_ag:
     elif dice_roll == 2:
         $ Laura.change_face("surprised2")
 
-        pause 0.5
+        pause 1.0
 
         $ Laura.change_face("sly", blush = 1) 
 
@@ -434,7 +434,7 @@ label Laura_flirt_ag:
 
         $ Laura.change_face("smirk2", eyes = "down", mouth = "lipbite", blush = 1)
 
-        pause 0.5
+        pause 1.0
 
         $ Laura.change_face("smirk2", mouth = "lipbite", blush = 1) 
 
@@ -489,7 +489,7 @@ label Laura_flirt_ah:
     elif dice_roll == 2:
         $ Laura.change_face("surprised2")
 
-        pause 0.5
+        pause 1.0
 
         $ Laura.change_face("confused1", blush = 1) 
 
@@ -509,7 +509,7 @@ label Laura_flirt_ai:
     if dice_roll == 1:
         $ Laura.change_face("pleased2")
 
-        pause 0.5
+        pause 1.0
 
         $ Laura.change_face("sexy", blush = 1) 
 
@@ -525,7 +525,7 @@ label Laura_flirt_ai:
     elif dice_roll == 2:
         $ Laura.change_face("sly")
 
-        pause 0.5
+        pause 1.0
 
         $ Laura.change_face("sly", mouth = "lipbite", blush = 1) 
 
@@ -542,7 +542,7 @@ label Laura_flirt_ai:
     elif dice_roll == 3:
         $ Laura.change_face("pleased2")
 
-        pause 0.5
+        pause 1.0
 
         $ Laura.change_face("smirk2", mouth = "lipbite", blush = 1) 
 
@@ -559,7 +559,7 @@ label Laura_flirt_ai:
     elif dice_roll == 4:
         $ Laura.change_face("pleased2")
 
-        pause 0.5
+        pause 1.0
 
         $ Laura.change_face("sexy", blush = 1) 
 
@@ -600,7 +600,7 @@ label Laura_flirt_aj:
     elif dice_roll == 2:
         $ Laura.change_face("pleased1")
 
-        pause 0.5
+        pause 1.0
 
         $ Laura.change_face("confused1", blush = 1) 
 
@@ -619,7 +619,7 @@ label Laura_flirt_aj:
     elif dice_roll == 3:
         $ Laura.change_face("surprised2")
 
-        pause 0.5
+        pause 1.0
 
         $ Laura.change_face("confused1", blush = 1) 
 
@@ -692,7 +692,7 @@ label Laura_flirt_ak:
 label Laura_flirt_al:
     $ Laura.change_face("surprised2") 
 
-    pause 0.5
+    pause 1.0
 
     $ Laura.change_face("confused1", blush = 1)
 
@@ -712,7 +712,7 @@ label Laura_flirt_am:
     if dice_roll == 1:
         $ Laura.change_face("pleased2") 
 
-        pause 0.5
+        pause 1.0
 
         $ Laura.change_face("sly", blush = 1) 
 
@@ -720,7 +720,7 @@ label Laura_flirt_am:
 
         $ Laura.change_face("sly", eyes = "down", mouth = "lipbite", blush = 1)
 
-        pause 0.5
+        pause 1.0
 
         $ Laura.change_face("sly", mouth = "lipbite", blush = 1)
 
@@ -731,7 +731,7 @@ label Laura_flirt_am:
     elif dice_roll == 2:
         $ Laura.change_face("surprised2")
 
-        pause 0.5
+        pause 1.0
 
         $ Laura.change_face("confused1", mouth = "smirk", blush = 1) 
 
@@ -767,7 +767,7 @@ label Laura_flirt_an:
     if dice_roll == 1:
         $ Laura.change_face("surprised2")
 
-        pause 0.5
+        pause 1.0
 
         $ Laura.change_face("worried1", eyes = "left", blush = 1) 
 
@@ -781,7 +781,7 @@ label Laura_flirt_an:
     elif dice_roll == 2:
         $ Laura.change_face("pleased1")
 
-        pause 0.5
+        pause 1.0
 
         $ Laura.change_face("smirk2", blush = 1)
 
@@ -795,7 +795,7 @@ label Laura_flirt_an:
     elif dice_roll == 3:
         $ Laura.change_face("surprised2")
 
-        pause 0.5
+        pause 1.0
 
         $ Laura.change_face("smirk2", eyes = "left", blush = 1) 
 
@@ -819,7 +819,7 @@ label Laura_flirt_ao:
     if dice_roll == 1:
         $ Laura.change_face("confused2")
 
-        pause 0.5
+        pause 1.0
 
         $ Laura.change_face("confused1", blush = 1)
 
@@ -834,7 +834,7 @@ label Laura_flirt_ao:
     elif dice_roll == 2:
         $ Laura.change_face("pleased2")
 
-        pause 0.5
+        pause 1.0
 
         $ Laura.change_face("smirk2", blush = 1) 
 
@@ -843,7 +843,7 @@ label Laura_flirt_ao:
 
         $ Laura.change_face("smirk2", eyes = "down", blush = 1)
 
-        pause 0.5
+        pause 1.0
 
         $ Laura.change_face("smirk2", mouth = "lipbite", blush = 1) 
 
@@ -858,11 +858,11 @@ label Laura_flirt_ao:
 label Laura_flirt_ap:
     $ Laura.change_face("surprised2")
 
-    pause 0.5
+    pause 1.0
 
     $ Laura.change_face("confused1", blush = 1) 
     
-    pause 0.5
+    pause 1.0
 
     $ Laura.change_face("smirk2", eyes = "left", blush = 1)
 
@@ -890,7 +890,7 @@ label Laura_flirt_ap:
 label Laura_flirt_aq:
     $ Laura.change_face("confused2")
 
-    pause 0.5
+    pause 1.0
 
     $ Laura.change_face("confused1", blush = 1) 
 
@@ -913,7 +913,7 @@ label Laura_flirt_aq:
 label Laura_flirt_ar:
     $ Laura.change_face("pleased2")
 
-    pause 0.5
+    pause 1.0
 
     $ Laura.change_face("smirk1", eyes = "left", blush = 1) 
 
@@ -953,7 +953,7 @@ label Laura_flirt_b:
 
         $ Laura.change_face("appalled1") 
 
-        pause 0.5
+        pause 1.0
 
         $ Laura.change_face("confused1", mouth = "smirk")
 
@@ -987,7 +987,7 @@ label Laura_flirt_b:
 
         $ Laura.change_face("pleased1")
 
-        pause 0.5
+        pause 1.0
 
         $ Laura.change_face("confused1", mouth = "smirk")
 
@@ -1004,7 +1004,7 @@ label Laura_flirt_c:
     if dice_roll == 1:
         $ Laura.change_face("confused2", blush = 1)
 
-        pause 0.5
+        pause 1.0
 
         $ Laura.change_face("confused1", mouth = "lipbite", blush = 1) 
 
@@ -1019,7 +1019,7 @@ label Laura_flirt_c:
 
         $ Laura.change_face("pleased2", blush = 1) 
 
-        pause 0.5
+        pause 1.0
 
         $ Laura.change_face("smirk2", mouth = "lipbite", blush = 1)
 
@@ -1160,7 +1160,7 @@ label Laura_flirt_f:
     elif Player.location in public_locations:
         $ Laura.change_face("confused1") 
 
-        pause 0.5
+        pause 1.0
 
         $ Laura.change_face("angry1") 
 
@@ -1189,7 +1189,7 @@ label Laura_flirt_f:
     else:
         $ Laura.change_face("confused2")
 
-        pause 0.5
+        pause 1.0
 
         $ Laura.change_face("suspicious1")
 
@@ -1226,7 +1226,7 @@ label Laura_flirt_h:
     if approval_check(Laura, threshold = [150, 175]):
         $ Laura.change_face("surprised2", blush = 1)
 
-        pause 0.5
+        pause 1.0
 
         $ Laura.change_face("worried1", eyes = "closed", mouth = "lipbite", blush = 1) 
 
@@ -1255,7 +1255,7 @@ label Laura_flirt_i:
     if Player.location in public_locations and approval_check(Laura, threshold = [125, 150]):
         $ Laura.change_face("surprised2")
 
-        pause 0.5
+        pause 1.0
 
         $ Laura.change_face("suspicious1", blush = 1) 
 
@@ -1284,7 +1284,7 @@ label Laura_flirt_i:
     elif approval_check(Laura, threshold = [125, 150]):
         $ Laura.change_face("surprised2", blush = 1) 
 
-        pause 0.5
+        pause 1.0
 
         $ Laura.change_face("sly", blush = 1)
 
@@ -1298,7 +1298,7 @@ label Laura_flirt_i:
     else:
         $ Laura.change_face("surprised2")
 
-        pause 0.5
+        pause 1.0
 
         $ Laura.change_face("suspicious", blush = 1) 
 
@@ -1338,7 +1338,7 @@ label Laura_flirt_l:
     if Player.location in public_locations and approval_check(Laura, threshold = [175, 200]):
         $ Laura.change_face("surprised2")
 
-        pause 0.5
+        pause 1.0
 
         $ Laura.change_face("sly", mouth = "lipbite", blush = 1)
 
@@ -1366,7 +1366,7 @@ label Laura_flirt_l:
     elif Player.location in public_locations:
         $ Laura.change_face("confused2")
 
-        pause 0.5
+        pause 1.0
 
         $ Laura.change_face("suspicious1")
 
@@ -1377,7 +1377,7 @@ label Laura_flirt_l:
     elif Laura.quirk:
         $ Laura.change_face("confused1")
 
-        pause 0.5
+        pause 1.0
 
         $ Laura.change_face("sly", mouth = "lipbite", blush = 1)
 
@@ -1417,7 +1417,7 @@ label Laura_flirt_l:
 
         $ Laura.change_face("surprised2", mouth = "lipbite", blush = 2) 
 
-        pause 0.5
+        pause 1.0
 
         $ Laura.change_face("sly", mouth = "lipbite", blush = 1)
 
@@ -1429,7 +1429,7 @@ label Laura_flirt_l:
     else:
         $ Laura.change_face("confused1")
 
-        pause 0.5
+        pause 1.0
 
         $ Laura.change_face("sly", mouth = "lipbite", blush = 1)
 
@@ -1453,7 +1453,7 @@ label Laura_flirt_l:
 
         $ Laura.change_face("surprised2", mouth = "lipbite", blush = 2) 
 
-        pause 0.5
+        pause 1.0
 
         $ Laura.change_face("sly", mouth = "lipbite", blush = 1)
 
@@ -1539,7 +1539,7 @@ label Laura_flirt_qa:
     call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1418
     call change_Character_stat(Laura, "desire", 0) from _call_change_Character_stat_1419 
 
-    pause 0.5
+    pause 1.0
 
     $ Laura.change_face("sly", mouth = "lipbite", blush = 1)
 
@@ -1562,7 +1562,7 @@ label Laura_flirt_qb:
     call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1421
     call change_Character_stat(Laura, "desire", 0) from _call_change_Character_stat_1422
 
-    pause 0.5
+    pause 1.0
 
     $ Laura.change_face("angry1", mouth = "lipbite", blush = 1)
 
@@ -1587,7 +1587,7 @@ label Laura_flirt_qc:
     call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1424
     call change_Character_stat(Laura, "desire", 0) from _call_change_Character_stat_1425
 
-    pause 0.5
+    pause 1.0
 
     $ Laura.change_face("sly", blush = 1)
 

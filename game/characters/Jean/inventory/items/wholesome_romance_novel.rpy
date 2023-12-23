@@ -2,7 +2,7 @@ label Jean_wholesome_romance_novel_shopping_accept:
     if EventScheduler.Events["Jean_gifts"].completed:
         $ Jean.change_face("surprised2")
 
-        pause 0.5
+        pause 1.0
 
         $ Jean.change_face("surprised1", eyes = "down", blush = 1)
 
@@ -56,7 +56,7 @@ label Jean_wholesome_romance_novel_gift_accept:
     if EventScheduler.Events["Jean_gifts"].completed:
         $ Jean.change_face("surprised2")
 
-        pause 0.5
+        pause 1.0
 
         $ Jean.change_face("surprised1", eyes = "down", blush = 1)
 

@@ -85,11 +85,11 @@ label Rogue_accepts_dildo_ass_first_time:
 
     ch_Rogue "That's pretty. . . "
 
-    pause 0.5
+    pause 1.0
 
     $ Rogue.change_face("worried1", mouth = "lipbite", blush = 2) 
 
-    pause 0.5
+    pause 1.0
 
     ch_Rogue "Alright. . ."
 

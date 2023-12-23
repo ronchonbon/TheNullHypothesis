@@ -981,7 +981,7 @@ label Rogue_flirt_f:
     elif Player.location in public_locations:
         $ Rogue.change_face("worried1", eyes = "right") 
 
-        pause 0.5
+        pause 1.0
 
         $ Rogue.change_face("worried1") 
 
@@ -1008,7 +1008,7 @@ label Rogue_flirt_f:
     else:
         $ Rogue.change_face("surprised2")
 
-        pause 0.5
+        pause 1.0
 
         $ Rogue.change_face("worried1", mouth = "smirk", blush = 1)
 
@@ -1048,7 +1048,7 @@ label Rogue_flirt_h:
     if approval_check(Rogue, threshold = [175, 175]):
         $ Rogue.change_face("pleased2", blush = 1)
 
-        pause 0.5
+        pause 1.0
 
         $ Rogue.change_face("worried1", eyes = "closed", mouth = "lipbite", blush = 1) 
 
@@ -1084,7 +1084,7 @@ label Rogue_flirt_i:
     if Player.location in public_locations and approval_check(Rogue, threshold = [125, 125]):
         $ Rogue.change_face("surprised2")
 
-        pause 0.5
+        pause 1.0
 
         $ Rogue.change_face("pleased1", blush = 1) 
 
@@ -1105,7 +1105,7 @@ label Rogue_flirt_i:
 
         $ Rogue.change_face("worried2", eyes = "right")
 
-        pause 0.5
+        pause 1.0
 
         $ Rogue.change_face("worried2", blush = 1) 
 
@@ -1139,7 +1139,7 @@ label Rogue_flirt_i:
     else:
         $ Rogue.change_face("surprised2")
 
-        pause 0.5
+        pause 1.0
 
         $ Rogue.change_face("pleased1", blush = 1) 
 

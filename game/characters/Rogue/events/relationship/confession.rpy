@@ -195,7 +195,7 @@ label Rogue_confession_afternoon_class_sat_next_to:
 
     "She rushes off."
 
-    $ Kurt.change_face("confused")
+    $ Kurt.change_face("confused1")
     $ Kurt.outfit = "casual"
 
     call Kurt_teleports_in("Vat did you do zis time?") from _call_Kurt_teleports_in_3
@@ -255,7 +255,7 @@ label Rogue_confession_afternoon_class_sat_random:
 
     "She rushes off."
 
-    $ Kurt.change_face("confused")
+    $ Kurt.change_face("confused1")
     $ Kurt.outfit = "casual"
 
     call Kurt_teleports_in("Vat is up viz zat one?") from _call_Kurt_teleports_in_4
@@ -317,7 +317,7 @@ label Rogue_confession_afternoon_wander:
 
     "She hurries off."
 
-    $ Kurt.change_face("confused")
+    $ Kurt.change_face("confused1")
     $ Kurt.outfit = "casual"
 
     call Kurt_teleports_in("Vat did you do zis time?") from _call_Kurt_teleports_in_5

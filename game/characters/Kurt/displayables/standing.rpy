@@ -182,16 +182,21 @@ layeredimage Kurt_standing_head:
         "characters/Kurt/images/head.webp"
 
     always:
-        "characters/Kurt/images/mouth_neutral.webp"
+        "characters/Kurt/images/mouth_[Kurt.mouth].webp"
+
+    if Kurt.beard:
+        "characters/Kurt/images/beard_[Kurt.beard].webp"
+
+    if Kurt.eyes in ["closed", "down", "left", "right", "squint", "up", "wink"]:
+        "characters/Kurt/images/standing/eyes_[Kurt.eyes].webp"
+    else:
+        "Kurt_standing_blinking"
 
     always:
-        "characters/Kurt/images/eyes_neutral.webp"
+        "characters/Kurt/images/brows_[Kurt.brows].webp"
 
-    always:
-        "characters/Kurt/images/brows_neutral.webp"
-
-    always:
-        "characters/Kurt/images/hair_quiff.webp"
+    if Kurt.hair:
+        "characters/Kurt/images/hair_[Kurt.hair].webp"
 
     anchor (int(1250*character_sampling), int(1275*character_sampling))
     offset (int(1250*character_sampling), int(1275*character_sampling))

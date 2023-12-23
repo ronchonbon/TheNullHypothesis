@@ -1,7 +1,7 @@
 label Rogue_mystery_novel_shopping_accept:
     $ Rogue.change_face("surprised1", eyes = "down")
 
-    pause 0.5
+    pause 1.0
 
     $ Rogue.change_face("pleased2")
 
@@ -34,7 +34,7 @@ label Rogue_mystery_novel_shopping_reject:
 label Rogue_mystery_novel_gift_accept:
     $ Rogue.change_face("surprised1", eyes = "down")
 
-    pause 0.5
+    pause 1.0
 
     $ Rogue.change_face("pleased2")
 

@@ -37,10 +37,7 @@ label Jean_enjoying_being_girlfriend:
     python:
         for C in Present:
             if C != Jean:
-                if C in all_Companions:
-                    C.change_face("confused2")
-                else:
-                    C.change_face("confused")
+                C.change_face("confused2")
         
     "Before you can even react, [Jean.name] smothers you with a hug."
 
@@ -51,6 +48,8 @@ label Jean_enjoying_being_girlfriend:
             if C != Jean:
                 if C in all_Companions:
                     C.change_face("confused1", blush = 1)
+                else:
+                    C.change_face("confused1")
         
     ch_Jean "Mmm. . ."
     "[Jean.name] just squeezes harder, thoroughly enjoying the moment."

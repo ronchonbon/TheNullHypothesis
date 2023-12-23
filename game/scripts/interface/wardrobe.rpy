@@ -624,7 +624,7 @@ screen head_screen(Character):
                         
                         null width 85
 
-            if True:
+            if False:
                 $ brows = [
                     "neutral", "cocked", "furrowed", "raised", "wink", "worried"]
 

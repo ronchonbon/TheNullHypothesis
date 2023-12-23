@@ -79,6 +79,7 @@ label Laura_chapter_one_season_one_outcast:
                 middle_Spot = C
 
     $ Laura.change_face("neutral", eyes = "left") 
+    $ Laura.change_arms("crossed")
 
     call set_the_scene(location = "bg_classroom") from _call_set_the_scene_403
 
@@ -110,11 +111,13 @@ label Laura_chapter_one_season_one_outcast:
     "Pushing past all the looks you get from other students, you move to sit down right next to her."
 
     $ Laura.change_face("confused1")
+    $ Laura.change_arms("angry")
 
     ch_Player "Is this seat taken?"
     ch_Laura ". . ."
 
     $ Laura.change_face("confused1", eyes = "squint")
+    $ Laura.change_arms("crossed")
 
     ch_Laura "No. . ."
     "You sit down, and the tension in [Laura.name]'s muscles only increases."
@@ -162,6 +165,7 @@ label Laura_chapter_one_season_one_outcast:
             pause 1.0
 
     $ Laura.change_face("neutral", eyes = "right")
+    $ Laura.change_arms("neutral")
 
     "[Laura.name] remains silent as class begins, and she doesn't say another word for the remainder of class."
     "Although, you do notice some of the tension is gone from her shoulders, and she seems a bit more relaxed."
@@ -181,10 +185,12 @@ label Laura_chapter_one_season_one_outcast:
     "You pack up your things, but before you stand. . ."
 
     $ Laura.change_face("neutral", eyes = "right")
+    $ Laura.change_arms("angry")
 
     ch_Laura "Everyone else always keeps their distance."
 
     $ Laura.change_face("confused1")
+    $ Laura.change_arms("crossed")
 
     ch_Player "Wait, even someone like [Kurt.name]?"
     ch_Player "He seems like literally everyone's friend."
@@ -196,6 +202,9 @@ label Laura_chapter_one_season_one_outcast:
     ch_Player "Fear?"
     ch_Laura "There are rumors about the things I've done before coming here."
     "You notice how she doesn't try to refute any of them. . ."
+
+    $ Laura.change_arms("angry")
+
     ch_Laura "They have ideas about how dangerous I am."
     ch_Laura "I have overheard some call me a 'feral killing machine.'"
 
@@ -205,12 +214,16 @@ label Laura_chapter_one_season_one_outcast:
     ch_Laura "It is fine."
 
     $ Laura.change_face("neutral", eyes = "right")
+    $ Laura.change_arms("crossed")
 
     ch_Laura "An expected reaction from them. . ."
 
     $ Laura.change_face("smirk1", eyes = "right")
 
     ch_Laura "I did not mind you sitting next to me."
+    
+    $ Laura.change_arms("neutral")
+
     ch_Laura "Thank you. . ."
     ch_Laura "Bye."
 

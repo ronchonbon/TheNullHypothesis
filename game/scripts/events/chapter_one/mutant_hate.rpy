@@ -140,7 +140,7 @@ label ch1_mutant_hate:
         if Kurt.text_history[-1][1] == "hey, about that comic book store in town":
             call receive_text(Kurt, "Vee should go in zee afternoon") from _call_receive_text_685
         else:
-            $ Kurt.change_face("confused")
+            $ Kurt.change_face("confused1")
 
             ch_Kurt "Better to go in zee afternoon, I sink."
 
@@ -306,7 +306,7 @@ label ch1_mutant_hate:
 
     ch_Player "Can you hear that?"
 
-    $ Kurt.change_face("confused")
+    $ Kurt.change_face("confused1")
 
     ch_Kurt "Nein."
     ch_Kurt "Your hearing has gotten quite good. . ."
@@ -327,7 +327,7 @@ label ch1_mutant_hate:
     ch_protest_leader "Mutants are a cancer to our society!"
     ch_protest_leader "They are an affront to god! Malformations, created by the devil himself to spit in the face of all that is holy!"
 
-    $ Kurt.change_face("angry")
+    $ Kurt.change_face("angry1")
 
     "[Kurt.name] becomes visibly upset by these remarks, and you see him shake as he tries to reel in his emotions."
 
@@ -357,7 +357,7 @@ label ch1_mutant_hate:
         "What the fuck is wrong with these people? (bitter)":
             ch_Player "If they start messing with mutants. . . they deserve the consequences." 
             
-            $ Kurt.change_face("angry")
+            $ Kurt.change_face("angry1")
 
             ch_Kurt "I am upset too, mein Bruder." 
             
@@ -386,7 +386,7 @@ label ch1_mutant_hate:
     ch_protest_leader "Mutants are inhuman abominations! They do not deserve the rights granted to us by god!"
     "As the crowd draws near, you notice some of them have weapons. . ."
 
-    $ Kurt.change_face("angry")
+    $ Kurt.change_face("angry1")
 
     ch_Player "Maybe we should go a different way. . ."
     "[Kurt.name] doesn't seem to hear you and keeps walking, trying to ignore them."
@@ -413,7 +413,7 @@ label ch1_mutant_hate:
 
     pause 1.0
 
-    $ Kurt.change_face("surprised")
+    $ Kurt.change_face("surprised1")
 
     "He snaps out of it and quickly puts the hood back up."
 
@@ -641,7 +641,7 @@ label ch1_mutant_hate:
 
     call Kurt_teleports_in from _call_Kurt_teleports_in_7
 
-    $ Kurt.change_face("surprised")
+    $ Kurt.change_face("surprised1")
 
     ch_Kurt "Heilige scheiße. . ."
     ch_Kurt "Are you. . . okay?"
@@ -1212,7 +1212,7 @@ label ch1_mutant_hate:
     ch_Charles "I trust Kurt will want to speak to you himself, he was very repentant about what happened."
     ch_Player "What, why? It's not his fault."
 
-    $ Charles.change_face("confused")
+    $ Charles.change_face("confused1")
 
     ch_Charles "He does not feel that way."
 
@@ -1288,12 +1288,12 @@ label ch1_mutant_hate:
     call set_the_scene(location = "bg_hallway") from _call_set_the_scene_285
     call send_Characters(Kurt, "bg_hallway") from _call_send_Characters_223
 
-    $ Kurt.change_face("surprised")
+    $ Kurt.change_face("surprised1")
 
     ch_Kurt "[Player.first_name]!"
     ch_Player "Hey man."
 
-    $ Kurt.change_face("confused")
+    $ Kurt.change_face("confused1")
 
     ch_Player "Xavier told me you wanted to say sorry, but I won't let you."
     ch_Kurt "Eh?"
@@ -1309,7 +1309,7 @@ label ch1_mutant_hate:
     ch_Player "I heard you fighting tooth and nail trying to get back to me."
     ch_Player "It would've been really stupid to try and fight alongside me." 
 
-    $ Kurt.change_face("confused")
+    $ Kurt.change_face("confused1")
 
     "You put your arm out."
 

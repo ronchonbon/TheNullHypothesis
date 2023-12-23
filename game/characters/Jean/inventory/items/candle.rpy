@@ -18,7 +18,7 @@ label Jean_candle_shopping_accept:
 
     $ Jean.change_face("pleased2")
 
-    pause 0.5
+    pause 1.0
 
     $ Jean.change_face("worried1", eyes = "right", mouth = "smirk")
 
@@ -58,7 +58,7 @@ label Jean_candle_gift_accept:
 
     $ Jean.change_face("pleased2")
 
-    pause 0.5
+    pause 1.0
 
     $ Jean.change_face("worried1", eyes = "right", mouth = "smirk")
 

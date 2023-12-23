@@ -73,6 +73,7 @@ label Rogue_chapter_one_season_one_jogging:
     call set_the_scene(location = "bg_lockers") from _call_set_the_scene_387
 
     $ Rogue.change_face("sad", eyes = "down")
+    $ Rogue.change_arms("hips")
 
     call send_Characters(Rogue, "bg_lockers", behavior = "training") from _call_send_Characters_313
 
@@ -100,38 +101,46 @@ label Rogue_chapter_one_season_one_jogging:
     call set_the_scene(location = "bg_campus") from _call_set_the_scene_388
     
     $ Rogue.change_face("neutral", eyes = "down")
+    $ Rogue.change_arms("crossed")
 
     call send_Characters(Rogue, "bg_campus", behavior = "training") from _call_send_Characters_314
 
     "You catch up with her as she starts doing some warmup exercises on the front lawn."
 
     $ Rogue.change_face("surprised2")
+    $ Rogue.change_arms("angry")
 
     ch_Player "Hey, [Rogue.name]. Everything okay?"
 
     $ Rogue.change_face("worried1")
+    $ Rogue.change_arms("sheepish", right_arm = "neutral")
 
-    pause 0.5
+    pause 1.0
 
     $ Rogue.change_face("worried1", eyes = "right")
+    $ Rogue.change_arms("neutral")
 
     ch_Rogue "*sigh* Yeah, everythin's fine, ah guess."
     ch_Rogue "Just had a crappy trainin' session there. Well, tried to at least."
 
     $ Rogue.change_face("worried1")
+    $ Rogue.change_arms("crossed")
 
     ch_Player "Tried to?"
     ch_Rogue "Yeah. It's these darn powers again."
 
     $ Rogue.change_face("angry1", eyes = "right")
+    $ Rogue.change_arms("shrug")
 
     ch_Rogue "We don't have the facilities for anyone else to train safely with me, so if ah want to get a proper session in, ah have to do it alone." 
 
     $ Rogue.change_face("angry1")
+    $ Rogue.change_arms("angry")
 
     ch_Rogue "Ah have to sit on the sidelines 'n watch everyone else spar together, do team activities. . ."
 
     $ Rogue.change_face("angry1", eyes = "right")
+    $ Rogue.change_arms("crossed")
 
     ch_Rogue "So yeah, most of the time, it's just easier to come out here 'n go for a run."
 
@@ -141,6 +150,7 @@ label Rogue_chapter_one_season_one_jogging:
     ch_Rogue "Let's just say ah'm probably one of the better distance runners at the school for a reason."
 
     $ Rogue.change_face("worried2")
+    $ Rogue.change_arms("neutral")
 
     ch_Player "Well, I just finished a training session myself, but if you want a running buddy, I wouldn't mind helping out. "
 
@@ -149,6 +159,7 @@ label Rogue_chapter_one_season_one_jogging:
     ch_Rogue "Really? Ah don't mind runnin' alone. . ."
 
     $ Rogue.change_face("worried1", eyes = "right", mouth = "smirk")
+    $ Rogue.change_arms("sheepish", right_arm = "neutral")
 
     ch_Rogue "But ah'll admit, the company would be nice."
 
@@ -176,6 +187,7 @@ label Rogue_chapter_one_season_one_jogging:
             ch_Rogue "Oh really? Sounds like a challenge - hope y'all can deliver!" 
 
     $ Rogue.change_face("smirk2")
+    $ Rogue.change_arms("neutral")
 
     "You talk to [Rogue.name] for a little longer and make more formal plans to go running."
     "With that done, [Rogue.name] heads off, looking a little more upbeat than she did before."

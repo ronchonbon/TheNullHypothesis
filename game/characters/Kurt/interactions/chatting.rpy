@@ -4,7 +4,7 @@ label Kurt_chatting(line):
             "Can you tell me anything about. . . ?"
             "[Rogue.name]?" if Rogue.History.check("met"):
                 if approval_check(Rogue, threshold = "dating") and Rogue not in Partners:
-                    $ Kurt.change_face("confused") 
+                    $ Kurt.change_face("confused1") 
                     
                     ch_Kurt "Zat one?" 
                     
@@ -14,7 +14,7 @@ label Kurt_chatting(line):
                     ch_Kurt "Eferyone can tell." 
                     ch_Kurt "Vould be a nice pairing in my opinion."
                 else:
-                    $ Kurt.change_face("confused") 
+                    $ Kurt.change_face("confused1") 
 
                     ch_Kurt "Vat about her?" 
                     
@@ -28,7 +28,7 @@ label Kurt_chatting(line):
                     ch_Kurt "She vas not so friendly viz anyone in zee beginning."
             "[Laura.name]?" if Laura.History.check("met"):
                 if approval_check(Laura, threshold = "dating") and Laura not in Partners:
-                    $ Kurt.change_face("confused") 
+                    $ Kurt.change_face("confused1") 
                     
                     ch_Kurt "Vell, she is quite formidable." 
                     
@@ -41,7 +41,7 @@ label Kurt_chatting(line):
                     ch_Kurt "Many people vere not happy when she vas brought here. . ." 
                     ch_Kurt "On account of. . . zee people she killed. . ."
                 else:
-                    $ Kurt.change_face("confused") 
+                    $ Kurt.change_face("confused1") 
                     
                     ch_Kurt "Can't say I know much about zat one." 
                     ch_Kurt "She hasn't been at zee mansion for fery long, only a month or two longer zan you." 
@@ -52,7 +52,7 @@ label Kurt_chatting(line):
                     ch_Kurt "Doesn't let anyone get close." 
             "[Jean.name]?" if Jean.History.check("met"):
                 if approval_check(Jean, threshold = "dating") and Jean not in Partners:
-                    $ Kurt.change_face("confused") 
+                    $ Kurt.change_face("confused1") 
                     
                     ch_Kurt "Apparently she dated the leader of zee X-Men, Scott, several years ago. . ." 
                     
@@ -61,7 +61,7 @@ label Kurt_chatting(line):
                     ch_Kurt "I hear it vas quite zee drama." 
                     ch_Kurt "Don't sink she has tried again since." 
                 else:
-                    $ Kurt.change_face("confused") 
+                    $ Kurt.change_face("confused1") 
                     
                     ch_Kurt "Vell, she is not our age." 
                     ch_Kurt "A few years older I believe." 
@@ -70,7 +70,7 @@ label Kurt_chatting(line):
                     
                     ch_Kurt "Everbody knows she is top of her class." 
                     
-                    $ Kurt.change_face("confused") 
+                    $ Kurt.change_face("confused1") 
                     
                     ch_Kurt "Being smart seems to be a large part of her personality. . ."
 
@@ -101,7 +101,7 @@ label Kurt_chatting(line):
                         ch_Kurt "Vee both know vat 'soon' really means."
                         ch_Kurt "But, it iz nice to know zere are plans for new locations." 
             "Dates?":
-                $ Kurt.change_face("confused", mouth = "smile") 
+                $ Kurt.change_face("confused1", mouth = "smile") 
                 
                 ch_Kurt "Vell, I have shown you zee popular locations." 
                 
@@ -142,7 +142,7 @@ label Kurt_busy:
             ch_Kurt "People are angry, and zey blame us." 
             ch_Kurt "Especially zose of us who. . . look different." 
         else:
-            $ Kurt.change_face("confused") 
+            $ Kurt.change_face("confused1") 
             
             ch_Kurt "I am good, sanks." 
             
@@ -157,14 +157,14 @@ label Kurt_busy_asked_once:
     
     ch_Kurt "You alright, Bruder?" 
     
-    $ Kurt.change_face("confused") 
+    $ Kurt.change_face("confused1") 
 
     ch_Kurt "I sink you just asked me zat."
 
     return
 
 label Kurt_busy_asked_twice:
-    $ Kurt.change_face("confused") 
+    $ Kurt.change_face("confused1") 
     
     ch_Kurt "It is no longer funny." 
 
@@ -186,14 +186,14 @@ label Kurt_busy_late:
     return
 
 label Kurt_busy_late_asked_once:
-    $ Kurt.change_face("confused") 
+    $ Kurt.change_face("confused1") 
     
     ch_Kurt "I said I'm going to bed."
 
     return
 
 label Kurt_busy_late_asked_twice:
-    $ Kurt.change_face("angry") 
+    $ Kurt.change_face("angry1") 
     
     ch_Kurt "Stop joking around."
 

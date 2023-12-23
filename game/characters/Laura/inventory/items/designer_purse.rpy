@@ -9,7 +9,7 @@ label Laura_designer_purse_shopping_accept:
 
     $ Laura.change_face("confused1", eyes = "down")
 
-    pause 0.5
+    pause 1.0
 
     $ Laura.change_face("confused1")
 
@@ -39,7 +39,7 @@ label Laura_designer_purse_gift_accept:
 
     $ Laura.change_face("confused1", eyes = "down")
 
-    pause 0.5
+    pause 1.0
 
     $ Laura.change_face("confused1")
 

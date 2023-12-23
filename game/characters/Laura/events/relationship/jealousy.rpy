@@ -163,13 +163,13 @@ label Laura_jealousy_went_on_date:
 
     call send_Characters(Kurt, Player.home) from _call_send_Characters_15
 
-    $ Kurt.change_face("surprised")
+    $ Kurt.change_face("surprised1")
 
     ch_Kurt "Bruder. . ."
     ch_Kurt "Is everysing okay?"
     ch_Kurt "You could hear zee yelling from across campus. . ."
 
-    $ Kurt.change_face("confused")
+    $ Kurt.change_face("confused1")
 
     ch_Player "Not really."
     ch_Player "I pissed [Laura.name] off."
@@ -179,15 +179,15 @@ label Laura_jealousy_went_on_date:
     ch_Kurt "Is she not alvays pissed off?"
     ch_Player "Not like this, I really screwed up."
 
-    $ Kurt.change_face("confused")
+    $ Kurt.change_face("confused1")
 
     "You explain what happened." 
 
-    $ Kurt.change_face("angry")
+    $ Kurt.change_face("angry1")
 
     ch_Kurt "Schön blöd, vat zee hell is wrong with you?"
 
-    $ Kurt.change_face("confused")
+    $ Kurt.change_face("confused1")
 
     ch_Kurt "You know better than anyone she has trust issues."
     ch_Kurt "She has every right to be angry."
@@ -198,7 +198,7 @@ label Laura_jealousy_went_on_date:
     ch_Kurt "I vould stay clear of her for a few days."
     ch_Kurt "She's liable to claw your eyes out if you don't let her calm down first."
 
-    $ Kurt.change_face("confused")
+    $ Kurt.change_face("confused1")
 
     pause 1.0
 
@@ -332,13 +332,13 @@ label Laura_jealousy_flirted:
 
     call send_Characters(Kurt, Player.location) from _call_send_Characters_71
 
-    $ Kurt.change_face("surprised")
+    $ Kurt.change_face("surprised1")
 
     ch_Kurt "Bruder. . ."
     ch_Kurt "Is everysing okay?"
     ch_Kurt "I saw her dragging you across campus. . ."
     
-    $ Kurt.change_face("confused")
+    $ Kurt.change_face("confused1")
 
     ch_Player "Not really."
     ch_Player "I pissed [Laura.name] off."
@@ -348,15 +348,15 @@ label Laura_jealousy_flirted:
     ch_Kurt "Is she not alvays pissed off?"
     ch_Player "Not like this, I really screwed up."
 
-    $ Kurt.change_face("confused")
+    $ Kurt.change_face("confused1")
 
     "You explain what happened." 
 
-    $ Kurt.change_face("angry")
+    $ Kurt.change_face("angry1")
 
     ch_Kurt "Schön blöd, vat zee hell is wrong with you?"
 
-    $ Kurt.change_face("confused")
+    $ Kurt.change_face("confused1")
 
     ch_Kurt "You know better than anyone she has trust issues."
     ch_Kurt "She has every right to be angry."
@@ -367,7 +367,7 @@ label Laura_jealousy_flirted:
     ch_Kurt "I vould stay clear of her for a few days."
     ch_Kurt "She's liable to claw your eyes out if you don't let her calm down first."
 
-    $ Kurt.change_face("confused")
+    $ Kurt.change_face("confused1")
 
     pause 1.0
 

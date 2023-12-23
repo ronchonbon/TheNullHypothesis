@@ -188,17 +188,20 @@ label ch1_Juggernaut_attack:
     ch_Jean "[temp]!"
     
     $ Jean.change_face("worried3") 
+    $ Jean.change_arms("angry")
 
     call send_Characters(Jean, location = "bg_hallway", behavior = False) from _call_send_Characters_285
 
     ch_Jean "Thank god you're okay." 
 
     $ Jean.change_face("worried1") 
+    $ Jean.change_arms(left_arm = "rub_neck", right_arm = "extended")
 
     ch_Player "What are you doing here?"
     ch_Jean "I was nearby - had to make sure you were okay."
 
     $ Jean.change_face("worried1", mouth = "smirk") 
+    $ Jean.change_arms("sass")
 
     ch_Player "Do you know what's going on?"
     ch_Jean "No. . . it's probably some stray mutant attacking the school for whatever reason." 
@@ -208,6 +211,7 @@ label ch1_Juggernaut_attack:
     ch_Jean "Now that I know you're safe, I'll just head over and help deal with them real quick." 
 
     $ Jean.change_face("worried1", eyes = "right") 
+    $ Jean.change_arms("crossed")
 
     $ temp = Jean.petname.capitalize()
 
@@ -223,6 +227,7 @@ label ch1_Juggernaut_attack:
             call change_Character_stat(Jean, "trust", small_stat) from _call_change_Character_stat_841
 
     $ Jean.change_face("angry1") 
+    $ Jean.change_arms("angry")
 
     ch_Jean "Oh don't start."
     ch_Jean "I'll be fine, I won't lose control." 
@@ -232,6 +237,7 @@ label ch1_Juggernaut_attack:
     ch_Player "[Jean.name]. . ."
 
     $ Jean.change_face("worried1", eyes = "right")
+    $ Jean.change_arms("crossed")
 
     pause 1.0 
 
@@ -249,6 +255,7 @@ label ch1_Juggernaut_attack:
     ch_Player "I'll just go try and find [Laura.name] and [Rogue.name]."
 
     $ Jean.change_face("appalled1") 
+    $ Jean.change_arms("angry")
 
     ch_Jean "Absolutely not, you're staying right here where it's safe."
 
@@ -267,9 +274,12 @@ label ch1_Juggernaut_attack:
 
             $ Player.History.update("Bitter")
 
+    $ Jean.change_arms("neutral")
+
     ch_Jean "Fine. . ."
 
     $ Jean.change_face("angry1") 
+    $ Jean.change_arms("sass")
 
     ch_Jean "You better be careful."
 
@@ -912,6 +922,7 @@ label ch1_Juggernaut_attack:
     call send_Characters(Laura, "bg_girls_hallway") from _call_send_Characters_170
 
     $ Laura.change_face("angry1", eyes = "closed", blush = 1)
+    $ Laura.change_arms("crossed")
 
     "[Laura.name] leaps at you, pulling you into a bear hug and causing a jolt of pain in your ribs."
     ch_Laura "How are you awake already?!"
@@ -936,12 +947,14 @@ label ch1_Juggernaut_attack:
     ch_Player "[Laura.name]. . . can't. . . breathe. . ."
 
     $ Laura.change_face("angry1", blush = 2)
+    $ Laura.change_arms("angry")
 
     "She lets go and collects herself."
 
     camera
 
     $ Laura.change_face("furious", blush = 1)
+    $ Laura.change_arms("hips") 
 
     ch_Laura "Suck it up, you did this to yourself."
 
@@ -951,6 +964,7 @@ label ch1_Juggernaut_attack:
         ch_Player "I didn't expect my power to be completely useless. . ."
 
     $ Laura.change_face("confused1")
+    $ Laura.change_arms("neutral")
 
     menu:
         extend ""
@@ -959,6 +973,7 @@ label ch1_Juggernaut_attack:
             call change_Character_stat(Laura, "trust", medium_stat) from _call_change_Character_stat_1588
 
             $ Laura.change_face("angry1", eyes = "right") 
+            $ Laura.change_arms("crossed")
             
             ch_Player "She's our friend, remember?"
             ch_Player "And don't tell me you weren't getting ready to fight that behemoth in order to protect me." 
@@ -974,6 +989,7 @@ label ch1_Juggernaut_attack:
             ch_Player "But [Rogue.name] is our friend, I couldn't just run away." 
             
             $ Laura.change_face("angry1", eyes = "right") 
+            $ Laura.change_arms("crossed")        
             
             ch_Player "And don't tell me you weren't ready to fight that behemoth in order to protect me." 
 
@@ -988,6 +1004,7 @@ label ch1_Juggernaut_attack:
             ch_Player "I was gonna help [Rogue.name] either way." 
             
             $ Laura.change_face("angry1", eyes = "right") 
+            $ Laura.change_arms("crossed")            
             
             ch_Player "And don't tell me you weren't getting ready to fight that behemoth in order to protect me." 
 
@@ -1000,10 +1017,12 @@ label ch1_Juggernaut_attack:
     ch_Laura "This whole 'friends' thing keeps getting more confusing."
 
     $ Laura.change_face("confused2")
+    $ Laura.change_arms(left_arm = "hip", right_arm = "extended")
 
     ch_Laura "Why would a friend want you to almost die to save them?" 
 
     $ Laura.change_face("appalled2")
+    $ Laura.change_arms("angry")
 
     ch_Laura "It makes no sense!" 
 
@@ -1012,10 +1031,12 @@ label ch1_Juggernaut_attack:
     ch_Player "It doesn't work like that, it's the other way around." 
 
     $ Laura.change_face("confused2")
+    $ Laura.change_arms("neutral")
 
     ch_Player "Of course you wouldn't want your friend to die trying to save you."
 
     $ Laura.change_face("angry1")
+    $ Laura.change_arms("crossed")
 
     ch_Player "What makes someone a real friend - or more - is the willingness to go that far." 
     ch_Player "Even when the other person wouldn't ask for it."
@@ -1039,6 +1060,7 @@ label ch1_Juggernaut_attack:
     ch_Laura "Fine, but I'll be watching you."
 
     $ Laura.change_face("suspicious2") 
+    $ Laura.change_arms("angry")
 
     pause 1.0
 
@@ -1067,6 +1089,7 @@ label ch1_Juggernaut_attack:
     call send_Characters(Jean, "bg_girls_hallway") from _call_send_Characters_171
 
     $ Jean.change_face("worried3", eyes = "closed", blush = 1)
+    $ Jean.change_arms("crossed")
 
     "[Jean.name] wraps you in another bear hug."
 
@@ -1081,6 +1104,7 @@ label ch1_Juggernaut_attack:
     ch_Jean "You idiot, you're not allowed to die on me."
 
     $ Jean.change_face("worried2", blush = 1)
+    $ Jean.change_arms("neutral")
 
     ch_Player "{i}Jean{/i}. . . {i}ribs{/i}. . . {i}hurt{/i}. . ."
     "She lets go."
@@ -1088,12 +1112,16 @@ label ch1_Juggernaut_attack:
 
     if Jean.quirk is None:
         $ Jean.change_face("worried1", eyes = "right", mouth = "lipbite", blush = 1)
+        $ Jean.change_arms(left_arm = "rub_neck")
 
         ch_Player "And did you just call me 'little bro'?" 
 
         $ Jean.change_face("worried1", mouth = "lipbite", blush = 1)
 
         ch_Jean "Yes. . ."
+
+        $ Jean.change_arms("shrug")
+
         ch_Jean "I mean, you are my little bro'. . ."
 
         $ Jean.change_face("worried1", mouth = "lipbite", blush = 2)
@@ -1101,6 +1129,8 @@ label ch1_Juggernaut_attack:
         pause 1.0
 
         $ Jean.blush = 1
+
+        $ Jean.change_arms("shrug", left_arm = "rub_neck")
 
         ch_Jean "It's not a problem. . . if I keep calling you that, right?"
 
@@ -1110,6 +1140,7 @@ label ch1_Juggernaut_attack:
                 call change_Character_stat(Jean, "love", medium_stat) from _call_change_Character_stat_1591
                 
                 $ Jean.change_face("worried2", mouth = "lipbite", blush = 2)
+                $ Jean.change_arms("crossed")
 
                 pause 1.0
 
@@ -1122,6 +1153,7 @@ label ch1_Juggernaut_attack:
                 $ Jean.History.update("quirk_encouraged")
             "I'd rather you just use my name. (discourage_quirk)":
                 $ Jean.change_face("angry1", blush = 1)
+                $ Jean.change_arms("crossed")
 
                 ch_Jean "Ugh, fine."
 
@@ -1132,6 +1164,8 @@ label ch1_Juggernaut_attack:
         $ Jean.change_face("suspicious1")
 
         ch_Jean "Anyways." 
+
+    $ Jean.change_arms("hips")
 
     ch_Jean "I told you to not die!" 
 
@@ -1148,10 +1182,12 @@ label ch1_Juggernaut_attack:
             extend ""
             "I saw [Rogue.name], but then I saw that. . . [Cain.name]. . .":
                 $ Jean.change_face("worried1") 
+                $ Jean.change_arms("angry")
                 
                 ch_Player "I just froze up." 
                 
                 $ Jean.change_face("sad") 
+                $ Jean.change_arms("crossed")
                 
                 ch_Player "Eventually I snapped out of it, but maybe if I acted sooner things would've been different."
                 
@@ -1162,27 +1198,31 @@ label ch1_Juggernaut_attack:
                 ch_Jean "But she was already hurt by the time you got there." 
                 
                 $ Jean.change_face("worried1", mouth = "smirk") 
-                
+                $ Jean.change_arms("sass")
+
                 ch_Jean "Don't worry, I'll back you up next time." 
                 ch_Jean "Then you won't have anything to worry about. . ." 
                 
                 $ Jean.change_face("furious", eyes = "right") 
-                
+                $ Jean.change_arms("angry")
+
                 ch_Jean "Once my power cooperates. . ."
             "Maybe if I tried helping Colossus instead, things would've been different.":
                 call change_Character_stat(Jean, "love", small_stat) from _call_change_Character_stat_1594
                 call change_Character_stat(Jean, "trust", -small_stat) from _call_change_Character_stat_1595
                 
                 $ Jean.change_face("angry1")
+                $ Jean.change_arms("angry")
                 
                 ch_Jean "No, [Jean.Player_petname]." 
                 ch_Jean "Don't be reckless."
                 
                 $ Jean.change_face("worried1", mouth = "smirk") 
+                $ Jean.change_arms("crossed")
                 
                 ch_Jean "Next time I'll be there to back you up and you won't have to worry about anything. . ." 
                 
-                $ Jean.change_face("furious", eyes = "right") 
+                $ Jean.change_face("furious", eyes = "right")
                 
                 ch_Jean "If my power cooperates. . ."
     else:
@@ -1190,6 +1230,7 @@ label ch1_Juggernaut_attack:
             extend ""
             "Well, when I got there I saw [Rogue.name]. . .":
                 $ Jean.change_face("worried2") 
+                $ Jean.change_arms("crossed")
                 
                 ch_Player "She was unconscious, looked hurt pretty bad." 
                 ch_Player "I couldn't just stand around." 
@@ -1208,26 +1249,31 @@ label ch1_Juggernaut_attack:
                 call change_Character_stat(Jean, "trust", -medium_stat) from _call_change_Character_stat_1602
 
                 $ Jean.change_face("appalled1") 
+                $ Jean.change_arms("angry")
                 
                 ch_Player "It didn't really work out for some reason. . ." 
                 
                 $ Jean.change_face("angry1") 
+                $ Jean.change_arms("crossed")
                 
                 $ temp = Jean.Player_petname.capitalize()
 
                 ch_Jean "[temp]. . . you are SUCH an idiot!" 
                 
                 $ Jean.change_face("appalled1") 
+                $ Jean.change_arms("shrug")
                 
                 ch_Jean "Running in recklessly like that, what the hell were you thinking?!" 
                 
                 $ Jean.change_face("confused2") 
+                $ Jean.change_arms("angry") 
 
                 ch_Player "It was kinda stupid. . ." 
                 
         ch_Jean "If I was there things would've gone differently." 
         
         $ Jean.change_face("angry1", eyes = "right") 
+        $ Jean.change_arms("crossed")        
         
         ch_Jean "I wouldn't have let you get hurt." 
         
@@ -1240,6 +1286,7 @@ label ch1_Juggernaut_attack:
     ch_Player "Don't worry, I'm sure we can figure it out." 
 
     $ Jean.change_face("worried1", mouth = "smirk")
+    $ Jean.change_arms("sass")
 
     ch_Jean "Of course I. . . we will." 
 
@@ -1274,6 +1321,7 @@ label ch1_Juggernaut_attack:
     call send_Characters(Rogue, location = Rogue.home, behavior = False) from _call_send_Characters_286
 
     $ Rogue.change_face("worried2", eyes = "closed", blush = 1)
+    $ Rogue.change_arms("crossed")
 
     "Into {i}another{/i} bear hug."
     "She's squeezing so hard you think you hear your tender ribs start cracking again."
@@ -1282,6 +1330,9 @@ label ch1_Juggernaut_attack:
 
     ch_Player "{i}[Rogue.name]{/i}. . . {i}squeezing{/i}. . ." 
     ch_Rogue "Sorry, hon'."
+
+    $ Rogue.change_arms("sheepish", right_arm = "neutral")
+
     "She lets go."
 
     $ Rogue.change_face("worried1")
@@ -1290,6 +1341,7 @@ label ch1_Juggernaut_attack:
     ch_Player "It hurt pretty bad in the moment, but I guess it wasn't serious."
 
     $ Rogue.change_face("worried1", eyes = "right", blush = 1)
+    $ Rogue.change_arms("angry")
 
     ch_Rogue "And, ah heard what you did for me. . . " 
 
@@ -1304,6 +1356,7 @@ label ch1_Juggernaut_attack:
             call change_Character_stat(Rogue, "trust", medium_stat) from _call_change_Character_stat_856
 
             $ Rogue.change_face("worried2", blush = 2) 
+            $ Rogue.change_arms("crossed")
             
             ch_Player "Maybe if I was faster you wouldn't have gotten hurt in the first place." 
             
@@ -1312,23 +1365,27 @@ label ch1_Juggernaut_attack:
             ch_Rogue "Ah hope ya never have to again. . ." 
             
             $ Rogue.change_face("angry1", eyes = "right", blush = 1) 
-            
+            $ Rogue.change_arms("angry")
+
             ch_Rogue "And next time, ah'll be right there fightin' alongside ya."
         "It's not your fault.":
             call change_Character_stat(Rogue, "trust", medium_stat) from _call_change_Character_stat_635
 
             $ Rogue.change_face("worried1", blush = 1) 
+            $ Rogue.change_arms("crossed")
             
             ch_Player "Maybe if I was faster you wouldn't have gotten hurt in the first place." 
             ch_Rogue "Don't blame yerself." 
             
             $ Rogue.change_face("angry1", eyes = "right", blush = 1) 
-            
+            $ Rogue.change_arms("angry")
+
             ch_Rogue "Next time, ah'll be right there fightin' alongside ya."
         "Yeah. . . it wasn't fun.":
             call change_Character_stat(Rogue, "love", -small_stat) from _call_change_Character_stat_636
 
-            $ Rogue.change_face("worried1", eyes = "down", blush = 1) 
+            $ Rogue.change_face("worried1", eyes = "down", blush = 1)
+            $ Rogue.change_arms("crossed") 
             
             ch_Player "But we're both okay now." 
             ch_Rogue "Ah really am sorry. . ." 
@@ -1358,22 +1415,26 @@ label ch1_Juggernaut_attack:
     ch_Player "Hey, why would [Charles.name] text me when he can just talk in my head?" 
 
     $ Rogue.change_face("confused1")
+    $ Rogue.change_arms("neutral")
 
     ch_Rogue "The Professor makes an effort to respect our privacy."
     ch_Rogue "Avoids usin' his powers inside our bedrooms 'cept for special circumstances."
     ch_Rogue "Not to mention, our rooms are able to block mutant powers when needed."
 
     $ Rogue.change_face("confused1", mouth = "smirk")
+    $ Rogue.change_arms("crossed")
 
     ch_Rogue "For security reasons."
     ch_Rogue "Ah reckon you can guess why it would be a problem if someone like [Kurt.name] just popped up in the middle of someone's room."
     ch_Player "I. . . never thought of that."
 
     $ Rogue.change_face("worried1", mouth = "smirk")
+    $ Rogue.change_arms("neutral", left_arm = "extended")
 
     ch_Rogue "Cause yer a gentleman, you'd never try somethin' untoward." 
 
     $ Rogue.change_face("smirk2")
+    $ Rogue.change_arms("neutral")
 
     ch_Player "Thanks. . . I gotta go talk to [Charles.name], I'll see you later."
     ch_Rogue "Bye." 
@@ -1391,7 +1452,7 @@ label ch1_Juggernaut_attack:
     ch_Charles "Hello [Player.first_name], I am glad to see you doing so well."
     ch_Player "Better than expected apparently."
 
-    $ Charles.change_face("confused")
+    $ Charles.change_face("confused1")
 
     ch_Charles "Yes, I spoke to Cecilia. She was quite surprised by your condition."
 
@@ -1415,7 +1476,7 @@ label ch1_Juggernaut_attack:
 
     ch_Charles "By all accounts, when you were brought to the infirmary, your injuries were quite severe."
 
-    $ Charles.change_face("confused")
+    $ Charles.change_face("confused1")
 
     ch_Charles "That was only two days ago."
     ch_Charles "Radiography from just this morning shows callus formation and even remodeling around your previously fractured ribs."
@@ -1424,7 +1485,7 @@ label ch1_Juggernaut_attack:
 
     ch_Charles "In other words, it is as if they have been healing for several weeks and not just two days."
 
-    $ Charles.change_face("confused")
+    $ Charles.change_face("confused1")
 
     ch_Charles "And I have still neglected to mention your head injury, which was more critical than you think."
     ch_Player "Damn. . . I just thought my injuries weren't as bad as people thought."
@@ -1435,7 +1496,7 @@ label ch1_Juggernaut_attack:
     ch_Charles "Potentially."
     ch_Charles "Robust constitutions are a common by-product of mutation. Look at Colossus for example."
 
-    $ Charles.change_face("confused")
+    $ Charles.change_face("confused1")
 
     ch_Charles "Do not take this as an invitation for recklessness."
     ch_Charles "I recommend you continue carefully exploring your abilities with [Jean.name]."
@@ -1457,7 +1518,7 @@ label ch1_Juggernaut_attack:
         ch_Charles "As you know all too well, your nullification did not have an effect on Cain Marko aka 'The Juggernaut.'"
         ch_Player "Am I just not strong enough?"
 
-        $ Charles.change_face("confused")
+        $ Charles.change_face("confused1")
 
         ch_Charles "Hardly."
 
@@ -1511,25 +1572,27 @@ label ch1_Juggernaut_attack:
     "As you're getting ready to finally go to bed, someone knocks on your door."
     "Too tired to even see who it is, you let them in."
 
-    # $ Ororo.right_arm = 2
-
     # call change_Outfit(Ororo, Ororo.Wardrobe.Outfits["Hero (Chapter I)"], instant = True) from _call_change_Outfit_28
     call add_Characters(Ororo) from _call_add_Characters_49
 
     $ Ororo.change_face("worried1")
+    $ Ororo.change_arms("sheepish", right_arm = "neutral")
 
     ch_Player "Professor?!"
     ch_Ororo "I apologize for bothering you at such a late hour. . ."
 
-    # $ Ororo.right_arm = 1
     $ Ororo.change_face("worried1", eyes = "down")
 
     pause 1.0
 
     $ Ororo.change_face("worried1", mouth = "smirk")
+    $ Ororo.change_arms("neutral", left_arm = "extended")
 
     ch_Ororo "Are you alright?" 
     ch_Ororo "I heard your injuries were severe."
+
+    $ Ororo.change_arms("crossed")
+
     ch_Ororo "You look quite exhausted."
 
     menu:
@@ -1559,14 +1622,17 @@ label ch1_Juggernaut_attack:
             ch_Ororo "It cannot. . ."
 
     $ Ororo.change_face("worried1")
+    $ Ororo.change_arms("neutral", left_arm = "extended")
 
     ch_Ororo "I heard about your condition, and the circumstances of the attack before I arrived."
 
     $ Ororo.change_face("sad")
+    $ Ororo.change_arms("angry")
 
     ch_Ororo "I deeply regret not being swift enough to prevent your injuries. . ."
 
     $ Ororo.change_face("worried1")
+    $ Ororo.change_arms("crossed")
 
     ch_Ororo "Thus, I felt it necessary to apologize."
     ch_Ororo "I also apologize for not coming to check on you sooner."
@@ -1589,19 +1655,28 @@ label ch1_Juggernaut_attack:
 
     ch_Player "But why couldn't you come see me in the morning?" 
     ch_Player "Are you not gonna be sticking around?"
+
+    $ Ororo.change_arms("hips")
+
     ch_Ororo "Unfortunately, no."
     ch_Ororo "This attack was a surprise to us all, and we had to abandon our current mission in order to thwart it."
 
     $ Ororo.change_face("neutral")
+    $ Ororo.change_arms("hips", right_arm = "extended")
 
     ch_Ororo "We will be heading back out in the morning." 
 
-    $ Ororo.change_face("smirk2")
+    $ Ororo.change_face("confused1", mouth = "smirk")
+    $ Ororo.change_arms("hips")
 
     ch_Ororo "This reminds me, Colossus also wanted to express his well wishes."
+    
+    $ Ororo.change_arms("hips", left_arm = "extended")
+
     ch_Ororo "He was not badly injured and appreciates what you did, regardless of the outcome." 
 
     $ Ororo.change_face("worried1", mouth = "smirk")
+    $ Ororo.change_arms("crossed")
 
     ch_Ororo "Now, I shall let you get some rest."
 
@@ -1614,10 +1689,12 @@ label ch1_Juggernaut_attack:
     ch_Ororo "I hope you. . ."
 
     $ Ororo.change_face("worried1", eyes = "right")
+    $ Ororo.change_arms("angry")
 
     ch_Ororo "{size=-5}Bright lady spare me from this childish embarrassment{/size}. . ."
 
     $ Ororo.change_face("worried1", mouth = "lipbite")
+    $ Ororo.change_arms("crossed")
 
     ch_Ororo "I will see you when I return. Please, sleep soundly."
 
@@ -1727,11 +1804,13 @@ label ch1_Juggernaut_attack_path_1A:
 
     call show_Character(Laura, x = stage_far_far_right, sprite_layer = 16, color_transforms = [red_lights], fade = False) from _call_show_Character_3
 
-    $ Laura.change_face("furious")
+    $ Laura.change_face("snarl")
+    $ Laura.change_arms("angry")
 
     ch_Laura "[Player.first_name], where are you goi. . ."
 
     $ Laura.change_face("appalled3")
+    $ Laura.change_arms("claws")
 
     pause 1.0
 
@@ -1739,7 +1818,7 @@ label ch1_Juggernaut_attack_path_1A:
 
     "She notices [Rogue.name]."
 
-    # $ Laura.left_arm = 2
+    $ Laura.change_arms("fight")
 
     pause 0.2
 
@@ -1827,7 +1906,7 @@ label ch1_Juggernaut_attack_path_1A:
     pause 0.5
     
     $ Laura.change_face("worried2")
-    $ Laura.change_arms("neutral")
+    $ Laura.change_arms("angry", left_arm = "extended")
 
     ch_Laura "[Player.first_name]!"
     "It feels like somebody just stabbed you in the side while simultaneously hitting you in the head with a baseball bat."
@@ -2177,11 +2256,13 @@ label ch1_Juggernaut_attack_path_1B:
 
     call show_Character(Laura, x = stage_far_far_right, sprite_layer = 16, color_transforms = [red_lights], fade = False) from _call_show_Character_4
 
-    $ Laura.change_face("furious")
+    $ Laura.change_face("snarl")
+    $ Laura.change_arms("angry")
 
     ch_Laura "[Player.first_name], where are you goi. . ."
 
     $ Laura.change_face("appalled3")
+    $ Laura.change_arms("claws")
 
     pause 1.0
 
@@ -2189,7 +2270,7 @@ label ch1_Juggernaut_attack_path_1B:
 
     "She notices [Rogue.name]."
 
-    # $ Laura.left_arm = 2
+    $ Laura.change_arms("fight")
 
     pause 0.2
 
@@ -2282,7 +2363,7 @@ label ch1_Juggernaut_attack_path_1B:
     pause 0.5
     
     $ Laura.change_face("worried2")
-    $ Laura.change_arms("neutral")
+    $ Laura.change_arms("angry", left_arm = "extended")
 
     "You're too busy laying on the floor with a splitting headache, vision swimming, gasping for air."
     "Feels like you broke a rib or two when you hit the wall. . ."

@@ -631,8 +631,6 @@ init -2 python:
         else:
             return "wrong", "wrong", "wrong", 0
 
-            return "neutral", "neutral", "neutral", 0
-
         return brows, eyes, mouth, blush
 
     def Jean_arms(pose):

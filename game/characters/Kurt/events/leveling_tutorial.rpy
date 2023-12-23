@@ -35,7 +35,7 @@ label Kurt_leveling_tutorial:
     ch_Player "Gah!"
     ch_Kurt "Hallo!"
 
-    $ Kurt.change_face("confused")
+    $ Kurt.change_face("confused1")
 
     ch_Player "Bro, where the hel-"
     ch_Kurt "It seems mein Bruder has recently leveled up."
@@ -45,7 +45,7 @@ label Kurt_leveling_tutorial:
 
     ch_Kurt "Zee professor takes pride in his students and knows ven you've made good personal progress."
 
-    $ Kurt.change_face("confused")
+    $ Kurt.change_face("confused1")
 
     ch_Player "He does???"
 
@@ -54,7 +54,7 @@ label Kurt_leveling_tutorial:
     ch_Kurt "Improving yourself is a benefit to everyone, afterall."
     ch_Kurt "Not only do you become more capable, gaining increased stamina to perform more activities per period. . ."
 
-    $ Kurt.change_face("confused", eyes = "squint", mouth = "smile")
+    $ Kurt.change_face("confused1", eyes = "squint", mouth = "smile")
 
     ch_Kurt "But zee monetary incentive is quite generous as well."
 

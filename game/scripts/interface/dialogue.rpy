@@ -328,9 +328,9 @@ screen choice(items, menu_location = None):
     use quick_menu
 
 screen confirm(message, yes_action, no_action):
-    style_prefix "confirm"
-
     modal True
+
+    style_prefix "confirm"
 
     if message == "Are you sure you want to quit?":
         add At("images/interface/exit_popup.webp", interface) align (0.5, 0.5)

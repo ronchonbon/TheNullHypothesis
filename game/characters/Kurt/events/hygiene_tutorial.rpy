@@ -40,7 +40,7 @@ label Kurt_hygiene_tutorial:
     ch_Kurt "Zee training going well?"
     ch_Player "Dude, you're going to give me a heart-"
 
-    $ Kurt.change_face("confused")
+    $ Kurt.change_face("confused1")
 
     ch_Kurt "I believe you are already aware, but just in case all zee excitement from zee past few days has made you forgetful. . ."
 
@@ -50,7 +50,7 @@ label Kurt_hygiene_tutorial:
     ch_Kurt "If you look at zee top right of your screen, you will see a small icon telling you a shower is needed."
     ch_Player "My 'screen'?"
 
-    $ Kurt.change_face("confused")
+    $ Kurt.change_face("confused1")
 
     ch_Kurt "Ja, a little icon to zee left of zee temperature."
 
@@ -58,7 +58,7 @@ label Kurt_hygiene_tutorial:
 
     ch_Kurt "Physical exertion. . ."
 
-    $ Kurt.change_face("confused", eyes = "squint")
+    $ Kurt.change_face("confused1", eyes = "squint")
 
     ch_Kurt ". . . such as training, and vatever gutter your mind trailed off to, can make you sweaty."
 

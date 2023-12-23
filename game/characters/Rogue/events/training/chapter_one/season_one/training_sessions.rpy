@@ -22,6 +22,7 @@ label Rogue_chapter_one_season_one_training_sessions:
 
     if dice_roll == 1:
         $ Rogue.change_face("pleased1")
+        $ Rogue.change_arms("hips")
 
         ch_Player "Ready to start?" 
 
@@ -32,6 +33,7 @@ label Rogue_chapter_one_season_one_training_sessions:
         "You help each other limber up, and [Rogue.name] seems to enjoy the brief contact."
 
         $ Rogue.change_face("smirk2", mouth = "lipbite")
+        $ Rogue.change_arms("fight")
 
         "You were taught how to train techniques on your own, and you attempt to pass some of the knowledge on to [Rogue.name]." 
 
@@ -43,6 +45,7 @@ label Rogue_chapter_one_season_one_training_sessions:
         "She's in great shape too. . ."
 
         $ Rogue.change_face("happy")
+        $ Rogue.change_arms("crossed")
 
         ch_Rogue "Thanks for the session, [Rogue.Player_petname]." 
 
@@ -55,6 +58,7 @@ label Rogue_chapter_one_season_one_training_sessions:
         ch_Rogue "Ah'll see ya later."
     elif dice_roll == 2:
         $ Rogue.change_face("smirk2")
+        $ Rogue.change_arms("hips")
 
         ch_Player "Today's gonna be good, I can tell."
 
@@ -68,30 +72,40 @@ label Rogue_chapter_one_season_one_training_sessions:
         "[Rogue.name] seems to particularly enjoy helping you stretch."
 
         $ Rogue.change_face("smirk2")
+        $ Rogue.change_arms("fight")
 
         "Afterwards, she leads you through a few drills, trying to teach you everything she's picked up so far."
         "She couldn't spar with anyone, but she's a good student and was still able to learn a lot just by observing other people."
         "You already know [Rogue.name] is a great teacher from the tutoring sessions, and she makes it easy to absorb the lesson."
 
         $ Rogue.change_face("happy")
+        $ Rogue.change_arms("neutral", left_arm = "extended")
 
         ch_Rogue "Great job today, [Rogue.Player_petname]!" 
 
         $ Rogue.change_face("smirk2")
+        $ Rogue.change_arms("neutral")
 
         ch_Rogue "Yer a real quick learner." 
         ch_Player "Thanks, and you're a great teacher." 
 
         $ Rogue.change_face("smirk2", blush = 1)
+        $ Rogue.change_arms("crossed")
 
         ch_Rogue "Thanks. . . ah'll see ya later, [Rogue.Player_petname]."
     elif dice_roll == 3:
         $ Rogue.change_face("happy")
 
+        pause 1.0
+
         $ Rogue.change_face("smirk2")
+        $ Rogue.change_arms("hips")
 
         ch_Rogue "Ready to go?"
         ch_Player "Yep! Let's start."
+
+        $ Rogue.change_arms("fight")
+
         "After a brief warm up, you spend the next couple hours practicing some fairly basic techniques together."
         "Despite being a grade above you, the practice helps [Rogue.name] almost as much as it helps you."
         "Knowledge can't make up for lacking practical experience."
@@ -102,10 +116,12 @@ label Rogue_chapter_one_season_one_training_sessions:
         "You finish the session with a workout and feel great afterwards."
 
         $ Rogue.change_face("happy")
+        $ Rogue.change_arms("sheepish")
 
         ch_Rogue "Ah really wish ah'd known ya sooner."
 
         $ Rogue.change_face("smirk2", mouth = "lipbite")
+        $ Rogue.change_arms("crossed")
 
         ch_Rogue "Feels great finally bein' able to train with someone. . ."
         ch_Player "You are a great training partner." 
@@ -117,11 +133,16 @@ label Rogue_chapter_one_season_one_training_sessions:
         ch_Rogue "Bye, [Rogue.Player_petname]."
     elif dice_roll == 4:
         $ Rogue.change_face("worried1")
+        $ Rogue.change_arms("crossed")
 
         ch_Player "Hey, is everything alright?" 
+
+        $ Rogue.change_arms("sheepish")
+
         ch_Rogue "Yeah. . . ah'm just worried 'bout how little progress ah've made with my power."
 
         $ Rogue.change_face("worried1", mouth = "smirk")
+        $ Rogue.change_arms("angry")
 
         ch_Rogue "Don't wanna drag you into it. . . let's just get to trainin'."
         ch_Rogue "That'll help distract me."
@@ -130,6 +151,9 @@ label Rogue_chapter_one_season_one_training_sessions:
         $ Rogue.change_face("smirk1")
 
         ch_Rogue "Thanks, [Rogue.Player_petname]."
+
+        $ Rogue.change_arms("fight")
+
         "[Rogue.name] dives head first into the warm up, making it a bit more intense than usual."
 
         $ Rogue.change_face("angry1")
@@ -149,6 +173,7 @@ label Rogue_chapter_one_season_one_training_sessions:
         "The session finishes up as normal and, in the end, it was productive."
 
         $ Rogue.change_face("worried1")
+        $ Rogue.change_arms("sheepish", right_arm = "neutral")
 
         ch_Rogue "Ah'm sorry, [Rogue.Player_petname]." 
         ch_Rogue "Didn't mean to take it out on you. . ."
@@ -157,6 +182,7 @@ label Rogue_chapter_one_season_one_training_sessions:
         ch_Player "It's not good to keep things bottled up."
 
         $ Rogue.change_face("worried1", eyes = "right")
+        $ Rogue.change_arms("crossed")
 
         ch_Rogue "Ah know. . ."
         ch_Player "Remember, if you want to vent to someone, just let me know."

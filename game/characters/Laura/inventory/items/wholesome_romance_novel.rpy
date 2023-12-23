@@ -1,7 +1,7 @@
 label Laura_wholesome_romance_novel_shopping_accept:
     $ Laura.change_face("confused1", eyes = "down")
 
-    pause 0.5
+    pause 1.0
 
     $ Laura.change_face("suspicious1")
 
@@ -24,7 +24,7 @@ label Laura_wholesome_romance_novel_shopping_reject:
 label Laura_wholesome_romance_novel_gift_accept:
     $ Laura.change_face("confused1", eyes = "down")
 
-    pause 0.5
+    pause 1.0
 
     $ Laura.change_face("suspicious1")
 

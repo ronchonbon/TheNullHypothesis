@@ -36,38 +36,128 @@ init -2 python:
         return Charles
 
     def Charles_faces(face):
+        blush = 0
+
         if face == "neutral":
-            mouth = "neutral"
             brows = "neutral"
             eyes = "neutral"
-        elif face == "angry":
+            mouth = "neutral"
+        elif face == "angry1":
+            brows = "furrowed"
+            eyes = "neutral"
+            mouth = "neutral"
+        elif face == "angry2":
+            brows = "furrowed"
+            eyes = "neutral"
+            mouth = "happy"
+        elif face == "appalled1":
+            brows = "furrowed"
+            eyes = "wide"
+            mouth = "neutral"
+        elif face == "appalled2":
+            brows = "furrowed"
+            eyes = "wide"
+            mouth = "open"
+        elif face == "appalled3":
+            brows = "furrowed"
+            eyes = "wide"
+            mouth = "agape"
+        elif face == "confused1":
+            brows = "cocked"
+            eyes = "neutral"
+            mouth = "neutral"
+        elif face == "confused2":
+            brows = "cocked"
+            eyes = "wide"
+            mouth = "neutral"
+        elif face == "confused3":
+            brows = "cocked"
+            eyes = "wide"
+            mouth = "agape"
+        elif face == "devious":
+            brows = "neutral"
+            eyes = "squint"
+            mouth = "smile"
+        elif face == "furious":
             brows = "furrowed"
             eyes = "neutral"
             mouth = "frown"
-        elif face == "confused":
-            brows = "furrowed"
-            eyes = "squint"
-            mouth = "neutral"
         elif face == "happy":
             brows = "neutral"
             eyes = "neutral"
             mouth = "smile"
-        elif face == "sad":
-            brows = "neutral"
+        elif face == "perplexed":
+            brows = "cocked"
+            eyes = "wide"
+            mouth = "open"
+        elif face == "pleased1":
+            brows = "raised"
             eyes = "neutral"
-            mouth = "frown"
-        elif face == "stunned":
-            brows = "neutral"
-            eyes = "up"
-            mouth = "neutral"
-        elif face == "surprised":
+            mouth = "smirk"
+        elif face == "pleased2":
             brows = "raised"
             eyes = "wide"
+            mouth = "smirk"
+        elif face == "sad":
+            brows = "worried"
+            eyes = "neutral"
+            mouth = "frown"
+        elif face == "sly":
+            brows = "neutral"
+            eyes = "squint"
+            mouth = "smirk"
+        elif face == "smirk1":
+            brows = "neutral"
+            eyes = "neutral"
+            mouth = "happy"
+        elif face == "smirk2":
+            brows = "neutral"
+            eyes = "neutral"
+            mouth = "smirk"
+        elif face == "surprised1":
+            brows = "raised"
+            eyes = "neutral"
+            mouth = "open"
+        elif face == "surprised2":
+            brows = "raised"
+            eyes = "wide"
+            mouth = "open"
+        elif face == "surprised3":
+            brows = "raised"
+            eyes = "wide"
+            mouth = "agape"
+        elif face == "suspicious1":
+            brows = "furrowed"
+            eyes = "squint"
             mouth = "neutral"
+        elif face == "suspicious2":
+            brows = "furrowed"
+            eyes = "squint"
+            mouth = "frown"
+        elif face == "wink":
+            brows = "wink"
+            eyes = "wink"
+            mouth = "neutral"
+        elif face == "worried1":
+            brows = "worried"
+            eyes = "neutral"
+            mouth = "neutral"
+        elif face == "worried2":
+            brows = "worried"
+            eyes = "wide"
+            mouth = "neutral"
+        elif face == "worried3":
+            brows = "worried"
+            eyes = "wide"
+            mouth = "open"
+        elif face == "worried4":
+            brows = "worried"
+            eyes = "wide"
+            mouth = "agape"
         else:
-            return "wrong", "wrong", "wrong"
+            return "wrong", "wrong", "wrong", 0
 
-        return brows, eyes, mouth
+        return brows, eyes, mouth, blush
 
     def Charles_arms(pose):
         return "neutral", "neutral"

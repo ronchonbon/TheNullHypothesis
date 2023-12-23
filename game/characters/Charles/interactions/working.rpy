@@ -17,7 +17,7 @@ label Charles_ask_for_job:
     return
 
 label Charles_no_jobs:
-    $ Charles.change_face("confused") 
+    $ Charles.change_face("confused1") 
 
     ch_Charles "You have already worked once today."
 
@@ -36,7 +36,7 @@ label Charles_no_jobs_asked_once:
 label Charles_no_jobs_asked_twice:
     ch_Charles "While there may be opportunities in the future for students to work more than once per day, it will not be allowed for the time being." 
 
-    $ Charles.change_face("angry") 
+    $ Charles.change_face("angry1") 
 
     ch_Charles "No amount of pleading will change that for the moment."
 
@@ -49,7 +49,7 @@ label Charles_too_late_to_work:
     return
 
 label Charles_too_late_to_work_asked_once:
-    $ Charles.change_face("confused") 
+    $ Charles.change_face("confused1") 
 
     ch_Charles "I am about to go to sleep myself." 
     ch_Charles "There will be plenty of work available in the morning."
@@ -57,7 +57,7 @@ label Charles_too_late_to_work_asked_once:
     return
 
 label Charles_too_late_to_work_asked_twice:
-    $ Charles.change_face("confused") 
+    $ Charles.change_face("confused1") 
 
     ch_Charles "If you are that restless, might I recommend a training exercise in the Danger Room?" 
 

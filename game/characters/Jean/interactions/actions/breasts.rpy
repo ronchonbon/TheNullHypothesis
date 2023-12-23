@@ -114,7 +114,7 @@ label Jean_rejects_pinch_nipples:
 label Jean_accepts_pinch_nipples_first_time:
     $ Jean.change_face("worried2", mouth = "lipbite", blush = 2)
 
-    pause 0.5
+    pause 1.0
 
     $ Jean.change_face("worried1", mouth = "lipbite", blush = 2)
 
@@ -139,7 +139,7 @@ label Jean_accepts_pinch_nipples:
     if dice_roll == 1:
         $ Jean.change_face("surprised2", mouth = "lipbite", blush = 2)
 
-        pause 0.5
+        pause 1.0
 
         $ Jean.change_face("confused1", mouth = "lipbite", blush = 2)
 
@@ -149,7 +149,7 @@ label Jean_accepts_pinch_nipples:
     elif dice_roll == 2:
         $ Jean.change_face("surprised2", mouth = "lipbite", blush = 2)
 
-        pause 0.5
+        pause 1.0
 
         $ Jean.change_face("sly", mouth = "lipbite", blush = 2)
 

@@ -75,6 +75,7 @@ label Jean_chapter_one_season_one_study_time:
     "You know students are allowed to make use of the classroom if a class is not in session, but this is the first time you've seen or heard of anyone actually doing it, especially this late at night."
 
     $ Jean.change_face("neutral", eyes = "down")
+    $ Jean.change_arms("crossed")
 
     call set_the_scene(location = "bg_classroom") from _call_set_the_scene_400
 
@@ -87,6 +88,7 @@ label Jean_chapter_one_season_one_study_time:
             pass
         "Try not to disturb [Jean.name]":
             $ Jean.change_face("angry1", eyes = "down")
+            $ Jean.change_arms("angry")
 
             "[Jean.name] frowns at her notes, looking like she's pleading with them to make sense."
             "She's so engrossed by what she's doing that she doesn't seem to notice you at all."
@@ -104,14 +106,17 @@ label Jean_chapter_one_season_one_study_time:
             return
 
     $ Jean.change_face("surprised3") 
+    $ Jean.change_arms("angry")
     
     "She jumps up out of her chair, startled." 
     
     $ Jean.change_face("perplexed") 
+    $ Jean.change_arms("hips")
     
     "It takes her a minute to notice you by the door."
 
     $ Jean.change_face("confused2", eyes = "left")
+    $ Jean.change_arms("sass")
 
     pause 1.0
 
@@ -120,6 +125,7 @@ label Jean_chapter_one_season_one_study_time:
     pause 1.0
 
     $ Jean.change_face("worried1", mouth = "smirk")
+    $ Jean.change_arms("neutral", left_arm = "rub_neck")
 
     ch_Jean "Sorry, didn't notice you there."
 
@@ -129,15 +135,18 @@ label Jean_chapter_one_season_one_study_time:
     ch_Player "Don't worry about it, happens to me all the time. I'm not interrupting anything, am I?"
 
     $ Jean.change_face("furious", eyes = "down")
+    $ Jean.change_arms("angry")
 
     ch_Jean "Ugh, it's these stupid notes. Or this stupid textbook. Possibly both." 
     "She plops back down in her chair rubbing her temples."
 
     $ Jean.change_face("angry1")
+    $ Jean.change_arms("angry", right_arm = "extended")
 
     ch_Jean "I had a test last week. I got almost everything right, but apparently, my understanding of this one part was. . ."
 
     $ Jean.change_face("angry1", eyes = "down")
+    $ Jean.change_arms("crossed")
 
     ch_Jean ". . . lacking."
 
@@ -163,20 +172,24 @@ label Jean_chapter_one_season_one_study_time:
     ch_Jean "About fifteen percent of our entire test grade."
 
     $ Jean.change_face("worried3")
+    $ Jean.change_arms("shrug")
 
     ch_Jean "Don't get me wrong, I still passed, easily, but. . ."
 
     $ Jean.change_face("worried1", eyes = "down")
+    $ Jean.change_arms("angry")
 
     ch_Jean "I don't know. I feel like I should be better than that."
     ch_Player "Fifteen percent isn't that much, is it?"
 
     $ Jean.change_face("worried2")
+    $ Jean.change_arms("angry", right_arm = "extended")
 
     ch_Jean "No, not really, but. . . it really annoys me, you know?"
     ch_Player "So how come you're studying here and not in your room or something?"
 
     $ Jean.change_face("worried1", mouth = "smirk")
+    $ Jean.change_arms("crossed")
 
     ch_Jean "Honestly, I find it easier. There's always something going on in the dorms at night: music, shouting, people running around."
 
@@ -195,6 +208,7 @@ label Jean_chapter_one_season_one_study_time:
     ch_Player "Makes sense. You study in here often?"
 
     $ Jean.change_face("pleased1")
+    $ Jean.change_arms("neutral")
 
     ch_Jean "Heh, all the time. If you look closely on some of the desks, you can probably see little impressions of my face from where I've fallen asleep."
     "She laughs it off, but the laugh sounds hollow, and you sense a real sadness behind her words."
@@ -206,12 +220,14 @@ label Jean_chapter_one_season_one_study_time:
             call change_Character_stat(Jean, "trust", small_stat) from _call_change_Character_stat_165
             
             $ Jean.change_face("worried1", mouth = "smirk", eyes = "right")
+            $ Jean.change_arms("crossed")           
 
             ch_Jean "I mean, I probably am, but I can catch up on sleep when all this is over, right?"
         "That's crazy, you do this all the time?":
             call change_Character_stat(Jean, "love", small_stat) from _call_change_Character_stat_166
             
             $ Jean.change_face("worried1", mouth = "smirk")
+            $ Jean.change_arms("crossed")       
 
             ch_Jean "It's the sacrifice we have to pay for the top grade."
         "I think you're the only person I've ever met who willingly spends time in class when they don't have to.":
@@ -219,6 +235,7 @@ label Jean_chapter_one_season_one_study_time:
             call change_Character_stat(Jean, "trust", small_stat) from _call_change_Character_stat_168
             
             $ Jean.change_face("confused1", mouth = "smirk")
+            $ Jean.change_arms("crossed")        
 
             ch_Jean "Honestly, I'm actually grateful for that. It means I know I can get peace and quiet whenever I want."
 
@@ -231,6 +248,7 @@ label Jean_chapter_one_season_one_study_time:
     "You get the feeling she's talking to herself more than anyone. After a moment, she shakes herself out of her reverie and gives you a smile."
 
     $ Jean.change_face("smirk2")
+    $ Jean.change_arms("sass")       
 
     ch_Player "Anyways, I'll let you get back to it."
     ch_Player "Just. . . try not to be too hard on yourself or stay up too late."

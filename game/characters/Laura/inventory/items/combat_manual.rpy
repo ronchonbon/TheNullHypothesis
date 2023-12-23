@@ -1,7 +1,7 @@
 label Laura_combat_manual_shopping_accept:
     $ Laura.change_face("suspicious1")
 
-    pause 0.5
+    pause 1.0
 
     $ Laura.change_face("confused1", eyes = "down")
 
@@ -38,7 +38,7 @@ label Laura_combat_manual_shopping_reject:
 label Laura_combat_manual_gift_accept:
     $ Laura.change_face("suspicious1")
 
-    pause 0.5
+    pause 1.0
 
     $ Laura.change_face("confused1", eyes = "down")
 

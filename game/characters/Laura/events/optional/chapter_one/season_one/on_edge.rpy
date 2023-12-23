@@ -71,6 +71,7 @@ label Laura_chapter_one_season_one_on_edge:
     $ ongoing_Event = True
 
     $ Laura.change_face("worried1", eyes = "right")
+    $ Laura.change_arms("angry")
 
     call set_the_scene(location = "bg_campus") from _call_set_the_scene_402
     
@@ -102,35 +103,41 @@ label Laura_chapter_one_season_one_on_edge:
     ch_Player "[Laura.name], everything okay?"
 
     $ Laura.change_face("worried2", mouth = "open")
+    $ Laura.change_arms("claws")
 
-    pause 0.5
+    pause 1.0
 
     $ Laura.change_face("furious", eyes = "right")
+    $ Laura.change_arms("crossed")
 
-    pause 0.5
+    pause 1.0
 
     $ Laura.change_face("worried2")
 
     ch_Laura "I am. . . fine."
     "You notice an odd tone in her voice. She sounds. . . nervous?"
 
-    ch_Player "Okay. . . Whatcha doin'?"
+    ch_Player "Okay. . . Whatcha doin'? You look tense."
 
     $ Laura.change_face("worried1", eyes = "left") 
 
-    pause 0.5
+    pause 1.0
 
     $ Laura.change_face("appalled1") 
 
-    ch_Laura "I was training in the Danger Room when a large group of students came in to train."
+    ch_Laura "I was training in the Danger Room when a large group of students came in to practice."
 
     $ Laura.change_face("angry1", eyes = "right")
+    $ Laura.change_arms("angry")
 
     ch_Laura "I prefer to train when it is quiet, so I left and came outside."
 
     $ Laura.change_face("angry1", eyes = "squint")
+    $ Laura.change_arms("angry", right_arm = "extended")
 
     ch_Laura "Then, as I was crossing the grounds, I heard an unfamiliar noise up in the branches."
+
+    $ Laura.change_arms("crossed")
 
     menu:
         extend ""
@@ -173,10 +180,12 @@ label Laura_chapter_one_season_one_on_edge:
             ch_Laura "But on this occasion, I think I may have. . . overestimated the threat."
 
     $ Laura.change_face("angry1", eyes = "right", blush = 1) 
+    $ Laura.change_arms("angry")
 
     ch_Laura ". . . it was a cat."
 
     $ Laura.change_face("furious", blush = 1)
+    $ Laura.change_arms("crossed")
 
     ch_Player ". . . a cat?"
     ch_Laura "Yes. Black. Amber eyes. Sleek. And it looked like it was stuck."
@@ -184,9 +193,13 @@ label Laura_chapter_one_season_one_on_edge:
     $ Laura.change_face("worried1", eyes = "right", blush = 1)
 
     ch_Player "Did you try and help it?"
+
+    $ Laura.change_arms("hips", right_arm = "extended")
+
     ch_Laura "I tried. It didn't understand what I was trying to do, so it kept swiping at me. I think it was scared of me."
 
     $ Laura.change_face("confused1")
+    $ Laura.change_arms("neutral")
 
     ch_Player "It didn't hurt you, did it?"
     ch_Laura "They are fierce creatures, but no. . ."
@@ -194,16 +207,19 @@ label Laura_chapter_one_season_one_on_edge:
     $ Laura.change_face("neutral")
 
     ch_Laura "Once it started screaming at me, I backed away."
-    ch_Player "So where is it now?"
 
     $ Laura.change_face("neutral", eyes = "left")
+    $ Laura.change_arms("neutral", left_arm = "extended")
 
-    ch_Laura "It leapt down and ran away. I think it may be somewhere in the bushes over there."
+    ch_Laura "It saw this and leapt down, running away. I think it may be somewhere in the bushes over there."
+    
+    $ Laura.change_arms("crossed")
+
     ch_Player "So, what are you doing here?"
 
     $ Laura.change_face("confused1")
 
-    pause 0.5
+    pause 1.0
 
     $ Laura.change_face("angry1", eyes = "right")
 
@@ -212,6 +228,9 @@ label Laura_chapter_one_season_one_on_edge:
     $ Laura.change_face("worried1", mouth = "lipbite", blush = 1) 
 
     ch_Laura "I turned around and I realized I had attracted an audience. It felt like everyone was staring at me."
+    
+    $ Laura.change_arms("angry")
+
     ch_Laura "I felt. . . exposed. Like there were too many people and I had nowhere to hide."
 
     $ Laura.change_face("angry1", eyes = "right", blush = 1)
@@ -227,6 +246,7 @@ label Laura_chapter_one_season_one_on_edge:
             ch_Player "Listen, I don't need to be anywhere for a while, do you want me to hang around for a bit?"
 
             $ Laura.change_face("confused3") 
+            $ Laura.change_arms("neutral")
 
             ch_Laura "That. . . I would. . ."
 

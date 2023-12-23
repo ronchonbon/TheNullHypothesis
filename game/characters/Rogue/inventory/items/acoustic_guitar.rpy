@@ -1,7 +1,7 @@
 label Rogue_acoustic_guitar_shopping_accept:
     $ Rogue.change_face("worried1", eyes = "down")
 
-    pause 0.5
+    pause 1.0
 
     $ Rogue.change_face("worried2", blush = 1)
 
@@ -49,7 +49,7 @@ label Rogue_acoustic_guitar_shopping_reject:
 label Rogue_acoustic_guitar_gift_accept:
     $ Rogue.change_face("worried1", eyes = "down")
 
-    pause 0.5
+    pause 1.0
 
     $ Rogue.change_face("worried2", blush = 1)
 

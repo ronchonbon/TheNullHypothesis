@@ -137,7 +137,7 @@ label Laura_accepts_pinch_nipples:
     if dice_roll == 1:
         $ Laura.change_face("surprised2", mouth = "lipbite", blush = 2)
 
-        pause 0.5
+        pause 1.0
 
         $ Laura.change_face("sexy", blush = 2)
 
@@ -147,7 +147,7 @@ label Laura_accepts_pinch_nipples:
     elif dice_roll == 2:
         $ Laura.change_face("appalled2", mouth = "lipbite", blush = 2)
 
-        pause 0.5
+        pause 1.0
 
         $ Laura.change_face("angry1", mouth = "lipbite", blush = 2)
 

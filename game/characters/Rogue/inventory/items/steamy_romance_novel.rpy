@@ -6,7 +6,7 @@ label Rogue_steamy_romance_novel_shopping_accept:
 
     $ Rogue.change_face("worried2", mouth = "lipbite", blush = 1)
 
-    pause 0.5
+    pause 1.0
 
     $ Rogue.change_face("worried1", eyes = "down", mouth = "lipbite", blush = 1)
 
@@ -31,7 +31,7 @@ label Rogue_steamy_romance_novel_shopping_accept:
 
     $ Rogue.change_face("worried2", mouth = "lipbite", blush = 2)
 
-    pause 0.5
+    pause 1.0
 
     $ Rogue.change_face("worried1", eyes = "right", mouth = "lipbite", blush = 1)
 
@@ -65,7 +65,7 @@ label Rogue_steamy_romance_novel_gift_accept:
 
     $ Rogue.change_face("worried2", mouth = "lipbite", blush = 1)
 
-    pause 0.5
+    pause 1.0
 
     $ Rogue.change_face("worried1", eyes = "down", mouth = "lipbite", blush = 1)
 
@@ -90,7 +90,7 @@ label Rogue_steamy_romance_novel_gift_accept:
 
     $ Rogue.change_face("worried2", mouth = "lipbite", blush = 2)
 
-    pause 0.5
+    pause 1.0
 
     $ Rogue.change_face("worried1", eyes = "right", mouth = "lipbite", blush = 1)
 

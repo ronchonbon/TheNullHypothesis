@@ -86,13 +86,15 @@ layeredimage Charles_chair_head:
         "characters/Charles/images/head.webp"
 
     always:
-        "characters/Charles/images/mouth_happy.webp"
+        "characters/Charles/images/mouth_[Charles.mouth].webp"
+
+    if Charles.eyes in ["closed", "down", "left", "right", "squint", "up", "wink"]:
+        "characters/Charles/images/standing/eyes_[Charles.eyes].webp"
+    else:
+        "Charles_standing_blinking"
 
     always:
-        "characters/Charles/images/eyes_neutral.webp"
-
-    always:
-        "characters/Charles/images/brows_neutral.webp"
+        "characters/Charles/images/brows_[Charles.brows].webp"
 
     if Charles.psychic and Charles.activating_psychic:
         At("Charles_chair_psychic", Charles_chair_activating_psychic_animation)

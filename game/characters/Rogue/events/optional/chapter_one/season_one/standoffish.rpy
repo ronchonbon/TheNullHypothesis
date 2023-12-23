@@ -100,12 +100,17 @@ label Rogue_chapter_one_season_one_standoffish_part_one:
     call set_the_scene(location = "bg_girls_hallway") from _call_set_the_scene_391
 
     $ Rogue.name = temp_Rogue_name
+    $ Rogue.change_arms("crossed")
+
     $ Kurt.name = temp_Kurt_name
+    $ Kurt.change_arms("sheepish")
 
     ch_Kurt "Zere is nothing wrong viz that."
     ch_Kurt "But I know vy you do it. . ."
 
     $ Rogue.change_face("worried1", eyes = "down")
+
+    $ Kurt.change_arms("neutral")
 
     ch_Kurt "Vy you push people avay, on purpose. . ."
 
@@ -135,6 +140,7 @@ label Rogue_chapter_one_season_one_standoffish_part_one:
             return
 
     $ Rogue.change_face("worried2", blush = 1)
+    $ Rogue.change_arms("angry")
 
     ch_Player "[Rogue.name]?"
     ch_Rogue "Wha. . ."
@@ -147,6 +153,7 @@ label Rogue_chapter_one_season_one_standoffish_part_one:
             call change_Character_stat(Rogue, "trust", small_stat) from _call_change_Character_stat_196
 
             $ Rogue.change_face("worried1", eyes = "right")
+            $ Rogue.change_arms("sheepish", right_arm = "neutral")
 
             ch_Rogue "Ah. . . just. . . reckon everythin' is not okay. . ."
         "Are you okay? That didn't seem like a happy conversation, so if you wanted someone else to talk to. . .":
@@ -154,6 +161,7 @@ label Rogue_chapter_one_season_one_standoffish_part_one:
             call change_Character_stat(Rogue, "trust", small_stat) from _call_change_Character_stat_209
 
             $ Rogue.change_face("worried1", mouth = "smirk")
+            $ Rogue.change_arms("sheepish", right_arm = "neutral")
 
             ch_Rogue "It. . . wasn't a very happy conversation. . ."
         "Something about you not getting along with people and pushing them away? What's up with that?":
@@ -164,6 +172,7 @@ label Rogue_chapter_one_season_one_standoffish_part_one:
             ch_Rogue "It. . . ain't that simple. . ."
 
     $ Rogue.change_face("worried1")
+    $ Rogue.change_arms("neutral", right_arm = "extended")
 
     ch_Rogue "[Kurt.public_name]'s a good guy. . . but he's everybody's friend."
 
@@ -177,13 +186,14 @@ label Rogue_chapter_one_season_one_standoffish_part_one:
 
     $ Rogue.change_face("worried2")
 
-    pause 0.5
+    pause 1.0
 
     $ Rogue.change_face("worried1", eyes = "down")
 
     ch_Rogue ". . . Ah'd be lyin' if ah said ah did."
 
     $ Rogue.change_face("worried1", eyes = "right")
+    $ Rogue.change_arms("sheepish")
 
     ch_Rogue "Let's not talk out here."
     ch_Rogue "Come with me to my room."
@@ -193,39 +203,47 @@ label Rogue_chapter_one_season_one_standoffish_part_one:
     call send_Characters(Rogue, Rogue.home, behavior = False) from _call_send_Characters_318
 
     $ Rogue.change_face("worried2")
+    $ Rogue.change_arms("crossed")
 
     ch_Player "I'm guessing this isn't the first time this has happened?"
     ch_Player "Pushing people away, that is."
     ch_Player "[Kurt.name] seems well liked around here, but even him. . ."
 
     $ Rogue.change_face("worried1", eyes = "right")
+    $ Rogue.change_arms("neutral", right_arm = "extended")
 
     ch_Rogue "Like ah said, he wouldn't understand."
     ch_Rogue "[Kurt.public_name]'s got good intentions, don't get me wrong, but it ain't so simple."
 
     $ Rogue.change_face("worried1")
+    $ Rogue.change_arms("angry")
 
     ch_Rogue "He thinks he understands why ah push people away, but there ain't no way he could."
 
     $ Rogue.change_face("worried1", mouth = "smirk")
+    $ Rogue.change_arms("hips")
 
     ch_Player "Well, you're not pushing me away. . ."
     ch_Rogue "No. . . yer a different story. . ."
 
     $ Rogue.change_face("worried1", mouth = "smirk", blush = 1)
+    $ Rogue.change_arms("sheepish")
 
     ch_Rogue "It's real easy to talk to you, and ah feel. . . more comfortable 'round you."
 
     $ Rogue.change_face("worried1", eyes = "right")
+    $ Rogue.change_arms("neutral")
 
     ch_Rogue "Those girls that [Kurt.public_name] was talkin' about, they invited me to hang out at the mall with 'em."
 
     $ Rogue.change_face("angry1", eyes = "right")
+    $ Rogue.change_arms("angry")
 
     ch_Rogue "Ah could see it, see the same pity in their eyes that ah saw from [Kurt.public_name]."
     ch_Rogue "They think ah'm all withdrawn because of my power, and that's why ah don't have many friends 'round here. . ."
 
     $ Rogue.change_face("worried1")
+    $ Rogue.change_arms("sheepish", right_arm = "neutral")
 
     ch_Rogue "Ah'll admit that's part of it, but it ain't the whole story."
 
@@ -252,6 +270,7 @@ label Rogue_chapter_one_season_one_standoffish_part_one:
             ch_Rogue "It ain't that simple, and ah know ah'm doin' it to myself, but ah just can't. . ."
 
     $ Rogue.change_face("worried1", eyes = "right")
+    $ Rogue.change_arms("crossed")
 
     ch_Rogue "Not with everythin' goin' on lately."
 
@@ -352,6 +371,7 @@ label Rogue_chapter_one_season_one_standoffish_part_two:
     "They not so discreetly point and start a hushed conversation about something."
 
     $ Rogue.change_face("angry1", eyes = "down")
+    $ Rogue.change_arms("crossed")
 
     call set_the_scene(location = "bg_classroom", fade_Characters = False, fade = False) from _call_set_the_scene_394
 
@@ -362,11 +382,13 @@ label Rogue_chapter_one_season_one_standoffish_part_two:
     ch_Player "Oof. . ."
 
     $ Rogue.change_face("worried3")
+    $ Rogue.change_arms("angry")
 
     "She wasn't paying attention and walked right into you." 
     "[Rogue.name] stares up at you, mortified, but once she realizes it's you, she calms down a bit."
 
     $ Rogue.change_face("worried1", mouth = "smirk")
+    $ Rogue.change_arms("sheepish", right_arm = "neutral")
 
     "Seems like she was listening to music and got distracted."
     "She takes out her earbuds before talking."
@@ -400,11 +422,13 @@ label Rogue_chapter_one_season_one_standoffish_part_two:
             ch_Rogue "No, ah just. . ."
 
     $ Rogue.change_face("worried1")
+    $ Rogue.change_arms("angry")
 
     ch_Rogue "Those girls that asked me to come to the mall came 'round earlier, but ain't nothin' bad happened. . ."
     ch_Rogue "Ah was just tryin' to keep my head down, listen to some music."
 
     $ Rogue.change_face("sad", eyes = "down", mouth = "smirk")
+    $ Rogue.change_arms("crossed")
 
     ch_Rogue "Reckon ah've just got a terminal case of 'restin' bitch face.'"
     ch_Player "Nah, that can't be right."
@@ -415,10 +439,12 @@ label Rogue_chapter_one_season_one_standoffish_part_two:
     ch_Player "Can I hear what song you were listening to?"
 
     $ Rogue.change_face("worried2", mouth = "smirk", blush = 1)
+    $ Rogue.change_arms("neutral", left_arm = "extended")
 
     ch_Rogue "Oh! Heh, sure. . ."
 
     $ Rogue.change_face("worried1", eyes = "right", mouth = "lipbite")
+    $ Rogue.change_arms("crossed")
 
     "She hands you an earbud, and after a few seconds you grow even more confused."
     "That is {i}not{/i} the type of song you'd expect to hear from someone who was just wearing a face like that."

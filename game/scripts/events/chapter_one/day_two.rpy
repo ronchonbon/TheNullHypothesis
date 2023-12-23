@@ -772,7 +772,7 @@ label meet_Kurt:
     $ Kurt.change_face("neutral")
 
     if not Rogue.History.check("Player_faked_injury"):
-        $ Kurt.change_face("confused")
+        $ Kurt.change_face("confused1")
         $ Kurt.change_arms("crossed")
 
         ch_Kurt "Übrigens, I passed [Rogue.name] on my vay here. She vas blushing pretty hard."
@@ -796,7 +796,7 @@ label meet_Kurt:
         ch_Player "I know, I feel bad. It was a stupid joke."
         ch_Player "I pretended like it hurt when she tried touching my hand. . ."
 
-        $ Kurt.change_face("surprised")
+        $ Kurt.change_face("surprised1")
         $ Kurt.change_arms("shrug")
 
         ch_Kurt "Schön blöd, is something wrong viz your brain?"
@@ -885,7 +885,7 @@ label day_two_tutorial:
 
     "[Kurt.name] snatches your phone and gives you a dumbfounded look."
 
-    $ Kurt.change_face("confused")
+    $ Kurt.change_face("confused1")
     $ Kurt.change_arms("neutral")
 
     ch_Kurt "Dude, how did you manage to break it?"

@@ -7,7 +7,7 @@ label Laura_record_player_shopping_accept:
 
     $ Laura.change_face("confused1", eyes = "squint", blush = 1)
 
-    pause 0.5
+    pause 1.0
 
     $ Laura.change_face("angry1", eyes = "right", blush = 1)
 
@@ -44,7 +44,7 @@ label Laura_record_player_gift_accept:
 
     $ Laura.change_face("confused1", eyes = "squint", blush = 1)
 
-    pause 0.5
+    pause 1.0
 
     $ Laura.change_face("angry1", eyes = "right", blush = 1)
 

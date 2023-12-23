@@ -129,7 +129,7 @@ label Jean_accepts_eat_ass_first_time:
 
     $ Jean.change_face("confused1", mouth = "lipbite", blush = 1)
 
-    pause 0.5
+    pause 1.0
 
     $ Jean.change_face("worried1", mouth = "lipbite", blush = 1) 
 

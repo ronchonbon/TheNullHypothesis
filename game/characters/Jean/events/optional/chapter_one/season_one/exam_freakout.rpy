@@ -109,23 +109,30 @@ label Jean_chapter_one_season_one_exam_freakout:
             return
 
     $ Jean.change_face("angry1", eyes = "down")
+    $ Jean.change_arms("crossed")
 
     ch_Player "[Jean.name]?"
 
     $ Jean.change_face("perplexed")
+    $ Jean.change_arms("angry", right_arm = "psychic2")
 
     ch_Jean "YOU!"
+
+    $ Jean.change_arms("angry")
+
     ch_Player "Wha-"
 
     $ Jean.change_face("worried3")
 
-    pause 0.5
+    pause 1.0
 
     $ Jean.change_face("worried1", eyes = "right", mouth = "lipbite")
+    $ Jean.change_arms("crossed")
 
     ch_Jean "Sorry, I mean, hey. . ."
 
     $ Jean.change_face("worried1")
+    $ Jean.change_arms(left_arm = "rub_neck", right_arm = "neutral")
 
     ch_Jean "Didn't mean to snap at you, just stressed about that exam."
     ch_Player "Ah, so that's why there's so many people here."
@@ -136,6 +143,7 @@ label Jean_chapter_one_season_one_exam_freakout:
             call change_Character_stat(Jean, "love", medium_stat) from _call_change_Character_stat_107
 
             $ Jean.change_face("angry1", eyes = "right")
+            $ Jean.change_arms("angry")
 
             ch_Jean "UGH! Not this time I didn't. . ."
         "Don't worry, no hard feelings. I'm sure you aced the exam anyway.":
@@ -143,6 +151,7 @@ label Jean_chapter_one_season_one_exam_freakout:
             call change_Character_stat(Jean, "trust", small_stat) from _call_change_Character_stat_108
             
             $ Jean.change_face("angry1", mouth = "smirk", eyes = "right")
+            $ Jean.change_arms("angry")
 
             ch_Jean "Ha, yeah right. This time was different. . ."
         "It's fine I guess, not like it's my fault. You probably aced the exam anyway.":
@@ -150,6 +159,7 @@ label Jean_chapter_one_season_one_exam_freakout:
             call change_Character_stat(Jean, "trust", small_stat) from _call_change_Character_stat_111
             
             $ Jean.change_face("confused1", mouth = "smirk")
+            $ Jean.change_arms("angry")
 
             ch_Jean "Pfft, if only." 
             
@@ -158,27 +168,32 @@ label Jean_chapter_one_season_one_exam_freakout:
             ch_Jean "And, yeah. . . not like you really did anything wrong. . ."
 
     $ Jean.change_face("worried3")
+    $ Jean.change_arms("neutral", right_arm = "extended")
 
     ch_Jean "I did all my normal pre-exam traditions, but no matter what I tried. . ."
 
     $ Jean.change_face("furious", eyes = "right")
+    $ Jean.change_arms("angry")
 
     ch_Jean "UGH!"
     ch_Jean "My mind kept wandering and I couldn't focus."
 
     $ Jean.change_face("angry1")
+    $ Jean.change_arms("crossed")
 
     ch_Jean "I knew how to do everything, studied it all to death. . ."
 
     $ Jean.change_face("angry1", eyes = "squint")
+    $ Jean.change_arms("hips")
 
     ch_Jean "I just couldn't help getting distracted by thoughts of yo-"
 
     $ Jean.change_face("worried3")
 
-    pause 0.5
+    pause 1.0
 
     $ Jean.change_face("worried1", eyes = "right", mouth = "lipbite")
+    $ Jean.change_arms(left_arm = "rub_neck", right_arm = "neutral")
 
     ch_Jean "{i}Ahem{/i}. . ."
 
@@ -187,11 +202,13 @@ label Jean_chapter_one_season_one_exam_freakout:
     "She quickly glances around the room before composing herself."
 
     $ Jean.change_face("smirk1")
+    $ Jean.change_arms("sass")
 
     ch_Jean "Never mind. Don't mind me, I'm sure it'll be fine. . ."
     "You can tell [Jean.name] is just putting on a brave face and is still freaking out on the inside."
 
     $ Jean.change_face("confused2")
+    $ Jean.change_arms("neutral")
 
     ch_Player "You don't have to pretend."
     ch_Jean "Wha-"
@@ -199,7 +216,13 @@ label Jean_chapter_one_season_one_exam_freakout:
     $ Jean.change_face("worried2")
 
     ch_Player "C'mon, let's get out of here."
+
+    $ Jean.change_arms("shrug", right_arm = "neutral")
+
     ch_Jean "Don't you have class?!"
+
+    $ Jean.change_arms("crossed")
+
     ch_Player "It's fine, I won't be missing anything important."
 
     menu:
@@ -240,6 +263,7 @@ label Jean_chapter_one_season_one_exam_freakout:
     ch_Player "Sounds like these 'people' are assholes."
 
     $ Jean.change_face("confused1", eyes = "right")
+    $ Jean.change_arms("neutral", left_arm = "rub_neck")
 
     "A thoughtful expression crosses over [Jean.name]'s face, and she doesn't respond. Instead, she follows you out of the classroom."
 
@@ -252,6 +276,7 @@ label Jean_chapter_one_season_one_exam_freakout:
     call send_Characters(Jean, "bg_campus", behavior = False) from _call_send_Characters_57
 
     $ Jean.change_face("neutral", eyes = "right")
+    $ Jean.change_arms("neutral")
 
     "[Jean.name] is uncharacteristically quiet as you lead her across the campus grounds."
     "You lead the conversation, exchanging small talk, trying to draw her mind away from her exam."
@@ -267,11 +292,15 @@ label Jean_chapter_one_season_one_exam_freakout:
     $ Jean.change_face("happy")
 
     "By the time you finally arrive at the mall, [Jean.name] is talking much more animatedly with you, not even realizing where you both ended up."
+    
+    $ Jean.change_arms("neutral", right_arm = "extended")
+
     ch_Jean "I know, right?! That's what I've been sa-"
 
     $ Jean.change_face("confused2")
+    $ Jean.change_arms("hips")
 
-    pause 0.5
+    pause 1.0
 
     $ Jean.change_face("confused1", mouth = "smirk", eyes = "right")
 
@@ -279,6 +308,7 @@ label Jean_chapter_one_season_one_exam_freakout:
     ch_Player "Heh, we just arrived."
 
     $ Jean.change_face("worried1", mouth = "smirk")
+    $ Jean.change_arms("sass")
 
     ch_Player "Let's walk around for a bit, then we can head back."
     ch_Jean "Okay, sure. . ."
@@ -296,19 +326,23 @@ label Jean_chapter_one_season_one_exam_freakout:
     ch_Jean "Thanks for all this."
 
     $ Jean.change_face("worried1", mouth = "smirk", eyes = "right")
+    $ Jean.change_arms("crossed")
 
     ch_Jean "I know how I get with this stuff, and it's usually much more. . . 'explosive.'"
 
     $ Jean.change_face("worried1")
+    $ Jean.change_arms("neutral", right_arm = "extended")
 
     ch_Jean "When you put {i}so much{/i} effort into something and then screw it up anyway, it feels like it was all for nothing, ya'know?"
 
     $ Jean.change_face("worried1", mouth = "smirk")
+    $ Jean.change_arms("neutral")
 
     ch_Player "Of course."
     ch_Player "If you're ever on the verge of 'exploding' again, just let me know, and we can take another walk."
 
     $ Jean.change_face("smirk2")
+    $ Jean.change_arms("crossed")
 
     ch_Jean "Thanks, I {i}really{/i} appreciate it."
     ch_Jean "I'm gonna go read a book or something now, see you later!"

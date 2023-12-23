@@ -77,6 +77,7 @@ label Jean_chapter_one_season_one_friendless:
     call show_Character(Jean, x = stage_far_right) from _call_show_Character_16
 
     $ Jean.change_face("worried1", eyes = "left")
+    $ Jean.change_arms("crossed")
 
     ch_bully "Seriously?"
     ch_bully "If you think you're that much better than us, just say it."
@@ -87,6 +88,7 @@ label Jean_chapter_one_season_one_friendless:
     ch_bully "You just don't wanna hang out with us, we get it."
 
     $ Jean.change_face("angry1", eyes = "left")
+    $ Jean.change_arms("angry")
 
     ch_Jean "It's not just an excuse!"
     ch_Jean "This exam counts for like a third of our entire grade."
@@ -98,6 +100,7 @@ label Jean_chapter_one_season_one_friendless:
     "The girls leave looking very irritated. [Jean.name] just watches them go."
 
     $ Jean.change_face("worried1", eyes = "down")
+    $ Jean.change_arms("crossed")
 
     menu:
         extend ""
@@ -120,16 +123,19 @@ label Jean_chapter_one_season_one_friendless:
     call set_the_scene(location = "bg_danger", fade = False) from _call_set_the_scene_399
 
     $ Jean.change_face("worried1", mouth = "smirk")
+    $ Jean.change_arms(left_arm = "rub_neck", right_arm = "neutral")
 
     "As you approach, [Jean.name] looks up and gives you a sad smile."
     ch_Jean "You saw all that, huh?"
 
     $ Jean.change_face("worried1", eyes = "left")
+    $ Jean.change_arms("neutral")
 
     ch_Player "Yeah. . . they weren't being very subtle."
     ch_Player "Friends of yours?"
 
     $ Jean.change_face("worried1")
+    $ Jean.change_arms("crossed")
 
     ch_Jean "Maybe at one point."
     ch_Jean "Don't see why they'd wanna be now. . ."
@@ -163,19 +169,23 @@ label Jean_chapter_one_season_one_friendless:
             ch_Jean "I don't know what I expected. . . not like it wasn't obvious how they were starting to feel."
 
     $ Jean.change_face("suspicious1")
+    $ Jean.change_arms("angry")
 
     ch_Jean "And don't tell me I'm being ridiculous."
 
     $ Jean.change_face("worried2")
+    $ Jean.change_arms("neutral")
 
     ch_Player "I. . . wasn't about to. . ."
 
     $ Jean.change_face("worried1", eyes = "left")
+    $ Jean.change_arms(left_arm = "rub_neck", right_arm = "neutral")
 
     ch_Jean "Oh, sorry."
     ch_Jean "I'm just used to that sort of response."
 
     $ Jean.change_face("worried1")
+    $ Jean.change_arms("crossed")
 
     ch_Jean "But those girls just don't understand."
 
@@ -189,11 +199,13 @@ label Jean_chapter_one_season_one_friendless:
     ch_Player "You don't have to convince me."
 
     $ Jean.change_face("confused2")
+    $ Jean.change_arms("angry")
 
     ch_Player "But maybe you're just trying to convince yourself?"
     "You see a wave of confusion roll over [Jean.name]'s face, before a determined expression takes shape."
 
     $ Jean.change_face("angry1")
+    $ Jean.change_arms("sass")
 
     ch_Jean "No, that's not it."
 
@@ -203,10 +215,12 @@ label Jean_chapter_one_season_one_friendless:
     ch_Jean "I know why I'm doing this."
 
     $ Jean.change_face("neutral")
+    $ Jean.change_arms("neutral")
 
     ch_Jean "Anyway, I really do have to go study."
 
     $ Jean.change_face("worried1", mouth = "smirk")
+    $ Jean.change_arms("crossed")
 
     ch_Jean "Thanks for caring, it's cute."
 
@@ -215,11 +229,13 @@ label Jean_chapter_one_season_one_friendless:
     "[Jean.name] starts to leave but only makes it a few steps before looking over her shoulder at you."
 
     $ Jean.change_face("worried1")
+    $ Jean.change_arms("neutral", right_arm = "extended")
 
     ch_Jean "It'll be worth it. . . right?"
     ch_Player "Tha-"
 
     $ Jean.change_face("neutral", eyes = "left")
+    $ Jean.change_arms("neutral")
 
     "Before you can finish she answers her own question."
     ch_Jean "Right. What am I saying, of course it will be. . ."

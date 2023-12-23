@@ -164,25 +164,25 @@ label Rogue_jealousy_went_on_date:
 
     call send_Characters(Kurt, Player.home) from _call_send_Characters_270 
 
-    $ Kurt.change_face("surprised")
+    $ Kurt.change_face("surprised1")
 
     ch_Kurt "Everysing okay? You could hear zee yelling from down the hall. . ."
 
-    $ Kurt.change_face("angry")
+    $ Kurt.change_face("angry1")
 
     ch_Player "I really screwed things up with Rogue."
     ch_Kurt "Schön blöd, I told you to be careful viz her."
 
-    $ Kurt.change_face("confused")
+    $ Kurt.change_face("confused1")
 
     ch_Kurt "Vat happened?"
     "You explain."
 
-    $ Kurt.change_face("angry")
+    $ Kurt.change_face("angry1")
 
     ch_Kurt "Wirklich, Bruder?"
 
-    $ Kurt.change_face("confused")
+    $ Kurt.change_face("confused1")
 
     ch_Kurt "Why zee hell vould you do somesing like that?"
 
@@ -195,7 +195,7 @@ label Rogue_jealousy_went_on_date:
     ch_Kurt "I think you should stay avay from her for a few days."
     ch_Kurt "She probably von't be in zee talking mood."
 
-    $ Kurt.change_face("confused")
+    $ Kurt.change_face("confused1")
 
     pause 1.0
 
@@ -300,25 +300,25 @@ label Rogue_jealousy_flirted:
 
     call send_Characters(Kurt, Player.home) from _call_send_Characters_272 
 
-    $ Kurt.change_face("surprised")
+    $ Kurt.change_face("surprised1")
 
     ch_Kurt "Everysing okay? You could hear zee yelling from down the hall. . ."
 
-    $ Kurt.change_face("angry")
+    $ Kurt.change_face("angry1")
 
     ch_Player "I really screwed things up with Rogue."
     ch_Kurt "Schön blöd, I told you to be careful viz her."
 
-    $ Kurt.change_face("confused")
+    $ Kurt.change_face("confused1")
 
     ch_Kurt "Vat happened?"
     "You explain."
 
-    $ Kurt.change_face("angry")
+    $ Kurt.change_face("angry1")
 
     ch_Kurt "Wirklich, Bruder?"
 
-    $ Kurt.change_face("confused")
+    $ Kurt.change_face("confused1")
 
     ch_Kurt "Why zee hell vould you do somesing like that?"
 
@@ -331,7 +331,7 @@ label Rogue_jealousy_flirted:
     ch_Kurt "I think you should stay avay from her for a few days."
     ch_Kurt "She probably von't be in zee talking mood."
 
-    $ Kurt.change_face("confused")
+    $ Kurt.change_face("confused1")
 
     pause 1.0
 

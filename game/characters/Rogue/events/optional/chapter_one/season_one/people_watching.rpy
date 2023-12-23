@@ -71,6 +71,7 @@ label Rogue_chapter_one_season_one_people_watching:
     $ ongoing_Event = True
 
     $ Rogue.eyes = "left"
+    $ Rogue.change_arms("crossed")
 
     call set_the_scene(location = "bg_campus") from _call_set_the_scene_389
 
@@ -101,17 +102,23 @@ label Rogue_chapter_one_season_one_people_watching:
     ch_Player "Hey, [Rogue.name], what are you up to?"
 
     $ Rogue.change_face("neutral", eyes = "right") 
+    $ Rogue.change_arms("shrug")
 
     "She just shrugs."
     ch_Rogue "Ah've been stuck in my room all day, wanted to come out for some fresh air."
+    
+    $ Rogue.change_arms("neutral")
+
     ch_Player "I've seen you sitting here a couple of times. You like the view that much?"
 
     $ Rogue.change_face("confused1", eyes = "squint")
+    $ Rogue.change_arms("hips")
 
     ch_Rogue "What, you been followin' me or somethin'?"
     ch_Player "No, nothing like that, just noticed you seem to like this bench a lot."
 
     $ Rogue.change_face("worried1")
+    $ Rogue.change_arms("sheepish", right_arm = "neutral")
 
     ch_Rogue "Oh."
 
@@ -120,26 +127,32 @@ label Rogue_chapter_one_season_one_people_watching:
     "She looks slightly embarrassed. There's an odd silence before she speaks again."
 
     $ Rogue.change_face("worried1") 
+    $ Rogue.change_arms("neutral")
 
     ch_Rogue "Nah, it's nothin' like that, it's. . ."
 
     $ Rogue.change_face("worried1", eyes = "right")
+    $ Rogue.change_arms("sheepish", right_arm = "neutral")
 
     ch_Rogue "Lord, this is gonna sound weird as hell."
 
     $ Rogue.change_face("worried1", mouth = "smirk")
+    $ Rogue.change_arms("neutral")
 
     ch_Player "I have a friend covered head to literal tail in blue fur. My bar for 'weird' has shifted significantly since I arrived here."
 
     $ Rogue.change_face("smirk2") 
+    $ Rogue.change_arms("neutral", left_arm = "extended")
 
     ch_Rogue "Fair point."
 
     $ Rogue.change_face("worried1")
+    $ Rogue.change_arms("neutral")
 
-    pause 0.5
+    pause 1.0
 
     $ Rogue.change_face("worried1", eyes = "right")
+    $ Rogue.change_arms("crossed")
 
     ch_Rogue "Sigh. . ."
     ch_Rogue "Ah come here 'cause it. . . it makes me feel a little less alone."
@@ -163,14 +176,17 @@ label Rogue_chapter_one_season_one_people_watching:
             call change_Character_stat(Rogue, "trust", small_stat) from _call_change_Character_stat_159
 
             $ Rogue.change_face("angry1")
+            $ Rogue.change_arms("angry")
 
             ch_Rogue "Ah don't think you're really understandin' what ah'm really sayin' here."
 
     $ Rogue.change_face("worried1")
+    $ Rogue.change_arms("neutral", right_arm = "extended")
 
     ch_Rogue "Ya know how my powers make it hard for me to be near people?"
 
     $ Rogue.change_face("worried1", eyes = "right")
+    $ Rogue.change_arms("crossed")
 
     ch_Rogue "Well, so does most everyone else here."
     ch_Rogue "Ah take every precaution to avoid touchin' people, but there's always the risk, 'n ah can't really blame people for avoidin' me because of it. . ."
@@ -186,18 +202,21 @@ label Rogue_chapter_one_season_one_people_watching:
     ch_Rogue "Ah hear 'em talk 'n it almost feels like ah'm part of the conversation."
 
     $ Rogue.change_face("worried2")
+    $ Rogue.change_arms("sheepish", right_arm = "neutral")
 
     ch_Rogue "Ah know it's not quite the same thing, but. . . it helps, even just a little, y'know?"
 
     $ Rogue.change_face("worried3")
+    $ Rogue.change_arms("neutral")
 
-    pause 0.5
+    pause 1.0
 
     $ Rogue.change_face("worried1", eyes = "down")
 
     "She shakes her head, suddenly very self-conscious."
 
     $ Rogue.change_face("angry1", eyes = "down")
+    $ Rogue.change_arms("angry")
 
     menu:
         extend ""
@@ -206,12 +225,14 @@ label Rogue_chapter_one_season_one_people_watching:
             call change_Character_stat(Rogue, "trust", medium_stat) from _call_change_Character_stat_180
 
             $ Rogue.change_face("worried2")
+            $ Rogue.change_arms("sheepish", right_arm = "neutral")
 
             ch_Rogue ". . . really? That's. . . that's sweet of you to say so, thanks."
         "As long as you're not keeping detailed lists of what everyone's up to, I think it's okay.":
             call change_Character_stat(Rogue, "love", medium_stat) from _call_change_Character_stat_181
             
             $ Rogue.change_face("confused1", mouth = "smirk")
+            $ Rogue.change_arms("sheepish", right_arm = "neutral")           
 
             ch_Rogue "Ha! Some of the stuff ah've heard, maybe ah should think about it!"
         "I've heard of worse coping mechanisms.":
@@ -223,6 +244,7 @@ label Rogue_chapter_one_season_one_people_watching:
             ch_Rogue "Sure it ain't the worst one, but it's still kinda silly, right?"
 
     $ Rogue.change_face("worried1", mouth = "smirk")
+    $ Rogue.change_arms("crossed")
 
     ch_Rogue "Anyway, thanks for listenin' without bein' all judgey about it."
 
@@ -232,16 +254,20 @@ label Rogue_chapter_one_season_one_people_watching:
     ch_Player "Well, any time you want to hang-"
 
     $ Rogue.change_face("neutral", eyes = "down")
+    $ Rogue.change_arms("neutral") 
 
     call phone_buzz(times = 3) from _call_phone_buzz_11
+
+    $ Rogue.change_arms("neutral", right_arm = "extended")
 
     "You're stopped by the sound of [Rogue.name]'s phone going off in her pocket. She takes it out, looks at the screen, and hesitates."
 
     $ Rogue.change_face("confused1", eyes = "down")
 
-    pause 0.5
+    pause 1.0
 
     $ Rogue.change_face("angry1", eyes = "down")
+    $ Rogue.change_arms("angry")
 
     "For a second, there's a flash of anger on her face and she looks like she's about to throw it across the grounds, but she stops."
 
@@ -250,6 +276,7 @@ label Rogue_chapter_one_season_one_people_watching:
     ch_Rogue "Hey, sorry, but. . . ah gotta take this, it's important."
 
     $ Rogue.change_face("worried1", mouth = "lipbite")
+    $ Rogue.change_arms("crossed")
 
     ch_Rogue "Do you. . . do you think we can talk later? Maybe?"
 

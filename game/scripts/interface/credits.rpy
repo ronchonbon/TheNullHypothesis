@@ -10,9 +10,9 @@ style message_text:
     size 36
 
 screen disclaimer():
-    style_prefix "message"
-
     modal True
+
+    style_prefix "message"
 
     add "images/interface/disclaimer.webp"
 

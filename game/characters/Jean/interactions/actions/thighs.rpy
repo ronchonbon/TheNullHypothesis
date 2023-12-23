@@ -7,7 +7,7 @@ label Jean_rejects_touch_thighs_over_clothes:
 
     $ Jean.change_face("smirk2", eyes = "down", mouth = "lipbite", blush = 1) 
 
-    pause 0.5
+    pause 1.0
 
     $ Jean.change_face("worried1", mouth = "lipbite", blush = 1)
 

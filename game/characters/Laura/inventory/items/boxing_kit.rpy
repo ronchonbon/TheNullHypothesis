@@ -14,7 +14,7 @@ label Laura_boxing_kit_shopping_accept:
 
     $ Laura.change_face("worried1", blush = 1)
 
-    pause 0.5
+    pause 1.0
 
     $ Laura.change_face("angry1", eyes = "right", blush = 1)
 
@@ -46,7 +46,7 @@ label Laura_boxing_kit_gift_accept:
 
     $ Laura.change_face("worried1", blush = 1)
 
-    pause 0.5
+    pause 1.0
 
     $ Laura.change_face("angry1", eyes = "right", blush = 1)
 

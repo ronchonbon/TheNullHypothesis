@@ -339,7 +339,7 @@ label Jean_flirt_af:
     if dice_roll == 1:
         $ Jean.change_face("surprised2")
 
-        pause 0.5
+        pause 1.0
 
         $ Jean.change_face("smirk2", blush = 1) 
 
@@ -353,7 +353,7 @@ label Jean_flirt_af:
     elif dice_roll == 2:
         $ Jean.change_face("pleased2")
 
-        pause 0.5
+        pause 1.0
 
         $ Jean.change_face("smirk2", blush = 1) 
 
@@ -379,7 +379,7 @@ label Jean_flirt_ag:
     if dice_roll == 1:
         $ Jean.change_face("confused3")
 
-        pause 0.5
+        pause 1.0
 
         $ Jean.change_face("appalled2", blush = 1) 
 
@@ -393,7 +393,7 @@ label Jean_flirt_ag:
     elif dice_roll == 2:
         $ Jean.change_face("surprised2")
 
-        pause 0.5
+        pause 1.0
 
         $ Jean.change_face("pleased2", blush = 1) 
 
@@ -405,7 +405,7 @@ label Jean_flirt_ag:
 
         $ Jean.change_face("smirk2", eyes = "down", mouth = "lipbite", blush = 1)
 
-        pause 0.5
+        pause 1.0
 
         $ Jean.change_face("smirk2", mouth = "lipbite", blush = 1) 
 
@@ -453,7 +453,7 @@ label Jean_flirt_ah:
     elif dice_roll == 2:
         $ Jean.change_face("surprised2")
 
-        pause 0.5
+        pause 1.0
 
         $ Jean.change_face("sly", blush = 1) 
 
@@ -473,7 +473,7 @@ label Jean_flirt_ai:
     if dice_roll == 1:
         $ Jean.change_face("pleased2")
 
-        pause 0.5
+        pause 1.0
 
         $ Jean.change_face("smirk2", blush = 1) 
 
@@ -487,7 +487,7 @@ label Jean_flirt_ai:
     elif dice_roll == 2:
         $ Jean.change_face("sly")
 
-        pause 0.5
+        pause 1.0
 
         $ Jean.change_face("sly", mouth = "lipbite", blush = 1) 
 
@@ -504,7 +504,7 @@ label Jean_flirt_ai:
     elif dice_roll == 3:
         $ Jean.change_face("pleased2")
 
-        pause 0.5
+        pause 1.0
 
         $ Jean.change_face("smirk2", mouth = "lipbite", blush = 1) 
 
@@ -521,7 +521,7 @@ label Jean_flirt_ai:
     elif dice_roll == 4:
         $ Jean.change_face("pleased2")
 
-        pause 0.5
+        pause 1.0
 
         $ Jean.change_face("sexy", blush = 1) 
 
@@ -561,7 +561,7 @@ label Jean_flirt_aj:
     elif dice_roll == 2:
         $ Jean.change_face("pleased2")
 
-        pause 0.5
+        pause 1.0
 
         $ Jean.change_face("happy", blush = 1) 
 
@@ -580,7 +580,7 @@ label Jean_flirt_aj:
     elif dice_roll == 3:
         $ Jean.change_face("surprised2")
 
-        pause 0.5
+        pause 1.0
 
         $ Jean.change_face("worried1", blush = 1) 
 
@@ -647,7 +647,7 @@ label Jean_flirt_ak:
 label Jean_flirt_al:
     $ Jean.change_face("surprised2") 
 
-    pause 0.5
+    pause 1.0
 
     $ Jean.change_face("worried1", mouth = "lipbite", blush = 1)
 
@@ -667,7 +667,7 @@ label Jean_flirt_am:
     if dice_roll == 1:
         $ Jean.change_face("pleased2") 
 
-        pause 0.5
+        pause 1.0
 
         $ Jean.change_face("smirk2", mouth = "lipbite", blush = 1) 
 
@@ -676,7 +676,7 @@ label Jean_flirt_am:
 
         $ Jean.change_face("smirk2", eyes = "down", mouth = "lipbite", blush = 1)
 
-        pause 0.5
+        pause 1.0
 
         $ Jean.change_face("smirk2", mouth = "lipbite", blush = 1)
 
@@ -686,7 +686,7 @@ label Jean_flirt_am:
     elif dice_roll == 2:
         $ Jean.change_face("surprised2")
 
-        pause 0.5
+        pause 1.0
 
         $ Jean.change_face("smirk2", blush = 1) 
 
@@ -720,7 +720,7 @@ label Jean_flirt_an:
     if dice_roll == 1:
         $ Jean.change_face("happy")
 
-        pause 0.5
+        pause 1.0
 
         $ Jean.change_face("smirk2", blush = 1) 
 
@@ -734,7 +734,7 @@ label Jean_flirt_an:
     elif dice_roll == 2:
         $ Jean.change_face("pleased2")
 
-        pause 0.5
+        pause 1.0
 
         $ Jean.change_face("smirk2", blush = 1)
 
@@ -750,7 +750,7 @@ label Jean_flirt_an:
     elif dice_roll == 3:
         $ Jean.change_face("surprised2")
 
-        pause 0.5
+        pause 1.0
 
         $ Jean.change_face("smirk2", mouth = "lipbite", blush = 1) 
 
@@ -777,7 +777,7 @@ label Jean_flirt_ao:
     if dice_roll == 1:
         $ Jean.change_face("surprised2")
 
-        pause 0.5
+        pause 1.0
 
         $ Jean.change_face("confused1", blush = 1)
 
@@ -792,7 +792,7 @@ label Jean_flirt_ao:
     elif dice_roll == 2:
         $ Jean.change_face("pleased2")
 
-        pause 0.5
+        pause 1.0
 
         $ Jean.change_face("smirk2", blush = 1) 
 
@@ -801,7 +801,7 @@ label Jean_flirt_ao:
 
         $ Jean.change_face("smirk2", eyes = "down", blush = 1)
 
-        pause 0.5
+        pause 1.0
 
         $ Jean.change_face("smirk2", mouth = "lipbite", blush = 1) 
 
@@ -815,7 +815,7 @@ label Jean_flirt_ao:
 label Jean_flirt_ap:
     $ Jean.change_face("surprised2")
 
-    pause 0.5
+    pause 1.0
 
     $ Jean.change_face("worried1", blush = 1) 
 
@@ -844,7 +844,7 @@ label Jean_flirt_ap:
 label Jean_flirt_aq:
     $ Jean.change_face("pleased2")
 
-    pause 0.5
+    pause 1.0
 
     $ Jean.change_face("smirk2", blush = 1) 
 
@@ -867,7 +867,7 @@ label Jean_flirt_aq:
 label Jean_flirt_ar:
     $ Jean.change_face("pleased2")
 
-    pause 0.5
+    pause 1.0
 
     $ Jean.change_face("smirk1", blush = 1) 
 
@@ -907,7 +907,7 @@ label Jean_flirt_b:
 
         $ Jean.change_face("perplexed") 
 
-        pause 0.5
+        pause 1.0
 
         $ Jean.change_face("confused1")
 
@@ -941,7 +941,7 @@ label Jean_flirt_b:
 
         $ Jean.change_face("pleased1")
 
-        pause 0.5
+        pause 1.0
 
         $ Jean.change_face("confused1", mouth = "smirk")
 
@@ -958,7 +958,7 @@ label Jean_flirt_c:
     if dice_roll == 1:
         $ Jean.change_face("pleased2", blush = 1)
 
-        pause 0.5
+        pause 1.0
 
         $ Jean.change_face("smirk2", mouth = "lipbite", blush = 1) 
 
@@ -973,7 +973,7 @@ label Jean_flirt_c:
 
         $ Jean.change_face("pleased2", blush = 1) 
 
-        pause 0.5
+        pause 1.0
 
         $ Jean.change_face("smirk2", mouth = "lipbite", blush = 1)
 
@@ -1103,7 +1103,7 @@ label Jean_flirt_f:
     elif Player.location in public_locations:
         $ Jean.change_face("confused1", eyes = "left") 
 
-        pause 0.5
+        pause 1.0
 
         $ Jean.change_face("smirk2") 
 
@@ -1138,7 +1138,7 @@ label Jean_flirt_f:
     else:
         $ Jean.change_face("pleased2")
 
-        pause 0.5
+        pause 1.0
 
         $ Jean.change_face("smirk2", mouth = "lipbite", blush = 1)
 
@@ -1182,7 +1182,7 @@ label Jean_flirt_h:
     if approval_check(Jean, threshold = [175, 150]):
         $ Jean.change_face("pleased2", blush = 1)
 
-        pause 0.5
+        pause 1.0
 
         $ Jean.change_face("smirk2", eyes = "closed", mouth = "lipbite", blush = 1) 
 
@@ -1215,7 +1215,7 @@ label Jean_flirt_i:
     if Player.location in public_locations and approval_check(Jean, threshold = [125, 125]):
         $ Jean.change_face("pleased1")
 
-        pause 0.5
+        pause 1.0
 
         $ Jean.change_face("smirk2", blush = 1) 
 
@@ -1232,11 +1232,11 @@ label Jean_flirt_i:
     elif Player.location in public_locations:
         $ Jean.change_face("perplexed")
 
-        pause 0.5
+        pause 1.0
 
         $ Jean.change_face("confused2", eyes = "right")
 
-        pause 0.5
+        pause 1.0
 
         $ Jean.change_face("confused1", blush = 1) 
 
@@ -1249,7 +1249,7 @@ label Jean_flirt_i:
     elif approval_check(Jean, threshold = [125, 125]):
         $ Jean.change_face("pleased1", blush = 1) 
 
-        pause 0.5
+        pause 1.0
 
         $ Jean.change_face("kiss1", blush = 1)
 
@@ -1261,7 +1261,7 @@ label Jean_flirt_i:
     else:
         $ Jean.change_face("surprised2")
 
-        pause 0.5
+        pause 1.0
 
         $ Jean.change_face("pleased1", blush = 1) 
 
@@ -1306,7 +1306,7 @@ label Jean_flirt_l:
     if Player.location in public_locations and approval_check(Jean, threshold = [350, 325]):
         $ Jean.change_face("surprised2")
 
-        pause 0.5
+        pause 1.0
 
         $ Jean.change_face("worried1", mouth = "lipbite", blush = 1)
 
@@ -1336,7 +1336,7 @@ label Jean_flirt_l:
     elif Player.location in public_locations:
         $ Jean.change_face("perplexed")
 
-        pause 0.5
+        pause 1.0
 
         $ Jean.change_face("confused1")
 
@@ -1347,7 +1347,7 @@ label Jean_flirt_l:
     elif Jean.quirk:
         $ Jean.change_face("perplexed")
 
-        pause 0.5
+        pause 1.0
 
         $ Jean.change_face("sly", mouth = "lipbite", blush = 1)
 
@@ -1387,7 +1387,7 @@ label Jean_flirt_l:
 
         $ Jean.change_face("surprised2", mouth = "lipbite", blush = 2) 
 
-        pause 0.5
+        pause 1.0
 
         $ Jean.change_face("sly", mouth = "lipbite", blush = 1)
 
@@ -1399,7 +1399,7 @@ label Jean_flirt_l:
     else:
         $ Jean.change_face("worried2")
 
-        pause 0.5
+        pause 1.0
 
         $ Jean.change_face("worried1", mouth = "lipbite", blush = 1)
 
@@ -1425,7 +1425,7 @@ label Jean_flirt_l:
 
         $ Jean.change_face("surprised2", mouth = "lipbite", blush = 2) 
 
-        pause 0.5
+        pause 1.0
 
         $ Jean.change_face("worried1", mouth = "lipbite", blush = 1)
 
@@ -1514,7 +1514,7 @@ label Jean_flirt_qa:
     call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1274
     call change_Character_stat(Jean, "desire", 0) from _call_change_Character_stat_1275 
 
-    pause 0.5
+    pause 1.0
 
     $ Jean.change_face("worried1", mouth = "lipbite", blush = 1)
 
@@ -1539,7 +1539,7 @@ label Jean_flirt_qb:
     call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1277
     call change_Character_stat(Jean, "desire", 0) from _call_change_Character_stat_1278
 
-    pause 0.5
+    pause 1.0
 
     $ Jean.change_face("sly", mouth = "lipbite", blush = 1)
 
@@ -1564,7 +1564,7 @@ label Jean_flirt_qc:
     call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1280
     call change_Character_stat(Jean, "desire", 0) from _call_change_Character_stat_1281
 
-    pause 0.5
+    pause 1.0
 
     $ Jean.change_face("sly", blush = 1)
 

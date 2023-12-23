@@ -5,7 +5,7 @@ label Rogue_box_of_chocolates_shopping_accept:
 
     $ Rogue.change_face("worried2", mouth = "lipbite", blush = 1)
 
-    pause 0.5
+    pause 1.0
 
     $ Rogue.change_face("worried1", eyes = "right", mouth = "lipbite", blush = 1) 
 
@@ -43,7 +43,7 @@ label Rogue_box_of_chocolates_gift_accept:
 
     $ Rogue.change_face("worried2", mouth = "lipbite", blush = 1)
 
-    pause 0.5
+    pause 1.0
 
     $ Rogue.change_face("worried1", eyes = "right", mouth = "lipbite", blush = 1) 
 

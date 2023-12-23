@@ -1552,6 +1552,8 @@ label stop_all_Actions(close_interface = True, automatic = False):
 
                 call expression f"{focused_Character.tag}_hookup_summary" pass (total_Character_orgasms = total_Character_orgasms, total_Player_orgasms = total_Player_orgasms, total_unique_Actions = total_unique_Actions) from _call_expression_87
 
+                call screen grade_screen(total_Character_orgasms, total_Player_orgasms, total_unique_Actions, score)
+
                 show screen interactions_screen(focused_Character)
     else:
         $ belt_disabled = False

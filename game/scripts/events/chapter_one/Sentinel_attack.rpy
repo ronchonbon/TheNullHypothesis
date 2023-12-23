@@ -1568,7 +1568,7 @@ label ch1_Sentinel_attack:
     ch_Player "Just mental ones I guess. . ."
     ch_Charles "Such is the way of things, unfortunately."
 
-    $ Charles.change_face("confused")
+    $ Charles.change_face("confused1")
 
     ch_Charles "Your physical recovery was quite surprising, for the second time, no less."
     ch_Charles "No doubt thanks to this new 'evolution' of your power."
@@ -1597,7 +1597,7 @@ label ch1_Sentinel_attack:
     elif Player.History.check("ch1_Sentinel_attack_path_1C"):
         ch_Charles "There has been a lot of talk concerning your actions in the mall during the attack."
 
-        $ Charles.change_face("confused")
+        $ Charles.change_face("confused1")
 
         ch_Charles "You mustn't let your anger fuel your actions." 
         ch_Charles "I know too well what can happen to someone when. . . they let anger and hatred control them."
@@ -1612,7 +1612,7 @@ label ch1_Sentinel_attack:
     ch_Charles "They are a weapon humanity has developed, in their campaign against mutant-kind."
     ch_Charles "Developed. . . by our own government, no less."
 
-    $ Charles.change_face("confused")
+    $ Charles.change_face("confused1")
 
     ch_Charles "But to use them in such an underhanded and public manner. . ."
     ch_Charles "I fear we are reaching a tipping point, as tensions will only continue to rise."
@@ -1650,7 +1650,7 @@ label ch1_Sentinel_attack:
     ch_Charles "Keep your friends and allies close, [Player.first_name]. We may all need each other in the coming days."
     ch_Player "I will, thanks."
 
-    $ Charles.change_face("confused")
+    $ Charles.change_face("confused1")
 
     ch_Player "By the way, the X-Men, are they still around?"
 

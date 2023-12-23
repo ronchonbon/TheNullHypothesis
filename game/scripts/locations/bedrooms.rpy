@@ -246,9 +246,9 @@ label shower:
         menu(menu_location = f"bg_shower_{current_bedroom.tag}"):
             "Look in the mirror" if current_bedroom == Player:
                 call screen Player_customization_screen()
-            "Shower" if clock > 0:
+            "Shower" if clock > 0 and (current_bedroom == Player or current_bedroom in Partners):
                 call take_a_shower from _call_take_a_shower
-            "Shower (locked)" if clock <= 0:
+            "Shower (locked)" if clock <= 0 or (current_bedroom != Player and current_bedroom not in Partners):
                 pass
             "Bedroom":
                 if current_bedroom == Player:

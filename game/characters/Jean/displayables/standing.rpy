@@ -135,9 +135,6 @@ layeredimage Jean_standing:
     always:
         "Jean_standing_body"
 
-    if Jean.left_arm in ["crossed", "fist", "hip", "neutral"]:
-        "characters/Jean/images/standing/left_arm_[Jean.left_arm]_shadow.webp"
-
     if Jean.left_arm not in ["bra", "crossed", "fight", "fist", "grope", "hip", "neutral", "psychic1", "psychic2", "rub_neck", "touch_ass"]:
         Null()
     elif renpy.get_screen("Wardrobe_screen"):
@@ -148,13 +145,7 @@ layeredimage Jean_standing:
         "Jean_standing_left_arm"
 
     if Jean.right_arm in ["hip", "touch_pussy"]:
-        "characters/Jean/images/standing/right_forearm_[Jean.right_arm]_shadow.webp"
-
-    if Jean.right_arm in ["hip", "touch_pussy"]:
         "characters/Jean/images/standing/right_forearm_[Jean.right_arm].webp"
-
-    if Jean.left_arm in ["grope"]:
-        "characters/Jean/images/standing/left_forearm_[Jean.left_arm]_shadow.webp"
 
     if Jean.left_arm in ["grope"]:
         "characters/Jean/images/standing/left_forearm_[Jean.left_arm].webp"
@@ -293,9 +284,6 @@ layeredimage Jean_standing_body:
 
     always:
         "characters/Jean/images/standing/right_foot.webp"
-
-    always:
-        "characters/Jean/images/standing/left_foot_shadow.webp"
 
     always:
         "characters/Jean/images/standing/left_foot.webp"

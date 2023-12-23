@@ -8,7 +8,7 @@ label Jean_steamy_romance_novel_shopping_accept:
 
     $ Jean.change_face("worried2", mouth = "lipbite", blush = 1)
 
-    pause 0.5
+    pause 1.0
 
     $ Jean.change_face("worried1", eyes = "down", mouth = "lipbite", blush = 1)
 
@@ -51,7 +51,7 @@ label Jean_steamy_romance_novel_gift_accept:
 
     $ Jean.change_face("worried2", mouth = "lipbite", blush = 1)
 
-    pause 0.5
+    pause 1.0
 
     $ Jean.change_face("worried1", eyes = "down", mouth = "lipbite", blush = 1)
 

@@ -1,7 +1,7 @@
 label Jean_rejects_hookup:
     $ Jean.change_face("surprised2", blush = 1)
 
-    pause 0.5
+    pause 1.0
 
     $ Jean.change_face("worried1", mouth  = "lipbite", blush = 1)
 
@@ -16,7 +16,7 @@ label Jean_rejects_hookup_later:
 label Jean_rejects_hookup_mad:
     $ Jean.change_face("appalled2")
 
-    pause 0.5
+    pause 1.0
 
     $ Jean.change_face("furious")
 
@@ -31,7 +31,7 @@ label Jean_rejects_hookup_mad:
 label Jean_rejects_hookup_public:
     $ Jean.change_face("surprised3", blush = 1)
 
-    pause 0.5
+    pause 1.0
 
     $ Jean.change_face("worried3", eyes = "left", blush = 1)
 

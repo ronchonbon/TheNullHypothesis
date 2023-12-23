@@ -18,10 +18,12 @@ label Rogue_chapter_one_season_one_first_training_session:
     $ ongoing_Event = True
 
     $ Rogue.change_face("worried1")
+    $ Rogue.change_arms("sheepish")
 
     ch_Rogue "Did ya really wanna train together?" 
 
     $ Rogue.change_face("worried1", mouth = "smirk")
+    $ Rogue.change_arms("sheepish", right_arm = "neutral")
 
     menu:
         extend ""
@@ -43,22 +45,27 @@ label Rogue_chapter_one_season_one_first_training_session:
             call change_Character_stat(Rogue, "love", -small_stat) from _call_change_Character_stat_1621
 
             $ Rogue.change_face("worried2")
+            $ Rogue.change_arms("shrug")
 
             ch_Rogue "No, ah swear there's nothin'!"
 
     $ Rogue.change_face("worried1")
+    $ Rogue.change_arms("crossed")
 
     ch_Rogue "It's just. . ."
 
     $ Rogue.change_face("sad", eyes = "right")
+    $ Rogue.change_arms("sheepish")
 
     ch_Rogue "Ah've never really been able to spar with anyone cuz of my power."
 
     $ Rogue.change_face("worried1", eyes = "right")
+    $ Rogue.change_arms("sheepish", right_arm = "neutral")
 
     ch_Player "You know that's not a problem for me." 
 
     $ Rogue.change_face("worried1", mouth = "smirk")
+    $ Rogue.change_arms("neutral")
 
     ch_Rogue "Yeah, but. . . ah just wanted to make sure." 
     ch_Player "I appreciate it, but seriously, don't worry."
@@ -74,6 +81,7 @@ label Rogue_chapter_one_season_one_first_training_session:
     $ fade_in_from_black(0.4)
 
     $ Rogue.change_face("neutral")
+    $ Rogue.change_arms("hips")
 
     ch_Player "So, [Laura.name]'s been teaching me some techniques."
 
@@ -85,11 +93,13 @@ label Rogue_chapter_one_season_one_first_training_session:
     ch_Player "Wanna work through some of it together?"
 
     $ Rogue.change_face("pleased1")
+    $ Rogue.change_arms("angry")
 
     ch_Rogue "Sure! Ah'll do anythin' ya want." 
 
     if Rogue in Partners:
         $ Rogue.change_face("worried2") 
+        $ Rogue.change_arms("crossed")
         
         ch_Rogue "Well. . . not anythin'. . ." 
         
@@ -98,12 +108,14 @@ label Rogue_chapter_one_season_one_first_training_session:
         ch_Rogue "At least not 'round here. . ."
     else:
         $ Rogue.change_face("worried2") 
+        $ Rogue.change_arms("crossed")
         
         ch_Rogue "Ah didn't. . . mean it like that. . ." 
         
         $ Rogue.change_face("worried1", eyes = "right", mouth = "smirk")
 
     $ Rogue.change_face("smirk2")
+    $ Rogue.change_arms("fight")
 
     "You spend the next couple hours practicing with Rogue."
     "Despite being relegated to training alone, you can tell she's put some serious work in."
@@ -112,10 +124,12 @@ label Rogue_chapter_one_season_one_first_training_session:
     "She just seems overjoyed by the fact that she can finally spar with another person."
 
     $ Rogue.change_face("happy")
+    $ Rogue.change_arms("neutral")
 
     "She also seems to find any excuse to touch you and correct your form. . ."
 
     $ Rogue.change_face("smirk2", mouth = "lipbite", blush = 1)
+    $ Rogue.change_arms("crossed")
 
     ch_Rogue "Thanks, [Rogue.Player_petname]. . . for lettin' me train with you." 
     ch_Rogue "You don't know how much ah've been wantin' to."
@@ -124,6 +138,7 @@ label Rogue_chapter_one_season_one_first_training_session:
     ch_Player "It was substantially less painful than doing it with [Laura.name] too. . ." 
 
     $ Rogue.change_face("sly")
+    $ Rogue.change_arms("hips")
 
     ch_Rogue "Ah can imagine."
 
@@ -132,6 +147,7 @@ label Rogue_chapter_one_season_one_first_training_session:
     ch_Player "I would offer to try and help you figure out your powers. . ." 
 
     $ Rogue.change_face("worried1")
+    $ Rogue.change_arms("crossed")
 
     ch_Player "But I still can't even figure out my own ability yet."
     ch_Rogue "It's alright, [Rogue.Player_petname]."  

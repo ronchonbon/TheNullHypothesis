@@ -244,7 +244,7 @@ label day_one_intro:
                 $ Charles.telepathic = False
                 
                 if not asked_mutant and not asked_Charles:
-                    $ Charles.change_face("confused")
+                    $ Charles.change_face("confused1")
 
                     ch_Charles ". . . Okay. . ."
 
@@ -322,6 +322,7 @@ label day_one_intro:
 
     $ Ororo.name = "???"
     $ Ororo.change_face("confused1", eyes = "right")
+    $ Ororo.change_arms("hips")
 
     call add_Characters(Ororo, direction = "right") from _call_add_Characters_50
 
@@ -337,6 +338,7 @@ label day_one_intro:
 
     $ Ororo.name = "Prof. Munroe"
     $ Ororo.change_face("smirk1")
+    $ Ororo.change_arms("crossed")
 
     ch_Ororo "It is good to finally meet you, [Player.first_name]. You've been the talk of the campus lately, lots of rumors and speculation regarding your power."
 
@@ -344,6 +346,7 @@ label day_one_intro:
         extend ""
         "Wow. . . I uhh. . .":
             $ Ororo.change_face("worried1")
+            $ Ororo.change_arms("hips", right_arm = "neutral")
 
             ch_Ororo "Charles, are you sure he's okay?"
         "It's great to meet you, [Ororo.name]. I can't believe I'm talking to one of the X-Men.":
@@ -356,15 +359,19 @@ label day_one_intro:
     ch_Charles "Ororo, I think [Player.first_name] would benefit from a tour of the campus."
 
     $ Ororo.change_face("neutral")
+    $ Ororo.change_arms("hips")
 
     ch_Charles "I understand you also plan on assigning him some tutors so he can catch up with the rest of his class."
     ch_Ororo "Indeed, I'll take it from here, Charles."
     ch_Charles "Thank you. [Player.first_name], I leave you in Ororo's capable hands. I have pressing matters to attend to."
 
+    $ Ororo.change_arms("neutral")
+
     menu:
         extend ""
         "Wow. . . I am forever in your debt, [Charles.name].":
             $ Ororo.change_face("confused1", mouth = "smirk")
+            $ Ororo.change_arms("angry")
 
             ch_Charles "Please, [Player.first_name], think nothing of it."
 
@@ -372,6 +379,7 @@ label day_one_intro:
             call swap_Slots(Ororo, "middle") from _call_swap_Slots
         "Thank you, [Charles.name]. I might be dead if not for you.":
             $ Ororo.change_face("smirk1")
+            $ Ororo.change_arms("hips", right_arm = "neutral")
 
             call change_Character_stat(Ororo, "love", 0) from _call_change_Character_stat_873
 
@@ -380,9 +388,12 @@ label day_one_intro:
             call send_Characters(Charles, location = "hold") from _call_send_Characters_182
             call swap_Slots(Ororo, "middle") from _call_swap_Slots_1
 
+            $ Ororo.change_arms("neutral", left_arm = "extended")
+
             ch_Ororo "I'm glad you properly appreciate everything Charles is doing for you."
 
     $ Ororo.change_face("neutral")
+    $ Ororo.change_arms("neutral")
 
     $ Charles.name = "Xavier"
 
@@ -470,9 +481,17 @@ label day_one_tour:
     call set_the_scene(location = Player.home) from _call_set_the_scene_244
     call add_Characters(Ororo) from _call_add_Characters_51
 
+    $ Ororo.change_arms("neutral", right_arm = "extended")
+
     ch_Ororo "I trust you've already seen your room? You won't need to worry about roommates, all students have gotten private rooms since the expansion, although the floors are coed."
+    
+    $ Ororo.change_arms("neutral")
+
     ch_Ororo "The rooms also have private bathrooms and showers."
     ch_Ororo "Each door is labeled with the resident's name."
+
+    $ Ororo.change_arms("hips", right_arm = "neutral")
+
     ch_Player "This room is amazing. And is this floor only student housing?"
     ch_Ororo "Yes, the professors and non-student residents live in a separate wing of the mansion."
 
@@ -484,17 +503,24 @@ label meet_Rogue:
     call set_the_scene(location = "bg_classroom") from _call_set_the_scene_245
     call add_Characters(Ororo) from _call_add_Characters_52
 
+    $ Ororo.change_arms("neutral", right_arm = "extended")
+
     ch_Ororo "This is one of our classrooms. You won't see large lecture halls like your previous school due to our relatively small student population."
+    
+    $ Ororo.change_arms("hips", right_arm = "neutral")
+
     ch_Ororo "There are a number of {i}unorthodox{/i} elective courses you can sign up for, but there is still a general education curriculum."
 
     menu:
         extend ""
         "So, what courses do you teach?":
             $ Ororo.change_face("smirk1")
+            $ Ororo.change_arms("crossed")
 
             ch_Ororo "Mutant Physiology, World Politics, a few other electives as well."
         "Damn, and here I thought I could get away from freshman psychology.":
             $ Ororo.change_face("neutral", eyes = "squint")
+            $ Ororo.change_arms("crossed")
 
             call change_Character_stat(Ororo, "love", 0) from _call_change_Character_stat_874
             call change_Character_stat(Ororo, "trust", 0) from _call_change_Character_stat_875
@@ -502,6 +528,7 @@ label meet_Rogue:
             ch_Ororo "I'm afraid not, [Player.first_name]."
         "How would you compare the difficulty of the curriculum to a normal university's? (academic)" if Player.scholarship == "academic":
             $ Ororo.change_face("pleased1")
+            $ Ororo.change_arms("hips")
 
             call change_Character_stat(Ororo, "love", 0) from _call_change_Character_stat_876
 
@@ -512,6 +539,8 @@ label meet_Rogue:
             ch_Ororo "They were developed by our own staff after all."
 
     if approval_check(Ororo, threshold = 40):
+        $ Ororo.change_arms("neutral")
+
         ch_Ororo "The curriculum we teach may be different from what you're used to, [Player.first_name]. But don't worry, I have just the thing."
 
     $ Rogue.name = "???"
@@ -524,12 +553,15 @@ label meet_Rogue:
     ch_Rogue "Professor? Ya wanted to see me?"
 
     $ Ororo.change_face("smirk1")
+    $ Ororo.change_arms("neutral", left_arm = "storm2")
 
     ch_Ororo "Yes, Rogue, thank you for joining us. I'll be assigning you as [Player.full_name]'s tutor so he can catch up with the rest of the class."
 
     $ Rogue.name = "Rogue"
     $ Rogue.change_face("smirk2")
     $ Rogue.change_arms("hips")
+
+    $ Ororo.change_arms("crossed")
 
     ch_Ororo "You two may acquaint yourselves while I go find extra study materials for him."
 
@@ -585,10 +617,14 @@ label meet_Rogue:
     $ Rogue.change_face("surprised2", eyes = "right", blush = 1)
     $ Rogue.change_arms("neutral")
 
+    $ Ororo.change_arms("neutral", left_arm = "extended")
+
     ch_Ororo "Here we are, [Player.first_name]. These are some textbooks and study guides you will need for class. I do hope you and Rogue are getting along." 
 
     $ Rogue.change_face("neutral", mouth = "lipbite", blush = 1)
     $ Rogue.change_arms("sheepish", right_arm = "neutral")
+
+    $ Ororo.change_arms("hips")
 
     menu:
         extend ""
@@ -618,10 +654,13 @@ label meet_Rogue:
     $ Rogue.change_arms("neutral")
 
     $ Ororo.change_face("smirk2")
+    $ Ororo.change_arms("neutral", left_arm = "storm2")
 
     ch_Ororo "Alright, thank you, [Rogue.name], you are dismissed."
     
     $ Rogue.change_face("happy")
+
+    $ Ororo.change_arms("hips", right_arm = "neutral")
 
     ch_Rogue "See y'all tomorrow!"
 
@@ -636,11 +675,13 @@ label meet_Rogue:
     pause 1.0
 
     $ Ororo.change_face("smirk2")
+    $ Ororo.change_arms("neutral", right_arm = "extended")
 
     ch_Ororo "As you can see, the mansion is equipped with quite a lovely swimming pool."
     ch_Ororo "It is free for students and faculty to use for 'recreational' purposes, as well as training."
 
     $ Ororo.change_face("confused1", mouth = "smirk")
+    $ Ororo.change_arms("hips")
 
     ch_Ororo "However. . . and it pains me to have to make such a thing clear. . ."
 
@@ -654,6 +695,7 @@ label meet_Rogue:
     call add_Characters(Ororo) from _call_add_Characters_56
 
     $ Ororo.change_face("smirk2")
+    $ Ororo.change_arms("crossed")
 
     ch_Ororo "These are the locker room's communal showers."
     ch_Ororo "They are for washing off after a swim or workout."
@@ -670,6 +712,7 @@ label meet_Rogue:
     pause 1.0
 
     $ Ororo.change_face("smirk1", blush = 1)
+    $ Ororo.change_arms("hips", right_arm = "neutral")
 
     pause 1.0
 
@@ -699,10 +742,12 @@ label meet_Laura:
     ch_Ororo "As such, teaching students to protect themselves is an important part of our curriculum."
     
     $ Ororo.change_face("neutral")
+    $ Ororo.change_arms("neutral", right_arm = "extended")
 
     ch_Ororo "The advanced technology in this room can simulate combat scenarios which will be used to train you."
 
     $ Ororo.change_face("worried1")
+    $ Ororo.change_arms("crossed")
 
     ch_Ororo "I understand this is all new to you. You probably have very little, if any, real world combat experience."
 
@@ -714,6 +759,9 @@ label meet_Laura:
     $ Ororo.eyes = "left"
 
     "[Ororo.name] looks at a figure at the other end of the room."
+    
+    $ Ororo.change_arms("neutral", left_arm = "storm2")
+
     ch_Ororo "X-23! Come here please."
 
     $ Laura.name = "X-23"
@@ -726,6 +774,7 @@ label meet_Laura:
     $ Laura.change_arms("neutral")
 
     $ Ororo.change_face("neutral")
+    $ Ororo.change_arms("hips", right_arm = "neutral")
 
     ch_Laura "So this is the newbie?"
     "She looks you up and down."
@@ -748,12 +797,14 @@ label meet_Laura:
         ch_Laura "He looks reasonably well-built."
     
     $ Ororo.change_face("smirk1", eyes = "left", blush = 1)
+    $ Ororo.change_arms("neutral", left_arm = "extended")
     
     ch_Ororo "Yes, this is [Player.full_name]. He was recently rescued."
     
     $ Laura.change_face("confused1", eyes = "squint")
 
     $ Ororo.change_face("smirk1")
+    $ Ororo.change_arms("hips")
     
     ch_Ororo "He lacks combat experience and will need to be brought up to speed relatively quickly. I am assigning you as his combat instructor so you can help him establish a good foundation."
     
@@ -763,6 +814,9 @@ label meet_Laura:
     $ Ororo.change_face("perplexed", eyes = "left")
 
     ch_Laura "Oh. . . so his muscles are just for show?"
+
+    $ Ororo.change_arms("crossed")
+
     "[Ororo.name] gives [Laura.name] a pointed look."
     ch_Ororo "[Laura.public_name], what did I say about. . ."
 
@@ -934,6 +988,7 @@ label day_one_tour_farewell:
     call add_Characters(Ororo) from _call_add_Characters_59
 
     $ Ororo.change_face("neutral")
+    $ Ororo.change_arms("hips", right_arm = "neutral")
 
     pause 1.0
 
@@ -942,12 +997,17 @@ label day_one_tour_farewell:
     ch_Ororo "Hello again, [Player.first_name]."
 
     $ Ororo.change_face("smirk1")
+    $ Ororo.change_arms("crossed")
 
     ch_Ororo "Please don't think unkindly of [Laura.public_name], I know she can come off as a bit abrasive."
     
     $ Ororo.change_face("worried1")
+    $ Ororo.change_arms("sheepish")
     
     ch_Ororo "It's not that she doesn't like you, she's just been through a lot and didn't have a lot of healthy social interaction before coming here."
+    
+    $ Ororo.change_arms("hips", right_arm = "neutral")
+
     ch_Player "Don't sweat it, I won't hold it against her."
     
     $ Ororo.change_face("smirk1")
@@ -960,10 +1020,12 @@ label day_one_tour_farewell:
     ch_Player "Damn. . ."
 
     $ Ororo.change_face("worried1")
+    $ Ororo.change_arms("hips", right_arm = "extended")
 
     ch_Ororo "Indeed. So treat her kindly and try to cut her some slack."
 
     $ Ororo.change_face("worried1", eyes = "down")
+    $ Ororo.change_arms("hips", right_arm = "neutral")
 
     call phone_buzz from _call_phone_buzz_6
 
@@ -977,7 +1039,7 @@ label day_one_tour_farewell:
 
     ch_Ororo "It was a pleasure, [Player.first_name]."
 
-    # $ Ororo.right_arm = 2
+    $ Ororo.change_arms("neutral", left_arm = "extended")
 
     "She reaches out to shake your hand."
 
@@ -985,11 +1047,14 @@ label day_one_tour_farewell:
         extend ""
         "It really was a pleasure.":
             $ Ororo.change_face("surprised2", blush = 1)
+            $ Ororo.change_arms(right_arm = "fist", left_arm = "extended")
 
             "A shiver runs up the professor's arm as you shake her hand."
 
             call change_Character_stat(Ororo, "love", 0) from _call_change_Character_stat_886
             call change_Character_stat(Ororo, "trust", 0) from _call_change_Character_stat_887
+
+            $ Ororo.change_arms("crossed")
 
             ch_Ororo "{i}Ahem{/i}. . . Well, goodbye, [Player.first_name]. I have a mission to attend to."
         "Are you sure?":
@@ -998,15 +1063,18 @@ label day_one_tour_farewell:
             ch_Ororo "I am. I'd like to see firsthand what all the fuss is about."
 
             $ Ororo.change_face("surprised2", blush = 1)
+            $ Ororo.change_arms(right_arm = "fist", left_arm = "extended")
 
             "A shiver runs up the professor's arm as you shake her hand."
 
             call change_Character_stat(Ororo, "love", 0) from _call_change_Character_stat_888
             call change_Character_stat(Ororo, "trust", 0) from _call_change_Character_stat_889
 
+            $ Ororo.change_arms("crossed")
+
             ch_Ororo "Wow, that was. . . unexpected. I will see you when I return from my mission, [Player.first_name]."
 
-    # $ Ororo.right_arm = 1
+    $ Ororo.change_arms("neutral")
 
     pause 1.0
 

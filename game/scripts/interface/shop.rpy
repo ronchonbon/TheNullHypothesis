@@ -313,9 +313,9 @@ screen shop_screen(shop_type, discount = False, restricted = True):
         use tooltips
 
 screen buy_gift_screen(Characters, Item, discount = False):
-    style_prefix "shop"
-
     modal True
+
+    style_prefix "shop"
 
     if discount:
         $ modifier = 0.5
@@ -402,9 +402,9 @@ screen buy_gift_screen(Characters, Item, discount = False):
             unscrollable "hide"
 
 screen piercings_screen(Characters, Piercing, discount = False):
-    style_prefix "shop"
-
     modal True
+
+    style_prefix "shop"
 
     frame xysize (0.25, 0.45):
         background Frame("images/interface/box1.webp", 10, 10)

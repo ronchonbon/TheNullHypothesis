@@ -580,3 +580,62 @@ screen Action_screen(automatic = False):
 
     if tooltips_enabled:
         use tooltips
+
+screen grade_screen(total_Character_orgasms, total_Player_orgasms, total_unique_Actions, score):
+    layer "interface"
+    
+    modal True
+
+    timer 0.5 repeat True action ToggleVariable("blinking")
+
+    frame anchor (0.5, 0.5) pos (0.3, 0.5) xysize (int(878*interface_new_adjustment), int(1056*interface_new_adjustment)):
+        background At("images/interface/Action_menu/grade.webp", interface)
+
+        if blinking:
+            text "Feedback" + "{alpha=0.0}_{/alpha}" anchor (0.0, 0.5) pos (0.035, 0.067):
+                size 35
+        else:
+            text "Feedback" + "_" anchor (0.0, 0.5) pos (0.035, 0.067):
+                size 35
+
+        vbox anchor (0.5, 0.0) pos (0.482, 0.19) xysize (int(700*interface_new_adjustment), int(350*interface_new_adjustment)):
+            spacing 10
+
+            fixed xysize (int(700*interface_new_adjustment), 50):
+                text "[focused_Character.name]'s Orgasms" anchor (0.0, 0.5) pos (0.0, 0.5):
+                    size 30
+
+                text "[total_Character_orgasms]" anchor (1.0, 0.5) pos (1.0, 0.5):
+                    size 35
+
+            fixed xysize (int(700*interface_new_adjustment), 50):
+                text "[Player.first_name]'s Orgasms" anchor (0.0, 0.5) pos (0.0, 0.5):
+                    size 30
+
+                text "[total_Player_orgasms]" anchor (1.0, 0.5) pos (1.0, 0.5):
+                    size 35
+
+            fixed xysize (int(700*interface_new_adjustment), 50):
+                text "Unique Actions" anchor (0.0, 0.5) pos (0.0, 0.5):
+                    size 30
+
+                text "[total_unique_Actions]" anchor (1.0, 0.5) pos (1.0, 0.5):
+                    size 35
+
+        fixed anchor (0.5, 0.5) pos (0.482, 0.755) xysize (int(700*interface_new_adjustment), 75):
+            text "Final Grade" anchor (0.0, 0.5) pos (0.0, 0.5):
+                size 35
+
+            if score >= 8.0:
+                add At("images/interface/Action_menu/A+.webp", interface) anchor (1.0, 0.5) pos (1.0, 0.5)
+            elif score >= 4.0:
+                add At("images/interface/Action_menu/A.webp", interface) anchor (1.0, 0.5) pos (1.0, 0.5)
+            elif score >= 2.0:
+                add At("images/interface/Action_menu/B.webp", interface) anchor (1.0, 0.5) pos (1.0, 0.5)
+            else:
+                add At("images/interface/Action_menu/C.webp", interface) anchor (1.0, 0.5) pos (1.0, 0.5)
+
+        imagebutton anchor (0.5, 0.5) pos (0.5, 0.895):
+            idle At("images/interface/Action_menu/done_idle.webp", interface) hover At("images/interface/Action_menu/done.webp", interface)
+
+            action Return()

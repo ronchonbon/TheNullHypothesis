@@ -152,7 +152,7 @@ label day_three_intro:
 
     ch_Player "Hey [Kurt.name], how's it going?"
 
-    $ Kurt.change_face("confused")
+    $ Kurt.change_face("confused1")
     $ Kurt.change_arms("crossed")
 
     ch_Kurt "I assume you apologized to [Rogue.name]?"
@@ -705,7 +705,7 @@ label day_three_after_lesson:
 
     ch_Kurt "Especially zat one."
 
-    $ Kurt.change_face("confused")
+    $ Kurt.change_face("confused1")
 
     ch_Kurt "Not only is she probably zee fiercest fighter in zee mansion. . . viz actual combat experience."
     ch_Kurt "A standard vorkout for her would put any of us in zee ground, as I'm sure you just learned."

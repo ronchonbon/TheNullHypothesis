@@ -568,7 +568,52 @@ init -2 python:
         return brows, eyes, mouth, blush
 
     def Ororo_arms(pose):
-        return "neutral", "neutral"
+        if pose == "neutral":
+            left_arm = "neutral"
+            right_arm = "neutral"
+        elif pose == "angry":
+            left_arm = "fist"
+            right_arm = "fist"
+        elif pose == "bra":
+            left_arm = "bra"
+            right_arm = "bra"
+        elif pose == "come_here":
+            left_arm = "fight"
+            right_arm = "extended"
+        elif pose == "crossed":
+            left_arm = "crossed"
+            right_arm = "crossed"
+        elif pose == "fight":
+            left_arm = "fight"
+            right_arm = "fight"
+        elif pose == "hips":
+            left_arm = "hip"
+            right_arm = "hip"
+        elif pose == "plug":
+            left_arm = "touch_ass"
+            right_arm = "fist"
+        elif pose == "sass":
+            left_arm = "hip"
+            right_arm = "neutral"
+        elif pose == "shrug":
+            left_arm = "extended"
+            right_arm = "extended"
+        elif pose == "sheepish":
+            left_arm = "rub_neck"
+            right_arm = "extended"
+        elif pose == "storm1":
+            left_arm = "storm1"
+            right_arm = "storm1"
+        elif pose == "storm2":
+            left_arm = "storm2"
+            right_arm = "storm2"
+        elif pose == "touch_self":
+            left_arm = "grope"
+            right_arm = "touch_pussy"
+        else:
+            return "wrong", "wrong"
+
+        return left_arm, right_arm
 
     def Ororo_locations():
         possible_locations = []

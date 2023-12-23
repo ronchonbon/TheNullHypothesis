@@ -170,9 +170,10 @@ label Laura_chapter_one_season_one_late_night_training:
     "She's drenched in sweat, her hair plastered to her face and neck. Her general disheveled look suggests she's been training hard and that she's been here for a while." 
     "Despite her appearance, she does not seem as out of breath as you might expect."
     ch_Laura "What is it?"
-    ch_Player "Oh, uh. . . sorry if I'm interrupting. . ."
+    ch_Player "Oh, uh. . . hope I'm not interrupting. . ."
 
     $ Laura.change_face("confused1", eyes = "squint")
+    $ Laura.change_arms("crossed")
 
     ch_Laura "Yes. You are."
 
@@ -209,29 +210,35 @@ label Laura_chapter_one_season_one_late_night_training:
             ch_Laura "I. . . yes. I am. I just. . . I feel. . . restless today."
 
     $ Laura.change_face("angry1")
+    $ Laura.change_arms("angry")
 
     ch_Laura "And besides, I still do not feel tired yet."
     ch_Player "Do you do this often? Just stay up all night training?"
 
     $ Laura.change_face("neutral")
+    $ Laura.change_arms("neutral")
 
     ch_Laura "Not all night. But yes, I frequently train until late."
 
     $ Laura.change_face("neutral", eyes = "right")
+    $ Laura.change_arms("crossed")
 
     ch_Laura "I find it helps keep me. . . focused. Grounded."
 
     $ Laura.change_face("worried1", eyes = "right")
+    $ Laura.change_arms("hips", right_arm = "extended")
 
     ch_Laura "I feel like everything here makes sense in a way it does not out there."
     ch_Player "Out there, like. . . around other people?"
 
     $ Laura.change_face("angry1", eyes = "right")
+    $ Laura.change_arms("angry")
 
     ch_Laura "Amongst other things." 
     "She's not exactly being unfriendly, but you're still left with the impression that you've intruded upon her personal space."
 
     $ Laura.change_face("confused1")
+    $ Laura.change_arms("neutral")
 
     ch_Player "Alright, well I won't keep you any longer. Goodnight."
     ch_Laura "Good. . . night."

@@ -220,25 +220,25 @@ label Jean_jealousy_went_on_date:
 
     call send_Characters(Kurt, Player.home) from _call_send_Characters_237 
 
-    $ Kurt.change_face("surprised")
+    $ Kurt.change_face("surprised1")
 
     ch_Kurt "Everysing okay? Zat slam was quite loud. . ."
 
-    $ Kurt.change_face("confused")
+    $ Kurt.change_face("confused1")
 
     ch_Player "Not really. . ." 
     ch_Player "I fucked things up with [Jean.name]."
     ch_Kurt "Vat did you do?"
 
-    $ Kurt.change_face("confused")
+    $ Kurt.change_face("confused1")
 
     "You explain what happened."
 
-    $ Kurt.change_face("angry")
+    $ Kurt.change_face("angry1")
 
     ch_Kurt "Schön blöd, what made you sink zat was a good idea?!"
 
-    $ Kurt.change_face("confused")
+    $ Kurt.change_face("confused1")
 
     ch_Kurt "She has good reason to be angry viz you. . ."
 
@@ -246,7 +246,7 @@ label Jean_jealousy_went_on_date:
 
     ch_Kurt "Give her some space for zee next few days, I doubt she'll want to be talking to you." 
 
-    $ Kurt.change_face("confused")
+    $ Kurt.change_face("confused1")
 
     pause 1.0
 
@@ -377,31 +377,31 @@ label Jean_jealousy_flirted:
 
     call send_Characters(Kurt, Player.location) from _call_send_Characters_241
 
-    $ Kurt.change_face("surprised")
+    $ Kurt.change_face("surprised1")
 
     ch_Kurt "Everysing okay? Zat slam was quite loud. . ."
 
-    $ Kurt.change_face("confused")
+    $ Kurt.change_face("confused1")
 
     ch_Player "Not really. . ." 
     ch_Player "I fucked things up with [Jean.name]."
     ch_Kurt "Vat did you do?"
 
-    $ Kurt.change_face("confused")
+    $ Kurt.change_face("confused1")
 
     "You explain what happened."
 
-    $ Kurt.change_face("angry")
+    $ Kurt.change_face("angry1")
 
     ch_Kurt "Schön blöd, what made you sink zat was a good idea?!"
 
-    $ Kurt.change_face("confused")
+    $ Kurt.change_face("confused1")
 
     ch_Kurt "She has good reason to be angry viz you. . ."
 
     ch_Kurt "Give her some space for zee next few days, I doubt she'll want to be talking to you." 
 
-    $ Kurt.change_face("confused")
+    $ Kurt.change_face("confused1")
 
     pause 1.0
 
