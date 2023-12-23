@@ -33,5 +33,10 @@ init python:
         Outfits[-1].Clothes.update({
             "hair": Rogue_asymmetric_hair(),
             "bra": Rogue_black_tanktop(), "underwear": Rogue_yellow_panties()})
+
+        Outfits.append(OutfitClass("Nude"))
+
+        Outfits[-1].Clothes.update({
+            "hair": Rogue_asymmetric_hair()})
                 
         return Outfits

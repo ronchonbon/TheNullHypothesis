@@ -892,8 +892,7 @@ label ch1_Sentinel_attack:
     "She looks you up and down."
     ch_Cecilia "[Laura.public_name] is currently still recovering from the most recent 'session'."
 
-    # call change_Outfit(Jean, Jean.Wardrobe.Outfits["Casual 1"], instant = True) from _call_change_Outfit_31
-
+    call change_Outfit(Jean, Jean.Wardrobe.Outfits["Casual 1"], instant = True) from _call_change_Outfit_31
     call show_Character(Jean, x = stage_far_far_right) from _call_show_Character_5
 
     $ Jean.name = Jean.temp

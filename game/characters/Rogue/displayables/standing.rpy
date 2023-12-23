@@ -123,7 +123,7 @@ layeredimage Rogue_standing:
     always:
         "Rogue_standing_body"
 
-    if Rogue.left_arm not in ["bra", "fight", "fist", "grope", "hip", "neutral", "rub_neck", "touch_ass"]:
+    if Rogue.left_arm not in ["bra", "extended", "fight", "fist", "grope", "hip", "neutral", "rub_neck", "touch_ass"]:
         Null()
     elif renpy.get_screen("Wardrobe_screen"):
         "Rogue_standing_left_arm"
@@ -268,9 +268,7 @@ layeredimage Rogue_standing:
     elif Rogue.right_arm in ["fight"]:
         "characters/Rogue/images/standing/jacket_[Rogue.Clothes[jacket].string]_right_forearm_sleeve_[Rogue.right_arm].webp"
         
-    if Rogue.left_arm in ["extended"]:
-        "characters/Rogue/images/standing/left_arm_[Rogue.left_arm].webp"
-    elif Rogue.left_arm in ["fight", "rub_neck"]:
+    if Rogue.left_arm in ["fight", "rub_neck"]:
         "characters/Rogue/images/standing/left_forearm_[Rogue.left_arm].webp"
 
     if not Rogue.Clothes["bodysuit"].string:

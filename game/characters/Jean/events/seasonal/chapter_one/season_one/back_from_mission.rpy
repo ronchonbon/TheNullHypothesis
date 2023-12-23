@@ -32,10 +32,8 @@ label Jean_back_from_mission:
 
     "You turn around and head back."
 
-    call send_Characters([Jean, Charles], "bg_study") from _call_send_Characters_51
-    
-    # call change_Outfit(Jean, Jean.Wardrobe.Outfits["Hero (Chapter I)"], instant = True) from _call_change_Outfit_3
-    
+    call send_Characters([Jean, Charles], "bg_study") from _call_send_Characters_51    
+    call change_Outfit(Jean, Jean.Wardrobe.Outfits["Hero (Chapter I)"], instant = True) from _call_change_Outfit_3
     call set_the_scene(location = "bg_study") from _call_set_the_scene_49
 
     $ Jean.change_face("happy")

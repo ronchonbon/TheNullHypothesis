@@ -1,9 +1,9 @@
 init -1 python:
 
-    def Rogue_green_athletic_shorts():
-        name = "green athletic shorts"
+    def Jean_blue_athletic_shorts():
+        name = "blue athletic shorts"
         short_name = "shorts"
-        string = "green_athletic_shorts"
+        string = "blue_athletic_shorts"
 
         Clothing_type = "pants"
 
@@ -21,9 +21,9 @@ init -1 python:
         shame = [5, 5]
         
         available_states = {
-            "standing": [0]}
+            "standing": [0, 1]}
         undressed_states = {
-            "standing": 0}
+            "standing": 1}
         
         covers = {
             "standing": {
@@ -46,7 +46,7 @@ init -1 python:
         incompatibilities = []
 
         return ClothingClass(
-            Rogue, 
+            Jean, 
             name, short_name, string, Clothing_type, 
             shop_type, chapter, season,
             thresholds,
@@ -57,52 +57,61 @@ init -1 python:
             supports_breasts = supports_breasts,
             incompatibilities = incompatibilities)
 
-label Rogue_green_athletic_shorts_shopping_accept:
-    $ Rogue.change_face("pleased2")
+label Jean_blue_athletic_shorts_shopping_accept:
+    $ Jean.change_face("worried1")
 
-    ch_Rogue "Some comfy shorts? Good call."
+    ch_Jean "They're very tight. . ."
 
-    return
+    $ Jean.change_face("pleased1")
 
-label Rogue_green_athletic_shorts_shopping_reject:
-    $ Rogue.change_face("worried1")
-
-    ch_Rogue "Ah can pick out my own clothes, thank you."
+    ch_Jean "But comfy for sure."
 
     return
 
-label Rogue_green_athletic_shorts_gift_accept:
-    $ Rogue.change_face("pleased2")
+label Jean_blue_athletic_shorts_shopping_reject:
+    $ Jean.change_face("confused1")
 
-    ch_Rogue "These look comfy. . ."
-
-    return
-
-label Rogue_green_athletic_shorts_gift_reject:
-    $ Rogue.change_face("worried1")
-
-    ch_Rogue "Ah can buy out my own shorts, thank you."
+    ch_Jean "What, think I can't pick out clothes for myself?"
 
     return
 
-label Rogue_green_athletic_shorts_change_private_before:
+label Jean_blue_athletic_shorts_gift_accept:
+    $ Jean.change_face("pleased1")
+
+    ch_Jean "For me?"
+    ch_Jean "Thanks, [Jean.Player_petname]. . ."
 
     return
 
-label Rogue_green_athletic_shorts_change_private_after:
-    $ Rogue.change_face("worried1")
+label Jean_blue_athletic_shorts_gift_reject:
+    $ Jean.change_face("confused1")
 
-    ch_Rogue "Are they {i}too{/i} short?"
-
-    return
-
-label Rogue_green_athletic_shorts_change_public_before:
+    ch_Jean "You don't have to worry about my wardrobe. . ."
 
     return
 
-label Rogue_green_athletic_shorts_change_public_after:
-    $ Rogue.change_face("worried1")
+label Jean_blue_athletic_shorts_change_private_before:
 
-    ch_Rogue "Are they {i}too{/i} short?"
+    return
+
+label Jean_blue_athletic_shorts_change_private_after:
+    $ Jean.change_face("smirk2")
+
+    ch_Jean "I feel like I could go run a marathon."
+
+    return
+
+label Jean_blue_athletic_shorts_change_public_before:
+
+    return
+
+label Jean_blue_athletic_shorts_change_public_after:
+    $ Jean.change_face("confused1")
+
+    $ temp = Jean.Player_petname.capitalize()
+
+    ch_Jean "[temp], you're staring at my butt again. . ."
+
+    $ Jean.change_face("smirk2")
 
     return

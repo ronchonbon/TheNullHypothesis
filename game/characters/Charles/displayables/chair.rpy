@@ -91,10 +91,13 @@ layeredimage Charles_chair_head:
     if Charles.eyes in ["closed", "down", "left", "right", "squint", "up", "wink"]:
         "characters/Charles/images/standing/eyes_[Charles.eyes].webp"
     else:
-        "Charles_standing_blinking"
+        "Charles_blinking"
 
     always:
         "characters/Charles/images/brows_[Charles.brows].webp"
+
+    if Charles.blush:
+        "characters/Charles/images/standing/blush[Charles.blush].webp"
 
     if Charles.psychic and Charles.activating_psychic:
         At("Charles_chair_psychic", Charles_chair_activating_psychic_animation)

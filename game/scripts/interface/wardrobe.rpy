@@ -723,6 +723,7 @@ screen head_screen(Character):
 
                         null width 85
 
+            if True:
                 if Character in [Rogue]:
                     $ left_arms = [
                         "bra", "crossed", "extended", "fight", "fist", "grope", "hip", "neutral", "rub_neck", "touch_ass"]

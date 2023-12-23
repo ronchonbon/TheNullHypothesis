@@ -78,6 +78,7 @@ init -2 python:
             brows = kwargs.get("brows", None)
             eyes = kwargs.get("eyes", None)
             mouth = kwargs.get("mouth", None)
+            blush = kwargs.get("blush", 0)
 
             self.brows, self.eyes, self.mouth, self.blush = eval(f"{self.tag}_faces('{face}')")
 

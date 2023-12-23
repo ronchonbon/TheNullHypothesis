@@ -123,6 +123,23 @@ layeredimage Jean_standing:
     if Jean.left_arm in ["bra", "rub_neck", "touch_ass"]:
         "characters/Jean/images/standing/left_forearm_[Jean.left_arm].webp"
 
+    if Jean.Clothes["bodysuit"].string not in ["blueyellow_classic_suit"]:
+        Null()
+    elif Jean.Clothes["bodysuit"].string in ["blueyellow_classic_suit"] and Jean.Clothes["bodysuit"].state == 1:
+        Null()
+    elif Jean.left_arm in ["bra", "rub_neck", "touch_ass"]:
+        "characters/Jean/images/standing/bodysuit_[Jean.Clothes[bodysuit].string]_left_forearm_sleeve_[Jean.left_arm].webp"
+
+    if not Jean.Clothes["gloves"].string:
+        Null()
+    elif Jean.left_arm in ["rub_neck", "touch_ass"]:
+        "characters/Jean/images/standing/gloves_[Jean.Clothes[gloves].string]_left_[Jean.left_arm].webp"
+
+    if not Jean.Clothes["sleeves"].string:
+        Null()
+    elif Jean.left_arm in ["bra", "rub_neck", "touch_ass"]:
+        "characters/Jean/images/standing/sleeves_[Jean.Clothes[sleeves].string]_left_[Jean.left_arm].webp"
+
     if Jean.right_arm not in ["bra", "crossed", "extended", "fight", "fist", "hip", "neutral", "psychic1", "psychic2", "touch_pussy"]:
         Null()
     elif renpy.get_screen("Wardrobe_screen"):
@@ -135,7 +152,14 @@ layeredimage Jean_standing:
     always:
         "Jean_standing_body"
 
-    if Jean.left_arm not in ["bra", "crossed", "fight", "fist", "grope", "hip", "neutral", "psychic1", "psychic2", "rub_neck", "touch_ass"]:
+    if Jean.Clothes["bodysuit"].string != "blueyellow_classic_suit":
+        Null()
+    elif Jean.right_arm in ["psychic1"]:
+        "characters/Jean/images/standing/bodysuit_blueyellow_classic_suit_right_pauldron_[Jean.right_arm].webp"
+    else:
+        "characters/Jean/images/standing/bodysuit_blueyellow_classic_suit_right_pauldron.webp"
+
+    if Jean.left_arm not in ["bra", "crossed", "extended", "fight", "fist", "grope", "hip", "neutral", "psychic1", "psychic2", "rub_neck", "touch_ass"]:
         Null()
     elif renpy.get_screen("Wardrobe_screen"):
         "Jean_standing_left_arm"
@@ -144,11 +168,72 @@ layeredimage Jean_standing:
     else:
         "Jean_standing_left_arm"
 
+    if not Jean.Clothes["bra"].string or Jean.Clothes["bodysuit"].string or Jean.Clothes["top"].string:
+        Null()
+    else:
+        "characters/Jean/images/standing/bra_[Jean.Clothes[bra].string]_left_shoulder_[Jean.Clothes[bra].state].webp"
+
+    if Jean.left_arm not in ["bra", "crossed", "fight", "fist", "grope", "hip", "neutral", "psychic1", "psychic2", "rub_neck", "touch_ass"]:
+        Null()
+    elif renpy.get_screen("Wardrobe_screen"):
+        "Jean_standing_left_sleeve"
+    elif Jean.left_arm == "neutral":
+        At("Jean_standing_left_sleeve", Jean_standing_left_arm_animation)
+    else:
+        "Jean_standing_left_sleeve"
+
+    if Jean.Clothes["bodysuit"].string != "blueyellow_classic_suit":
+        Null()
+    elif Jean.left_arm in ["psychic1", "rub_neck"]:
+        "characters/Jean/images/standing/bodysuit_blueyellow_classic_suit_left_pauldron_[Jean.left_arm].webp"
+    elif Jean.left_arm not in ["extended"]:
+        "characters/Jean/images/standing/bodysuit_blueyellow_classic_suit_left_pauldron.webp"
+
     if Jean.right_arm in ["hip", "touch_pussy"]:
         "characters/Jean/images/standing/right_forearm_[Jean.right_arm].webp"
 
+    if Jean.Clothes["bodysuit"].string not in ["blueyellow_classic_suit"]:
+        Null()
+    elif Jean.right_arm in ["hip", "touch_pussy"]:
+        "characters/Jean/images/standing/bodysuit_[Jean.Clothes[bodysuit].string]_right_forearm_sleeve_[Jean.right_arm].webp"
+
+    if not Jean.Clothes["gloves"].string:
+        Null()
+    elif Jean.right_arm in ["hip", "touch_pussy"]:
+        "characters/Jean/images/standing/gloves_[Jean.Clothes[gloves].string]_right_[Jean.right_arm].webp"
+
+    if not Jean.Clothes["sleeves"].string:
+        Null()
+    elif Jean.right_arm in ["hip", "touch_pussy"]:
+        "characters/Jean/images/standing/sleeves_[Jean.Clothes[sleeves].string]_right_[Jean.right_arm].webp"
+
     if Jean.left_arm in ["grope"]:
         "characters/Jean/images/standing/left_forearm_[Jean.left_arm].webp"
+
+    if Jean.Clothes["bodysuit"].string not in ["blueyellow_classic_suit"]:
+        Null()
+    elif Jean.left_arm in ["extended", "grope"]:
+        "characters/Jean/images/standing/bodysuit_[Jean.Clothes[bodysuit].string]_left_forearm_sleeve_[Jean.left_arm].webp"
+
+    if not Jean.Clothes["gloves"].string:
+        Null()
+    elif Jean.left_arm in ["extended", "grope"]:
+        "characters/Jean/images/standing/gloves_[Jean.Clothes[gloves].string]_left_[Jean.left_arm].webp"
+
+    if not Jean.Clothes["top"].string:
+        Null()
+    elif Jean.left_arm in ["extended", "grope"]:
+        "characters/Jean/images/standing/top_[Jean.Clothes[top].string]_left_forearm_sleeve_[Jean.left_arm].webp"
+
+    if not Jean.Clothes["sleeves"].string:
+        Null()
+    elif Jean.left_arm in ["extended", "grope"]:
+        "characters/Jean/images/standing/sleeves_[Jean.Clothes[sleeves].string]_left_[Jean.left_arm].webp"
+
+    if Jean.Clothes["bodysuit"].string != "blueyellow_classic_suit":
+        Null()
+    elif Jean.left_arm in ["extended"]:
+        "characters/Jean/images/standing/bodysuit_blueyellow_classic_suit_left_pauldron.webp"
 
     if not Player.left_hand_Actions or Jean not in Player.left_hand_Actions[0].Targets:
         Null()
@@ -165,14 +250,41 @@ layeredimage Jean_standing:
     else:
         At("Jean_standing_head", Jean_standing_head_animation)
 
-    if Jean.left_arm in ["extended"]:
-        "characters/Jean/images/standing/left_arm_[Jean.left_arm].webp"
-
     if Jean.right_arm in ["extended", "fight", "psychic1"]:
         "characters/Jean/images/standing/right_forearm_[Jean.right_arm].webp"
 
+    if Jean.Clothes["bodysuit"].string not in ["blueyellow_classic_suit"]:
+        Null()
+    elif Jean.right_arm in ["extended", "fight", "psychic1"]:
+        "characters/Jean/images/standing/bodysuit_[Jean.Clothes[bodysuit].string]_right_forearm_sleeve_[Jean.right_arm].webp"
+
+    if not Jean.Clothes["gloves"].string:
+        Null()
+    elif Jean.right_arm in ["extended", "fight", "psychic1"]:
+        "characters/Jean/images/standing/gloves_[Jean.Clothes[gloves].string]_right_[Jean.right_arm].webp"
+
+    if not Jean.Clothes["sleeves"].string:
+        Null()
+    elif Jean.right_arm in ["extended", "fight", "psychic1"]:
+        "characters/Jean/images/standing/sleeves_[Jean.Clothes[sleeves].string]_right_[Jean.right_arm].webp"
+
     if Jean.left_arm in ["fight", "psychic1", "psychic2"]:
         "characters/Jean/images/standing/left_forearm_[Jean.left_arm].webp"
+
+    if Jean.Clothes["bodysuit"].string not in ["blueyellow_classic_suit"]:
+        Null()
+    elif Jean.left_arm in ["fight", "psychic1", "psychic2"]:
+        "characters/Jean/images/standing/bodysuit_[Jean.Clothes[bodysuit].string]_left_forearm_sleeve_[Jean.left_arm].webp"
+
+    if not Jean.Clothes["gloves"].string:
+        Null()
+    elif Jean.left_arm in ["fight", "psychic1", "psychic2"]:
+        "characters/Jean/images/standing/gloves_[Jean.Clothes[gloves].string]_left_[Jean.left_arm].webp"
+
+    if not Jean.Clothes["sleeves"].string:
+        Null()
+    elif Jean.left_arm in ["fight", "psychic1", "psychic2"]:
+        "characters/Jean/images/standing/sleeves_[Jean.Clothes[sleeves].string]_left_[Jean.left_arm].webp"
 
     if not Player.left_hand_Actions or Jean not in Player.left_hand_Actions[0].Targets:
         Null()
@@ -243,6 +355,9 @@ layeredimage Jean_standing_head:
     if Jean.blush:
         "characters/Jean/images/standing/blush[Jean.blush].webp"
 
+    if Jean.Clothes["face_inner_accessory"].string:
+        "characters/Jean/images/standing/face_inner_accessory_[Jean.Clothes[face_inner_accessory].string].webp"
+
     # if Jean.wet or Jean.Clothes["hair"].string == "wet":
     #     "characters/Jean/images/standing/hair_wet_shadow.webp"
     # else:
@@ -275,6 +390,30 @@ layeredimage Jean_standing_right_arm:
     always:
         "characters/Jean/images/standing/right_arm_[Jean.right_arm].webp"
 
+    if Jean.Clothes["bodysuit"].string not in ["blueyellow_classic_suit"]:
+        Null()
+    elif Jean.right_arm == "fist":
+        "characters/Jean/images/standing/bodysuit_[Jean.Clothes[bodysuit].string]_right_sleeve_neutral.webp"
+    else:
+        "characters/Jean/images/standing/bodysuit_[Jean.Clothes[bodysuit].string]_right_sleeve_[Jean.right_arm].webp"
+
+    if not Jean.Clothes["gloves"].string:
+        Null()
+    elif Jean.right_arm in ["crossed", "fist", "neutral", "psychic2"]:
+        "characters/Jean/images/standing/gloves_[Jean.Clothes[gloves].string]_right_[Jean.right_arm].webp"
+
+    if not Jean.Clothes["top"].string:
+        Null()
+    elif Jean.right_arm == "fist":
+        "characters/Jean/images/standing/top_[Jean.Clothes[top].string]_right_sleeve_neutral.webp"
+    elif Jean.right_arm in ["bra", "crossed", "extended", "fight", "hip", "neutral", "psychic1", "touch_pussy"]:
+        "characters/Jean/images/standing/top_[Jean.Clothes[top].string]_right_sleeve_[Jean.right_arm].webp"
+
+    if not Jean.Clothes["sleeves"].string:
+        Null()
+    elif Jean.right_arm in ["neutral", "psychic2"]:
+        "characters/Jean/images/standing/sleeves_[Jean.Clothes[sleeves].string]_right_[Jean.right_arm].webp"
+
     anchor (int(1070*character_sampling), int(1590*character_sampling))
     offset (int(1070*character_sampling), int(1590*character_sampling))
 
@@ -288,6 +427,26 @@ layeredimage Jean_standing_body:
     always:
         "characters/Jean/images/standing/left_foot.webp"
 
+    if Jean.Clothes["underwear"].string:
+        "characters/Jean/images/standing/underwear_[Jean.Clothes[underwear].string]_[Jean.Clothes[underwear].state].webp"
+
+    if not Jean.Clothes["bodysuit"].string:
+        Null()
+    elif Jean.Clothes["bodysuit"].string in ["blueyellow_classic_suit"]:
+        "characters/Jean/images/standing/bodysuit_[Jean.Clothes[bodysuit].string]_lower.webp"
+    elif Jean.Clothes["bodysuit"].string in ["red_swimsuit"] and Jean.Clothes["bodysuit"].state in [0, 1]:
+        "characters/Jean/images/standing/bodysuit_[Jean.Clothes[bodysuit].string]_0_lower.webp"
+    elif Jean.Clothes["bodysuit"].string in ["red_swimsuit"] and Jean.Clothes["bodysuit"].state in [2, 3]:
+        "characters/Jean/images/standing/bodysuit_[Jean.Clothes[bodysuit].string]_2_lower.webp"
+    else:
+        "characters/Jean/images/standing/bodysuit_[Jean.Clothes[bodysuit].string]_[Jean.Clothes[bodysuit].state]_lower.webp"
+
+    if Jean.Clothes["footwear"].string:
+        "characters/Jean/images/standing/footwear_[Jean.Clothes[footwear].string].webp"
+
+    if Jean.Clothes["pants"].string:
+        "characters/Jean/images/standing/pants_[Jean.Clothes[pants].string]_[Jean.Clothes[pants].state].webp"
+
     always:
         "characters/Jean/images/standing/breasts_shadow.webp"
 
@@ -296,9 +455,61 @@ layeredimage Jean_standing_body:
     else:
         "characters/Jean/images/standing/breasts.webp"
 
+    if Jean.left_arm == "grope":
+        "characters/Jean/images/standing/left_forearm_grope_shadow.webp"
+
+    if not Jean.Clothes["bra"].string:
+        Null()
+    elif Jean.Clothes["bodysuit"].string in ["blueyellow_classic_suit"]:
+        Null()
+    else:
+        "characters/Jean/images/standing/bra_[Jean.Clothes[bra].string]_[Jean.Clothes[bra].state].webp"
+
+    if not Jean.Clothes["bodysuit"].string:
+        Null()
+    elif Jean.Clothes["bodysuit"].string in ["red_swimsuit"] and Jean.Clothes["bodysuit"].state in [0, 2]:
+        "characters/Jean/images/standing/bodysuit_[Jean.Clothes[bodysuit].string]_0.webp"
+    elif Jean.Clothes["bodysuit"].string in ["red_swimsuit"] and Jean.Clothes["bodysuit"].state in [1, 3]:
+        "characters/Jean/images/standing/bodysuit_[Jean.Clothes[bodysuit].string]_1.webp"
+    else:
+        "characters/Jean/images/standing/bodysuit_[Jean.Clothes[bodysuit].string]_[Jean.Clothes[bodysuit].state].webp"
+
+    if Jean.Clothes["top"].string:
+        "characters/Jean/images/standing/top_[Jean.Clothes[top].string]_[Jean.Clothes[top].state].webp"
+
 layeredimage Jean_standing_left_arm:
     always:
         "characters/Jean/images/standing/left_arm_[Jean.left_arm].webp"
+
+    anchor (int(1600*character_sampling), int(1550*character_sampling))
+    offset (int(1600*character_sampling), int(1550*character_sampling))
+
+layeredimage Jean_standing_left_sleeve:
+    if Jean.Clothes["bodysuit"].string not in ["blueyellow_classic_suit"]:
+        Null()
+    elif Jean.left_arm == "fist":
+        "characters/Jean/images/standing/bodysuit_[Jean.Clothes[bodysuit].string]_left_sleeve_neutral.webp"
+    else:
+        "characters/Jean/images/standing/bodysuit_[Jean.Clothes[bodysuit].string]_left_sleeve_[Jean.left_arm].webp"
+
+    if not Jean.Clothes["gloves"].string:
+        Null()
+    elif Jean.left_arm in ["crossed", "fist", "hip", "neutral"]:
+        "characters/Jean/images/standing/gloves_[Jean.Clothes[gloves].string]_left_[Jean.left_arm].webp"
+
+    if not Jean.Clothes["top"].string:
+        Null()
+    elif Jean.left_arm == "fist":
+        "characters/Jean/images/standing/top_[Jean.Clothes[top].string]_left_sleeve_neutral.webp"
+    else:
+        "characters/Jean/images/standing/top_[Jean.Clothes[top].string]_left_sleeve_[Jean.left_arm].webp"
+
+    if not Jean.Clothes["sleeves"].string:
+        Null()
+    elif Jean.left_arm == "fist":
+        "characters/Jean/images/standing/sleeves_[Jean.Clothes[sleeves].string]_left_neutral.webp"
+    elif Jean.left_arm in ["crossed", "hip", "neutral"]:
+        "characters/Jean/images/standing/sleeves_[Jean.Clothes[sleeves].string]_left_[Jean.left_arm].webp"
 
     anchor (int(1600*character_sampling), int(1550*character_sampling))
     offset (int(1600*character_sampling), int(1550*character_sampling))
