@@ -88,6 +88,9 @@ init -1 python:
 
 style Player_menu is default
 
+style Player_menu_button:
+    minimum (0.2, 0.07)
+
 style Player_menu_text:
     font "agency_fb.ttf"
 
@@ -483,7 +486,7 @@ screen confirm_gift_screen(Character, Item):
             hbox:
                 spacing 100
 
-                textbutton _("Yes") xminimum int(config.screen_width*0.1) yminimum int(config.screen_height*0.07): 
+                textbutton _("Yes"): 
                     text_size 36
 
                     if hasattr(Item, "available_states"):
@@ -495,7 +498,7 @@ screen confirm_gift_screen(Character, Item):
                             Hide("confirm_gift_screen"),
                             Call("give_Character_gift", Character, Item, from_current = True)]
 
-                textbutton _("No") xminimum int(config.screen_width*0.1) yminimum int(config.screen_height*0.07): 
+                textbutton _("No"): 
                     text_size 36
 
                     action Hide("confirm_gift_screen")

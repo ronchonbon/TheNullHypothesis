@@ -90,8 +90,20 @@ label request_hookup(Character):
             else:
                 call expression f"{temp_Characters[0].tag}_accepts_hookup" from _call_expression_68
 
-            if temp_Characters[0].History.check("hookup") >= 3:
-                call expression f"{temp_Characters[0].tag}_weekly_summary" from _call_expression_78
+            if temp_Characters[0].History.check("hookup") >= 3 and not temp_Characters[0].History.check("hookup", tracker = "recent"):
+                if temp_Characters[0].History.check("hookup", tracker = "weekly"):
+                    $ total_score = 0.0
+
+                    python:
+                        for d in Player.scores["sex"][temp_Characters[0]].keys():
+                            if d > day - 6
+                                total_score += Player.scores["sex"][temp_Characters[0]][d]
+
+                    $ average_score = total_score/temp_Characters[0].History.check("hookup", tracker = "weekly")
+                else:
+                    $ average_score = -1.0
+
+                call expression f"{temp_Characters[0].tag}_weekly_summary" pass(average_score = average_score) from _call_expression_78
         else:
             if temp_Characters[0].History.check("rejected_hookup", tracker = "recent") >= 2:
                 call change_Character_stat(temp_Characters[0], "love", -5) from _call_change_Character_stat_819

@@ -54,10 +54,10 @@ label Ororo_not_warmed_up_for_Action(Action):
 
     return
 
-label Ororo_hookup_summary(total_Character_orgasms, total_Player_orgasms, total_unique_Actions):
+label Ororo_hookup_summary(total_Character_orgasms, total_Player_orgasms, total_unique_Actions, score):
 
     return
 
-label Ororo_weekly_summary:
+label Ororo_weekly_summary(average_score):
 
     return

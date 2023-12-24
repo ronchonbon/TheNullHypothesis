@@ -93,7 +93,7 @@ init -2 python:
         elif face == "pleased1":
             brows = "raised"
             eyes = "neutral"
-            mouth = "smirk"
+            mouth = "happy"
         elif face == "pleased2":
             brows = "raised"
             eyes = "wide"

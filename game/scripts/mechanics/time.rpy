@@ -206,8 +206,6 @@ label start_new_day(fast = False):
     else:
         $ weekday = 0
 
-        $ Player.weekly_performance = 0.0
-
     $ time_index = 0
 
     $ rain_probability += 0.05 if rain_probability < 1.0 else 0.0

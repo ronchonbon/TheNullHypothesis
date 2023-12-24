@@ -164,10 +164,10 @@ label Laura_not_warmed_up_for_Action(Action):
 
     return
 
-label Laura_hookup_summary(total_Character_orgasms, total_Player_orgasms, total_unique_Actions):
+label Laura_hookup_summary(total_Character_orgasms, total_Player_orgasms, total_unique_Actions, score):
 
     return
 
-label Laura_weekly_summary:
+label Laura_weekly_summary(average_score):
 
     return

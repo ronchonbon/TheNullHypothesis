@@ -146,17 +146,89 @@ label Jean_accepts_Action_again:
     return
 
 label Jean_bored_by_Action(Action):
+    $ dice_roll = renpy.random.radint(1, 3)
+
+    if dice_roll == 1:
+        $ Jean.change_face("confused1", eyes = "left")
+
+        "[Jean.name] seems a little disinterested."
+    elif dice_roll == 2:
+        $ Jean.change_face("confused1", eyes = "right")
+        
+        "You think you see [Jean.name] checking the time."
+    elif dice_roll == 3:
+        $ Jean.change_face("worried1")
+
+        ch_Jean "Maybe we could move on, [Jean.Player_name]?"
 
     return
 
 label Jean_not_warmed_up_for_Action(Action):
+    if Action in insertion_Action_types:
+        $ dice_roll = renpy.random.radint(1, 3)
+    else:
+        $ dice_roll = renpy.random.randint(1, 2)
+
+    if dice_roll == 1:
+        "[Jean.name] doesn't seem super into what you're doing."
+    elif dice_roll == 2:
+        ch_Jean "Could we slow it down just a little, [Jean.Player_petname]?"
+    elif dice_roll == 3:
+        $ Jean.change_face("grimace")
+
+        ch_Jean "Oof, I don't think I'm ready for that, [Player.first_name]."
 
     return
 
-label Jean_hookup_summary(total_Character_orgasms, total_Player_orgasms, total_unique_Actions):
+label Jean_hookup_summary(total_Character_orgasms, total_Player_orgasms, total_unique_Actions, score):
+    if score >= 8.0:
+        ch_Jean "Mmm, you're incredible, [Jean.Player_petname]. . ."
+    elif score >= 4.0:
+        ch_Jean "Damn, you're really good at this, [Jean.Player_petname]!"
+    elif score >= 2.0:
+        ch_Jean "That was fun!"
+    else:
+        ch_Jean "Huh."
+
+    if total_Character_orgasms >= 4:
+        ch_Jean "I thought I was going to pass out there. . ."
+    elif total_Character_orgasms >= 2:
+        ch_Jean "You made me cum so hard. . ."
+    elif total_Character_orgasms:
+        ch_Jean "You made me feel so good. . ."
+    else:
+        if total_Player_orgasms:
+            ch_Jean "Was it good for you?"
+        else:
+            ch_Jean "We're just going to. . . ? Okay. . ."
+
+            return
+
+    if total_unique_Actions >= 20:
+        ch_Jean "Everything we did felt so good. . ."
+    elif total_unique_Actions >= 10:
+        ch_Jean "I really like all the things we tried. . ."
+    elif total_unique_Actions < 2:
+        ch_Jean "I wouldn't mind switching things up more, though."
+
+    if total_Player_orgasms >= 3:
+        ch_Jean "I really can't believe how much you came. . ."
+    elif total_Player_orgasms >= 2:
+        ch_Jean "You're a real stud, huh?"
+    elif not total_Player_orgasms:
+        ch_Jean "But are you sure you're satisfied?"
 
     return
 
-label Jean_weekly_summary:
+label Jean_weekly_summary(average_score):
+    if average_score >= 8.0:
+        ch_Jean "God, this is all I can think about these days. . ."
+    elif average_score >= 4.0:
+        ch_Jean "I've been thinking about how good you make me feel. . ."
+    elif average_score >= 2.0:
+        ch_Jean "I really enjoyed last time!"
+    else:
+        ch_Jean "Sure, why not?"
+        ch_Jean "This time, maybe we could. . . ah, never mind."
 
     return

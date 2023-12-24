@@ -68,18 +68,33 @@ label Kurt_text_how_are_you:
     return
 
 label Kurt_text_how_are_you_late_reject:
-    call receive_text(Kurt, "I go bed") from _call_receive_text_232
-    call receive_text(Kurt, "Schlaf gut") from _call_receive_text_233
+    $ dice_roll = renpy.random.randint(1, 2)
+
+    if dice_roll == 1:
+        call receive_text(Kurt, "I go bed") from _call_receive_text_232
+        call receive_text(Kurt, "Schlaf gut") from _call_receive_text_233
+    elif dice_roll == 2:
+        call receive_text(Kurt, "So sleepy")
 
     return
 
 label Kurt_text_how_are_you_late_reject_asked_once:
-    call receive_text(Kurt, "Shush, go sleep") from _call_receive_text_234
+    $ dice_roll = renpy.random.randint(1, 2)
+
+    if dice_roll == 1:
+        call receive_text(Kurt, "Shush, go sleep") from _call_receive_text_234
+    elif dice_roll == 2:
+        call receive_text(Kurt, "Later!")
 
     return
 
 label Kurt_text_how_are_you_late_reject_asked_twice:
-    call receive_text(Kurt, "Geh schlafen >:(") from _call_receive_text_235
+    $ dice_roll = renpy.random.randint(1, 2)
+
+    if dice_roll == 1:
+        call receive_text(Kurt, "Geh schlafen >:(") from _call_receive_text_235
+    elif dice_roll == 2:
+        call receive_text(Kurt, ". . .")
 
     return
 

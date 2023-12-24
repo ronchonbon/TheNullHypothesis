@@ -1546,11 +1546,24 @@ label stop_all_Actions(close_interface = True, automatic = False):
             if focused_Character and focused_Character.location == Player.location:
                 $ total_Character_orgasms, total_Player_orgasms, total_unique_Actions, score = get_hookup_summary()
 
-                $ Player.weekly_performance += score
+                if "sex" not in Player.scores.keys():
+                    $ Player.scores["sex"] = {}
+
+                if focused_Character not in Player.scores["sex"].keys():
+                    $ Player.scores["sex"][focused_Character] = {}
+
+                if day in Player.scores["sex"][focused_Character].keys():
+                    $ temp = Player.scores["sex"][focused_Character][day]
+                else:
+                    $ temp = []
+
+                $ temp.append(score)
+                
+                $ Player.scores["sex"][focused_Character].update(day: temp)
 
                 call change_Character_stat(focused_Character, "love", orgasm_bonus*score) from _call_change_Character_stat_350
 
-                call expression f"{focused_Character.tag}_hookup_summary" pass (total_Character_orgasms = total_Character_orgasms, total_Player_orgasms = total_Player_orgasms, total_unique_Actions = total_unique_Actions) from _call_expression_87
+                call expression f"{focused_Character.tag}_hookup_summary" pass (total_Character_orgasms = total_Character_orgasms, total_Player_orgasms = total_Player_orgasms, total_unique_Actions = total_unique_Actions, score = score) from _call_expression_87
 
                 call screen grade_screen(total_Character_orgasms, total_Player_orgasms, total_unique_Actions, score)
 

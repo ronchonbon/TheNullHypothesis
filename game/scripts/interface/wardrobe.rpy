@@ -58,7 +58,7 @@ style Wardrobe_button:
 
     padding (10, 10, 10, 10)
 
-    minimum (int(config.screen_width*0.2), int(config.screen_height*0.07))
+    minimum (0.2, 0.07)
     xmaximum int(config.screen_width*0.2)
 
 style Wardrobe_text:
@@ -1245,7 +1245,7 @@ screen confirm_overwrite_screen(Character, editing = False):
             hbox:
                 spacing 100
 
-                textbutton _("Yes") xminimum int(config.screen_width*0.1) yminimum int(config.screen_height*0.07): 
+                textbutton _("Yes"): 
                     text_size 36
 
                     if editing:
@@ -1257,7 +1257,7 @@ screen confirm_overwrite_screen(Character, editing = False):
                             Hide("confirm_overwrite_screen"),
                             Call("save_new_Outfit", Character, current_input, current_Outfit_color, current_flags, from_current = True)]
 
-                textbutton _("No") xminimum int(config.screen_width*0.1) yminimum int(config.screen_height*0.07): 
+                textbutton _("No"): 
                     text_size 36
 
                     action Hide("confirm_overwrite_screen")
@@ -1276,7 +1276,7 @@ screen cannot_overwrite_screen(Character):
             text f"Cannot overwrite default outfit {current_input}.":
                 size 40
 
-            textbutton _("Back") xminimum int(config.screen_width*0.1) yminimum int(config.screen_height*0.07):
+            textbutton _("Back"):
                 text_size 36
 
                 action [
@@ -1297,7 +1297,7 @@ screen cannot_save_screen(Character):
             text f"Wardrobe is full - delete custom outfits to save more.":
                 size 40
 
-            textbutton _("Back") xminimum int(config.screen_width*0.1) yminimum int(config.screen_height*0.07):
+            textbutton _("Back"):
                 text_size 36
 
                 action [

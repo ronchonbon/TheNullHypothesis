@@ -404,11 +404,7 @@ label clean_cum_mess(Character):
     return
 
 label clean_cum(Character):
-    # if Character in [Laura]:
-    #     $ Character.left_arm = 2
-
-    # if Character in [Rogue, Jean, Ororo]:
-    #     $ Character.right_arm = 2
+    $ Character.change_arms("neutral", right_arm = "extended")
 
     pause 0.5
 
@@ -423,20 +419,12 @@ label clean_cum(Character):
 
     $ Character.spunk["hand"] = False
 
-    # if Character in [Laura]:
-    #     $ Character.left_arm = 1
-
-    # if Character in [Rogue, Jean, Ororo]:
-    #     $ Character.right_arm = 1
+    $ Character.change_arms("neutral")
 
     return
 
 label swallow_cum(Character):
-    # if Character in [Laura]:
-    #     $ Character.left_arm = 2
-
-    # if Character in [Rogue, Jean, Ororo]:
-    #     $ Character.right_arm = 2
+    $ Character.change_arms("neutral", right_arm = "extended")
 
     pause 0.5
 
@@ -465,11 +453,6 @@ label swallow_cum(Character):
     pause 1.0
 
     $ Character.change_face("sexy")
-
-    # if Character in [Laura]:
-    #     $ Character.left_arm = 1
-
-    # if Character in [Rogue, Jean, Ororo]:
-    #     $ Character.right_arm = 1
+    $ Character.change_arms("neutral")
 
     return

@@ -11,7 +11,7 @@ label Kurt_chatting(line):
                     $ Kurt.change_face("happy") 
                     
                     ch_Kurt "I sink she has quite zee crush on you." 
-                    ch_Kurt "Eferyone can tell." 
+                    ch_Kurt "Everyone can tell." 
                     ch_Kurt "Vould be a nice pairing in my opinion."
                 else:
                     $ Kurt.change_face("confused1") 
@@ -44,7 +44,7 @@ label Kurt_chatting(line):
                     $ Kurt.change_face("confused1") 
                     
                     ch_Kurt "Can't say I know much about zat one." 
-                    ch_Kurt "She hasn't been at zee mansion for fery long, only a month or two longer zan you." 
+                    ch_Kurt "She hasn't been at zee mansion for very long, only a month or two longer zan you." 
                     
                     $ Kurt.change_face("sad") 
 
@@ -153,78 +153,149 @@ label Kurt_busy:
     return
 
 label Kurt_busy_asked_once:
-    $ Kurt.change_face("sad") 
-    
-    ch_Kurt "You alright, Bruder?" 
-    
-    $ Kurt.change_face("confused1") 
+    $ dice_roll = renpy.random.randint(1, 2)
 
-    ch_Kurt "I sink you just asked me zat."
+    if dice_roll == 1:
+        $ Kurt.change_face("worried1") 
+        
+        ch_Kurt "You alright, Bruder?" 
+    
+        $ Kurt.change_face("confused1") 
+
+        ch_Kurt "I sink you just asked me zat."
+    elif dice_roll == 2:
+        $ Kurt.change_face("confused1")
+
+        ch_Kurt "Uh. . . you just asked me zat?"
 
     return
 
 label Kurt_busy_asked_twice:
-    $ Kurt.change_face("confused1") 
-    
-    ch_Kurt "It is no longer funny." 
+    $ dice_roll = renpy.random.randint(1, 2)
 
-    if Player.location == Kurt.location:
-        $ Character_picker_disabled = True
-            
-        call Kurt_teleports_out from _call_Kurt_teleports_out_4
-        call move_location(Player.location) from _call_move_location_24
+    if dice_roll == 1:
+        $ Kurt.change_face("angry1") 
+        
+        ch_Kurt "It is no longer funny." 
+
+        if Player.location == Kurt.location:
+            $ Character_picker_disabled = True
+                
+            call Kurt_teleports_out from _call_Kurt_teleports_out_4
+            call move_location(Player.location) from _call_move_location_24
+    elif dice_roll == 2:
+        $ Kurt.change_face("confused1") 
+        
+        ch_Kurt "Dude. . ."
 
     return
 
 label Kurt_busy_late:
-    $ Kurt.change_face("neutral") 
+    $ dice_roll = renpy.random.randint(1, 2)
 
-    ch_Kurt "I am doing fine." 
-    ch_Kurt "Tired." 
-    ch_Kurt "I sink I vill go to bed, gute Nacht."
+    if dice_roll == 1:
+        $ Kurt.change_face("neutral", mouth = "happy") 
+
+        ch_Kurt "I am doing fine." 
+        ch_Kurt "Tired." 
+        ch_Kurt "I sink I vill go to bed, gute Nacht."
+    elif dice_roll == 2:
+        $ Kurt.change_face("neutral", mouth = "happy") 
+
+        ch_Kurt "Good, just off to bed."
+        ch_Kurt "Gute Nacht."
 
     return
 
 label Kurt_busy_late_asked_once:
-    $ Kurt.change_face("confused1") 
-    
-    ch_Kurt "I said I'm going to bed."
+    $ dice_roll = renpy.random.randint(1, 2)
+
+    if dice_roll == 1:
+        $ Kurt.change_face("confused1") 
+        
+        ch_Kurt "I said I'm going to bed."
+    elif dice_roll == 2:
+        $ Kurt.change_face("confused1") 
+
+        ch_Kurt "I. . . are you messing viz me again?"
 
     return
 
 label Kurt_busy_late_asked_twice:
-    $ Kurt.change_face("angry1") 
-    
-    ch_Kurt "Stop joking around."
+    $ dice_roll = renpy.random.randint(1, 2)
 
-    if Player.location == Kurt.location:
-        $ Character_picker_disabled = True
-            
-        call Kurt_teleports_out from _call_Kurt_teleports_out_5
-        call move_location(Player.location) from _call_move_location_25
+    if dice_roll == 1:
+        $ Kurt.change_face("angry1") 
+        
+        ch_Kurt "Stop joking around."
+
+        if Player.location == Kurt.location:
+            $ Character_picker_disabled = True
+                
+            call Kurt_teleports_out from _call_Kurt_teleports_out_5
+            call move_location(Player.location) from _call_move_location_25
+    elif dice_roll == 2:
+        ch_Kurt "Man, it is too late for zis."
+
+        if Player.location == Kurt.location:
+            $ Character_picker_disabled = True
+                
+            call Kurt_teleports_out
+            call move_location(Player.location)
 
     return
 
 label Kurt_talk_later:
-    $ Kurt.change_face("neutral") 
+    $ dice_roll = renpy.random.randint(1, 3)
 
-    ch_Kurt "Later dude."
+    if dice_roll == 1:
+        $ Kurt.change_face("neutral", mouth = "smirk") 
+
+        ch_Kurt "Later dude."
+    elif dice_roll == 2:
+        $ Kurt.change_face("pleased1") 
+
+        ch_Kurt "Talk to you later!"
+    elif dice_roll == 3:
+        $ Kurt.change_face("happy") 
+
+        ch_Kurt "See you around!"
 
     return
 
 label Kurt_dismiss:
-    $ Kurt.change_face("neutral")
+    $ Kurt.change_face("confused1")
 
     if len(Present) >= 2:
         ch_Player "Hey [Kurt.name], could you give us some room?"
     else:
         ch_Player "Hey [Kurt.name], could you give me some room?"
 
-    ch_Kurt "Later dude!"
+    $ dice_roll = renpy.random.randint(1, 3)
+
+    if dice_roll == 1:
+        $ Kurt.change_face("neutral", mouth = "smirk") 
+
+        ch_Kurt "Later dude."
+    elif dice_roll == 2:
+        $ Kurt.change_face("pleased1") 
+
+        ch_Kurt "Sure, talk to you later!"
+    elif dice_roll == 3:
+        $ Kurt.change_face("happy") 
+
+        ch_Kurt "Okay, see you around!"
 
     return True
 
 label Kurt_answering_phone:
-    ch_Kurt "Hallo?"
+    $ dice_roll = renpy.random.randint(1, 3)
+
+    if dice_roll == 1:
+        ch_Kurt "Hallo?"
+    elif dice_roll == 2:
+        ch_Kurt "Hey, [Player.first_name]!"
+    elif dice_roll == 3:
+        ch_Kurt "Vat's up?"
 
     return

@@ -167,10 +167,10 @@ label Rogue_not_warmed_up_for_Action(Action):
 
     return
 
-label Rogue_hookup_summary(total_Character_orgasms, total_Player_orgasms, total_unique_Actions):
+label Rogue_hookup_summary(total_Character_orgasms, total_Player_orgasms, total_unique_Actions, score):
 
     return
 
-label Rogue_weekly_summary:
+label Rogue_weekly_summary(average_score):
 
     return
