@@ -18,10 +18,12 @@ label Rogue_chapter_one_season_four_first_study_session:
     $ ongoing_Event = True
 
     $ Rogue.change_face("worried1", mouth = "smirk")
+    $ Rogue.change_arms("sheepish", right_arm = "neutral")
 
     pause 1.0
 
     $ Rogue.change_face("angry1", eyes = "right")
+    $ Rogue.change_arms("crossed")
 
     pause 1.0
 
@@ -30,8 +32,12 @@ label Rogue_chapter_one_season_four_first_study_session:
     ch_Rogue "Before we start. . ."
 
     $ Rogue.change_face("confused1")
+    $ Rogue.change_arms("neutral", right_arm = "extended")
 
     ch_Rogue "Can ah ask you a question, [Rogue.Player_petname]?"
+
+    $ Rogue.change_arms("crossed")
+
     ch_Player "Of course."
     ch_Player "What's up?"
 
@@ -40,19 +46,23 @@ label Rogue_chapter_one_season_four_first_study_session:
     pause 1.0
 
     $ Rogue.change_face("worried1")
+    $ Rogue.change_arms("neutral")
 
     ch_Rogue "These classes. . . and all this studyin'. . ."
 
     $ Rogue.change_face("angry1", eyes = "right")
+    $ Rogue.change_arms("angry")
 
     ch_Rogue "Ah'm really startin' to think it's a waste of time."
 
     $ Rogue.change_face("worried2")
+    $ Rogue.change_arms("sheepish")
 
     ch_Rogue "And not because ah don't like spendin' the time with ya or nothin'!"
     ch_Player "Don't worry, I know what you mean."
 
     $ Rogue.change_face("worried1")
+    $ Rogue.change_arms("crossed")
 
     ch_Rogue "Well, do ya agree?"
 
@@ -78,24 +88,29 @@ label Rogue_chapter_one_season_four_first_study_session:
             call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_1068
 
     $ Rogue.change_face("worried1")
+    $ Rogue.change_arms("hips")
 
     ch_Rogue "[Player.first_name], it's just. . . with everythin' that's been happenin' lately. . ."
 
     $ Rogue.change_face("appalled2")
+    $ Rogue.change_arms("angry")
 
     ch_Rogue "How can anyone justify studyin' so much, instead of trainin', when it nearly gets ya killed?!"
 
     $ Rogue.change_face("angry1", eyes = "right")
+    $ Rogue.change_arms("crossed")
 
     ch_Rogue "And ah'm not talkin' about what happened to me."
     ch_Rogue "Ah mean all the terrible stuff you've had to go through." 
     ch_Rogue "Prof. X thinks it's all so important, but maybe [Laura.public_name] had the right idea. . ."
 
     $ Rogue.change_face("worried1")
+    $ Rogue.change_arms("shrug")
 
     ch_Rogue "What's it all worth, if ya can't keep the ones you care about safe?"
 
     $ Rogue.change_face("worried1", eyes = "down")
+    $ Rogue.change_arms("crossed")
 
     ch_Player "I see what you're saying, but no matter how much training either of us did, nothing would've changed."
     ch_Player "Not counting what just happened out in town. . ."
@@ -116,16 +131,19 @@ label Rogue_chapter_one_season_four_first_study_session:
     ch_Rogue "How do ya mean?"
 
     $ Rogue.change_face("worried2")
+    $ Rogue.change_arms("angry")
 
     ch_Player "I mean, even if the time wasn't spent training, it was still spent with you."
     ch_Rogue "Oh. . . ah'm sorry, ah didn't mean it that way."
 
     $ Rogue.change_face("worried1", eyes = "down")
+    $ Rogue.change_arms("crossed")
 
     ch_Rogue "You know ah appreciate every single second ya spend with me."
     ch_Player "I do, and I also appreciate the distraction studying gives me."
 
     $ Rogue.change_face("worried1", mouth = "smirk")
+    $ Rogue.change_arms("hips")
 
     ch_Player "So. . . how about it?"
     ch_Player "I could really use a distraction right about now."
@@ -140,6 +158,7 @@ label Rogue_chapter_one_season_four_first_study_session:
     "It quickly lightens up, as you tell her about your day, making her laugh a couple times."
 
     $ Rogue.change_face("smirk2")
+    $ Rogue.change_arms("crossed")
 
     "Today, you take control of the session, even though it's more laid back than usual."
     "Most of the time is just spent chatting, or hanging out, rather than actually studying."
@@ -160,6 +179,7 @@ label Rogue_chapter_one_season_four_first_study_session:
     "After that, the session deviates away from the studying even more, as [Rogue.name] throws some music on, and you spend the rest of the time hanging out."
 
     $ Rogue.change_face("worried1", mouth = "smirk")
+    $ Rogue.change_arms("sheepish", right_arm = "neutral")
 
     ch_Player "If we're just gonna chill, let's at least clean all this stuff up."
     ch_Rogue "Sure." 

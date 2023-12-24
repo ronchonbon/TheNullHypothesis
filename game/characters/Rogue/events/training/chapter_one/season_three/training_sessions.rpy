@@ -22,6 +22,7 @@ label Rogue_chapter_one_season_three_training_sessions:
 
     if dice_roll == 1:
         $ Rogue.change_face("smirk1")
+        $ Rogue.change_arms("angry")
 
         ch_Rogue "Ah'm excited."
         ch_Rogue "It's always a good time, trainin' with ya."
@@ -29,6 +30,7 @@ label Rogue_chapter_one_season_three_training_sessions:
         ch_Player "C'mon, let's start."
 
         $ Rogue.change_face("smirk2")
+        $ Rogue.change_arms("hips")
 
         "The warm up today is a bit longer than usual, as you both take your time and just have a good time chatting."
 
@@ -39,6 +41,7 @@ label Rogue_chapter_one_season_three_training_sessions:
         "At the very least, the understanding of your own powers deepens a bit."
 
         $ Rogue.change_face("worried1", mouth = "smirk")
+        $ Rogue.change_arms("fight")
 
         "Once you get into the sparring, her mood seems to brighten."
 
@@ -47,6 +50,7 @@ label Rogue_chapter_one_season_three_training_sessions:
         "You've been making a lot of progress in terms of combat prowess and end up giving [Rogue.name] a few pointers."
 
         $ Rogue.change_face("worried1", mouth = "smirk")
+        $ Rogue.change_arms("crossed")
 
         ch_Rogue "Wish we could keep goin', but ah got some studyin' to do."
 
@@ -60,6 +64,7 @@ label Rogue_chapter_one_season_three_training_sessions:
         ch_Player "Let's warm up."
 
         $ Rogue.change_face("smirk2", eyes = "right", mouth = "lipbite")
+        $ Rogue.change_arms("hips")
 
         ch_Rogue "Ah've had this cramp. . ."
 
@@ -81,6 +86,7 @@ label Rogue_chapter_one_season_three_training_sessions:
         "Instead of you trying to help her, she brings up a few good points and actually helps you make a bit of progress with your power control."
 
         $ Rogue.change_face("smirk2")
+        $ Rogue.change_arms("fight")
 
         "After you've developed a proper headache, you switch to sparring and show off how much progress you've been making."
 
@@ -93,6 +99,7 @@ label Rogue_chapter_one_season_three_training_sessions:
         ch_Player "I'm just that much better than everyone else, I know."
 
         $ Rogue.change_face("confused1", mouth = "smirk")
+        $ Rogue.change_arms("hips")
 
         ch_Rogue "Well, if yer that much better, ah expect ya to not get so banged up next time yer in a real fight."
         ch_Player "Just you wait."
@@ -109,6 +116,7 @@ label Rogue_chapter_one_season_three_training_sessions:
         ch_Rogue "C'mon, [Rogue.Player_petname]."
 
         $ Rogue.change_face("sly")
+        $ Rogue.change_arms("hips")
 
         ch_Rogue "Ah could use some help stretchin' again."
 
@@ -128,6 +136,7 @@ label Rogue_chapter_one_season_three_training_sessions:
         "While you notice yourself making some progress, [Rogue.name] can't say the same."
 
         $ Rogue.change_face("smirk2")
+        $ Rogue.change_arms("fight")
 
         "Her dour mood brightens, as you get into sparring, and you both have a good deal of fun pushing yourselves."
         "With all the progress you've been making, you can tell just how much better [Rogue.name]'s also gotten."
@@ -135,6 +144,7 @@ label Rogue_chapter_one_season_three_training_sessions:
         ch_Player "You're getting a lot better."
 
         $ Rogue.change_face("confused1", mouth = "smirk")
+        $ Rogue.change_arms("crossed")
 
         ch_Player "And I'm not just saying that."
         ch_Rogue "Well. . . thanks."

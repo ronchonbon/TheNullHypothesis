@@ -18,6 +18,7 @@ label Laura_chapter_one_season_one_third_training_session:
     $ ongoing_Event = True
 
     $ Laura.change_face("neutral")
+    $ Laura.change_arms("hips")
 
     ch_Laura "Let's go, time to start."
     ch_Player "Are we doing another one of your 'warm ups'?" 
@@ -28,6 +29,7 @@ label Laura_chapter_one_season_one_third_training_session:
     ch_Player "Don't know what I expected. . ."
 
     $ Laura.change_face("neutral")
+    $ Laura.change_arms("crossed")
 
     $ fade_to_black(0.4)
 
@@ -38,11 +40,16 @@ label Laura_chapter_one_season_one_third_training_session:
     $ fade_in_from_black(0.4)
 
     $ Laura.change_face("confused2")
+    $ Laura.change_arms("hips", left_arm = "extended")
 
     ch_Laura "Is this really that hard for you?"
+
+    $ Laura.change_arms("hips")
+
     ch_Player "*huff* Yes. . . *huff*" 
 
     $ Laura.change_face("confused1")
+    $ Laura.change_arms("crossed")
 
     "You finally catch your breath."
 
@@ -58,8 +65,11 @@ label Laura_chapter_one_season_one_third_training_session:
     ch_Player "But, you're just on another level." 
 
     $ Laura.change_face("angry1")
+    $ Laura.change_arms("angry")
 
     ch_Laura "Am I? Or is everyone else just not training hard enough?" 
+
+    $ Laura.change_arms("fight")
 
     "She goes right into the lesson and seems hellbent on making sure you do train hard enough from now on."
     "You're an order of magnitude slower than her, but you've always been a quick learner."
@@ -71,12 +81,15 @@ label Laura_chapter_one_season_one_third_training_session:
     "After a while, she suddenly stops."
 
     $ Laura.change_face("neutral", eyes = "squint")
+    $ Laura.change_arms("crossed")
 
     ch_Laura "So you are capable of improving." 
 
     $ Laura.change_face("neutral")
 
     ch_Laura "Now we can move on to offensive techniques."
+
+    $ Laura.change_arms("fight")
 
     "She coaches you on how to look for weaknesses and openings before going into practical demonstrations."
     "That just means she finds another excuse to beat you up."
@@ -90,16 +103,18 @@ label Laura_chapter_one_season_one_third_training_session:
 
     "She doesn't have to try very hard, before you're hardly able to lift your arms up, let alone throw a punch."
 
+    $ Laura.change_arms("hips")
+
     ch_Player "*huff* I know, I know. . . we're not done yet. *huff*" 
 
     $ Laura.change_face("angry1", mouth = "smirk")
 
     ch_Laura "Not nearly."
-
     "With that, she pushes you through the final hour of pain and torture."
     "She's very thorough, making sure to evenly distribute the pain and suffering throughout every last muscle group."
 
     $ Laura.change_face("angry1")
+    $ Laura.change_arms("crossed")
 
     "You're in the middle of a pushup when your arms give out on you. . ."
     
@@ -119,6 +134,7 @@ label Laura_chapter_one_season_one_third_training_session:
     ch_Laura "That was even worse than last time." 
 
     $ Laura.change_face("confused1")
+    $ Laura.change_arms("hips")
 
     ch_Laura "I guess you do take substantially longer to recover. . ."
     ch_Player "And I'm sure all of that was like a light jog to you." 

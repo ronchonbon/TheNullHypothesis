@@ -18,6 +18,7 @@ label Rogue_chapter_one_season_three_first_study_session:
     $ ongoing_Event = True
 
     $ Rogue.change_face("worried1", mouth = "smirk")
+    $ Rogue.change_arms("hips")
 
     ch_Rogue "So, wanna go easy or study hard today, [Rogue.Player_petname]?"
 
@@ -28,6 +29,7 @@ label Rogue_chapter_one_season_three_first_study_session:
         ch_Player "Should probably try a bit today."
 
     $ Rogue.change_face("smirk2")
+    $ Rogue.change_arms("neutral")
 
     ch_Rogue "Anythin's good with me."
 
@@ -36,6 +38,7 @@ label Rogue_chapter_one_season_three_first_study_session:
     "You tell her which class you've been struggling with the most, and she helps you set everything up."
 
     $ Rogue.change_face("smirk2", mouth = "lipbite", blush = 1)
+    $ Rogue.change_arms("crossed")
 
     "[Rogue.name] hops onto the bed, beckoning you to lay down next to her."
     "Once you do, she leans into your shoulder."
@@ -51,6 +54,8 @@ label Rogue_chapter_one_season_three_first_study_session:
     $ Rogue.change_face("smirk2", eyes = "down", blush = 2)
 
     call take_off(Rogue, "gloves") from _call_take_off_15
+
+    $ Rogue.change_arms("neutral", left_arm = "extended")
 
     "Without taking her eyes off of the material, she takes her gloves off and touches your hand while doing a practice question."
 
@@ -74,6 +79,8 @@ label Rogue_chapter_one_season_three_first_study_session:
     $ Rogue.change_face("smirk2", blush = 1)
 
     call change_Outfit(Rogue, Rogue.Wardrobe.Outfits[Rogue.Outfit.name]) from _call_change_Outfit_48
+
+    $ Rogue.change_arms("crossed")
 
     "She reluctantly pulls her hand away, putting her gloves back on, before helping you clean everything up."
 

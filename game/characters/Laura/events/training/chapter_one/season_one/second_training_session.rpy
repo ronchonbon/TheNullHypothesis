@@ -20,6 +20,7 @@ label Laura_chapter_one_season_one_second_training_session:
     ch_Player "Ready to warm up?" 
 
     $ Laura.change_face("confused1")
+    $ Laura.change_arms("crossed")
 
     ch_Laura "Of course."
 
@@ -31,6 +32,7 @@ label Laura_chapter_one_season_one_second_training_session:
     $ fade_in_from_black(0.4)
 
     $ Laura.change_face("neutral")
+    $ Laura.change_arms("hips")
 
     ch_Player "*huff* How is this. . . *huff* a warmup. . ." 
 
@@ -42,10 +44,12 @@ label Laura_chapter_one_season_one_second_training_session:
     ch_Laura "For me, that was a slow walk." 
 
     $ Laura.change_face("neutral")
+    $ Laura.change_arms("neutral")
 
     ch_Player "You're. . . *huff*. . . a monster. . ." 
 
     $ Laura.change_face("sly")
+    $ Laura.change_arms("fight")
 
     "[Laura.name] doesn't take pity on you and, after the fastest few minutes of your life, she gets right into teaching you simple defensive techniques."
 
@@ -64,6 +68,7 @@ label Laura_chapter_one_season_one_second_training_session:
     $ fade_in_from_black(0.4)
 
     $ Laura.change_face("angry1")
+    $ Laura.change_arms("crossed")
 
     ch_Player "Oof. . . shit." 
     "That last throw felt more forceful than usual."
@@ -75,8 +80,12 @@ label Laura_chapter_one_season_one_second_training_session:
     ch_Laura "Why would we move on to something more advanced when you're obviously still inept?" 
 
     $ Laura.change_face("angry2")
+    $ Laura.change_arms("angry")
 
-    ch_Laura "When you can defend yourself satisfactorily, then we will move on." 
+    ch_Laura "When you can defend yourself satisfactorily, then we will move on."
+
+    $ Laura.change_arms("fight")
+
     "She proceeds to teach you 'how to defend yourself' for the next few hours."
 
     $ Laura.change_face("surprised2")
@@ -99,9 +108,12 @@ label Laura_chapter_one_season_one_second_training_session:
 
     with small_screenshake
 
+    $ Laura.change_arms("neutral")
+
     ch_Laura "Alright, that's enough." 
 
     $ Laura.change_face("angry1")
+    $ Laura.change_arms("crossed")
 
     ch_Laura "You can barely keep your hands up." 
     ch_Player "{size=-5}Thank god{/size}. Alright, I'll se. . ." 
@@ -119,6 +131,7 @@ label Laura_chapter_one_season_one_second_training_session:
     "Your legs give out and you hit the floor." with small_screenshake
 
     $ Laura.change_face("smirk2")
+    $ Laura.change_arms("hips")
 
     ch_Player "*huff* Shit. . . *huff*"
     ch_Laura "Okay, now we're done."
@@ -126,11 +139,18 @@ label Laura_chapter_one_season_one_second_training_session:
     ch_Player "Were you just waiting for my legs to give out before ending the session?" 
 
     $ Laura.change_face("neutral")
+    $ Laura.change_arms("neutral")
 
     ch_Laura "Yes." 
     ch_Player "At least you're honest. . ."
     ch_Player "We're actually done? Because I can barely walk." 
+
+    $ Laura.change_arms("hips", left_arm = "extended")
+
     ch_Laura "Yes, your form and technique are still atrocious, but there was. . . progress."
+    
+    $ Laura.change_arms("crossed")
+
     ch_Player "Thanks. . ."
     ch_Laura "You can leave now, I will stay for a while longer."
     ch_Player "You're not done?!" 

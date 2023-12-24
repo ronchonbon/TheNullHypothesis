@@ -26,6 +26,7 @@ label Laura_chapter_one_season_one_training_sessions:
         ch_Player "I'm ready to start." 
 
         $ Laura.change_face("confused1")
+        $ Laura.change_arms("crossed")
 
         ch_Laura "You say that frequently. . . but you're still always surprised by the intensity." 
 
@@ -40,6 +41,7 @@ label Laura_chapter_one_season_one_training_sessions:
         $ fade_in_from_black(0.4)
 
         $ Laura.change_face("smirk1")
+        $ Laura.change_arms("fight")
 
         "You're making pretty good progress with the techniques and maybe get hit less than last time."
         "It's hard to tell when it happens so often."
@@ -48,6 +50,9 @@ label Laura_chapter_one_season_one_training_sessions:
         $ Laura.change_face("neutral")
 
         "You endure it, and it's as if you can almost see [Laura.name] make a mental note for next time to be even harder."
+        
+        $ Laura.change_arms("hips")
+
         ch_Laura "Enough, you are done for today." 
         ch_Player "*huff* Won't argue with that. . . *huff*"
 
@@ -56,6 +61,7 @@ label Laura_chapter_one_season_one_training_sessions:
         "She goes to finish training on her own."
     elif dice_roll == 2:
         $ Laura.change_face("confused1")
+        $ Laura.change_arms("crossed")
 
         ch_Laura "Why are you limping?" 
         ch_Player "Definitely not because I'm still sore from last time. . ." 
@@ -69,13 +75,20 @@ label Laura_chapter_one_season_one_training_sessions:
         "Today you work on a combination of techniques."
         "Your awareness of your own body is getting better, but still pretty crappy."
 
+        $ Laura.change_arms("fight")
+
         $ fade_in_from_black(0.4)
 
         $ Laura.change_face("angry1")
 
+        pause 1.0
+
+        $ Laura.change_arms("neutral")
+
         "You get beat down pretty hard, but only because [Laura.name] is picking up the pace now that you're actually improving."
 
         $ Laura.change_face("angry2")
+        $ Laura.change_arms("hips")
 
         "The workout to end the session doesn't seem quite so bad this time, but your entire body still feels like jelly in the end."
 
@@ -85,6 +98,7 @@ label Laura_chapter_one_season_one_training_sessions:
         ch_Player "Have a good workout." 
 
         $ Laura.change_face("confused1")
+        $ Laura.change_arms("crossed")
 
         ch_Laura "Thanks. . ."
 
@@ -95,6 +109,7 @@ label Laura_chapter_one_season_one_training_sessions:
         "You're a bit fidgety."
 
         $ Laura.change_face("confused1")
+        $ Laura.change_arms("crossed")
 
         ch_Laura "What are you doing?" 
         ch_Player "Just psyching myself up for the pain." 
@@ -109,15 +124,22 @@ label Laura_chapter_one_season_one_training_sessions:
         "Today's focus is offense, and you try your best not to make a fool of yourself."
         "You're actually starting to get somewhat competent, and you notice [Laura.name] has to go faster than usual in order to not get hit."
 
+        $ Laura.change_arms("fight")
+
         $ fade_in_from_black(0.4)
 
         $ Laura.change_face("angry1")
+
+        pause 1.0
+
+        $ Laura.change_arms("neutral")
 
         "Of course this just means things will only get more difficult as you continue to improve."
         "You thought the workout at the end wouldn't be so bad today. . ." 
         ". . . until you fall on your face." with small_screenshake
 
         $ Laura.change_face("confused1")
+        $ Laura.change_arms("crossed") 
 
         "You should really just start assuming it's always going to be worse than last time."
 
@@ -128,6 +150,8 @@ label Laura_chapter_one_season_one_training_sessions:
 
         "You manage to get back up, and [Laura.name] leaves to go workout on her own."
     elif dice_roll == 4:
+        $ Laura.change_arms("crossed")
+
         ch_Laura "Time to start."
 
         $ fade_to_black(0.4)
@@ -137,12 +161,20 @@ label Laura_chapter_one_season_one_training_sessions:
         "She picks up the pace, and you struggle, yet still manage to hold out."
         "Things are looking up, until you start to feel yourself crashing."
 
+        $ Laura.change_arms("fight")
+
         $ fade_in_from_black(0.4)
 
         $ Laura.change_face("neutral", eyes = "squint")
 
+        pause 1.0
+
+        $ Laura.change_arms("neutral")
+
         "The final workout isn't substantially harder than last time, but you feel way more fatigued than normal."
         "You barely crawl through the exercises."
+
+        $ Laura.change_arms("crossed")
 
         ch_Player "*huff* And I was doing so well at the start. . . *huff." 
 

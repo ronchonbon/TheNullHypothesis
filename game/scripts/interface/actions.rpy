@@ -592,10 +592,14 @@ screen grade_screen(total_Character_orgasms, total_Player_orgasms, total_unique_
         background At("images/interface/Action_menu/grade.webp", interface)
 
         if blinking:
-            text "Feedback" + "{alpha=0.0}_{/alpha}" anchor (0.0, 0.5) pos (0.035, 0.067):
+            text "FEEDBACK" + "{alpha=0.0}_{/alpha}" anchor (0.0, 0.5) pos (0.035, 0.067):
+                font "agency_fb_bold.ttf"
+
                 size 35
         else:
-            text "Feedback" + "_" anchor (0.0, 0.5) pos (0.035, 0.067):
+            text "FEEDBACK" + "_" anchor (0.0, 0.5) pos (0.035, 0.067):
+                font "agency_fb_bold.ttf"
+
                 size 35
 
         vbox anchor (0.5, 0.0) pos (0.482, 0.19) xysize (int(700*interface_new_adjustment), int(350*interface_new_adjustment)):

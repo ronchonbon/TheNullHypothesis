@@ -18,15 +18,21 @@ label Rogue_chapter_one_season_three_second_training_session:
     $ ongoing_Event = True
 
     $ Rogue.change_face("worried1", mouth = "smirk") 
+    $ Rogue.change_arms("crossed")
 
     ch_Player "You don't look very happy to see me. . ."
 
     $ Rogue.change_face("worried2")
+    $ Rogue.change_arms("angry")
 
     ch_Rogue "Ah just. . ."
+
+    $ Rogue.change_arms("sheepish")
+
     ch_Rogue "Last time we trained was all tense and everythin'."
 
     $ Rogue.change_face("worried1")
+    $ Rogue.change_arms("sheepish", right_arm = "neutral")
 
     ch_Player "Don't worry, [Rogue.petname]."
     ch_Player "That was important. . . I think, for both of us."
@@ -53,6 +59,7 @@ label Rogue_chapter_one_season_three_second_training_session:
             call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_675
 
     $ Rogue.change_face("worried1")
+    $ Rogue.change_arms("crossed")
 
     ch_Player "And, why would I be mad at you for having completely justifiable concerns?"
 
@@ -68,6 +75,7 @@ label Rogue_chapter_one_season_three_second_training_session:
     ch_Player "On a better note, since I was able to figure out how to get some control over my powers, maybe I could try helping you do the same?"
 
     $ Rogue.change_face("worried2")
+    $ Rogue.change_arms("angry")
 
     pause 1.0
 
@@ -76,12 +84,17 @@ label Rogue_chapter_one_season_three_second_training_session:
     ch_Rogue "My. . . difficulties aren't so simple. . ."
 
     $ Rogue.change_face("worried1", mouth = "smirk")
+    $ Rogue.change_arms("shrug")
 
     ch_Rogue "Ah appreciate the thought, but it's probably a waste of time."
 
     $ Rogue.change_face("worried3")
+    $ Rogue.change_arms("angry", left_arm = "extended")
 
     ch_Rogue "Not because yer useless or nothin'!"
+
+    $ Rogue.change_arms("sheepish", right_arm = "neutral")
+
     ch_Rogue "Just don't think anybody could help."
 
     $ Rogue.change_face("worried1")
@@ -95,6 +108,7 @@ label Rogue_chapter_one_season_three_second_training_session:
     ch_Player "It'll be good practice for me, plus, who knows, it might help you too."
 
     $ Rogue.change_face("smirk2")
+    $ Rogue.change_arms("hips")
 
     ch_Rogue "Alright, [Rogue.Player_petname]."
     ch_Rogue "Might as well."
@@ -110,6 +124,7 @@ label Rogue_chapter_one_season_three_second_training_session:
     $ fade_in_from_black(0.4)
 
     $ Rogue.change_face("worried1", mouth = "smirk")
+    $ Rogue.change_arms("crossed")
 
     ch_Rogue "Ah'm sorry, doesn't seem like that did much for me. . ."
     ch_Player "Don't apologize."
@@ -131,6 +146,7 @@ label Rogue_chapter_one_season_three_second_training_session:
     ch_Player "I am pretty special, glad you agree."
 
     $ Rogue.change_face("sly")
+    $ Rogue.change_arms("hips")
 
     ch_Rogue "Very funny, darlin'."
 
@@ -143,12 +159,14 @@ label Rogue_chapter_one_season_three_second_training_session:
     ch_Player "Sure thing."
 
     $ Rogue.change_face("smirk1")
+    $ Rogue.change_arms("fight")
 
     "You make sure your nullification is on before getting into the sparring."
     "That feeling from last time. . . you're not keen on experiencing whatever that was again."
     "The mood is much less tense than last time as well, and things feel like they're back to normal, as you both have a good time with the training."
 
     $ Rogue.change_face("sly")
+    $ Rogue.change_arms("crossed")
 
     ch_Rogue "Ah can tell yer still holdin' back on my account."
     ch_Player "Sorry. . . if I don't. . ."
@@ -160,10 +178,12 @@ label Rogue_chapter_one_season_three_second_training_session:
     ch_Player "I'm looking forward to it."
 
     $ Rogue.change_face("happy")
+    $ Rogue.change_arms("angry")
 
     ch_Rogue "Ya better be ready when the time comes."
 
     $ Rogue.change_face("smirk2")
+    $ Rogue.change_arms("neutral")
 
     ch_Rogue "Ah'll see you later, alright?"
     ch_Player "Definitely." 

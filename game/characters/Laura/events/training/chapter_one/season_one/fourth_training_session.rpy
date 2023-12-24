@@ -18,6 +18,7 @@ label Laura_chapter_one_season_one_fourth_training_session:
     $ ongoing_Event = True
 
     $ Laura.change_face("neutral", eyes = "squint") 
+    $ Laura.change_arms("crossed")
 
     ch_Player "Right. . . don't know why I asked. . ."
 
@@ -34,17 +35,25 @@ label Laura_chapter_one_season_one_fourth_training_session:
     $ fade_in_from_black(0.4)
 
     $ Laura.change_face("pleased1")
+    $ Laura.change_arms("hips")
 
     ch_Laura "That was better than last time." 
 
     $ Laura.change_face("smirk2")
 
     ch_Player "*huff* Feels worse than last time. . . *huff*"
+
+    $ Laura.change_arms("hips", left_arm = "extended")
+
     ch_Laura "You get another minute, then we continue." 
 
     $ Laura.change_face("neutral")
+    $ Laura.change_arms("hips")
 
     "Shortest minute of your life. . ."
+
+    $ Laura.change_arms("fight")
+
     "Today she puts you through a mixture of offensive and defensive exercises."
     "Combining what you've learned so far proves to be difficult, and most of the time you just make things worse." 
 
@@ -57,11 +66,13 @@ label Laura_chapter_one_season_one_fourth_training_session:
     "You're used to the beatings by now, and you even manage to use the right technique and simultaneously defend yourself while countering."
 
     $ Laura.change_face("surprised2")
+    $ Laura.change_arms("claws")
 
     "[Laura.name] wasn't expecting any real competency from you, and you almost manage to tag her."
     "Still, she effortlessly dodges out of the way."
 
     $ Laura.change_face("neutral", eyes = "squint")
+    $ Laura.change_arms("crossed")
 
     ch_Laura "That was sloppy. . . but you had the right idea." 
     "You take a moment to catch your breath."
@@ -103,6 +114,7 @@ label Laura_chapter_one_season_one_fourth_training_session:
             ch_Laura "You think someone will go easy when they're actually trying to kill you?"
 
     $ Laura.change_face("neutral")
+    $ Laura.change_arms("hips")
 
     ch_Laura "You know what's next." 
 
@@ -114,6 +126,7 @@ label Laura_chapter_one_season_one_fourth_training_session:
     "She makes you go through countless exercises, exhausting muscle groups you didn't even know you had."
 
     $ Laura.change_face("angry1")
+    $ Laura.change_arms("crossed")
 
     "It feels like it goes on forever. . ."
     "Your legs give out, but you manage to catch yourself on the way down."
@@ -125,16 +138,22 @@ label Laura_chapter_one_season_one_fourth_training_session:
     ch_Player "Maybe one day it won't hurt so much." 
 
     $ Laura.change_face("confused1")
+    $ Laura.change_arms("angry")
 
     ch_Laura "If it doesn't. . . "
+
+    $ Laura.change_arms("neutral")
+
     ch_Player "Yeah, yeah. 'I'm not training hard enough.'" 
 
     $ Laura.change_face("smirk2")
+    $ Laura.change_arms("neutral", left_arm = "extended")
 
     "She actually offers her hand to help you up."
     "You take it."
 
     $ Laura.change_face("appalled1", blush = 1) 
+    $ Laura.change_arms("crossed")
 
     "And as soon as you're up, she jerks it back." 
 

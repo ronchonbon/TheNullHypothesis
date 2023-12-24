@@ -22,6 +22,7 @@ label Rogue_chapter_one_season_four_training_sessions:
 
     if dice_roll == 1:
         $ Rogue.change_face("worried1", mouth = "smirk")
+        $ Rogue.change_arms("hips")
 
         ch_Rogue "Ah've been needin' a good workout."
         ch_Player "Same."
@@ -38,6 +39,7 @@ label Rogue_chapter_one_season_four_training_sessions:
         $ fade_in_from_black(0.4)
 
         $ Rogue.change_face("smirk2")
+        $ Rogue.change_arms("crossed")
 
         "Your growing awareness and control over the powers inside you bring some new insights. . ."
 
@@ -46,12 +48,14 @@ label Rogue_chapter_one_season_four_training_sessions:
         "But unfortunately not ones that have much benefit to [Rogue.name]."
 
         $ Rogue.change_face("worried1", mouth = "smirk")
+        $ Rogue.change_arms("fight")
 
         "Despite her own lack of progress, she seems happy that you've been doing so well."
         "After a good sparring session, her spirits are right back up."
         ch_Rogue "Ah'm gettin' real good, right?"
 
         $ Rogue.change_face("smirk2")
+        $ Rogue.change_arms("hips")
 
         ch_Player "You really are."
         ch_Player "If I didn't have such an advantage, you'd be able to beat me up with ease."
@@ -62,16 +66,19 @@ label Rogue_chapter_one_season_four_training_sessions:
         ch_Rogue "But we both know it ain't just yer 'advantages'."
 
         $ Rogue.change_face("smirk2")
+        $ Rogue.change_arms("neutral")
 
         ch_Rogue "Ah think that's enough for today."
         ch_Rogue "See ya later, hon'."
     elif dice_roll == 2:
         $ Rogue.change_face("happy")
+        $ Rogue.change_arms("hips")
 
         ch_Rogue "Ah'm ready to go!"
         ch_Player "You seem awfully enthusiastic today."
 
         $ Rogue.change_face("worried1", mouth = "smirk")
+        $ Rogue.change_arms("crossed")
 
         ch_Rogue "Sorry. . . just excited. . ."
 
@@ -93,6 +100,7 @@ label Rogue_chapter_one_season_four_training_sessions:
         $ fade_in_from_black(0.4)
 
         $ Rogue.change_face("sly")
+        $ Rogue.change_arms("hips")
 
         "After giving her a minute to catch her breath. . ."
         ch_Rogue "Yer gettin' slow."
@@ -103,6 +111,7 @@ label Rogue_chapter_one_season_four_training_sessions:
         ch_Player "{size=-5}That handicap was pretty unfair, though{/size}. . ."
 
         $ Rogue.change_face("sly")
+        $ Rogue.change_arms("fight")
 
         ch_Rogue "Mhm, sure, hon'."
         ch_Rogue "Let's get into the sparrin'."
@@ -113,6 +122,7 @@ label Rogue_chapter_one_season_four_training_sessions:
         "You can tell she pushed herself pretty hard earlier, so the sparring is a bit quicker than usual."
 
         $ Rogue.change_face("worried1", mouth = "smirk")
+        $ Rogue.change_arms("hips")
 
         ch_Rogue "Ah'm pretty tuckered out, can we call it there?"
         ch_Player "Sure, as long as you agree the handicap earlier was unfair."
@@ -122,6 +132,7 @@ label Rogue_chapter_one_season_four_training_sessions:
         ch_Rogue "Nope."
     elif dice_roll == 3:
         $ Rogue.change_face("worried1", eyes = "right")
+        $ Rogue.change_arms("crossed")
 
         ch_Player "Hey, everything alright?"
 
@@ -144,6 +155,7 @@ label Rogue_chapter_one_season_four_training_sessions:
         $ fade_in_from_black(0.4)
 
         $ Rogue.change_face("worried1", eyes = "right")
+        $ Rogue.change_arms("hips")
 
         ch_Player "Wanna spar for a bit before we finish?"
 
@@ -160,6 +172,7 @@ label Rogue_chapter_one_season_four_training_sessions:
         ch_Player "We could also. . . just talk about what's bothering you."
 
         $ Rogue.change_face("worried1", eyes = "down")
+        $ Rogue.change_arms("crossed")
 
         ch_Rogue "Ah can't. . ."
 
@@ -169,6 +182,7 @@ label Rogue_chapter_one_season_four_training_sessions:
         ch_Player "Don't worry about it."
 
         $ Rogue.change_face("worried1", mouth = "smirk")
+        $ Rogue.change_arms("fight")
 
         "You go through a quick sparring session, and it seems to provide a good distraction for [Rogue.name]."
 
@@ -177,6 +191,7 @@ label Rogue_chapter_one_season_four_training_sessions:
         "But she ends up cutting the session short."
 
         $ Rogue.change_face("worried1")
+        $ Rogue.change_arms("crossed")
 
         ch_Rogue "Ah'm real sorry, [Rogue.Player_petname]."
         ch_Rogue "Feel like ah'm wastin' yer time."

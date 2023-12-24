@@ -18,6 +18,7 @@ label Rogue_chapter_one_season_two_first_study_session:
     $ ongoing_Event = True
 
     $ Rogue.change_face("worried1", mouth = "smirk")
+    $ Rogue.change_arms("crossed")
 
     pause 1.0
 
@@ -27,6 +28,7 @@ label Rogue_chapter_one_season_two_first_study_session:
     "You move to help, but. . ."
 
     $ Rogue.change_face("worried2")
+    $ Rogue.change_arms("sheepish", right_arm = "neutral")
 
     ch_Rogue "Don't bother yerself, darlin', ah got it."
 
@@ -42,6 +44,7 @@ label Rogue_chapter_one_season_two_first_study_session:
     ch_Player "[temp], what's going on?"
 
     $ Rogue.change_face("worried1", mouth = "smirk")
+    $ Rogue.change_arms("crossed")
 
     ch_Rogue "Nothin', ah just wanna do somethin' for ya for once."
 
@@ -53,6 +56,7 @@ label Rogue_chapter_one_season_two_first_study_session:
     ch_Player "Alright. . ."
 
     $ Rogue.change_face("worried1", eyes = "down")
+    $ Rogue.change_arms("neutral")
 
     "You sit down on the bed and chat with [Rogue.name] a bit as she gets things organized."
     "She's acting very deferential. . . even more so than usual."
@@ -104,6 +108,7 @@ label Rogue_chapter_one_season_two_first_study_session:
             call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_1085
 
     $ Rogue.change_face("worried2")
+    $ Rogue.change_arms("crossed")
 
     ch_Rogue "It's about you. . ."
 
@@ -111,13 +116,20 @@ label Rogue_chapter_one_season_two_first_study_session:
 
     ch_Player "About me?"
     ch_Rogue "Ah've just been real worried about ya lately."
+
+    $ Rogue.change_arms("sheepish")
+
     ch_Rogue "After everythin' that happened, ya haven't really been reactin' the way ah'd expect. . ."
 
     $ Rogue.change_face("worried1", mouth = "smirk")
+    $ Rogue.change_arms("sheepish", right_arm = "neutral")
 
     ch_Rogue "If ah didn't know ya, ah would never have thought ya nearly got killed twice in the past few months."
     ch_Rogue "Ah know ya must be hurtin' on the inside, even if ya don't show it."
     ch_Player "I. . ."
+
+    $ Rogue.change_arms("crossed")
+
     ch_Rogue "Ya shouldn't bottle everythin' up, [Rogue.Player_petname]."
     ch_Rogue "And. . . ah just wanted to try 'n make things a bit easier for ya. . ."
 
@@ -146,11 +158,18 @@ label Rogue_chapter_one_season_two_first_study_session:
     ch_Rogue "Ah'm sorry for assumin'."
 
     $ Rogue.change_face("worried1", mouth = "smirk")
+    $ Rogue.change_arms("sheepish", right_arm = "neutral")
 
     ch_Rogue "And ah think ah know how ya feel."
     ch_Rogue "Ah'll spend as much time with you as ya need, studyin' or otherwise."
     ch_Player "Thank you, I really appreciate it."
+
+    $ Rogue.change_arms("sheepish")
+
     ch_Rogue "And, if ya ever do wanna talk about yer feelin's, ah'll be here."
+
+    $ Rogue.change_arms("hips")
+
     ch_Rogue "But, for now, ah think we should get to that distraction."
 
     $ Rogue.change_face("smirk2")
@@ -158,6 +177,7 @@ label Rogue_chapter_one_season_two_first_study_session:
     ch_Player "I'd like that."
 
     $ Rogue.change_face("smirk2", eyes = "down", blush = 1)
+    $ Rogue.change_arms("crossed")
 
     "[Rogue.name] plops down onto the bed next to you and leans into your shoulder comfortingly."
     "With the dour mood of the previous conversation, you can tell she does her best to bring it back up."
@@ -173,6 +193,7 @@ label Rogue_chapter_one_season_two_first_study_session:
     "[Rogue.name] reads it over, but doesn't say anything, as you consider the answer."
 
     $ Rogue.change_face("confused1", mouth = "smirk")
+    $ Rogue.change_arms("hips")
 
     ch_Player "Okay, I'm pretty sure the answer is 47."
 
@@ -195,6 +216,7 @@ label Rogue_chapter_one_season_two_first_study_session:
     ch_Rogue "That was productive."
 
     $ Rogue.change_face("worried1")
+    $ Rogue.change_arms("sheepish", right_arm = "neutral")
 
     ch_Rogue "Ah'm sorry about the beginnin'. . ."
     ch_Player "It's okay, [Rogue.petname]."

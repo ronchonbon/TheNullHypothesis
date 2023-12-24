@@ -18,6 +18,7 @@ label Rogue_chapter_one_season_one_second_study_session:
     $ ongoing_Event = True
 
     $ Rogue.change_face("happy")
+    $ Rogue.change_arms("hips")
 
     ch_Rogue "Ah'll help ya get everythin' set up."
 
@@ -27,11 +28,13 @@ label Rogue_chapter_one_season_one_second_study_session:
     "She helps you organize all the notes and study materials you'll need for the session."
 
     $ Rogue.change_face("smirk2", eyes = "down", blush = 1)
+    $ Rogue.change_arms("neutral")
 
     "You exchange some small talk, but notice [Rogue.name] is quite picky with how things are organized."
     "Nevertheless, it only takes a couple minutes."
 
     $ Rogue.change_face("smirk2", blush = 1)
+    $ Rogue.change_arms("crossed")
 
     ch_Rogue "That oughta do it." 
     "As you get on the bed with your papers spread out in front of you, you notice [Rogue.name] lies down directly next to you, close enough for your shoulders to touch."
@@ -114,6 +117,8 @@ label Rogue_chapter_one_season_one_second_study_session:
     ch_Rogue "Thank you. . ."
     
     call take_off(Rogue, "gloves") from _call_take_off_7
+
+    $ Rogue.change_arms("neutral", left_arm = "extended")
     
     "[Rogue.name] takes her glove off and tentatively reaches out."
 
@@ -122,6 +127,7 @@ label Rogue_chapter_one_season_one_second_study_session:
     "As your hands touch, she shudders slightly."
 
     $ Rogue.change_face("worried1", mouth = "lipbite", blush = 2)
+    $ Rogue.change_arms("crossed")
 
     "She holds on for a few moments, before pulling away." 
 
@@ -142,6 +148,7 @@ label Rogue_chapter_one_season_one_second_study_session:
     "You finish going through some practice questions, but get to one you can't figure out."
 
     $ Rogue.change_face("confused1", mouth = "smirk")
+    $ Rogue.change_arms("hips")
 
     ch_Player "Hey, [Rogue.name], how do you do this one?"
     "You point to a particular question."
@@ -154,15 +161,18 @@ label Rogue_chapter_one_season_one_second_study_session:
     "You finish up the session shortly after, and [Rogue.name] helps you put away all the study materials."
 
     $ Rogue.change_face("worried1", mouth = "smirk", blush = 1)
+    $ Rogue.change_arms("crossed")
 
     ch_Rogue "Thanks again."
 
     $ Rogue.change_face("worried1", mouth = "smirk", blush = 2)
+    $ Rogue.change_arms("sheepish", right_arm = "neutral")
 
     ch_Rogue "For lettin' me. . . touch you." 
     ch_Player "No problem, but feel free to ask next time." 
 
     $ Rogue.change_face("worried2", blush = 3)
+    $ Rogue.change_arms("crossed")
 
     ch_Rogue "Maybe. . ."
 

@@ -22,6 +22,7 @@ label Rogue_chapter_one_season_one_study_sessions:
 
     if dice_roll == 1:
         $ Rogue.change_face("happy")
+        $ Rogue.change_arms("hips")
 
         ch_Player "Just gotta set things up before we start."
 
@@ -32,6 +33,7 @@ label Rogue_chapter_one_season_one_study_sessions:
         "After taking a few minutes to set up all the course materials, you get right into the tutoring session."
 
         $ Rogue.change_face("smirk2", eyes = "down", mouth = "lipbite", blush = 1)
+        $ Rogue.change_arms("crossed")
 
         "Once you hop onto the bed, as usual, she scoots close enough for your shoulders to touch."
 
@@ -44,10 +46,12 @@ label Rogue_chapter_one_season_one_study_sessions:
         "While you're writing something down, you notice she's looking at your hands."
 
         $ Rogue.change_face("worried2", blush = 2)
+        $ Rogue.change_arms("neutral")
 
         ch_Player "Did you want to touch my hands again?" 
 
         $ Rogue.change_face("worried1", mouth = "lipbite", blush = 1)
+        $ Rogue.change_arms("sheepish", right_arm = "neutral")
 
         ch_Rogue "Yes. . ." 
 
@@ -70,6 +74,8 @@ label Rogue_chapter_one_season_one_study_sessions:
         
         call take_off(Rogue, "gloves") from _call_take_off_11
 
+        $ Rogue.change_arms("neutral", left_arm = "extended")
+
         "[Rogue.name] removes her glove and takes your hand, shuddering slightly."
 
         $ Rogue.change_face("worried1", eyes = "closed", mouth = "lipbite", blush = 2)
@@ -77,6 +83,7 @@ label Rogue_chapter_one_season_one_study_sessions:
         "After a few moments she lets go."
 
         $ Rogue.change_face("worried1", mouth = "smirk", blush = 1)
+        $ Rogue.change_arms("crossed")
 
         ch_Rogue "Thanks, sugar."
         ch_Rogue "Ah really appreciate it. . ."
@@ -87,15 +94,16 @@ label Rogue_chapter_one_season_one_study_sessions:
         "The rest of the session goes by quickly, but there's one question you're still not sure about."
         ch_Player "What about this one? I can't figure it out."
         "You point to a particular question."
-
         ch_Rogue "Ah had a bit of trouble with that one too."
 
         $ Rogue.change_face("smirk2")
+        $ Rogue.change_arms("sheepish", right_arm = "neutral")
 
         ch_Rogue "Ah'm pretty sure it's choice B."
         "After that, the session doesn't last much longer, and [Rogue.name] helps you clean up at the end."
     elif dice_roll == 2:
         $ Rogue.change_face("happy")
+        $ Rogue.change_arms("neutral", left_arm = "extended")
 
         ch_Rogue "Here, darlin'."
 
@@ -105,6 +113,7 @@ label Rogue_chapter_one_season_one_study_sessions:
         "You both take a few minutes to lay out all the textbooks and study guides."
 
         $ Rogue.change_face("smirk2", eyes = "down", blush = 1)
+        $ Rogue.change_arms("crossed")
 
         "[Rogue.name] takes her usual position on the bed, scooting close enough to brush shoulders with you." 
         "With an exam coming up, you decide to mostly review stuff for mutant physiology."
@@ -121,6 +130,7 @@ label Rogue_chapter_one_season_one_study_sessions:
         "You point to a particular practice question."
 
         $ Rogue.change_face("confused1")
+        $ Rogue.change_arms("hips")
 
         ch_Rogue "Hmm, ah don't remember seein' this one."
 
@@ -137,6 +147,7 @@ label Rogue_chapter_one_season_one_study_sessions:
         ch_Player "Thanks."
 
         $ Rogue.change_face("worried1", eyes = "right", mouth = "smirk")
+        $ Rogue.change_arms("sheepish", right_arm = "neutral")
 
         pause 1.0
 
@@ -153,32 +164,39 @@ label Rogue_chapter_one_season_one_study_sessions:
 
         call take_off(Rogue, "gloves") from _call_take_off_12
 
+        $ Rogue.change_arms("neutral", left_arm = "extended")
+
         "She eagerly takes her gloves off and gently grabs your hand."
 
         $ Rogue.change_face("worried1", eyes = "down", mouth = "lipbite", blush = 1)
 
-        "She seems fascinated by them, as she gingerly touches your skin."
-
+        "She seems fascinated by it as she gingerly touches your skin."
+        
         $ Rogue.change_face("worried1", mouth = "lipbite", blush = 1)
+        $ Rogue.change_arms("sheepish", right_arm = "neutral")
 
         "After a moment she takes her hands back."
         ch_Rogue "Thanks. . . ah really appreciate it." 
 
         $ Rogue.change_face("worried1", mouth = "smirk")
+        $ Rogue.change_arms("crossed")
 
         ch_Rogue "Ah think that's enough for today."
         "You help [Rogue.name] put away all the books."
     elif dice_roll == 3:
         $ Rogue.change_face("worried1", mouth = "smirk")
+        $ Rogue.change_arms("sheepish", right_arm = "neutral")
 
         ch_Rogue "Could ya help me set everythin' up?"
         ch_Player "Sure."
 
         $ Rogue.change_face("smirk2")
+        $ Rogue.change_arms("neutral")
 
         "With your help, setting up only takes a few minutes."
 
         $ Rogue.change_face("smirk2", eyes = "down")
+        $ Rogue.change_arms("sheepish")
 
         "You hop onto the bed, with [Rogue.name] taking her usual spot next to you."
 
@@ -194,6 +212,7 @@ label Rogue_chapter_one_season_one_study_sessions:
         "There's just one question that's giving you trouble."
 
         $ Rogue.change_face("confused1", mouth = "smirk")
+        $ Rogue.change_arms("hips")
 
         ch_Player ". . . Yeah this one. Do you know the answer?"
         "You point to a particularly difficult question."
@@ -206,6 +225,7 @@ label Rogue_chapter_one_season_one_study_sessions:
         "The session doesn't last much longer, and you both start putting everything away."
 
         $ Rogue.change_face("worried1", eyes = "right", mouth = "lipbite", blush = 1)
+        $ Rogue.change_arms("sheepish", right_arm = "neutral")
 
         ch_Rogue ". . ." 
 
@@ -214,6 +234,7 @@ label Rogue_chapter_one_season_one_study_sessions:
         ch_Rogue "Could ah maybe. . ."
 
         $ Rogue.change_face("surprised2", blush = 1)
+        $ Rogue.change_arms("neutral")
 
         "Before she can even finish, you put your hand out for her to touch." 
 
@@ -226,6 +247,8 @@ label Rogue_chapter_one_season_one_study_sessions:
 
         call take_off(Rogue, "gloves") from _call_take_off_13
 
+        $ Rogue.change_arms("neutral", left_arm = "extended")
+
         "She takes her glove off and grasps your hand."
 
         $ Rogue.change_face("worried1", eyes = "closed", mouth = "lipbite", blush = 2)
@@ -233,10 +256,12 @@ label Rogue_chapter_one_season_one_study_sessions:
         "Her fingers gently caress your hands, and she seems lost in the feeling for a while before pulling away." 
 
         $ Rogue.change_face("smirk2", mouth = "lipbite", blush = 1)
+        $ Rogue.change_arms("crossed")
 
         ch_Player "Well. . . that was a productive session."
     elif dice_roll == 4:
         $ Rogue.change_face("happy")
+        $ Rogue.change_arms("hips")
 
         ch_Player "Gonna help me set everything up?" 
 
@@ -247,6 +272,7 @@ label Rogue_chapter_one_season_one_study_sessions:
         "[Rogue.name] also 'accidentally' brushes against you a few times."
 
         $ Rogue.change_face("smirk2", eyes = "down", blush = 1)
+        $ Rogue.change_arms("crossed")
 
         "You hop onto the bed next to her, and she makes sure to scoot very close to you, with her shoulder touching your."
 
@@ -256,11 +282,13 @@ label Rogue_chapter_one_season_one_study_sessions:
         "She makes sure to go over what you'll need to know for the upcoming exams."
 
         $ Rogue.change_face("smirk2")
+        $ Rogue.change_arms("neutral", left_arm = "extended")
 
         ch_Rogue "Ah think you might get a question like this one on yer test. . ."
         "She points to a particular question."
 
         $ Rogue.change_face("confused1", mouth = "smirk")
+        $ Rogue.change_arms("hips")
 
         "After doing the work, you think you've found the answer."
         ch_Player "Okay. . . is it choice A?"
@@ -275,6 +303,7 @@ label Rogue_chapter_one_season_one_study_sessions:
         "The rest of the lesson goes by quickly, you were already pretty familiar with the material."
 
         $ Rogue.change_face("worried1", eyes = "down", mouth = "lipbite", blush = 1)
+        $ Rogue.change_arms("crossed")
 
         "[Rogue.name] helps you clean everything up, but she seems a bit anxious. . ."
 
@@ -291,6 +320,8 @@ label Rogue_chapter_one_season_one_study_sessions:
 
         call take_off(Rogue, "gloves") from _call_take_off_14
 
+        $ Rogue.change_arms("neutral", left_arm = "extended")
+
         "You put your hand out, and she eagerly takes her glove off." 
 
         $ Rogue.change_face("worried1", eyes = "closed", mouth = "lipbite", blush = 2) 
@@ -298,6 +329,7 @@ label Rogue_chapter_one_season_one_study_sessions:
         "After a long moment, she pulls away."
 
         $ Rogue.change_face("worried1", blush = 1)
+        $ Rogue.change_arms("crossed")
 
         ch_Rogue "Thanks. . ."
 

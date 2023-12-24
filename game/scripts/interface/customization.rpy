@@ -1,11 +1,5 @@
 default current_customization_tab = "body"
 
-image Player_customization_selector:
-    "images/interface/Player_customization/selector.webp" 
-    
-    anchor (0.5, 0.5)
-    pos (0.5, 0.4)
-
 layeredimage Player_portrait:
     always:
         "images/interface/Player_portrait/background_[Player.background_color].webp"
@@ -32,11 +26,6 @@ layeredimage Player_portrait:
 
 style Player_customization is default
 
-style Player_customization_text:
-    font "agency_fb.ttf"
-
-    color "#000000"
-
 screen Player_customization_screen(scholarship = False):
     layer "interface"
 
@@ -51,100 +40,112 @@ screen Player_customization_screen(scholarship = False):
         SetVariable("say_obscured", False),
         SetVariable("Character_picker_disabled", False)]
 
-    if not black_screen:
-        add "images/interface/Player_customization/background.webp"
+    timer 0.5 repeat True action ToggleVariable("blinking")
 
-        add "images/interface/Player_customization/athletics.webp"
-        add "images/interface/Player_customization/academics.webp"
-        add "images/interface/Player_customization/art.webp"
+    if not black_screen:
+        add "images/interface/Player_customization/background.webp" zoom interface_new_adjustment
+
+        add At(At("images/interface/preferences/spin.webp", interface), spinning_element) anchor (0.5, 0.5) pos (0.502, 0.502)
 
         if scholarship:
             imagebutton:
-                idle At("images/interface/Player_customization/athletics.webp", almost_invisible) hover "images/interface/Player_customization/athletics_selected.webp"
+                idle At("images/interface/Player_customization/athletics_idle.webp", interface) 
+                hover At("images/interface/Player_customization/athletics.webp", interface)
 
                 action SetVariable("Player.scholarship", "athletic")
 
             imagebutton:
-                idle At("images/interface/Player_customization/academics.webp", almost_invisible) hover "images/interface/Player_customization/academics_selected.webp"
+                idle At("images/interface/Player_customization/academics_idle.webp", interface) 
+                hover At("images/interface/Player_customization/academics.webp", interface) 
 
                 action SetVariable("Player.scholarship", "academic")
 
             imagebutton:
-                idle At("images/interface/Player_customization/art.webp", almost_invisible) hover "images/interface/Player_customization/art_selected.webp"
+                idle At("images/interface/Player_customization/arts_idle.webp", interface) 
+                hover At("images/interface/Player_customization/arts.webp", interface) 
 
                 action SetVariable("Player.scholarship", "artistic")
 
-            text "You attended college on a scholarship: what was it for?" anchor (0.5, 0.5) pos (0.139, 0.325) xmaximum 400:
-                size 36
+            text "You are attending college on a scholarship: what is it for?" anchor (0.5, 0.5) pos (0.198, 0.375) xmaximum 400:
+                font "agency_fb.ttf"
 
-                color "#512908"
+                size 40
 
-        text "Character Portrait" anchor (0.5, 0.5) pos (0.425, 0.309):
-            size 40
+        if blinking:
+            text "PREVIEW" + "{alpha=0.0}_{/alpha}" anchor (0.0, 0.5) pos (0.367, 0.337):
+                size 35
+        else:
+            text "PREVIEW" + "_" anchor (0.0, 0.5) pos (0.367, 0.337):
+                size 35
 
-            color "#000000"
-
-        add At("Player_portrait", customization_portrait) pos (0.425, 0.522)
+        add At("Player_portrait", customization_portrait) pos (0.431, 0.635)
             
         if Player.scholarship == "athletic":
-            add "images/interface/Player_customization/athletics_selected.webp"
-            add "images/interface/Player_customization/baseball.webp"
+            add "images/interface/Player_customization/athletics_selected.webp" zoom interface_new_adjustment
+            add "images/interface/Player_customization/athletics_icon.webp" zoom interface_new_adjustment
+
+            text "ATHLETICS" anchor (0.5, 0.5) pos (0.455, 0.432):
+                font "agency_fb.ttf"
+
+                size 35
         elif Player.scholarship == "academic":
-            add "images/interface/Player_customization/academics_selected.webp"
-            add "images/interface/Player_customization/book.webp"     
+            add "images/interface/Player_customization/academics_selected.webp" zoom interface_new_adjustment
+            add "images/interface/Player_customization/academics_icon.webp" zoom interface_new_adjustment
+
+            text "ACADEMICS" anchor (0.5, 0.5) pos (0.455, 0.432):
+                font "agency_fb.ttf"
+
+                size 35
         elif Player.scholarship == "artistic":
-            add "images/interface/Player_customization/art_selected.webp"
-            add "images/interface/Player_customization/brush.webp"
+            add "images/interface/Player_customization/arts_selected.webp" zoom interface_new_adjustment
+            add "images/interface/Player_customization/arts_icon.webp" zoom interface_new_adjustment
 
-        text "ATHLETICS" anchor (0.5, 0.5) pos (0.139, 0.423):
+            text "ARTS" anchor (0.5, 0.5) pos (0.455, 0.432):
+                font "agency_fb.ttf"
+
+                size 35
+
+        text "ATHLETICS" anchor (0.5, 0.5) pos (0.198, 0.517):
             size 40
 
-            color "#ffffff"
-
-        text "ACADEMICS" anchor (0.5, 0.5) pos (0.139, 0.53):
+        text "ACADEMICS" anchor (0.5, 0.5) pos (0.198, 0.623):
             size 40
 
-            color "#ffffff"
-
-        text "ART" anchor (0.5, 0.5) pos (0.139, 0.637):
+        text "ARTS" anchor (0.5, 0.5) pos (0.198, 0.728):
             size 40
 
-            color "#ffffff"
-
-        vbox anchor (0.5, 0.5) pos (0.664, 0.48):
+        vbox anchor (0.5, 0.5) pos (0.73, 0.59):
             spacing 50
                 
             if current_customization_tab == "body":
-                fixed xysize (int(375*interface_new_sampling), int(57*interface_new_sampling)):
-                    add "images/interface/Player_customization/title.webp"
-                    
-                    text "Skin Color":
-                        size 36
+                fixed xysize (0.195, 0.01):
+                    text "SKIN COLOR":
+                        size 35
 
-                hbox ysize int(64*interface_new_sampling):
+                hbox ysize 0.06:
                     spacing 15
 
                     for color in ["black", "blue", "green", "red", "white"]:
                         imagebutton:
-                            idle f"images/interface/Player_customization/skin_{color}.webp" 
-                            hover f"images/interface/Player_customization/skin_{color}.webp"
+                            idle At(f"images/interface/Player_customization/skin_{color}.webp", interface)
+                            hover At(f"images/interface/Player_customization/skin_{color}.webp", interface)
 
-                            selected_background "Player_customization_selector"
+                            selected_foreground At("images/interface/Player_customization/selector.webp", interface)
 
                             selected Player.skin_color == color
 
                             action SetVariable("Player.skin_color", color)
 
-                fixed xysize (int(375*interface_new_sampling), int(57*interface_new_sampling)):
-                    add "images/interface/Player_customization/title.webp"
+                null height 0.1
 
-                    text "Ears":
-                        size 36
+                fixed xysize (0.195, 0.01):
+                    text "EARS":
+                        size 35
 
-                fixed xysize (int(375*interface_new_sampling), int(64*interface_new_sampling)):
+                fixed xysize (0.195, 0.06):
                     imagebutton anchor (0.0, 0.5) pos (0.0, 0.5):
-                        idle "images/interface/Player_customization/left_idle.webp" 
-                        hover "images/interface/Player_customization/left.webp"
+                        idle At("images/interface/Player_customization/left_idle.webp", interface)
+                        hover At("images/interface/Player_customization/left.webp", interface)
 
                         if Player.ears == "human":
                             action SetVariable("Player.ears", "fin")
@@ -157,8 +158,8 @@ screen Player_customization_screen(scholarship = False):
                         size 32
 
                     imagebutton anchor (1.0, 0.5) pos (1.0, 0.5):
-                        idle "images/interface/Player_customization/right_idle.webp" 
-                        hover "images/interface/Player_customization/right.webp"
+                        idle At("images/interface/Player_customization/right_idle.webp", interface)
+                        hover At("images/interface/Player_customization/right.webp", interface)
 
                         if Player.ears == "human":
                             action SetVariable("Player.ears", "elf")
@@ -167,16 +168,14 @@ screen Player_customization_screen(scholarship = False):
                         elif Player.ears == "fin":
                             action SetVariable("Player.ears", "human")
             elif current_customization_tab == "hair":
-                fixed xysize (int(375*interface_new_sampling), int(57*interface_new_sampling)):
-                    add "images/interface/Player_customization/title.webp"
+                fixed xysize (0.195, 0.01):
+                    text "HAIR":
+                        size 35
 
-                    text "Hair":
-                        size 36
-
-                fixed xysize (int(375*interface_new_sampling), int(64*interface_new_sampling)):
+                fixed xysize (0.195, 0.06):
                     imagebutton anchor (0.0, 0.5) pos (0.0, 0.5):
-                        idle "images/interface/Player_customization/left_idle.webp" 
-                        hover "images/interface/Player_customization/left.webp"
+                        idle At("images/interface/Player_customization/left_idle.webp", interface)
+                        hover At("images/interface/Player_customization/left.webp", interface)
 
                         action SetVariable("Player.hair", (Player.hair - 1) % 7)
 
@@ -184,22 +183,22 @@ screen Player_customization_screen(scholarship = False):
                         size 32
 
                     imagebutton anchor (1.0, 0.5) pos (1.0, 0.5):
-                        idle "images/interface/Player_customization/right_idle.webp" 
-                        hover "images/interface/Player_customization/right.webp"
+                        idle At("images/interface/Player_customization/right_idle.webp", interface) 
+                        hover At("images/interface/Player_customization/right.webp", interface)
 
                         action SetVariable("Player.hair", (Player.hair + 1) % 7)
                 
                 if Player.beards_unlocked:
-                    fixed xysize (int(375*interface_new_sampling), int(57*interface_new_sampling)):
-                        add "images/interface/Player_customization/title.webp"
+                    null height 0.0333
 
-                        text "Beard":
-                            size 36
+                    fixed xysize (0.195, 0.01):
+                        text "BEARD":
+                            size 35
 
-                    fixed xysize (int(375*interface_new_sampling), int(64*interface_new_sampling)):
+                    fixed xysize (0.195, 0.06):
                         imagebutton anchor (0.0, 0.5) pos (0.0, 0.5):
-                            idle "images/interface/Player_customization/left_idle.webp" 
-                            hover "images/interface/Player_customization/left.webp"
+                            idle At("images/interface/Player_customization/left_idle.webp", interface)
+                            hover At("images/interface/Player_customization/left.webp", interface)
 
                             action SetVariable("Player.beard", (Player.beard - 1) % 3)
 
@@ -207,46 +206,46 @@ screen Player_customization_screen(scholarship = False):
                             size 32
 
                         imagebutton anchor (1.0, 0.5) pos (1.0, 0.5):
-                            idle "images/interface/Player_customization/right_idle.webp" 
-                            hover "images/interface/Player_customization/right.webp"
+                            idle At("images/interface/Player_customization/right_idle.webp", interface) 
+                            hover At("images/interface/Player_customization/right.webp", interface)
 
                             action SetVariable("Player.beard", (Player.beard + 1) % 3)
 
-                fixed xysize (int(375*interface_new_sampling), int(57*interface_new_sampling)):
-                    add "images/interface/Player_customization/title.webp"
-                    
-                    text "Hair Color":
-                        size 36
+                    null height 0.0333
+                else:
+                    null height 0.1
 
-                hbox ysize int(64*interface_new_sampling):
+                fixed xysize (0.195, 0.01):
+                    text "HAIR COLOR":
+                        size 35
+
+                hbox ysize 0.6:
                     spacing 15
 
                     for color in ["black", "blond", "blue", "brown", "green", "red"]:
                         imagebutton:
-                            idle f"images/interface/Player_customization/hair_{color}.webp" 
-                            hover f"images/interface/Player_customization/hair_{color}.webp"
+                            idle At(f"images/interface/Player_customization/hair_{color}.webp", interface)
+                            hover At(f"images/interface/Player_customization/hair_{color}.webp", interface)
 
-                            selected_background "Player_customization_selector"
+                            selected_foreground At("images/interface/Player_customization/selector.webp", interface)
 
                             selected Player.hair_color == color
 
                             action SetVariable("Player.hair_color", color)
-            elif current_customization_tab == "clothing":
-                fixed xysize (int(375*interface_new_sampling), int(57*interface_new_sampling)):
-                    add "images/interface/Player_customization/title.webp"
-
-                    text "Clothing":
-                        size 36
+            elif current_customization_tab == "outfit":
+                fixed xysize (0.195, 0.01):
+                    text "CLOTHING":
+                        size 35
 
                 if len(Player.Outfits) > 0:
                     $ list_size = len(Player.Outfits)
                 else:
                     $ list_size = 1
 
-                fixed xysize (int(375*interface_new_sampling), int(64*interface_new_sampling)):
+                fixed xysize (0.195, 0.06):
                     imagebutton anchor (0.0, 0.5) pos (0.0, 0.5):
-                        idle "images/interface/Player_customization/left_idle.webp" 
-                        hover "images/interface/Player_customization/left.webp"
+                        idle At("images/interface/Player_customization/left_idle.webp", interface)
+                        hover At("images/interface/Player_customization/left.webp", interface)
 
                         action [
                             SetVariable("Player.Outfit_index", (Player.Outfit_index - 1) % list_size),
@@ -256,76 +255,88 @@ screen Player_customization_screen(scholarship = False):
                         size 32
 
                     imagebutton anchor (1.0, 0.5) pos (1.0, 0.5):
-                        idle "images/interface/Player_customization/right_idle.webp" 
-                        hover "images/interface/Player_customization/right.webp"
+                        idle At("images/interface/Player_customization/right_idle.webp", interface) 
+                        hover At("images/interface/Player_customization/right.webp", interface)
 
                         action [
                             SetVariable("Player.Outfit_index", (Player.Outfit_index + 1) % list_size),
                             SetVariable("Player.Outfit", Player.Outfits[(Player.Outfit_index + 1) % list_size])]
+
+                null height 0.1
                 
-                fixed xysize (int(375*interface_new_sampling), int(57*interface_new_sampling)):
-                    add "images/interface/Player_customization/title.webp"
+                fixed xysize (0.195, 0.01):
+                    text "BACKGROUND COLOR":
+                        size 35
 
-                    text "Background Color":
-                        size 36
-
-                hbox ysize int(64*interface_new_sampling):
+                hbox ysize 0.06:
                     spacing 15
 
                     for background_color in ["purple", "blue", "green", "grey", "orange", "red"]:
                         imagebutton:
-                            idle f"images/interface/Player_customization/background_{background_color}.webp" 
-                            hover f"images/interface/Player_customization/background_{background_color}.webp"
+                            idle At(f"images/interface/Player_customization/background_{background_color}.webp", interface)
+                            hover At(f"images/interface/Player_customization/background_{background_color}.webp", interface)
 
-                            selected_background "Player_customization_selector"
+                            selected_foreground At("images/interface/Player_customization/selector.webp", interface)
 
                             selected Player.background_color == background_color
 
                             action SetVariable("Player.background_color", background_color)
 
         if scholarship:
-            text "Scholarships yield different dialogue options. NPCs may comment on your appearance. Save after customization to continue." anchor (0.0, 0.5) pos (0.05, 0.95):
-                size 28
+            text "Scholarships yield different dialogue options. NPCs may comment on your appearance. Save after customization to continue." anchor (0.0, 0.5) pos (0.065, 0.859):
+                font "agency_fb.ttf"
 
-                color "#b3b3b3"
+                size 28
                 
         imagebutton:
-            idle "images/interface/Player_customization/body_idle.webp" 
-            hover "images/interface/Player_customization/body.webp" 
-            selected_idle "images/interface/Player_customization/body_selected.webp" 
-            selected_hover "images/interface/Player_customization/body_selected.webp"
+            idle At("images/interface/Player_customization/body_idle.webp", interface)
+            hover At("images/interface/Player_customization/body.webp", interface)
+            selected_idle At("images/interface/Player_customization/body.webp", interface)
+            selected_hover At("images/interface/Player_customization/body.webp", interface)
 
             selected current_customization_tab == "body"
 
             action SetVariable("current_customization_tab", "body")
                 
         imagebutton:
-            idle "images/interface/Player_customization/hair_idle.webp" 
-            hover "images/interface/Player_customization/hair.webp" 
-            selected_idle "images/interface/Player_customization/hair_selected.webp" 
-            selected_hover "images/interface/Player_customization/hair_selected.webp"
+            idle At("images/interface/Player_customization/hair_idle.webp", interface)
+            hover At("images/interface/Player_customization/hair.webp", interface)
+            selected_idle At("images/interface/Player_customization/hair.webp", interface)
+            selected_hover At("images/interface/Player_customization/hair.webp", interface)
 
             selected current_customization_tab == "hair"
 
             action SetVariable("current_customization_tab", "hair")
                 
         imagebutton:
-            idle "images/interface/Player_customization/clothing_idle.webp" 
-            hover "images/interface/Player_customization/clothing.webp" 
-            selected_idle "images/interface/Player_customization/clothing_selected.webp"
-            selected_hover "images/interface/Player_customization/clothing_selected.webp"
+            idle At("images/interface/Player_customization/outfit_idle.webp", interface)
+            hover At("images/interface/Player_customization/outfit.webp", interface)
+            selected_idle At("images/interface/Player_customization/outfit.webp", interface)
+            selected_hover At("images/interface/Player_customization/outfit.webp", interface)
 
-            selected current_customization_tab == "clothing"
+            selected current_customization_tab == "outfit"
 
-            action SetVariable("current_customization_tab", "clothing")
+            action SetVariable("current_customization_tab", "outfit")
+
+        text "BODY" anchor (0.5, 0.5) pos (0.729, 0.3395):
+            size 40
+
+        text "HAIR" anchor (0.5, 0.5) pos (0.813, 0.3395):
+            size 40
+
+        text "OUTFIT" anchor (0.5, 0.5) pos (0.896, 0.3395):
+            size 40
                 
         imagebutton:
-            idle "images/interface/Player_customization/save_idle.webp" 
-            hover "images/interface/Player_customization/save.webp"
+            idle At("images/interface/Player_customization/save_idle.webp", interface)
+            hover At("images/interface/Player_customization/save.webp", interface)
 
             if Player.scholarship:
                 action Return()
             else:
                 action None
+
+        text "SAVE AND CONTINUE" anchor (0.5, 0.5) pos (0.821, 0.857):
+            size 40
             
     use quick_menu

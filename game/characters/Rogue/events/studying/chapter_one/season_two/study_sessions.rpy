@@ -22,6 +22,7 @@ label Rogue_chapter_one_season_two_study_sessions:
 
     if dice_roll == 1:
         $ Rogue.change_face("worried1", mouth = "smirk")
+        $ Rogue.change_arms("hips")
 
         ch_Rogue "So, what did ya wanna work on today?"
         ch_Player "How about that mutant physiology assignment?"
@@ -31,10 +32,12 @@ label Rogue_chapter_one_season_two_study_sessions:
         ch_Rogue "Sure thing, [Rogue.Player_petname]."
 
         $ Rogue.change_face("smirk2", eyes = "down")
+        $ Rogue.change_arms("neutral")
 
         "She helps you organize all the materials, and it takes a bit longer than usual, as you both exchange some small talk."
 
         $ Rogue.change_face("smirk2", mouth = "lipbite", blush = 1)
+        $ Rogue.change_arms("crossed")
 
         "She playfully falls onto the bed, beckoning you to lay down beside her."
         "Once you take your spot, she leans into your shoulder."
@@ -50,6 +53,8 @@ label Rogue_chapter_one_season_two_study_sessions:
         $ Rogue.change_face("smirk2", eyes = "closed", mouth = "lipbite", blush = 1)
 
         call take_off(Rogue, "gloves") from _call_take_off_17
+
+        $ Rogue.change_arms("neutral", left_arm = "extended")
 
         "She takes her gloves off and distracts herself by touching and playing with your hand."
 
@@ -68,11 +73,14 @@ label Rogue_chapter_one_season_two_study_sessions:
 
         call change_Outfit(Rogue, Rogue.Wardrobe.Outfits[Rogue.Outfit.name]) from _call_change_Outfit_49
 
+        $ Rogue.change_arms("crossed")
+
         "It doesn't take much longer to finish the assignment, and when you're done, she puts her gloves back on before helping you clean everything up."
 
         $ Rogue.change_face("smirk2", blush = 1)
     elif dice_roll == 2:
         $ Rogue.change_face("happy")
+        $ Rogue.change_arms("hips")
 
         ch_Rogue "Want my help settin' up?"
 
@@ -82,6 +90,7 @@ label Rogue_chapter_one_season_two_study_sessions:
         "You have a good time chatting, as she helps you organize everything."
 
         $ Rogue.change_face("smirk2", eyes = "down", blush = 1)
+        $ Rogue.change_arms("crossed")
 
         "You plop down onto the bed, and [Rogue.name] follows suit, scooting right up next to you."
 
@@ -90,6 +99,8 @@ label Rogue_chapter_one_season_two_study_sessions:
         "As she has you work on some of the more difficult course material, you absentmindedly put your hand out for her to touch."
 
         call take_off(Rogue, "gloves") from _call_take_off_18
+
+        $ Rogue.change_arms("neutral", left_arm = "extended")
 
         "She doesn't skip a beat, as she continues explaining one of the questions, while also removing her gloves and playing with your hand."
 
@@ -116,18 +127,23 @@ label Rogue_chapter_one_season_two_study_sessions:
 
         call change_Outfit(Rogue, Rogue.Wardrobe.Outfits[Rogue.Outfit.name]) from _call_change_Outfit_50
 
+        $ Rogue.change_arms("hips")
+
         "Once she's sure you understand everything, she puts her gloves back on and helps you clean up." 
     elif dice_roll == 3:
         $ Rogue.change_face("worried1", mouth = "smirk")
+        $ Rogue.change_arms("sheepish")
 
         ch_Rogue "Want some help settin' everything up?"
         ch_Player "That would be nice."
 
         $ Rogue.change_face("smirk2")
+        $ Rogue.change_arms("hips")
 
         "She tells you about her day so far, as you help get everything organized."
 
         $ Rogue.change_face("smirk2", mouth = "lipbite", blush = 1)
+        $ Rogue.change_arms("crossed")
 
         "[Rogue.name] playfully drags you onto the bed and positions herself next to you. . ."
         "Making sure she's close enough to brush shoulders."
@@ -139,6 +155,8 @@ label Rogue_chapter_one_season_two_study_sessions:
         $ Rogue.change_face("smirk2", eyes = "down", mouth = "lipbite", blush = 1)
 
         call take_off(Rogue, "gloves") from _call_take_off_19
+
+        $ Rogue.change_arms("neutral", left_arm = "extended")
 
         "You've made a lot of progress, so today is much more mutually beneficial, as you even help [Rogue.name] with some things she was having trouble with."
         "She absentmindedly plays with your hand, as the hours go by."
@@ -163,6 +181,8 @@ label Rogue_chapter_one_season_two_study_sessions:
 
         call change_Outfit(Rogue, Rogue.Wardrobe.Outfits[Rogue.Outfit.name]) from _call_change_Outfit_51
         
+        $ Rogue.change_arms("crossed")
+
         "Finally, she reluctantly puts her gloves back on and helps you clean everything up."
 
         $ Rogue.change_face("worried1", mouth = "smirk")

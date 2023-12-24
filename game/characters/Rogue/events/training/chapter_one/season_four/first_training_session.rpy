@@ -20,6 +20,7 @@ label Rogue_chapter_one_season_four_first_training_session:
     $ ongoing_Event = True
 
     $ Rogue.change_face("neutral")
+    $ Rogue.change_arms("hips")
 
     ch_Rogue "So. . ."
     ch_Player "So?"
@@ -30,15 +31,20 @@ label Rogue_chapter_one_season_four_first_training_session:
     ch_Player "[Rogue.name]. . . what are you talking about?"
 
     $ Rogue.change_face("appalled1")
+    $ Rogue.change_arms("angry")
 
     ch_Rogue "Why are ya wastin' yer time 'training' with me?!"
 
     $ Rogue.change_face("worried1", eyes = "right")
 
     ch_Rogue "We both know ah can't teach ya anything the other girls can."
+    
+    $ Rogue.change_arms("angry", left_arm = "extended")
+
     ch_Rogue "Ah reckon you'd be better off just trainin' with one of them."
 
     $ Rogue.change_face("angry1", eyes = "right")
+    $ Rogue.change_arms("crossed")
 
     ch_Rogue "Lord knows ah ain't got nothin' worthwhile to pass on. . . can't even figure out my own shit."
 
@@ -81,6 +87,7 @@ label Rogue_chapter_one_season_four_first_training_session:
     ch_Player "But you know what's just as important, maybe even more so?"
 
     $ Rogue.change_face("worried1")
+    $ Rogue.change_arms("sheepish", right_arm = "neutral")
 
     ch_Player "Learning how to relax and feel like a normal fucking person."
 
@@ -89,6 +96,7 @@ label Rogue_chapter_one_season_four_first_training_session:
     ch_Player "I'm not saying [Laura.name] or [Jean.name] are bad people, or that I can't relax around them. . ."
 
     $ Rogue.change_face("worried1", eyes = "down")
+    $ Rogue.change_arms("angry")
 
     ch_Player "But with you. . . it's just so easy."
     ch_Player "I don't think you realize how much of a positive impact you've had on me ever since I got here."
@@ -106,12 +114,17 @@ label Rogue_chapter_one_season_four_first_training_session:
     ch_Rogue "Yes. . . of course it is."
 
     $ Rogue.change_face("worried1")
+    $ Rogue.change_arms("crossed")
 
     ch_Rogue "Ah just never expected. . ."
+
+    $ Rogue.change_arms("neutral", left_arm = "extended")
+
     ch_Rogue "Yer bein' honest with me?"
     ch_Player "One hundred percent."
 
     $ Rogue.change_face("worried1", mouth = "smirk")
+    $ Rogue.change_arms("crossed")
 
     ch_Rogue "Thanks, [Rogue.Player_petname]. . ."
     ch_Rogue "Can we. . . get into the trainin' then?"
@@ -119,6 +132,7 @@ label Rogue_chapter_one_season_four_first_training_session:
     ch_Player "You want me to spank you that badly?"
 
     $ Rogue.change_face("surprised2")
+    $ Rogue.change_arms("angry")
 
     ch_Player "Fine, if you {i}really{/i} want me to. . ."
 
@@ -140,8 +154,12 @@ label Rogue_chapter_one_season_four_first_training_session:
         ch_Rogue "Ah didn't mean it like that. . ." 
         
         $ Rogue.change_face("sly", eyes = "down", mouth = "lipbite", blush = 1)
+        $ Rogue.change_arms("crossed")        
 
     ch_Player "Wait. . . no I didn't me-"
+
+    $ Rogue.change_arms("fight")
+
     "While you're momentarily taken off guard by whatever just happened, she takes the opportunity to strike."
 
     $ Rogue.change_face("sly")
@@ -156,17 +174,20 @@ label Rogue_chapter_one_season_four_first_training_session:
     "[Rogue.name] seems to have dropped the sullen demeanor from the start of the session and looks like she's having a great time as well."
 
     $ Rogue.change_face("smirk2")
+    $ Rogue.change_arms("hips")
 
     "Once she runs out of steam and sparring any longer would only provide diminishing returns, you both settle into an easy pace doing workouts for the rest of the session."
     "Sharing small talk and just generally enjoying each other's company, the time goes by fast."
 
     $ Rogue.change_face("worried1", mouth = "smirk")
+    $ Rogue.change_arms("crossed")
 
     ch_Rogue "Thanks, [Player.first_name]."
     ch_Rogue "For everythin'. . ."
     ch_Rogue "For not feelin' so sorry for me like everyone else. . . for bein' a great friend to me too. . ."
 
     $ Rogue.change_face("worried1")
+    $ Rogue.change_arms("sheepish", right_arm = "neutral")
 
     pause 1.0
 
@@ -177,8 +198,14 @@ label Rogue_chapter_one_season_four_first_training_session:
     $ Rogue.change_face("worried1")
 
     ch_Rogue "But not here."
+
+    $ Rogue.change_arms("sheepish")
+
     ch_Rogue "Can ya meet me in my room in a few minutes?"
     ch_Rogue "Please?"
+
+    $ Rogue.change_arms("crossed")
+
     ch_Rogue "This is important to me. . ."
     ch_Player "Of course."
     ch_Player "I'll change, take a quick shower, and be right over."
@@ -241,10 +268,16 @@ label Rogue_chapter_one_season_four_first_training_session:
     ch_Player "[temp], what's this about?"
 
     $ Rogue.change_face("worried1", eyes = "right")
+    $ Rogue.change_arms("crossed")
+
+    pause 1.0
+    
+    $ Rogue.change_arms("sheepish")
 
     ch_Rogue "Ya know how ah told ya ah was hidin' stuff from everyone. . ."
 
     $ Rogue.change_face("worried1")
+    $ Rogue.change_arms("sheepish", right_arm = "neutral")
 
     ch_Rogue "There are some things that ah still can't tell ya. . ."
     ch_Rogue "Ah'm sorry."
@@ -254,6 +287,7 @@ label Rogue_chapter_one_season_four_first_training_session:
     ch_Player "Whatever you're comfortable with."
 
     $ Rogue.change_face("worried1", eyes = "right", mouth = "smirk")
+    $ Rogue.change_arms("crossed")
 
     ch_Rogue "Thanks. . ."
 
@@ -268,6 +302,7 @@ label Rogue_chapter_one_season_four_first_training_session:
     ch_Rogue ". . ."
 
     $ Rogue.change_face("worried1", eyes = "right")
+    $ Rogue.change_arms("angry")
 
     ch_Rogue "When ah was in high school, ah had this friend."
     ch_Rogue ". . . {i}best{/i} friend."
@@ -275,9 +310,13 @@ label Rogue_chapter_one_season_four_first_training_session:
     $ Rogue.change_face("worried1")
 
     ch_Rogue "We were real close. . . and eventually, became more than friends."
+    
+    $ Rogue.change_arms("sheepish")
+
     ch_Rogue "Ah was his first girlfriend, he was my first boyfriend."
 
     $ Rogue.change_face("worried1", eyes = "right")
+    $ Rogue.change_arms("crossed")
 
     ch_Rogue "We were together for a little while, and we held hands 'n all, but never more than that."
     ch_Rogue "Ah don't really remember why, but one day, we were hangin' out. . ."
@@ -291,6 +330,7 @@ label Rogue_chapter_one_season_four_first_training_session:
     ch_Rogue "Only, that's exactly when my powers decided to kick in."
 
     $ Rogue.change_face("angry1")
+    $ Rogue.change_arms("angry")
 
     ch_Rogue "Of course it had to be right then."
     ch_Rogue "Ah couldn't stop it, ah was just as helpless as he was."
@@ -301,6 +341,7 @@ label Rogue_chapter_one_season_four_first_training_session:
     ch_Rogue "Put him in a coma. . ."
 
     $ Rogue.change_face("worried1", eyes = "right")
+    $ Rogue.change_arms("crossed")
 
     ch_Rogue "One that he's still in to this day."
     ch_Rogue "And that's why ah'm all messed up in the head. . . can't control my powers or nothin'."
@@ -323,7 +364,8 @@ label Rogue_chapter_one_season_four_first_training_session:
                 ch_Rogue "Ah don't know how yer always so level-headed about it. . ." 
                 ch_Rogue "Ah hope you don't feel sorry for those people that attacked you." 
                 
-                $ Rogue.change_face("angry1") 
+                $ Rogue.change_face("angry1")
+                $ Rogue.change_arms("angry")
                 
                 ch_Rogue "You gave 'em what they deserved." 
                 
@@ -333,6 +375,7 @@ label Rogue_chapter_one_season_four_first_training_session:
                 ch_Rogue "That doesn't mean you should feel sorry for 'em, though." 
                 
                 $ Rogue.change_face("angry1") 
+                $ Rogue.change_arms("angry")          
                 
                 ch_Rogue "In your situation, with them tryin' to kill you and all, they got what they deserved." 
                 
@@ -346,6 +389,7 @@ label Rogue_chapter_one_season_four_first_training_session:
                 ch_Rogue "And please don't feel bad for those people. . . they tried to kill you." 
                 
                 $ Rogue.change_face("angry1") 
+                $ Rogue.change_arms("angry")             
                 
                 ch_Rogue "They got what they deserved."
                 
@@ -354,6 +398,7 @@ label Rogue_chapter_one_season_four_first_training_session:
                 ch_Rogue "I know, hon', trust me. . ." 
                 
                 $ Rogue.change_face("angry1") 
+                $ Rogue.change_arms("angry")             
                 
                 ch_Rogue "But yer situation ain't the same as mine. . . those people got what they deserved." 
                 
@@ -366,6 +411,7 @@ label Rogue_chapter_one_season_four_first_training_session:
                 ch_Rogue "Ah don't want you to feel sorry for them or nothin'." 
                 
                 $ Rogue.change_face("angry1") 
+                $ Rogue.change_arms("angry")             
                 
                 ch_Rogue "They got what they deserved for hurtin' you." 
                 
@@ -375,12 +421,14 @@ label Rogue_chapter_one_season_four_first_training_session:
                 ch_Rogue "You shouldn't feel sorry for those people." 
                 
                 $ Rogue.change_face("angry1") 
+                $ Rogue.change_arms("angry")             
                 
                 ch_Rogue "They got what was comin' for tryin' to hurt you." 
                 
                 call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_656 
 
     $ Rogue.change_face("worried1")
+    $ Rogue.change_arms("sheepish", right_arm = "neutral")
 
     ch_Rogue "Also. . ."
     ch_Rogue "There's more to the story. . . after what ah did."
@@ -390,6 +438,7 @@ label Rogue_chapter_one_season_four_first_training_session:
     ch_Player "Take your time, there's no rush."
 
     $ Rogue.change_face("worried1", mouth = "smirk")
+    $ Rogue.change_arms("crossed")
 
     ch_Rogue "Thank you."
 

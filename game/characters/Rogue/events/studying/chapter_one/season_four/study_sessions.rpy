@@ -22,16 +22,19 @@ label Rogue_chapter_one_season_four_study_sessions:
 
     if dice_roll == 1:
         $ Rogue.change_face("worried1", mouth = "smirk")
+        $ Rogue.change_arms("hips")
 
         ch_Player "Gonna help me set up?"
         ch_Rogue "'Course, [Rogue.Player_petname]"
         ch_Player "Don't worry, I don't wanna try too hard today either."
 
         $ Rogue.change_face("smirk2")
+        $ Rogue.change_arms("neutral")
 
         "You put some good music on and have a good time talking with [Rogue.name], as she helps you organize all the study materials."
 
         $ Rogue.change_face("smirk2", eyes = "down", blush = 1)
+        $ Rogue.change_arms("crossed")
 
         "She falls down onto the bed beside you and doesn't waste any time reaching out for your hand to touch."
         "You oblige her, and it takes a while to actually start studying, as you just enjoy the music and each other's company." 
@@ -40,10 +43,17 @@ label Rogue_chapter_one_season_four_study_sessions:
         $ Rogue.change_face("confused1", mouth = "smirk", blush = 1)
 
         ch_Rogue "Alright, why don't ya try this question on yer own."
+
+        $ Rogue.change_arms("hips")
+
         ch_Rogue "Ah'll explain if ya get anythin' wrong."
+
+        $ Rogue.change_arms("neutral", left_arm = "extended")
+
         "She points to a particular question."
 
         $ Rogue.change_face("smirk2", blush = 1)
+        $ Rogue.change_arms("hips")
 
         "You go through the question, double checking your work before committing to an answer."
         ch_Player "Okay, I'm pretty sure it's choice B."
@@ -53,6 +63,7 @@ label Rogue_chapter_one_season_four_study_sessions:
         ch_Rogue "Great job."
 
         $ Rogue.change_face("smirk2")
+        $ Rogue.change_arms("crossed")
 
         ch_Rogue "Ah think that's enough for today, let's clean up."
         "You're both quite lazy about it, as you just jam out to the music, slowly putting all the materials away."
@@ -60,6 +71,7 @@ label Rogue_chapter_one_season_four_study_sessions:
         $ Rogue.change_face("smirk2", blush = 1)
     elif dice_roll == 2:
         $ Rogue.change_face("worried1", mouth = "smirk")
+        $ Rogue.change_arms("hips")
 
         ch_Player "Let's try a bit harder today."
         ch_Player "That last test was pretty difficult. . ."
@@ -74,6 +86,7 @@ label Rogue_chapter_one_season_four_study_sessions:
         "You exchange a bit of small talk, but setup is pretty quick today all things considered."
 
         $ Rogue.change_face("smirk2", eyes = "down", blush = 1)
+        $ Rogue.change_arms("crossed")
 
         "You give [Rogue.name] a playful shove, and she falls onto the bed, dragging you down with her."
 
@@ -89,6 +102,7 @@ label Rogue_chapter_one_season_four_study_sessions:
         "You point to that particular question."
 
         $ Rogue.change_face("smirk2", eyes = "down")
+        $ Rogue.change_arms("hips")
 
         ch_Rogue "Alright, [Rogue.Player_petname], watch 'n learn."
         "She goes through the work, explaining her reasoning for each part."
@@ -100,14 +114,19 @@ label Rogue_chapter_one_season_four_study_sessions:
         ch_Player "Great job, [Rogue.petname], that's the right answer." 
 
         $ Rogue.change_face("smirk2", eyes = "down", blush = 1)
+        $ Rogue.change_arms("crossed")
 
         "It doesn't take much longer to go through the rest of the study guide, and she helps you clean everything up in the end."
 
         $ Rogue.change_face("smirk2")
     elif dice_roll == 3:
         $ Rogue.change_face("worried1", mouth = "smirk")
+        $ Rogue.change_arms("sheepish")
 
         ch_Rogue "Ah feel bad. . . but. . ."
+
+        $ Rogue.change_arms("crossed")
+
         ch_Player "Don't worry, [Rogue.petname], we can take it easy today."
 
         $ Rogue.change_face("smirk2")
@@ -134,6 +153,7 @@ label Rogue_chapter_one_season_four_study_sessions:
         "You point to a particularly difficult question."
 
         $ Rogue.change_face("smirk2", eyes = "down")
+        $ Rogue.change_arms("hips")
 
         ch_Rogue "Here, [Rogue.Player_petname], let me show ya."
         "She basically does all the work for you."
@@ -145,6 +165,7 @@ label Rogue_chapter_one_season_four_study_sessions:
         "After that, not much 'studying' actually gets done, as you both spend the rest of the time just enjoying each other's company."
 
         $ Rogue.change_face("worried1", mouth = "smirk")
+        $ Rogue.change_arms("crossed")
 
         ch_Player "We should probably clean up."
         ch_Rogue "Ah agree."

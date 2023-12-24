@@ -238,7 +238,7 @@ screen preferences():
                         action Preference("display", "fullscreen")
 
             vbox:
-                spacing 20
+                spacing 50
                 
                 vbox:
                     text "COMIC FILTER" anchor (0.5, 0.5) pos (0.47, 0.5)
@@ -277,6 +277,8 @@ screen preferences():
                     action ToggleVariable("flashing_lights")
 
             vbox:
+                spacing 50
+                
                 vbox:
                     text "PLAYER BODY VISIBLE" anchor (0.5, 0.5) pos (0.47, 0.5)
 
