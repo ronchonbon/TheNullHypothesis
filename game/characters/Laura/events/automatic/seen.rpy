@@ -65,9 +65,9 @@ init python:
         return EventClass(label, conditions)
 
 label Laura_seen_pussy:
-    if Laura.desired_pubes and Laura.pubes != Laura.desired_pubes:
-        if (Laura.pubes == "hairy") or (Laura.pubes == "bush" and (not Laura.desired_pubes or Laura.desired_pubes in ["growing", "null", "strip", "triangle"])) or (Laura.pubes == "triangle" and (not Laura.desired_pubes or Laura.desired_pubes in ["growing", "null", "strip"])) or (Laura.pubes in ["growing", "null", "strip"] and not Laura.desired_pubes):
-            if Laura.pubes_growing or day - EventScheduler.Events["Laura_seen_pussy"].completed_when >= 4:
+    if Laura.desired_body_hair["pubic"] and Laura.body_hair["pubic"] != Laura.desired_body_hair["pubic"]:
+        if (Laura.body_hair["pubic"] == "hairy") or (Laura.body_hair["pubic"] == "bush" and (not Laura.desired_body_hair["pubic"] or Laura.desired_body_hair["pubic"] in ["growing", "null", "strip", "triangle"])) or (Laura.body_hair["pubic"] == "triangle" and (not Laura.desired_body_hair["pubic"] or Laura.desired_body_hair["pubic"] in ["growing", "null", "strip"])) or (Laura.body_hair["pubic"] in ["growing", "null", "strip"] and not Laura.desired_body_hair["pubic"]):
+            if Laura.body_hair_growing["pubic"] or day - EventScheduler.Events["Laura_seen_pussy"].completed_when >= 4:
                 $ Laura.change_face("confused1", eyes = "down", blush = 1)
 
                 ch_Laura "Oh."
@@ -80,7 +80,7 @@ label Laura_seen_pussy:
                 if Player.location in bedrooms:
                     call Laura_pubes_need_to_shave from _call_Laura_pubes_need_to_shave
                 else:
-                    $ Laura.pubes_to_shave = Laura.desired_pubes
+                    $ Laura.body_hair_to_shave["pubic"] = Laura.desired_body_hair["pubic"]
 
     return
 

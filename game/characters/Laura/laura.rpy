@@ -462,9 +462,12 @@ init -2 python:
         Laura.Player_petnames.append(Player.first_name)
         Laura.Player_petnames.append("guy")
 
-        Laura.default_pubes = "hairy"
-        Laura.pubes = Laura.default_pubes
-        Laura.desired_pubes = Laura.default_pubes
+        Laura.default_body_hair = {
+            "pubic": "hairy",
+            "anus": None,
+            "armpits": None}
+        Laura.body_hair = Laura.default_body_hair
+        Laura.desired_body_hair = Laura.default_body_hair
 
         Laura.left_claw = False
         Laura.right_claw = False

@@ -436,11 +436,11 @@ layeredimage Laura_masturbation_thighs:
     if Laura.piercings["labia"] in ["ring", "both"]:
         "characters/Laura/images/masturbation/labia_piercings_ring.webp"
 
-    if Laura.pubes_growing:
+    if Laura.body_hair_growing["pubic"]:
         "characters/Laura/images/masturbation/pubes_growing.webp"
 
-    if Laura.pubes:
-        "characters/Laura/images/masturbation/pubes_[Laura.pubes].webp"
+    if Laura.body_hair["pubic"]:
+        "characters/Laura/images/masturbation/pubes_[Laura.body_hair[pubic]].webp"
 
     if Laura.remote_vibrator:
         "characters/Laura/images/masturbation/remote_vibrator.webp"

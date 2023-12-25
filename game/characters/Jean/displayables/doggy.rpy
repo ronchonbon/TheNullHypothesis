@@ -260,13 +260,13 @@ layeredimage Jean_doggy_ass:
             
     if Jean.Clothes["underwear"].string and Jean.Clothes["underwear"].state == 0:
         Null()
-    elif Jean.pubes_growing:
+    elif Jean.body_hair_growing["pubic"]:
         "characters/Jean/images/doggy/pubes_growing.webp"
 
     if Jean.Clothes["underwear"].string and Jean.Clothes["underwear"].state == 0:
         Null()
-    elif Jean.pubes:
-        "characters/Jean/images/doggy/pubes_[Jean.pubes].webp"
+    elif Jean.body_hair["pubic"]:
+        "characters/Jean/images/doggy/pubes_[Jean.body_hair[pubic]].webp"
 
     if Jean.Clothes["underwear"].string and Jean.Clothes["underwear"].state == 0:
         Null()
@@ -585,7 +585,7 @@ layeredimage Jean_doggy_pussy_closed:
     always:
         "characters/Jean/images/doggy/pussy_closed.webp"
 
-    if Jean.pubes == "hairy":
+    if Jean.body_hair["pubic"] == "hairy":
         "characters/Jean/images/doggy/pubes_top_hairy_closed.webp"
 
     anchor (int(2106*sex_sampling), int(3186*sex_sampling))
@@ -595,7 +595,7 @@ layeredimage Jean_doggy_pussy_open:
     always:
         "characters/Jean/images/doggy/pussy_open.webp"
 
-    if Jean.pubes == "hairy":
+    if Jean.body_hair["pubic"] == "hairy":
         "characters/Jean/images/doggy/pubes_top_hairy_open.webp"
 
     anchor (int(2106*sex_sampling), int(3186*sex_sampling))
@@ -610,7 +610,7 @@ layeredimage Jean_doggy_pussy_agape:
     always:
         "characters/Jean/images/doggy/pussy_agape.webp"
 
-    if Jean.pubes == "hairy":
+    if Jean.body_hair["pubic"] == "hairy":
         "characters/Jean/images/doggy/pubes_top_hairy_agape.webp"
 
     anchor (int(2102*sex_sampling), int(3144*sex_sampling))

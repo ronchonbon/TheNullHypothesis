@@ -43,7 +43,6 @@ label Rogue_accepts_choke:
 
         ch_Rogue "Roughly please, [Rogue.Player_petname]."
 
-
     return
 
 label Rogue_accepts_choke_love:

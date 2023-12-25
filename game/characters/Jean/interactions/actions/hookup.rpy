@@ -164,7 +164,7 @@ label Jean_bored_by_Action(Action):
     return
 
 label Jean_not_warmed_up_for_Action(Action):
-    if Action in insertion_Action_types:
+    if Action.Action_type in insertion_Action_types:
         $ dice_roll = renpy.random.radint(1, 3)
     else:
         $ dice_roll = renpy.random.randint(1, 2)

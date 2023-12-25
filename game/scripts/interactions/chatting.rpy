@@ -109,9 +109,9 @@ label chat(Character):
                 $ EventScheduler.Events[f"{Character.tag}_disclosing_wants_to_date_others"].start()
             "Tell her you would like to date other people (locked)" if Character in Partners and not Character.History.check("told_wants_multiple_partners") and not Character.is_in_normal_mood():
                 pass
-            "Ask her to change her pubic hair" if Character.is_in_normal_mood() and Character.History.check("seen_pussy") and not Character.customizable_pubes:
+            "Ask her to change her pubic hair" if Character.is_in_normal_mood() and Character.History.check("seen_pussy") and not Character.customizable_body_hair:
                 call expression f"{Character.tag}_pubic_hair_discussion" from _call_expression_121
-            "Ask her to change her pubic hair (locked)" if Character.History.check("seen_pussy") and not Character.customizable_pubes and not Character.is_in_normal_mood():
+            "Ask her to change her pubic hair (locked)" if Character.History.check("seen_pussy") and not Character.customizable_body_hair and not Character.is_in_normal_mood():
                 pass
             "Ask on date" if Character in all_Companions and Player.cash >= 40 and not Player.date_planned and 2 not in Player.schedule.keys() and 3 not in Player.schedule.keys() and time_index < 3 and not Character.History.check("said_no_to_date", tracker = "daily") and Character.History.check("went_on_date_with_Player"):
                 call expression f"{Character.tag}_ask_on_date" from _call_expression_122

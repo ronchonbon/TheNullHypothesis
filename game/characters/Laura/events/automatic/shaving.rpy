@@ -4,7 +4,7 @@ init python:
         label = "Laura_shaving"
 
         conditions = [
-            "Laura.pubes_to_shave or Laura.pubes_to_shave is None",
+            "'pubic' in Laura.body_hair_to_shave.keys()",
 
             "Laura.location in bedrooms"]
 
@@ -14,9 +14,9 @@ init python:
         return EventClass(label, conditions, repeatable = repeatable, automatic = automatic)
 
 label Laura_shaving:
-    $ Laura.pubes_growing = False
-    $ Laura.pubes = Laura.pubes_to_shave
-    $ Laura.pubes_to_shave = False
+    $ Laura.body_hair_growing["pubic"] = False
+    $ Laura.body_hair["pubic"] = Laura.body_hair_to_shave["pubic"]
+    $ Laura.body_hair_to_shave["pubic"] = False
 
     return
 
@@ -26,7 +26,7 @@ init python:
         label = "Laura_growing_back"
 
         conditions = [
-            "Laura.pubes_to_grow or Laura.pubes_to_grow is None"]
+            "'pubic' in Laura.body_hair_to_grow.keys()"]
 
         automatic = True
 
@@ -52,12 +52,12 @@ init python:
 
 label Laura_grown_back:
     if day - EventScheduler.Events['Laura_growing_back'].completed_when >= 7:
-        $ Laura.pubes_growing = False
-        $ Laura.pubes = Laura.pubes_to_grow
-        $ Laura.pubes_to_grow = False
+        $ Laura.body_hair_growing["pubic"] = False
+        $ Laura.body_hair["pubic"] = Laura.body_hair_to_grow["pubic"]
+        $ Laura.body_hair_to_grow["pubic"] = False
 
         $ EventScheduler.Events["Laura_growing_back"].completed_when = 1e8
     else:
-        $ Laura.pubes_growing = True
+        $ Laura.body_hair_growing["pubic"] = True
 
     return

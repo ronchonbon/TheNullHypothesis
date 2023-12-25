@@ -1290,10 +1290,7 @@ label ch1_Sentinel_attack:
         "Discourage this behavior (discourage_quirk)":
             $ Rogue.change_face("worried2", blush = 1) 
 
-            if Rogue.petname not in ["Anna Marie"]:
-                $ temp = Rogue.petname.capitalize()
-            else:
-                $ temp = Rogue.petname
+            $ temp = Rogue.petname.capitalize()
             
             ch_Player "[temp], you don't have to ask for permission. . ." 
             

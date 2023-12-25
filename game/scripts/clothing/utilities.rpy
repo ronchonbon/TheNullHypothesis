@@ -290,17 +290,17 @@ label debrief_Outfit_change(Characters, instant = False):
     if renpy.get_screen("shop_screen"):
         call set_Character_Outfits(Characters, instant = instant) from _call_set_Character_Outfits_7
 
-    if not renpy.get_screen("shop_screen") and changed_pubes:
+    if not renpy.get_screen("shop_screen") and changed_body_hair:
         $ renpy.dynamic(temp_Characters = [])
 
         python:
             for G in Characters:
-                if G.pubes != G.desired_pubes:
+                if G.body_hair["pubic"] != G.desired_body_hair["pubic"]:
                     temp_Characters.append(G)
 
         call Characters_will_shave(temp_Characters) from _call_Characters_will_shave
 
-        $ changed_pubes = False
+        $ changed_body_hair = False
 
     hide screen shop_screen
 

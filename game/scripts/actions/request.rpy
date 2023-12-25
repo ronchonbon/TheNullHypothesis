@@ -96,7 +96,7 @@ label request_hookup(Character):
 
                     python:
                         for d in Player.scores["sex"][temp_Characters[0]].keys():
-                            if d > day - 6
+                            if d > day - 6:
                                 total_score += Player.scores["sex"][temp_Characters[0]][d]
 
                     $ average_score = total_score/temp_Characters[0].History.check("hookup", tracker = "weekly")

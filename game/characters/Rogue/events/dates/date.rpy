@@ -945,10 +945,7 @@ label Rogue_date_dinner_sex_handjob:
     "After making sure nobody is paying attention, she slips out of sight."
 
     if sex_initiator == Rogue:
-        if Rogue.petname not in ["Anna Marie"]:
-            $ temp = Rogue.petname.capitalize()
-        else:
-            $ temp = Rogue.petname
+        $ temp = Rogue.petname.capitalize()
 
         ch_Player "[temp], what exactly did you have in mind. . . ?"
 
@@ -1036,10 +1033,7 @@ label Rogue_date_dinner_sex_blowjob:
     "After making sure nobody is paying attention, [Rogue.name] slips out of sight."
 
     if sex_initiator == Rogue:
-        if Rogue.petname not in ["Anna Marie"]:
-            $ temp = Rogue.petname.capitalize()
-        else:
-            $ temp = Rogue.petname
+        $ temp = Rogue.petname.capitalize()
 
         ch_Player "[temp], what exactly did you have in mind. . . ?"
 
@@ -1963,10 +1957,7 @@ label Rogue_date_movie_sex_handjob:
     "Once [Rogue.name]'s sure there's nobody around, she reaches over."
 
     if sex_initiator == Rogue:
-        if Rogue.petname not in ["Anna Marie"]:
-            $ temp = Rogue.petname.capitalize()
-        else:
-            $ temp = Rogue.petname
+        $ temp = Rogue.petname.capitalize()
 
         ch_Player "[temp], what exactly did you have in mind. . . ?"
 
@@ -2186,10 +2177,7 @@ label Rogue_date_movie_sex_blowjob:
     call hide_Character(Rogue) from _call_hide_Character_25
 
     if sex_initiator == Rogue:
-        if Rogue.petname not in ["Anna Marie"]:
-            $ temp = Rogue.petname.capitalize()
-        else:
-            $ temp = Rogue.petname
+        $ temp = Rogue.petname.capitalize()
 
         ch_Player "[temp], what exactly did you have in mind. . . ?"
 

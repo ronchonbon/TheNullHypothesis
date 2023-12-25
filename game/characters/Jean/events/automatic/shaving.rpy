@@ -4,7 +4,7 @@ init python:
         label = "Jean_shaving"
 
         conditions = [
-            "Jean.pubes_to_shave or Jean.pubes_to_shave is None",
+            "'pubic' in Jean.body_hair_to_shave.keys()",
             
             "Jean.location in bedrooms"]
 
@@ -14,9 +14,9 @@ init python:
         return EventClass(label, conditions, repeatable = repeatable, automatic = automatic)
 
 label Jean_shaving:
-    $ Jean.pubes_growing = False
-    $ Jean.pubes = Jean.pubes_to_shave
-    $ Jean.pubes_to_shave = False
+    $ Jean.body_hair_growing["pubic"] = False
+    $ Jean.body_hair["pubic"] = Jean.body_hair_to_shave["pubic"]
+    $ Jean.body_hair_to_shave["pubic"] = False
 
     return
 
@@ -26,7 +26,7 @@ init python:
         label = "Jean_growing_back"
 
         conditions = [
-            "Jean.pubes_to_grow or Jean.pubes_to_grow is None"]
+            "'pubic' in Jean.body_hair_to_grow.keys()"]
 
         automatic = True
 
@@ -51,12 +51,12 @@ init python:
 
 label Jean_grown_back:
     if day - EventScheduler.Events["Jean_growing_back"].completed_when >= 7:
-        $ Jean.pubes_growing = False
-        $ Jean.pubes = Jean.pubes_to_grow
-        $ Jean.pubes_to_grow = False
+        $ Jean.body_hair_growing["pubic"] = False
+        $ Jean.body_hair["pubic"] = Jean.body_hair_to_grow["pubic"]
+        $ Jean.body_hair_to_grow["pubic"] = False
 
         $ EventScheduler.Events["Jean_growing_back"].completed_when = 1e8
     else:
-        $ Jean.pubes_growing = True
+        $ Jean.body_hair_growing["pubic"] = True
 
     return

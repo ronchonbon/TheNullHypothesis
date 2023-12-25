@@ -23,7 +23,7 @@ label Laura_reject_train:
     return
 
 label Laura_reject_train_asked_once:
-    $ dice_roll = renpy.random.randint(1, 3)
+    $ dice_roll = renpy.random.randint(1, 4)
 
     if dice_roll == 1:
         $ Laura.change_face("confused1")
@@ -37,6 +37,10 @@ label Laura_reject_train_asked_once:
         $ Laura.change_face("angry1")
 
         ch_Laura "I said no, don't make me say it again."
+    elif dice_roll == 4:
+        $ Laura.change_face("confused1")
+
+        ch_Laura "What? No."
     
     return
 
@@ -55,6 +59,10 @@ label Laura_reject_train_asked_twice:
         $ Laura.change_face("angry1", eyes = "left")
 
         ch_Laura "Whatever."
+    elif dice_roll == 4:
+        $ Laura.change_face("angry1")
+
+        ch_Laura "What the hell."
         
     call getting_kicked_out(Laura) from _call_getting_kicked_out_43
 

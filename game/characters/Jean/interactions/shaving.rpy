@@ -28,7 +28,7 @@ label Jean_pubic_hair_discussion:
             ch_Jean "Naughty little. . ." 
             ch_Jean "Fine, maybe I could."
 
-            $ Jean.customizable_pubes = True
+            $ Jean.customizable_body_hair = True
         else:
             ch_Jean "Why would I. . ."
 
@@ -121,7 +121,7 @@ label Jean_pubes_need_to_grow:
     ch_Jean "You're gonna have to be patient, [Jean.Player_petname]."
     ch_Jean "Gotta wait until the hair grows in."
 
-    $ Jean.pubes_to_grow = Jean.desired_pubes
+    $ Jean.body_hair_to_grow["pubic"] = Jean.desired_body_hair["pubic"]
 
     $ EventScheduler.Events["Jean_growing_back"].start()
 
@@ -139,8 +139,8 @@ label Jean_pubes_need_to_shave:
 
         $ fade_to_black(0.4)
 
-        $ Jean.pubes_growing = False
-        $ Jean.pubes = Jean.desired_pubes
+        $ Jean.body_hair_growing["pubic"] = False
+        $ Jean.body_hair["pubic"] = Jean.desired_body_hair["pubic"]
 
         pause 2.0
 
@@ -162,9 +162,9 @@ label Jean_pubes_need_to_shave:
     else:
         ch_Jean "I'll get on that!"
 
-        $ Jean.pubes_to_shave = Jean.desired_pubes
+        $ Jean.body_hair_to_shave["pubic"] = Jean.desired_body_hair["pubic"]
 
-    $ Jean.pubes_to_grow = False
+    $ Jean.body_hair_to_grow["pubic"] = False
     
     $ EventScheduler.Events["Jean_growing_back"].completed_when = 1e8
 

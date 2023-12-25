@@ -1559,7 +1559,7 @@ label stop_all_Actions(close_interface = True, automatic = False):
 
                 $ temp.append(score)
                 
-                $ Player.scores["sex"][focused_Character].update(day: temp)
+                $ Player.scores["sex"][focused_Character].update({day: temp})
 
                 call change_Character_stat(focused_Character, "love", orgasm_bonus*score) from _call_change_Character_stat_350
 

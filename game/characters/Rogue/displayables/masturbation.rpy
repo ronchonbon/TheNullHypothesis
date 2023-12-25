@@ -430,11 +430,11 @@ layeredimage Rogue_masturbation_thighs:
     if Rogue.piercings["labia"] in ["ring", "both"]:
         "characters/Rogue/images/masturbation/labia_piercings_ring.webp"
 
-    if Rogue.pubes_growing:
+    if Rogue.body_hair_growing["pubic"]:
         "characters/Rogue/images/masturbation/pubes_growing.webp"
 
-    if Rogue.pubes:
-        "characters/Rogue/images/masturbation/pubes_[Rogue.pubes].webp"
+    if Rogue.body_hair["pubic"]:
+        "characters/Rogue/images/masturbation/pubes_[Rogue.body_hair[pubic]].webp"
 
     if Rogue.remote_vibrator:
         "characters/Rogue/images/masturbation/remote_vibrator.webp"

@@ -61,13 +61,14 @@ init -2 python:
             self.left_arm = "neutral"
             self.right_arm = "neutral"
 
-            self.pubes = None
-            self.default_pubes = None
-            self.desired_pubes = None
-            self.pubes_to_shave = False
-            self.pubes_to_grow = False
-            self.pubes_growing = False
-            self.customizable_pubes = False
+            self.body_hair = {}
+            self.default_body_hair = {}
+            self.desired_body_hair = {}
+            self.body_hair_to_shave = {}
+            self.body_hair_to_grow = {}
+            self.body_hair_growing = {}
+
+            self.customizable_body_hair = False
 
             self.wet = False
             

@@ -462,9 +462,12 @@ init -2 python:
         Rogue.Player_petnames.append(Player.first_name)
         Rogue.Player_petnames.append(Rogue.Player_petname)
 
-        Rogue.default_pubes = "bush"
-        Rogue.pubes = Rogue.default_pubes
-        Rogue.desired_pubes = Rogue.default_pubes
+        Rogue.default_body_hair = {
+            "pubic": "bush",
+            "anus": None,
+            "armpits": None}
+        Rogue.body_hair = Rogue.default_body_hair
+        Rogue.desired_body_hair = Rogue.default_body_hair
 
         Rogue.virgin = True
 

@@ -28,7 +28,7 @@ label Rogue_pubic_hair_discussion:
             ch_Rogue "Well. . . ah guess ah could try. . . if ya wanted."
             ch_Rogue "Just let me know what ya want."
 
-            $ Rogue.customizable_pubes = True
+            $ Rogue.customizable_body_hair = True
         else:
             ch_Rogue "Ah don't. . ."
             ch_Rogue "Uhm, ah. . ."
@@ -124,7 +124,7 @@ label Rogue_pubes_need_to_grow:
     ch_Rogue "Gonna have to let the hair down there grow out. . ."
     ch_Rogue ". . . before ah can make it the way ya want."
 
-    $ Rogue.pubes_to_grow = Rogue.desired_pubes
+    $ Rogue.body_hair_to_grow["pubic"] = Rogue.desired_body_hair
 
     $ EventScheduler.Events["Rogue_growing_back"].start()
 
@@ -142,8 +142,8 @@ label Rogue_pubes_need_to_shave:
 
         $ fade_to_black(0.4)
 
-        $ Rogue.pubes_growing = False
-        $ Rogue.pubes = Rogue.desired_pubes
+        $ Rogue.body_hair_growing["pubic"] = False
+        $ Rogue.body_hair["pubic"] = Rogue.desired_body_hair
 
         pause 2.0
 
@@ -166,9 +166,9 @@ label Rogue_pubes_need_to_shave:
     else:
         ch_Rogue "Ah'll do that when ah get a chance."
 
-        $ Rogue.pubes_to_shave = Rogue.desired_pubes
+        $ Rogue.body_hair_to_shave["pubic"] = Rogue.desired_body_hair
 
-    $ Rogue.pubes_to_grow = False
+    $ Rogue.body_hair_to_grow["pubic"] = False
     
     $ EventScheduler.Events["Rogue_growing_back"].completed_when = 1e8
 

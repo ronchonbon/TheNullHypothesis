@@ -41,11 +41,11 @@ image shower_steam_midground:
 
     yalign 1.0
 
-    xoffset -config.screen_width
+    xoffset -int(2*config.screen_width/background_adjustment)
 
     block:
         linear 45.0 xoffset 0
-        xoffset -config.screen_width
+        xoffset -int(2*config.screen_width/background_adjustment)
         repeat
 
 image shower_steam_cover:
@@ -59,7 +59,7 @@ image shower_steam_cover:
     alpha 0.8
 
     block:
-        linear 30.0 xoffset -config.screen_width
+        linear 30.0 xoffset -int(2*config.screen_width/background_adjustment)
         xoffset 0
         repeat
     

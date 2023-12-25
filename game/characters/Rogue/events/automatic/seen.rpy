@@ -65,9 +65,9 @@ init python:
         return EventClass(label, conditions)
 
 label Rogue_seen_pussy:
-    if Rogue.desired_pubes and Rogue.pubes != Rogue.desired_pubes:
-        if (Rogue.pubes == "hairy") or (Rogue.pubes == "bush" and (not Rogue.desired_pubes or Rogue.desired_pubes in ["growing", "null", "strip", "triangle"])) or (Rogue.pubes == "triangle" and (not Rogue.desired_pubes or Rogue.desired_pubes in ["growing", "null", "strip"])) or (Rogue.pubes in ["growing", "null", "strip"] and not Rogue.desired_pubes):
-            if Rogue.pubes_growing or day - EventScheduler.Events["Rogue_seen_pussy"].completed_when >= 4:
+    if Rogue.desired_body_hair["pubic"] and Rogue.body_hair["pubic"] != Rogue.desired_body_hair["pubic"]:
+        if (Rogue.body_hair["pubic"] == "hairy") or (Rogue.body_hair["pubic"] == "bush" and (not Rogue.desired_body_hair["pubic"] or Rogue.desired_body_hair["pubic"] in ["growing", "null", "strip", "triangle"])) or (Rogue.body_hair["pubic"] == "triangle" and (not Rogue.desired_body_hair["pubic"] or Rogue.desired_body_hair["pubic"] in ["growing", "null", "strip"])) or (Rogue.body_hair["pubic"] in ["growing", "null", "strip"] and not Rogue.desired_body_hair["pubic"]):
+            if Rogue.body_hair_growing["pubic"] or day - EventScheduler.Events["Rogue_seen_pussy"].completed_when >= 4:
                 if Rogue.quirk:
                     $ Rogue.change_face("worried1", mouth = "lipbite", blush = 1)
 
@@ -90,7 +90,7 @@ label Rogue_seen_pussy:
                     if Player.location in bedrooms:
                         call Rogue_pubes_need_to_shave from _call_Rogue_pubes_need_to_shave
                     else:
-                        $ Rogue.pubes_to_shave = Rogue.desired_pubes
+                        $ Rogue.body_hair_to_shave["pubic"] = Rogue.desired_body_hair["pubic"]
 
     return
 

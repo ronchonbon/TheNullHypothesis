@@ -70,12 +70,7 @@ label Laura_accepts_choke:
         ch_Laura "Fine, [Laura.Player_petname]."
         ch_Laura "Go ahead."
 
-        "You wrap our hands around her neck and lightly squeeze."
-        "She starts choking you as well."
-
         $ Laura.change_face("sly", mouth = "lipbite", blush = 2)
-
-        ch_Laura "Harder. . ."
 
     return
 

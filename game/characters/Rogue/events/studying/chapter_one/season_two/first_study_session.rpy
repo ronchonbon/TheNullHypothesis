@@ -36,10 +36,7 @@ label Rogue_chapter_one_season_two_first_study_session:
 
     ch_Rogue "Just let me take care of it. . ."
 
-    if Rogue.petname not in ["Anna Marie"]:
-        $ temp = Rogue.petname.capitalize()
-    else:
-        $ temp = Rogue.petname
+    $ temp = Rogue.petname.capitalize()
 
     ch_Player "[temp], what's going on?"
 
@@ -66,10 +63,7 @@ label Rogue_chapter_one_season_two_first_study_session:
     ch_Rogue "That oughta do it."
     ch_Rogue "Ya ready to get started?"
 
-    if Rogue.petname not in ["Anna Marie"]:
-        $ temp = Rogue.petname.capitalize()
-    else:
-        $ temp = Rogue.petname
+    $ temp = Rogue.petname.capitalize()
 
     menu:
         extend ""

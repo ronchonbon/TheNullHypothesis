@@ -40,10 +40,7 @@ label Rogue_I_love_you_encouraged:
 
     $ Rogue.change_face("worried1", mouth = "smirk")
 
-    if Rogue.petname not in ["Anna Marie"]:
-        $ temp = Rogue.petname.capitalize()
-    else:
-        $ temp = Rogue.petname
+    $ temp = Rogue.petname.capitalize()
 
     ch_Player "[temp]?"
 

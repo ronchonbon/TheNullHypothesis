@@ -65,9 +65,9 @@ init python:
         return EventClass(label, conditions)
 
 label Jean_seen_pussy:
-    if Jean.desired_pubes and Jean.pubes != Jean.desired_pubes:
-        if (Jean.pubes == "hairy") or (Jean.pubes == "bush" and (not Jean.desired_pubes or Jean.desired_pubes in ["growing", "null", "strip", "triangle"])) or (Jean.pubes == "triangle" and (not Jean.desired_pubes or Jean.desired_pubes in ["growing", "null", "strip"])) or (Jean.pubes in ["growing", "null", "strip"] and not Jean.desired_pubes):
-            if Jean.pubes_growing or day - EventScheduler.Events["Jean_seen_pussy"].completed_when >= 4:
+    if Jean.desired_body_hair["pubic"] and Jean.body_hair["pubic"] != Jean.desired_body_hair["pubic"]:
+        if (Jean.body_hair["pubic"] == "hairy") or (Jean.body_hair["pubic"] == "bush" and (not Jean.desired_body_hair["pubic"] or Jean.desired_body_hair["pubic"] in ["growing", "null", "strip", "triangle"])) or (Jean.body_hair["pubic"] == "triangle" and (not Jean.desired_body_hair["pubic"] or Jean.desired_body_hair["pubic"] in ["growing", "null", "strip"])) or (Jean.body_hair["pubic"] in ["growing", "null", "strip"] and not Jean.desired_body_hair["pubic"]):
+            if Jean.body_hair_growing["pubic"] or day - EventScheduler.Events["Jean_seen_pussy"].completed_when >= 4:
                 if Jean.quirk:
                     $ Jean.change_face("sly", mouth = "lipbite", blush = 1)
 
@@ -93,7 +93,7 @@ label Jean_seen_pussy:
                     if Player.location in bedrooms:
                         call Jean_pubes_need_to_shave from _call_Jean_pubes_need_to_shave
                     else:
-                        $ Jean.pubes_to_shave = Jean.desired_pubes
+                        $ Jean.body_hair_to_shave["pubic"] = Jean.desired_body_hair["pubic"]
 
     return
 

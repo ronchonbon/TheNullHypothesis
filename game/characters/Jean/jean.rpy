@@ -461,9 +461,12 @@ init -2 python:
         Jean.Player_petname = Player.first_name
         Jean.Player_petnames.append(Player.first_name)
 
-        Jean.default_pubes = "bush"
-        Jean.pubes = Jean.default_pubes
-        Jean.desired_pubes = Jean.default_pubes
+        Jean.default_body_hair = {
+            "pubic": "bush",
+            "anus": None,
+            "armpits": None}
+        Jean.body_hair = Jean.default_body_hair
+        Jean.desired_body_hair = Jean.default_body_hair
 
         Jean.psychic = False
         Jean.activating_psychic = False

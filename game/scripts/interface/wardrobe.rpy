@@ -22,7 +22,7 @@ init -1:
         "sleepwear": False,
         "winterwear": False}
 
-    default changed_pubes = False
+    default changed_body_hair = False
 
 image Wardrobe_selector:
     "images/interface/wardrobe/selector.webp" 
@@ -78,7 +78,7 @@ screen Wardrobe_screen(Character):
         SetVariable("choice_disabled", True), 
         SetVariable("Character_picker_disabled", True),
         SetVariable("tab", "default"),
-        SetVariable("changed_pubes", False),
+        SetVariable("changed_body_hair", False),
         SetField(Character, "previous_Outfit", Character.Outfit.name)]
     on "hide" action [
         SetVariable("current_Wardrobe_screen", None),
@@ -596,7 +596,7 @@ screen head_screen(Character):
 
                         null width 85
 
-            if Character.customizable_pubes:
+            if Character.customizable_body_hair:
                 for hair_style in ["bush", "growing", "hairy", "null", "shaven", "strip", "triangle"]:
                     hbox:
                         spacing 5
@@ -609,15 +609,15 @@ screen head_screen(Character):
                             selected_background "images/interface/wardrobe/clothing_selected.webp"
                     
                             if hair_style == "shaven":
-                                selected Character.desired_pubes == None
+                                selected Character.desired_body_hair["pubic"] == None
                             else:
-                                selected Character.desired_pubes == hair_style
+                                selected Character.desired_body_hair["pubic"] == hair_style
 
-                            if Character.desired_pubes == hair_style:
+                            if Character.desired_body_hair["pubic"] == hair_style:
                                 action NullAction()
                             else:
                                 action [
-                                    SetVariable("changed_pubes", True),
+                                    SetVariable("changed_body_hair", True),
                                     Call("ask_Character_to_shave", Character, hair_style, from_current = True)]
 
                             text f"pubic hair: {hair_style}" size 36

@@ -260,13 +260,13 @@ layeredimage Laura_doggy_ass:
             
     if Laura.Clothes["underwear"].string and Laura.Clothes["underwear"].state == 0:
         Null()
-    elif Laura.pubes_growing:
+    elif Laura.body_hair_growing["pubic"]:
         "characters/Laura/images/doggy/pubes_growing.webp"
 
     if Laura.Clothes["underwear"].string and Laura.Clothes["underwear"].state == 0:
         Null()
-    elif Laura.pubes:
-        "characters/Laura/images/doggy/pubes_[Laura.pubes].webp"
+    elif Laura.body_hair["pubic"]:
+        "characters/Laura/images/doggy/pubes_[Laura.body_hair[pubic]].webp"
 
     if Laura.Clothes["underwear"].string and Laura.Clothes["underwear"].state == 0:
         Null()
@@ -607,7 +607,7 @@ layeredimage Laura_doggy_pussy_closed:
     always:
         "characters/Laura/images/doggy/pussy_closed.webp"
 
-    if Laura.pubes == "hairy":
+    if Laura.body_hair["pubic"] == "hairy":
         "characters/Laura/images/doggy/pubes_top_hairy_closed.webp"
 
     anchor (int(2106*sex_sampling), int(3186*sex_sampling))
@@ -617,7 +617,7 @@ layeredimage Laura_doggy_pussy_open:
     always:
         "characters/Laura/images/doggy/pussy_open.webp"
 
-    if Laura.pubes == "hairy":
+    if Laura.body_hair["pubic"] == "hairy":
         "characters/Laura/images/doggy/pubes_top_hairy_open.webp"
 
     anchor (int(2106*sex_sampling), int(3186*sex_sampling))
@@ -632,7 +632,7 @@ layeredimage Laura_doggy_pussy_agape:
     always:
         "characters/Laura/images/doggy/pussy_agape.webp"
 
-    if Laura.pubes == "hairy":
+    if Laura.body_hair["pubic"] == "hairy":
         "characters/Laura/images/doggy/pubes_top_hairy_agape.webp"
 
     anchor (int(2102*sex_sampling), int(3144*sex_sampling))

@@ -284,7 +284,7 @@ label Jean_arrives_horny(arriving_Characters):
     elif dice_roll == 4:
         $ Jean.change_face("sexy", blush = 1)
 
-        ch_Jean "Ther you are."
+        ch_Jean "There you are."
         ch_Jean "Can't get you off my mind. . ."
         ch_Jean "In a good way."
 
@@ -358,9 +358,9 @@ label Jean_leaves_love(leaving_Characters, also_leaving = False):
     $ dice_roll = renpy.random.randint(1, 3)
 
     if dice_roll == 1:
-        ch_Jean "Can't stay, but you'll come around tonight. . . right?"
-        
         $ Jean.change_face("worried1")
+
+        ch_Jean "Can't stay, but you'll come around tonight. . . right?"
     elif dice_roll == 2:
         $ Jean.change_face("smirk2")
 
@@ -369,9 +369,10 @@ label Jean_leaves_love(leaving_Characters, also_leaving = False):
         $ Jean.change_face("sly")
     elif dice_roll == 3:
         ch_Jean "Bye, [Jean.Player_petname]."
-        ch_Jean "You're definitely gonna see me later."
 
         $ Jean.change_face("sly")
+
+        ch_Jean "You're definitely gonna see me later."
 
     return
 
@@ -383,9 +384,9 @@ label Jean_leaves_mad(leaving_Characters, also_leaving = False):
 
         ch_Jean "Don't follow me."
     elif dice_roll == 2:
-        ch_Jean "Ugh. . ."
-
         $ Jean.change_face("angry1")
+
+        ch_Jean "Ugh. . ."
 
     return
 
@@ -403,9 +404,9 @@ label Jean_leaves_heartbroken(leaving_Characters, also_leaving = False):
 
         $ Jean.change_face("sad")
     elif dice_roll == 2:
-        ch_Jean "I'm. . . leaving. . ."
-
         $ Jean.change_face("worried1")
+
+        ch_Jean "I'm. . . leaving. . ."
 
     return
 
@@ -432,9 +433,9 @@ label Jean_leaves_nympho(leaving_Characters, also_leaving = False):
     $ dice_roll = renpy.random.randint(1, 2)
 
     if dice_roll == 1:
-        ch_Jean "You're taking care of me later, mister. . ."
-
         $ Jean.change_face("sexy", mouth = "lipbite")
+
+        ch_Jean "You're taking care of me later, mister. . ."
     elif dice_roll == 2:
         $ Jean.change_face("manic", eyes = "down")
 

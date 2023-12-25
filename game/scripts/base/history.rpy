@@ -90,7 +90,7 @@ init -3 python:
                         if instance in self.weekly[Item].completed and day - instance > 6:
                             self.weekly[Item].completed.remove(instance)
 
-                temp = self.weekly.keys()
+                temp = list(self.weekly.keys())
 
                 for Item in temp:
                     if not self.weekly[Item].completed:

@@ -114,7 +114,7 @@ label Jean_reject_train_asked_twice_text:
     if dice_roll == 1:
         call receive_text(Jean, "What's with you?? No!") from _call_receive_text_217
     elif dice_roll == 2:
-        call receive_text(Jean, "This is really getting old, [Player.first_name]") from _call_receive_text_218
+        call receive_text(Jean, "This is really getting old [Player.first_name]") from _call_receive_text_218
     elif dice_roll == 3:
         call receive_text(Jean, "Ugh, no!") from _call_receive_text_219
 

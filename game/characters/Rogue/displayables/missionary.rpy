@@ -321,11 +321,11 @@ layeredimage Rogue_missionary_thighs:
     if Rogue.piercings["labia"] in ["ring", "both"]:
         "characters/Rogue/images/missionary/labia_piercings_ring.webp"
 
-    if Rogue.pubes_growing:
+    if Rogue.body_hair_growing["pubic"]:
         "characters/Rogue/images/missionary/pubes_growing.webp"
 
-    if Rogue.pubes:
-        "characters/Rogue/images/missionary/pubes_[Rogue.pubes].webp"
+    if Rogue.body_hair["pubic"]:
+        "characters/Rogue/images/missionary/pubes_[Rogue.body_hair[pubic]].webp"
 
     if Rogue.remote_vibrator:
         "characters/Rogue/images/missionary/remote_vibrator.webp"

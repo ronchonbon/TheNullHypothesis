@@ -260,13 +260,13 @@ layeredimage Rogue_doggy_ass:
             
     if Rogue.Clothes["underwear"].string and Rogue.Clothes["underwear"].state == 0:
         Null()
-    elif Rogue.pubes_growing:
+    elif Rogue.body_hair_growing["pubic"]:
         "characters/Rogue/images/doggy/pubes_growing.webp"
 
     if Rogue.Clothes["underwear"].string and Rogue.Clothes["underwear"].state == 0:
         Null()
-    elif Rogue.pubes:
-        "characters/Rogue/images/doggy/pubes_[Rogue.pubes].webp"
+    elif Rogue.body_hair["pubic"]:
+        "characters/Rogue/images/doggy/pubes_[Rogue.body_hair[pubic]].webp"
 
     if Rogue.Clothes["underwear"].string and Rogue.Clothes["underwear"].state == 0:
         Null()
@@ -600,7 +600,7 @@ layeredimage Rogue_doggy_pussy_closed:
     always:
         "characters/Rogue/images/doggy/pussy_closed.webp"
 
-    if Rogue.pubes == "hairy":
+    if Rogue.body_hair["pubic"] == "hairy":
         "characters/Rogue/images/doggy/pubes_top_hairy_closed.webp"
 
     anchor (int(2106*sex_sampling), int(3186*sex_sampling))
@@ -610,7 +610,7 @@ layeredimage Rogue_doggy_pussy_open:
     always:
         "characters/Rogue/images/doggy/pussy_open.webp"
 
-    if Rogue.pubes == "hairy":
+    if Rogue.body_hair["pubic"] == "hairy":
         "characters/Rogue/images/doggy/pubes_top_hairy_open.webp"
 
     anchor (int(2106*sex_sampling), int(3186*sex_sampling))
@@ -625,7 +625,7 @@ layeredimage Rogue_doggy_pussy_agape:
     always:
         "characters/Rogue/images/doggy/pussy_agape.webp"
 
-    if Rogue.pubes == "hairy":
+    if Rogue.body_hair["pubic"] == "hairy":
         "characters/Rogue/images/doggy/pubes_top_hairy_agape.webp"
 
     anchor (int(2102*sex_sampling), int(3144*sex_sampling))

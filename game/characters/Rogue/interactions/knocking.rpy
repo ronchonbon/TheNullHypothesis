@@ -357,10 +357,7 @@ label Rogue_greets_Player_knocking_love(welcoming_Characters):
     $ dice_roll = renpy.random.randint(1, 3)
 
     if dice_roll == 1:
-        if Rogue.petname not in ["Anna Marie"]:
-            $ temp = Rogue.petname.capitalize()
-        else:
-            $ temp = Rogue.petname
+        $ temp = Rogue.petname.capitalize()
 
         ch_Player "[temp]!"
 

@@ -37,7 +37,7 @@ label Laura_pubic_hair_discussion:
             ch_Laura "Might as well try it out. . ."
             ch_Laura "I'll just ask [Rogue.public_name] how to do it."
 
-            $ Laura.customizable_pubes = True
+            $ Laura.customizable_body_hair = True
         else:
             ch_Laura "My pubic hair?"
 
@@ -54,7 +54,7 @@ label Laura_pubic_hair_discussion:
 label Laura_pubes_bush_accept:
     $ Laura.change_face("confused1", blush = 1)
 
-    ch_Laura "Fine, I can trim it."
+    ch_Laura "Fine, I can do that."
 
     return
 
@@ -135,7 +135,7 @@ label Laura_pubes_need_to_grow:
 
     ch_Laura "You will just wait until it grows back."
 
-    $ Laura.pubes_to_grow = Laura.desired_pubes
+    $ Laura.body_hair_to_grow["pubic"] = Laura.desired_body_hair["pubic"]
 
     $ EventScheduler.Events["Laura_growing_back"].start()
 
@@ -153,8 +153,8 @@ label Laura_pubes_need_to_shave:
 
         $ fade_to_black(0.4)
 
-        $ Laura.pubes_growing = False
-        $ Laura.pubes = Laura.desired_pubes
+        $ Laura.body_hair_growing["pubic"] = False
+        $ Laura.body_hair["pubic"] = Laura.desired_body_hair["pubic"]
 
         pause 2.0
 
@@ -177,9 +177,9 @@ label Laura_pubes_need_to_shave:
     else:
         ch_Laura "I'll get on that."
 
-        $ Laura.pubes_to_shave = Laura.desired_pubes
+        $ Laura.body_hair_to_shave["pubic"] = Laura.desired_body_hair["pubic"]
 
-    $ Laura.pubes_to_grow = False
+    $ Laura.body_hair_to_grow["pubic"] = False
 
     $ EventScheduler.Events["Laura_growing_back"].completed_when = 1e8
 

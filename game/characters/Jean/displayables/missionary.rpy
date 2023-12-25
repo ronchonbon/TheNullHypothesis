@@ -321,11 +321,11 @@ layeredimage Jean_missionary_thighs:
     if Jean.piercings["labia"] in ["ring", "both"]:
         "characters/Jean/images/missionary/labia_piercings_ring.webp"
 
-    if Jean.pubes_growing:
+    if Jean.body_hair_growing["pubic"]:
         "characters/Jean/images/missionary/pubes_growing.webp"
 
-    if Jean.pubes:
-        "characters/Jean/images/missionary/pubes_[Jean.pubes].webp"
+    if Jean.body_hair["pubic"]:
+        "characters/Jean/images/missionary/pubes_[Jean.body_hair[pubic]].webp"
 
     if Jean.remote_vibrator:
         "characters/Jean/images/missionary/remote_vibrator.webp"

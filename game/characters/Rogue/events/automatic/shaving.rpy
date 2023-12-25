@@ -4,7 +4,7 @@ init python:
         label = "Rogue_shaving"
 
         conditions = [
-            "Rogue.pubes_to_shave or Rogue.pubes_to_shave is None",
+            "'pubic' in Rogue.body_hair_to_shave.keys()",
 
             "Rogue.location in bedrooms"]
 
@@ -14,9 +14,9 @@ init python:
         return EventClass(label, conditions, repeatable = repeatable, automatic = automatic)
 
 label Rogue_shaving:
-    $ Rogue.pubes_growing = False
-    $ Rogue.pubes = Rogue.pubes_to_shave
-    $ Rogue.pubes_to_shave = False
+    $ Rogue.body_hair_growing["pubic"] = False
+    $ Rogue.body_hair["pubic"] = Rogue.body_hair_to_shave["pubic"]
+    $ Rogue.body_hair_to_shave["pubic"] = False
 
     return
 
@@ -26,7 +26,7 @@ init python:
         label = "Rogue_growing_back"
 
         conditions = [
-            "Rogue.pubes_to_grow or Rogue.pubes_to_grow is None"]
+            "'pubic' in Rogue.body_hair_to_grow.keys()"]
 
         automatic = True
 
@@ -52,12 +52,12 @@ init python:
 
 label Rogue_grown_back:
     if day - EventScheduler.Events['Rogue_growing_back'].completed_when >= 7:
-        $ Rogue.pubes_growing = False
-        $ Rogue.pubes = Rogue.pubes_to_grow
-        $ Rogue.pubes_to_grow = False
+        $ Rogue.body_hair_growing["pubic"] = False
+        $ Rogue.body_hair["pubic"] = Rogue.body_hair_to_grow["pubic"]
+        $ Rogue.body_hair_to_grow["pubic"] = False
 
         $ EventScheduler.Events["Rogue_growing_back"].completed_when = 1e8
     else:
-        $ Rogue.pubes_growing = True
+        $ Rogue.body_hair_growing["pubic"] = True
 
     return

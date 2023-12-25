@@ -404,9 +404,12 @@ init -2 python:
         Ororo.Player_petnames.append(Player.first_name)
         Ororo.Player_petnames.append("Mr. [Player.last_name]")
 
-        Ororo.default_pubes = "bush"
-        Ororo.pubes = Ororo.default_pubes
-        Ororo.desired_pubes = Ororo.default_pubes
+        Ororo.default_body_hair = {
+            "pubic": "bush",
+            "anus": None,
+            "armpits": None}
+        Ororo.body_hair = Ororo.default_body_hair
+        Ororo.desired_body_hair = Ororo.default_body_hair
 
         Ororo.white = False
         Ororo.electricity = False
