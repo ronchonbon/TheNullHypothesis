@@ -260,7 +260,7 @@ layeredimage Jean_doggy_ass:
             
     if Jean.Clothes["underwear"].string and Jean.Clothes["underwear"].state == 0:
         Null()
-    elif Jean.body_hair_growing["pubic"]:
+    elif "pubic" in Jean.body_hair_growing.keys():
         "characters/Jean/images/doggy/pubes_growing.webp"
 
     if Jean.Clothes["underwear"].string and Jean.Clothes["underwear"].state == 0:

@@ -321,7 +321,7 @@ layeredimage Rogue_missionary_thighs:
     if Rogue.piercings["labia"] in ["ring", "both"]:
         "characters/Rogue/images/missionary/labia_piercings_ring.webp"
 
-    if Rogue.body_hair_growing["pubic"]:
+    if "pubic" in Rogue.body_hair_growing.keys():
         "characters/Rogue/images/missionary/pubes_growing.webp"
 
     if Rogue.body_hair["pubic"]:

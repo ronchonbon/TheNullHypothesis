@@ -321,7 +321,7 @@ layeredimage Laura_missionary_thighs:
     if Laura.piercings["labia"] in ["ring", "both"]:
         "characters/Laura/images/missionary/labia_piercings_ring.webp"
 
-    if Laura.body_hair_growing["pubic"]:
+    if "pubic" in Laura.body_hair_growing.keys():
         "characters/Laura/images/missionary/pubes_growing.webp"
 
     if Laura.body_hair["pubic"]:

@@ -65,7 +65,7 @@ init python:
         return EventClass(label, conditions)
 
 label Jean_seen_pussy:
-    if Jean.desired_body_hair["pubic"] and Jean.body_hair["pubic"] != Jean.desired_body_hair["pubic"]:
+    if "pubic" in Jean.desired_body_hair.keys() and Jean.body_hair["pubic"] != Jean.desired_body_hair["pubic"]:
         if (Jean.body_hair["pubic"] == "hairy") or (Jean.body_hair["pubic"] == "bush" and (not Jean.desired_body_hair["pubic"] or Jean.desired_body_hair["pubic"] in ["growing", "null", "strip", "triangle"])) or (Jean.body_hair["pubic"] == "triangle" and (not Jean.desired_body_hair["pubic"] or Jean.desired_body_hair["pubic"] in ["growing", "null", "strip"])) or (Jean.body_hair["pubic"] in ["growing", "null", "strip"] and not Jean.desired_body_hair["pubic"]):
             if Jean.body_hair_growing["pubic"] or day - EventScheduler.Events["Jean_seen_pussy"].completed_when >= 4:
                 if Jean.quirk:

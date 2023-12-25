@@ -260,7 +260,7 @@ layeredimage Laura_doggy_ass:
             
     if Laura.Clothes["underwear"].string and Laura.Clothes["underwear"].state == 0:
         Null()
-    elif Laura.body_hair_growing["pubic"]:
+    elif "pubic" in Laura.body_hair_growing.keys():
         "characters/Laura/images/doggy/pubes_growing.webp"
 
     if Laura.Clothes["underwear"].string and Laura.Clothes["underwear"].state == 0:

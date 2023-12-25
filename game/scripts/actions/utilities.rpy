@@ -1444,11 +1444,11 @@ label continue_Actions:
             while temp_Action_types:
                 $ renpy.dynamic(temp_Action = None)
 
-                if temp_Characters[0].desire >= eval(f"{temp_Characters[0].tag}_Action_desire_thresholds['{temp_Action_types[0]}']") and temp_Characters[0].History.check(temp_Action_types[0]):
+                if temp_Characters[0] in all_Companions and temp_Characters[0].desire >= eval(f"{temp_Characters[0].tag}_Action_desire_thresholds['{temp_Action_types[0]}']") and temp_Characters[0].History.check(temp_Action_types[0]):
                     if renpy.random.random() > 0.5:
                         if "self" in temp_Action_types[0] and not get_conflicting_Actions(temp_Action_types[0], [temp_Characters[0]], [temp_Characters[0]]):
                             $ temp_Action = ActionClass(temp_Action_types[0], temp_Characters[0], temp_Characters[0])
-                        elif not get_conflicting_Actions(temp_Action_types[0], [temp_Characters[0]], [Player]):
+                        elif "self" not in temp_Action_types[0] and not get_conflicting_Actions(temp_Action_types[0], [temp_Characters[0]], [Player]):
                             $ temp_Action = ActionClass(temp_Action_types[0], temp_Characters[0], Player)
 
                         if temp_Action and temp_Characters[0].position in Action.available_poses:

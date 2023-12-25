@@ -438,7 +438,7 @@ layeredimage Jean_masturbation_thighs:
     if Jean.piercings["labia"] in ["ring", "both"]:
         "characters/Jean/images/masturbation/labia_piercings_ring.webp"
 
-    if Jean.body_hair_growing["pubic"]:
+    if "pubic" in Jean.body_hair_growing.keys():
         "characters/Jean/images/masturbation/pubes_growing.webp"
 
     if Jean.body_hair["pubic"]:

@@ -260,7 +260,7 @@ layeredimage Rogue_doggy_ass:
             
     if Rogue.Clothes["underwear"].string and Rogue.Clothes["underwear"].state == 0:
         Null()
-    elif Rogue.body_hair_growing["pubic"]:
+    elif "pubic" in Rogue.body_hair_growing.keys():
         "characters/Rogue/images/doggy/pubes_growing.webp"
 
     if Rogue.Clothes["underwear"].string and Rogue.Clothes["underwear"].state == 0:

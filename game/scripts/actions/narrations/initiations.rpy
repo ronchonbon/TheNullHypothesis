@@ -922,7 +922,26 @@ label handjob_initiations(Action):
     return
 
 label fondle_balls_initiations(Action):
-    $ Action.counter += 1
+    $ renpy.dynamic(temp_Characters = get_Action_Characters(Action))
+
+    while temp_Characters:
+        if renpy.random.random() > 0.5:
+            $ subject = temp_Characters[0].name
+            $ object = temp_Characters[0].name
+            $ owner = temp_Characters[0].name + "'s"
+        else:
+            $ subject = "she"
+            $ object = "her"
+            $ owner = "her"
+
+        $ dice_pool = [1]
+
+        $ dice_roll = renpy.random.choice(dice_pool)
+
+        if dice_roll == 1:
+            $ renpy.say(None, f"{subject.capitalize()} starts gingerly fondling and massaging your balls with her fingers.")
+
+        $ temp_Characters.remove(temp_Characters[0])
 
     return
 
@@ -1020,7 +1039,7 @@ label blowjob_initiations(Action):
                     
                     $ temp_Characters[0].change_face("worried1", eyes = "down", mouth = "kiss", blush = 2) 
                     
-                    $ renpy.say(None, "[temp_Characters[0].name] slowly brings her lips down to you, lightly brushing them against your cock. After the first touch, it seems like she can't help herself and goes in for more.") 
+                    $ renpy.say(None, f"{subject.capitalize()} slowly brings her lips down to you, lightly brushing them against your cock. After the first touch, it seems like she can't help herself and goes in for more.") 
                     
                     $ temp_Characters[0].change_face("worried1", mouth = "lipbite", blush = 2) 
                     
@@ -1032,7 +1051,7 @@ label blowjob_initiations(Action):
                     
                     $ temp_Characters[0].change_face("confused1", eyes = "down", mouth = "kiss", blush = 2) 
                     
-                    $ renpy.say(None, "Despite her uncertainty, [temp_Characters[0].name] presses her lips up against you, inhaling your scent all the while.")
+                    $ renpy.say(None, f"Despite her uncertainty, {subject} presses her lips up against you, inhaling your scent all the while.")
                     
                     $ temp_Characters[0].change_face("sly", mouth = "lipbite", blush = 2) 
                     
@@ -1046,7 +1065,7 @@ label blowjob_initiations(Action):
                     
                     $ temp_Characters[0].change_face("worried1", eyes = "down", mouth = "kiss", blush = 2) 
                     
-                    $ renpy.say(None, "[temp_Characters[0].name] slowly pulls her lips down to you, touching them lightly to your cock causing you to involuntarily twitch. She still seems apprehensive, but seeing you twitch like that. . .") 
+                    $ renpy.say(None, f"{subject.capitalize()} slowly pulls her lips down to you, touching them lightly to your cock causing you to involuntarily twitch. She still seems apprehensive, but seeing you twitch like that. . .") 
                     
                     $ temp_Characters[0].change_face("sly", mouth = "lipbite", blush = 2) 
                     
@@ -1243,8 +1262,8 @@ label deepthroat_initiations(Action):
                 else:
                     $ renpy.say(None, "That doesn't stop her from trying to slowly take you deep into her mouth.")
 
-            $ speed = 0.5
-            $ intensity = 0.5
+            $ speed = Action.max_speed[0]/2
+            $ intensity = Action.max_intensity[0]/2
 
         $ temp_Characters.remove(temp_Characters[0])
 
@@ -1267,12 +1286,74 @@ label footjob_initiations(Action):
     return
 
 label self_touch_pussy_initiations(Action):
-    $ Action.counter += 1
+    $ renpy.dynamic(temp_Characters = get_Action_Characters(Action))
+
+    while temp_Characters:
+        if renpy.random.random() > 0.5:
+            $ subject = temp_Characters[0].name
+            $ object = temp_Characters[0].name
+            $ owner = temp_Characters[0].name + "'s"
+        else:
+            $ subject = "she"
+            $ object = "her"
+            $ owner = "her"
+
+        if renpy.random.random() > 0.5:
+            $ noun = "pussy"
+        else:
+            $ noun = "crotch"
+
+        $ dice_pool = [1]
+
+        $ dice_roll = renpy.random.choice(dice_pool)
+
+        if dice_roll == 1:
+            $ renpy.say(None, f"{subject.capitalize()} reaches down to caress her {noun}.")
+
+        $ temp_Characters.remove(temp_Characters[0])
 
     return
 
 label self_finger_ass_initiations(Action):
-    $ Action.counter += 1
+    $ renpy.dynamic(temp_Characters = get_Action_Characters(Action))
+
+    while temp_Characters:
+        if renpy.random.random() > 0.5:
+            $ subject = temp_Characters[0].name
+            $ object = temp_Characters[0].name
+            $ owner = temp_Characters[0].name + "'s"
+        else:
+            $ subject = "she"
+            $ object = "her"
+            $ owner = "her"
+
+        if renpy.random.random() > 0.66:
+            $ noun = "asshole"
+        elif renpy.random.random() > 0.33:
+            $ noun = "hole"
+        else:
+            $ noun = "ass"
+
+        if renpy.random.random() > 0.75 and temp_Characters[0].desire >= 75:
+            $ adjective = "hungry "
+        elif renpy.random.random() > 0.5:
+            if temp_Characters[0].body_hair["anus"] in ["hairy"]:
+                $ adjective = "hairy "
+            else:
+                $ adjective = "smooth "
+        elif renpy.random.random() > 0.25:
+            $ adjective = "tight "
+        else:
+            $ adjective = ""
+
+        $ dice_pool = [1]
+
+        $ dice_roll = renpy.random.choice(dice_pool)
+
+        if dice_roll == 1:
+            $ renpy.say(None, f"{subject.capitalize()} gently presses her finger against her {adjective}{noun} and pushes it in.")
+
+        $ temp_Characters.remove(temp_Characters[0])
 
     return
 
@@ -1536,7 +1617,7 @@ label grind_ass_initiations(Action):
         $ dice_roll = renpy.random.choice(dice_pool)
 
         if dice_roll == 1:
-            $ renpy.say(None, f"You lay your cock in between {temp_Characters[0].name}'s cheeks and press up against her ass.")
+            $ renpy.say(None, f"You lay your cock in between {owner} cheeks and press up against her ass.")
         elif dice_roll == 2:
             $ renpy.say(None, f"{subject.capitalize()} leans her hips into you, seeking to feel your cock pressed against her.")
         elif dice_roll == 3:
@@ -1733,7 +1814,7 @@ label anal_initiations(Action):
                     elif dice_roll == 2:
                         $ renpy.say(temp_Characters[0].voice, "Lord, ah always forget how big it is. . .")
                     elif dice_roll == 3:
-                        $ renpy.say(temp_Characters[0].voice, "Just. . . gently, [temp_Characters[0].Player_petname], please.")
+                        $ renpy.say(temp_Characters[0].voice, f"Just. . . gently, {temp_Characters[0].Player_petname}, please.")
                         
                     if renpy.random.random() > 0.5:
                         $ temp_Characters[0].change_face("angry1", eyes = "closed", mouth = "lipbite", blush = 2)
@@ -1771,9 +1852,9 @@ label anal_initiations(Action):
                         $ renpy.say(temp_Characters[0].voice, "It kinda hurts. . . a lot. . .")
                         $ renpy.say(temp_Characters[0].voice, "Just be careful.")
                     elif dice_roll == 2:
-                        $ renpy.say(temp_Characters[0].voice, "Slowly, [temp_Characters[0].Player_petname]. . .")
+                        $ renpy.say(temp_Characters[0].voice, f"Slowly, {temp_Characters[0].Player_petname}. . .")
                     elif dice_roll == 3:
-                        $ renpy.say(temp_Characters[0].voice, "Jesus, [Player.first_name]. I can't believe I can fit any of that inside me.")
+                        $ renpy.say(temp_Characters[0].voice, f"Jesus, {Player.first_name}. I can't believe I can fit any of that inside me.")
                         
                     if renpy.random.random() > 0.5:
                         $ temp_Characters[0].change_face("angry1", eyes = "closed", mouth = "lipbite", blush = 2)
@@ -1792,7 +1873,7 @@ label anal_initiations(Action):
 
                 if dice_roll == 1:
                     $ renpy.say(None, f"{owner.capitalize()} {adjective}{noun} provides a lot of resistance as you gently push your cock inside.")
-                    $ renpy.say(None, f"Slowly, you manage to get the tip in, {temp_Characters[0].name} whimpering a little.")
+                    $ renpy.say(None, f"Slowly, you manage to get the tip in, {subject} whimpering a little.")
                 elif dice_roll == 2:
                     $ renpy.say(None, f"You gently press yourself up against {owner} {adjective}{noun}, slowly pushing the tip in as she whimpers a little.")
                 elif dice_roll == 3:                    
@@ -2013,7 +2094,7 @@ label anal_initiations(Action):
                     $ renpy.say(temp_Characters[0].voice, "It hurts too much.")
                 else:
                     $ renpy.say(temp_Characters[0].voice, "Ow ow ow. . .")
-                    $ renpy.say(temp_Characters[0].voice, "Sorry, [temp_Characters[0].Player_petname]. . . not happening. . .")
+                    $ renpy.say(temp_Characters[0].voice, f"Sorry, {temp_Characters[0].Player_petname}. . . not happening. . .")
 
                 if renpy.random.random() > 0.5:
                     $ temp_Characters[0].change_face("worried1", eyes = "down", mouth = "lipbite", blush = 2) 
