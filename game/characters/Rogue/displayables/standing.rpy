@@ -1,3 +1,13 @@
+transform tremble(repetitions):
+    subpixel True
+    transform_anchor True
+    
+    block:
+        ease 0.04 xoffset -0.7
+        ease 0.08 xoffset 0.7
+        ease 0.04 xoffset 0
+        repeat repetitions
+    
 transform Rogue_standing_head_animation:
     subpixel True
     transform_anchor True
@@ -64,6 +74,8 @@ image Rogue_sprite standing:
 layeredimage Rogue_standing_temp:
     if Rogue.hovered:
         At("Rogue_standing", hover)
+    elif Rogue.orgasming:
+        At("Rogue_standing", tremble(20))
     else:
         "Rogue_standing"
 

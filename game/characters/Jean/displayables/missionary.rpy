@@ -1,3 +1,13 @@
+transform tremble(repetitions):
+    subpixel True
+    transform_anchor True
+    
+    block:
+        ease 0.04 xoffset -0.7
+        ease 0.08 xoffset 0.7
+        ease 0.04 xoffset 0
+        repeat repetitions
+    
 image Jean_sprite missionary:
     contains:
         "Jean_missionary_temp"
@@ -232,8 +242,12 @@ layeredimage Jean_missionary:
 layeredimage Jean_missionary_thighs:
     if Player.orgasming and focused_Character == Jean:
         "Jean_missionary_torso_animation0"
+    elif Player.cock_Actions and Jean in Player.cock_Actions[0].Targets and Jean.orgasming:
+        At("Jean_missionary_torso_animation[Player.cock_Actions[0].mode]", tremble(20))
     elif Player.cock_Actions and Jean in Player.cock_Actions[0].Targets:
         "Jean_missionary_torso_animation[Player.cock_Actions[0].mode]"
+    elif Jean.orgasming:
+        At("Jean_missionary_torso_animation0", tremble(20))
     else:
         "Jean_missionary_torso_animation0"
 
@@ -370,15 +384,23 @@ layeredimage Jean_missionary_thighs:
 
     if Player.orgasming and focused_Character == Jean:
         "Jean_missionary_left_leg_animation0"
+    elif Player.cock_Actions and Jean in Player.cock_Actions[0].Targets and Jean.orgasming:
+        At("Jean_missionary_left_leg_animation[Player.cock_Actions[0].mode]", tremble(20))
     elif Player.cock_Actions and Jean in Player.cock_Actions[0].Targets:
         "Jean_missionary_left_leg_animation[Player.cock_Actions[0].mode]"
+    elif Jean.orgasming:
+        At("Jean_missionary_left_leg_animation0", tremble(20))
     else:
         "Jean_missionary_left_leg_animation0"
 
     if Player.orgasming and focused_Character == Jean:
         "Jean_missionary_right_leg_animation0"
+    elif Player.cock_Actions and Jean in Player.cock_Actions[0].Targets and Jean.orgasming:
+        At("Jean_missionary_right_leg_animation[Player.cock_Actions[0].mode]", tremble(20))
     elif Player.cock_Actions and Jean in Player.cock_Actions[0].Targets:
         "Jean_missionary_right_leg_animation[Player.cock_Actions[0].mode]"
+    elif Jean.orgasming:
+        At("Jean_missionary_right_leg_animation0", tremble(20))
     else:
         "Jean_missionary_right_leg_animation0"
 

@@ -1,3 +1,13 @@
+transform tremble(repetitions):
+    subpixel True
+    transform_anchor True
+    
+    block:
+        ease 0.04 xoffset -0.7
+        ease 0.08 xoffset 0.7
+        ease 0.04 xoffset 0
+        repeat repetitions
+    
 image Rogue_sprite masturbation:
     contains:
         "Rogue_masturbation_temp"
@@ -375,10 +385,16 @@ image Rogue_masturbation_right_forearm:
     offset (int(2091*sex_sampling), int(2343*sex_sampling))
     
 layeredimage Rogue_masturbation_thighs:
+    if Rogue.vagina_Actions and Rogue.orgasming:
+        At("Rogue_masturbation_torso_animation[Rogue.vagina_Actions[0].mode]", tremble(20))
     if Rogue.vagina_Actions:
         "Rogue_masturbation_torso_animation[Rogue.vagina_Actions[0].mode]"
+    elif Rogue.anus_Actions and Rogue.orgasming:
+        At("Rogue_masturbation_torso_animation[Rogue.anus_Actions[0].mode]", tremble(20))
     elif Rogue.anus_Actions:
         "Rogue_masturbation_torso_animation[Rogue.anus_Actions[0].mode]"
+    elif Rogue.orgasming:
+        At("Rogue_masturbation_torso_animation0", tremble(20))
     else:
         "Rogue_masturbation_torso_animation0"
 
@@ -442,17 +458,29 @@ layeredimage Rogue_masturbation_thighs:
     if Rogue.right_hand_Actions and Rogue.right_hand_Actions[0].animation_type == "self_touch_pussy":
         "Rogue_masturbation_right_hand_animation[Rogue.right_hand_Actions[0].mode]"
 
-    if Rogue.vagina_Actions:
+    if Rogue.vagina_Actions and Rogue.orgasming:
+        At("Rogue_masturbation_left_leg_animation[Rogue.vagina_Actions[0].mode]", tremble(20))
+    elif Rogue.vagina_Actions:
         "Rogue_masturbation_left_leg_animation[Rogue.vagina_Actions[0].mode]"
+    elif Rogue.anus_Actions and Rogue.orgasming:
+        At("Rogue_masturbation_left_leg_animation[Rogue.anus_Actions[0].mode]", tremble(20))
     elif Rogue.anus_Actions:
         "Rogue_masturbation_left_leg_animation[Rogue.anus_Actions[0].mode]"
+    elif Rogue.orgasming:
+        At("Rogue_masturbation_left_leg_animation0", tremble(20))
     else:
         "Rogue_masturbation_left_leg_animation0"
 
-    if Rogue.vagina_Actions:
+    if Rogue.vagina_Actions and Rogue.orgasming:
+        At("Rogue_masturbation_right_leg_animation[Rogue.vagina_Actions[0].mode]", tremble(20))
+    elif Rogue.vagina_Actions:
         "Rogue_masturbation_right_leg_animation[Rogue.vagina_Actions[0].mode]"
+    elif Rogue.anus_Actions and Rogue.orgasming:
+        At("Rogue_masturbation_right_leg_animation[Rogue.anus_Actions[0].mode]", tremble(20))
     elif Rogue.anus_Actions:
         "Rogue_masturbation_right_leg_animation[Rogue.anus_Actions[0].mode]"
+    elif Rogue.orgasming:
+        At("Rogue_masturbation_right_leg_animation0", tremble(20))
     else:
         "Rogue_masturbation_right_leg_animation0"
 

@@ -697,7 +697,7 @@ label finger_ass_continuations(Action):
         $ dice_roll = renpy.random.choice(dice_pool)
 
         if dice_roll == 1:
-            $ renpy.say(None, f"")
+            $ renpy.say(None, f"{subject.capitalize()} winces a little in discomfort as you finger her {noun} - you should probably warm her up a little bit first.")
         elif dice_roll == 2:
             $ renpy.say(None, f"{subject.capitalize()} tightens even further around your finger as you continue to slide it in and out of her {adjective}{noun}.")
         elif dice_roll == 3:
@@ -1271,7 +1271,7 @@ label self_dildo_ass_continuations(Action):
         $ dice_roll = renpy.random.choice(dice_pool)
 
         if dice_roll == 1:
-            $ renpy.say(None, f"")
+            $ renpy.say(None, f"{subject.capitalize()} winces as she slides the dildo into her {noun} - she could probably use more foreplay.")
         elif dice_roll == 2:
             $ renpy.say(None, f"{subject.capitalize()} steadily slides the dildo in and out of her {adjective}{noun}, making sure not to go too deep.")
         elif dice_roll == 3:

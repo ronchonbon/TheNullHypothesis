@@ -95,47 +95,47 @@ label Player_cumshot_narrations(Character, location):
     $ renpy.pause(1.0, hard = True)
 
     if location == "cumshot_belly":
+        with orgasm_shake
         $ renpy.say(None, f"You lose control, your cum shooting all over {owner} stomach.")
-        with orgasm_shake
     elif "breasts" in location:
+        with orgasm_shake
         $ renpy.say(None, f"You lose control, your cum shooting all over {owner} tits, slowly dripping down their curves.")
-        with orgasm_shake
     elif location == "cumshot_face":
+        with orgasm_shake
         $ renpy.say(None, f"{subject.capitalize()} flinches at first as your cum lands on her face, then she leans in to try to catch every last drop.")
-        with orgasm_shake
     elif location == "cumshot_hair":
+        with orgasm_shake
         $ renpy.say(None, f"You shudder and finally lose control, showering {object} with cum, getting it all in her hair.")
-        with orgasm_shake
     elif location == "cumshot_back":
+        with orgasm_shake
         $ renpy.say(None, f"You shudder, as your cum shoots all over {owner} back.")
-        with orgasm_shake
     elif location == "cumshot_ass":
+        with orgasm_shake
         $ renpy.say(None, f"Your cum sprays all over {owner} ass, dripping down its curves.")
-        with orgasm_shake
     elif location == "cumshot_feet":
+        with orgasm_shake
         $ renpy.say(None, f"{owner.capitalize()} feet and toes are covered, as you shudder and spray all over them.")
-        with orgasm_shake
     elif location == "creampie":
+        with orgasm_shake
         $ renpy.say(None, f"You can't help but shudder as you fill {object}, cumming right inside her pussy.")
-        with orgasm_shake
     elif location == "cum_in_mouth":
+        with orgasm_shake
         $ renpy.say(None, f"{owner.capitalize()} lips tighten around you as your cum sprays into the back of her mouth.")
-        with orgasm_shake
     elif location == "cumshot_tongue":
+        with orgasm_shake
         $ renpy.say(None, f"You spray across {owner} tongue, getting most of the cum on it, but some ends up in the back of her mouth.")
-        with orgasm_shake
     elif location == "cum_down_throat":
+        with orgasm_shake
         $ renpy.say(None, f"{subject.capitalize()} gags and sputters as you cum down her throat. She struggles to swallow with you still deep inside her.")
-        with orgasm_shake
     elif location == "anal_creampie":
+        with orgasm_shake
         $ renpy.say(None, f"{owner.capitalize()} ass tightens around you as you cum inside, filling it to the brim.")
-        with orgasm_shake
     elif location == "bukkake":
+        with orgasm_shake
         $ renpy.say(None, f"You convulse as waves of pleasure flow through you, your cum spraying all over {owner} body.")
-        with orgasm_shake
     elif location == "floor":
-        $ renpy.say(None, f"You spray across the room, landing on some towels you set up beforehand.")
         with orgasm_shake
+        $ renpy.say(None, f"You spray across the room, landing on some towels you set up beforehand.")
 
     $ renpy.pause(1.0, hard = True)
 
@@ -150,8 +150,6 @@ label Character_orgasm_narrations(Character):
         $ subject = "she"
         $ object = "her"
         $ owner = "her"
-        
-    $ renpy.pause(1.0, hard = True)
 
     if (Character.vagina_Actions and Character.vagina_Actions[0].animation_type == "sex") or (Character.anus_Actions and Character.anus_Actions[0].animation_type == "anal"):
         $ dice_roll = renpy.random.randint(1, 2)
@@ -160,17 +158,14 @@ label Character_orgasm_narrations(Character):
             $ Character.change_face("surprised2", mouth = "lipbite", blush = 2) 
             
             $ renpy.say(None, f"{owner.capitalize()} body shudders uncontrollably and she tightens, orgasming around your cock.") 
-            with orgasm_shake
         elif dice_roll == 2:
             $ Character.change_face("sly", mouth = "lipbite", blush = 2) 
             
             $ renpy.say(None, f"{owner.capitalize()} legs wrap around you as she convulses and tightens around your cock, the orgasm racking her body.")
-            with orgasm_shake
     elif Character.mouth_Actions and Character.mouth_Actions[0].animation_type in ["blowjob", "deepthroat"]:
         $ Character.change_face("surprised2", mouth = "lipbite", blush = 2) 
         
         $ renpy.say(None, f"{owner.capitalize()} body shudders as waves of pleasure flow throughout her body.")
-        with orgasm_shake
 
         $ Character.change_face("sexy", blush = 2) 
         
@@ -181,13 +176,11 @@ label Character_orgasm_narrations(Character):
         if dice_roll == 1:
             $ Character.change_face("surprised2", mouth = "lipbite", blush = 2) 
             
-            $ renpy.say(None, f"{subject.capitalize()} starts twitching uncontrollably as the orgasm takes over her body. It lasts for a minute before she's able to calm down.")
-            with orgasm_shake
+            $ renpy.say(None, f"{subject.capitalize()} starts twitching uncontrollably as an orgasm takes over her body. It lasts for a minute before she's able to calm down.")
         elif dice_roll == 2:
             $ Character.change_face("surprised2", mouth = "lipbite", blush = 2) 
-            
+
             $ renpy.say(None, f"{subject.capitalize()} moans as waves of pleasure run through her. The orgasm causes her to shake uncontrollably.")
-            with orgasm_shake
 
     $ renpy.pause(1.0, hard = True)
 

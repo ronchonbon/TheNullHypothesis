@@ -1,3 +1,13 @@
+transform tremble(repetitions):
+    subpixel True
+    transform_anchor True
+    
+    block:
+        ease 0.04 xoffset -0.7
+        ease 0.08 xoffset 0.7
+        ease 0.04 xoffset 0
+        repeat repetitions
+    
 image Rogue_sprite missionary:
     contains:
         "Rogue_missionary_temp"
@@ -232,8 +242,12 @@ layeredimage Rogue_missionary:
 layeredimage Rogue_missionary_thighs:
     if Player.orgasming and focused_Character == Rogue:
         "Rogue_missionary_torso_animation0"
+    elif Player.cock_Actions and Rogue in Player.cock_Actions[0].Targets and Rogue.orgasming:
+        At("Rogue_missionary_torso_animation[Player.cock_Actions[0].mode]", tremble(20))
     elif Player.cock_Actions and Rogue in Player.cock_Actions[0].Targets:
         "Rogue_missionary_torso_animation[Player.cock_Actions[0].mode]"
+    elif Rogue.orgasming:
+        At("Rogue_missionary_torso_animation0", tremble(20))
     else:
         "Rogue_missionary_torso_animation0"
 
@@ -370,15 +384,23 @@ layeredimage Rogue_missionary_thighs:
 
     if Player.orgasming and focused_Character == Rogue:
         "Rogue_missionary_left_leg_animation0"
+    elif Player.cock_Actions and Rogue in Player.cock_Actions[0].Targets and Rogue.orgasming:
+        At("Rogue_missionary_left_leg_animation[Player.cock_Actions[0].mode]", tremble(20))
     elif Player.cock_Actions and Rogue in Player.cock_Actions[0].Targets:
         "Rogue_missionary_left_leg_animation[Player.cock_Actions[0].mode]"
+    elif Rogue.orgasming:
+        At("Rogue_missionary_left_leg_animation0", tremble(20))
     else:
         "Rogue_missionary_left_leg_animation0"
 
     if Player.orgasming and focused_Character == Rogue:
         "Rogue_missionary_right_leg_animation0"
+    elif Player.cock_Actions and Rogue in Player.cock_Actions[0].Targets and Rogue.orgasming:
+        At("Rogue_missionary_right_leg_animation[Player.cock_Actions[0].mode]", tremble(20))
     elif Player.cock_Actions and Rogue in Player.cock_Actions[0].Targets:
         "Rogue_missionary_right_leg_animation[Player.cock_Actions[0].mode]"
+    elif Rogue.orgasming:
+        At("Rogue_missionary_right_leg_animation0", tremble(20))
     else:
         "Rogue_missionary_right_leg_animation0"
 

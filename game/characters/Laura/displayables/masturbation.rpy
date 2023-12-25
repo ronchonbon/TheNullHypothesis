@@ -1,3 +1,13 @@
+transform tremble(repetitions):
+    subpixel True
+    transform_anchor True
+    
+    block:
+        ease 0.04 xoffset -0.7
+        ease 0.08 xoffset 0.7
+        ease 0.04 xoffset 0
+        repeat repetitions
+    
 image Laura_sprite masturbation:
     contains:
         "Laura_masturbation_temp"
@@ -381,10 +391,16 @@ image Laura_masturbation_right_forearm:
     offset (int(2091*sex_sampling), int(2343*sex_sampling))
     
 layeredimage Laura_masturbation_thighs:
+    if Laura.vagina_Actions and Laura.orgasming:
+        At("Laura_masturbation_torso_animation[Laura.vagina_Actions[0].mode]", tremble(20))
     if Laura.vagina_Actions:
         "Laura_masturbation_torso_animation[Laura.vagina_Actions[0].mode]"
+    elif Laura.anus_Actions and Laura.orgasming:
+        At("Laura_masturbation_torso_animation[Laura.anus_Actions[0].mode]", tremble(20))
     elif Laura.anus_Actions:
         "Laura_masturbation_torso_animation[Laura.anus_Actions[0].mode]"
+    elif Laura.orgasming:
+        At("Laura_masturbation_torso_animation0", tremble(20))
     else:
         "Laura_masturbation_torso_animation0"
 
@@ -448,17 +464,29 @@ layeredimage Laura_masturbation_thighs:
     if Laura.right_hand_Actions and Laura.right_hand_Actions[0].animation_type == "self_touch_pussy":
         "Laura_masturbation_right_hand_animation[Laura.right_hand_Actions[0].mode]"
 
-    if Laura.vagina_Actions:
+    if Laura.vagina_Actions and Laura.orgasming:
+        At("Laura_masturbation_left_leg_animation[Laura.vagina_Actions[0].mode]", tremble(20))
+    elif Laura.vagina_Actions:
         "Laura_masturbation_left_leg_animation[Laura.vagina_Actions[0].mode]"
+    elif Laura.anus_Actions and Laura.orgasming:
+        At("Laura_masturbation_left_leg_animation[Laura.anus_Actions[0].mode]", tremble(20))
     elif Laura.anus_Actions:
         "Laura_masturbation_left_leg_animation[Laura.anus_Actions[0].mode]"
+    elif Laura.orgasming:
+        At("Laura_masturbation_left_leg_animation0", tremble(20))
     else:
         "Laura_masturbation_left_leg_animation0"
 
-    if Laura.vagina_Actions:
+    if Laura.vagina_Actions and Laura.orgasming:
+        At("Laura_masturbation_right_leg_animation[Laura.vagina_Actions[0].mode]", tremble(20))
+    elif Laura.vagina_Actions:
         "Laura_masturbation_right_leg_animation[Laura.vagina_Actions[0].mode]"
+    elif Laura.anus_Actions and Laura.orgasming:
+        At("Laura_masturbation_right_leg_animation[Laura.anus_Actions[0].mode]", tremble(20))
     elif Laura.anus_Actions:
         "Laura_masturbation_right_leg_animation[Laura.anus_Actions[0].mode]"
+    elif Laura.orgasming:
+        At("Laura_masturbation_right_leg_animation0", tremble(20))
     else:
         "Laura_masturbation_right_leg_animation0"
 

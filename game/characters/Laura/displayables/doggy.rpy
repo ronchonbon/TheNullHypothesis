@@ -1,3 +1,13 @@
+transform tremble(repetitions):
+    subpixel True
+    transform_anchor True
+    
+    block:
+        ease 0.04 xoffset -0.7
+        ease 0.08 xoffset 0.7
+        ease 0.04 xoffset 0
+        repeat repetitions
+    
 image Laura_sprite doggy:
     contains:
         "Laura_doggy_temp"
@@ -232,22 +242,34 @@ layeredimage Laura_doggy:
 layeredimage Laura_doggy_ass:
     if Player.orgasming and focused_Character == Laura:
         "Laura_doggy_left_leg_animation0"
+    elif Player.cock_Actions and Laura in Player.cock_Actions[0].Targets and Laura.orgasming:
+        At("Laura_doggy_left_leg_animation[Player.cock_Actions[0].mode]", tremble(20))
     elif Player.cock_Actions and Laura in Player.cock_Actions[0].Targets:
         "Laura_doggy_left_leg_animation[Player.cock_Actions[0].mode]"
+    elif Laura.orgasming:
+        At("Laura_doggy_left_leg_animation0", tremble(20))
     else:
         "Laura_doggy_left_leg_animation0"
 
     if Player.orgasming and focused_Character == Laura:
         "Laura_doggy_right_leg_animation0"
+    elif Player.cock_Actions and Laura in Player.cock_Actions[0].Targets and Laura.orgasming:
+        At("Laura_doggy_right_leg_animation[Player.cock_Actions[0].mode]", tremble(20))
     elif Player.cock_Actions and Laura in Player.cock_Actions[0].Targets:
         "Laura_doggy_right_leg_animation[Player.cock_Actions[0].mode]"
+    elif Laura.orgasming:
+        At("Laura_doggy_right_leg_animation0", tremble(20))
     else:
         "Laura_doggy_right_leg_animation0"
         
     if Player.orgasming and focused_Character == Laura:
         "Laura_doggy_torso_animation0"
+    elif Player.cock_Actions and Laura in Player.cock_Actions[0].Targets and Laura.orgasming:
+        At("Laura_doggy_torso_animation[Player.cock_Actions[0].mode]", tremble(20))
     elif Player.cock_Actions and Laura in Player.cock_Actions[0].Targets:
         "Laura_doggy_torso_animation[Player.cock_Actions[0].mode]"
+    elif Laura.orgasming:
+        At("Laura_doggy_torso_animation0", tremble(20))
     else:
         "Laura_doggy_torso_animation0"
         

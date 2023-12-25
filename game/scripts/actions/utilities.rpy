@@ -1385,7 +1385,6 @@ label continue_Actions:
 
         if ongoing_Actions:
             $ sex_faces(Present[:])
-            
             $ desire_increases([Player] + Present[:])
 
             $ renpy.random.shuffle(temp_Actions)
@@ -1421,6 +1420,7 @@ label continue_Actions:
 
                 $ temp_Actions.remove(temp_Actions[0])
 
+            $ sex_faces(Present[:])
             $ sex_talk(Present[:])
 
         $ renpy.dynamic(temp_Characters = Present[:])

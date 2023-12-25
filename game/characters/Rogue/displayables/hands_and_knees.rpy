@@ -1,3 +1,13 @@
+transform tremble(repetitions):
+    subpixel True
+    transform_anchor True
+    
+    block:
+        ease 0.04 xoffset -0.7
+        ease 0.08 xoffset 0.7
+        ease 0.04 xoffset 0
+        repeat repetitions
+    
 image Rogue_sprite hands_and_knees:
     contains:
         "Rogue_hands_and_knees_temp"
@@ -224,8 +234,12 @@ layeredimage Rogue_hands_and_knees_controls_temp:
 layeredimage Rogue_hands_and_knees:
     if Player.orgasming and focused_Character == Rogue:
         "Rogue_hands_and_knees_ass_handjob_animation0"
+    elif Player.cock_Actions and Rogue in Player.cock_Actions[0].Actors and Rogue.orgasming:
+        At("Rogue_hands_and_knees_ass_[Player.cock_Actions[0].animation_type]_animation[Player.cock_Actions[0].mode]", tremble(20))
     elif Player.cock_Actions and Rogue in Player.cock_Actions[0].Actors:
         "Rogue_hands_and_knees_ass_[Player.cock_Actions[0].animation_type]_animation[Player.cock_Actions[0].mode]"
+    elif Rogue.orgasming:
+        At("Rogue_hands_and_knees_ass_handjob_animation0", tremble(20))
     else: 
         "Rogue_hands_and_knees_ass_handjob_animation0"
 

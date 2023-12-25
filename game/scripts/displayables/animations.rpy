@@ -78,6 +78,9 @@ transform stat_falling(x_position):
         linear 2.0 alpha 0.0
 
 transform vibrate:
+    subpixel True
+    transform_anchor True
+
     ease 0.01 xoffset -2
     ease 0.02 xoffset 2
     ease 0.01 xoffset 0
@@ -90,6 +93,16 @@ transform vibrate:
     ease 0.01 xoffset -2
     ease 0.02 xoffset 2
     ease 0.01 xoffset 0
+
+transform tremble(repetitions):
+    subpixel True
+    transform_anchor True
+    
+    block:
+        ease 0.04 xoffset -0.7
+        ease 0.08 xoffset 0.7
+        ease 0.04 xoffset 0
+        repeat repetitions
 
 transform pulse(intensity, frequency = 1.0):
     alpha 0.0

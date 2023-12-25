@@ -1,3 +1,13 @@
+transform tremble(repetitions):
+    subpixel True
+    transform_anchor True
+    
+    block:
+        ease 0.04 xoffset -0.7
+        ease 0.08 xoffset 0.7
+        ease 0.04 xoffset 0
+        repeat repetitions
+    
 transform Laura_standing_head_animation:
     subpixel True
     transform_anchor True
@@ -92,6 +102,8 @@ image Laura_sprite standing:
 layeredimage Laura_standing_temp:
     if Laura.hovered:
         At("Laura_standing", hover)
+    elif Laura.orgasming:
+        At("Laura_standing", tremble(20))
     else:
         "Laura_standing"
 

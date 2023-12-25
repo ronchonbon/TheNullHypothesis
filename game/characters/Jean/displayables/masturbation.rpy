@@ -1,3 +1,13 @@
+transform tremble(repetitions):
+    subpixel True
+    transform_anchor True
+    
+    block:
+        ease 0.04 xoffset -0.7
+        ease 0.08 xoffset 0.7
+        ease 0.04 xoffset 0
+        repeat repetitions
+    
 image Jean_sprite masturbation:
     contains:
         "Jean_masturbation_temp"
@@ -383,10 +393,16 @@ image Jean_masturbation_right_forearm:
     offset (int(2091*sex_sampling), int(2343*sex_sampling))
     
 layeredimage Jean_masturbation_thighs:
+    if Jean.vagina_Actions and Jean.orgasming:
+        At("Jean_masturbation_torso_animation[Jean.vagina_Actions[0].mode]", tremble(20))
     if Jean.vagina_Actions:
         "Jean_masturbation_torso_animation[Jean.vagina_Actions[0].mode]"
+    elif Jean.anus_Actions and Jean.orgasming:
+        At("Jean_masturbation_torso_animation[Jean.anus_Actions[0].mode]", tremble(20))
     elif Jean.anus_Actions:
         "Jean_masturbation_torso_animation[Jean.anus_Actions[0].mode]"
+    elif Jean.orgasming:
+        At("Jean_masturbation_torso_animation0", tremble(20))
     else:
         "Jean_masturbation_torso_animation0"
 
@@ -450,17 +466,29 @@ layeredimage Jean_masturbation_thighs:
     if Jean.right_hand_Actions and Jean.right_hand_Actions[0].animation_type == "self_touch_pussy":
         "Jean_masturbation_right_hand_animation[Jean.right_hand_Actions[0].mode]"
 
-    if Jean.vagina_Actions:
+    if Jean.vagina_Actions and Jean.orgasming:
+        At("Jean_masturbation_left_leg_animation[Jean.vagina_Actions[0].mode]", tremble(20))
+    elif Jean.vagina_Actions:
         "Jean_masturbation_left_leg_animation[Jean.vagina_Actions[0].mode]"
+    elif Jean.anus_Actions and Jean.orgasming:
+        At("Jean_masturbation_left_leg_animation[Jean.anus_Actions[0].mode]", tremble(20))
     elif Jean.anus_Actions:
         "Jean_masturbation_left_leg_animation[Jean.anus_Actions[0].mode]"
+    elif Jean.orgasming:
+        At("Jean_masturbation_left_leg_animation0", tremble(20))
     else:
         "Jean_masturbation_left_leg_animation0"
 
-    if Jean.vagina_Actions:
+    if Jean.vagina_Actions and Jean.orgasming:
+        At("Jean_masturbation_right_leg_animation[Jean.vagina_Actions[0].mode]", tremble(20))
+    elif Jean.vagina_Actions:
         "Jean_masturbation_right_leg_animation[Jean.vagina_Actions[0].mode]"
+    elif Jean.anus_Actions and Jean.orgasming:
+        At("Jean_masturbation_right_leg_animation[Jean.anus_Actions[0].mode]", tremble(20))
     elif Jean.anus_Actions:
         "Jean_masturbation_right_leg_animation[Jean.anus_Actions[0].mode]"
+    elif Jean.orgasming:
+        At("Jean_masturbation_right_leg_animation0", tremble(20))
     else:
         "Jean_masturbation_right_leg_animation0"
 

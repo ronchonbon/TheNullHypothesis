@@ -1,3 +1,13 @@
+transform tremble(repetitions):
+    subpixel True
+    transform_anchor True
+    
+    block:
+        ease 0.04 xoffset -0.7
+        ease 0.08 xoffset 0.7
+        ease 0.04 xoffset 0
+        repeat repetitions
+    
 image Laura_sprite hands_and_knees:
     contains:
         "Laura_hands_and_knees_temp"
@@ -224,8 +234,12 @@ layeredimage Laura_hands_and_knees_controls_temp:
 layeredimage Laura_hands_and_knees:
     if Player.orgasming and focused_Character == Laura:
         "Laura_hands_and_knees_ass_handjob_animation0"
+    elif Player.cock_Actions and Laura in Player.cock_Actions[0].Actors and Laura.orgasming:
+        At("Laura_hands_and_knees_ass_[Player.cock_Actions[0].animation_type]_animation[Player.cock_Actions[0].mode]", tremble(20))
     elif Player.cock_Actions and Laura in Player.cock_Actions[0].Actors:
         "Laura_hands_and_knees_ass_[Player.cock_Actions[0].animation_type]_animation[Player.cock_Actions[0].mode]"
+    elif Laura.orgasming:
+        At("Laura_hands_and_knees_ass_handjob_animation0", tremble(20))
     else: 
         "Laura_hands_and_knees_ass_handjob_animation0"
 

@@ -1,3 +1,13 @@
+transform tremble(repetitions):
+    subpixel True
+    transform_anchor True
+    
+    block:
+        ease 0.04 xoffset -0.7
+        ease 0.08 xoffset 0.7
+        ease 0.04 xoffset 0
+        repeat repetitions
+    
 image Laura_sprite missionary:
     contains:
         "Laura_missionary_temp"
@@ -232,8 +242,12 @@ layeredimage Laura_missionary:
 layeredimage Laura_missionary_thighs:
     if Player.orgasming and focused_Character == Laura:
         "Laura_missionary_torso_animation0"
+    elif Player.cock_Actions and Laura in Player.cock_Actions[0].Targets and Laura.orgasming:
+        At("Laura_missionary_torso_animation[Player.cock_Actions[0].mode]", tremble(20))
     elif Player.cock_Actions and Laura in Player.cock_Actions[0].Targets:
         "Laura_missionary_torso_animation[Player.cock_Actions[0].mode]"
+    elif Laura.orgasming:
+        At("Laura_missionary_torso_animation0", tremble(20))
     else:
         "Laura_missionary_torso_animation0"
 
@@ -370,12 +384,18 @@ layeredimage Laura_missionary_thighs:
 
     if Player.orgasming and focused_Character == Laura:
         "Laura_missionary_left_leg_animation0"
+    elif Player.cock_Actions and Laura in Player.cock_Actions[0].Targets and Laura.orgasming:
+        At("Laura_missionary_left_leg_animation[Player.cock_Actions[0].mode]", tremble(20))
     elif Player.cock_Actions and Laura in Player.cock_Actions[0].Targets:
         "Laura_missionary_left_leg_animation[Player.cock_Actions[0].mode]"
+    elif Laura.orgasming:
+        At("Laura_missionary_left_leg_animation0", tremble(20))
     else:
         "Laura_missionary_left_leg_animation0"
 
-    always:
+    if Laura.orgasming:
+        At("Laura_missionary_right_leg_animations", tremble(20))
+    else:
         "Laura_missionary_right_leg_animations"
 
     # if not Player.body_visible:
