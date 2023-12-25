@@ -25,7 +25,7 @@ label find_a_seat:
         menu:
             extend ""
             "Sit next to [temp_Characters[0].name]":
-                call set_the_scene(location = "bg_classroom", fade = False) from _call_set_the_scene_287
+                call add_Characters(temp_Characters[0]) from _call_add_Characters_15
 
                 if renpy.showing(f"{temp_Characters[0].tag}_sprite"):
                     call Characters_greet_Player(temp_Characters[0]) from _call_Characters_greet_Player
@@ -43,21 +43,21 @@ label find_a_seat:
             menu:
                 extend ""
                 "Sit next to [temp_Characters[0].name]":
+                    call add_Characters(temp_Characters[0]) from _call_add_Characters_16
+                        
                     $ send_Characters_Offscreen(temp_Characters[1])
-
-                    call set_the_scene(location = "bg_classroom", fade = False) from _call_set_the_scene_288
 
                     if renpy.showing(f"{temp_Characters[0].tag}_sprite"):
                         call Characters_greet_Player(temp_Characters[0]) from _call_Characters_greet_Player_1
                 "Sit next to [temp_Characters[1].name]":
+                    call add_Characters(temp_Characters[1]) from _call_add_Characters_17
+                        
                     $ send_Characters_Offscreen(temp_Characters[0])
-
-                    call set_the_scene(location = "bg_classroom", fade = False) from _call_set_the_scene_289
 
                     if renpy.showing(f"{temp_Characters[1].tag}_sprite"):
                         call Characters_greet_Player(temp_Characters[1]) from _call_Characters_greet_Player_2
                 "Sit between them":
-                    call set_the_scene(location = "bg_classroom", fade = False) from _call_set_the_scene_290
+                    call add_Characters([temp_Characters[0], temp_Characters[1]]) from _call_add_Characters_31
                         
                     $ sorted_Characters = sort_Characters_by_approval(temp_Characters[:])[:]
 
@@ -76,16 +76,16 @@ label find_a_seat:
             menu:
                 extend ""
                 "Sit next to [temp_Characters[0].name]":
-                    $ send_Characters_Offscreen(temp_Characters[1])
+                    call add_Characters(temp_Characters[0]) from _call_add_Characters_32
 
-                    call set_the_scene(location = "bg_classroom", fade = False) from _call_set_the_scene_291
+                    $ send_Characters_Offscreen(temp_Characters[1])
                     
                     if renpy.showing(f"{temp_Characters[0].tag}_sprite"):
                         call Characters_greet_Player(temp_Characters[0]) from _call_Characters_greet_Player_4
                 "Sit next to [temp_Characters[1].name]":
-                    $ send_Characters_Offscreen(temp_Characters[0])
+                    call add_Characters(temp_Characters[1]) from _call_add_Characters_33
 
-                    call set_the_scene(location = "bg_classroom", fade = False) from _call_set_the_scene_292
+                    $ send_Characters_Offscreen(temp_Characters[0])
                         
                     if renpy.showing(f"{temp_Characters[1].tag}_sprite"):
                         call Characters_greet_Player(temp_Characters[1]) from _call_Characters_greet_Player_5
@@ -103,31 +103,31 @@ label find_a_seat:
             menu:
                 extend ""
                 "Sit next to [temp_Characters[0].name]":
+                    call add_Characters(temp_Characters[0]) from _call_add_Characters_35
+
                     $ send_Characters_Offscreen(temp_Characters[1])
                     $ send_Characters_Offscreen(temp_Characters[2])
-
-                    call set_the_scene(location = "bg_classroom", fade = False) from _call_set_the_scene_293
                     
                     if renpy.showing(f"{temp_Characters[0].tag}_sprite"):
                         call Characters_greet_Player(temp_Characters[0]) from _call_Characters_greet_Player_6
                 "Sit next to [temp_Characters[1].name]":
+                    call add_Characters(temp_Characters[1]) from _call_add_Characters_47
+
                     $ send_Characters_Offscreen(temp_Characters[0])
                     $ send_Characters_Offscreen(temp_Characters[2])
-
-                    call set_the_scene(location = "bg_classroom", fade = False) from _call_set_the_scene_294
                         
                     if renpy.showing(f"{temp_Characters[1].tag}_sprite"):
                         call Characters_greet_Player(temp_Characters[1]) from _call_Characters_greet_Player_7
                 "Sit next to [temp_Characters[2].name]":
+                    call add_Characters(temp_Characters[2]) from _call_add_Characters_48
+
                     $ send_Characters_Offscreen(temp_Characters[0])
                     $ send_Characters_Offscreen(temp_Characters[1])
-
-                    call set_the_scene(location = "bg_classroom", fade = False) from _call_set_the_scene_295
                         
                     if renpy.showing(f"{temp_Characters[2].tag}_sprite"):
                         call Characters_greet_Player(temp_Characters[2]) from _call_Characters_greet_Player_8
                 "Sit in the middle of the group":
-                    call set_the_scene(location = "bg_classroom", fade = False) from _call_set_the_scene_296
+                    call add_Characters([temp_Characters[0], temp_Characters[1], temp_Characters[2]]) from _call_add_Characters_85
                         
                     $ sorted_Characters = sort_Characters_by_approval(temp_Characters[:])[:]
 
@@ -146,26 +146,26 @@ label find_a_seat:
             menu:
                 extend ""
                 "Sit next to [temp_Characters[0].name]":
+                    call add_Characters(temp_Characters[0]) from _call_add_Characters_86
+
                     $ send_Characters_Offscreen(temp_Characters[1])
                     $ send_Characters_Offscreen(temp_Characters[2])
-
-                    call set_the_scene(location = "bg_classroom", fade = False) from _call_set_the_scene_297
                         
                     if renpy.showing(f"{temp_Characters[0].tag}_sprite"):
                         call Characters_greet_Player(temp_Characters[0]) from _call_Characters_greet_Player_10
                 "Sit next to [temp_Characters[1].name]":
+                    call add_Characters(temp_Characters[1]) from _call_add_Characters_87
+
                     $ send_Characters_Offscreen(temp_Characters[0])
                     $ send_Characters_Offscreen(temp_Characters[2])
-
-                    call set_the_scene(location = "bg_classroom", fade = False) from _call_set_the_scene_298
                         
                     if renpy.showing(f"{temp_Characters[1].tag}_sprite"):
                         call Characters_greet_Player(temp_Characters[1]) from _call_Characters_greet_Player_11
                 "Sit next to [temp_Characters[2].name]":
+                    call add_Characters(temp_Characters[2]) from _call_add_Characters_88
+
                     $ send_Characters_Offscreen(temp_Characters[0])
                     $ send_Characters_Offscreen(temp_Characters[1])
-
-                    call set_the_scene(location = "bg_classroom", fade = False) from _call_set_the_scene_299
                     
                     if renpy.showing(f"{temp_Characters[2].tag}_sprite"):
                         call Characters_greet_Player(temp_Characters[2]) from _call_Characters_greet_Player_12

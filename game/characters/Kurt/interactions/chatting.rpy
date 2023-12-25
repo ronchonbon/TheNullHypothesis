@@ -240,8 +240,8 @@ label Kurt_busy_late_asked_twice:
         if Player.location == Kurt.location:
             $ Character_picker_disabled = True
                 
-            call Kurt_teleports_out
-            call move_location(Player.location)
+            call Kurt_teleports_out from _call_Kurt_teleports_out_8
+            call move_location(Player.location) from _call_move_location_1
 
     return
 

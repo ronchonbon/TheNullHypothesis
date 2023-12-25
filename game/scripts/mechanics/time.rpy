@@ -50,6 +50,10 @@ init python:
 
                 C.wants_alone_time -= 1 if C.wants_alone_time > 0 else 0
 
+            if C in Sprites:
+                C.change_face()
+                C.change_arms()
+
         return
 
     def reset_Characters_at_end_of_day(Characters = None):

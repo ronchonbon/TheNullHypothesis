@@ -263,7 +263,8 @@ init -2 python:
             return face
 
         def change_arms(self, pose = None, **kwargs):
-            pose = self.default_arms() if not pose else pose
+            if not pose:
+                pose, left_arm, right_arm = self.default_arms()
 
             left_arm = kwargs.get("left_arm", None)
             right_arm = kwargs.get("right_arm", None)
@@ -286,20 +287,81 @@ init -2 python:
             return
 
         def default_arms(self):
-            if self.status["miffed"] or self.status["mad"]:
-                pose = "neutral"
-            elif self.status["heartbroken"]:
-                pose = "neutral"
-            elif self.status["horny"]:
-                pose = "neutral"
-            elif self.status["nympho"]:
-                pose = "neutral"
-            # elif approval_check(self, threshold = "love"):
-            #     pose = "neutral"
-            else:
-                pose = "neutral"
+            pose = "neutral"
+            left_arm = None
+            right_arm = None
 
-            return pose
+            if self.status["miffed"] or self.status["mad"]:
+                if renpy.random.random() > 0.75:
+                    pose = "angry"
+                elif renpy.random.random() > 0.5:
+                    pose = "crossed"
+                elif renpy.random.random() > 0.25:
+                    pose = "hips"
+                else:
+                    pose = "neutral"
+            elif self.status["heartbroken"]:
+                if renpy.random.random() > 0.75:
+                    if self.tag in ["Rogue"]:
+                        left_arm = "rub_neck"
+                        right_arm = "neutral"
+                    elif self.tag in ["Laura"]:
+                        pose = "angry"
+                    elif self.tag in ["Jean"]:
+                        pose = "sass"
+                elif renpy.random.random() > 0.5:
+                    pose = "crossed"
+                elif renpy.random.random() > 0.25:
+                    pose = "hips"
+                else:
+                    pose = "neutral"
+            elif self.status["horny"]:
+                if renpy.random.random() > 0.75:
+                    if self.tag in ["Rogue"]:
+                        left_arm = "rub_neck"
+                        right_arm = "neutral"
+                    elif self.tag in ["Laura"]:
+                        pose = "angry"
+                    elif self.tag in ["Jean"]:
+                        pose = "sass"
+                elif renpy.random.random() > 0.5:
+                    pose = "crossed"
+                elif renpy.random.random() > 0.25:
+                    pose = "hips"
+                else:
+                    pose = "neutral"
+            elif self.status["nympho"]:
+                if renpy.random.random() > 0.75:
+                    if self.tag in ["Rogue"]:
+                        left_arm = "rub_neck"
+                        right_arm = "neutral"
+                    elif self.tag in ["Laura"]:
+                        pose = "angry"
+                    elif self.tag in ["Jean"]:
+                        pose = "sass"
+                elif renpy.random.random() > 0.5:
+                    pose = "crossed"
+                elif renpy.random.random() > 0.25:
+                    pose = "hips"
+                else:
+                    pose = "neutral"
+            else:
+                if renpy.random.random() > 0.75:
+                    if self.tag in ["Rogue"]:
+                        left_arm = "rub_neck"
+                        right_arm = "neutral"
+                    elif self.tag in ["Laura"]:
+                        pose = "angry"
+                    elif self.tag in ["Jean"]:
+                        pose = "sass"
+                elif renpy.random.random() > 0.5:
+                    pose = "crossed"
+                elif renpy.random.random() > 0.25:
+                    pose = "hips"
+                else:
+                    pose = "neutral"
+
+            return pose, left_arm, right_arm
 
         def travel(self):
             if self.location != "hold":

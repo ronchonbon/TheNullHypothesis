@@ -181,10 +181,8 @@ label hide_Character(Character, fade = 0.5, send_Offscreen = True):
 
     $ Character.sprite_position = [0.0, eval(f"{Character.tag}_standing_height")]
 
-    $ Character.left_arm = "neutral"
-    $ Character.right_arm = "neutral"
-
     $ Character.change_face()
+    $ Character.change_arms()
 
     if send_Offscreen:
         if Character == left_Slot:

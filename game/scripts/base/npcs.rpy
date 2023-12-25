@@ -103,7 +103,8 @@ init -2 python:
             return "neutral"
 
         def change_arms(self, pose = None, **kwargs):
-            pose = self.default_arms() if not pose else pose
+            if not pose:
+                pose, left_arm, right_arm = self.default_arms()
 
             left_arm = kwargs.get("left_arm", None)
             right_arm = kwargs.get("right_arm", None)
@@ -126,7 +127,16 @@ init -2 python:
             return
 
         def default_arms(self):
-            return "neutral"
+            pose = "neutral"
+            left_arm = None
+            right_arm = None
+
+            if renpy.random.random() > 0.5:
+                pose = "neutral"
+            else:
+                pose = "crossed"
+
+            return pose, left_arm, right_arm
 
         def travel(self):
             if self.location != "hold":
