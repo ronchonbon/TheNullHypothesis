@@ -1,3 +1,40 @@
+# image Rogue_missionary = Live2D("characters/Rogue/images/missionary/Rogue_missionary.model3.json", loop = True, default_fade = 0.0)
+
+# image 2_x3_male_knees_green_sex = renpy.displayable("Rogue_missionary 2_x3_male_knees_green_sex")
+# image 2_x3_base = renpy.displayable("Rogue_missionary 2_x3_base")
+# image 2_x3_cock_green_sex = renpy.displayable("Rogue_missionary 2_x3_cock_green_sex")
+
+# layeredimage Rogue_missionary layered:
+#     # always:
+#     #     "2_x3_right_arm"
+
+#     always:
+#         "2_x3_male_knees_green_sex"
+
+#     always:
+#         "2_x3_base"
+
+#     # always:
+#     #     "2_x3_mouth_happy"
+
+#     # always:
+#     #     "2_x3_eyes_neutral"
+
+#     # always:
+#     #     "2_x3_brows_neutral"
+
+#     # always:
+#     #     "2_x3_anus_sex"
+
+#     # always:
+#     #     "2_x3_pussy_sex"
+
+#     # always:
+#     #     "2_x3_male_body"
+
+#     # always:
+#     #     AlphaMask("2_x3_cock_green_sex", "2_x3_mask_sex")
+
 transform tremble(repetitions):
     subpixel True
     transform_anchor True

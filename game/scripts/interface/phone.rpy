@@ -1368,8 +1368,8 @@ screen config_screen():
 
             fixed xysize (320, 64):
                 imagebutton anchor (0.0, 0.5) pos (0.0, 0.5):
-                    idle "images/interface/Player_customization/left_idle.webp" 
-                    hover "images/interface/Player_customization/left.webp"
+                    idle At("images/interface/Player_customization/left_idle.webp", interface)
+                    hover At("images/interface/Player_customization/left.webp", interface)
 
                     action SetVariable("Player.phone_frame", (Player.phone_frame - 1) % 7)
 
@@ -1377,8 +1377,8 @@ screen config_screen():
                     size 32
 
                 imagebutton anchor (1.0, 0.5) pos (1.0, 0.5):
-                    idle "images/interface/Player_customization/right_idle.webp" 
-                    hover "images/interface/Player_customization/right.webp"
+                    idle At("images/interface/Player_customization/right_idle.webp", interface)
+                    hover At("images/interface/Player_customization/right.webp", interface)
 
                     action SetVariable("Player.phone_frame", (Player.phone_frame + 1) % 7)
 
@@ -1390,8 +1390,8 @@ screen config_screen():
 
             fixed xysize (320, 64):
                 imagebutton anchor (0.0, 0.5) pos (0.0, 0.5):
-                    idle "images/interface/Player_customization/left_idle.webp" 
-                    hover "images/interface/Player_customization/left.webp"
+                    idle At("images/interface/Player_customization/left_idle.webp", interface)
+                    hover At("images/interface/Player_customization/left.webp", interface)
 
                     action SetVariable("Player.phone_wallpaper", (Player.phone_wallpaper - 1) % 7)
 
@@ -1408,8 +1408,8 @@ screen config_screen():
                     size 32
 
                 imagebutton anchor (1.0, 0.5) pos (1.0, 0.5):
-                    idle "images/interface/Player_customization/right_idle.webp" 
-                    hover "images/interface/Player_customization/right.webp"
+                    idle At("images/interface/Player_customization/right_idle.webp", interface)
+                    hover At("images/interface/Player_customization/right.webp", interface)
 
                     action SetVariable("Player.phone_wallpaper", (Player.phone_wallpaper + 1) % 7)
 
@@ -1421,8 +1421,8 @@ screen config_screen():
 
             fixed xysize (320, 64):
                 imagebutton anchor (0.0, 0.5) pos (0.0, 0.5):
-                    idle "images/interface/Player_customization/left_idle.webp"
-                    hover "images/interface/Player_customization/left.webp"
+                    idle At("images/interface/Player_customization/left_idle.webp", interface)
+                    hover At("images/interface/Player_customization/left.webp", interface)
 
                     action ToggleVariable("humhum_hidden")
 
@@ -1434,8 +1434,8 @@ screen config_screen():
                         size 32
 
                 imagebutton anchor (1.0, 0.5) pos (1.0, 0.5):
-                    idle "images/interface/Player_customization/right_idle.webp" 
-                    hover "images/interface/Player_customization/right.webp"
+                    idle At("images/interface/Player_customization/right_idle.webp", interface)
+                    hover At("images/interface/Player_customization/right.webp", interface)
 
                     action ToggleVariable("humhum_hidden")
 
@@ -1447,8 +1447,8 @@ screen config_screen():
 
             fixed xysize (320, 64):
                 imagebutton anchor (0.0, 0.5) pos (0.0, 0.5):
-                    idle "images/interface/Player_customization/left_idle.webp" 
-                    hover "images/interface/Player_customization/left.webp"
+                    idle At("images/interface/Player_customization/left_idle.webp", interface)
+                    hover At("images/interface/Player_customization/left.webp", interface)
 
                     action [
                         Play("sound", f"sounds/ringtones/{(Player.ringtone - 1) % len(available_ringtones)}.ogg"),
@@ -1458,8 +1458,8 @@ screen config_screen():
                     size 32
 
                 imagebutton anchor (1.0, 0.5) pos (1.0, 0.5):
-                    idle "images/interface/Player_customization/right_idle.webp" 
-                    hover "images/interface/Player_customization/right.webp"
+                    idle At("images/interface/Player_customization/right_idle.webp", interface)
+                    hover At("images/interface/Player_customization/right.webp", interface)
 
                     action [
                         Play("sound", f"sounds/ringtones/{(Player.ringtone + 1) % len(available_ringtones)}.ogg"),

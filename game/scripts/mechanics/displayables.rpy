@@ -1,7 +1,7 @@
 init python:
 
     def get_color_transform(location):
-        if location in ["bg_campus", "bg_pool"] and weather in ["rain", "snow"]:
+        if location in ["bg_campus", "bg_pool"] and weather in ["rain", "snow"] and time_index < 2:
             color_transform = raining
         elif (location in bedrooms or location in ["bg_campus", "bg_classroom", "bg_mall", "bg_pool"]) and time_index == 0:
             color_transform = morning

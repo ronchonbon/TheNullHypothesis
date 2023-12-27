@@ -3,6 +3,9 @@
 *.rpyc
 
 *.webp
+*.png
+*.moc3
+*.json
 
 *.ogg
 
@@ -11,8 +14,6 @@
 *.txt
 
 *.bak
-
-*.json
 
 .vscode/
 

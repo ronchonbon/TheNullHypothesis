@@ -112,12 +112,6 @@ init -99:
     transform blurred_background:
         blur 100
 
-    transform inverse_background_scale:
-        transform_anchor True
-
-        align (0.5, 0.5)
-        zoom 1.0/background_adjustment
-
     transform interface:
         transform_anchor True
 

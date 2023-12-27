@@ -128,6 +128,8 @@ label set_the_scene(location = None, show_Characters = True, show_Party = True, 
                 if C.location in ["bg_campus", "bg_pool"] and weather == "rain":
                     C.wet = True
 
+        $ color_transform = get_color_transform(location = Player.location)
+
         if show_Background and location in location_Slots.keys():
             $ renpy.dynamic(temp_Characters = Present[:])
 
@@ -141,8 +143,6 @@ label set_the_scene(location = None, show_Characters = True, show_Party = True, 
                 $ temp_Characters.remove(right_Slot)
 
             while temp_Characters:
-                $ color_transform = get_color_transform(location = Player.location)
-
                 $ chosen_Slot = None
 
                 python:
@@ -200,7 +200,7 @@ label set_the_scene(location = None, show_Characters = True, show_Party = True, 
 
             $ temp_Characters.remove(temp_Characters[0])
 
-        if right_Slot and (not renpy.showing(f"{right_Slot.tag}_sprite") or right_Slot.sprite_position[0] != stage_far_right):
+        if right_Slot and (not renpy.showing(f"{right_Slot.tag}_sprite") or right_Slot.sprite_position[0] != stage_far_right or color_transform):
             $ renpy.dynamic(temp_Characters = Present[:])
 
             while temp_Characters:
@@ -209,9 +209,9 @@ label set_the_scene(location = None, show_Characters = True, show_Party = True, 
 
                 $ temp_Characters.remove(temp_Characters[0])
 
-            call show_Character(right_Slot, x = stage_far_right, fade = fade_Characters) from _call_show_Character_13
+            call show_Character(right_Slot, x = stage_far_right, color_transforms = [color_transform], fade = fade_Characters) from _call_show_Character_13
 
-        if left_Slot and (not renpy.showing(f"{left_Slot.tag}_sprite") or left_Slot.sprite_position[0] != stage_left):
+        if left_Slot and (not renpy.showing(f"{left_Slot.tag}_sprite") or left_Slot.sprite_position[0] != stage_left or color_transform):
             $ renpy.dynamic(temp_Characters = Present[:])
 
             while temp_Characters:
@@ -220,7 +220,7 @@ label set_the_scene(location = None, show_Characters = True, show_Party = True, 
 
                 $ temp_Characters.remove(temp_Characters[0])
 
-            call show_Character(left_Slot, x = stage_left, fade = fade_Characters) from _call_show_Character_14
+            call show_Character(left_Slot, x = stage_left, color_transforms = [color_transform], fade = fade_Characters) from _call_show_Character_14
 
         if left_Slot and right_Slot:
             $ x = (stage_left + stage_far_right)/2
@@ -231,7 +231,7 @@ label set_the_scene(location = None, show_Characters = True, show_Party = True, 
         else:
             $ x = stage_center
 
-        if middle_Slot and (not renpy.showing(f"{middle_Slot.tag}_sprite") or middle_Slot.sprite_position[0] != x):
+        if middle_Slot and (not renpy.showing(f"{middle_Slot.tag}_sprite") or middle_Slot.sprite_position[0] != x or color_transform):
             $ renpy.dynamic(temp_Characters = Present[:])
 
             while temp_Characters:
@@ -240,7 +240,7 @@ label set_the_scene(location = None, show_Characters = True, show_Party = True, 
 
                 $ temp_Characters.remove(temp_Characters[0])
 
-            call show_Character(middle_Slot, x = x, fade = fade_Characters) from _call_show_Character_15
+            call show_Character(middle_Slot, x = x, color_transforms = [color_transform], fade = fade_Characters) from _call_show_Character_15
 
     $ renpy.dynamic(temp_Characters = Present[:])
 
