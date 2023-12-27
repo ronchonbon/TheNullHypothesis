@@ -21,6 +21,8 @@ init -1:
     default unread_messages = {}
     default blah_yadjustment = ui.adjustment()
 
+    default daily_bungle_ad = 1
+    default daily_bungle_article = None
     default daily_bungle_yadjustment = ui.adjustment()
 
     default available_songs = []
@@ -77,6 +79,15 @@ image humhum_animation:
     pause 0.15
     "humhum_animation3"
     pause 0.15
+    repeat
+
+image achievements_animation:
+    "images/interface/phone/achievements_animation_frame1.webp"
+    pause 0.5
+    "images/interface/phone/achievements_animation_frame2.webp"
+    pause 0.5
+    # "images/interface/phone/achievements_animation_frame3.webp"
+    # pause 0.5
     repeat
 
 style phone is default
@@ -169,12 +180,16 @@ screen phone_screen():
                 use humhum_choice_screen
             elif current_phone_screen == "humhum":
                 use humhum_screen
-            # elif current_phone_screen == "news":
-            #     use news_screen
-            # elif current_phone_screen == "remote":
-            #     use remote_screen
-            # elif current_phone_screen == "achievements":
-            #     use achievements_screen
+            elif current_phone_screen == "news":
+                use news_screen
+            elif current_phone_screen == "remote":
+                use remote_screen
+            elif current_phone_screen == "achievements_home":
+                use achievements_home_screen
+            elif current_phone_screen == "achievements_list":
+                use achievements_list_screen
+            # elif current_phone_screen == "achievements_shop":
+            #     use achievements_shop_screen
             elif current_phone_screen == "music":
                 use music_screen
             elif current_phone_screen == "config":
@@ -204,6 +219,8 @@ screen phone_screen():
                         action [
                             Function(renpy.call_in_new_context, "read_texts", current_phone_Character, override = True),
                             SetVariable("current_phone_screen", current_phone_screen + "_choice")]
+                    elif current_phone_screen in ["achievements_list", "achievements_shop"]:
+                        action SetVariable("current_phone_screen", "achievements_home")
                     else:
                         action SetVariable("current_phone_screen", "home")
                 else:
@@ -499,7 +516,9 @@ screen app_screen():
         idle At("images/interface/phone/icons/daily_bungle_idle.webp", phone_icon) hover At("images/interface/phone/icons/daily_bungle.webp", phone_icon)
         
         if phone_interactable and not phone_disabled:
-            action SetVariable("current_phone_screen", "news")
+            action [
+                SetVariable("daily_bungle_ad", renpy.random.choice([1, 2, 3, 4])),
+                SetVariable("current_phone_screen", "news")]
         else:
             action None
 
@@ -528,7 +547,7 @@ screen app_screen():
         if phone_interactable and not phone_disabled:
             action [
                 SetVariable("loading", True),
-                SetVariable("current_phone_screen", "achievements")]
+                SetVariable("current_phone_screen", "achievements_home")]
         else:
             action None
 
@@ -928,140 +947,10 @@ screen text_history(Character):
 
                 $ last_status = status
 
-screen music_screen():
-    style_prefix "phone"
-
-    $ file_list = renpy.list_files()
-    $ song_list = []
-    $ current_song = 0
-    
-    for file in file_list:
-        if len(file.split("/")) > 1 and file.split("/")[-2] == "music":
-            if file.split("/")[-1].split(".")[0] in available_songs:
-                $ song_list.append(file)
-
-    for f, file in enumerate(song_list):
-        if file == renpy.music.get_playing():
-            $ current_song = f
-
-    add At("images/interface/phone/music_background.webp", interface)
-
-    text "MUSIC PLAYER" anchor (0.0, 0.5) pos (0.402, 0.118):
-        size 50
-
-        color "#ffffff"
-
-    if renpy.music.get_playing():
-        text renpy.music.get_playing().split("/")[-1].split(".")[0] anchor (0.0, 0.5) pos (0.46, 0.19):
-            size 45
-
-        bar value AudioPositionValue(channel = 'music') anchor (0.0, 0.5) pos (0.46, 0.22) xysize (int(576*interface_new_adjustment), int(16*interface_new_adjustment)):
-            left_bar At("images/interface/phone/music_bar.webp", interface)
-            right_bar At("images/interface/phone/music_bar_empty.webp", interface)
-
-            thumb None
-            thumb_offset 0
-
-    imagebutton:
-        idle At("images/interface/phone/music_shuffle_idle.webp", interface)
-        hover At("images/interface/phone/music_shuffle.webp", interface)
-
-        if phone_interactable and not phone_disabled:
-            action Play("music", song_list[(renpy.random.randint(0, len(song_list))) % len(song_list)], loop = music_repeating)
-        else:
-            action None
-
-    imagebutton:
-        idle At("images/interface/phone/music_left_idle.webp", interface)
-        hover At("images/interface/phone/music_left.webp", interface)
-        
-        if phone_interactable and not phone_disabled:
-            action Play("music", song_list[(current_song - 1) % len(song_list)], loop = music_repeating)
-        else:
-            action None
-
-    if renpy.music.get_pause():
-        imagebutton:
-            idle At("images/interface/phone/music_play.webp", interface)
-            hover At("images/interface/phone/music_pause.webp", interface)
-            
-            if phone_interactable and not phone_disabled:
-                action PauseAudio("music", value = False)
-            else:
-                action None
-    else:
-        imagebutton:
-            idle At("images/interface/phone/music_pause.webp", interface)
-            hover At("images/interface/phone/music_play.webp", interface)
-            
-            if phone_interactable and not phone_disabled:
-                action PauseAudio("music", value = True)
-            else:
-                action None
-
-    imagebutton:
-        idle At("images/interface/phone/music_right_idle.webp", interface)
-        hover At("images/interface/phone/music_right.webp", interface)
-        
-        if phone_interactable and not phone_disabled:
-            action Play("music", song_list[(current_song + 1) % len(song_list)], loop = music_repeating)
-        else:
-            action None
-
-    imagebutton:
-        idle At("images/interface/phone/music_repeat_idle.webp", interface)
-        hover At("images/interface/phone/music_repeat.webp", interface)
-        selected_idle At("images/interface/phone/music_repeat.webp", interface)
-        
-        selected music_repeating
-
-        if phone_interactable and not phone_disabled:
-            if music_repeating:
-                action [
-                    Play("music", song_list[current_song], loop = False),
-                    SetVariable("music_repeating", False)]
-            else:
-                action [
-                    Play("music", song_list[current_song], loop = True),
-                    SetVariable("music_repeating", True)]
-        else:
-            action None
-
-    viewport id "music_screen_viewport" anchor (0.5, 0.0) pos (0.487, 0.378) xysize (int(847*interface_new_adjustment), int(1035*interface_new_adjustment)):
-        draggable True
-        mousewheel True
-
-        vbox xsize 1.0:
-            spacing 10
-
-            for file in song_list:
-                button xalign 0.0 xysize (int(847*interface_new_adjustment), int(140*interface_new_adjustment)):
-                    idle_background At("images/interface/phone/music_song_idle.webp", interface)
-                    hover_background At("images/interface/phone/music_song.webp", interface)
-                    selected_idle_background At("images/interface/phone/music_song.webp", interface)
-
-                    selected file == renpy.music.get_playing()
-
-                    text file.split("/")[-1].split(".")[0] anchor (0.0, 0.5) pos (0.1, 0.5):
-                        size 32
-
-                    if phone_interactable and not phone_disabled:
-                        action Play("music", file, loop = music_repeating)
-                    else:
-                        action None
-
-    vbar value YScrollValue("music_screen_viewport") anchor (0.0, 0.0) pos (0.605, 0.378) xysize (int(29*interface_new_adjustment), int(1035*interface_new_adjustment)):
-        base_bar At("images/interface/phone/music_scrollbar.webp", interface)
-
-        thumb At("images/interface/phone/music_scrollbar_thumb.webp", interface)
-        thumb_offset int(72*interface_new_adjustment/2/3)
-
-        unscrollable "hide"
-
 screen humhum_home_screen():
     style_prefix "phone"
 
-    timer 0.5 action SetVariable("loading", False)
+    timer 0.45 action SetVariable("loading", False)
 
     if loading:
         add At("humhum_animation", interface)
@@ -1194,7 +1083,7 @@ screen humhum_home_screen():
 screen humhum_choice_screen():
     style_prefix "phone"
 
-    timer 0.5 action SetVariable("loading", False)
+    timer 0.45 action SetVariable("loading", False)
 
     if loading:
         add At("humhum_animation", interface)
@@ -1367,6 +1256,330 @@ screen humhum_screen():
             action SetVariable("current_phone_screen", "humhum_choice")
         else:
             action None
+
+screen news_screen():
+    style_prefix "phone"
+
+    add At("images/interface/phone/daily_bungle_background.webp", interface)
+
+    text "THE DAILY BUNGLE" anchor (0.0, 0.5) pos (0.402, 0.118):
+        size 50
+
+        color "#ffffff"
+
+    add At("images/interface/phone/daily_bungle_ad[daily_bungle_ad].webp", interface)
+
+    if daily_bungle_article is not None:
+        add At("images/interface/phone/daily_bungle_article.webp", interface) anchor (0.5, 0.0) pos (0.49, 0.41)
+
+        vpgrid id "news_screen_viewport" anchor (0.5, 0.0) pos (0.49, 0.41) xysize (int(887*interface_new_adjustment), int(990*interface_new_adjustment)):
+            cols 1
+
+            spacing 15
+
+            draggable True
+            mousewheel True
+    else:
+        vpgrid id "news_screen_viewport" anchor (0.5, 0.0) pos (0.49, 0.41) xysize (int(887*interface_new_adjustment), int(990*interface_new_adjustment)):
+            cols 1
+
+            spacing 15
+
+            draggable True
+            mousewheel True
+
+            fixed xysize (1.0, int(495*interface_new_adjustment)):
+                add At("images/interface/phone/daily_bungle_article_panel.webp", interface)
+
+            fixed xysize (1.0, int(495*interface_new_adjustment)):
+                add At("images/interface/phone/daily_bungle_article_panel.webp", interface)
+
+            fixed xysize (1.0, int(495*interface_new_adjustment)):
+                add At("images/interface/phone/daily_bungle_article_panel.webp", interface)
+
+            fixed xysize (1.0, int(495*interface_new_adjustment)):
+                add At("images/interface/phone/daily_bungle_article_panel.webp", interface)
+
+    vbar value YScrollValue("news_screen_viewport") anchor (0.0, 0.0) pos (0.614, 0.41) xysize (int(32*interface_new_adjustment), int(990*interface_new_adjustment)):
+        base_bar At("images/interface/phone/daily_bungle_scrollbar.webp", interface)
+
+        thumb At("images/interface/phone/daily_bungle_scrollbar_thumb.webp", interface)
+        thumb_offset int(72*interface_new_adjustment/2/3)
+
+        unscrollable "hide"
+
+screen remote_screen():
+    style_prefix "phone"
+
+    add At("images/interface/phone/hot_control_background.webp", interface)
+
+    text "HOT CONTROL" anchor (0.0, 0.5) pos (0.402, 0.118):
+        size 50
+
+        color "#ffffff"
+
+    bar value 0.0 anchor (0.5, 0.5) pos (0.495, 0.618) xysize (int(397*interface_new_adjustment), int(63*interface_new_adjustment)):
+        left_bar At("images/interface/phone/hot_control_intensity.webp", interface)
+        right_bar At("images/interface/phone/hot_control_intensity.webp", interface)
+
+        thumb Frame(At("images/interface/phone/hot_control_selector.webp", interface))
+        thumb_offset int(22*interface_new_adjustment)
+
+    imagebutton:
+        idle At("images/interface/phone/hot_control_off.webp", interface)
+        hover At("images/interface/phone/hot_control_on.webp", interface)
+        selected_idle At("images/interface/phone/hot_control_on.webp", interface)
+
+        if phone_interactable and not phone_disabled:
+            action NullAction()
+        else:
+            action None
+
+    imagebutton:
+        idle At("images/interface/phone/hot_control_left_idle.webp", interface)
+        hover At("images/interface/phone/hot_control_left.webp", interface)
+
+        if phone_interactable and not phone_disabled:
+            action NullAction()
+        else:
+            action None
+
+    if focused_Character:
+        text focused_Character.name anchor (0.5, 0.5) pos (0.495, 0.228):
+            size 50
+
+    imagebutton:
+        idle At("images/interface/phone/hot_control_right_idle.webp", interface)
+        hover At("images/interface/phone/hot_control_right.webp", interface)
+
+        if phone_interactable and not phone_disabled:
+            action NullAction()
+        else:
+            action None
+
+screen achievements_home_screen():
+    style_prefix "phone"
+
+    timer 1.0 action SetVariable("loading", False)
+
+    if loading:
+        add At("achievements_animation", interface)
+    else:
+        add At("images/interface/phone/achievements_home_background.webp", interface)
+
+        add At("images/interface/phone/achievements_top.webp", interface)
+
+        text "ACHIEVEMENTS" anchor (0.0, 0.5) pos (0.402, 0.118):
+            size 50
+
+            color "#ffffff"
+
+        add At("images/interface/phone/achievements_total_box.webp", interface)
+
+        text "TOTAL ACHIEVEMENTS" anchor (0.5, 0.5) pos (0.496, 0.71):
+            font "agency_fb_bold.ttf"
+
+            size 40
+
+            color "#801a48"
+
+        text "69/69" anchor (0.5, 0.5) pos (0.496, 0.77):
+            font "agency_fb_bold.ttf"
+
+            size 70
+
+            color "#ffffff"
+
+        add At("images/interface/phone/achievements_trophy_foil.webp", interface) anchor (0.5, 0.5) pos (0.57, 0.775)
+
+        add At(At("images/interface/phone/achievements_trophy_sparkle.webp", interface), pulse(1.0)) anchor (0.5, 0.5) pos (0.57, 0.775)
+
+        button anchor (0.5, 0.5) pos (0.558, 0.233) xysize (int(458*interface_new_adjustment), int(367*interface_new_adjustment)):
+            idle_background At("images/interface/phone/achievements_button_idle.webp", interface)
+            hover_background At("images/interface/phone/achievements_button.webp", interface)
+
+            text "LIST":
+                font "agency_fb_bold.ttf"
+
+                size 120
+
+                idle_color "#801a48"
+                hover_color "#16172b"
+
+            if phone_interactable and not phone_disabled:
+                action SetVariable("current_phone_screen", "achievements_list")
+            else:
+                action None
+
+screen achievements_list_screen():
+    style_prefix "phone"
+
+    add At("images/interface/phone/achievements_list_background.webp", interface)
+
+    add At("images/interface/phone/achievements_top.webp", interface)
+
+    text "ACHIEVEMENTS" anchor (0.0, 0.5) pos (0.402, 0.118):
+        size 50
+
+        color "#ffffff"
+
+    vpgrid id "achievements_list_screen_viewport" anchor (0.5, 0.0) pos (0.496, 0.165) xysize (int(927*interface_new_adjustment), int(1491*interface_new_adjustment)):
+        cols 1
+
+        spacing 15
+
+        draggable True
+        mousewheel True
+
+        fixed xysize (1.0, int(202*interface_new_adjustment)):
+            add At("images/interface/phone/achievements_list_box.webp", interface)
+
+        fixed xysize (1.0, int(202*interface_new_adjustment)):
+            add At("images/interface/phone/achievements_list_box.webp", interface)
+
+        fixed xysize (1.0, int(202*interface_new_adjustment)):
+            add At("images/interface/phone/achievements_list_box.webp", interface)
+
+        fixed xysize (1.0, int(202*interface_new_adjustment)):
+            add At("images/interface/phone/achievements_list_box.webp", interface)
+
+    vbar value YScrollValue("achievements_list_screen_viewport") anchor (0.0, 0.0) pos (0.614, 0.165) xysize (int(28*interface_new_adjustment), int(1491*interface_new_adjustment)):
+        base_bar At("images/interface/phone/achievements_scrollbar.webp", interface)
+
+        thumb At("images/interface/phone/achievements_scrollbar_thumb.webp", interface)
+        thumb_offset int(72*interface_new_adjustment/2/3)
+
+        unscrollable "hide"
+
+screen music_screen():
+    style_prefix "phone"
+
+    $ file_list = renpy.list_files()
+    $ song_list = []
+    $ current_song = 0
+    
+    for file in file_list:
+        if len(file.split("/")) > 1 and file.split("/")[-2] == "music":
+            if file.split("/")[-1].split(".")[0] in available_songs:
+                $ song_list.append(file)
+
+    for f, file in enumerate(song_list):
+        if file == renpy.music.get_playing():
+            $ current_song = f
+
+    add At("images/interface/phone/music_background.webp", interface)
+
+    text "MUSIC PLAYER" anchor (0.0, 0.5) pos (0.402, 0.118):
+        size 50
+
+        color "#ffffff"
+
+    if renpy.music.get_playing():
+        text renpy.music.get_playing().split("/")[-1].split(".")[0] anchor (0.0, 0.5) pos (0.46, 0.19):
+            size 45
+
+        bar value AudioPositionValue(channel = 'music') anchor (0.0, 0.5) pos (0.46, 0.22) xysize (int(576*interface_new_adjustment), int(16*interface_new_adjustment)):
+            left_bar At("images/interface/phone/music_bar.webp", interface)
+            right_bar At("images/interface/phone/music_bar_empty.webp", interface)
+
+            thumb None
+            thumb_offset 0
+
+    imagebutton:
+        idle At("images/interface/phone/music_shuffle_idle.webp", interface)
+        hover At("images/interface/phone/music_shuffle.webp", interface)
+
+        if phone_interactable and not phone_disabled:
+            action Play("music", song_list[(renpy.random.randint(0, len(song_list))) % len(song_list)], loop = music_repeating)
+        else:
+            action None
+
+    imagebutton:
+        idle At("images/interface/phone/music_left_idle.webp", interface)
+        hover At("images/interface/phone/music_left.webp", interface)
+        
+        if phone_interactable and not phone_disabled:
+            action Play("music", song_list[(current_song - 1) % len(song_list)], loop = music_repeating)
+        else:
+            action None
+
+    if renpy.music.get_pause():
+        imagebutton:
+            idle At("images/interface/phone/music_play.webp", interface)
+            hover At("images/interface/phone/music_pause.webp", interface)
+            
+            if phone_interactable and not phone_disabled:
+                action PauseAudio("music", value = False)
+            else:
+                action None
+    else:
+        imagebutton:
+            idle At("images/interface/phone/music_pause.webp", interface)
+            hover At("images/interface/phone/music_play.webp", interface)
+            
+            if phone_interactable and not phone_disabled:
+                action PauseAudio("music", value = True)
+            else:
+                action None
+
+    imagebutton:
+        idle At("images/interface/phone/music_right_idle.webp", interface)
+        hover At("images/interface/phone/music_right.webp", interface)
+        
+        if phone_interactable and not phone_disabled:
+            action Play("music", song_list[(current_song + 1) % len(song_list)], loop = music_repeating)
+        else:
+            action None
+
+    imagebutton:
+        idle At("images/interface/phone/music_repeat_idle.webp", interface)
+        hover At("images/interface/phone/music_repeat.webp", interface)
+        selected_idle At("images/interface/phone/music_repeat.webp", interface)
+        
+        selected music_repeating
+
+        if phone_interactable and not phone_disabled:
+            if music_repeating:
+                action [
+                    Play("music", song_list[current_song], loop = False),
+                    SetVariable("music_repeating", False)]
+            else:
+                action [
+                    Play("music", song_list[current_song], loop = True),
+                    SetVariable("music_repeating", True)]
+        else:
+            action None
+
+    viewport id "music_screen_viewport" anchor (0.5, 0.0) pos (0.487, 0.378) xysize (int(847*interface_new_adjustment), int(1035*interface_new_adjustment)):
+        draggable True
+        mousewheel True
+
+        vbox xsize 1.0:
+            spacing 10
+
+            for file in song_list:
+                button xalign 0.0 xysize (int(847*interface_new_adjustment), int(140*interface_new_adjustment)):
+                    idle_background At("images/interface/phone/music_song_idle.webp", interface)
+                    hover_background At("images/interface/phone/music_song.webp", interface)
+                    selected_idle_background At("images/interface/phone/music_song.webp", interface)
+
+                    selected file == renpy.music.get_playing()
+
+                    text file.split("/")[-1].split(".")[0] anchor (0.0, 0.5) pos (0.1, 0.5):
+                        size 32
+
+                    if phone_interactable and not phone_disabled:
+                        action Play("music", file, loop = music_repeating)
+                    else:
+                        action None
+
+    vbar value YScrollValue("music_screen_viewport") anchor (0.0, 0.0) pos (0.605, 0.378) xysize (int(29*interface_new_adjustment), int(1035*interface_new_adjustment)):
+        base_bar At("images/interface/phone/music_scrollbar.webp", interface)
+
+        thumb At("images/interface/phone/music_scrollbar_thumb.webp", interface)
+        thumb_offset int(72*interface_new_adjustment/2/3)
+
+        unscrollable "hide"
 
 screen config_screen():
     style_prefix "phone"
