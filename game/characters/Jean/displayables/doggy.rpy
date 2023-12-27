@@ -285,9 +285,13 @@ layeredimage Jean_doggy_ass:
     elif "pubic" in Jean.body_hair_growing.keys():
         "characters/Jean/images/doggy/pubes_growing.webp"
 
-    if Jean.Clothes["underwear"].string and Jean.Clothes["underwear"].state == 0:
+    if not Jean.body_hair["pubic"] or (Jean.Clothes["underwear"].string and Jean.Clothes["underwear"].state == 0):
         Null()
-    elif Jean.body_hair["pubic"]:
+    elif "triangle" in Jean.body_hair["pubic"]:
+        "characters/Jean/images/doggy/pubes_triangle.webp"
+    elif "strip" in Jean.body_hair["pubic"]:
+        "characters/Jean/images/doggy/pubes_strip.webp"
+    else:
         "characters/Jean/images/doggy/pubes_[Jean.body_hair[pubic]].webp"
 
     if Jean.Clothes["underwear"].string and Jean.Clothes["underwear"].state == 0:

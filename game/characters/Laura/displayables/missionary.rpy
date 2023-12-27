@@ -338,7 +338,13 @@ layeredimage Laura_missionary_thighs:
     if "pubic" in Laura.body_hair_growing.keys():
         "characters/Laura/images/missionary/pubes_growing.webp"
 
-    if Laura.body_hair["pubic"]:
+    if not Laura.body_hair["pubic"]:
+        Null()
+    elif "triangle" in Laura.body_hair["pubic"]:
+        "characters/Laura/images/missionary/pubes_triangle.webp"
+    elif "strip" in Laura.body_hair["pubic"]:
+        "characters/Laura/images/missionary/pubes_strip.webp"
+    else:
         "characters/Laura/images/missionary/pubes_[Laura.body_hair[pubic]].webp"
 
     if Laura.remote_vibrator:
@@ -614,13 +620,17 @@ layeredimage Laura_missionary_hair:
     # if Laura.wet or Laura.Clothes["hair"].string == "wet":
     #     "characters/Laura/images/missionary/hair_shadow_wet.webp"
     # else:
-    always:
+    if Laura.Clothes["hair"].string in ["bun", "tucked"]:
+        "characters/Laura/images/missionary/hair_shadow_straight.webp"
+    else:
         "characters/Laura/images/missionary/hair_shadow_[Laura.Clothes[hair].string].webp"
 
     # if Laura.wet or Laura.Clothes["hair"].string == "wet":
     #     "characters/Laura/images/missionary/hair_wet.webp"
     # else:
-    always:
+    if Laura.Clothes["hair"].string in ["bun", "tucked"]:
+        "characters/Laura/images/missionary/hair_straight.webp"
+    else:
         "characters/Laura/images/missionary/hair_[Laura.Clothes[hair].string].webp"
 
     if Laura.spunk["hair"]:

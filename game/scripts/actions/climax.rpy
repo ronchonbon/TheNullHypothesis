@@ -171,7 +171,11 @@ label Player_orgasms:
     call Player_orgasm_narrations(focused_Character, location = cumshot_location) from _call_Player_orgasm_narrations
 
     if cumshot_location == "cumshot_belly":
-        $ focused_Character.spunk["belly"] = True
+        $ focused_Character.spunk["belly"] = 1
+
+        pause 0.5
+
+        $ focused_Character.spunk["belly"] = 2
 
         python:
             for Clothing_type in all_Clothing_types:
@@ -186,7 +190,11 @@ label Player_orgasms:
                                         focused_Character.Clothes[Clothing_type].soiled = False
                                         focused_Character.Clothes[covering_Clothing_type].soiled = True
     elif cumshot_location == "cumshot_breasts":
-        $ focused_Character.spunk["breasts"] = True
+        $ focused_Character.spunk["breasts"] = 1
+
+        pause 0.5
+
+        $ focused_Character.spunk["breasts"] = 2
 
         python:
             for Clothing_type in all_Clothing_types:
@@ -201,17 +209,23 @@ label Player_orgasms:
                                         focused_Character.Clothes[Clothing_type].soiled = False
                                         focused_Character.Clothes[covering_Clothing_type].soiled = True
     elif cumshot_location == "cumshot_face":
-        if focused_Character.spunk["chin"]:
-            $ focused_Character.spunk["hair"] = True
+        $ focused_Character.spunk["face"] = 1
 
-        if focused_Character.spunk["face"]:
-            $ focused_Character.spunk["chin"] = True
+        pause 0.5
 
-        $ focused_Character.spunk["face"] = True
+        $ focused_Character.spunk["face"] = 2
     elif cumshot_location == "cumshot_hair":
-        $ focused_Character.spunk["hair"] = True
+        $ focused_Character.spunk["hair"] = 1
+
+        pause 0.5
+
+        $ focused_Character.spunk["hair"] = 2
     elif cumshot_location == "cumshot_back":
-        $ focused_Character.spunk["back"] = True
+        $ focused_Character.spunk["back"] = 1
+
+        pause 0.5
+
+        $ focused_Character.spunk["back"] = 2
 
         python:
             for Clothing_type in all_Clothing_types:
@@ -226,7 +240,11 @@ label Player_orgasms:
                                         focused_Character.Clothes[Clothing_type].soiled = False
                                         focused_Character.Clothes[covering_Clothing_type].soiled = True
     elif cumshot_location == "cumshot_ass":
-        $ focused_Character.spunk["ass"] = True
+        $ focused_Character.spunk["ass"] = 1
+
+        pause 0.5
+
+        $ focused_Character.spunk["ass"] = 2
 
         python:
             for Clothing_type in all_Clothing_types:
@@ -241,7 +259,11 @@ label Player_orgasms:
                                         focused_Character.Clothes[Clothing_type].soiled = False
                                         focused_Character.Clothes[covering_Clothing_type].soiled = True
     elif cumshot_location == "cumshot_feet":
-        $ focused_Character.spunk["feet"] = True
+        $ focused_Character.spunk["feet"] = 1
+
+        pause 0.5
+
+        $ focused_Character.spunk["feet"] = 2
 
         python:
             for Clothing_type in all_Clothing_types:
@@ -256,11 +278,23 @@ label Player_orgasms:
                                         focused_Character.Clothes[Clothing_type].soiled = False
                                         focused_Character.Clothes[covering_Clothing_type].soiled = True
     elif cumshot_location == "creampie":
-        $ focused_Character.creampie["pussy"] = True
+        $ focused_Character.creampie["pussy"] = 1
+
+        pause 0.5
+
+        $ focused_Character.creampie["pussy"] = 2
     elif cumshot_location == "cum_in_mouth":
-        $ focused_Character.spunk["mouth"] = True
+        $ focused_Character.spunk["mouth"] = 1
+
+        pause 0.5
+
+        $ focused_Character.spunk["mouth"] = 2
     elif cumshot_location == "anal_creampie":
-        $ focused_Character.creampie["anus"] = True
+        $ focused_Character.creampie["anus"] = 1
+
+        pause 0.5
+
+        $ focused_Character.creampie["anus"] = 2
 
     $ focused_Character.persistent_spunk = copy.copy(focused_Character.spunk)
 
@@ -410,14 +444,23 @@ label clean_cum(Character):
 
     python:
         for location in Character.spunk.keys():
-            Character.spunk[location] = False
-            Character.persistent_spunk[location] = False
+            if Character.spunk[location] == 2:
+                Character.spunk["hand"] = 1
+                Character.spunk[location] = 1
+                Character.persistent_spunk[location] = 1
 
-    $ Character.spunk["hand"] = True
+                renpy.pause(0.1)
+
+            Character.spunk[location] = 0
+            Character.persistent_spunk[location] = 0
+
+    pause 0.1
+
+    $ Character.spunk["hand"] = 2
 
     pause 2.0
 
-    $ Character.spunk["hand"] = False
+    $ Character.spunk["hand"] = 0
 
     $ Character.change_arms("neutral")
 
@@ -430,10 +473,19 @@ label swallow_cum(Character):
 
     python:
         for location in Character.spunk.keys():
-            Character.spunk[location] = False
-            Character.persistent_spunk[location] = False
+            if Character.spunk[location] == 2:
+                Character.spunk["hand"] = 1
+                Character.spunk[location] = 1
+                Character.persistent_spunk[location] = 1
 
-    $ Character.spunk["hand"] = True
+                renpy.pause(0.1)
+
+            Character.spunk[location] = 0
+            Character.persistent_spunk[location] = 0
+
+    pause 0.1
+
+    $ Character.spunk["hand"] = 2
 
     pause 0.5
 
@@ -441,8 +493,13 @@ label swallow_cum(Character):
 
     pause 0.5
 
-    $ Character.spunk["mouth"] = True
-    $ Character.spunk["hand"] = False
+    $ Character.spunk["mouth"] = 1
+    $ Character.spunk["hand"] = 1
+
+    pause 0.1
+
+    $ Character.spunk["mouth"] = 2
+    $ Character.spunk["hand"] = 0
 
     pause 2.0
 

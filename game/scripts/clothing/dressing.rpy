@@ -276,7 +276,7 @@ label fix(Character, Clothing_type_to_fix, state = None, instant = False, final 
                 if part in Character.Clothes[Clothing_type_to_fix].covers[Character.position].keys() and Character.Clothes[Clothing_type_to_fix].state in Character.Clothes[Clothing_type_to_fix].covers[Character.position][part]:
                     Character.spunk[part] = False
                 elif Character.persistent_spunk[part]:
-                    Character.spunk[part] = True
+                    Character.spunk[part] = 1
                 else:
                     Character.spunk[part] = False
 
@@ -330,7 +330,7 @@ label put_on(Character, Clothing_type_to_put_on, instant = False, final = True):
                     Character.spunk[part] = False
                 elif Character.persistent_spunk[part]:
                     for Clothing_type in reversed(removable_Clothing_types):
-                        Character.spunk[part] = True
+                        Character.spunk[part] = 1
 
                         if part in Character.Clothes[Clothing_type].covers[Character.position].keys() and Character.Clothes[Clothing_type].state in Character.Clothes[Clothing_type].covers[Character.position][part]:
                             if Character.Clothes[Clothing_type].string and not Character.Clothes[Clothing_type].soiled:

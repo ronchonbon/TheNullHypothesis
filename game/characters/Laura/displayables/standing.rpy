@@ -156,6 +156,9 @@ layeredimage Laura_standing:
     if Laura.right_arm in ["hip", "touch_pussy"]:
         "characters/Laura/images/standing/right_forearm_[Laura.right_arm].webp"
 
+    if Laura.Clothes["hair"].string in ["tucked"]:
+        "characters/Laura/images/standing/hair_tucked_mid.webp"
+
     if not Player.left_hand_Actions or Laura not in Player.left_hand_Actions[0].Targets:
         Null()
     elif Player.left_hand_Actions[0].animation_type == "choke":
@@ -180,8 +183,37 @@ layeredimage Laura_standing:
     if Laura.right_arm in ["extended", "fight", "X"]:
         "characters/Laura/images/standing/right_forearm_[Laura.right_arm].webp"
 
+    if Laura.left_arm == "X" and Laura.right_arm == "X":
+        "characters/Laura/images/standing/left_forearm_X_shadow.webp"
+
+    if not Laura.right_claw or Laura.Clothes["gloves"].string:
+        Null()
+    elif Laura.right_arm in ["fight", "X"]:
+        "characters/Laura/images/standing/claws_right_[Laura.right_arm]_shadow.webp"
+
+    if not Laura.right_claw:
+        Null()
+    elif Laura.right_arm in ["fight", "X"]:
+        "characters/Laura/images/standing/claws_right_[Laura.right_arm].webp"
+
     if Laura.left_arm in ["fight", "X"]:
         "characters/Laura/images/standing/left_forearm_[Laura.left_arm].webp"
+
+    if not Laura.left_claw or Laura.Clothes["gloves"].string:
+        Null()
+    elif Laura.left_arm in ["fight", "X"]:
+        "characters/Laura/images/standing/claws_left_[Laura.left_arm]_shadow.webp"
+
+    if not Laura.left_claw:
+        Null()
+    elif Laura.left_arm in ["fight", "X"]:
+        "characters/Laura/images/standing/claws_left_[Laura.left_arm].webp"
+
+    if Laura.spunk["hand"] and Laura.right_arm in ["extended"]:
+        "characters/Laura/images/standing/spunk_hand1.webp"
+
+    if Laura.spunk["hand"] == 2 and Laura.right_arm in ["extended"]:
+        "characters/Laura/images/standing/spunk_hand2.webp"
 
     if not Player.left_hand_Actions or Laura not in Player.left_hand_Actions[0].Targets:
         Null()
@@ -226,12 +258,17 @@ layeredimage Laura_standing:
 
 layeredimage Laura_standing_hair_back:
     always:
-        "characters/Laura/images/standing/hair_back.webp"
+        "characters/Laura/images/standing/hair_back_[Laura.Clothes[hair].string].webp"
 
     anchor (int(1300*character_sampling), int(1490*character_sampling))
     offset (int(1300*character_sampling), int(1490*character_sampling))
 
 layeredimage Laura_standing_right_arm:
+    if not Laura.right_claw:
+        Null()
+    elif Laura.right_arm in ["claws", "fist"]:
+        "characters/Laura/images/standing/claws_right_[Laura.right_arm].webp"
+
     always:
         "characters/Laura/images/standing/right_arm_[Laura.right_arm].webp"
 
@@ -248,6 +285,39 @@ layeredimage Laura_standing_body:
     always:
         "characters/Laura/images/standing/left_foot.webp"
 
+    if Laura.piercings["labia"] in ["barbell", "both"]:
+        "characters/Laura/images/standing/labia_piercings_barbell.webp"
+
+    if Laura.piercings["labia"] in ["ring", "both"]:
+        "characters/Laura/images/standing/labia_piercings_ring.webp"
+
+    if "pubic" in Laura.body_hair_growing.keys():
+        "characters/Laura/images/standing/pubes_growing.webp"
+
+    if Laura.body_hair["pubic"]:
+        "characters/Laura/images/standing/pubes_[Laura.body_hair[pubic]].webp"
+
+    if Laura.desire >= 75:
+        "characters/Laura/images/standing/grool.webp"
+
+    if Laura.creampie["pussy"]:
+        "characters/Laura/images/standing/creampie1.webp"
+
+    if Laura.creampie["pussy"] == 2:
+        "characters/Laura/images/standing/creampie2.webp"
+
+    if Laura.remote_vibrator:
+        "characters/Laura/images/standing/remote_vibrator.webp"
+
+    if Laura.piercings["belly"]:
+        "characters/Laura/images/standing/belly_piercing.webp"
+
+    if Laura.spunk["belly"]:
+        "characters/Laura/images/standing/spunk_belly1.webp"
+
+    if Laura.spunk["belly"] == 2:
+        "characters/Laura/images/standing/spunk_belly2.webp"
+
     always:
         "characters/Laura/images/standing/breasts_shadow.webp"
 
@@ -260,9 +330,44 @@ layeredimage Laura_standing_body:
     if Laura.left_arm == "grope":
         "characters/Laura/images/standing/breasts_grope.webp"
 
+    if Laura.piercings["nipple"] not in ["barbell", "both"]:
+        Null()
+    elif Laura.left_arm == "grope":
+        "characters/Laura/images/standing/nipple_piercings_barbell_grope.webp"
+    else:
+        "characters/Laura/images/standing/nipple_piercings_barbell.webp"
+
+    if Laura.piercings["nipple"] not in ["ring", "both"]:
+        Null()
+    elif Laura.left_arm == "grope":
+        "characters/Laura/images/standing/nipple_piercings_ring_grope.webp"
+    else:
+        "characters/Laura/images/standing/nipple_piercings_ring.webp"
+
+    if Laura.spunk["breasts"]:
+        "characters/Laura/images/standing/spunk_breasts1.webp"
+
+    if Laura.spunk["breasts"] == 2:
+        "characters/Laura/images/standing/spunk_breasts2.webp"
+
 layeredimage Laura_standing_left_arm:
+    if not Laura.left_claw:
+        Null()
+    elif Laura.left_arm in ["claws"]:
+        "characters/Laura/images/standing/claws_left_[Laura.left_arm].webp"
+
     always:
         "characters/Laura/images/standing/left_arm_[Laura.left_arm].webp"
+
+    if not Laura.left_claw or Laura.Clothes["gloves"].string:
+        Null()
+    elif Laura.left_arm in ["fist"]:
+        "characters/Laura/images/standing/claws_left_[Laura.left_arm]_shadow.webp"
+
+    if not Laura.left_claw:
+        Null()
+    elif Laura.left_arm in ["fist"]:
+        "characters/Laura/images/standing/claws_left_[Laura.left_arm].webp"
 
     anchor (int(1575*character_sampling), int(1725*character_sampling))
     offset (int(1575*character_sampling), int(1725*character_sampling))
@@ -285,6 +390,38 @@ layeredimage Laura_standing_head:
     if Laura.blush:
         "characters/Laura/images/standing/blush[Laura.blush].webp"
 
+    if Laura.spunk["mouth"] and Laura.mouth in ["agape", "open", "snarl"]:
+        "characters/Laura/images/standing/spunk_mouth1_agape.webp"
+
+    if Laura.spunk["mouth"] == 2 and Laura.mouth in ["agape", "open", "snarl"]:
+        "characters/Laura/images/standing/spunk_mouth2_agape.webp"
+
+    if Laura.spunk["mouth"] and Laura.mouth in ["tongue"]:
+        "characters/Laura/images/standing/spunk_mouth1_tongue.webp"
+
+    if Laura.spunk["mouth"] == 2 and Laura.mouth in ["tongue"]:
+        "characters/Laura/images/standing/spunk_mouth2_tongue.webp"
+
+    if not Laura.spunk["chin"]:
+        Null()
+    elif Laura.mouth in ["agape", "open", "snarl", "tongue"]:
+        "characters/Laura/images/standing/spunk_chin1_open.webp"
+    else:
+        "characters/Laura/images/standing/spunk_chin1.webp"
+
+    if Laura.spunk["chin"] != 2:
+        Null()
+    elif Laura.mouth in ["agape", "open", "snarl", "tongue"]:
+        "characters/Laura/images/standing/spunk_chin2_open.webp"
+    else:
+        "characters/Laura/images/standing/spunk_chin2.webp"
+
+    if Laura.spunk["face"]:
+        "characters/Laura/images/standing/spunk_face1.webp"
+
+    if Laura.spunk["face"] == 2:
+        "characters/Laura/images/standing/spunk_face2.webp"
+
     # if Laura.Clothes["face_outer_accessory"].string:
     #     Null()
     # elif Laura.wet or Laura.Clothes["hair"].string == "wet":
@@ -300,6 +437,12 @@ layeredimage Laura_standing_head:
     # else:
     always:
         "characters/Laura/images/standing/hair_[Laura.Clothes[hair].string].webp"
+
+    if Laura.spunk["hair"]:
+        "characters/Laura/images/standing/spunk_hair1_[Laura.Clothes[hair].string].webp"
+
+    if Laura.spunk["hair"] == 2:
+        "characters/Laura/images/standing/spunk_hair2_[Laura.Clothes[hair].string].webp"
 
     anchor (int(1300*character_sampling), int(1490*character_sampling))
     offset (int(1300*character_sampling), int(1490*character_sampling))

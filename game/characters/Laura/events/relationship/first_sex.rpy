@@ -434,7 +434,7 @@ label Laura_first_sex_part_two:
 
     pause 1.0
     
-    $ Laura.spunk["belly"] = True
+    $ Laura.spunk["belly"] = 1
 
     "You cum all over her stomach, as she violently shudders in ecstasy."
 

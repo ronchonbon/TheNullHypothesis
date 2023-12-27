@@ -65,11 +65,11 @@ init python:
                     C.status[status] -= 1 if C.status[status] > 0 else 0
 
                 for location in C.spunk.keys():
-                    C.spunk[location] = False
-                    C.persistent_spunk[location] = False
+                    C.spunk[location] = 0
+                    C.persistent_spunk[location] = 0
 
                 for location in C.creampie.keys():
-                    C.creampie[location] = False
+                    C.creampie[location] = 0
 
                 for I in C.Wardrobe.Clothes.values():
                     I.soiled = False

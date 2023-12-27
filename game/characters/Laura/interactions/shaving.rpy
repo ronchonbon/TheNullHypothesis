@@ -115,7 +115,30 @@ label Laura_pubes_strip_accept:
 
     return
 
+label Laura_pubes_strip_thick_accept:
+    $ Laura.change_face("confused1", blush = 1)
+
+    ch_Laura "Just a strip?"
+    ch_Laura "Who came up with this?"
+
+    $ Laura.change_face("sly", mouth = "lipbite", blush = 1)
+
+    ch_Laura "Whatever."
+
+    return
+
 label Laura_pubes_triangle_accept:
+    $ Laura.change_face("confused2", blush = 1)
+
+    ch_Laura "You're not joking?"
+
+    $ Laura.change_face("sly", mouth = "lipbite", blush = 1)
+
+    ch_Laura "Fine, I'll do it."
+
+    return
+
+label Laura_pubes_triangle_large_accept:
     $ Laura.change_face("confused2", blush = 1)
 
     ch_Laura "You're not joking?"

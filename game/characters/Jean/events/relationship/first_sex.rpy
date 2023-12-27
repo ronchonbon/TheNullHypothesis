@@ -555,7 +555,7 @@ label Jean_first_sex_part_two:
 
     pause 1.0
     
-    $ Jean.spunk["belly"] = True
+    $ Jean.spunk["belly"] = 1
 
     "She continues masturbating and finally orgasms herself, shuddering in ecstasy as you cum all over her stomach." with orgasm_shake
 

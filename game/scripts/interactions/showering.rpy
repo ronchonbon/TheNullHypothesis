@@ -90,7 +90,7 @@ label take_a_shower:
                 G.wet = True
 
                 for location in G.spunk.keys():
-                    G.spunk[location] = False
+                    G.spunk[location] = 0
 
     $ renpy.dynamic(temp_Characters = showering_Characters[:])
 

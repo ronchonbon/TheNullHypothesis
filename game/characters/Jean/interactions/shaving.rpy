@@ -102,7 +102,27 @@ label Jean_pubes_strip_accept:
 
     return
 
+label Jean_pubes_strip_thick_accept:
+    $ Jean.change_face("confused1", mouth = "smirk", blush = 1)
+
+    ch_Jean "A strip?"
+
+    $ Jean.change_face("smirk2", mouth = "lipbite", blush = 1)
+
+    ch_Jean "Okay, [Jean.Player_petname]."
+
+    return
+
 label Jean_pubes_triangle_accept:
+    $ Jean.change_face("confused1", mouth = "lipbite", blush = 1)
+
+    ch_Jean "Heh, yeah, I can do that."
+
+    $ Jean.change_face("smirk2", mouth = "lipbite", blush = 1)
+
+    return
+
+label Jean_pubes_triangle_large_accept:
     $ Jean.change_face("confused1", mouth = "lipbite", blush = 1)
 
     ch_Jean "Heh, yeah, I can do that."

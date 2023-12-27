@@ -338,7 +338,13 @@ layeredimage Jean_missionary_thighs:
     if "pubic" in Jean.body_hair_growing.keys():
         "characters/Jean/images/missionary/pubes_growing.webp"
 
-    if Jean.body_hair["pubic"]:
+    if not Jean.body_hair["pubic"]:
+        Null()
+    elif "triangle" in Jean.body_hair["pubic"]:
+        "characters/Jean/images/missionary/pubes_triangle.webp"
+    elif "strip" in Jean.body_hair["pubic"]:
+        "characters/Jean/images/missionary/pubes_strip.webp"
+    else:
         "characters/Jean/images/missionary/pubes_[Jean.body_hair[pubic]].webp"
 
     if Jean.remote_vibrator:

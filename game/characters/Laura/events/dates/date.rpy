@@ -843,7 +843,7 @@ label Laura_date_dinner_sex_handjob:
     "She puts your pants back into position, before getting up."
 
     if Laura.History.check("swallow_cum", tracker = "recent") and renpy.random.random() > 0.5:
-        $ Laura.spunk["chin"] = True
+        $ Laura.spunk["chin"] = 1
 
     call add_Characters(Laura) from _call_add_Characters_81
 
@@ -920,7 +920,7 @@ label Laura_date_dinner_sex_blowjob:
     "She puts your pants back into position, before getting up."
 
     if renpy.random.random() > 0.5:
-        $ Laura.spunk["chin"] = True
+        $ Laura.spunk["chin"] = 1
 
     call add_Characters(Laura) from _call_add_Characters_82
 
@@ -1811,7 +1811,7 @@ label Laura_date_movie_sex_handjob:
     "She puts your pants back into position."
 
     if Laura.History.check("swallow_cum", tracker = "recent") and renpy.random.random() > 0.5:
-        $ Laura.spunk["chin"] = True
+        $ Laura.spunk["chin"] = 1
 
     $ Laura.change_face("sexy", blush = 2)
 
@@ -2000,7 +2000,7 @@ label Laura_date_movie_sex_blowjob:
     "She puts your pants back into position, before sitting back up."
 
     if renpy.random.random() > 0.5:
-        $ Laura.spunk["chin"] = True
+        $ Laura.spunk["chin"] = 1
 
     call add_Characters(Laura) from _call_add_Characters_84
 

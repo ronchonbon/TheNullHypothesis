@@ -915,7 +915,7 @@ label Jean_date_dinner_sex_handjob:
     "She puts your pants back into position, before getting up."
 
     if Jean.History.check("swallow_cum", tracker = "recent") and renpy.random.random() > 0.5:
-        $ Jean.spunk["chin"] = True
+        $ Jean.spunk["chin"] = 1
 
     call add_Characters(Jean) from _call_add_Characters_18
 
@@ -994,7 +994,7 @@ label Jean_date_dinner_sex_blowjob:
     "She puts your pants back into position, before getting up."
 
     if renpy.random.random() > 0.5:
-        $ Jean.spunk["chin"] = True
+        $ Jean.spunk["chin"] = 1
 
     call add_Characters(Jean) from _call_add_Characters_19
 
@@ -1904,7 +1904,7 @@ label Jean_date_movie_sex_handjob:
     "She puts your pants back into position."
 
     if Jean.History.check("swallow_cum", tracker = "recent") and renpy.random.random() > 0.5:
-        $ Jean.spunk["chin"] = True
+        $ Jean.spunk["chin"] = 1
 
     $ Jean.change_face("sexy", blush = 2)
 
@@ -2097,7 +2097,7 @@ label Jean_date_movie_sex_blowjob:
     "She puts your pants back into position, before getting up."
 
     if renpy.random.random() > 0.5:
-        $ Jean.spunk["chin"] = True
+        $ Jean.spunk["chin"] = 1
 
     call add_Characters(Jean) from _call_add_Characters_80
 

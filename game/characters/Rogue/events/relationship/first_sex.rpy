@@ -279,7 +279,7 @@ label Rogue_first_sex:
 
     pause 1.0
     
-    $ Rogue.spunk["belly"] = True
+    $ Rogue.spunk["belly"] = 1
 
     "She continues to twitch, as you cum all over her stomach."
 

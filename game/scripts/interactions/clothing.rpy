@@ -132,7 +132,7 @@ label ask_Character_to_try_on(Clothing, instant = False):
         $ Character.History.update(f"said_no_to_{Clothing.string}")
     elif renpy.get_screen("shop_screen") and approval_check(Character, threshold = Clothing.thresholds["wear_in_private"]) and len(Present) == 1:
         if not Character.History.check(f"wore_{Clothing.string}", tracker = "recent"):
-            if Clothing.Clothing_type == "hair" and Clothing.string not in ["ponytail", "mohawk", "wet_mohawk"]:
+            if Clothing.Clothing_type == "hair" and Clothing.string not in ["bun", "ponytail", "mohawk", "wet_mohawk"]:
                 call expression f"{Character.tag}_{Clothing.string}_hair_change_private_before" from _call_expression_173
             else:
                 call expression f"{Character.tag}_{Clothing.string}_change_private_before" from _call_expression_174
@@ -140,7 +140,7 @@ label ask_Character_to_try_on(Clothing, instant = False):
         call does_Character_agree_to_change_Clothes(Character, added_Items = [Clothing], instant = instant) from _call_does_Character_agree_to_change_Clothes_3
 
         if _return and not Character.History.check(f"wore_{Clothing.string}", tracker = "recent"):
-            if Clothing.Clothing_type == "hair" and Clothing.string not in ["ponytail", "mohawk", "wet_mohawk"]:
+            if Clothing.Clothing_type == "hair" and Clothing.string not in ["bun", "ponytail", "mohawk", "wet_mohawk"]:
                 call expression f"{Character.tag}_{Clothing.string}_hair_change_private_after" from _call_expression_175
             else:
                 call expression f"{Character.tag}_{Clothing.string}_change_private_after" from _call_expression_176
@@ -150,7 +150,7 @@ label ask_Character_to_try_on(Clothing, instant = False):
             return True
     elif approval_check(Character, threshold = Clothing.thresholds["wear_in_public"]):
         if not Character.History.check(f"wore_{Clothing.string}", tracker = "recent"):
-            if Clothing.Clothing_type == "hair" and Clothing.string not in ["ponytail", "mohawk", "wet_mohawk"]:
+            if Clothing.Clothing_type == "hair" and Clothing.string not in ["bun", "ponytail", "mohawk", "wet_mohawk"]:
                 call expression f"{Character.tag}_{Clothing.string}_hair_change_public_before" from _call_expression_177
             else:
                 call expression f"{Character.tag}_{Clothing.string}_change_public_before" from _call_expression_178
@@ -158,7 +158,7 @@ label ask_Character_to_try_on(Clothing, instant = False):
         call does_Character_agree_to_change_Clothes(Character, added_Items = [Clothing], instant = instant) from _call_does_Character_agree_to_change_Clothes_4
 
         if _return and not Character.History.check(f"wore_{Clothing.string}", tracker = "recent"):
-            if Clothing.Clothing_type == "hair" and Clothing.string not in ["ponytail", "mohawk", "wet_mohawk"]:
+            if Clothing.Clothing_type == "hair" and Clothing.string not in ["bun", "ponytail", "mohawk", "wet_mohawk"]:
                 call expression f"{Character.tag}_{Clothing.string}_hair_change_public_after" from _call_expression_179
             else:
                 call expression f"{Character.tag}_{Clothing.string}_change_public_after" from _call_expression_180

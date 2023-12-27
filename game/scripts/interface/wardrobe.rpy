@@ -597,7 +597,7 @@ screen head_screen(Character):
                         null width 85
 
             if Character.customizable_body_hair:
-                for hair_style in ["bush", "growing", "hairy", "null", "shaven", "strip", "triangle"]:
+                for hair_style in ["bush", "growing", "hairy", "null", "shaven", "strip", "strip_thick", "triangle", "triangle_large"]:
                     hbox:
                         spacing 5
 
@@ -616,11 +616,20 @@ screen head_screen(Character):
                             if Character.desired_body_hair["pubic"] == hair_style:
                                 action NullAction()
                             else:
-                                action [
-                                    SetVariable("changed_body_hair", True),
-                                    Call("ask_Character_to_shave", Character, hair_style, from_current = True)]
+                                if hair_style == "shaven":
+                                    action SetDict(Character.body_hair, "pubic", None)
+                                else:
+                                    action SetDict(Character.body_hair, "pubic", hair_style)
+                                # action [
+                                #     SetVariable("changed_body_hair", True),
+                                #     Call("ask_Character_to_shave", Character, hair_style, from_current = True)]
 
-                            text f"pubic hair: {hair_style}" size 36
+                            if "_" in hair_style:
+                                text f"pubic hair: {hair_style.split('_')[1]} {hair_style.split('_')[0]}":
+                                    size 36
+                            else:
+                                text f"pubic hair: {hair_style}":
+                                    size 36
                         
                         null width 85
 
@@ -723,7 +732,7 @@ screen head_screen(Character):
 
                         null width 85
 
-            if True:
+            if False:
                 if Character in [Rogue]:
                     $ left_arms = [
                         "bra", "crossed", "extended", "fight", "fist", "grope", "hip", "neutral", "rub_neck", "touch_ass"]

@@ -285,9 +285,13 @@ layeredimage Laura_doggy_ass:
     elif "pubic" in Laura.body_hair_growing.keys():
         "characters/Laura/images/doggy/pubes_growing.webp"
 
-    if Laura.Clothes["underwear"].string and Laura.Clothes["underwear"].state == 0:
+    if not Laura.body_hair["pubic"] or (Laura.Clothes["underwear"].string and Laura.Clothes["underwear"].state == 0):
         Null()
-    elif Laura.body_hair["pubic"]:
+    elif "triangle" in Laura.body_hair["pubic"]:
+        "characters/Laura/images/doggy/pubes_triangle.webp"
+    elif "strip" in Laura.body_hair["pubic"]:
+        "characters/Laura/images/doggy/pubes_strip.webp"
+    else:
         "characters/Laura/images/doggy/pubes_[Laura.body_hair[pubic]].webp"
 
     if Laura.Clothes["underwear"].string and Laura.Clothes["underwear"].state == 0:
@@ -604,13 +608,17 @@ layeredimage Laura_doggy_hair:
     # if Laura.wet or Laura.Clothes["hair"].string == "wet":
     #     "characters/Laura/images/doggy/hair_shadow_wet.webp"
     # else:
-    always:
+    if Laura.Clothes["hair"].string in ["bun", "tucked"]:
+        "characters/Laura/images/doggy/hair_shadow_straight.webp"
+    else:
         "characters/Laura/images/doggy/hair_shadow_[Laura.Clothes[hair].string].webp"
 
     # if Laura.wet or Laura.Clothes["hair"].string == "wet":
     #     "characters/Laura/images/doggy/hair_wet.webp"
     # else:
-    always:
+    if Laura.Clothes["hair"].string in ["bun", "tucked"]:
+        "characters/Laura/images/doggy/hair_straight.webp"
+    else:
         "characters/Laura/images/doggy/hair_[Laura.Clothes[hair].string].webp"
 
     if Laura.spunk["hair"]:

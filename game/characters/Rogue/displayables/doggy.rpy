@@ -285,9 +285,13 @@ layeredimage Rogue_doggy_ass:
     elif "pubic" in Rogue.body_hair_growing.keys():
         "characters/Rogue/images/doggy/pubes_growing.webp"
 
-    if Rogue.Clothes["underwear"].string and Rogue.Clothes["underwear"].state == 0:
+    if not Rogue.body_hair["pubic"] or (Rogue.Clothes["underwear"].string and Rogue.Clothes["underwear"].state == 0):
         Null()
-    elif Rogue.body_hair["pubic"]:
+    elif "triangle" in Rogue.body_hair["pubic"]:
+        "characters/Rogue/images/doggy/pubes_triangle.webp"
+    elif "strip" in Rogue.body_hair["pubic"]:
+        "characters/Rogue/images/doggy/pubes_strip.webp"
+    else:
         "characters/Rogue/images/doggy/pubes_[Rogue.body_hair[pubic]].webp"
 
     if Rogue.Clothes["underwear"].string and Rogue.Clothes["underwear"].state == 0:

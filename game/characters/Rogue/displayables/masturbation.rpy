@@ -449,7 +449,13 @@ layeredimage Rogue_masturbation_thighs:
     if "pubic" in Rogue.body_hair_growing.keys():
         "characters/Rogue/images/masturbation/pubes_growing.webp"
 
-    if Rogue.body_hair["pubic"]:
+    if not Rogue.body_hair["pubic"]:
+        Null()
+    elif "triangle" in Rogue.body_hair["pubic"]:
+        "characters/Rogue/images/masturbation/pubes_triangle.webp"
+    elif "strip" in Rogue.body_hair["pubic"]:
+        "characters/Rogue/images/masturbation/pubes_strip.webp"
+    else:
         "characters/Rogue/images/masturbation/pubes_[Rogue.body_hair[pubic]].webp"
 
     if Rogue.remote_vibrator:

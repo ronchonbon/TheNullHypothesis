@@ -375,7 +375,13 @@ layeredimage Rogue_missionary_thighs:
     if "pubic" in Rogue.body_hair_growing.keys():
         "characters/Rogue/images/missionary/pubes_growing.webp"
 
-    if Rogue.body_hair["pubic"]:
+    if not Rogue.body_hair["pubic"]:
+        Null()
+    elif "triangle" in Rogue.body_hair["pubic"]:
+        "characters/Rogue/images/missionary/pubes_triangle.webp"
+    elif "strip" in Rogue.body_hair["pubic"]:
+        "characters/Rogue/images/missionary/pubes_strip.webp"
+    else:
         "characters/Rogue/images/missionary/pubes_[Rogue.body_hair[pubic]].webp"
 
     if Rogue.remote_vibrator:

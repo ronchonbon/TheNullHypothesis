@@ -103,7 +103,29 @@ label Rogue_pubes_strip_accept:
 
     return
 
+label Rogue_pubes_strip_thick_accept:
+    $ Rogue.change_face("worried1", mouth = "lipbite", blush = 1)
+
+    ch_Rogue "Want it like a strip?"
+
+    $ Rogue.change_face("smirk2", mouth = "lipbite", blush = 1)
+
+    ch_Rogue "Sure, [Rogue.Player_petname]."
+
+    return
+
 label Rogue_pubes_triangle_accept:
+    $ Rogue.change_face("worried1", mouth = "lipbite", blush = 1)
+
+    ch_Rogue "Shave it like a triangle?"
+
+    $ Rogue.change_face("smirk2", mouth = "lipbite", blush = 1)
+
+    ch_Rogue "Alright, ah'll try [Rogue.Player_petname]."
+
+    return
+
+label Rogue_pubes_triangle_large_accept:
     $ Rogue.change_face("worried1", mouth = "lipbite", blush = 1)
 
     ch_Rogue "Shave it like a triangle?"

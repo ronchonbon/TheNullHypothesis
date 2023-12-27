@@ -26,7 +26,15 @@ label Ororo_pubes_strip_accept:
 
     return
 
+label Ororo_pubes_strip_thick_accept:
+
+    return
+
 label Ororo_pubes_triangle_accept:
+    
+    return
+
+label Ororo_pubes_triangle_large_accept:
     
     return
 

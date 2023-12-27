@@ -81,13 +81,13 @@ init -2 python:
             self.grool = 0
             
             self.spunk = {
-                "hair": False, "face": False, "chin": False, "mouth": False, "tongue": False,
-                "breasts": False, "back": False, "belly": False, "ass": False, "hand": False, "feet": False}
+                "hair": 0, "face": 0, "chin": 0, "mouth": 0, "tongue": 0,
+                "breasts": 0, "back": 0, "belly": 0, "ass": 0, "hand": 0, "feet": 0}
             self.persistent_spunk = {
-                "hair": False, "face": False, "chin": False, "mouth": False, "tongue": False,
-                "breasts": False, "back": False, "belly": False, "ass": False, "hand": False, "feet": False}
+                "hair": 0, "face": 0, "chin": 0, "mouth": 0, "tongue": 0,
+                "breasts": 0, "back": 0, "belly": 0, "ass": 0, "hand": 0, "feet": 0}
             self.creampie = {
-                "pussy": False, "anus": False}
+                "pussy": 0, "anus": 0}
 
             self.buttplug = None
             self.buttplug_size = None
