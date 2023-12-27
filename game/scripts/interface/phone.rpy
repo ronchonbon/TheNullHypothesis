@@ -814,7 +814,7 @@ screen text_history(Character):
 
                         vbox align (0.0, 0.5):
                             if previous_Owner != Owner.tag and Owner in Contacts:
-                                text Owner.name:
+                                text Owner.name anchor (0.0, 0.5) pos (0.0, 0.5):
                                     size 30
 
                             frame:

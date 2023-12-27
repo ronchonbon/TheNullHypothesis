@@ -191,11 +191,6 @@ layeredimage Rogue_standing:
         Null()
     elif Rogue.right_arm in ["hip", "touch_pussy"]:
         "characters/Rogue/images/standing/sleeves_[Rogue.Clothes[sleeves].string]_right_[Rogue.right_arm].webp"
-
-    if not Rogue.Clothes["jacket"].string:
-        Null()
-    elif Rogue.right_arm in ["hip"]:
-        "characters/Rogue/images/standing/jacket_[Rogue.Clothes[jacket].string]_right_forearm_sleeve_[Rogue.right_arm].webp"
         
     if Rogue.left_arm in ["grope"]:
         "characters/Rogue/images/standing/left_forearm_[Rogue.left_arm].webp"
@@ -449,7 +444,7 @@ layeredimage Rogue_standing_body:
         Null()
     elif Rogue.right_arm == "fist":
         "characters/Rogue/images/standing/jacket_[Rogue.Clothes[jacket].string]_right_shoulder_neutral.webp"
-    elif Rogue.Clothes["jacket"].string == "brown_classic_jacket" and Rogue.right_arm in ["bra", "extended", "fight", "neutral", "touch_pussy"]:
+    elif Rogue.Clothes["jacket"].string == "brown_classic_jacket" and Rogue.right_arm in ["bra", "extended", "fight", "hip", "neutral", "touch_pussy"]:
         "characters/Rogue/images/standing/jacket_[Rogue.Clothes[jacket].string]_right_shoulder_[Rogue.right_arm].webp"
 
     if Rogue.right_arm in ["crossed"]:
@@ -487,11 +482,6 @@ layeredimage Rogue_standing_body:
         Null()
     elif Rogue.right_arm in ["hip"]:
         "characters/Rogue/images/standing/sleeves_[Rogue.Clothes[sleeves].string]_right_[Rogue.right_arm].webp"
-
-    if not Rogue.Clothes["jacket"].string:
-        Null()
-    elif Rogue.right_arm in ["hip"]:
-        "characters/Rogue/images/standing/jacket_[Rogue.Clothes[jacket].string]_right_forearm_sleeve_[Rogue.right_arm].webp"
 
     if Rogue.left_arm == "crossed" and Rogue.right_arm == "crossed":
         "characters/Rogue/images/standing/breasts_crossed_shadow.webp"

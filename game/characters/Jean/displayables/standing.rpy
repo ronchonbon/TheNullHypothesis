@@ -423,6 +423,8 @@ layeredimage Jean_standing_right_arm:
 
     if not Jean.Clothes["sleeves"].string:
         Null()
+    elif Jean.right_arm == "fist":
+        "characters/Jean/images/standing/sleeves_[Jean.Clothes[sleeves].string]_right_neutral.webp"
     elif Jean.right_arm in ["neutral", "psychic2"]:
         "characters/Jean/images/standing/sleeves_[Jean.Clothes[sleeves].string]_right_[Jean.right_arm].webp"
 
