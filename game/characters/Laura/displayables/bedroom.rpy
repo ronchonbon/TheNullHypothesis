@@ -42,14 +42,20 @@ layeredimage bg_Laura:
     if "MMA_gloves" in Laura.inventory.keys():
         "characters/Laura/images/bedroom/bg_Laura_gloves.webp"
 
-    always:
+    if lighting == "evening":
+        "characters/Jean/images/bedroom/bg_Jean_day_hard_light.webp" at Transform(blend = "multiply")
+    else:
         "characters/Laura/images/bedroom/bg_Laura_[lighting]_hard_light.webp" at Transform(blend = "multiply")
 
     if lighting in ["day"]:
         "characters/Laura/images/bedroom/bg_Laura_[lighting]_screen.webp" at Transform(blend = "screen")
 
-    always:
+    if lighting == "evening":
+        "characters/Laura/images/bedroom/bg_Laura_day_linear_dodge.webp" at Transform(blend = "add")
+    else:
         "characters/Laura/images/bedroom/bg_Laura_[lighting]_linear_dodge.webp" at Transform(blend = "add")
 
-    always:
+    if lighting == "evening":
+        "characters/Laura/images/bedroom/bg_Laura_day_multiply.webp" at Transform(blend = "multiply")
+    else:
         "characters/Laura/images/bedroom/bg_Laura_[lighting]_multiply.webp" at Transform(blend = "multiply")

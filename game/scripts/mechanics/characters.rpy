@@ -511,6 +511,8 @@ label swap_Slots(Character, new_Slot):
 
     if previous_Slot:
         $ exec(f"{previous_Slot}_Slot, {new_Slot}_Slot = {new_Slot}_Slot, {previous_Slot}_Slot")
+    else:
+        $ exec(f"{new_Slot}_Slot = Character")
 
     call set_the_scene(greetings = False, fade = False) from _call_set_the_scene_305
 

@@ -365,7 +365,7 @@ label Rogue_chapter_one_season_one_standoffish_part_two:
             if C != Rogue:
                 send_Characters_Offscreen(C, location = "bg_classroom")
             else:
-                middle_Spot = C
+                middle_Slot = C
     
     "As you enter the classroom, you notice a few people look up from their seats at something behind you."
     "They not so discreetly point and start a hushed conversation about something."
@@ -373,7 +373,7 @@ label Rogue_chapter_one_season_one_standoffish_part_two:
     $ Rogue.change_face("angry1", eyes = "down")
     $ Rogue.change_arms("crossed")
 
-    call set_the_scene(location = "bg_classroom", fade_Characters = False, fade = False) from _call_set_the_scene_394
+    call add_Characters(Rogue, fade = False) from _call_add_Characters_95
 
     "You turn around and see [Rogue.name] with a cloudy expression on her face. . ."
 

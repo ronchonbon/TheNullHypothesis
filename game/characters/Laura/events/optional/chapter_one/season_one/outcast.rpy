@@ -76,7 +76,7 @@ label Laura_chapter_one_season_one_outcast:
             if C != Laura:
                 send_Characters_Offscreen(C, location = "bg_classroom")
             else:
-                middle_Spot = C
+                middle_Slot = C
 
     $ Laura.change_face("neutral", eyes = "left") 
     $ Laura.change_arms("crossed")

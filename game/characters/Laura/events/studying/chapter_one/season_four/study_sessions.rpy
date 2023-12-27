@@ -25,6 +25,7 @@ label Laura_chapter_one_season_four_study_sessions:
         ch_Player "How sweet."
 
         $ Laura.change_face("suspicious1")
+        $ Laura.change_arms("hips")
 
         ch_Laura "On second thought. . ."
         ch_Player "I'm just messing with you."
@@ -32,6 +33,9 @@ label Laura_chapter_one_season_four_study_sessions:
         $ Laura.change_face("neutral", eyes = "squint")
 
         ch_Player "You're still gonna help, right?"
+
+        $ Laura.change_arms("crossed")
+
         ch_Laura "Fine."
 
         $ Laura.change_face("neutral")
@@ -53,14 +57,21 @@ label Laura_chapter_one_season_four_study_sessions:
         "[Laura.name] seems to enjoy one-upping you quite a bit, as she shows off her knowledge of things you weren't aware of."
 
         $ Laura.change_face("sly", blush = 1)
+        $ Laura.change_arms("hips", left_arm = "extended")
 
         "She points out one specific question." 
+
+        $ Laura.change_arms("hips")
 
         ch_Player "You're quizzing me?" 
 
         $ Laura.change_face("confused1", mouth = "smirk", blush = 1)
+        $ Laura.change_arms("hips", left_arm = "extended")
 
         "She just taps on the question and waits."
+
+        $ Laura.change_arms("hips")
+
         ch_Player "Okay. . ." 
         ch_Player "Is it. . . ?" 
 
@@ -71,6 +82,7 @@ label Laura_chapter_one_season_four_study_sessions:
         ch_Player "Shit. . ."
 
         $ Laura.change_face("smirk2")
+        $ Laura.change_arms("crossed")
 
         ch_Player "Could you. . . explain why?"
 
@@ -106,6 +118,7 @@ label Laura_chapter_one_season_four_study_sessions:
             call set_the_scene(location = "bg_girls_hallway") from _call_set_the_scene_135
     elif dice_roll == 2:
         $ Laura.change_face("neutral", eyes = "squint")
+        $ Laura.change_arms("crossed")
 
         "[Laura.name] just stands there, not moving to help you set things up."
 
@@ -120,6 +133,7 @@ label Laura_chapter_one_season_four_study_sessions:
         "After taking a moment to look around, out the windows, under the door, she responds."
 
         $ Laura.change_face("neutral", eyes = "squint")
+        $ Laura.change_arms("hips")
 
         ch_Laura "Fine, here."
         "After a few minutes, everything's all set up."
@@ -129,6 +143,7 @@ label Laura_chapter_one_season_four_study_sessions:
         "She 'gently' pushes you onto the bed, positioning herself between you and the door."
 
         $ Laura.change_face("angry1", eyes = "down", blush = 1)
+        $ Laura.change_arms("crossed")
 
         ch_Player "You could just ask me instead of pushing. . ." 
 
@@ -146,7 +161,13 @@ label Laura_chapter_one_season_four_study_sessions:
         $ Laura.change_face("neutral")
 
         ch_Laura "This one."
+
+        $ Laura.change_arms("hips", left_arm = "extended")
+
         "She points at a question."
+
+        $ Laura.change_arms("hips")
+
         ch_Laura "Answer it."
 
         $ Laura.change_face("sly")
@@ -159,6 +180,7 @@ label Laura_chapter_one_season_four_study_sessions:
         pause 1.0
 
         $ Laura.change_face("suspicious1")
+        $ Laura.change_arms("crossed")
 
         ch_Laura "Yes. . ." 
         "Seems like she didn't expect you to know the answer." 
@@ -172,6 +194,7 @@ label Laura_chapter_one_season_four_study_sessions:
         "Neither of you seems to be able to beat the other."
 
         $ Laura.change_face("angry1")
+        $ Laura.change_arms("angry")
 
         ch_Laura "Enough, my head hurts." 
         ch_Player "Sure, let's call it there."
@@ -192,6 +215,7 @@ label Laura_chapter_one_season_four_study_sessions:
         ch_Player "Thanks for the help." 
 
         $ Laura.change_face("angry1", eyes = "right", blush = 1)
+        $ Laura.change_arms("crossed")
 
         ch_Laura "Sure. . ." 
         "This time, you jump onto the bed before she can push you."
@@ -216,6 +240,7 @@ label Laura_chapter_one_season_four_study_sessions:
         "You spend the next few hours going over one of [Laura.name]'s least favorite subjects."
 
         $ Laura.change_face("angry1", eyes = "down", blush = 1)
+        $ Laura.change_arms("angry")
 
         "She realizes her mistake, letting you choose the topic for today's session and makes you pay for it. . ."
 
@@ -224,6 +249,7 @@ label Laura_chapter_one_season_four_study_sessions:
         ch_Laura "Why don't we move on to this. . ."
 
         $ Laura.change_face("angry1", eyes = "down", blush = 1)
+        $ Laura.change_arms("hips")
 
         ch_Player "Wait, but. . ."
 
@@ -243,6 +269,7 @@ label Laura_chapter_one_season_four_study_sessions:
         ch_Player "Nice, thanks."
 
         $ Laura.change_face("smirk2")
+        $ Laura.change_arms("crossed")
 
         ch_Player "I think we can call it there. . ." 
 

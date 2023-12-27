@@ -22,6 +22,7 @@ label Laura_chapter_one_season_two_training_sessions:
 
     if dice_roll == 1:
         $ Laura.change_face("neutral")
+        $ Laura.change_arms("hips")
 
         ch_Laura "You don't have plans for any strenuous physical activity after this session, correct?" 
 
@@ -30,6 +31,7 @@ label Laura_chapter_one_season_two_training_sessions:
         ch_Player "I don't know. . . why?" 
 
         $ Laura.change_face("neutral")
+        $ Laura.change_arms("crossed")
 
         ch_Laura "Just focus on surviving."
         ch_Player "Surviving?!"
@@ -44,11 +46,13 @@ label Laura_chapter_one_season_two_training_sessions:
         $ fade_in_from_black(0.4)
 
         $ Laura.change_face("angry1")
+        $ Laura.change_arms("fight")
 
         "You've made substantial progress in general, but [Laura.name] shows you just how little that means when compared to her." 
         "The session ends as usual, with your face hitting the ground."
 
         $ Laura.change_face("smirk2")
+        $ Laura.change_arms("hips")
 
         "You pick yourself back up, struggling for breath."
         ch_Laura "Good, we're done." 
@@ -59,6 +63,7 @@ label Laura_chapter_one_season_two_training_sessions:
         "She goes to finish training on her own."
     elif dice_roll == 2:
         $ Laura.change_face("confused1")
+        $ Laura.change_arms("crossed")
 
         ch_Laura "You're not limping?"
         ch_Player "Why would I be. . . ?" 
@@ -66,6 +71,7 @@ label Laura_chapter_one_season_two_training_sessions:
         ch_Player "Not really. . ."
 
         $ Laura.change_face("neutral")
+        $ Laura.change_arms("hips")
 
         ch_Laura "After the last session, I was expecting. . . never mind."
 
@@ -80,6 +86,7 @@ label Laura_chapter_one_season_two_training_sessions:
         $ fade_in_from_black(0.4)
 
         $ Laura.change_face("angry1")
+        $ Laura.change_arms("fight")
 
         "You have a decent grasp of the hand-to-hand techniques [Laura.name]'s taught you so far, but she makes you practice with short blades again today."
         "Apparently she 'doesn't believe in dull practice weapons'. . ."
@@ -94,6 +101,7 @@ label Laura_chapter_one_season_two_training_sessions:
         with small_screenshake
 
         $ Laura.change_face("smirk2")
+        $ Laura.change_arms("hips")
 
         ch_Laura "Good, that's enough for today."
         ch_Player "*huff* Why did that. . . *huff* hurt more than all the cuts. . . *huff*" 
@@ -107,6 +115,7 @@ label Laura_chapter_one_season_two_training_sessions:
         "The oldest of the cuts almost looks like it started closing already. . ."
     elif dice_roll == 3:
         $ Laura.change_face("confused1", eyes = "down")
+        $ Laura.change_arms("crossed")
 
         "[Laura.name] looks you up and down."
 
@@ -116,6 +125,7 @@ label Laura_chapter_one_season_two_training_sessions:
         ch_Player "It's just anticipation. . . for all the pain you're about to put me through." 
 
         $ Laura.change_face("neutral")
+        $ Laura.change_arms("hips")
 
         ch_Laura "You're still too sensitive to pain."
 
@@ -144,17 +154,20 @@ label Laura_chapter_one_season_two_training_sessions:
         with small_screenshake
 
         $ Laura.change_face("angry1", mouth = "smirk")
+        $ Laura.change_arms("fight")
 
         "A sharp jab to your liver causes you to instantly crumple."
         "It wasn't particularly forceful, but hurt even more in that moment than breaking your ribs."
 
         $ Laura.change_face("smirk2")
+        $ Laura.change_arms("hips")
 
         ch_Laura "A simple strike to the liver can be especially effective."
 
         "She actually gives you a minute to recover, before finishing the session with a lighter than usual workout."
 
         $ Laura.change_face("neutral")
+        $ Laura.change_arms("crossed")
 
         ch_Laura "That's enough."
         ch_Laura "You don't seem to be bleeding internally, but you're still weak. . ."

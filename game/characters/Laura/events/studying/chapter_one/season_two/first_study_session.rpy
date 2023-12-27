@@ -18,6 +18,7 @@ label Laura_chapter_one_season_two_first_study_session:
     $ ongoing_Event = True
 
     $ Laura.change_face("neutral")
+    $ Laura.change_arms("crossed")
 
     ch_Laura "Do you. . ."
 
@@ -28,6 +29,7 @@ label Laura_chapter_one_season_two_first_study_session:
     ch_Player "But why are you looking at me like that?"
 
     $ Laura.change_face("angry1", eyes = "squint")
+    $ Laura.change_arms("angry")
 
     ch_Laura "Because you're picky about it."
 
@@ -38,22 +40,26 @@ label Laura_chapter_one_season_two_first_study_session:
     ch_Player "It would be great if you helped." 
 
     $ Laura.change_face("confused1", eyes = "down")
+    $ Laura.change_arms("hips")
 
     "She does help you set things up, but you notice something odd."
     ch_Player "Why do you keep putting the psychology stuff next to the calculus papers?"
 
     $ Laura.change_face("angry1")
+    $ Laura.change_arms("angry")
 
     ch_Laura ". . ."
     ch_Laura "This is what I mean by 'picky'."
     ch_Player "That's not being picky. . ."
 
     $ Laura.change_face("confused2")
+    $ Laura.change_arms("neutral")
 
     ch_Player "They're completely different subjects."
     ch_Laura "Subjects?"
 
     $ Laura.change_face("confused1")
+    $ Laura.change_arms("crossed")
 
     ch_Laura "It's all for 'class,' why does it matter which papers go where?"
     "After a bit of prying, you realize [Laura.name] has no concept for how courses are usually organized."
@@ -63,6 +69,7 @@ label Laura_chapter_one_season_two_first_study_session:
         extend ""
         "I know your situation before coming here was different, but you must have had some kind of prior schooling, no?":
             $ Laura.change_face("angry1", eyes = "right")
+            $ Laura.change_arms("angry")
 
             ch_Laura "I was taught many things. . ." 
             
@@ -74,6 +81,7 @@ label Laura_chapter_one_season_two_first_study_session:
             call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_399
         "Did you really never have any experience with school before this? They must've taught you some stuff. . . before coming here.":
             $ Laura.change_face("angry1")
+            $ Laura.change_arms("angry")
 
             ch_Laura "'School'?" 
             ch_Laura "No."
@@ -85,6 +93,7 @@ label Laura_chapter_one_season_two_first_study_session:
             ch_Player "Somebody must've taught you at some point." 
             
             $ Laura.change_face("appalled1")
+            $ Laura.change_arms("angry")
 
             ch_Laura "Why would someone like me need to learn anything but how to most effectively kill a human being?" 
             
@@ -92,6 +101,7 @@ label Laura_chapter_one_season_two_first_study_session:
             call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_402
 
     $ Laura.change_face("angry1", eyes = "right")
+    $ Laura.change_arms("crossed")
 
     ch_Laura "I was taught very basic things. . ."
     ch_Laura "Concepts that were deemed necessary to understand."
@@ -106,6 +116,7 @@ label Laura_chapter_one_season_two_first_study_session:
     ch_Player "Well. . . the vast majority of people go through a much different process when growing up."
 
     $ Laura.change_face("angry1", eyes = "squint")
+    $ Laura.change_arms("angry")
 
     ch_Laura "Explain."
     "You describe how school usually works, explaining all the different grade levels and age groups."
@@ -113,6 +124,7 @@ label Laura_chapter_one_season_two_first_study_session:
     ch_Laura "I'm {i}almost{/i} glad I didn't have to suffer through all of that. . ."
 
     $ Laura.change_face("confused1", eyes = "squint")
+    $ Laura.change_arms("crossed")
 
     ch_Player "For most nor-"
 
@@ -135,10 +147,12 @@ label Laura_chapter_one_season_two_first_study_session:
     ch_Laura "I'd. . . like to change the subject. . ."
 
     $ Laura.change_face("neutral")
+    $ Laura.change_arms("neutral")
 
     ch_Player "Sure, let's just get into the tutoring then."
 
     $ Laura.change_face("neutral", eyes = "down")
+    $ Laura.change_arms("hips")
     
     "Despite [Laura.name]'s lack of prior education, you've begun to notice just how effectively she's able to learn."
     "Her grades were pitiful before you arrived, despite [Ororo.name]'s attempts at tutoring."
@@ -150,6 +164,7 @@ label Laura_chapter_one_season_two_first_study_session:
     "As today's session begins in earnest, you also notice the change in her demeanor as well."
 
     $ Laura.change_face("smirk2", eyes = "down", blush = 1)
+    $ Laura.change_arms("crossed")
 
     "Instead of acting like a skittish stray cat ready to claw you at the slightest touch, she seems much more relaxed."
     ch_Player "Here, try this question. . ."
@@ -175,6 +190,7 @@ label Laura_chapter_one_season_two_first_study_session:
             ch_Laura "Thanks. . . I guess. . ."
 
     $ Laura.change_face("angry1")
+    $ Laura.change_arms("angry")
 
     ch_Laura "It's mostly your fault."
 
@@ -194,6 +210,7 @@ label Laura_chapter_one_season_two_first_study_session:
         ch_Laura "It makes sense why you're a decent tutor."
 
     $ Laura.change_face("angry1", eyes = "right")
+    $ Laura.change_arms("crossed")
 
     ch_Player "That's nice of you to say."
     ch_Laura "Shut up. . ."

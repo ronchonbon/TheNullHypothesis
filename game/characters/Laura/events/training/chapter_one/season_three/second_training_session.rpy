@@ -18,6 +18,7 @@ label Laura_chapter_one_season_three_second_training_session:
     $ ongoing_Event = True
 
     $ Laura.change_face("neutral", eyes = "squint")
+    $ Laura.change_arms("crossed")
 
     "She walks right up to you, a bit too close for comfort."
     ch_Laura "How was your recovery from our last session?"
@@ -47,6 +48,7 @@ label Laura_chapter_one_season_three_second_training_session:
     ch_Player "Okay, well, I was pretty exhausted for a while afterwards."
 
     $ Laura.change_face("neutral")
+    $ Laura.change_arms("hips")
 
     ch_Player "My power seemed like it went dormant or something."
     ch_Player "Only the new part, not my nullification."
@@ -54,6 +56,7 @@ label Laura_chapter_one_season_three_second_training_session:
     ch_Laura "Today we will see if that refractory period can be improved."
 
     $ Laura.change_face("confused1")
+    $ Laura.change_arms("neutral")
 
     ch_Player "And what about you?"
     ch_Laura "I felt normal only minutes later."
@@ -73,18 +76,25 @@ label Laura_chapter_one_season_three_second_training_session:
     "Despite how much the previous training session exhausted you, things start off well."
     "Not having to deal with any muscle soreness from prior workouts is pretty nice. . ."
 
+    $ Laura.change_arms("fight")
+
     $ fade_in_from_black(0.4)
 
     "After the warm up, you work on more hand-to-hand techniques, including some grappling this time."
     "She also introduces you to a couple new weapons, both bladed and otherwise."
 
     $ Laura.change_face("neutral", eyes = "squint")
+    $ Laura.change_arms("hips")
 
     ch_Laura "Time to move on."
-    ch_Laura "Use your power again."
-    ch_Laura "We will spar."
 
-    # $ Laura.left_arm = 2
+    $ Laura.change_arms("hips", left_arm = "extended")
+
+    ch_Laura "Use your power again."
+
+    $ Laura.change_arms("fight")
+
+    ch_Laura "We will spar."
 
     "The look in her eye doesn't give any room for negotiation."
     "You just brace yourself and let it out."
@@ -140,11 +150,10 @@ label Laura_chapter_one_season_three_second_training_session:
     "Whether it was her intention for you to learn this or not, the lesson sinks in. . ."
     "All the power in the world is worthless if you don't know how to use it."
 
-    # $ Laura.left_arm = 1
-
     $ fade_in_from_black(0.4)
 
     $ Laura.change_face("angry1")
+    $ Laura.change_arms("crossed")
 
     $ Player.power = 25
 
@@ -161,6 +170,7 @@ label Laura_chapter_one_season_three_second_training_session:
     "When it's finally over, you can barely walk straight."
 
     $ Laura.change_face("angry1")
+    $ Laura.change_arms("hips")
 
     ch_Laura "We have a long way to go."
 

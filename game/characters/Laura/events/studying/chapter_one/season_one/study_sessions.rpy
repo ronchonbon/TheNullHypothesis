@@ -22,6 +22,7 @@ label Laura_chapter_one_season_one_study_sessions:
 
     if dice_roll == 1:
         $ Laura.change_face("neutral")
+        $ Laura.change_arms("crossed")
 
         ch_Player "Don't just throw everything on the bed."
 
@@ -30,6 +31,7 @@ label Laura_chapter_one_season_one_study_sessions:
         ch_Player "It'll make things easier if we just organize everything."
 
         $ Laura.change_face("neutral")
+        $ Laura.change_arms("neutral")
 
         ch_Laura "Fine."
 
@@ -39,10 +41,12 @@ label Laura_chapter_one_season_one_study_sessions:
         "While you're setting things up, her hand accidentally brushes against yours. . ." 
 
         $ Laura.change_face("surprised2")
+        $ Laura.change_arms(left_arm = "claws")
 
         ". . . and she jerks it away out of reflex." 
 
         $ Laura.change_face("angry1", eyes = "right", blush = 1)
+        $ Laura.change_arms("crossed")
 
         "You spend the next couple hours guiding [Laura.name] through the course materials."
 
@@ -62,6 +66,7 @@ label Laura_chapter_one_season_one_study_sessions:
         "You spend a while longer, correcting some misconceptions she apparently had. . ." 
 
         $ Laura.change_face("neutral")
+        $ Laura.change_arms("hips")
 
         ch_Laura "That's enough."
 
@@ -73,6 +78,7 @@ label Laura_chapter_one_season_one_study_sessions:
         $ Laura.change_face("confused1")
     elif dice_roll == 2:
         $ Laura.change_face("neutral")
+        $ Laura.change_arms("hips")
 
         ch_Player "Here, just let me organize things first."
         ch_Laura "I will help. . ."
@@ -83,6 +89,7 @@ label Laura_chapter_one_season_one_study_sessions:
         "You do notice any time she gets close to you, her nostrils flare slightly, and she shifts away a bit."
 
         $ Laura.change_face("surprised2")
+        $ Laura.change_arms("crossed")
 
         ch_Player "Do I really smell that good?"
 
@@ -102,12 +109,17 @@ label Laura_chapter_one_season_one_study_sessions:
         "She goes through some practice tests, and you periodically correct her or answer any questions she may have."
 
         $ Laura.change_face("confused1")
+        $ Laura.change_arms("neutral", left_arm = "extended")
 
         ch_Laura "Is this one right?" 
+
+        $ Laura.change_arms("neutral")
+
         "You look it over and can see where she went wrong."
         ch_Player "No, it's actually. . . because. . ." 
 
         $ Laura.change_face("angry1")
+        $ Laura.change_arms("angry")
 
         pause 1.0
 
@@ -116,6 +128,7 @@ label Laura_chapter_one_season_one_study_sessions:
         "The rest of the session goes by quickly, as you slowly but surely get [Laura.name] to understand the material."
 
         $ Laura.change_face("surprised2")
+        $ Laura.change_arms("crossed")
 
         ch_Player "Not bad, you're making pretty good progress." 
 
@@ -132,6 +145,7 @@ label Laura_chapter_one_season_one_study_sessions:
         ch_Player "Next time, just let me set things up. . ." 
 
         $ Laura.change_face("confused1")
+        $ Laura.change_arms("crossed")
 
         ch_Laura "Fine. . ." 
 
@@ -158,6 +172,7 @@ label Laura_chapter_one_season_one_study_sessions:
         ch_Player "From the top then. . ."
 
         $ Laura.change_face("angry1", eyes = "down")
+        $ Laura.change_arms("angry")
 
         "While going over what [Laura.name] missed during class, you notice she's getting a bit frustrated."
         "It takes longer than usual, but you take your time and make sure she understands the concepts."
@@ -168,6 +183,7 @@ label Laura_chapter_one_season_one_study_sessions:
         "She only has trouble with one of them."
 
         $ Laura.change_face("confused1")
+        $ Laura.change_arms("crossed")
 
         ch_Laura "I don't know this one, tell me the answer." 
 
@@ -182,6 +198,7 @@ label Laura_chapter_one_season_one_study_sessions:
         ch_Player "Bye. . ."
     elif dice_roll == 4:
         $ Laura.change_face("neutral")
+        $ Laura.change_arms("hips")
 
         "You start setting things up for the session before [Laura.name] can mess anything up."
 
@@ -190,6 +207,7 @@ label Laura_chapter_one_season_one_study_sessions:
         "At least she tries to help after a minute."
 
         $ Laura.change_face("neutral")
+        $ Laura.change_arms("crossed")
 
         ch_Player "I was thinking about starting with this class today, sound good?"
         ch_Laura "Fine."
@@ -200,7 +218,13 @@ label Laura_chapter_one_season_one_study_sessions:
         $ Laura.change_face("confused1")
 
         ch_Laura "This one. . ."
+
+        $ Laura.change_arms("neutral", left_arm = "extended")
+
         "She points to a particular question."
+
+        $ Laura.change_arms("crossed")
+
         ch_Laura "This is the answer, right?"
 
         $ Laura.change_face("smirk2")
@@ -214,6 +238,7 @@ label Laura_chapter_one_season_one_study_sessions:
         "Out of the corner of your eye, you notice [Laura.name] scoot a bit away from you, as her nostrils flare slightly."
 
         $ Laura.change_face("angry1", blush= 1)
+        $ Laura.change_arms("angry")
 
         ch_Player "Alright, that should be everything for now." 
 

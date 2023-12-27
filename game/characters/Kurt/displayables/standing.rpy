@@ -188,7 +188,7 @@ layeredimage Kurt_standing_head:
         "characters/Kurt/images/beard_[Kurt.beard].webp"
 
     if Kurt.eyes in ["closed", "down", "left", "right", "squint", "up", "wink"]:
-        "characters/Kurt/images/standing/eyes_[Kurt.eyes].webp"
+        "characters/Kurt/images/eyes_[Kurt.eyes].webp"
     else:
         "Kurt_blinking"
 
@@ -196,7 +196,7 @@ layeredimage Kurt_standing_head:
         "characters/Kurt/images/brows_[Kurt.brows].webp"
 
     if Kurt.blush:
-        "characters/Kurt/images/standing/blush[Kurt.blush].webp"
+        "characters/Kurt/images/blush[Kurt.blush].webp"
 
     if Kurt.hair:
         "characters/Kurt/images/hair_[Kurt.hair].webp"

@@ -37,6 +37,7 @@ label Jean_back_from_mission:
     call set_the_scene(location = "bg_study") from _call_set_the_scene_49
 
     $ Jean.change_face("happy")
+    $ Jean.change_arms("sass")
 
     "As you approach, [Jean.name] notices you. Her face lights up."
     ch_Jean "Hi, [Player.first_name]!"
@@ -48,6 +49,7 @@ label Jean_back_from_mission:
     ch_Charles "While on mission, [Jean.public_name] and her team were ambushed. The incident bore striking similarities to the events that led to your arrival here."
     
     $ Jean.change_face("worried1")
+    $ Jean.change_arms("crossed")
     
     ch_Charles "Jean has had. . . difficulties controlling her powers since then."
     ch_Charles ". . . As a result, I am assigning you as her training partner."
@@ -83,10 +85,13 @@ label Jean_back_from_mission:
     ch_Charles "Very good. Now, I must be off. Please excuse me."
 
     $ Jean.change_face("neutral")
+    $ Jean.change_arms("neutral", left_arm = "rub_neck")
 
     call remove_Characters(Charles) from _call_remove_Characters_44
 
     ch_Jean "So, hey."
+
+    $ Jean.change_arms("sass")
 
     if Jean.History.check("Player_happy_to_help") or Jean.History.check("Player_wants_excuse_to_spend_time_together"):
         ch_Jean "I'm glad you have that nullification ability, otherwise I don't know how I'd be able to get confidence in my powers again."
@@ -99,10 +104,12 @@ label Jean_back_from_mission:
             ch_Player "Hopefully both of us will come out of this understanding our abilities better. I really want to start getting stronger."
 
             $ Jean.change_face("smirk2")
+            $ Jean.change_arms("sass", left_arm = "extended")
 
             ch_Jean "I'm glad you feel the same way."
 
             $ Jean.change_face("happy")
+            $ Jean.change_arms("hips")
 
             ch_Jean "Plus we get to spend more time together!"
             ch_Jean "I'll take good care of you, don't worry."
@@ -115,12 +122,22 @@ label Jean_back_from_mission:
 
             ch_Jean ". . . and excited to be working with you."
             ch_Jean "We'll be spending plenty of time trying to figure out our powers together."
+            
+            $ Jean.change_arms("hips")
+
             ch_Jean "Don't worry, I'll take good care of you."
     else:
         $ Jean.change_face("worried1")
+        $ Jean.change_arms("hips")
 
         ch_Jean "I know you're not too happy about being a mutant and all. . ."
+        
+        $ Jean.change_arms("hips", left_arm = "extended")
+
         ch_Jean "But without that nullification ability, I don't know how I'd be able to get confidence in my powers again."
+        
+        $ Jean.change_arms("crossed")
+
         ch_Player "I'm glad I can help. It's just that everything has been so sudden. I was in a norm- er, I was in college like a week ago!"
         
         $ Jean.change_face("sad")
@@ -131,6 +148,7 @@ label Jean_back_from_mission:
         ch_Jean "Yeah. . . I get it. Trust me, we've all been there."
 
         $ Jean.change_face("smirk1")
+        $ Jean.change_arms("hips")
 
         ch_Jean "But don't worry, I'll take good care of you."
         
@@ -142,6 +160,7 @@ label Jean_back_from_mission:
             call change_Character_stat(Jean, "love", medium_stat) from _call_change_Character_stat_175
             
             $ Jean.change_face("surprised2", blush = 1)
+            $ Jean.change_arms("crossed")
 
             ch_Jean "Haha, yeah. I guess so. . ."
 
@@ -170,6 +189,7 @@ label Jean_back_from_mission:
             call change_Character_stat(Jean, "trust", small_stat) from _call_change_Character_stat_178
             
             $ Jean.blush = 1
+            $ Jean.change_arms("angry")
             
             ch_Jean "Can you. . . say that again. . ."
             ch_Player "Uh. . . that would be great. . ."
@@ -177,6 +197,7 @@ label Jean_back_from_mission:
             ch_Player "Yes, please?"
 
             $ Jean.change_face("surprised2", blush = 2)
+            $ Jean.change_arms("crossed")
             
             "[Jean.name] stares at you for a second before snapping out of it."
         "That would be great.":
@@ -194,6 +215,7 @@ label Jean_back_from_mission:
             "She seems surprised by her own enthusiasm."
 
     $ Jean.change_face("neutral")
+    $ Jean.change_arms("sass")
 
     ch_Jean "{i}Ahem{/i}. . . well I'm usually pretty busy with studying and exams."
 
@@ -217,7 +239,13 @@ label Jean_back_from_mission:
             ch_Player "But, thanks, [Jean.name]."
 
     ch_Jean "Just let me know when you wanna start working on our powers. Take my number so you can shoot me a text."
+    
+    $ Jean.change_arms("hips", left_arm = "extended")
+    
     "You give [Jean.name] your phone and she adds herself as a contact."
+    
+    $ Jean.change_arms("sass")
+    
     ch_Jean "Alright, I gotta head out. I'll see you later!"
     ch_Player "See ya."
 

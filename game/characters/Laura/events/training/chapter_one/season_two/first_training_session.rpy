@@ -21,6 +21,7 @@ label Laura_chapter_one_season_two_first_training_session:
         call send_Characters(Laura, "bg_danger", behavior = "training") from _call_send_Characters_117
         
         $ Laura.change_face("angry1")
+        $ Laura.change_arms("crossed")
 
         if Laura.History.check("said_no_to_training", tracker = "recent"):
             ch_Laura "So you were just going to train without me?"
@@ -42,17 +43,26 @@ label Laura_chapter_one_season_two_first_training_session:
         call remove_everyone_but(Laura) from _call_remove_everyone_but_4
 
     $ Laura.change_face("angry1")
+    $ Laura.change_arms("hips")
+
 
     ch_Laura "Are you fully healed?"
     ch_Player "Yeah."
     ch_Player "Not sure how, but I feel perfectly fine."
     ch_Laura "Good."
+
+    $ Laura.change_arms("crossed")
+
     ch_Laura "Because we haven't been taking this training seriously enough."
     ch_Player "We haven't?!"
     ch_Laura "No, w-"
+
+    $ Laura.change_arms("neutral")
+
     "She seems to interrupt herself, as she gets a good look at you."
 
     $ Laura.change_face("neutral", eyes = "squint")
+    $ Laura.change_arms("angry")
 
     pause 1.0
 
@@ -69,18 +79,24 @@ label Laura_chapter_one_season_two_first_training_session:
     ch_Player "Uh. . . what's wrong?"
 
     $ Laura.change_face("neutral", eyes = "down")
+    $ Laura.change_arms("crossed")
 
     ch_Laura "Something's different. . ."
 
     $ Laura.change_face("neutral", eyes = "squint")
+    $ Laura.change_arms("hips", left_arm = "extended")
 
     ch_Laura "You're different. . ."
+
+    $ Laura.change_arms("hips")
+
     ch_Player "Different?"
     ch_Laura "Your heartbeat, muscle tone, weight distribution. . ."
     "She continues muttering to herself."
     ch_Player "I don-"
 
     $ Laura.change_face("angry1")
+    $ Laura.change_arms("crossed")
 
     ch_Laura "Quiet."
     ch_Laura "You're being evaluated."
@@ -101,6 +117,7 @@ label Laura_chapter_one_season_two_first_training_session:
     $ fade_in_from_black(0.4)
 
     $ Laura.change_face("furious")
+    $ Laura.change_arms("angry")
 
     ch_Player "What the fuck. . ."
     ch_Laura "Yes. {i}What the fuck{/i}?"
@@ -115,9 +132,14 @@ label Laura_chapter_one_season_two_first_training_session:
     ch_Laura "I'm not done evaluating you."
     ch_Player "What do you w-"
 
+    $ Laura.change_arms("claws")
+
     call Laura_unsheathes_claws from _call_Laura_unsheathes_claws_2
 
+    pause 1.0
+
     $ Laura.change_face("furious")
+    $ Laura.change_arms("fight")
 
     "Without warning, her claws come out, and you instinctively duck."
     "You're given a haircut as they nearly take your head off." 
@@ -139,6 +161,7 @@ label Laura_chapter_one_season_two_first_training_session:
     call Laura_sheathes_claws from _call_Laura_sheathes_claws_2
 
     $ Laura.change_face("neutral", eyes = "squint")
+    $ Laura.change_arms("crossed")
 
     ch_Laura "Hmm. . . faster too."
 
@@ -160,8 +183,7 @@ label Laura_chapter_one_season_two_first_training_session:
     pause 1.0
 
     $ Laura.change_face("neutral")
-
-    # $ Laura.left_arm = 2
+    $ Laura.change_arms("fight")
 
     "Again, she's silent, but you recognize her fighting stance when you see it."
 
@@ -171,11 +193,12 @@ label Laura_chapter_one_season_two_first_training_session:
     "This is less of a training session and more a trial by fire."
     "She pushes your meager skills to the limit and, by now, the fatigue is starting to build up."
 
-    # $ Laura.left_arm = 1
-
     $ fade_in_from_black(0.4)
+    $ Laura.change_arms("fight")
 
-    $ Laura.change_face("neutral")
+    pause 1.0
+
+    $ Laura.change_arms("hips")
 
     "Her claws never came out again, but her deadliness is more evident than ever."
     "Matching your newfound speed still didn't even cause her to break a sweat."
@@ -202,6 +225,7 @@ label Laura_chapter_one_season_two_first_training_session:
     "Your arms give out during a pushup, and you smack your face on the ground."
 
     $ Laura.change_face("confused1")
+    $ Laura.change_arms("crossed")
 
     ch_Laura "Maybe not better. . ."
     "She gives you a minute to catch your breath."
@@ -214,8 +238,12 @@ label Laura_chapter_one_season_two_first_training_session:
     ch_Laura "Compared to several weeks ago. . ."
 
     $ Laura.change_face("confused1")
+    $ Laura.change_arms("hips", left_arm = "extended")
 
     ch_Laura "You're stronger, faster, more coordinated, indefatigable. . ."
+    
+    $ Laura.change_arms("hips")
+
     ch_Player "I felt pretty fatigable by the end there."
 
     $ Laura.change_face("neutral", eyes = "squint")
@@ -225,6 +253,7 @@ label Laura_chapter_one_season_two_first_training_session:
     ch_Player "Thanks. . ."
 
     $ Laura.change_face("confused1")
+    $ Laura.change_arms("crossed")
 
     ch_Laura "You're. . . welcome?"
 

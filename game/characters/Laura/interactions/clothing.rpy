@@ -254,6 +254,7 @@ label Laura_rejected_Clothing_twice:
 
     if dice_roll == 1:
         $ Laura.change_face("suspicious2")
+        $ Laura.change_arms("claws")
 
         call Laura_unsheathes_claws from _call_Laura_unsheathes_claws_3
 
@@ -262,6 +263,8 @@ label Laura_rejected_Clothing_twice:
         pause 1.5
 
         call Laura_sheathes_claws from _call_Laura_sheathes_claws_3
+
+        $ Laura.change_arms("neutral")
     elif dice_roll == 2:
         $ Laura.change_face("suspicious2")
 

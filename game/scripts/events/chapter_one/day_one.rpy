@@ -481,6 +481,8 @@ label day_one_tour:
     call set_the_scene(location = Player.home) from _call_set_the_scene_244
     call add_Characters(Ororo) from _call_add_Characters_51
 
+    pause 1.0
+
     $ Ororo.change_arms("neutral", right_arm = "extended")
 
     ch_Ororo "I trust you've already seen your room? You won't need to worry about roommates, all students have gotten private rooms since the expansion, although the floors are coed."
@@ -502,6 +504,8 @@ label day_one_tour:
 label meet_Rogue:
     call set_the_scene(location = "bg_classroom") from _call_set_the_scene_245
     call add_Characters(Ororo) from _call_add_Characters_52
+
+    pause 1.0
 
     $ Ororo.change_arms("neutral", right_arm = "extended")
 
@@ -695,6 +699,9 @@ label meet_Rogue:
     call add_Characters(Ororo) from _call_add_Characters_56
 
     $ Ororo.change_face("smirk2")
+
+    pause 1.0
+    
     $ Ororo.change_arms("crossed")
 
     ch_Ororo "These are the locker room's communal showers."
@@ -952,8 +959,9 @@ label meet_Laura_1A:
     ch_Laura "Also. . . I have indestructible claws."
 
     $ Laura.change_face("neutral", eyes = "squint")
+    $ Laura.change_arms("neutral", left_arm = "X")
     
-    call Laura_unsheathes_claws from _call_Laura_unsheathes_claws_5
+    call Laura_unsheathes_claws(hand = "left") from _call_Laura_unsheathes_claws_5
 
     $ Laura.change_face("neutral")
 
@@ -977,6 +985,8 @@ label meet_Laura_1A:
 
     call Laura_sheathes_claws from _call_Laura_sheathes_claws_5
 
+    $ Laura.change_arms("neutral")
+
     return
 
 label day_one_tour_farewell:
@@ -985,10 +995,11 @@ label day_one_tour_farewell:
     $ lighting = "evening"
 
     call set_the_scene(location = "bg_campus") from _call_set_the_scene_249
-    call add_Characters(Ororo) from _call_add_Characters_59
 
     $ Ororo.change_face("neutral")
     $ Ororo.change_arms("hips", right_arm = "neutral")
+
+    call add_Characters(Ororo) from _call_add_Characters_59
 
     pause 1.0
 

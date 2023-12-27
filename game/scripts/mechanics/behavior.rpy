@@ -153,108 +153,107 @@ label set_Character_Outfits(Characters = None, instant = True):
     $ renpy.dynamic(temp_Characters = Characters[:])
 
     while temp_Characters:
-        if time_index > 0 or temp_Characters[0].destination not in bedrooms:
-            if temp_Characters[0] in all_Companions:
-                if temp_Characters[0].location != Player.location:
-                    $ temp_Characters[0].wet = False
-                
-                if temp_Characters[0].behavior == "on_date":
-                    $ Outfit = temp_Characters[0].Wardrobe.date_Outfit
-                elif (temp_Characters[0].behavior == "sleeping" or temp_Characters[0].behavior == "getting_ready_for_bed") and (Player.location != temp_Characters[0].destination or approval_check(temp_Characters[0], threshold = "sleepover")):
-                    $ Outfit = temp_Characters[0].Wardrobe.sleeping_Outfit
-                elif temp_Characters[0].behavior == "training":
-                    $ Outfit = temp_Characters[0].Wardrobe.superhero_Outfit
-                elif temp_Characters[0].behavior in ["swimming", "sunbathing"]:
-                    $ Outfit = temp_Characters[0].Wardrobe.swimming_Outfit
-                elif temp_Characters[0].destination == "bg_lockers" and temp_Characters[0].behavior == "showering":
-                    if Player.location == "bg_lockers":
-                        if temp_Characters[0].location == "bg_danger":
-                            $ Outfit = temp_Characters[0].Wardrobe.superhero_Outfit
-                        elif temp_Characters[0].location == "bg_pool":
-                            $ Outfit = temp_Characters[0].Wardrobe.swimming_Outfit
-                        elif temp_Characters[0].location == "bg_lockers":
-                            $ Outfit = temp_Characters[0].Wardrobe.swimming_Outfit
-                        elif temp_Characters[0] in Offscreen:
-                            $ Outfit = temp_Characters[0].Wardrobe.swimming_Outfit
-                        else:
-                            $ Outfit = temp_Characters[0].Wardrobe.indoor_Outfit
-                    else:
-                        $ Outfit = temp_Characters[0].Wardrobe.swimming_Outfit
-                elif temp_Characters[0].destination == "bg_lockers" and temp_Characters[0].behavior == "changing":
+        if temp_Characters[0] in all_Companions:
+            if temp_Characters[0].location != Player.location:
+                $ temp_Characters[0].wet = False
+            
+            if temp_Characters[0].behavior == "on_date":
+                $ Outfit = temp_Characters[0].Wardrobe.date_Outfit
+            elif (temp_Characters[0].behavior == "sleeping" or temp_Characters[0].behavior == "getting_ready_for_bed") and (Player.location != temp_Characters[0].destination or approval_check(temp_Characters[0], threshold = "sleepover")):
+                $ Outfit = temp_Characters[0].Wardrobe.sleeping_Outfit
+            elif temp_Characters[0].behavior == "training":
+                $ Outfit = temp_Characters[0].Wardrobe.superhero_Outfit
+            elif temp_Characters[0].behavior in ["swimming", "sunbathing"]:
+                $ Outfit = temp_Characters[0].Wardrobe.swimming_Outfit
+            elif temp_Characters[0].destination == "bg_lockers" and temp_Characters[0].behavior == "showering":
+                if Player.location == "bg_lockers":
                     if temp_Characters[0].location == "bg_danger":
                         $ Outfit = temp_Characters[0].Wardrobe.superhero_Outfit
                     elif temp_Characters[0].location == "bg_pool":
                         $ Outfit = temp_Characters[0].Wardrobe.swimming_Outfit
+                    elif temp_Characters[0].location == "bg_lockers":
+                        $ Outfit = temp_Characters[0].Wardrobe.swimming_Outfit
+                    elif temp_Characters[0] in Offscreen:
+                        $ Outfit = temp_Characters[0].Wardrobe.swimming_Outfit
                     else:
                         $ Outfit = temp_Characters[0].Wardrobe.indoor_Outfit
-                elif "bg_shower" in temp_Characters[0].destination and temp_Characters[0].behavior == "showering":
-                    $ Outfit = temp_Characters[0].Wardrobe.Outfits["Nude"]
-                elif temp_Characters[0].destination in ["bg_campus", "bg_pool"]:
-                    $ Outfit = temp_Characters[0].Wardrobe.outdoor_Outfit
-                elif temp_Characters[0].destination in bedrooms:
-                    $ Outfit = temp_Characters[0].Wardrobe.private_Outfit
+                else:
+                    $ Outfit = temp_Characters[0].Wardrobe.swimming_Outfit
+            elif temp_Characters[0].destination == "bg_lockers" and temp_Characters[0].behavior == "changing":
+                if temp_Characters[0].location == "bg_danger":
+                    $ Outfit = temp_Characters[0].Wardrobe.superhero_Outfit
+                elif temp_Characters[0].location == "bg_pool":
+                    $ Outfit = temp_Characters[0].Wardrobe.swimming_Outfit
                 else:
                     $ Outfit = temp_Characters[0].Wardrobe.indoor_Outfit
+            elif "bg_shower" in temp_Characters[0].destination and temp_Characters[0].behavior == "showering":
+                $ Outfit = temp_Characters[0].Wardrobe.Outfits["Nude"]
+            elif temp_Characters[0].destination in ["bg_campus", "bg_pool"]:
+                $ Outfit = temp_Characters[0].Wardrobe.outdoor_Outfit
+            elif temp_Characters[0].destination in bedrooms and Player.location != temp_Characters[0].destination:
+                $ Outfit = temp_Characters[0].Wardrobe.private_Outfit
+            else:
+                $ Outfit = temp_Characters[0].Wardrobe.indoor_Outfit
 
-                if temp_Characters[0].location in public_locations and not Outfit.wear_in_public and (Outfit.wear_in_private or Outfit.sleepwear):
-                    $ Outfit = temp_Characters[0].Wardrobe.indoor_Outfit
+            if temp_Characters[0].location in public_locations and not Outfit.wear_in_public and (Outfit.wear_in_private or Outfit.sleepwear):
+                $ Outfit = temp_Characters[0].Wardrobe.indoor_Outfit
 
-                if renpy.showing(f"{temp_Characters[0].tag}_sprite") and not black_screen and not instant:
-                    $ Items_to_remove, Items_to_add = get_changed_Items(temp_Characters[0], Outfit)
+            if renpy.showing(f"{temp_Characters[0].tag}_sprite") and not black_screen and not instant:
+                $ Items_to_remove, Items_to_add = get_changed_Items(temp_Characters[0], Outfit)
 
-                    call does_Character_want_privacy(temp_Characters[0], Items_to_add = Items_to_add, Items_to_remove = Items_to_remove) from _call_does_Character_want_privacy
+                call does_Character_want_privacy(temp_Characters[0], Items_to_add = Items_to_add, Items_to_remove = Items_to_remove) from _call_does_Character_want_privacy
 
-                    if (Items_to_add or Items_to_remove) and _return:
-                        $ fade_to_black(0.4)
+                if (Items_to_add or Items_to_remove) and _return:
+                    $ fade_to_black(0.4)
 
-                        $ faded = True
+                    $ faded = True
 
-                if temp_Characters:
-                    if renpy.showing(f"{temp_Characters[0].tag}_sprite") and not black_screen:
-                        call change_Outfit(temp_Characters[0], Outfit, instant = instant) from _call_change_Outfit_44
+            if temp_Characters:
+                if renpy.showing(f"{temp_Characters[0].tag}_sprite") and not black_screen:
+                    call change_Outfit(temp_Characters[0], Outfit, instant = instant) from _call_change_Outfit_44
+                else:
+                    call change_Outfit(temp_Characters[0], Outfit, instant = True) from _call_change_Outfit_45
+
+            if temp_Characters:
+                # if temp_Characters[0].behavior == "showering" and temp_Characters[0] in Offscreen:
+                #     call try_on(temp_Characters[0], temp_Characters[0].Wardrobe.Clothes["towel"], instant = True) from _call_try_on_15
+                
+                if temp_Characters[0].behavior == "showering" and Player.location not in [temp_Characters[0].location, temp_Characters[0].destination]:
+                    if renpy.random.random() > 0.5:
+                        $ temp_Characters[0].behavior = None
+                        $ temp_Characters[0].wet = True
+        elif temp_Characters[0] in all_NPCs:
+            if temp_Characters[0] == Kurt:
+                if temp_Characters[0].behavior == "training":
+                    if temperature[0] < 10 and temp_Characters[0].destination in ["bg_campus", "bg_pool"]:
+                        if renpy.showing(f"{temp_Characters[0].tag}_sprite") and not black_screen and not instant and temp_Characters[0].outfit != "suit_coat":
+                            $ fade_to_black(0.4)
+
+                            $ faded = True
+
+                        $ temp_Characters[0].outfit = "suit_coat"
                     else:
-                        call change_Outfit(temp_Characters[0], Outfit, instant = True) from _call_change_Outfit_45
+                        if renpy.showing(f"{temp_Characters[0].tag}_sprite") and not black_screen and not instant and temp_Characters[0].outfit != "suit":
+                            $ fade_to_black(0.4)
 
-                if temp_Characters:
-                    # if temp_Characters[0].behavior == "showering" and temp_Characters[0] in Offscreen:
-                    #     call try_on(temp_Characters[0], temp_Characters[0].Wardrobe.Clothes["towel"], instant = True) from _call_try_on_15
-                    
-                    if temp_Characters[0].behavior == "showering" and Player.location not in [temp_Characters[0].location, temp_Characters[0].destination]:
-                        if renpy.random.random() > 0.5:
-                            $ temp_Characters[0].behavior = None
-                            $ temp_Characters[0].wet = True
-            elif temp_Characters[0] in all_NPCs:
-                if temp_Characters[0] == Kurt:
-                    if temp_Characters[0].behavior == "training":
-                        if temperature[0] < 10 and temp_Characters[0].destination in ["bg_campus", "bg_pool"]:
-                            if renpy.showing(f"{temp_Characters[0].tag}_sprite") and not black_screen and not instant and temp_Characters[0].outfit != "suit_coat":
-                                $ fade_to_black(0.4)
+                            $ faded = True
 
-                                $ faded = True
+                        $ temp_Characters[0].outfit = "suit"
+                else:
+                    if temperature[0] < 10 and temp_Characters[0].destination in ["bg_campus", "bg_pool"]:
+                        if renpy.showing(f"{temp_Characters[0].tag}_sprite") and not black_screen and not instant and temp_Characters[0].outfit != "winter":
+                            $ fade_to_black(0.4)
 
-                            $ temp_Characters[0].outfit = "suit_coat"
-                        else:
-                            if renpy.showing(f"{temp_Characters[0].tag}_sprite") and not black_screen and not instant and temp_Characters[0].outfit != "suit":
-                                $ fade_to_black(0.4)
+                            $ faded = True
 
-                                $ faded = True
-
-                            $ temp_Characters[0].outfit = "suit"
+                        $ temp_Characters[0].outfit = "winter"
                     else:
-                        if temperature[0] < 10 and temp_Characters[0].destination in ["bg_campus", "bg_pool"]:
-                            if renpy.showing(f"{temp_Characters[0].tag}_sprite") and not black_screen and not instant and temp_Characters[0].outfit != "winter":
-                                $ fade_to_black(0.4)
+                        if renpy.showing(f"{temp_Characters[0].tag}_sprite") and not black_screen and not instant and temp_Characters[0].outfit != "casual":
+                            $ fade_to_black(0.4)
 
-                                $ faded = True
+                            $ faded = True
 
-                            $ temp_Characters[0].outfit = "winter"
-                        else:
-                            if renpy.showing(f"{temp_Characters[0].tag}_sprite") and not black_screen and not instant and temp_Characters[0].outfit != "casual":
-                                $ fade_to_black(0.4)
-
-                                $ faded = True
-
-                            $ temp_Characters[0].outfit = "casual"
+                        $ temp_Characters[0].outfit = "casual"
 
         $ temp_Characters.remove(temp_Characters[0])
 

@@ -65,7 +65,8 @@ init python:
 
     build.classify("**.md", None)
     build.classify("**.bak", None)
-    build.classify("LICENSE", None)
+    
+    build.classify("LICENSE", "archive")
 
     build.classify("**.rpy", "archive")
     build.classify("**.rpyc", "archive")
@@ -73,6 +74,8 @@ init python:
     build.classify("**.png", "archive")
     build.classify("**.webp", "archive")
     build.classify("**.ogg", "archive")
+    build.classify("**.moc3", "archive")
+    build.classify("**.json", "archive")
 
     build.documentation("*.html")
     build.documentation("*.txt")

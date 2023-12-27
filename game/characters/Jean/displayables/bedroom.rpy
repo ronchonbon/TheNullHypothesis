@@ -1,5 +1,7 @@
 layeredimage bg_Jean:
-    always:
+    if lighting == "evening":
+        "characters/Jean/images/bedroom/bg_Jean_day.webp"
+    else:
         "characters/Jean/images/bedroom/bg_Jean_[lighting].webp"
         
     if Jean.messy_bed:
@@ -19,14 +21,20 @@ layeredimage bg_Jean:
     if Jean.clothes_on_floor:
         "characters/Jean/images/bedroom/bg_Jean_clothes.webp"
 
-    always:
+    if lighting == "evening":
+        "characters/Jean/images/bedroom/bg_Jean_day_hard_light.webp" at Transform(blend = "multiply")
+    else:
         "characters/Jean/images/bedroom/bg_Jean_[lighting]_hard_light.webp" at Transform(blend = "multiply")
 
     if lighting in ["day", "night"]:
         "characters/Jean/images/bedroom/bg_Jean_[lighting]_screen.webp" at Transform(blend = "screen")
 
-    always:
+    if lighting == "evening":
+        "characters/Jean/images/bedroom/bg_Jean_day_linear_dodge.webp" at Transform(blend = "multiply")
+    else:
         "characters/Jean/images/bedroom/bg_Jean_[lighting]_linear_dodge.webp" at Transform(blend = "add")
 
-    always:
+    if lighting == "evening":
+        "characters/Jean/images/bedroom/bg_Jean_day_multiply.webp" at Transform(blend = "multiply")
+    else:
         "characters/Jean/images/bedroom/bg_Jean_[lighting]_multiply.webp" at Transform(blend = "multiply")

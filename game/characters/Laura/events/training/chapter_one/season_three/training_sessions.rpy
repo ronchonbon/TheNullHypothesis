@@ -22,6 +22,7 @@ label Laura_chapter_one_season_three_training_sessions:
 
     if dice_roll == 1:
         $ Laura.change_face("neutral")
+        $ Laura.change_arms("crossed")
 
         "After a brief warm up. . ."
         ch_Laura "Today we start with sparring." 
@@ -33,6 +34,7 @@ label Laura_chapter_one_season_three_training_sessions:
         ch_Player "Because I'll be dead for the rest of the session. . ."
 
         $ Laura.change_face("smirk2")
+        $ Laura.change_arms("fight")
 
         ch_Laura "That's the point." 
 
@@ -56,6 +58,7 @@ label Laura_chapter_one_season_three_training_sessions:
         $ Player.power = 0
 
         $ Laura.change_face("neutral")
+        $ Laura.change_arms("hips")
 
         ch_Player "*huff* Fuck. . . *huff*"
         ch_Player "*huff* How long was that? *huff*"
@@ -69,6 +72,7 @@ label Laura_chapter_one_season_three_training_sessions:
         "You try your best and eventually make it to the end."
 
         $ Laura.change_face("furious")
+        $ Laura.change_arms("crossed")
 
         ch_Laura "You're done." 
         ch_Laura "Just moving backwards at this point." 
@@ -78,10 +82,17 @@ label Laura_chapter_one_season_three_training_sessions:
         "She goes to finish training on her own."
     elif dice_roll == 2:
         $ Laura.change_face("neutral", eyes = "squint")
+        $ Laura.change_arms("hips")
 
         ch_Laura "We're trying something different today."
         ch_Player "We are?"
+
+        $ Laura.change_arms("hips", left_arm = "extended")
+
         ch_Laura "Activate your power, but use it to do the exercises, instead of sparring." 
+        
+        $ Laura.change_arms("crossed")
+
         ch_Laura "I'll be at a reasonable distance." 
 
         $ fade_to_black(0.4)
@@ -98,8 +109,7 @@ label Laura_chapter_one_season_three_training_sessions:
         $ fade_in_from_black(0.4)
 
         $ Laura.change_face("angry1")
-
-        # $ Laura.left_arm = 2
+        $ Laura.change_arms("fight")
 
         "[Laura.name] indicates for you to keep going and has you shadow her while she demonstrates various techniques and physical feats."
         "You have no idea how much time passes like this, just parroting whatever she shows you."
@@ -119,7 +129,7 @@ label Laura_chapter_one_season_three_training_sessions:
         $ Player.power = 0
 
         $ Laura.change_face("neutral")
-        # $ Laura.left_arm = 1
+        $ Laura.change_arms("crossed")
 
         ch_Player "*huff* How long was that? *huff*"
         ch_Laura "Substantially longer than when we spar." 
@@ -135,6 +145,7 @@ label Laura_chapter_one_season_three_training_sessions:
         "The weakness does feel less suffocating, if only slightly."
     elif dice_roll == 3:
         $ Laura.change_face("confused1", eyes = "down")
+        $ Laura.change_arms("crossed")
 
         "[Laura.name] looks you up and down."
 
@@ -148,10 +159,14 @@ label Laura_chapter_one_season_three_training_sessions:
         ch_Laura "Not pushing yourself hard enough lately."
 
         $ Laura.change_face("angry1")
+        $ Laura.change_arms("hips")
 
         ch_Laura "Warm up, now."
 
         "The warm up is quick, but she pushes you harder than normal."
+        
+        $ Laura.change_arms("fight")
+
         "Afterwards she runs you through endless techniques and exercises, beating you thoroughly."
 
         call Laura_unsheathes_claws from _call_Laura_unsheathes_claws_1
@@ -219,6 +234,7 @@ label Laura_chapter_one_season_three_training_sessions:
         $ fade_in_from_black(0.4)
         
         $ Laura.change_face("angry1", mouth = "smirk")
+        $ Laura.change_arms("crossed")
 
         $ Player.power = 0
 

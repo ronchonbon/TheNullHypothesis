@@ -22,6 +22,7 @@ label Laura_chapter_one_season_two_study_sessions:
 
     if dice_roll == 1:
         $ Laura.change_face("neutral")
+        $ Laura.change_arms("crossed")
 
         ch_Player "Can you help me set things up?"
 
@@ -34,11 +35,13 @@ label Laura_chapter_one_season_two_study_sessions:
         ch_Player "Right. . ."
 
         $ Laura.change_face("angry1", eyes = "down")
+        $ Laura.change_arms("hips")
 
         "She does help you organize all the materials, and it barely takes a few minutes under your direction."
         "Instead of shying away from close contact, she seems to gravitate closer to you at times. . ." 
 
         $ Laura.change_face("surprised2")
+        $ Laura.change_arms("angry")
 
         ". . . although she still can't help but react to unexpected contact." 
 
@@ -54,6 +57,7 @@ label Laura_chapter_one_season_two_study_sessions:
         "You show her a question from class." 
 
         $ Laura.change_face("confused1")
+        $ Laura.change_arms("crossed")
 
         ch_Laura "What's the correct answer?" 
         ch_Player "It's. . ." 
@@ -69,6 +73,7 @@ label Laura_chapter_one_season_two_study_sessions:
         ch_Player "I think we should stop."
 
         $ Laura.change_face("angry1")
+        $ Laura.change_arms("angry")
 
         ch_Player "You're not making any progress by being angry. . ." 
         ch_Laura "Fine, then I'm going to train to blow off steam." 
@@ -85,10 +90,12 @@ label Laura_chapter_one_season_two_study_sessions:
         ch_Player "You seem eager today."
 
         $ Laura.change_face("surprised2")
+        $ Laura.change_arms("angry")
 
         pause 1.0
 
         $ Laura.change_face("angry1")
+        $ Laura.change_arms("crossed")
 
         ch_Laura "I am not. . . eager. . ."
 
@@ -108,6 +115,7 @@ label Laura_chapter_one_season_two_study_sessions:
         ch_Player "Here, why don't you try this practice question."
 
         $ Laura.change_face("confused1")
+        $ Laura.change_arms("hips")
 
         ch_Laura "That one?" 
         "You picked this question assuming she wouldn't know the answer, but. . ."
@@ -119,6 +127,7 @@ label Laura_chapter_one_season_two_study_sessions:
         ch_Player "Wait, that's actually right." 
 
         $ Laura.change_face("sly")
+        $ Laura.change_arms("crossed")
 
         ch_Player "How'd you know?"
         ch_Player "We didn't go over that stuff yet."
@@ -148,12 +157,14 @@ label Laura_chapter_one_season_two_study_sessions:
         ch_Player "Thanks, [Laura.petname]." 
 
         $ Laura.change_face("neutral", eyes = "squint")
+        $ Laura.change_arms("angry")
 
         ch_Player "What. . . ?" 
         ch_Laura "You're welcome."
         "With her help, it barely takes a few minutes."
 
         $ Laura.change_face("smirk1")
+        $ Laura.change_arms("crossed")
 
         "Seems like she's catching on and knows how you like to organize things, making it go even faster than usual."
         ch_Player "I was thinking about starting with the psychology stuff today."
@@ -161,6 +172,7 @@ label Laura_chapter_one_season_two_study_sessions:
         ch_Player "Oh?"
 
         $ Laura.change_face("angry1")
+        $ Laura.change_arms("angry")
 
         ch_Laura "I've been. . ."
 
@@ -175,9 +187,12 @@ label Laura_chapter_one_season_two_study_sessions:
         $ Laura.change_face("furious")
 
         ch_Laura "But I hate calculus."
-        ch_Player "You and me both. . ."
+
+        if Player.scholarship != "academic":
+            ch_Player "You and me both. . ."
 
         $ Laura.change_face("neutral")
+        $ Laura.change_arms("neutral")
 
         ch_Player "Sure, we can start there."
         "Has math ever been your best subject?"
@@ -185,6 +200,7 @@ label Laura_chapter_one_season_two_study_sessions:
         "While you might not enjoy calculus, brain damage seems to have rewired a few things."
 
         $ Laura.change_face("confused1")
+        $ Laura.change_arms("hips")
 
         "You do your best to go over the important things from class, but [Laura.name] struggles more than usual."
 
@@ -194,13 +210,17 @@ label Laura_chapter_one_season_two_study_sessions:
         ch_Laura "How the hell am I supposed to know this?"
 
         $ Laura.change_face("angry1")
+        $ Laura.change_arms("hips", left_arm = "extended")
 
         "She points to a particular question."
+
+        $ Laura.change_arms("neutral")
 
         ch_Player "Oh that one?"
         ch_Player "I'm pretty sure it's. . ."
 
         $ Laura.change_face("angry1")
+        $ Laura.change_arms("angry")
 
         ch_Laura "Math makes me angry." 
         ch_Player "It has that effect on a lot of people."

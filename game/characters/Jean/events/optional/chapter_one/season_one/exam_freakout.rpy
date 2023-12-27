@@ -79,14 +79,17 @@ label Jean_chapter_one_season_one_exam_freakout:
             if C != Jean:
                 send_Characters_Offscreen(C, location = "bg_classroom")
             else:
-                middle_Spot = C
+                middle_Slot = C
 
     call set_the_scene(location = "bg_classroom", show_Characters = False) from _call_set_the_scene_54
 
     "You walk through the class room doors to see many more people than you were expecting."
     "Some seem to have just arrived, like you, but others are packing their things and hastily heading for the door."
+
+    $ Jean.change_face("angry1", eyes = "down")
+    $ Jean.change_arms("crossed")
     
-    call set_the_scene(location = "bg_classroom", fade = False) from _call_set_the_scene_55
+    call add_Characters(Jean) from _call_add_Characters_89
 
     "You spot [Jean.name] sitting at a desk with her head in her hands before getting up to leave herself."
 
@@ -107,9 +110,6 @@ label Jean_chapter_one_season_one_exam_freakout:
             $ ongoing_Event = False
 
             return
-
-    $ Jean.change_face("angry1", eyes = "down")
-    $ Jean.change_arms("crossed")
 
     ch_Player "[Jean.name]?"
 

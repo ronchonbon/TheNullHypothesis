@@ -35,6 +35,8 @@ layeredimage bg_Rogue:
 
     if lighting in ["candlelit"]:
         "characters/Rogue/images/bedroom/bg_Rogue_moonlight_hard_light.webp" at Transform(blend = "multiply")
+    elif lighting == "evening":
+        "characters/Rogue/images/bedroom/bg_Rogue_day_hard_light.webp" at Transform(blend = "multiply")
     else:
         "characters/Rogue/images/bedroom/bg_Rogue_[lighting]_hard_light.webp" at Transform(blend = "multiply")
 
@@ -43,11 +45,15 @@ layeredimage bg_Rogue:
 
     if lighting in ["candlelit"]:
         "characters/Rogue/images/bedroom/bg_Rogue_moonlight_linear_dodge.webp" at Transform(blend = "add")
+    elif lighting == "evening":
+        "characters/Rogue/images/bedroom/bg_Rogue_day_linear_dodge.webp" at Transform(blend = "add")
     else:
         "characters/Rogue/images/bedroom/bg_Rogue_[lighting]_linear_dodge.webp" at Transform(blend = "add")
 
     if lighting in ["candlelit"]:
         "characters/Rogue/images/bedroom/bg_Rogue_moonlight_multiply.webp" at Transform(blend = "multiply")
+    elif lighting == "evening":
+        "characters/Rogue/images/bedroom/bg_Rogue_day_multiply.webp" at Transform(blend = "multiply")
     else:
         "characters/Rogue/images/bedroom/bg_Rogue_[lighting]_multiply.webp" at Transform(blend = "multiply")
 

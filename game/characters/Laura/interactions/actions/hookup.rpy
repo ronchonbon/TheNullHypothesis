@@ -115,8 +115,6 @@ label Laura_rejects_Action_asked_twice:
 
     ch_Laura "{i}Grrrrrr{/i}"
 
-    call stop_all_Actions from _call_stop_all_Actions
-
     if Player.location == Laura.home:
         "She forcefully shoves you out of the room, slamming the door shut behind you."
     else:

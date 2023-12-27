@@ -120,7 +120,7 @@ label Jean_chapter_one_season_one_friendless:
 
             return
 
-    call set_the_scene(location = "bg_danger", fade = False) from _call_set_the_scene_399
+    call swap_Slots(Jean, "middle") from _call_swap_Slots_4
 
     $ Jean.change_face("worried1", mouth = "smirk")
     $ Jean.change_arms(left_arm = "rub_neck", right_arm = "neutral")

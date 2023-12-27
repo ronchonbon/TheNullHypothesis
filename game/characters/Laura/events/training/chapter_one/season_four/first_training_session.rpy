@@ -37,6 +37,7 @@ label Laura_chapter_one_season_four_first_training_session:
         call remove_everyone_but(Laura) from _call_remove_everyone_but_2
 
     $ Laura.change_face("neutral", eyes = "squint") 
+    $ Laura.change_arms("crossed")
 
     ch_Laura "What's with that look?"
 
@@ -95,6 +96,7 @@ label Laura_chapter_one_season_four_first_training_session:
     ch_Player "I just-"
 
     $ Laura.change_face("furious", eyes = "left")
+    $ Laura.change_arms("angry")
 
     "She interrupts you."
     ch_Laura "I've killed people before."
@@ -103,6 +105,9 @@ label Laura_chapter_one_season_four_first_training_session:
 
     ch_Laura "A lot. . . of people." 
     ch_Laura "Probably hundreds, by my tenth birthday."
+
+    $ Laura.change_arms("crossed")
+
     ch_Laura "Many of whom certainly did not deserve it."
     ch_Player ". . ."
 
@@ -147,6 +152,7 @@ label Laura_chapter_one_season_four_first_training_session:
     ch_Player "Well. . ."
 
     $ Laura.change_face("angry1")
+    $ Laura.change_arms("hips")
 
     ch_Laura "Yes?"
     ch_Player "I was working with [Jean.name] earlier and managed to figure something out."
@@ -158,7 +164,7 @@ label Laura_chapter_one_season_four_first_training_session:
     ch_Laura "Then we will put it to the test."
     ch_Laura "I need to punch something right now. . ."
 
-    # $ Laura.left_arm = 2
+    $ Laura.change_arms("fight")
 
     ch_Player "Exactly what I had in mind." 
 
@@ -223,7 +229,7 @@ label Laura_chapter_one_season_four_first_training_session:
     $ fade_in_from_black(0.4)
 
     $ Laura.change_face("angry1", mouth = "smile")
-    # $ Laura.left_arm = 1
+    $ Laura.change_arms("crossed")
 
     $ Player.power = 25
 
@@ -237,9 +243,18 @@ label Laura_chapter_one_season_four_first_training_session:
     $ Laura.change_face("smirk2")
 
     ch_Player "*huff* I thought. . . *huff* you fought Logan once. . . *huff*"
+    
+    $ Laura.change_arms("hips")
+
     ch_Laura "He's old and slow."
     ch_Laura "Doesn't count."
+
+    $ Laura.change_arms("hips", left_arm = "extended")
+
     ch_Laura "As a reward, you get two minutes to rest."
+
+    $ Laura.change_arms("crossed")
+
     ch_Player "*huff* But that's the normal amount. . . *huff*"
 
     $ Laura.change_face("sly")
@@ -252,6 +267,8 @@ label Laura_chapter_one_season_four_first_training_session:
 
     ch_Laura "That was a decent warm up. . . for once."
     ch_Laura "I expect you to be available whenever I need one."
+
+    $ Laura.change_arms("neutral")
 
     call remove_Characters(Laura) from _call_remove_Characters_126
 

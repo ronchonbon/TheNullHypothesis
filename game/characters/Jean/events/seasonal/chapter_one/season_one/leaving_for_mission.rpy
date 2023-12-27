@@ -42,16 +42,24 @@ label Jean_leaving_for_mission:
     call add_Characters(Jean) from _call_add_Characters_3
 
     $ Jean.change_face("happy")
+    $ Jean.change_arms("sass")
 
     ch_Player "Hey, [Jean.name]."
     ch_Player "I haven't seen you around lately."
     ch_Player "Are we in different classes or something?"
 
     $ Jean.change_face("smirk2")
+    $ Jean.change_arms("sass", right_arm = "extended")
 
     ch_Jean "I'm a senior, but I'm also a part of the X-Men. I go out on missions occasionally!"
+    
+    $ Jean.change_arms("sass")
+
     ch_Jean "That keeps me super busy."
     ch_Jean "Actually, our team leader, Cyclops, just took most of the members out on a big mission."
+    
+    $ Jean.change_arms("crossed")
+
     ch_Jean "Oh, duh, you probably haven't met him yet. He'll introduce himself as Scott." 
 
     $ Jean.change_face("neutral")
@@ -63,6 +71,7 @@ label Jean_leaving_for_mission:
     ch_Player "Damn. . . that's impressive. Well, please be careful." 
 
     $ Jean.change_face("worried2", blush = 1)
+    $ Jean.change_arms("sass")
 
     ch_Player "Hopefully I'll see you around more when you get back." 
 
@@ -73,8 +82,12 @@ label Jean_leaving_for_mission:
     ch_Jean ". . . You will."
 
     $ Jean.change_face("worried1")
+    $ Jean.change_arms("neutral", left_arm = "extended")
 
     ch_Jean "How have you been doing by the way?"
+    
+    $ Jean.change_arms("neutral")
+
     ch_Jean "I-"
 
     $ Jean.change_face("neutral", eyes = "down")

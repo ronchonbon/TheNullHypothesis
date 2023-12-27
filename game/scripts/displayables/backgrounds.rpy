@@ -108,7 +108,9 @@ layeredimage sky_temp:
         "images/backgrounds/base/birds.webp" at move_to_left(150.0, int(config.screen_width/background_adjustment))
 
 layeredimage bg_Player:
-    always:
+    if lighting == "evening":
+        "images/backgrounds/base/bg_Player_day.webp"
+    else:
         "images/backgrounds/base/bg_Player_[lighting].webp"
         
     if "acoustic_panels" in Player.inventory.keys() and Player.inventory["acoustic_panels"][0].Owner == Player:
@@ -134,16 +136,22 @@ layeredimage bg_Player:
     if Player.clothes_on_floor:
         "images/backgrounds/base/bg_Player_clothes.webp"
 
-    always:
+    if lighting == "evening":
+        "images/backgrounds/base/bg_Player_day_hard_light.webp" at Transform(blend = "multiply")
+    else:
         "images/backgrounds/base/bg_Player_[lighting]_hard_light.webp" at Transform(blend = "multiply")
 
     if lighting in ["day"]:
         "images/backgrounds/base/bg_Player_[lighting]_screen.webp" at Transform(blend = "screen")
 
-    always:
+    if lighting == "evening":
+        "images/backgrounds/base/bg_Player_day_linear_dodge.webp" at Transform(blend = "add")
+    else:
         "images/backgrounds/base/bg_Player_[lighting]_linear_dodge.webp" at Transform(blend = "add")
 
-    always:
+    if lighting == "evening":
+        "images/backgrounds/base/bg_Player_day_multiply.webp" at Transform(blend = "multiply")
+    else:
         "images/backgrounds/base/bg_Player_[lighting]_multiply.webp" at Transform(blend = "multiply")
 
 layeredimage bg_campus_background:

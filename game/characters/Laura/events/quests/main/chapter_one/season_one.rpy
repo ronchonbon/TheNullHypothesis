@@ -17,11 +17,11 @@ init python:
         
         objectives.update({"Study together to help her with her coursework": ["Laura.History.check('studied_with_Player', tracker = 'season')", 1]})
 
-        if Laura.History.check("trained_with_Player", tracker = "season") == 4:
-            objectives.update({"Become friends": ["QuestPool.Quests['Laura_friendship_Quest'].completed", None]})
-
+        if Laura.History.check("trained_with_Player", tracker = "season") >= 4:
             if QuestPool.Quests['Laura_friendship_Quest'].completed:
                 objectives.update({"Become her first friend": ["EventScheduler.Events['Laura_first_friend_part_one'].completed", None]})
+            else:
+                objectives.update({"Become friends": ["QuestPool.Quests['Laura_friendship_Quest'].completed", None]})
 
             if EventScheduler.Events["Laura_first_friend_part_one"].completed:
                 objectives.update({"Talk to her about the nature of friendship": ["EventScheduler.Events['Laura_first_friend_part_two'].completed", None]})

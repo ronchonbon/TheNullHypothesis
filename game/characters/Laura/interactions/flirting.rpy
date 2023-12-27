@@ -261,12 +261,15 @@ label Laura_flirt_ad:
         pause 1.0
 
         $ Laura.change_face("angry1")
+        $ Laura.change_arms("claws")
 
         call Laura_unsheathes_claws from _call_Laura_unsheathes_claws_4
 
         ch_Laura "I'll make you feel something sharp if you don't keep your eyes off me." 
 
         call Laura_sheathes_claws from _call_Laura_sheathes_claws_4
+
+        $ Laura.change_arms("neutral")
 
         call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_483
         call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_484
@@ -474,6 +477,8 @@ label Laura_flirt_ah:
         $ Laura.change_face("pleased1", blush = 1) 
 
         ch_Laura "I know. . ."
+        
+        $ Laura.change_arms("claws")
 
         call Laura_unsheathes_claws from _call_Laura_unsheathes_claws_7
 
@@ -482,6 +487,8 @@ label Laura_flirt_ah:
         ch_Laura "I also have claws in my feet."
 
         call Laura_sheathes_claws from _call_Laura_sheathes_claws_7
+
+        $ Laura.change_arms("neutral")
 
         ch_Laura "Good for kicking."
 

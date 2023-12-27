@@ -18,6 +18,7 @@ label Laura_chapter_one_season_two_second_training_session:
     $ ongoing_Event = True
 
     $ Laura.change_face("neutral")
+    $ Laura.change_arms("crossed")
 
     "[Laura.name] walks right up to you, completely disregarding your personal space."
 
@@ -46,18 +47,21 @@ label Laura_chapter_one_season_two_second_training_session:
             ch_Player "So you do actually care."
 
             $ Laura.change_face("neutral", eyes = "squint") 
+            $ Laura.change_arms("angry")
             
             ch_Laura "Shut up. . ." 
             
             call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_453
         "Like shit, because I know how much this is gonna suck.":
             $ Laura.change_face("furious") 
+            $ Laura.change_arms("angry")
             
             ch_Laura "Suck it up." 
             
             call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_454
 
     $ Laura.change_face("suspicious1")
+    $ Laura.change_arms("hips")
 
     "She takes a step back."
     ch_Laura "The {i}only{/i} reason I asked. . ."
@@ -66,11 +70,13 @@ label Laura_chapter_one_season_two_second_training_session:
     ch_Player "Sure, the previous session was harder than normal, and I was able t-"
 
     $ Laura.change_face("furious")
+    $ Laura.change_arms("angry")
 
     ch_Laura "No."
     ch_Laura "As I just said, you do not understand."
 
     $ Laura.change_face("angry1")
+    $ Laura.change_arms("crossed")
 
     ch_Laura "You fail to grasp just how much further I pushed you in our previous session."
 
@@ -80,8 +86,12 @@ label Laura_chapter_one_season_two_second_training_session:
     ch_Player "No. . ."
 
     $ Laura.change_face("angry1")
+    $ Laura.change_arms("hips", left_arm = "extended")
 
     ch_Laura "Exactly."
+
+    $ Laura.change_arms("hips")
+
     ch_Laura "You should not be capable of the things I pushed you to do."
 
     if Player.scholarship == "athletic":
@@ -94,6 +104,7 @@ label Laura_chapter_one_season_two_second_training_session:
     ch_Laura "But regardless of how, or why. . ."
 
     $ Laura.change_face("angry1", eyes = "left")
+    $ Laura.change_arms("angry")
 
     ch_Laura "This might mean you won't be so vulnerable and need people to protect you forever."
     ch_Laura "{size=-5}Then I won't have to worry so much{/size}. . ."
@@ -143,6 +154,7 @@ label Laura_chapter_one_season_two_second_training_session:
             call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_459
 
     $ Laura.change_face("angry1", blush = 1)
+    $ Laura.change_arms("crossed")
 
     ch_Laura "Now. . ."
     ch_Laura "Shut up."
@@ -167,6 +179,7 @@ label Laura_chapter_one_season_two_second_training_session:
     ch_Player "By the way, why haven't you made me train with all those lasers and robot arms since our very first session?"
 
     $ Laura.change_face("confused1")
+    $ Laura.change_arms("hips")
 
     ch_Laura "What use would it be, when you're barely capable of handling a normal human attacker?"
     ch_Player "Fair point. . ."
@@ -180,6 +193,10 @@ label Laura_chapter_one_season_two_second_training_session:
     ch_Laura "I can tell you're trying to stall."
     ch_Laura "Too bad, rest is over."
 
+    $ Laura.change_arms("fight")
+
+    pause 1.0
+
     $ fade_to_black(0.4)
 
     "[Laura.name] once again demonstrates how well she can control her own body, as she puts you through your paces."
@@ -190,6 +207,7 @@ label Laura_chapter_one_season_two_second_training_session:
     $ fade_in_from_black(0.4)
 
     $ Laura.change_face("neutral")
+    $ Laura.change_arms("crossed")
 
     ch_Laura "That's enough for today."
     ch_Laura "Now we move on to the final workout."
@@ -202,6 +220,7 @@ label Laura_chapter_one_season_two_second_training_session:
     ch_Player "Didn't feel like that long. . ."
 
     $ Laura.change_face("angry1")
+    $ Laura.change_arms("hips")
 
     ch_Laura "You know what's left."
     ch_Laura "Get started."
@@ -227,6 +246,7 @@ label Laura_chapter_one_season_two_second_training_session:
     ch_Player "Is it really necessary for me to wipe out every single time. . ."
 
     $ Laura.change_face("sly") 
+    $ Laura.change_arms("crossed")
 
     ch_Laura "Yes."
 

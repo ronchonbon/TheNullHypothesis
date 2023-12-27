@@ -1465,7 +1465,7 @@ label continue_Actions:
 
     return
 
-label stop_all_Actions(close_interface = True, automatic = False):
+label stop_all_Actions(close_interface = True, automatic = False, summary = False):
     if close_interface:
         hide screen Action_screen
 
@@ -1484,8 +1484,9 @@ label stop_all_Actions(close_interface = True, automatic = False):
     while temp_Characters:
         $ stop_Actions(temp_Characters[0])
 
-        $ temp_Characters[0].change_face("sexy")
-        $ temp_Characters[0].change_arms("neutral")
+        if summary:
+            $ temp_Characters[0].change_face("sexy")
+            $ temp_Characters[0].change_arms("neutral")
 
         if not automatic:
             call show_Character(temp_Characters[0]) from _call_show_Character_2
@@ -1544,28 +1545,28 @@ label stop_all_Actions(close_interface = True, automatic = False):
     if close_interface:
         if not ongoing_Event:
             if focused_Character and focused_Character.location == Player.location:
-                $ total_Character_orgasms, total_Player_orgasms, total_unique_Actions, score = get_hookup_summary()
+                if summary:
+                    $ total_Character_orgasms, total_Player_orgasms, total_unique_Actions, score = get_hookup_summary()
 
-                if "sex" not in Player.scores.keys():
-                    $ Player.scores["sex"] = {}
+                    if "sex" not in Player.scores.keys():
+                        $ Player.scores["sex"] = {}
 
-                if focused_Character not in Player.scores["sex"].keys():
-                    $ Player.scores["sex"][focused_Character] = {}
+                    if focused_Character not in Player.scores["sex"].keys():
+                        $ Player.scores["sex"][focused_Character] = {}
 
-                if day in Player.scores["sex"][focused_Character].keys():
-                    $ temp = Player.scores["sex"][focused_Character][day]
-                else:
-                    $ temp = []
+                    if day in Player.scores["sex"][focused_Character].keys():
+                        $ temp = Player.scores["sex"][focused_Character][day]
+                    else:
+                        $ temp = []
 
-                $ temp.append(score)
-                
-                $ Player.scores["sex"][focused_Character].update({day: temp})
+                    $ temp.append(score)
+                    
+                    $ Player.scores["sex"][focused_Character].update({day: temp})
 
-                call change_Character_stat(focused_Character, "love", orgasm_bonus*score) from _call_change_Character_stat_350
-
-                call expression f"{focused_Character.tag}_hookup_summary" pass (total_Character_orgasms = total_Character_orgasms, total_Player_orgasms = total_Player_orgasms, total_unique_Actions = total_unique_Actions, score = score) from _call_expression_87
-
-                call screen grade_screen(total_Character_orgasms, total_Player_orgasms, total_unique_Actions, score)
+                    call change_Character_stat(focused_Character, "love", orgasm_bonus*score) from _call_change_Character_stat_350
+                    call expression f"{focused_Character.tag}_hookup_summary" pass (total_Character_orgasms = total_Character_orgasms, total_Player_orgasms = total_Player_orgasms, total_unique_Actions = total_unique_Actions, score = score) from _call_expression_87
+                    
+                    call screen grade_screen(total_Character_orgasms, total_Player_orgasms, total_unique_Actions, score)
 
                 show screen interactions_screen(focused_Character)
     else:

@@ -560,7 +560,7 @@ screen Action_screen(automatic = False):
                 else:
                     action [
                         SetVariable("Action_screen_showing", False),
-                        Call("stop_all_Actions", from_current = True)]
+                        Call("stop_all_Actions", summary = True, from_current = True)]
 
                 tooltip "Finish"
 

@@ -22,6 +22,7 @@ label Laura_chapter_one_season_four_training_sessions:
 
     if dice_roll == 1:
         $ Laura.change_face("neutral")
+        $ Laura.change_arms("hips")
 
         ch_Laura "Today we'll properly warm up before sparring."  
 
@@ -30,7 +31,7 @@ label Laura_chapter_one_season_four_training_sessions:
         ch_Laura "Need to save your power so I can get a good workout in."
         "The warm up still isn't particularly light, but you're used to that by now."
 
-        # $ Laura.left_arm = 2
+        $ Laura.change_arms("fight")
 
         "She seems eager to get to the fighting, so you don't waste any time."
 
@@ -57,7 +58,7 @@ label Laura_chapter_one_season_four_training_sessions:
         $ fade_in_from_black(0.4)
 
         $ Laura.change_face("smirk2")
-        # $ Laura.left_arm = 1
+        $ Laura.change_arms("crossed")
 
         ch_Player "*huff* That was better. . . *huff* right?" 
         ch_Laura "Than last time? Yes."
@@ -70,6 +71,7 @@ label Laura_chapter_one_season_four_training_sessions:
         "The after effects aren't as acute this time, but you're still dead tired by the end."
 
         $ Laura.change_face("neutral")
+        $ Laura.change_arms("hips")
 
         ch_Laura "Okay, enough." 
         ch_Laura "You can barely stand." 
@@ -80,6 +82,7 @@ label Laura_chapter_one_season_four_training_sessions:
         "She goes to finish her own training."
     elif dice_roll == 2:
         $ Laura.change_face("neutral", eyes = "squint")
+        $ Laura.change_arms("crossed")
 
         ch_Laura "Today you won't use your power until the very end."
         ch_Player "I won't?"
@@ -100,7 +103,7 @@ label Laura_chapter_one_season_four_training_sessions:
         ch_Player "*huff* But. . . *huff*"
 
         $ Laura.change_face("suspicious1")
-        # $ Laura.left_arm = 2
+        $ Laura.change_arms("fight")
 
         "[Laura.name] doesn't leave you much choice, as she pounces before you're even able to activate the power."
         "She doesn't slow down for you at all, and you take a few solid hits just trying to react."
@@ -164,7 +167,7 @@ label Laura_chapter_one_season_four_training_sessions:
         $ fade_in_from_black(0.4)
 
         $ Laura.change_face("confused1")
-        # $ Laura.left_arm = 1
+        $ Laura.change_arms("hips")
 
         "The after effects seem to be particularly potent today."
         ch_Player "*huff* That felt quick. . . *huff*"
@@ -174,6 +177,7 @@ label Laura_chapter_one_season_four_training_sessions:
         ch_Laura "It was quicker than normal." 
 
         $ Laura.change_face("confused1", mouth = "smirk")
+        $ Laura.change_arms("crossed")
 
         ch_Laura "So already being fatigued does have a substantial effect."
         ch_Player "*huff* Seems so. . . *huff*"
@@ -184,6 +188,7 @@ label Laura_chapter_one_season_four_training_sessions:
         "It takes you several minutes to catch your breath and get back to your feet."
     elif dice_roll == 3:
         $ Laura.change_face("confused1", eyes = "down")
+        $ Laura.change_arms("crossed")
 
         "[Laura.name] looks you up and down."
 
@@ -197,6 +202,7 @@ label Laura_chapter_one_season_four_training_sessions:
         ch_Laura "I can tell it takes a lot of effort to limit yourself."
 
         $ Laura.change_face("angry1")
+        $ Laura.change_arms("hips")
 
         ch_Laura "Enough talking, get to work."
 
@@ -212,20 +218,28 @@ label Laura_chapter_one_season_four_training_sessions:
         "It's as much a strain on your mind as it is on your body, constantly modulating your power like that."
         "You manage to hold out for longer than you thought, before everything falls apart, and you're left thoroughly wrung out."
 
+        $ Laura.change_arms("fight")
+
         $ fade_in_from_black(0.4)
 
         $ Laura.change_face("neutral")
+
+        pause 1.0
+
+        $ Laura.change_arms("neutral")
 
         ch_Laura "Better. . ."
         ch_Player "*huff* But not good enough. . . *huff* I know. . . *huff*"
 
         $ Laura.change_face("angry1", mouth = "smirk")
+        $ Laura.change_arms("crossed")
 
         ch_Laura "Just for that, you lose 30 seconds of rest."
         "She gives you less than a minute to recover, before making you finish the session."
         "You have a hard time focusing and perform worse than normal."
 
         $ Laura.change_face("neutral")
+        $ Laura.change_arms("hips")
 
         ch_Laura "That's enough."
         ch_Laura "You just missed the last three directions I gave you."

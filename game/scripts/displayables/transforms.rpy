@@ -52,7 +52,7 @@ init -99:
         matrixcolor TintMatrix(color_string)*ContrastMatrix(0.0)
 
     transform morning:
-        matrixcolor TintMatrix(Color(rgb = (1.0, 0.95, 0.9)))*BrightnessMatrix(0.02)
+        matrixcolor TintMatrix(Color(rgb = (1.0, 0.95, 0.9)))*BrightnessMatrix(0.04)
 
     transform daylight:
         matrixcolor TintMatrix(Color(rgb = (1.0, 1.0, 1.0)))*BrightnessMatrix(0.02)

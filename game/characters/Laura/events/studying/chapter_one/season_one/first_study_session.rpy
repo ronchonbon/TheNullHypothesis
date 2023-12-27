@@ -18,12 +18,14 @@ label Laura_chapter_one_season_one_first_study_session:
     $ ongoing_Event = True
 
     $ Laura.change_face("neutral")
+    $ Laura.change_arms("hips")
 
     "[Laura.name] haphazardly tosses her books and papers onto the bed before laying down."
 
     ch_Player "Uhm. . ." 
 
     $ Laura.change_face("confused2")
+    $ Laura.change_arms("crossed")
 
     ch_Laura "What?" 
     ch_Player "Just. . . here let me organize things first."
@@ -46,19 +48,21 @@ label Laura_chapter_one_season_one_first_study_session:
         "Some of the stuff you've been learning at the Institute is more advanced in comparison, but easy enough to wrap your head around, let alone tutor [Laura.name]."
 
     $ Laura.change_face("angry1")
+    $ Laura.change_arms("angry")
 
     "As you try explaining the concepts to [Laura.name], you realize it also helps deepen your own understanding of the material."
     "The thing is. . ."
     "You have to explain just about everything."
-
     ch_Player "Have you. . . studied any of this before?"
 
     $ Laura.change_face("confused1")
+    $ Laura.change_arms("neutral", left_arm = "rub_neck")
 
     ch_Laura "Once."
     ch_Player "Once so far this week?" 
 
     $ Laura.change_face("confused2")
+    $ Laura.change_arms("crossed")
 
     ch_Laura "No, {i}once{/i}."
 
@@ -69,6 +73,7 @@ label Laura_chapter_one_season_one_first_study_session:
             call change_Character_stat(Laura, "trust", small_stat) from _call_change_Character_stat_913
 
             $ Laura.change_face("angry1")
+            $ Laura.change_arms("angry")
 
             ch_Laura "Everyone keeps telling me that." 
             
@@ -82,6 +87,7 @@ label Laura_chapter_one_season_one_first_study_session:
             call change_Character_stat(Laura, "love", medium_stat) from _call_change_Character_stat_914
             
             $ Laura.change_face("angry1", eyes = "right")
+            $ Laura.change_arms("angry")
 
             ch_Laura "It is." 
             
@@ -96,6 +102,7 @@ label Laura_chapter_one_season_one_first_study_session:
             call change_Character_stat(Laura, "love", -medium_stat) from _call_change_Character_stat_916
 
             $ Laura.change_face("appalled1")
+            $ Laura.change_arms("angry")
 
             ch_Laura "{i}Grrrrrr{/i}. . . no." 
             
@@ -109,6 +116,7 @@ label Laura_chapter_one_season_one_first_study_session:
             ch_Laura "That's why everyone's so weak." 
             
     $ Laura.change_face("angry1", eyes = "right")
+    $ Laura.change_arms("crossed")
 
     ch_Laura "Still. . . [Ororo.public_name] would be disappointed if I fail." 
 
@@ -117,8 +125,11 @@ label Laura_chapter_one_season_one_first_study_session:
     ch_Laura "But you seem to be good enough at this 'class' thing." 
 
     $ Laura.change_face("neutral")
+    $ Laura.change_arms("hips", left_arm = "extended")
 
     ch_Laura "I'll just have you teach me everything." 
+
+    $ Laura.change_arms("hips")
 
     menu:
         extend ""
@@ -162,6 +173,7 @@ label Laura_chapter_one_season_one_first_study_session:
             ch_Laura "Now continue, I zoned out." 
             
     $ Laura.change_face("neutral")
+    $ Laura.change_arms("crossed")
 
     "You spend the next few hours going through each lecture, trying your best to teach every topic covered in class so far."
     "[Laura.name] actually seems to be paying attention, even taking notes at times."
@@ -191,12 +203,13 @@ label Laura_chapter_one_season_one_first_study_session:
     ch_Player "Not even going to try and solve it?" 
 
     $ Laura.change_face("neutral", eyes = "squint")
+    $ Laura.change_arms("hips")
 
     ". . ."
-
     ch_Player "Okay, okay, the answer is choice A." 
 
     $ Laura.change_face("neutral")
+    $ Laura.change_arms("crossed")
 
     ch_Player "Alright, I think that's about everything."
     ch_Laura "That was substantially more tolerable than a normal lecture."
@@ -206,6 +219,7 @@ label Laura_chapter_one_season_one_first_study_session:
     ch_Laura "You also smell. . ."
 
     $ Laura.change_face("angry1", blush = 1)
+    $ Laura.change_arms("angry")
 
     ch_Laura ". . . pleasant."
     ch_Player "Uh. . . thanks?"
@@ -221,6 +235,7 @@ label Laura_chapter_one_season_one_first_study_session:
     ch_Laura "Hmm. . ."
 
     $ Laura.change_face("neutral", blush = 1)
+    $ Laura.change_arms("crossed")
 
     ch_Laura "I have decided."
     ch_Laura "You will just be my teacher from now on." 
@@ -230,12 +245,14 @@ label Laura_chapter_one_season_one_first_study_session:
     ch_Laura "So now, I won't have to waste my time in class."
 
     $ Laura.change_face("confused1")
+    $ Laura.change_arms("neutral")
 
     ch_Player "You know they take attendance right?" 
     ch_Laura "'Attendance'. . . ?"
     ch_Player "You still have to be present during lecture in order to get a good grade." 
 
     $ Laura.change_face("angry1")
+    $ Laura.change_arms("angry")
 
     pause 1.0
 
@@ -244,6 +261,7 @@ label Laura_chapter_one_season_one_first_study_session:
     ch_Laura "Fine, but that doesn't mean I have to pay attention." 
 
     $ Laura.change_face("angry1")
+    $ Laura.change_arms("crossed")
 
     ch_Laura "That's enough for today, I need to go train." 
 

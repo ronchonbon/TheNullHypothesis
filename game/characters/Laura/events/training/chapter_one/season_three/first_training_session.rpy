@@ -18,6 +18,7 @@ label Laura_chapter_one_season_three_first_training_session:
     $ ongoing_Event = True
 
     $ Laura.change_face("furious")
+    $ Laura.change_arms("hips")
     
     if Laura not in Player.behavior_Partners:
         if Player.behavior_Partners:
@@ -55,6 +56,7 @@ label Laura_chapter_one_season_three_first_training_session:
     ch_Laura "With all the changes you seem to undergo after your near-death experiences, an evaluation is necessary. . ."
 
     $ Laura.change_face("suspicious1")
+    $ Laura.change_arms("crossed")
 
     ch_Laura "Especially considering how traumatic this most recent one was."
     ch_Player "Yeah. . ."
@@ -66,10 +68,12 @@ label Laura_chapter_one_season_three_first_training_session:
     ch_Player "Probably not far from the truth."
 
     $ Laura.change_face("angry1")
+    $ Laura.change_arms("hips", left_arm = "extended")
 
     ch_Laura "At least you were able to deactivate your powers."
 
     $ Laura.change_face("confused1")
+    $ Laura.change_arms("hips")
 
     ch_Laura "Have you tried reactivating them since the incident?"
 
@@ -108,6 +112,9 @@ label Laura_chapter_one_season_three_first_training_session:
     if Jean.History.check("trained_with_Player", tracker = "season"):
         ch_Laura "You didn't try while training with [Jean.name]?" 
         ch_Player "How did you know I. . . never mind." 
+
+        $ Laura.change_arms("crossed")
+
         ch_Player "No, she thought I should wait until seeing you first." 
         ch_Player "There's some kind of separation between my nullification and this new thing, where I can use one without the other if I want." 
         ch_Player "It's not at all easy to do that, though." 
@@ -124,11 +131,16 @@ label Laura_chapter_one_season_three_first_training_session:
     ch_Player "Today?!"
 
     $ Laura.change_face("angry1")
+    $ Laura.change_arms("angry")
 
     ch_Laura "Yes."
+
+    $ Laura.change_arms("hips", left_arm = "extended")
+
     ch_Laura "Learning how to use it properly might actually make you dangerous."
 
     $ Laura.change_face("neutral", eyes = "squint")
+    $ Laura.change_arms("hips")
 
     menu:
         extend ""
@@ -150,6 +162,7 @@ label Laura_chapter_one_season_three_first_training_session:
             call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_439
 
     $ Laura.change_face("angry1")
+    $ Laura.change_arms("crossed")
 
     ch_Laura "We will do a light warm up before anything else."
     ch_Player "Light?"
@@ -168,7 +181,7 @@ label Laura_chapter_one_season_three_first_training_session:
 
     ch_Laura "I am ready."
 
-    # $ Laura.left_arm = 2
+    $ Laura.change_arms("fight")
 
     ch_Laura "When you activate it, the fight will start."
     ch_Laura "Just focus on survival."
@@ -247,9 +260,8 @@ label Laura_chapter_one_season_three_first_training_session:
 
     "[Laura.name] stops herself mid-punch, as you nearly fall down, your power suddenly no longer active."
 
-    # $ Laura.left_arm = 1
-
     $ Laura.change_face("confused1")
+    $ Laura.change_arms("hips")
 
     ch_Laura "Did you turn it back off?"
     ch_Player "*huff* No. . . *huff* It turned itself off. . . *huff*"
@@ -263,6 +275,7 @@ label Laura_chapter_one_season_three_first_training_session:
     ch_Laura "Like my strength and stamina were being stolen. . ."
 
     $ Laura.change_face("suspicious1")
+    $ Laura.change_arms("crossed")
 
     ch_Laura "Not painful, just very unpleasant."
     ch_Player "Sorry. . . I was kinda just along for the ride."
@@ -275,6 +288,7 @@ label Laura_chapter_one_season_three_first_training_session:
     ch_Player "I'm completely spent."
 
     $ Laura.change_face("smirk2")
+    $ Laura.change_arms("hips")
 
     ch_Laura "You have enough in you for one final workout, I can tell."
     ch_Player "But. . ."
@@ -287,7 +301,13 @@ label Laura_chapter_one_season_three_first_training_session:
 
     ch_Laura "Enough."
     ch_Laura "I think you should see now why it's so important for you to practice with this power."
+    
+    $ Laura.change_arms("hips", left_arm = "extended")
+    
     ch_Laura "Being so vulnerable after a fight is unacceptable."
+    
+    $ Laura.change_arms("hips")
+
     ch_Laura "You need to get over it."
 
     call remove_Characters(Laura) from _call_remove_Characters_137

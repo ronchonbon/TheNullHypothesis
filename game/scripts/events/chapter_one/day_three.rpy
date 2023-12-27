@@ -732,7 +732,7 @@ label day_three_meet_Jean:
     ch_Jean "Hey!"
     "You look around to see who it is."
 
-    $ Jean.change_arms(left_arm = "rub_neck", right_arm = "extended")
+    $ Jean.change_arms(left_arm = "hip", right_arm = "extended")
 
     call change_Outfit(Jean, Jean.Wardrobe.Outfits["Casual 1"], instant = True) from _call_change_Outfit_35
     call add_Characters(Jean) from _call_add_Characters_65

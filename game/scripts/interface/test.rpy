@@ -59,12 +59,16 @@ screen test_screen():
 
                     action SetVariable(item, True)
 
+                    focus_mask None
+
                 imagebutton:
                     idle At("images/interface/test/no_off.webp", interface) hover At("images/interface/test/no_on.webp", interface) selected_idle At("images/interface/test/no_on.webp", interface)
 
                     selected not eval(item)
 
                     action SetVariable(item, False)
+
+                    focus_mask None
 
     imagebutton:
         idle At("images/interface/test/finish_idle.webp", interface) hover At("images/interface/test/finish.webp", interface)
