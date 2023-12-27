@@ -432,6 +432,39 @@ screen preferences():
                             color "#000000"
 
                     text "DANGER ROOM" align (0.0, 0.5)
+                        
+                hbox xalign 0.0:
+                    fixed xysize (int(158*interface_new_adjustment), int(150*interface_new_adjustment)):
+                        add At("images/interface/preferences/hotkey.webp", interface)
+
+                        text "1":
+                            size 36
+
+                            color "#000000"
+
+                    text "QUIKLOC 1" align (0.0, 0.5)
+                        
+                hbox xalign 0.0:
+                    fixed xysize (int(158*interface_new_adjustment), int(150*interface_new_adjustment)):
+                        add At("images/interface/preferences/hotkey.webp", interface)
+
+                        text "2":
+                            size 36
+
+                            color "#000000"
+
+                    text "QUIKLOC 2" align (0.0, 0.5)
+                        
+                hbox xalign 0.0:
+                    fixed xysize (int(158*interface_new_adjustment), int(150*interface_new_adjustment)):
+                        add At("images/interface/preferences/hotkey.webp", interface)
+
+                        text "3":
+                            size 36
+
+                            color "#000000"
+
+                    text "QUIKLOC 3" align (0.0, 0.5)
 
             vbox yalign 0.0:
                 hbox xalign 0.0:

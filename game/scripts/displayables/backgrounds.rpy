@@ -244,9 +244,9 @@ layeredimage bg_campus_cover:
     if weather != "rain":
         Null()
     elif time_index == 2:
-        "images/backgrounds/base/bg_campus_rain_evening.webp"
+        "images/backgrounds/base/bg_campus_rain_evening.webp" at Transform(alpha = 0.8)
     else:
-        "images/backgrounds/base/bg_campus_rain.webp"
+        "images/backgrounds/base/bg_campus_rain.webp" at Transform(alpha = 0.8)
 
     if weather != "snow":
         Null()

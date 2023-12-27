@@ -6,26 +6,30 @@ init -1:
     default booting = False
     default loading = False
 
+    default current_phone_screen = "home"
+    default current_phone_Character = None
+
+    default wallpaper_index = 0
+
+    default input_cheats = False
+
     default humhum_available = False
     default humhum_hidden = False
     default humhum_index = -1
+    default humhum_yadjustment = ui.adjustment()
 
     default unread_messages = {}
-    
-    default humhum_yadjustment = ui.adjustment()
-    default text_screen_yadjustment = ui.adjustment()
+    default blah_yadjustment = ui.adjustment()
 
-    default current_phone_screen = "home"
-    
-    default current_phone_Character = None
+    default daily_bungle_yadjustment = ui.adjustment()
 
     default available_songs = []
     default available_ringtones = []
-    default repeating = True
+    default music_repeating = True
+
+    default waiting = 0
 
     default emergency_broadcast = False
-
-    default input_cheats = False
 
 transform message_appear(direction):
     xoffset 50*direction alpha 0.0
@@ -39,22 +43,32 @@ transform message_appear_icon:
     zoom 0.0
     easein_back 0.5 zoom 1.0
 
-image humhum_animation1 = Composite(
-    (500, 854),
-    (0, 0), "images/interface/phone/humhum_animated_background.webp",
-    (78, 250), "images/interface/phone/humhum_animated_open.webp")
+layeredimage humhum_animation1:
+    always:
+        "images/interface/phone/humhum_animation_background.webp"
 
-image humhum_animation2 = Composite(
-    (500, 854),
-    (0, 0), "images/interface/phone/humhum_animated_background.webp",
-    (78, 250), "images/interface/phone/humhum_animated_closed.webp",
-    (71, 582), "images/interface/phone/humhum_animated_hum.webp")
+    always:
+        "images/interface/phone/humhum_animation_open.webp"
 
-image humhum_animation3 = Composite(
-    (500, 854),
-    (0, 0), "images/interface/phone/humhum_animated_background.webp",
-    (78, 250), "images/interface/phone/humhum_animated_open.webp",
-    (71, 582), "images/interface/phone/humhum_animated_humhum.webp")
+layeredimage humhum_animation2:
+    always:
+        "images/interface/phone/humhum_animation_background.webp"
+
+    always:
+        "images/interface/phone/humhum_animation_closed.webp"
+    
+    always:
+        "images/interface/phone/humhum_animation_hum.webp"
+
+layeredimage humhum_animation3:
+    always:
+        "images/interface/phone/humhum_animation_background.webp"
+
+    always:
+        "images/interface/phone/humhum_animation_open.webp"
+    
+    always:
+        "images/interface/phone/humhum_animation_humhum.webp"
 
 image humhum_animation:
     "humhum_animation1"
@@ -113,145 +127,140 @@ screen phone_screen():
     timer 0.5 action SetVariable("booting", False)
     
     if not black_screen:
-        fixed xysize (500, 965):
-            if booting:
-                add "images/interface/phone/wallpaper_1.webp"
-                add "images/interface/phone/intro.webp" align (0.5, 0.5)
-            else:
-                add f"images/interface/phone/wallpaper_{Player.phone_wallpaper + 1}.webp"
+        if booting:
+            add At(f"images/interface/phone/wallpaper_{Player.phone_wallpaper}.webp", interface)
+            add At("images/interface/phone/intro.webp", interface)
+        else:
+            add At(f"images/interface/phone/wallpaper_{Player.phone_wallpaper}.webp", interface)
 
-                fixed anchor (0.5, 0.0) pos (0.5, 0.0) xysize (504, 42):
-                    add "images/interface/phone/status.webp"
+            add At("images/interface/phone/status.webp", interface)
 
-                    if unread_messages:
-                        add "images/interface/phone/message.webp" anchor (0.5, 0.5) pos (0.08, 0.5)
+            if unread_messages:
+                add At("images/interface/phone/message.webp", interface)
 
-                    add "images/interface/phone/signal.webp" anchor (0.5, 0.5) pos (0.87, 0.5)
+            add At("images/interface/phone/signal.webp", interface)
 
-                    if time_index == 0:
-                        add "images/interface/phone/battery_100.webp" anchor (0.5, 0.5) pos (0.92, 0.5)
-                    elif time_index == 1:
-                        add "images/interface/phone/battery_75.webp" anchor (0.5, 0.5) pos (0.92, 0.5)
-                    elif time_index == 2:
-                        add "images/interface/phone/battery_50.webp" anchor (0.5, 0.5) pos (0.92, 0.5)
-                    elif time_index >= 3:
-                        add "images/interface/phone/battery_25.webp" anchor (0.5, 0.5) pos (0.92, 0.5)
+            if time_index == 0:
+                add At("images/interface/phone/battery_100.webp", interface)
+            elif time_index == 1:
+                add At("images/interface/phone/battery_75.webp", interface)
+            elif time_index == 2:
+                add At("images/interface/phone/battery_50.webp", interface)
+            elif time_index >= 3:
+                add At("images/interface/phone/battery_25.webp", interface)
 
-                if current_phone_screen == "home":
-                    use home_screen
-                elif current_phone_screen == "apps":
-                    use app_screen
-                elif current_phone_screen == "call_choice":
-                    use call_choice_screen
-                elif current_phone_screen == "call":
-                    use call_screen
-                elif current_phone_screen == "text_choice":
-                    use text_choice_screen
-                elif current_phone_screen == "text":
-                    use text_screen
-                elif current_phone_screen == "profile":
-                    use profile_screen
-                elif current_phone_screen == "music":
-                    use music_screen
-                # # elif current_phone_screen == "achievements":
-                # #     use achievements_screen
-                elif current_phone_screen == "humhum_home":
-                    use humhum_home_screen
-                # # elif current_phone_screen == "humhum_gallery":
-                # #     use humhum_gallery_screen
-                elif current_phone_screen == "humhum_choice":
-                    use humhum_choice_screen
-                elif current_phone_screen == "humhum":
-                    use humhum_screen
-                elif current_phone_screen == "config":
-                    use config_screen
+            if current_phone_screen == "home":
+                use home_screen
+            elif current_phone_screen == "apps":
+                use app_screen
+            elif current_phone_screen == "call_choice":
+                use call_choice_screen
+            elif current_phone_screen == "call":
+                use call_screen
+            elif current_phone_screen == "text_choice":
+                use text_choice_screen
+            elif current_phone_screen == "text":
+                use text_screen
+            elif current_phone_screen == "humhum_home":
+                use humhum_home_screen
+            # elif current_phone_screen == "humhum_gallery":
+            #     use humhum_gallery_screen
+            elif current_phone_screen == "humhum_choice":
+                use humhum_choice_screen
+            elif current_phone_screen == "humhum":
+                use humhum_screen
+            # elif current_phone_screen == "news":
+            #     use news_screen
+            # elif current_phone_screen == "remote":
+            #     use remote_screen
+            # elif current_phone_screen == "achievements":
+            #     use achievements_screen
+            elif current_phone_screen == "music":
+                use music_screen
+            elif current_phone_screen == "config":
+                use config_screen
 
-                if emergency_broadcast:
-                    add "images/interface/phone/alert.webp" anchor (0.5, 0.5) pos (0.5, 0.5)
+            if emergency_broadcast:
+                add "images/interface/phone/alert.webp" align (0.5, 0.5)
 
-                fixed anchor (0.5, 1.0) pos (0.5, 1.0) xysize (500, 74):
-                    add "images/interface/phone/bottom.webp"
+            add At("images/interface/phone/bottom.webp", interface)
 
-                    hbox anchor (0.5, 0.5) pos (0.5, 0.5):
-                        spacing 50
+            imagebutton:
+                idle At("images/interface/phone/back_idle.webp" , interface)
 
-                        imagebutton:
-                            idle "images/interface/phone/back_idle.webp" 
+                if Player.phone_wallpaper in [1, "Laura"]:
+                    hover At("images/interface/phone/back_orange.webp", interface)
+                elif Player.phone_wallpaper in [2]:
+                    hover At("images/interface/phone/back_blue.webp", interface)
+                elif Player.phone_wallpaper in [3, 4, "Jean"]:
+                    hover At("images/interface/phone/back_red.webp", interface)
+                elif Player.phone_wallpaper in ["Rogue"]:
+                    hover At("images/interface/phone/back_green.webp", interface)
 
-                            if Player.phone_wallpaper in [0, 5]:
-                                hover "images/interface/phone/back_orange.webp"
-                            elif Player.phone_wallpaper in [1]:
-                                hover "images/interface/phone/back_blue.webp"
-                            elif Player.phone_wallpaper in [2, 3, 6]:
-                                hover "images/interface/phone/back_red.webp"
-                            elif Player.phone_wallpaper in [4]:
-                                hover "images/interface/phone/back_green.webp"
+                if phone_interactable and not phone_disabled and (not current_phone_Character or not current_phone_Character.mandatory_text_options):
+                    if current_phone_screen in ["call", "humhum"]:
+                        action SetVariable("current_phone_screen", current_phone_screen + "_choice")
+                    elif current_phone_screen == "text":
+                        action [
+                            Function(renpy.call_in_new_context, "read_texts", current_phone_Character, override = True),
+                            SetVariable("current_phone_screen", current_phone_screen + "_choice")]
+                    else:
+                        action SetVariable("current_phone_screen", "home")
+                else:
+                    action None
 
-                            if phone_interactable and not phone_disabled and (not current_phone_Character or not current_phone_Character.mandatory_text_options):
-                                if current_phone_screen in ["call", "humhum"]:
-                                    action SetVariable("current_phone_screen", current_phone_screen + "_choice")
-                                elif current_phone_screen == "text":
-                                    action [
-                                        Function(renpy.call_in_new_context, "read_texts", current_phone_Character, override = True),
-                                        SetVariable("current_phone_screen", current_phone_screen + "_choice")]
-                                else:
-                                    action SetVariable("current_phone_screen", "home")
-                            else:
-                                action None
+            imagebutton:
+                idle At("images/interface/phone/home_idle.webp", interface)
 
-                        imagebutton:
-                            idle "images/interface/phone/home_idle.webp"
+                if Player.phone_wallpaper in [1, "Laura"]:
+                    hover At("images/interface/phone/home_orange.webp", interface)
+                elif Player.phone_wallpaper in [2]:
+                    hover At("images/interface/phone/home_blue.webp", interface)
+                elif Player.phone_wallpaper in [3, "Jean"]:
+                    hover At("images/interface/phone/home_red.webp", interface)
+                elif Player.phone_wallpaper in [4, "Rogue"]:
+                    hover At("images/interface/phone/home_green.webp", interface)
 
-                            if Player.phone_wallpaper in [0, 5]:
-                                hover "images/interface/phone/home_orange.webp"
-                            elif Player.phone_wallpaper in [1]:
-                                hover "images/interface/phone/home_blue.webp"
-                            elif Player.phone_wallpaper in [2, 6]:
-                                hover "images/interface/phone/home_red.webp"
-                            elif Player.phone_wallpaper in [3, 4]:
-                                hover "images/interface/phone/home_green.webp"
+                if phone_interactable and not phone_disabled and (not current_phone_Character or not current_phone_Character.mandatory_text_options):
+                    if current_phone_screen == "home":
+                        action [
+                            Hide("phone_screen"),
+                            Call("move_location", Player.location, from_current = True)]
+                    elif current_phone_screen == "text":
+                        action [
+                            Function(renpy.call_in_new_context, "read_texts", current_phone_Character, override = True),
+                            SetVariable("current_phone_screen", "home")]
+                    else:
+                        action SetVariable("current_phone_screen", "home")
+                else:
+                    action None
 
-                            if phone_interactable and not phone_disabled and (not current_phone_Character or not current_phone_Character.mandatory_text_options):
-                                if current_phone_screen == "home":
-                                    action [
-                                        Hide("phone_screen"),
-                                        Call("move_location", Player.location, from_current = True)]
-                                elif current_phone_screen == "text":
-                                    action [
-                                        Function(renpy.call_in_new_context, "read_texts", current_phone_Character, override = True),
-                                        SetVariable("current_phone_screen", "home")]
-                                else:
-                                    action SetVariable("current_phone_screen", "home")
-                            else:
-                                action None
+            imagebutton:
+                idle At("images/interface/phone/apps_idle.webp", interface)
 
-                        imagebutton:
-                            idle "images/interface/phone/apps_idle.webp"
+                if Player.phone_wallpaper in [1, "Laura"]:
+                    hover At("images/interface/phone/apps_orange.webp", interface)
+                elif Player.phone_wallpaper in [2, 4]:
+                    hover At("images/interface/phone/apps_blue.webp", interface)
+                elif Player.phone_wallpaper in [3, "Jean"]:
+                    hover At("images/interface/phone/apps_red.webp", interface)
+                elif Player.phone_wallpaper in ["Rogue"]:
+                    hover At("images/interface/phone/apps_green.webp", interface)
 
-                            if Player.phone_wallpaper in [0, 5]:
-                                hover "images/interface/phone/apps_orange.webp"
-                            elif Player.phone_wallpaper in [1, 3]:
-                                hover "images/interface/phone/apps_blue.webp"
-                            elif Player.phone_wallpaper in [2, 6]:
-                                hover "images/interface/phone/apps_red.webp"
-                            elif Player.phone_wallpaper in [4]:
-                                hover "images/interface/phone/apps_green.webp"
+                if phone_interactable and not phone_disabled and (not current_phone_Character or not current_phone_Character.mandatory_text_options):
+                    if current_phone_screen == "text":
+                        action [
+                            Function(renpy.call_in_new_context, "read_texts", current_phone_Character, override = True),
+                            SetVariable("current_phone_screen", "apps")]
+                    else:                                
+                        action SetVariable("current_phone_screen", "apps")
+                else:
+                    action None
 
-                            if phone_interactable and not phone_disabled and (not current_phone_Character or not current_phone_Character.mandatory_text_options):
-                                if current_phone_screen == "text":
-                                    action [
-                                        Function(renpy.call_in_new_context, "read_texts", current_phone_Character, override = True),
-                                        SetVariable("current_phone_screen", "apps")]
-                                else:                                
-                                    action SetVariable("current_phone_screen", "apps")
-                            else:
-                                action None
+        if Player.phone_cracked:
+            add At("images/interface/phone/cracked.webp", interface) alpha 0.2
 
-            if Player.phone_cracked:
-                add "images/interface/phone/cracked.webp" alpha 0.2
-
-        fixed anchor (0.5, 0.5) pos (0.498675, 0.499) xysize (577, 1080):
-            add f"images/interface/phone/frame_{Player.phone_frame + 1}.webp"
+        add At(f"images/interface/phone/frame_{Player.phone_frame + 1}.webp", interface)
 
     use quick_menu
 
@@ -261,312 +270,436 @@ screen home_screen():
     $ time_of_day = time_options[time_index]
     $ day_of_week = week[weekday]
 
-    fixed anchor (0.5, 0.5) pos (0.5, 0.4815) xysize (500, 854):
-        fixed anchor (0.5, 0.5) pos (0.5, 0.08) xysize (488, 101):
-            if weather:
-                add f"images/interface/phone/clock_{time_index}_{weather}.webp"
-            else:
-                add f"images/interface/phone/clock_{time_index}.webp"
+    if weather:
+        add At(f"images/interface/phone/clock_{time_index}_{weather}.webp", interface)
+    else:
+        add At(f"images/interface/phone/clock_{time_index}.webp", interface)
 
-            text f"{temperature[time_index]} " + u"\u00b0C" anchor (0.5, 0.5) pos (0.0775, 0.28):
-                size 25
+    text f"{temperature[time_index]} " + u"\u00b0C" anchor (0.5, 0.5) pos (0.3905, 0.1288):
+        size 25
 
-                color "#ffffff"
-            
-            text f"{week[weekday][0:3]}" anchor (0.5, 0.5) pos (0.895, 0.32):
-                font "magneto_bold.ttf"
+        color "#ffffff"
+    
+    text f"{week[weekday][0:3]}" anchor (0.5, 0.5) pos (0.596, 0.135):
+        font "magneto_bold.ttf"
 
-                size 45
+        size 45
 
-                color "#ffffff"
-            
-            text f"{time_options[time_index].capitalize()}" anchor (0.5, 0.5) pos (0.898, 0.77):
+        color "#ffffff"
+    
+    text f"{time_options[time_index].capitalize()}" anchor (0.5, 0.5) pos (0.595, 0.173):
+        size 30
+
+        color "#ffffff"
+
+    if phone_interactable and not phone_disabled:
+        imagebutton:
+            idle At("images/interface/phone/search_bar_idle.webp", interface)
+            hover At("images/interface/phone/search_bar.webp", interface)
+            selected_idle At("images/interface/phone/search_bar.webp", interface)
+
+            selected input_cheats
+
+            action ToggleVariable("input_cheats")
+
+        if input_cheats:
+            input id "cheat_input" value VariableInputValue("current_input", default = True) anchor (0.0, 0.5) pos (0.403, 0.235):
+                font "agency_fb.ttf"
+
                 size 30
 
-                color "#ffffff"
+                color "#000000"
 
-        fixed anchor (0.5, 0.5) pos (0.5, 0.195) xysize (489, 65):
-            if phone_interactable and not phone_disabled:
-                imagebutton:
-                    idle "images/interface/phone/search_bar_idle.webp" 
-                    hover "images/interface/phone/search_bar.webp" 
-                    selected_idle "images/interface/phone/search_bar.webp"
+                length 25
 
-                    selected input_cheats
+            key "K_RETURN" action [
+                SetVariable("input_cheats", False),
+                Call("enter_cheat_code", current_input, from_current = True)]
+    else:
+        add At("images/interface/phone/search_bar_idle.webp", interface)
 
-                    action ToggleVariable("input_cheats")
+    if not input_cheats:
+        text "Search. . ." anchor (0.0, 0.5) pos (0.403, 0.235):
+            font "agency_fb.ttf"
 
-                if input_cheats:
-                    input id "cheat_input" value VariableInputValue("current_input", default = True) anchor (0.0, 0.5) pos (0.13, 0.58):
-                        font "agency_fb.ttf"
+            size 30
 
-                        size 30
+            color "#bbbbbb"
 
-                        color "#000000"
+    if humhum_available and not humhum_hidden:
+        $ humhumthread_to_display = HumHumPool.HumHumThreads[list(HumHumPool.HumHumThreads.keys())[humhum_index]]
 
-                        length 25
+        add At("images/interface/phone/home_humhum_bar.webp", interface)
 
-                    key "K_RETURN" action [
-                        SetVariable("input_cheats", False),
-                        Call("enter_cheat_code", current_input, from_current = True)]
-            else:
-                add "images/interface/phone/search_bar_idle.webp" anchor (1.0, 0.5) pos (1.0, 0.5)
+        text "#LatestHums" anchor (0.0, 0.5) pos (0.375, 0.29):
+            size 30
 
-        if humhum_available and not humhum_hidden:
-            $ humhumthread_to_display = HumHumPool.HumHumThreads[list(HumHumPool.HumHumThreads.keys())[humhum_index]]
+            color "#d56cc4"
 
-            fixed anchor (0.5, 0.5) pos (0.5, 0.385) xysize (489, 220):
-                fixed anchor (0.5, 0.0) pos (0.5, 0.0) xysize (489, 38):
-                    add "images/interface/phone/home_humhum_bar.webp"
+        imagebutton:
+            idle At("images/interface/phone/home_humhum_left_idle.webp", interface)
+            hover At("images/interface/phone/home_humhum_left.webp", interface)
 
-                    text "#LatestHums" anchor (0.0, 0.5) pos (0.01, 0.5):
-                        size 30
-
-                        color "#d56cc4"
-
-                    imagebutton anchor (0.5, 0.5) pos (0.82, 0.57):
-                        idle "images/interface/phone/home_humhum_left_idle.webp" 
-                        hover "images/interface/phone/home_humhum_left.webp"
-
-                        if phone_interactable and not phone_disabled:
-                            action [
-                                SetVariable("humhum_index", (humhum_index - 1) % len(list(HumHumPool.HumHumThreads.keys()))),
-                                SetVariable("humhum_yadjustment.value", 0)]
-                        else:
-                            action None
-
-                    imagebutton anchor (0.5, 0.5) pos (0.94, 0.57):
-                        idle "images/interface/phone/home_humhum_right_idle.webp" 
-                        hover "images/interface/phone/home_humhum_right.webp"
-
-                        if phone_interactable and not phone_disabled:
-                            action [
-                                SetVariable("humhum_index", (humhum_index + 1) % len(list(HumHumPool.HumHumThreads.keys()))),
-                                SetVariable("humhum_yadjustment.value", 0)]
-                        else:
-                            action None
-
-                fixed anchor (0.0, 1.0) pos (0.0, 1.0) xysize (453, 177):
-                    add "images/interface/phone/home_humhum_box.webp"
-
-                    if humhumthread_to_display.HumHums[0].Owner != Player:
-                        add At(f"images/interface/phone/icons/{humhumthread_to_display.HumHums[0].Owner.tag}.webp", humhum_icon) anchor (0.5, 0.5) pos (0.055, 0.122)
-
-                        text humhumthread_to_display.HumHums[0].Owner.call_sign anchor (0.0, 0.5) pos (0.125, 0.122) size 32
-                    else:
-                        add At(f"images/interface/phone/icons/Player_{Player.background_color}.webp", humhum_icon) anchor (0.5, 0.5) pos (0.055, 0.122)
-
-                        text humhumthread_to_display.HumHums[0].Owner.call_sign anchor (0.0, 0.5) pos (0.125, 0.122) size 32
-
-                    viewport id "home_humhum_viewport" yadjustment humhum_yadjustment anchor (0.0, 0.0) pos (0.0, 0.3) xysize (453, 120):
-                        draggable True
-                        mousewheel True
-
-                        vbox xsize 453:
-                            fixed xysize (435, 115):
-                                text humhumthread_to_display.HumHums[0].body anchor (0.0, 0.0) pos (0.01, 0.015):
-                                    if len(humhumthread_to_display.HumHums[0].body) > 125:
-                                        size 24
-                                    elif len(humhumthread_to_display.HumHums[0].body) > 100:
-                                        size 26
-                                    elif len(humhumthread_to_display.HumHums[0].body) > 75:
-                                        size 30
-                                    elif len(humhumthread_to_display.HumHums[0].body) > 50:
-                                        size 34 
-                                    else:
-                                        size 38
-                                    
-                                    text_align 0.0
-
-                            if len(humhumthread_to_display.HumHums) > 1:
-                                frame xsize 453:
-                                    background Frame("images/interface/phone/home_humhum_reply_box.webp", 0, 15, 0, 15)
-
-                                    vbox xsize 453:
-                                        null height 15
-
-                                        for h in range(1, len(humhumthread_to_display.HumHums)):
-                                            hbox xsize 425:
-                                                if humhumthread_to_display.HumHums[h].Owner != Player:
-                                                    add At(f"images/interface/phone/icons/{humhumthread_to_display.HumHums[h].Owner.tag}.webp", humhum_icon) yalign 0.0
-                                                else:
-                                                    add At(f"images/interface/phone/icons/Player_{Player.background_color}.webp", humhum_icon) yalign 0.0
-
-                                                null width 8
-
-                                                fixed yalign 0.0 xysize (375, 50):
-                                                    if len(humhumthread_to_display.HumHums[h].body) > 75:
-                                                        text humhumthread_to_display.HumHums[h].body align (0.0, 0.0):
-                                                            size 16
-                                                            
-                                                            text_align 0.0
-                                                    elif len(humhumthread_to_display.HumHums[h].body) > 50:
-                                                        text humhumthread_to_display.HumHums[h].body align (0.0, 0.0):
-                                                            size 18 
-                                                            
-                                                            text_align 0.0
-                                                    else:
-                                                        text humhumthread_to_display.HumHums[h].body align (0.0, 0.0):
-                                                            size 24
-                                                            
-                                                            text_align 0.0
-                                                            
-                                            null height 4
-
-                fixed anchor (1.0, 1.0) pos (1.0, 1.0) xysize (33, 180):
-                    add "images/interface/phone/home_humhum_scrollbar_background.webp"
-
-                    vbar value YScrollValue("home_humhum_viewport") anchor (0.5, 0.5) pos (0.5, 0.5) xysize (13, 159):
-                        base_bar Frame("images/interface/phone/home_humhum_scrollbar.webp")
-
-                        thumb "images/interface/phone/home_humhum_scrollbar_thumb.webp"
-                        thumb_offset 8
-
-                        unscrollable "hide"
-
-        imagebutton anchor (0.5, 0.5) pos (0.2, 0.85):
-            idle At("images/interface/phone/icons/call_idle.webp", phone_icon) hover At("images/interface/phone/icons/call.webp", phone_icon)
-            
             if phone_interactable and not phone_disabled:
                 action [
-                    SetVariable("loading", True),
-                    SetVariable("current_phone_screen", "call_choice")]
+                    SetVariable("humhum_index", (humhum_index - 1) % len(list(HumHumPool.HumHumThreads.keys()))),
+                    SetVariable("humhum_yadjustment.value", 0)]
             else:
                 action None
 
-        imagebutton anchor (0.5, 0.5) pos (0.5, 0.85):
-            idle At("images/interface/phone/icons/blah_idle.webp", phone_icon) hover At("images/interface/phone/icons/blah.webp", phone_icon)
-            
+        imagebutton:
+            idle At("images/interface/phone/home_humhum_right_idle.webp", interface)
+            hover At("images/interface/phone/home_humhum_right.webp", interface)
+
             if phone_interactable and not phone_disabled:
                 action [
-                    SetVariable("loading", True),
-                    SetVariable("current_phone_screen", "text_choice")]
+                    SetVariable("humhum_index", (humhum_index + 1) % len(list(HumHumPool.HumHumThreads.keys()))),
+                    SetVariable("humhum_yadjustment.value", 0)]
             else:
                 action None
 
-        imagebutton anchor (0.5, 0.5) pos (0.8, 0.85):
-            idle At("images/interface/phone/icons/profile_idle.webp", phone_icon) hover At("images/interface/phone/icons/profile.webp", phone_icon)
-            
-            if phone_interactable and not phone_disabled:
-                action [
-                    SetVariable("loading", True),
-                    SetVariable("current_phone_screen", "profile")]
+        fixed anchor (0.5, 0.5) pos (0.486, 0.392) xysize (int(905*interface_new_adjustment), int(354*interface_new_adjustment)):
+            add At("images/interface/phone/home_humhum_box.webp", interface)
+
+            if humhumthread_to_display.HumHums[0].Owner != Player:
+                add At(f"images/interface/phone/icons/{humhumthread_to_display.HumHums[0].Owner.tag}.webp", humhum_icon) anchor (0.5, 0.5) pos (0.055, 0.122)
+
+                text humhumthread_to_display.HumHums[0].Owner.call_sign anchor (0.0, 0.5) pos (0.125, 0.122) size 32
             else:
-                action None
+                add At(f"images/interface/phone/icons/Player_{Player.background_color}.webp", humhum_icon) anchor (0.5, 0.5) pos (0.055, 0.122)
+
+                text humhumthread_to_display.HumHums[0].Owner.call_sign anchor (0.0, 0.5) pos (0.125, 0.122) size 32
+
+            viewport id "home_humhum_viewport" yadjustment humhum_yadjustment anchor (0.0, 0.0) pos (0.0, 0.3) xysize (int(905*interface_new_adjustment), int(240*interface_new_adjustment)):
+                draggable True
+                mousewheel True
+
+                vbox xsize 1.0:
+                    fixed xysize (1.0, 0.9):
+                        text humhumthread_to_display.HumHums[0].body anchor (0.0, 0.0) pos (0.02, 0.015):
+                            if len(humhumthread_to_display.HumHums[0].body) > 125:
+                                size 24
+                            elif len(humhumthread_to_display.HumHums[0].body) > 100:
+                                size 26
+                            elif len(humhumthread_to_display.HumHums[0].body) > 75:
+                                size 30
+                            elif len(humhumthread_to_display.HumHums[0].body) > 50:
+                                size 34 
+                            else:
+                                size 38
+                            
+                            text_align 0.0
+
+                    if len(humhumthread_to_display.HumHums) > 1:
+                        frame xsize 1.0:
+                            background Frame(At("images/interface/phone/home_humhum_reply_box.webp", interface), 0, 15, 0, 15)
+
+                            vbox xsize 1.0:
+                                null height 15
+
+                                for h in range(1, len(humhumthread_to_display.HumHums)):
+                                    hbox xsize 425:
+                                        if humhumthread_to_display.HumHums[h].Owner != Player:
+                                            add At(f"images/interface/phone/icons/{humhumthread_to_display.HumHums[h].Owner.tag}.webp", humhum_icon) yalign 0.0
+                                        else:
+                                            add At(f"images/interface/phone/icons/Player_{Player.background_color}.webp", humhum_icon) yalign 0.0
+
+                                        null width 8
+
+                                        fixed yalign 0.0 xysize (int(750*interface_new_adjustment), int(100*interface_new_adjustment)):
+                                            if len(humhumthread_to_display.HumHums[h].body) > 75:
+                                                text humhumthread_to_display.HumHums[h].body align (0.0, 0.0):
+                                                    size 16
+                                                    
+                                                    text_align 0.0
+                                            elif len(humhumthread_to_display.HumHums[h].body) > 50:
+                                                text humhumthread_to_display.HumHums[h].body align (0.0, 0.0):
+                                                    size 18 
+                                                    
+                                                    text_align 0.0
+                                            else:
+                                                text humhumthread_to_display.HumHums[h].body align (0.0, 0.0):
+                                                    size 24
+                                                    
+                                                    text_align 0.0
+                                                    
+                                    null height 4
+
+        add At("images/interface/phone/home_humhum_scrollbar_background.webp", interface)
+
+        vbar value YScrollValue("home_humhum_viewport") anchor (0.5, 0.5) pos (0.614, 0.392) xysize (int(27*interface_new_adjustment), int(330*interface_new_adjustment)):
+            base_bar At("images/interface/phone/home_humhum_scrollbar.webp", interface)
+
+            thumb At("images/interface/phone/home_humhum_scrollbar_thumb.webp", interface)
+            thumb_offset int(66*interface_new_adjustment/2/3)
+
+            unscrollable "hide"
+
+    imagebutton anchor (0.5, 0.5) pos (0.416, 0.8):
+        idle At("images/interface/phone/icons/call_idle.webp", phone_icon) hover At("images/interface/phone/icons/call.webp", phone_icon)
+        
+        if phone_interactable and not phone_disabled:
+            action [
+                SetVariable("loading", True),
+                SetVariable("current_phone_screen", "call_choice")]
+        else:
+            action None
+
+    imagebutton anchor (0.5, 0.5) pos (0.496, 0.8):
+        idle At("images/interface/phone/icons/humhum_idle.webp", phone_icon) hover At("images/interface/phone/icons/humhum.webp", phone_icon)
+        
+        if phone_interactable and not phone_disabled:
+            action [
+                SetVariable("loading", True),
+                SetVariable("current_phone_screen", "humhum_choice")]
+        else:
+            action None
+
+    imagebutton anchor (0.5, 0.5) pos (0.576, 0.8):
+        idle At("images/interface/phone/icons/blah_idle.webp", phone_icon) hover At("images/interface/phone/icons/blah.webp", phone_icon)
+        
+        if phone_interactable and not phone_disabled:
+            action [
+                SetVariable("loading", True),
+                SetVariable("current_phone_screen", "text_choice")]
+        else:
+            action None
 
 screen app_screen():
     style_prefix "phone"
 
-    fixed anchor (0.5, 0.5) pos (0.5, 0.4815) xysize (500, 854):
-        add "images/interface/phone/app_list.webp"
+    add At("images/interface/phone/app_list.webp", interface)
 
-        text "APPS" anchor (0.0, 0.5) pos (0.02, 0.034):
-            size 50
+    text "APPS" anchor (0.0, 0.5) pos (0.37, 0.118):
+        size 50
 
-            color "#ffffff"
+        color "#ffffff"
 
-        imagebutton anchor (0.5, 0.5) pos (0.2, 0.2):
-            idle At("images/interface/phone/icons/call_idle.webp", phone_icon) hover At("images/interface/phone/icons/call.webp", phone_icon)
+    imagebutton anchor (0.5, 0.5) pos (0.416, 0.23):
+        idle At("images/interface/phone/icons/call_idle.webp", phone_icon) hover At("images/interface/phone/icons/call.webp", phone_icon)
+        
+        if phone_interactable and not phone_disabled:
+            action [
+                SetVariable("loading", True),
+                SetVariable("current_phone_screen", "call_choice")]
+        else:
+            action None
+
+    imagebutton anchor (0.5, 0.5) pos (0.576, 0.23):
+        idle At("images/interface/phone/icons/blah_idle.webp", phone_icon) hover At("images/interface/phone/icons/blah.webp", phone_icon)
+        
+        if phone_interactable and not phone_disabled:
+            action [
+                SetVariable("loading", True),
+                SetVariable("current_phone_screen", "text_choice")]
+        else:
+            action None
+
+    imagebutton anchor (0.5, 0.5) pos (0.416, 0.41333):
+        idle At("images/interface/phone/icons/daily_bungle_idle.webp", phone_icon) hover At("images/interface/phone/icons/daily_bungle.webp", phone_icon)
+        
+        if phone_interactable and not phone_disabled:
+            action SetVariable("current_phone_screen", "news")
+        else:
+            action None
+
+    if humhum_available:
+        imagebutton anchor (0.5, 0.5) pos (0.496, 0.41333):
+            idle At("images/interface/phone/icons/humhum_idle.webp", phone_icon) hover At("images/interface/phone/icons/humhum.webp", phone_icon)
             
             if phone_interactable and not phone_disabled:
                 action [
                     SetVariable("loading", True),
-                    SetVariable("current_phone_screen", "call_choice")]
+                    SetVariable("current_phone_screen", "humhum_home")]
             else:
                 action None
 
-        imagebutton anchor (0.5, 0.5) pos (0.5, 0.2):
-            idle At("images/interface/phone/icons/blah_idle.webp", phone_icon) hover At("images/interface/phone/icons/blah.webp", phone_icon)
-            
-            if phone_interactable and not phone_disabled:
-                action [
-                    SetVariable("loading", True),
-                    SetVariable("current_phone_screen", "text_choice")]
-            else:
-                action None
+    imagebutton anchor (0.5, 0.5) pos (0.576, 0.4133):
+        idle At("images/interface/phone/icons/hot_control_idle.webp", phone_icon) hover At("images/interface/phone/icons/hot_control.webp", phone_icon)
+        
+        if phone_interactable and not phone_disabled:
+            action SetVariable("current_phone_screen", "remote")
+        else:
+            action None
 
-        imagebutton anchor (0.5, 0.5) pos (0.8, 0.2):
-            idle At("images/interface/phone/icons/profile_idle.webp", phone_icon) hover At("images/interface/phone/icons/profile.webp", phone_icon)
-            
-            if phone_interactable and not phone_disabled:
-                action [
-                    SetVariable("loading", True),
-                    SetVariable("current_phone_screen", "profile")]
-            else:
-                action None
+    imagebutton anchor (0.5, 0.5) pos (0.416, 0.59666):
+        idle At("images/interface/phone/icons/achievements_idle.webp", phone_icon) hover At("images/interface/phone/icons/achievements.webp", phone_icon)
+        
+        if phone_interactable and not phone_disabled:
+            action [
+                SetVariable("loading", True),
+                SetVariable("current_phone_screen", "achievements")]
+        else:
+            action None
 
-        imagebutton anchor (0.5, 0.5) pos (0.2, 0.4):
-            idle At("images/interface/phone/icons/music_idle.webp", phone_icon) hover At("images/interface/phone/icons/music.webp", phone_icon)
-            
-            if phone_interactable and not phone_disabled:
-                action [
-                    SetVariable("loading", True),
-                    SetVariable("current_phone_screen", "music")]
-            else:
-                action None
+    imagebutton anchor (0.5, 0.5) pos (0.576, 0.59666):
+        idle At("images/interface/phone/icons/music_idle.webp", phone_icon) hover At("images/interface/phone/icons/music.webp", phone_icon)
+        
+        if phone_interactable and not phone_disabled:
+            action [
+                SetVariable("loading", True),
+                SetVariable("current_phone_screen", "music")]
+        else:
+            action None
 
-        # imagebutton anchor (0.5, 0.5) pos (0.5, 0.4):
-        #     idle At("images/interface/phone/icons/achievements_idle.webp", phone_icon) hover At("images/interface/phone/icons/achievements.webp", phone_icon)
-            
-        #     if phone_interactable and not phone_disabled:
-        #         action SetVariable("current_phone_screen", "achievements")
-        #     else:
-        #         action None
+    imagebutton anchor (0.5, 0.5) pos (0.416, 0.78):
+        idle At("images/interface/phone/icons/save_idle.webp", phone_icon) hover At("images/interface/phone/icons/save.webp", phone_icon)
+        
+        if phone_interactable and not phone_disabled:
+            action ShowMenu("save")
+        else:
+            action None
 
-        if humhum_available:
-            imagebutton anchor (0.5, 0.5) pos (0.8, 0.4):
-                idle At("images/interface/phone/icons/humhum_idle.webp", phone_icon) hover At("images/interface/phone/icons/humhum.webp", phone_icon)
-                
-                if phone_interactable and not phone_disabled:
-                    action [
-                        SetVariable("loading", True),
-                        SetVariable("current_phone_screen", "humhum_home")]
-                else:
-                    action None
+    imagebutton anchor (0.5, 0.5) pos (0.496, 0.78):
+        idle At("images/interface/phone/icons/load_idle.webp", phone_icon) hover At("images/interface/phone/icons/load.webp", phone_icon)
+        
+        if phone_interactable and not phone_disabled:
+            action ShowMenu("load")
+        else:
+            action None
 
-        imagebutton anchor (0.5, 0.5) pos (0.2, 0.85):
-            idle At("images/interface/phone/icons/save_idle.webp", phone_icon) hover At("images/interface/phone/icons/save.webp", phone_icon)
-            
-            if phone_interactable and not phone_disabled:
-                action ShowMenu("save")
-            else:
-                action None
-
-        imagebutton anchor (0.5, 0.5) pos (0.5, 0.85):
-            idle At("images/interface/phone/icons/load_idle.webp", phone_icon) hover At("images/interface/phone/icons/load.webp", phone_icon)
-            
-            if phone_interactable and not phone_disabled:
-                action ShowMenu("load")
-            else:
-                action None
-
-        imagebutton anchor (0.5, 0.5) pos (0.8, 0.85):
-            idle At("images/interface/phone/icons/config_idle.webp", phone_icon) hover At("images/interface/phone/icons/config.webp", phone_icon)
-            
-            if phone_interactable and not phone_disabled:
-                action [
-                    SetVariable("loading", True),
-                    SetVariable("current_phone_screen", "config")]
-            else:
-                action None
+    imagebutton anchor (0.5, 0.5) pos (0.576, 0.78):
+        idle At("images/interface/phone/icons/config_idle.webp", phone_icon) hover At("images/interface/phone/icons/config.webp", phone_icon)
+        
+        if phone_interactable and not phone_disabled:
+            action [
+                SetVariable("loading", True),
+                SetVariable("current_phone_screen", "config")]
+        else:
+            action None
 
 screen call_choice_screen():
     style_prefix "phone"
 
-    fixed anchor (0.5, 0.5) pos (0.5, 0.4815) xysize (500, 854):
-        add "images/interface/phone/call_contacts.webp"
+    add At("images/interface/phone/call_contacts.webp", interface)
 
-        add "images/interface/phone/call_top.webp" anchor (0.5, 0.0) pos (0.5, 0.0)
+    add At("images/interface/phone/call_top.webp", interface)
 
-        text "CALL" anchor (0.0, 0.5) pos (0.15, 0.034):
+    text "CALL" anchor (0.0, 0.5) pos (0.402, 0.118):
+        size 50
+
+        color "#ffffff"
+
+    text "Contact List" anchor (0.0, 0.5) pos (0.37, 0.173):
+        size 40
+
+        color "#ffffff"
+
+    text "Search. . ." anchor (0.0, 0.5) pos (0.55, 0.176):
+        size 20
+
+        color "#bbbbbb"
+
+    vpgrid id "call_choice_screen_viewport" anchor (0.5, 0.0) pos (0.49, 0.217) xysize (int(919*interface_new_adjustment), int(1350*interface_new_adjustment)):
+        cols 1
+
+        spacing 15
+
+        draggable True
+        mousewheel True
+
+        for C in Contacts:
+            button xysize (int(919*interface_new_adjustment), int(199*interface_new_adjustment)):
+                idle_background At("images/interface/phone/call_contact_idle.webp", interface)
+                hover_background At("images/interface/phone/call_contact.webp", interface)
+
+                add At(f"images/interface/phone/icons/{C.tag}.webp", call_icon) anchor (0.5, 0.5) pos (0.1, 0.5)
+
+                text f"{C.name}" anchor (0.0, 0.5) pos (0.215, 0.5):
+                    size 40
+                
+                if phone_interactable and not phone_disabled:
+                    if C.History.check("said_goodnight", tracker = "daily"):
+                        action Show("say", who = None, what = "You already said goodnight.", hide_after = 5.0)
+                    elif C.History.check("said_too_late_to_talk", tracker = "recent") >= 2:
+                        action Show("say", who = None, what = "Maybe give it a rest.", hide_after = 5.0)
+                    else:
+                        if C.location != Player.location:
+                            action [
+                                SetField(C, "electronic", True),
+                                SetVariable("current_phone_Character", C),
+                                SetVariable("current_phone_screen", "call"),
+                                Call("chat", C, from_current = True)]
+                        else:
+                            action [
+                                Hide("phone_screen"),
+                                Call("chat", C, from_current = True)]
+                else:
+                    action NullAction()
+
+    vbar value YScrollValue("call_choice_screen_viewport") anchor (0.0, 0.0) pos (0.612, 0.217) xysize (int(29*interface_new_adjustment), int(1350*interface_new_adjustment)):
+        base_bar At("images/interface/phone/call_scrollbar.webp", interface)
+
+        thumb At("images/interface/phone/call_scrollbar_thumb.webp", interface)
+        thumb_offset int(79*interface_new_adjustment/2/3)
+
+        unscrollable "hide"
+
+screen call_screen():
+    style_prefix "phone"
+
+    timer 0.5 repeat True action SetVariable("waiting", (waiting + 1) % 4)
+
+    add At("images/interface/phone/call_calling.webp", interface)
+
+    add At("images/interface/phone/call_top.webp", interface)
+
+    text "CALL" anchor (0.0, 0.5) pos (0.402, 0.118):
+        size 50
+
+        color "#ffffff"
+
+    add At(f"images/interface/phone/photos/{current_phone_Character.tag}.webp", call_photo) anchor (0.5, 0.5) pos (0.496, 0.33)
+
+    if waiting == 3:
+        text f"Calling {current_phone_Character.name}. . ." anchor (0.0, 0.5) pos (0.40, 0.575):
+            size 48
+
+            color "#ffffff"
+    elif waiting == 2:
+        text f"Calling {current_phone_Character.name}. . " + "{alpha=0.0}.{/alpha}" anchor (0.0, 0.5) pos (0.40, 0.575):
+            size 48
+
+            color "#ffffff"
+    elif waiting == 1:
+        text f"Calling {current_phone_Character.name}. " + "{alpha=0.0}. .{/alpha}" anchor (0.0, 0.5) pos (0.40, 0.575):
+            size 48
+
+            color "#ffffff"
+    elif waiting == 0:
+        text f"Calling {current_phone_Character.name}" + "{alpha=0.0}. . .{/alpha}" anchor (0.0, 0.5) pos (0.40, 0.575):
+            size 48
+
+            color "#ffffff"
+
+screen text_choice_screen():
+    style_prefix "phone"
+
+    timer 0.5 action SetVariable("loading", False)
+
+    if loading:
+        add At("images/interface/phone/blah_intro.webp", interface)
+    else:
+        add At("images/interface/phone/blah_contacts.webp", interface)
+
+        add At("images/interface/phone/blah_top.webp", interface)
+
+        text "BLAH!" anchor (0.0, 0.5) pos (0.402, 0.118):
             size 50
 
             color "#ffffff"
 
-        text "Contact List" anchor (0.0, 0.5) pos (0.02, 0.11):
+        text "Contact List" anchor (0.0, 0.5) pos (0.37, 0.173):
             size 40
 
-        vpgrid id "call_choice_screen_viewport" anchor (0.5, 0.0) pos (0.52, 0.17) xysize (500, 698):
+            color "#ffffff"
+
+        text "Search. . ." anchor (0.0, 0.5) pos (0.55, 0.176):
+            size 20
+
+            color "#bbbbbb"
+
+        vpgrid id "text_choice_screen_viewport" anchor (0.5, 0.0) pos (0.49, 0.217) xysize (int(919*interface_new_adjustment), int(1350*interface_new_adjustment)):
             cols 1
 
             spacing 15
@@ -575,9 +708,12 @@ screen call_choice_screen():
             mousewheel True
 
             for C in Contacts:
-                button xysize (460, 100):
-                    idle_background "images/interface/phone/call_contact_idle.webp" 
-                    hover_background "images/interface/phone/call_contact.webp"
+                button xysize (int(919*interface_new_adjustment), int(199*interface_new_adjustment)):
+                    idle_background At("images/interface/phone/blah_contact_idle.webp", interface)
+                    hover_background At("images/interface/phone/blah_contact.webp", interface)
+                    selected_idle_background At("images/interface/phone/blah_contact.webp", interface)
+
+                    selected C in unread_messages.keys()
 
                     add At(f"images/interface/phone/icons/{C.tag}.webp", call_icon) anchor (0.5, 0.5) pos (0.1, 0.5)
 
@@ -585,128 +721,49 @@ screen call_choice_screen():
                         size 40
                     
                     if phone_interactable and not phone_disabled:
-                        if C.History.check("said_goodnight", tracker = "daily"):
-                            action Show("say", who = None, what = "You already said goodnight.", hide_after = 5.0)
-                        elif C.History.check("said_too_late_to_talk", tracker = "recent") >= 2:
-                            action Show("say", who = None, what = "Maybe give it a rest.", hide_after = 5.0)
-                        else:
-                            if C.location != Player.location:
-                                action [
-                                    SetField(C, "electronic", True),
-                                    SetVariable("current_phone_Character", C),
-                                    SetVariable("current_phone_screen", "call"),
-                                    Call("chat", C, from_current = True)]
-                            else:
-                                action [
-                                    Hide("phone_screen"),
-                                    Call("chat", C, from_current = True)]
+                        action [
+                            SetVariable("current_phone_Character", C),
+                            SetVariable("current_phone_screen", "text")]
                     else:
                         action NullAction()
 
-        vbar value YScrollValue("call_choice_screen_viewport") anchor (0.0, 0.0) pos (0.955, 0.15) xysize (15, 698):
-            base_bar Frame("images/interface/phone/call_scrollbar.webp")
+        vbar value YScrollValue("text_choice_screen_viewport") anchor (0.0, 0.0) pos (0.612, 0.217) xysize (int(29*interface_new_adjustment), int(1350*interface_new_adjustment)):
+            base_bar At("images/interface/phone/blah_scrollbar.webp", interface)
 
-            thumb "images/interface/phone/call_scrollbar_thumb.webp"
-            thumb_offset 12
+            thumb At("images/interface/phone/blah_scrollbar_thumb.webp", interface)
+            thumb_offset int(79*interface_new_adjustment/2/3)
 
             unscrollable "hide"
-
-screen call_screen():
-    style_prefix "phone"
-
-    fixed anchor (0.5, 0.5) pos (0.5, 0.4815) xysize (500, 854):
-        add "images/interface/phone/call_calling.webp"
-
-        add "images/interface/phone/call_top.webp" anchor (0.5, 0.0) pos (0.5, 0.0)
-
-        text "CALL" anchor (0.0, 0.5) pos (0.15, 0.034):
-            size 50
-
-            color "#ffffff"
-
-        add At(f"images/interface/phone/photos/{current_phone_Character.tag}.webp", call_photo) anchor (0.5, 0.5) pos (0.5, 0.31)
-
-        text f"Calling {current_phone_Character.name}. . ." anchor (0.0, 0.5) pos (0.15, 0.62):
-            size 48
-
-screen text_choice_screen():
-    style_prefix "phone"
-
-    timer 0.5 action SetVariable("loading", False)
-
-    fixed anchor (0.5, 0.5) pos (0.5, 0.4815) xysize (500, 854):
-        if loading:
-            add "images/interface/phone/blah_intro.webp"
-        else:
-            add "images/interface/phone/blah_contacts.webp"
-
-            add "images/interface/phone/blah_top.webp" anchor (0.5, 0.0) pos (0.5, 0.0)
-
-            text "BLAH!" anchor (0.0, 0.5) pos (0.15, 0.034):
-                size 50
-
-                color "#ffffff"
-
-            text "Contact List" anchor (0.0, 0.5) pos (0.02, 0.11):
-                size 40
-
-            vpgrid id "text_choice_screen_viewport" anchor (0.5, 0.0) pos (0.52, 0.17) xysize (500, 698):
-                cols 1
-
-                spacing 15
-
-                draggable True
-                mousewheel True
-
-                for C in Contacts:
-                    button xysize (460, 100):
-                        idle_background "images/interface/phone/blah_contact_idle.webp" 
-                        hover_background "images/interface/phone/blah_contact.webp" 
-                        selected_idle_background "images/interface/phone/blah_contact.webp"
-
-                        selected C in unread_messages.keys()
-
-                        add At(f"images/interface/phone/icons/{C.tag}.webp", call_icon) anchor (0.5, 0.5) pos (0.1, 0.5)
-
-                        text f"{C.name}" anchor (0.0, 0.5) pos (0.215, 0.5):
-                            size 40
-                        
-                        if phone_interactable and not phone_disabled:
-                            action [
-                                SetVariable("current_phone_Character", C),
-                                SetVariable("current_phone_screen", "text")]
-                        else:
-                            action NullAction()
-
-            vbar value YScrollValue("text_choice_screen_viewport") anchor (0.0, 0.0) pos (0.955, 0.15) xysize (15, 698):
-                base_bar Frame("images/interface/phone/blah_scrollbar.webp")
-
-                thumb "images/interface/phone/blah_scrollbar_thumb.webp"
-                thumb_offset 12
-
-                unscrollable "hide"
 
 screen text_screen():
     style_prefix "phone"
 
-    fixed anchor (0.5, 0.5) pos (0.5, 0.4815) xysize (500, 854):
-        add "images/interface/phone/blah_message.webp" anchor (0.5, 0.5) pos (0.5, 0.508)
+    add At("images/interface/phone/blah_message.webp", interface)
 
-        add "images/interface/phone/blah_top.webp" anchor (0.5, 0.0) pos (0.5, 0.0)
+    add At("images/interface/phone/blah_top.webp", interface)
 
-        text "BLAH!" anchor (0.0, 0.5) pos (0.15, 0.034):
-            size 50
+    text "BLAH!" anchor (0.0, 0.5) pos (0.402, 0.118):
+        size 50
+
+        color "#ffffff"
+
+    if current_phone_Character in Contacts:
+        text f"Chatting with {current_phone_Character.name}" anchor (0.0, 0.5) pos (0.37, 0.173):
+            size 40
+
+            color "#ffffff"
+    else:
+        text "Chatting with Unknown Number" anchor (0.0, 0.5) pos (0.37, 0.173):
+            size 40
 
             color "#ffffff"
 
-        if current_phone_Character in Contacts:
-            text f"Chatting with {current_phone_Character.name}" anchor (0.0, 0.5) pos (0.02, 0.11):
-                size 40
-        else:
-            text f"Chatting with Unknown Number" anchor (0.0, 0.5) pos (0.02, 0.11):
-                size 40
+    text "Type. . ." anchor (0.0, 0.5) pos (0.49, 0.849):
+        size 30
 
-        use text_history(current_phone_Character)
+        color "#bbbbbb"
+
+    use text_history(current_phone_Character)
 
     if current_phone_Character.mandatory_text_options or (phone_interactable and not phone_disabled and current_phone_Character not in Present and (not "bg_shower" in Player.location or current_phone_Character.location != Player.location.replace("_shower", ""))):
         $ text_options = []
@@ -747,7 +804,7 @@ screen text_screen():
                         for text in reversed(current_phone_Character.timed_text_options[E]):
                             text_options.insert(0, text)
 
-        viewport anchor (0.0, 0.5) pos (1.15, 0.5) xysize (480, 600):
+        viewport anchor (0.0, 0.5) pos (0.7, 0.5) xysize (0.25, 0.6):
             draggable True
             mousewheel True
             xfill True
@@ -761,14 +818,14 @@ screen text_screen():
                 if current_phone_Character.location != "hold": 
                     for message in text_options:
                         button xalign 0.0:
-                            idle_background Frame("images/interface/phone/text_frame_Player_idle.webp", 10, 10)
-                            hover_background Frame("images/interface/phone/text_frame_Player.webp", 10, 10)
+                            idle_background Frame(At("images/interface/phone/text_frame_Player_idle.webp", interface), 10, 10)
+                            hover_background Frame(At("images/interface/phone/text_frame_Player.webp", interface), 10, 10)
 
                             activate_sound None
 
                             padding (15, 15, 15, 15)
-                            minimum (100, 0)
-                            xmaximum 300
+                            minimum (int(0.05*config.screen_width), 0)
+                            xmaximum int(0.15*config.screen_width)
 
                             text message:
                                 size 32
@@ -782,19 +839,21 @@ screen text_history(Character):
     style_prefix "phone"
 
     python:
-        text_screen_yadjustment.value = float("inf")
+        blah_yadjustment.value = float("inf")
 
     $ previous_Owner = None
 
     $ last_status = None
 
-    viewport yadjustment text_screen_yadjustment anchor (0.5, 0.0) pos (0.5, 0.17) xysize (440, 610):
+    viewport yadjustment blah_yadjustment anchor (0.5, 0.0) pos (0.496, 0.218) xysize (0.24, 0.59):
         draggable True
         mousewheel True
 
         yinitial 1.0
     
-        vbox align (0.0, 0.0) xsize 440:
+        vbox align (0.0, 0.0) xsize 1.0:
+            xfill True
+
             spacing 5
 
             for Owner, content, status in Character.text_history:
@@ -818,11 +877,11 @@ screen text_history(Character):
                                     size 30
 
                             frame:
-                                background Frame("images/interface/phone/text_frame.webp", 10, 10)
+                                background Frame(At("images/interface/phone/text_frame.webp", interface), 10, 10)
 
                                 padding (15, 15, 15, 15)
-                                minimum (50, 0)
-                                xmaximum 375
+                                minimum (int(0.05*config.screen_width), 0)
+                                xmaximum int(0.2*config.screen_width)
 
                                 if status == "current":
                                     at message_appear(-1)
@@ -851,11 +910,11 @@ screen text_history(Character):
 
                         vbox align (1.0, 0.5):
                             frame:
-                                background Frame("images/interface/phone/text_frame_Player.webp", 10, 10)
+                                background Frame(At("images/interface/phone/text_frame_Player.webp", interface), 10, 10)
 
                                 padding (15, 15, 15, 15)
-                                minimum (50, 0)
-                                xmaximum 375
+                                minimum (int(0.05*config.screen_width), 0)
+                                xmaximum int(0.2*config.screen_width)
 
                                 if status == "current":
                                     at message_appear(1)
@@ -868,49 +927,6 @@ screen text_history(Character):
                 $ previous_Owner = Owner.tag
 
                 $ last_status = status
-
-screen profile_screen():
-    style_prefix "phone"
-
-    fixed anchor (0.5, 0.5) pos (0.5, 0.4815) xysize (500, 854):
-        add "images/interface/phone/profile_background.webp"
-
-        text "PROFILE" anchor (0.0, 0.5) pos (0.15, 0.034):
-            size 50
-
-            color "#ffffff"
-
-        add At("Player_portrait", humhum_photo) pos (0.275, 0.285) zoom 0.7
-
-        text "Name" anchor (0.0, 0.5) pos (0.52, 0.21):
-            size 32
-
-        text f"{Player.first_name} {Player.last_name[0]}." anchor (1.0, 0.5) pos (0.92, 0.21) size 32
-        
-        text "XP" anchor (0.0, 0.5) pos (0.075, 0.562):
-            size 32
-
-        bar value Player.XP - int(Player.XP_goal/1.75) range Player.XP_goal - int(Player.XP_goal/1.75) anchor (0.0, 0.5) pos (0.175, 0.5625) xysize (372, 26):
-            left_bar Frame("images/interface/phone/profile_xp.webp")
-            right_bar Frame("images/interface/phone/profile_xp_empty.webp")
-
-            thumb None
-                
-        text "Mutation Level" anchor (0.0, 0.5) pos (0.074, 0.635):
-            size 32
-
-        text f"{Player.level}" anchor (1.0, 0.5) pos (0.915, 0.635):
-            size 32
-
-        text "Stamina" anchor (0.0, 0.5) pos (0.074, 0.702):
-            size 32
-
-        hbox anchor (0.0, 0.5) pos (0.28, 0.707):
-            for i in range(Player.stamina):
-                add "images/interface/phone/profile_stamina.webp"
-
-            for i in range(Player.max_stamina - Player.stamina):
-                add "images/interface/phone/profile_stamina_empty.webp"
 
 screen music_screen():
     style_prefix "phone"
@@ -928,267 +944,269 @@ screen music_screen():
         if file == renpy.music.get_playing():
             $ current_song = f
 
-    fixed anchor (0.5, 0.5) pos (0.5, 0.4815) xysize (500, 854):
-        add "images/interface/phone/music_background.webp"
+    add At("images/interface/phone/music_background.webp", interface)
 
-        text "MUSIC PLAYER" anchor (0.0, 0.5) pos (0.15, 0.034):
-            size 50
+    text "MUSIC PLAYER" anchor (0.0, 0.5) pos (0.402, 0.118):
+        size 50
 
-            color "#ffffff"
+        color "#ffffff"
 
-        if renpy.music.get_playing():
-            text renpy.music.get_playing().split("/")[-1].split(".")[0] anchor (0.0, 0.5) pos (0.32, 0.125):
-                size 45
+    if renpy.music.get_playing():
+        text renpy.music.get_playing().split("/")[-1].split(".")[0] anchor (0.0, 0.5) pos (0.46, 0.19):
+            size 45
 
-            bar value AudioPositionValue(channel = 'music') anchor (0.0, 0.5) pos (0.32, 0.175) xysize (288, 8):
-                left_bar "images/interface/phone/music_bar.webp"
-                right_bar "images/interface/phone/music_bar_empty.webp"
+        bar value AudioPositionValue(channel = 'music') anchor (0.0, 0.5) pos (0.46, 0.22) xysize (int(576*interface_new_adjustment), int(16*interface_new_adjustment)):
+            left_bar At("images/interface/phone/music_bar.webp", interface)
+            right_bar At("images/interface/phone/music_bar_empty.webp", interface)
 
-                thumb None
-                thumb_offset 0
+            thumb None
+            thumb_offset 0
 
-        hbox anchor (0.5, 0.5) pos (0.5, 0.2715) xysize (425, 75):
-            spacing 5
+    imagebutton:
+        idle At("images/interface/phone/music_shuffle_idle.webp", interface)
+        hover At("images/interface/phone/music_shuffle.webp", interface)
 
-            imagebutton:
-                idle "images/interface/phone/music_shuffle_idle.webp"
-                hover "images/interface/phone/music_shuffle.webp"
+        if phone_interactable and not phone_disabled:
+            action Play("music", song_list[(renpy.random.randint(0, len(song_list))) % len(song_list)], loop = music_repeating)
+        else:
+            action None
 
-                if phone_interactable and not phone_disabled:
-                    action Play("music", song_list[(renpy.random.randint(0, len(song_list))) % len(song_list)], loop = repeating)
-                else:
-                    action None
+    imagebutton:
+        idle At("images/interface/phone/music_left_idle.webp", interface)
+        hover At("images/interface/phone/music_left.webp", interface)
+        
+        if phone_interactable and not phone_disabled:
+            action Play("music", song_list[(current_song - 1) % len(song_list)], loop = music_repeating)
+        else:
+            action None
 
-            imagebutton:
-                idle "images/interface/phone/music_left_idle.webp" 
-                hover "images/interface/phone/music_left.webp"
-                
-                if phone_interactable and not phone_disabled:
-                    action Play("music", song_list[(current_song - 1) % len(song_list)], loop = repeating)
-                else:
-                    action None
-
-            if renpy.music.get_pause():
-                imagebutton:
-                    idle "images/interface/phone/music_play.webp" 
-                    hover "images/interface/phone/music_pause.webp"
-                    
-                    if phone_interactable and not phone_disabled:
-                        action PauseAudio("music", value = False)
-                    else:
-                        action None
+    if renpy.music.get_pause():
+        imagebutton:
+            idle At("images/interface/phone/music_play.webp", interface)
+            hover At("images/interface/phone/music_pause.webp", interface)
+            
+            if phone_interactable and not phone_disabled:
+                action PauseAudio("music", value = False)
             else:
-                imagebutton:
-                    idle "images/interface/phone/music_pause.webp" 
-                    hover "images/interface/phone/music_play.webp"
-                    
+                action None
+    else:
+        imagebutton:
+            idle At("images/interface/phone/music_pause.webp", interface)
+            hover At("images/interface/phone/music_play.webp", interface)
+            
+            if phone_interactable and not phone_disabled:
+                action PauseAudio("music", value = True)
+            else:
+                action None
+
+    imagebutton:
+        idle At("images/interface/phone/music_right_idle.webp", interface)
+        hover At("images/interface/phone/music_right.webp", interface)
+        
+        if phone_interactable and not phone_disabled:
+            action Play("music", song_list[(current_song + 1) % len(song_list)], loop = music_repeating)
+        else:
+            action None
+
+    imagebutton:
+        idle At("images/interface/phone/music_repeat_idle.webp", interface)
+        hover At("images/interface/phone/music_repeat.webp", interface)
+        selected_idle At("images/interface/phone/music_repeat.webp", interface)
+        
+        selected music_repeating
+
+        if phone_interactable and not phone_disabled:
+            if music_repeating:
+                action [
+                    Play("music", song_list[current_song], loop = False),
+                    SetVariable("music_repeating", False)]
+            else:
+                action [
+                    Play("music", song_list[current_song], loop = True),
+                    SetVariable("music_repeating", True)]
+        else:
+            action None
+
+    viewport id "music_screen_viewport" anchor (0.5, 0.0) pos (0.487, 0.378) xysize (int(847*interface_new_adjustment), int(1035*interface_new_adjustment)):
+        draggable True
+        mousewheel True
+
+        vbox xsize 1.0:
+            spacing 10
+
+            for file in song_list:
+                button xalign 0.0 xysize (int(847*interface_new_adjustment), int(140*interface_new_adjustment)):
+                    idle_background At("images/interface/phone/music_song_idle.webp", interface)
+                    hover_background At("images/interface/phone/music_song.webp", interface)
+                    selected_idle_background At("images/interface/phone/music_song.webp", interface)
+
+                    selected file == renpy.music.get_playing()
+
+                    text file.split("/")[-1].split(".")[0] anchor (0.0, 0.5) pos (0.1, 0.5):
+                        size 32
+
                     if phone_interactable and not phone_disabled:
-                        action PauseAudio("music", value = True)
+                        action Play("music", file, loop = music_repeating)
                     else:
                         action None
 
-            imagebutton:
-                idle "images/interface/phone/music_right_idle.webp"
-                hover "images/interface/phone/music_right.webp"
-                
-                if phone_interactable and not phone_disabled:
-                    action Play("music", song_list[(current_song + 1) % len(song_list)], loop = repeating)
-                else:
-                    action None
+    vbar value YScrollValue("music_screen_viewport") anchor (0.0, 0.0) pos (0.605, 0.378) xysize (int(29*interface_new_adjustment), int(1035*interface_new_adjustment)):
+        base_bar At("images/interface/phone/music_scrollbar.webp", interface)
 
-            imagebutton:
-                idle "images/interface/phone/music_repeat_idle.webp" 
-                hover "images/interface/phone/music_repeat.webp" 
-                selected_idle "images/interface/phone/music_repeat.webp"
-                
-                selected repeating
+        thumb At("images/interface/phone/music_scrollbar_thumb.webp", interface)
+        thumb_offset int(72*interface_new_adjustment/2/3)
 
-                if phone_interactable and not phone_disabled:
-                    if repeating:
-                        action [
-                            Play("music", song_list[current_song], loop = False),
-                            SetVariable("repeating", False)]
-                    else:
-                        action [
-                            Play("music", song_list[current_song], loop = True),
-                            SetVariable("repeating", True)]
-                else:
-                    action None
-
-        viewport id "music_screen_viewport" anchor (0.5, 0.0) pos (0.54, 0.375) xysize (500, 500):
-            draggable True
-            mousewheel True
-
-            vbox:
-                spacing 10
-
-                for file in song_list:
-                    button xalign 0.0 xysize (424, 70):
-                        idle_background "images/interface/phone/music_song_idle.webp" 
-                        hover_background "images/interface/phone/music_song.webp" 
-                        selected_idle_background "images/interface/phone/music_song.webp"
-
-                        selected file == renpy.music.get_playing()
-
-                        text file.split("/")[-1].split(".")[0] anchor (0.0, 0.5) pos (0.1, 0.5):
-                            size 32
-
-                        if phone_interactable and not phone_disabled:
-                            action Play("music", file, loop = repeating)
-                        else:
-                            action None
-
-        vbar value YScrollValue("music_screen_viewport") anchor (0.0, 0.0) pos (0.92, 0.375) xysize (15, 500):
-            base_bar Frame("images/interface/phone/music_scrollbar.webp")
-
-            thumb "images/interface/phone/music_scrollbar_thumb.webp"
-            thumb_offset 12
-
-            unscrollable "hide"
+        unscrollable "hide"
 
 screen humhum_home_screen():
     style_prefix "phone"
 
     timer 0.5 action SetVariable("loading", False)
 
-    fixed anchor (0.5, 0.5) pos (0.5, 0.4815) xysize (500, 854):
-        if loading:
-            add "humhum_animation"
-        else:
-            add "images/interface/phone/humhum_background.webp"
+    if loading:
+        add At("humhum_animation", interface)
+    else:
+        add At("images/interface/phone/humhum_background.webp", interface)
 
-            text "HUMHUM" anchor (0.0, 0.5) pos (0.15, 0.034):
-                size 50
-
-                color "#ffffff"
-
-            viewport id "humhum_home_screen_viewport" anchor (0.5, 0.0) pos (0.5, 0.11) xysize (475, 625):
-                draggable True
-                mousewheel True
-            
-                vbox xsize 453:
-                    for H in HumHumPool.HumHumThreads.values():
-                        fixed xsize 453:
-                            yfit True
-                            
-                            add "images/interface/phone/home_humhum_box.webp"
-
-                            if H.HumHums[0].Owner != Player:
-                                add At(f"images/interface/phone/icons/{H.HumHums[0].Owner.tag}.webp", humhum_icon) anchor (0.5, 0.5) pos (0.055, 22)
-
-                                text H.HumHums[0].Owner.call_sign anchor (0.0, 0.5) pos (0.125, 22) size 32
-                            else:
-                                add At(f"images/interface/phone/icons/Player_{Player.background_color}.webp", humhum_icon) anchor (0.5, 0.5) pos (0.055, 22)
-
-                                text H.HumHums[0].Owner.call_sign anchor (0.0, 0.5) pos (0.125, 22) size 32
-
-                            fixed anchor (0.5, 0.0) pos (0.5, 53) xysize (435, 115):
-                                text H.HumHums[0].body anchor (0.0, 0.0) pos (0.01, 0.015): 
-                                    if len(H.HumHums[0].body) > 125:
-                                        size 24
-                                    elif len(H.HumHums[0].body) > 100:
-                                        size 26
-                                    elif len(H.HumHums[0].body) > 75:
-                                        size 30
-                                    elif len(H.HumHums[0].body) > 50:
-                                        size 34 
-                                    else:
-                                        size 38
-                                    
-                                    text_align 0.0
-
-                            if len(H.HumHums) > 1:
-                                frame anchor (0.5, 0.0) pos (0.5, 170) xsize 453:
-                                    background Frame("images/interface/phone/home_humhum_reply_box.webp", 0, 15, 0, 15)
-
-                                    vbox xsize 453:
-                                        null height 15
-
-                                        for h in range(1, len(H.HumHums)):
-                                            hbox xsize 425:
-                                                if H.HumHums[h].Owner != Player:
-                                                    add At(f"images/interface/phone/icons/{H.HumHums[h].Owner.tag}.webp", humhum_icon) yalign 0.0
-                                                else:
-                                                    add At(f"images/interface/phone/icons/Player_{Player.background_color}.webp", humhum_icon) yalign 0.0
-
-                                                null width 8
-
-                                                fixed yalign 0.0 xysize (375, 50):
-                                                    if len(H.HumHums[h].body) > 75:
-                                                        text H.HumHums[h].body align (0.0, 0.0):
-                                                            size 16
-                                                            
-                                                            text_align 0.0
-                                                    elif len(H.HumHums[h].body) > 50:
-                                                        text H.HumHums[h].body align (0.0, 0.0):
-                                                            size 18 
-                                                            
-                                                            text_align 0.0
-                                                    else:
-                                                        text H.HumHums[h].body align (0.0, 0.0):
-                                                            size 24
-                                                            
-                                                            text_align 0.0
-                                                            
-                                            null height 4
-
-                        null height 15
-
-            vbar value YScrollValue("humhum_home_screen_viewport") anchor (0.0, 0.0) pos (0.95, 0.11) xysize (13, 625):
-                base_bar Frame("images/interface/phone/humhum_scrollbar.webp")
-
-                thumb "images/interface/phone/humhum_scrollbar_thumb.webp"
-                thumb_offset 12
-
-                unscrollable "hide"
-
-            fixed anchor (0.5, 1.0) pos (0.5, 1.0) xysize (500, 103):
-                add "images/interface/phone/humhum_bar.webp"
-
-                hbox anchor (0.5, 0.5) pos (0.5, 0.5):
-                    spacing 50
-
-                    imagebutton:
-                        idle "images/interface/phone/humhum_home.webp" 
-                        hover "images/interface/phone/humhum_home.webp"
-
-                        if phone_interactable and not phone_disabled:
-                            action SetVariable("current_phone_screen", "humhum_home")
-                        else:
-                            action None
-
-                    # imagebutton:
-                    #     idle "images/interface/phone/humhum_gallery_idle.webp" 
-                    #     hover "images/interface/phone/humhum_gallery.webp"
-
-                    #     if phone_interactable and not phone_disabled:
-                    #         action SetVariable("current_phone_screen", "humhum_gallery")
-                    #     else:
-                    #         action None
-
-                    null width 44
-
-                    imagebutton:
-                        idle "images/interface/phone/humhum_friends_idle.webp" 
-                        hover "images/interface/phone/humhum_friends.webp"
-
-                        if phone_interactable and not phone_disabled:
-                            action SetVariable("current_phone_screen", "humhum_choice")
-                        else:
-                            action None
-
-screen humhum_choice_screen():
-    style_prefix "phone"
-
-    fixed anchor (0.5, 0.5) pos (0.5, 0.4815) xysize (500, 854):
-        add "images/interface/phone/humhum_background.webp"
-
-        text "HUMHUM" anchor (0.0, 0.5) pos (0.15, 0.034):
+        text "HUMHUM" anchor (0.0, 0.5) pos (0.402, 0.118):
             size 50
 
             color "#ffffff"
 
-        vpgrid id "humhum_choice_screen_viewport" anchor (0.5, 0.0) pos (0.5, 0.1) xysize (450, 625):
+        add At("images/interface/phone/humhum_home_background.webp", interface)
+
+        text "#LatestHums" anchor (0.0, 0.5) pos (0.375, 0.166):
+            size 30
+
+            color "#d56cc4"
+
+        viewport id "humhum_home_screen_viewport" anchor (0.5, 0.0) pos (0.488, 0.195) xysize (int(905*interface_new_adjustment), int(1299*interface_new_adjustment)):
+            draggable True
+            mousewheel True
+        
+            vbox xsize 1.0:
+                for H in HumHumPool.HumHumThreads.values():
+                    fixed xysize (int(905*interface_new_adjustment), int(354*interface_new_adjustment)):
+                        yfit True
+                        
+                        add At("images/interface/phone/home_humhum_box.webp", interface)
+
+                        if H.HumHums[0].Owner != Player:
+                            add At(f"images/interface/phone/icons/{H.HumHums[0].Owner.tag}.webp", humhum_icon) anchor (0.5, 0.5) pos (0.055, 22)
+
+                            text H.HumHums[0].Owner.call_sign anchor (0.0, 0.5) pos (0.125, 22):
+                                size 32
+                        else:
+                            add At(f"images/interface/phone/icons/Player_{Player.background_color}.webp", humhum_icon) anchor (0.5, 0.5) pos (0.055, 22)
+
+                            text H.HumHums[0].Owner.call_sign anchor (0.0, 0.5) pos (0.125, 22):
+                                size 32
+
+                        fixed anchor (0.5, 0.0) pos (0.5, int(106*interface_new_adjustment)) xysize (1.0, 115):
+                            text H.HumHums[0].body anchor (0.0, 0.0) pos (0.02, 0.015): 
+                                if len(H.HumHums[0].body) > 125:
+                                    size 24
+                                elif len(H.HumHums[0].body) > 100:
+                                    size 26
+                                elif len(H.HumHums[0].body) > 75:
+                                    size 30
+                                elif len(H.HumHums[0].body) > 50:
+                                    size 34 
+                                else:
+                                    size 38
+                                
+                                text_align 0.0
+
+                        if len(H.HumHums) > 1:
+                            frame anchor (0.5, 0.0) pos (0.5, int(340*interface_new_adjustment)) xsize 1.0:
+                                background Frame(At("images/interface/phone/home_humhum_reply_box.webp", interface), 0, 15, 0, 15)
+
+                                vbox xsize 1.0:
+                                    null height 15
+
+                                    for h in range(1, len(H.HumHums)):
+                                        hbox xsize 425:
+                                            if H.HumHums[h].Owner != Player:
+                                                add At(f"images/interface/phone/icons/{H.HumHums[h].Owner.tag}.webp", humhum_icon) yalign 0.0
+                                            else:
+                                                add At(f"images/interface/phone/icons/Player_{Player.background_color}.webp", humhum_icon) yalign 0.0
+
+                                            null width 8
+
+                                            fixed yalign 0.0 xysize (int(750*interface_new_adjustment), int(100*interface_new_adjustment)):
+                                                if len(H.HumHums[h].body) > 75:
+                                                    text H.HumHums[h].body align (0.0, 0.0):
+                                                        size 16
+                                                        
+                                                        text_align 0.0
+                                                elif len(H.HumHums[h].body) > 50:
+                                                    text H.HumHums[h].body align (0.0, 0.0):
+                                                        size 18 
+                                                        
+                                                        text_align 0.0
+                                                else:
+                                                    text H.HumHums[h].body align (0.0, 0.0):
+                                                        size 24
+                                                        
+                                                        text_align 0.0
+                                                        
+                                        null height 4
+
+                    null height 15
+
+        vbar value YScrollValue("humhum_home_screen_viewport") anchor (0.0, 0.0) pos (0.614, 0.195) xysize (int(27*interface_new_adjustment), int(1299*interface_new_adjustment)):
+            base_bar At("images/interface/phone/humhum_scrollbar.webp", interface)
+
+            thumb At("images/interface/phone/humhum_scrollbar_thumb.webp", interface)
+            thumb_offset int(66*interface_new_adjustment/2/2)
+
+            unscrollable "hide"
+
+        add At("images/interface/phone/humhum_bar.webp", interface)
+
+        imagebutton:
+            idle At("images/interface/phone/humhum_home.webp", interface)
+            hover At("images/interface/phone/humhum_home.webp", interface)
+
+            if phone_interactable and not phone_disabled:
+                action SetVariable("current_phone_screen", "humhum_home")
+            else:
+                action None
+
+        # imagebutton:
+        #     idle At("images/interface/phone/humhum_gallery_idle.webp", interface)
+        #     hover At("images/interface/phone/humhum_gallery.webp", interface)
+
+        #     if phone_interactable and not phone_disabled:
+        #         action SetVariable("current_phone_screen", "humhum_gallery")
+        #     else:
+        #         action None
+
+        imagebutton:
+            idle At("images/interface/phone/humhum_friends_idle.webp", interface)
+            hover At("images/interface/phone/humhum_friends.webp", interface)
+
+            if phone_interactable and not phone_disabled:
+                action SetVariable("current_phone_screen", "humhum_choice")
+            else:
+                action None
+
+screen humhum_choice_screen():
+    style_prefix "phone"
+
+    timer 0.5 action SetVariable("loading", False)
+
+    if loading:
+        add At("humhum_animation", interface)
+    else:
+        add At("images/interface/phone/humhum_background.webp", interface)
+
+        text "HUMHUM" anchor (0.0, 0.5) pos (0.402, 0.118):
+            size 50
+
+            color "#ffffff"
+
+        vpgrid id "humhum_choice_screen_viewport" anchor (0.5, 0.0) pos (0.496, 0.175) xysize (int(905*interface_new_adjustment), int(1299*interface_new_adjustment)):
             cols 3
 
             spacing 0
@@ -1200,7 +1218,8 @@ screen humhum_choice_screen():
 
             for G in active_Companions:
                 imagebutton:
-                    idle At(f"images/interface/phone/icons/{G.tag}_idle.webp", phone_icon) hover At(f"images/interface/phone/icons/{G.tag}.webp", phone_icon)
+                    idle At(f"images/interface/phone/icons/{G.tag}_idle.webp", phone_icon) 
+                    hover At(f"images/interface/phone/icons/{G.tag}.webp", phone_icon)
                     
                     if phone_interactable and not phone_disabled:
                         action [
@@ -1209,258 +1228,264 @@ screen humhum_choice_screen():
                     else:
                         action None
 
-        vbar value YScrollValue("humhum_choice_screen_viewport") anchor (0.0, 0.0) pos (0.945, 0.1) xysize (13, 625):
-            base_bar Frame("images/interface/phone/humhum_scrollbar.webp")
+        vbar value YScrollValue("humhum_choice_screen_viewport") anchor (0.0, 0.0) pos (0.614, 0.175) xysize (int(27*interface_new_adjustment), int(1299*interface_new_adjustment)):
+            base_bar At("images/interface/phone/humhum_scrollbar.webp", interface)
 
-            thumb "images/interface/phone/humhum_scrollbar_thumb.webp"
-            thumb_offset 12
+            thumb At("images/interface/phone/humhum_scrollbar_thumb.webp", interface)
+            thumb_offset int(66*interface_new_adjustment/2/2)
 
             unscrollable "hide"
 
-        fixed anchor (0.5, 1.0) pos (0.5, 1.0) xysize (500, 103):
-            add "images/interface/phone/humhum_bar.webp"
+        add At("images/interface/phone/humhum_bar.webp", interface)
 
-            hbox anchor (0.5, 0.5) pos (0.5, 0.5):
-                spacing 50
+        imagebutton:
+            idle At("images/interface/phone/humhum_home.webp", interface)
+            hover At("images/interface/phone/humhum_home.webp", interface)
 
-                imagebutton:
-                    idle "images/interface/phone/humhum_home_idle.webp" 
-                    hover "images/interface/phone/humhum_home.webp"
+            if phone_interactable and not phone_disabled:
+                action SetVariable("current_phone_screen", "humhum_home")
+            else:
+                action None
 
-                    if phone_interactable and not phone_disabled:
-                        action SetVariable("current_phone_screen", "humhum_home")
-                    else:
-                        action None
+        # imagebutton:
+        #     idle At("images/interface/phone/humhum_gallery_idle.webp", interface)
+        #     hover At("images/interface/phone/humhum_gallery.webp", interface)
 
-                # imagebutton:
-                #     idle "images/interface/phone/humhum_gallery_idle.webp" 
-                #     hover "images/interface/phone/humhum_gallery.webp"
+        #     if phone_interactable and not phone_disabled:
+        #         action SetVariable("current_phone_screen", "humhum_gallery")
+        #     else:
+        #         action None
 
-                #     if phone_interactable and not phone_disabled:
-                #         action SetVariable("current_phone_screen", "humhum_gallery")
-                #     else:
-                #         action None
+        imagebutton:
+            idle At("images/interface/phone/humhum_friends.webp", interface)
+            hover At("images/interface/phone/humhum_friends.webp", interface)
 
-                null width 44
-
-                imagebutton:
-                    idle "images/interface/phone/humhum_friends.webp" 
-                    hover "images/interface/phone/humhum_friends.webp"
-
-                    if phone_interactable and not phone_disabled:
-                        action SetVariable("current_phone_screen", "humhum_choice")
-                    else:
-                        action None
+            if phone_interactable and not phone_disabled:
+                action SetVariable("current_phone_screen", "humhum_choice")
+            else:
+                action None
 
 screen humhum_screen():
     style_prefix "phone"
 
-    fixed anchor (0.5, 0.5) pos (0.5, 0.4815) xysize (500, 854):
-        add "images/interface/phone/humhum_background.webp"
+    add At("images/interface/phone/humhum_background.webp", interface)
 
-        text "HUMHUM" anchor (0.0, 0.5) pos (0.15, 0.034):
-            size 50
+    text "HUMHUM" anchor (0.0, 0.5) pos (0.402, 0.118):
+        size 50
 
-            color "#ffffff"
+        color "#ffffff"
 
-        add "images/interface/phone/humhum_profile_background.webp" anchor (0.5, 0.0) pos (0.5, 0.1)
+    add At("images/interface/phone/humhum_profile_background.webp", interface)
 
-        add At(f"images/interface/phone/photos/{current_phone_Character.tag}.webp", humhum_photo) anchor (0.5, 0.5) pos (0.25, 0.308)
+    add At(f"images/interface/phone/photos/{current_phone_Character.tag}.webp", humhum_photo) anchor (0.5, 0.5) pos (0.426, 0.311)
 
-        if current_phone_Character.status["miffed"] or current_phone_Character.status["mad"]:
-            add "images/interface/phone/humhum_status_angry.webp" anchor (0.5, 0.5) pos (0.071, 0.548)
+    if current_phone_Character.status["miffed"] or current_phone_Character.status["mad"]:
+        add At("images/interface/phone/humhum_status_angry.webp", interface)
 
-        if current_phone_Character.status["horny"] or current_phone_Character.status["nympho"]:
-            add "images/interface/phone/humhum_status_nympho.webp" anchor (0.5, 0.5) pos (0.186, 0.548)
+    if current_phone_Character.status["horny"] or current_phone_Character.status["nympho"]:
+        add At("images/interface/phone/humhum_status_nympho.webp", interface)
 
-        for s, status in enumerate(["heartbroken"]):
-            if current_phone_Character.status[status]:
-                add f"images/interface/phone/humhum_status_{status}.webp" anchor (0.5, 0.5) pos (0.301 + s*0.115, 0.548)
+    for s, status in enumerate(["heartbroken"]):
+        if current_phone_Character.status[status]:
+            add At(f"images/interface/phone/humhum_status_{status}.webp", interface)
 
-        text "Name" anchor (0.0, 0.5) pos (0.51, 0.135) size 30
+    text "Name" anchor (0.0, 0.5) pos (0.496, 0.179):
+        size 30
 
-        if len(current_phone_Character.name) < 10:
-            text f"{current_phone_Character.name}" anchor (1.0, 0.5) pos (0.95, 0.135) size 30 
+    if len(current_phone_Character.name) < 10:
+        text f"{current_phone_Character.name}" anchor (1.0, 0.5) pos (0.95, 0.179):
+            size 30 
+    else:
+        text f"{current_phone_Character.name}" anchor (1.0, 0.5) pos (0.613, 0.179):
+            size 25 
+            
+    text "Love" anchor (0.0, 0.5) pos (0.496, 0.243):
+        size 30
+
+    text f"{current_phone_Character.love}" anchor (1.0, 0.5) pos (0.613, 0.243):
+        size 30 
+            
+    text "Trust" anchor (0.0, 0.5) pos (0.496, 0.308):
+        size 30
+
+    text f"{current_phone_Character.trust}" anchor (1.0, 0.5) pos (0.613, 0.308):
+        size 30
+
+    text "Favorite Gift" anchor (0.0, 0.5) pos (0.498, 0.373):
+        size 30
+
+    text "Relationship Status" anchor (0.0, 0.5) pos (0.372, 0.567):
+        size 28
+
+    if current_phone_Character not in Partners:
+        text "Single" anchor (1.0, 0.5) pos (0.613, 0.567):
+            size 30
+    elif len(Partners) > 2:
+        text "Polyamorous" anchor (1.0, 0.5) pos (0.613, 0.567):
+            size 30
+    else:
+        text "In a relationship" anchor (1.0, 0.5) pos (0.613, 0.567):
+            size 30
+
+    text "Your Petname" anchor (0.0, 0.5) pos (0.372, 0.632):
+        size 28
+
+    text f"{current_phone_Character.Player_petname}" anchor (1.0, 0.5) pos (0.613, 0.632):
+        size 30
+
+    text "Her Petname" anchor (0.0, 0.5) pos (0.372, 0.697):
+        size 28
+
+    text f"{current_phone_Character.petname}" anchor (1.0, 0.5) pos (0.613, 0.697):
+        size 30
+
+    add At("images/interface/phone/humhum_bar.webp", interface)
+
+    imagebutton:
+        idle At("images/interface/phone/humhum_home.webp", interface)
+        hover At("images/interface/phone/humhum_home.webp", interface)
+
+        if phone_interactable and not phone_disabled:
+            action SetVariable("current_phone_screen", "humhum_home")
         else:
-            text f"{current_phone_Character.name}" anchor (1.0, 0.5) pos (0.95, 0.135) size 25 
-                
-        text "Love" anchor (0.0, 0.5) pos (0.51, 0.215) size 30
+            action None
 
-        text f"{current_phone_Character.love}" anchor (1.0, 0.5) pos (0.95, 0.215) size 30 
-                
-        text "Trust" anchor (0.0, 0.5) pos (0.51, 0.297) size 30
+    # imagebutton:
+    #     idle At("images/interface/phone/humhum_gallery_idle.webp", interface)
+    #     hover At("images/interface/phone/humhum_gallery.webp", interface)
 
-        text f"{current_phone_Character.trust}" anchor (1.0, 0.5) pos (0.95, 0.297) size 30
+    #     if phone_interactable and not phone_disabled:
+    #         action SetVariable("current_phone_screen", "humhum_gallery")
+    #     else:
+    #         action None
 
-        text "Favorite Gift" anchor (0.0, 0.5) pos (0.51, 0.378) size 30
+    imagebutton:
+        idle At("images/interface/phone/humhum_friends.webp", interface)
+        hover At("images/interface/phone/humhum_friends.webp", interface)
 
-        text "Relationship Status" anchor (0.0, 0.5) pos (0.04, 0.627) size 28
-
-        if current_phone_Character not in Partners:
-            text "Single" anchor (1.0, 0.5) pos (0.95, 0.627) size 30
-        elif len(Partners) > 2:
-            text "Polyamorous" anchor (1.0, 0.5) pos (0.95, 0.627) size 30
+        if phone_interactable and not phone_disabled:
+            action SetVariable("current_phone_screen", "humhum_choice")
         else:
-            text "In a relationship" anchor (1.0, 0.5) pos (0.95, 0.627) size 30
-
-        text "Your Petname" anchor (0.0, 0.5) pos (0.04, 0.707) size 28
-
-        text f"{current_phone_Character.Player_petname}" anchor (1.0, 0.5) pos (0.95, 0.707) size 30
-
-        text "Her Petname" anchor (0.0, 0.5) pos (0.04, 0.787) size 28
-
-        text f"{current_phone_Character.petname}" anchor (1.0, 0.5) pos (0.95, 0.787) size 30
-
-        fixed anchor (0.5, 1.0) pos (0.5, 1.0) xysize (500, 103):
-            add "images/interface/phone/humhum_bar.webp"
-
-            hbox anchor (0.5, 0.5) pos (0.5, 0.5):
-                spacing 50
-
-                imagebutton:
-                    idle "images/interface/phone/humhum_home_idle.webp" 
-                    hover "images/interface/phone/humhum_home.webp"
-
-                    if phone_interactable and not phone_disabled:
-                        action SetVariable("current_phone_screen", "humhum_home")
-                    else:
-                        action None
-
-                # imagebutton:
-                #     idle "images/interface/phone/humhum_gallery_idle.webp" 
-                #     hover "images/interface/phone/humhum_gallery.webp"
-
-                #     if phone_interactable and not phone_disabled:
-                #         action SetVariable("current_phone_screen", "humhum_gallery")
-                #     else:
-                #         action None
-
-                null width 44
-
-                imagebutton:
-                    idle "images/interface/phone/humhum_friends.webp" 
-                    hover "images/interface/phone/humhum_friends.webp"
-
-                    if phone_interactable and not phone_disabled:
-                        action SetVariable("current_phone_screen", "humhum_choice")
-                    else:
-                        action None
+            action None
 
 screen config_screen():
     style_prefix "phone"
 
-    fixed anchor (0.5, 0.5) pos (0.5, 0.4815) xysize (500, 854):
-        add "images/interface/phone/config_background.webp"
+    add At("images/interface/phone/config_background.webp", interface)
 
-        text "CONFIGURATION" anchor (0.0, 0.5) pos (0.15, 0.034):
-            size 50
+    text "CONFIGURATION" anchor (0.0, 0.5) pos (0.402, 0.118):
+        size 50
 
-            color "#ffffff"
+        color "#ffffff"
 
-        vbox anchor (0.5, 0.0) pos (0.5, 0.15) xysize (494, 650):
-            xfill True
+    vbox anchor (0.5, 0.0) pos (0.496, 0.15) xysize (int(930*interface_new_adjustment), int(1299*interface_new_adjustment)):
+        xfill True
 
-            fixed xysize (465, 57):
-                add "images/interface/phone/config_box.webp"
+        fixed xysize (1.0, 57):
+            add At("images/interface/phone/config_box.webp", interface)
 
-                text "Cellphone Frame":
+            text "Cellphone Frame":
+                size 32
+
+        fixed xysize (0.7, 64):
+            imagebutton anchor (0.0, 0.5) pos (0.0, 0.5):
+                idle At("images/interface/Player_customization/left_idle.webp", interface)
+                hover At("images/interface/Player_customization/left.webp", interface)
+
+                action SetVariable("Player.phone_frame", (Player.phone_frame - 1) % 7)
+
+            text f"TYPE {Player.phone_frame + 1}":
+                size 32
+
+            imagebutton anchor (1.0, 0.5) pos (1.0, 0.5):
+                idle At("images/interface/Player_customization/right_idle.webp", interface)
+                hover At("images/interface/Player_customization/right.webp", interface)
+
+                action SetVariable("Player.phone_frame", (Player.phone_frame + 1) % 7)
+
+        fixed xysize (1.0, 57):
+            add At("images/interface/phone/config_box.webp", interface)
+
+            text "Cellphone Wallpaper":
+                size 32
+
+        $ wallpaper_types = [1, 2, 3, 4]
+
+        for C in Partners:
+            $ wallpaper_types.append(f"{C.name}")
+
+        fixed xysize (0.7, 64):
+            imagebutton anchor (0.0, 0.5) pos (0.0, 0.5):
+                idle At("images/interface/Player_customization/left_idle.webp", interface)
+                hover At("images/interface/Player_customization/left.webp", interface)
+
+                action [
+                    SetVariable("Player.phone_wallpaper", wallpaper_types[(wallpaper_index - 1) % len(wallpaper_types)]),
+                    SetVariable("wallpaper_index", (wallpaper_index - 1) % len(wallpaper_types))]
+
+            if wallpaper_index < 4:
+                text f"{wallpaper_types[wallpaper_index]}":
+                    size 32
+            else:
+                text f"TYPE {wallpaper_types[wallpaper_index]}":
                     size 32
 
-            fixed xysize (320, 64):
-                imagebutton anchor (0.0, 0.5) pos (0.0, 0.5):
-                    idle At("images/interface/Player_customization/left_idle.webp", interface)
-                    hover At("images/interface/Player_customization/left.webp", interface)
+            imagebutton anchor (1.0, 0.5) pos (1.0, 0.5):
+                idle At("images/interface/Player_customization/right_idle.webp", interface)
+                hover At("images/interface/Player_customization/right.webp", interface)
 
-                    action SetVariable("Player.phone_frame", (Player.phone_frame - 1) % 7)
+                action [
+                    SetVariable("Player.phone_wallpaper", wallpaper_types[(wallpaper_index + 1) % len(wallpaper_types)]),
+                    SetVariable("wallpaper_index", (wallpaper_index + 1) % len(wallpaper_types))]
 
-                text f"TYPE {Player.phone_frame + 1}":
+        fixed xysize (1.0, 57):
+            add At("images/interface/phone/config_box.webp", interface)
+
+            text "Hide HumHum Home Widget":
+                size 32
+
+        fixed xysize (0.7, 64):
+            imagebutton anchor (0.0, 0.5) pos (0.0, 0.5):
+                idle At("images/interface/Player_customization/left_idle.webp", interface)
+                hover At("images/interface/Player_customization/left.webp", interface)
+
+                action ToggleVariable("humhum_hidden")
+
+            if humhum_hidden:
+                text "YES":
+                    size 32
+            else:
+                text "NO":
                     size 32
 
-                imagebutton anchor (1.0, 0.5) pos (1.0, 0.5):
-                    idle At("images/interface/Player_customization/right_idle.webp", interface)
-                    hover At("images/interface/Player_customization/right.webp", interface)
+            imagebutton anchor (1.0, 0.5) pos (1.0, 0.5):
+                idle At("images/interface/Player_customization/right_idle.webp", interface)
+                hover At("images/interface/Player_customization/right.webp", interface)
 
-                    action SetVariable("Player.phone_frame", (Player.phone_frame + 1) % 7)
+                action ToggleVariable("humhum_hidden")
 
-            fixed xysize (465, 57):
-                add "images/interface/phone/config_box.webp"
+        fixed xysize (1.0, 57):
+            add At("images/interface/phone/config_box.webp", interface)
 
-                text "Cellphone Wallpaper":
-                    size 32
+            text "Cellphone Ringtone":
+                size 32
 
-            fixed xysize (320, 64):
-                imagebutton anchor (0.0, 0.5) pos (0.0, 0.5):
-                    idle At("images/interface/Player_customization/left_idle.webp", interface)
-                    hover At("images/interface/Player_customization/left.webp", interface)
+        fixed xysize (0.7, 64):
+            imagebutton anchor (0.0, 0.5) pos (0.0, 0.5):
+                idle At("images/interface/Player_customization/left_idle.webp", interface)
+                hover At("images/interface/Player_customization/left.webp", interface)
 
-                    action SetVariable("Player.phone_wallpaper", (Player.phone_wallpaper - 1) % 7)
+                action [
+                    Play("sound", f"sounds/ringtones/{(Player.ringtone - 1) % len(available_ringtones)}.ogg"),
+                    SetVariable("Player.ringtone", (Player.ringtone - 1) % len(available_ringtones))]
 
-                $ wallpaper_type = [
-                    "Orange",
-                    "Blue",
-                    "Red",
-                    "Galaxy",
-                    f"{Rogue.name}",
-                    f"{Laura.name}",
-                    f"{Jean.name}"]
+            text f"TYPE {Player.ringtone + 1}":
+                size 32
 
-                text wallpaper_type[Player.phone_wallpaper]:
-                    size 32
+            imagebutton anchor (1.0, 0.5) pos (1.0, 0.5):
+                idle At("images/interface/Player_customization/right_idle.webp", interface)
+                hover At("images/interface/Player_customization/right.webp", interface)
 
-                imagebutton anchor (1.0, 0.5) pos (1.0, 0.5):
-                    idle At("images/interface/Player_customization/right_idle.webp", interface)
-                    hover At("images/interface/Player_customization/right.webp", interface)
-
-                    action SetVariable("Player.phone_wallpaper", (Player.phone_wallpaper + 1) % 7)
-
-            fixed xysize (465, 57):
-                add "images/interface/phone/config_box.webp"
-
-                text "Hide HumHum Home Widget":
-                    size 32
-
-            fixed xysize (320, 64):
-                imagebutton anchor (0.0, 0.5) pos (0.0, 0.5):
-                    idle At("images/interface/Player_customization/left_idle.webp", interface)
-                    hover At("images/interface/Player_customization/left.webp", interface)
-
-                    action ToggleVariable("humhum_hidden")
-
-                if humhum_hidden:
-                    text "YES":
-                        size 32
-                else:
-                    text "NO":
-                        size 32
-
-                imagebutton anchor (1.0, 0.5) pos (1.0, 0.5):
-                    idle At("images/interface/Player_customization/right_idle.webp", interface)
-                    hover At("images/interface/Player_customization/right.webp", interface)
-
-                    action ToggleVariable("humhum_hidden")
-
-            fixed xysize (465, 57):
-                add "images/interface/phone/config_box.webp"
-
-                text "Cellphone Ringtone":
-                    size 32
-
-            fixed xysize (320, 64):
-                imagebutton anchor (0.0, 0.5) pos (0.0, 0.5):
-                    idle At("images/interface/Player_customization/left_idle.webp", interface)
-                    hover At("images/interface/Player_customization/left.webp", interface)
-
-                    action [
-                        Play("sound", f"sounds/ringtones/{(Player.ringtone - 1) % len(available_ringtones)}.ogg"),
-                        SetVariable("Player.ringtone", (Player.ringtone - 1) % len(available_ringtones))]
-
-                text f"TYPE {Player.ringtone + 1}":
-                    size 32
-
-                imagebutton anchor (1.0, 0.5) pos (1.0, 0.5):
-                    idle At("images/interface/Player_customization/right_idle.webp", interface)
-                    hover At("images/interface/Player_customization/right.webp", interface)
-
-                    action [
-                        Play("sound", f"sounds/ringtones/{(Player.ringtone + 1) % len(available_ringtones)}.ogg"),
-                        SetVariable("Player.ringtone", (Player.ringtone + 1) % len(available_ringtones))]
+                action [
+                    Play("sound", f"sounds/ringtones/{(Player.ringtone + 1) % len(available_ringtones)}.ogg"),
+                    SetVariable("Player.ringtone", (Player.ringtone + 1) % len(available_ringtones))]

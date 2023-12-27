@@ -49,7 +49,7 @@ init -3 python:
             self.background_color = "purple"
 
             self.phone_frame = 0
-            self.phone_wallpaper = 0
+            self.phone_wallpaper = 1
             self.ringtone = 0
 
             self.attendance_bonus = False

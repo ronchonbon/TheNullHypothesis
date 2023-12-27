@@ -865,7 +865,7 @@ screen map_screen():
                     else:
                         action SetVariable("quick_location_1", None)
 
-                text "Set QuikLoc I":
+                text "Set QuikLoc 1":
                     size 36
 
                     color "#000000"

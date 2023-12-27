@@ -31,6 +31,15 @@ screen hotkeys_screen():
             else:
                 key "q" action Call("go_to_sleep", automatic = True, from_current = True)
 
+            if quick_location_1:
+                key "1" action Function(exec, quick_location_1)
+
+            if quick_location_2:
+                key "2" action Function(exec, quick_location_2)
+
+            if quick_location_3:
+                key "3" action Function(exec, quick_location_3)
+
         if volume_muted:
             key "-" action [
                 SetVariable("volume_muted", False),
