@@ -1,3 +1,93 @@
+layeredimage bg_campus_background:
+    always:
+        "sky"
+
+    if time_index == 2:
+        "images/backgrounds/base/bg_campus_mansion_evening.webp"
+    else:
+        "images/backgrounds/base/bg_campus_mansion.webp"
+
+    if campus_grass_cut:
+        "images/backgrounds/base/bg_campus_grass.webp"
+    else:
+        "images/backgrounds/base/bg_campus_grass_uncut.webp"
+
+    if not weather and time_index < 3:
+        "images/backgrounds/base/bg_campus_lighting.webp"
+
+    if not weather and time_index < 3:
+        "images/backgrounds/base/bg_campus_lighting_linear_dodge.webp" at Transform(blend = "add")
+
+    if weather == "snow" or snow_left:
+        "images/backgrounds/base/bg_campus_snow.webp"
+
+    if weather == "rain":
+        "images/backgrounds/base/bg_campus_puddles_linear_dodge.webp" at Transform(blend = "add")
+    elif weather == "snow":
+        "images/backgrounds/base/bg_campus_steam_linear_dodge.webp" at Transform(blend = "add")
+
+    if weather == "rain":
+        "images/backgrounds/base/bg_campus_puddles.webp"
+    elif weather == "snow":
+        "images/backgrounds/base/bg_campus_steam.webp"
+
+    if time_index in [0]:
+        "images/backgrounds/base/bg_campus_mist.webp"
+
+    if time_index >= 3:
+        "images/backgrounds/base/bg_campus_night_hard_light.webp" at Transform(blend = "multiply")
+    elif time_index == 2:
+        "images/backgrounds/base/bg_campus_evening_hard_light.webp" at Transform(blend = "multiply")
+
+    if time_index >= 3:
+        "images/backgrounds/base/bg_campus_night_color_dodge.webp" at Transform(blend = "multiply")
+    elif time_index == 2:
+        "images/backgrounds/base/bg_campus_evening_color_dodge.webp" at Transform(blend = "add")
+
+    if time_index >= 3:
+        "images/backgrounds/base/bg_campus_night_linear_dodge.webp" at Transform(blend = "add")
+    elif time_index == 2:
+        "images/backgrounds/base/bg_campus_evening_linear_dodge.webp" at Transform(blend = "add")
+    elif time_index == 0:
+        "images/backgrounds/base/bg_campus_morning_linear_dodge.webp" at Transform(blend = "add")
+
+    if weather == "rain":
+        "images/backgrounds/base/bg_campus_rain_splashes.webp" at rain_splashes
+
+layeredimage bg_campus_cover:
+    if time_index >= 3:
+        "images/backgrounds/base/bg_campus_left_tree_night.webp"
+    elif time_index == 2:
+        "images/backgrounds/base/bg_campus_left_tree_evening.webp"
+    else:
+        "images/backgrounds/base/bg_campus_left_tree.webp"
+
+    if time_index >= 3:
+        "images/backgrounds/base/bg_campus_right_tree_night.webp"
+    elif time_index == 2:
+        "images/backgrounds/base/bg_campus_right_tree_evening.webp"
+    else:
+        "images/backgrounds/base/bg_campus_right_tree.webp"
+
+    if weather != "snow":
+        Null()
+    elif time_index >= 3:
+        "images/backgrounds/base/bg_campus_snowstorm_night.webp"
+    elif time_index == 2:
+        "images/backgrounds/base/bg_campus_snowstorm_evening.webp"
+    else:
+        "images/backgrounds/base/bg_campus_snowstorm.webp"
+
+    if weather == "snow" and time_index in [0, 1]:
+        "images/backgrounds/base/bg_campus_snowstorm_linear_dodge.webp" at Transform(blend = "add")
+
+    if weather != "rain":
+        Null()
+    elif time_index == 2:
+        "images/backgrounds/base/bg_campus_rain_evening.webp" at Transform(alpha = 0.8)
+    else:
+        "images/backgrounds/base/bg_campus_rain.webp" at Transform(alpha = 0.8)
+
 label campus:
     $ lights_on = True
     $ door_locked = False

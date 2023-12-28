@@ -1,5 +1,52 @@
 default current_bedroom = None
 
+layeredimage bg_Player:
+    if lighting == "evening":
+        "images/backgrounds/base/bg_Player_day.webp"
+    else:
+        "images/backgrounds/base/bg_Player_[lighting].webp"
+        
+    if "acoustic_panels" in Player.inventory.keys() and Player.inventory["acoustic_panels"][0].Owner == Player:
+        "images/backgrounds/base/bg_Player_acoustic_panels.webp"
+        
+    if "motorcycle_helmet" in Player.inventory.keys() and Player.inventory["motorcycle_helmet"][0].Owner == Player:
+        "images/backgrounds/base/bg_Player_helmet.webp"
+        
+    if "sound_system" in Player.inventory.keys() and Player.inventory["sound_system"][0].Owner == Player:
+        "images/backgrounds/base/bg_Player_sound_system.webp"
+        
+    if "electric_guitar" in Player.inventory.keys() and Player.inventory["electric_guitar"][0].Owner == Player:
+        "images/backgrounds/base/bg_Player_guitar.webp"
+
+    if Player.messy_bed:
+        "images/backgrounds/base/bg_Player_messy_bed.webp"
+    else:
+        "images/backgrounds/base/bg_Player_bed.webp"
+        
+    if "record_player" in Player.inventory.keys() and Player.inventory["record_player"][0].Owner == Player:
+        "images/backgrounds/base/bg_Player_record_player.webp"
+
+    if Player.clothes_on_floor:
+        "images/backgrounds/base/bg_Player_clothes.webp"
+
+    if lighting == "evening":
+        "images/backgrounds/base/bg_Player_day_hard_light.webp" at Transform(blend = "multiply")
+    else:
+        "images/backgrounds/base/bg_Player_[lighting]_hard_light.webp" at Transform(blend = "multiply")
+
+    if lighting in ["day"]:
+        "images/backgrounds/base/bg_Player_[lighting]_screen.webp" at Transform(blend = "screen")
+
+    if lighting == "evening":
+        "images/backgrounds/base/bg_Player_day_linear_dodge.webp" at Transform(blend = "add")
+    else:
+        "images/backgrounds/base/bg_Player_[lighting]_linear_dodge.webp" at Transform(blend = "add")
+
+    if lighting == "evening":
+        "images/backgrounds/base/bg_Player_day_multiply.webp" at Transform(blend = "multiply")
+    else:
+        "images/backgrounds/base/bg_Player_[lighting]_multiply.webp" at Transform(blend = "multiply")
+
 label girls_hallway:
     $ lights_on = True
     $ door_locked = False

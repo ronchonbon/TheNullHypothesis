@@ -1,3 +1,9 @@
+layeredimage bg_danger_lights:
+    if danger_red_alert:
+        "images/backgrounds/base/bg_danger_lights_red.webp"
+    else:
+        "images/backgrounds/base/bg_danger_lights.webp"
+
 label danger_room:
     if time_index < 3:
         $ lights_on = True

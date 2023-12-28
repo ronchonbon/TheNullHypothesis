@@ -214,9 +214,9 @@ screen preferences():
             SetVariable("preferences_label", "GAMEPLAY OPTIONS")]
 
     if blinking:
-        text preferences_label + "{alpha=0.0}_{/alpha}" anchor (0.5, 0.5) pos (0.123, 0.336)
+        text preferences_label + "{alpha=0.0}_{/alpha}" anchor (0.0, 0.5) pos (0.065, 0.336)
     else:
-        text preferences_label + "_" anchor (0.5, 0.5) pos (0.123, 0.336)
+        text preferences_label + "_" anchor (0.0, 0.5) pos (0.065, 0.336)
 
     if preferences_tab == "graphics":
         hbox anchor (0.5, 0.5) pos (0.431, 0.643) xysize (int(2800*interface_new_adjustment), int(1150*interface_new_adjustment)):
@@ -351,7 +351,7 @@ screen preferences():
                             SetVariable("volume_muted", True),
                             SetMute(["sound", "music"], True)]
     elif preferences_tab == "hotkeys":
-        hbox anchor (0.5, 0.5) pos (0.431, 0.77) xysize (int(2800*interface_new_adjustment), int(1150*interface_new_adjustment)):
+        hbox anchor (0.5, 0.5) pos (0.431, 0.7) xysize (int(2800*interface_new_adjustment), int(1150*interface_new_adjustment)):
             spacing 10
 
             vbox yalign 0.0:

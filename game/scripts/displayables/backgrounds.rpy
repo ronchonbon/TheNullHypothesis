@@ -88,6 +88,22 @@ image steam2:
     xysize (int(3840*background_sampling), int(2160*background_sampling))
 
 layeredimage sky_temp:
+    if time_index == 0:
+        "images/backgrounds/base/sky_morning.webp"
+    elif time_index == 1:
+        "images/backgrounds/base/sky_day.webp"
+    elif time_index == 2:
+        "images/backgrounds/base/sky_evening.webp"
+    elif time_index >= 3:
+        "images/backgrounds/base/sky_night.webp"
+
+    if not weather:
+        Null()
+    elif time_index == 2:
+        "images/backgrounds/base/rain_clouds_evening.webp"
+    else:
+        "images/backgrounds/base/rain_clouds.webp"
+
     if time_index == 2:
         "images/backgrounds/base/clouds_evening.webp" at move_to_right(220.0, int(config.screen_width/background_adjustment))
     elif weather:
@@ -107,231 +123,14 @@ layeredimage sky_temp:
     if not weather and time_index == 0:
         "images/backgrounds/base/birds.webp" at move_to_left(150.0, int(config.screen_width/background_adjustment))
 
-layeredimage bg_Player:
-    if lighting == "evening":
-        "images/backgrounds/base/bg_Player_day.webp"
-    else:
-        "images/backgrounds/base/bg_Player_[lighting].webp"
-        
-    if "acoustic_panels" in Player.inventory.keys() and Player.inventory["acoustic_panels"][0].Owner == Player:
-        "images/backgrounds/base/bg_Player_acoustic_panels.webp"
-        
-    if "motorcycle_helmet" in Player.inventory.keys() and Player.inventory["motorcycle_helmet"][0].Owner == Player:
-        "images/backgrounds/base/bg_Player_helmet.webp"
-        
-    if "sound_system" in Player.inventory.keys() and Player.inventory["sound_system"][0].Owner == Player:
-        "images/backgrounds/base/bg_Player_sound_system.webp"
-        
-    if "electric_guitar" in Player.inventory.keys() and Player.inventory["electric_guitar"][0].Owner == Player:
-        "images/backgrounds/base/bg_Player_guitar.webp"
-
-    if Player.messy_bed:
-        "images/backgrounds/base/bg_Player_messy_bed.webp"
-    else:
-        "images/backgrounds/base/bg_Player_bed.webp"
-        
-    if "record_player" in Player.inventory.keys() and Player.inventory["record_player"][0].Owner == Player:
-        "images/backgrounds/base/bg_Player_record_player.webp"
-
-    if Player.clothes_on_floor:
-        "images/backgrounds/base/bg_Player_clothes.webp"
-
-    if lighting == "evening":
-        "images/backgrounds/base/bg_Player_day_hard_light.webp" at Transform(blend = "multiply")
-    else:
-        "images/backgrounds/base/bg_Player_[lighting]_hard_light.webp" at Transform(blend = "multiply")
-
-    if lighting in ["day"]:
-        "images/backgrounds/base/bg_Player_[lighting]_screen.webp" at Transform(blend = "screen")
-
-    if lighting == "evening":
-        "images/backgrounds/base/bg_Player_day_linear_dodge.webp" at Transform(blend = "add")
-    else:
-        "images/backgrounds/base/bg_Player_[lighting]_linear_dodge.webp" at Transform(blend = "add")
-
-    if lighting == "evening":
-        "images/backgrounds/base/bg_Player_day_multiply.webp" at Transform(blend = "multiply")
-    else:
-        "images/backgrounds/base/bg_Player_[lighting]_multiply.webp" at Transform(blend = "multiply")
-
-layeredimage bg_campus_background:
-    if time_index == 0:
-        "images/backgrounds/base/bg_campus_sky_morning.webp"
-    elif time_index == 1:
-        "images/backgrounds/base/bg_campus_sky_day.webp"
-    elif time_index == 2:
-        "images/backgrounds/base/bg_campus_sky_evening.webp"
-    elif time_index >= 3:
-        "images/backgrounds/base/bg_campus_sky_night.webp"
-
-    if not weather:
-        Null()
-    elif time_index == 2:
-        "images/backgrounds/base/bg_campus_rain_clouds_evening.webp"
-    else:
-        "images/backgrounds/base/bg_campus_rain_clouds.webp"
-
-    always:
-        "sky"
-
-    if time_index == 2:
-        "images/backgrounds/base/bg_campus_mansion_evening.webp"
-    else:
-        "images/backgrounds/base/bg_campus_mansion.webp"
-
-    if campus_grass_cut:
-        "images/backgrounds/base/bg_campus_grass.webp"
-    else:
-        "images/backgrounds/base/bg_campus_grass_uncut.webp"
-
-    if not weather:
-        "images/backgrounds/base/bg_campus_lighting.webp"
-
-    if not weather:
-        "images/backgrounds/base/bg_campus_lighting_linear_dodge.webp" at Transform(blend = "add")
-
-    if weather == "snow" or snow_left:
-        "images/backgrounds/base/bg_campus_snow.webp"
-
-    if weather == "rain":
-        "images/backgrounds/base/bg_campus_puddles_linear_dodge.webp" at Transform(blend = "add")
-    elif weather == "snow":
-        "images/backgrounds/base/bg_campus_steam_linear_dodge.webp" at Transform(blend = "add")
-
-    if weather == "rain":
-        "images/backgrounds/base/bg_campus_puddles.webp"
-    elif weather == "snow":
-        "images/backgrounds/base/bg_campus_steam.webp"
-
-    if time_index >= 3:
-        "images/backgrounds/base/bg_campus_night_hard_light.webp" at Transform(blend = "multiply")
-    elif time_index == 2:
-        "images/backgrounds/base/bg_campus_evening_hard_light.webp" at Transform(blend = "multiply")
-
-    if time_index >= 3:
-        "images/backgrounds/base/bg_campus_night_color_dodge.webp" at Transform(blend = "multiply")
-    elif time_index == 2:
-        "images/backgrounds/base/bg_campus_evening_color_dodge.webp" at Transform(blend = "add")
-
-    if time_index in [0]:
-        "images/backgrounds/base/bg_campus_morning_mist.webp"
-
-    if time_index >= 3:
-        "images/backgrounds/base/bg_campus_night_linear_dodge.webp" at Transform(blend = "add")
-    elif time_index == 2:
-        "images/backgrounds/base/bg_campus_evening_linear_dodge.webp" at Transform(blend = "add")
-    elif time_index == 0:
-        "images/backgrounds/base/bg_campus_morning_linear_dodge.webp" at Transform(blend = "add")
-
-    if weather == "rain":
-        "images/backgrounds/base/bg_campus_rain_splashes.webp" at rain_splashes
-
-layeredimage bg_campus_cover:
-    if time_index >= 3:
-        "images/backgrounds/base/bg_campus_left_tree_night.webp"
-    elif time_index == 2:
-        "images/backgrounds/base/bg_campus_left_tree_evening.webp"
-    else:
-        "images/backgrounds/base/bg_campus_left_tree.webp"
-
-    if time_index >= 3:
-        "images/backgrounds/base/bg_campus_right_tree_night.webp"
-    elif time_index == 2:
-        "images/backgrounds/base/bg_campus_right_tree_evening.webp"
-    else:
-        "images/backgrounds/base/bg_campus_right_tree.webp"
-
-    if weather != "rain":
-        Null()
-    elif time_index == 2:
-        "images/backgrounds/base/bg_campus_rain_evening.webp" at Transform(alpha = 0.8)
-    else:
-        "images/backgrounds/base/bg_campus_rain.webp" at Transform(alpha = 0.8)
-
-    if weather != "snow":
-        Null()
-    elif time_index >= 3:
-        "images/backgrounds/base/bg_campus_snowstorm_night.webp"
-    elif time_index == 2:
-        "images/backgrounds/base/bg_campus_snowstorm_evening.webp"
-    else:
-        "images/backgrounds/base/bg_campus_snowstorm.webp"
-
-    if weather == "snow" and time_index in [0, 1]:
-        "images/backgrounds/base/bg_campus_snowstorm_linear_dodge.webp" at Transform(blend = "add")
-
-layeredimage bg_danger_lights:
-    if danger_red_alert:
-        "images/backgrounds/base/bg_danger_lights_red.webp"
-    else:
-        "images/backgrounds/base/bg_danger_lights.webp"
-
-layeredimage bg_infirmary:
-    if time_index >= 3:
-        "images/backgrounds/base/bg_infirmary_dark.webp"
-    else:
-        "images/backgrounds/base/bg_infirmary.webp"
-
-    if infirmary_in_bed:
-        "images/backgrounds/base/bg_infirmary_bed.webp"
-    elif infirmary_bed:
-        "images/backgrounds/base/bg_infirmary_bed_empty.webp"
-    
-    if infirmary_in_bed:
-        "images/backgrounds/base/bg_infirmary_screenlight.webp"
-
-    if infirmary_screen1:
-        "images/backgrounds/base/bg_infirmary_screens1.webp"
-
-    if infirmary_screen2:
-        "images/backgrounds/base/bg_infirmary_screens2.webp"
-
-    if infirmary_screen3:
-        "images/backgrounds/base/bg_infirmary_screens3.webp"
-
-    if time_index >= 3:
-        "images/backgrounds/base/bg_infirmary_night_hard_light.webp" at Transform(blend = "multiply")
-
-    if time_index >= 3:
-        "images/backgrounds/base/bg_infirmary_night_linear_dodge.webp" at Transform(blend = "add")
-
-layeredimage bg_restaurant_table:
-    always:
-        "images/backgrounds/base/bg_restaurant_table.webp"
-
-    if food_arrived:
-        "images/backgrounds/base/bg_restaurant_Player_plate.webp"
-
-    if drinking_wine:
-        "images/backgrounds/base/bg_restaurant_glass.webp"
-
-    if not ordered_food:
-        "images/backgrounds/base/bg_restaurant_menu.webp"
-
-    if drinking_wine:
-        "images/backgrounds/base/bg_restaurant_bottle.webp"
-
-    if food_arrived:
-        "images/backgrounds/base/bg_restaurant_Character_plate.webp"
-
-    always:
-        "images/backgrounds/base/bg_restaurant_shakers.webp"
-
 layeredimage background:
     always:
         "black_fade" at invisible
 
     if Player.location in bedrooms or Player.location in ["bg_infirmary"]:
         "[Player.location]"
-    elif Player.location == "bg_campus":
-        "bg_campus_background"
-
-    if Player.location not in ["bg_pool"]:
-        Null()
-    elif weather:
-        "images/backgrounds/base/[Player.location]_[time_index]_[weather].webp"
-    else:
-        "images/backgrounds/base/[Player.location]_[time_index].webp"
+    elif Player.location in ["bg_campus", "bg_pool"]:
+        "[Player.location]_background"
             
     if Player.location not in ["bg_classroom", "bg_study"]:
         Null()
@@ -455,8 +254,8 @@ layeredimage cover1:
     always:
         "black_fade" at invisible
 
-    if Player.location == "bg_campus":
-        "bg_campus_cover"
+    if Player.location in ["bg_campus", "bg_pool"]:
+        "[Player.location]_cover"
 
     if Player.location != "bg_classroom":
         Null()

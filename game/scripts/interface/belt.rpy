@@ -33,8 +33,7 @@ screen belt_screen():
     style_prefix "belt"
 
     if not black_screen and not belt_hidden and sandbox and not ongoing_Event:
-        if not belt_collapsed:
-            add At("images/interface/belt/background.webp", interface)
+        add At("images/interface/belt/background.webp", interface)
 
         imagebutton:
             idle At("images/interface/belt/hide_idle.webp", interface) 
@@ -52,38 +51,38 @@ screen belt_screen():
         text f"{time_options[time_index].capitalize()}" anchor (0.5, 0.5) pos (0.963, 0.09):
             size 35
         
-        if not belt_collapsed:
-            hbox anchor (0.5, 0.5) pos (0.891, 0.036) xysize (0.029, 0.241):
-                for s in range(Player.max_stamina):
-                    if s >= clock:
-                        imagebutton:
-                            idle At("images/interface/belt/stamina_empty.webp", interface) 
-                            hover At("images/interface/belt/stamina_empty.webp", interface)
-
-                            action NullAction()
-
-                            tooltip "Stamina (Empty)"
-                    else:
-                        imagebutton:
-                            idle At("images/interface/belt/stamina.webp", interface) 
-                            hover At("images/interface/belt/stamina.webp", interface)
-
-                            action NullAction()
-
-                            tooltip "Stamina"
-
-                for s in range(Player.max_stamina, 4):
+        hbox anchor (0.5, 0.5) pos (0.891, 0.036) xysize (0.029, 0.241):
+            for s in range(Player.max_stamina):
+                if s >= clock:
                     imagebutton:
-                        idle At("images/interface/belt/stamina_lock.webp", interface) 
-                        hover At("images/interface/belt/stamina_lock.webp", interface)
+                        idle At("images/interface/belt/stamina_empty.webp", interface) 
+                        hover At("images/interface/belt/stamina_empty.webp", interface)
 
                         action NullAction()
 
-                        tooltip "Stamina (Locked)"
+                        tooltip "Stamina (Empty)"
+                else:
+                    imagebutton:
+                        idle At("images/interface/belt/stamina.webp", interface) 
+                        hover At("images/interface/belt/stamina.webp", interface)
 
-            text f"{temperature[time_index]} " + u"\u00b0C" anchor (0.5, 0.5) pos (0.903, 0.082):
-                size 25
+                        action NullAction()
+
+                        tooltip "Stamina"
+
+            for s in range(Player.max_stamina, 4):
+                imagebutton:
+                    idle At("images/interface/belt/stamina_lock.webp", interface) 
+                    hover At("images/interface/belt/stamina_lock.webp", interface)
+
+                    action NullAction()
+
+                    tooltip "Stamina (Locked)"
+
+        text f"{temperature[time_index]} " + u"\u00b0C" anchor (0.5, 0.5) pos (0.903, 0.082):
+            size 25
                 
+        if not belt_collapsed:
             if renpy.get_screen("say"):
                 add At("images/interface/belt/journal_idle.webp", interface)
             elif not belt_disabled and (not current_phone_Character or not current_phone_Character.mandatory_text_options):
