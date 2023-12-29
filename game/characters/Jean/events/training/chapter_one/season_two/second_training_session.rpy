@@ -18,12 +18,14 @@ label Jean_chapter_one_season_two_second_training_session:
     $ ongoing_Event = True
     
     $ Jean.change_face("smirk2")
+    $ Jean.change_arms("hips")
 
     ch_Jean "So, I've been thinking about your powers since last time."
     ch_Jean "The whole suddenly being super strong and fast thing has been bothering me."
     ch_Jean "Let's start from the beginning."
 
     $ Jean.change_face("confused1", mouth = "smirk")
+    $ Jean.change_arms("crossed")
 
     ch_Jean "What exactly happened when you were attacked that first time?"
 
@@ -59,14 +61,19 @@ label Jean_chapter_one_season_two_second_training_session:
     "You tell her about that day, mentioning all the details you can remember."
 
     $ Jean.change_face("confused1")
+    $ Jean.change_arms("hips", left_arm = "extended")
 
     ch_Jean "So you suddenly felt sick and left class?"
     ch_Jean "And he attacked you in the bathroom?"
+
+    $ Jean.change_arms("hips")
+
     ch_Player "Yeah, is that something he could've done to me himself?"
     ch_Player "Maybe so I was all alone?"
     ch_Jean "Maybe. . ."
 
     $ Jean.change_face("confused1", eyes = "squint")
+    $ Jean.change_arms("crossed")
 
     ch_Jean "But why would he do it in the middle of a big lecture and not call you into his office hours or something?"
     ch_Player "That's true."
@@ -98,9 +105,13 @@ label Jean_chapter_one_season_two_second_training_session:
         ch_Player "But, I do know my appearance didn't change until I was in the bathroom."
 
     $ Jean.change_face("worried1")
+    $ Jean.change_arms("hips", right_arm = "extended")
 
     ch_Jean "And what about this new thing?"
     ch_Jean "With Juggernaut and all. . ."
+
+    $ Jean.change_arms("sass")
+
     ch_Player "I mean that was also super stressful. . ."
     ch_Player ". . . seeing [Rogue.name] injured like that."
 
@@ -110,6 +121,7 @@ label Jean_chapter_one_season_two_second_training_session:
     ch_Jean "I don't like seeing you all sad like this. . ."
 
     $ Jean.change_face("worried1")
+    $ Jean.change_arms("crossed")
 
     ch_Jean "Just, if you can, try and think about the details, they could be important."
     ch_Player "I will, thanks [Jean.petname]."
@@ -117,6 +129,8 @@ label Jean_chapter_one_season_two_second_training_session:
     $ Jean.change_face("smirk1")
 
     ch_Jean "Alright, now into the real training."
+
+    $ Jean.change_arms("psychic1")
 
     call Jean_activate_psychic from _call_Jean_activate_psychic_29
 
@@ -126,11 +140,16 @@ label Jean_chapter_one_season_two_second_training_session:
     "After nearly an hour of trying, you get extremely close."
     "Maybe it had something to do with all the emotions stirred up by your previous conversation, but you feel like you're on the cusp of succeeding." 
 
+    $ Jean.change_arms("psychic1")
+
     $ fade_in_from_black(0.4)
 
     call Jean_deactivate_psychic from _call_Jean_deactivate_psychic_29
 
+    pause 1.0
+
     $ Jean.change_face("worried1")
+    $ Jean.change_arms("crossed")
 
     ch_Player "Wait, why'd you stop?"
     ch_Player "I almost had it that time!"
@@ -148,12 +167,14 @@ label Jean_chapter_one_season_two_second_training_session:
     ch_Player "Yeah. . . okay."
 
     $ Jean.change_face("smirk2")
+    $ Jean.change_arms("fight")
 
     ch_Jean "Good."
     "While [Jean.name] has clearly been practicing, your new advantages make it a less than even fight."
     "She doesn't seem too bothered, mostly happy that you can actually defend yourself now."
 
     $ Jean.change_face("sly")
+    $ Jean.change_arms("psychic2")
 
     call Jean_activate_psychic from _call_Jean_activate_psychic_30
 
@@ -171,6 +192,7 @@ label Jean_chapter_one_season_two_second_training_session:
     "You feel a slight vibration in the air, and [Jean.name] immediately shut her powers off."
 
     $ Jean.change_face("worried1", mouth = "lipbite")
+    $ Jean.change_arms("crossed")
 
     ch_Jean "That was a bit close. . ."
     ch_Player "But also better than last time, I could tell."

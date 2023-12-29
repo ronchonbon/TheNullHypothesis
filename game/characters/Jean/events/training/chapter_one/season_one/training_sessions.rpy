@@ -22,12 +22,15 @@ label Jean_chapter_one_season_one_training_sessions:
 
     if dice_roll == 1:
         $ Jean.change_face("happy")
+        $ Jean.change_arms("sass")
 
         ch_Jean "Ready to start?"
 
         $ Jean.change_face("smirk2")
 
         ch_Player "Yep!"
+
+        $ Jean.change_arms("psychic1")
 
         call Jean_activate_psychic from _call_Jean_activate_psychic_15
 
@@ -36,19 +39,23 @@ label Jean_chapter_one_season_one_training_sessions:
 
         if Laura.History.check("trained_with_Player", tracker = "season") >= 2:
             $ Jean.change_face("surprised1") 
+            $ Jean.change_arms("fight")
             
             "You can at least be proud of your physical progress, as your training with [Laura.name] really shows during sparring." 
         else:
             $ Jean.change_face("worried1") 
+            $ Jean.change_arms("fight")
             
             "Not only that, but she still stomps you during sparring."
 
         $ Jean.change_face("smirk2")
+        $ Jean.change_arms("psychic2")
 
         "[Jean.name] finishes the session by flexing her power."
         "She almost overdoes it a couple times and barely manages to keep things under control."
 
         $ Jean.change_face("worried1")
+        $ Jean.change_arms("crossed")
 
         call Jean_deactivate_psychic from _call_Jean_deactivate_psychic_15
  
@@ -56,6 +63,7 @@ label Jean_chapter_one_season_one_training_sessions:
         ch_Jean "Aight, let's call it for today."
     elif dice_roll == 2:
         $ Jean.change_face("smirk1")
+        $ Jean.change_arms("sass")
 
         ch_Player "You ready?"
 
@@ -64,13 +72,19 @@ label Jean_chapter_one_season_one_training_sessions:
         ch_Jean "Yep, follow my lead."
         "You briefly warm up, helping each other stretch out, before diving into more control exercises." 
 
+        $ Jean.change_arms("psychic1")
+
         call Jean_activate_psychic from _call_Jean_activate_psychic_16
 
         "She tries teaching you all the various tricks she's picked up over the years."
         "Some of them aren't really applicable, but there are a few that actually have an effect."
+        
+        $ Jean.change_arms("fight")
+
         "After some more sparring, Jean practices with her own powers."
 
         $ Jean.change_face("worried1")
+        $ Jean.change_arms("psychic2")
 
         "She goes too far this time and you have to step in more than once after she refuses to quit."
 
@@ -87,6 +101,7 @@ label Jean_chapter_one_season_one_training_sessions:
         ch_Player "[temp], that's like the third time I've had to step in."
 
         $ Jean.change_face("worried2")
+        $ Jean.change_arms("angry")
 
         ch_Player "I think we should call it here." 
 
@@ -95,11 +110,13 @@ label Jean_chapter_one_season_one_training_sessions:
         ch_Jean "Goddamnit. . . I know."
 
         $ Jean.change_face("worried1")
+        $ Jean.change_arms("crossed")
 
         ch_Jean "Sorry, you're right."
         ch_Jean "Let's call it here."
     elif dice_roll == 3:
         $ Jean.change_face("worried1")
+        $ Jean.change_arms("crossed")
 
         ch_Player "You okay? Ready to start?"
 
@@ -112,16 +129,20 @@ label Jean_chapter_one_season_one_training_sessions:
 
         ch_Jean "Let's start."
 
+        $ Jean.change_arms("psychic1")
+
         call Jean_activate_psychic from _call_Jean_activate_psychic_17
 
         "A few dynamic stretches later, and Jean has you doing some really confusing mental exercises that will supposedly help with power control."
         "Some of them don't seem to do anything, but others actually show some promise."
 
         $ Jean.change_face("smirk1")
+        $ Jean.change_arms("fight")
 
         "You both do a bit of sparring before [Jean.name] starts working on her power."
 
         $ Jean.change_face("angry1")
+        $ Jean.change_arms("psychic2")
 
         "She seems a bit off today, and things get out of control faster than usual."
 
@@ -130,12 +151,15 @@ label Jean_chapter_one_season_one_training_sessions:
         with small_screenshake
 
         call Jean_deactivate_psychic from _call_Jean_deactivate_psychic_17
+        
+        $ Jean.change_arms("angry")
 
         ch_Jean "Fuck, I'm really off my game today."
         ch_Player "I think we should call it there."
         ch_Player "Some rest would do us both good." 
 
         $ Jean.change_face("smirk1")
+        $ Jean.change_arms("crossed")
 
         ch_Jean "Got that right. . ."
 
@@ -148,12 +172,14 @@ label Jean_chapter_one_season_one_training_sessions:
         ch_Jean "I gotta go study, I'll see you later."
     elif dice_roll == 4:
         $ Jean.change_face("smirk2")
+        $ Jean.change_arms("sass")
 
         ch_Jean "Today's gonna be good."
         ch_Jean "C'mon, let's start."
         "She runs you through a warmup that's more energetic than usual, casually 'helping you stretch out.'"
 
         $ Jean.change_face("smirk2", blush = 1)
+        $ Jean.change_arms("psychic1")
 
         call Jean_activate_psychic from _call_Jean_activate_psychic_18
 
@@ -167,10 +193,12 @@ label Jean_chapter_one_season_one_training_sessions:
         "The smile looks good on her."
 
         $ Jean.change_face("smirk1")
+        $ Jean.change_arms("fight")
 
         "After that you both get into some sparring practice."
 
         $ Jean.change_face("smirk2")
+        $ Jean.change_arms("psychic2")
 
         "At the end, [Jean.name] starts working on her own power, and it seems like her bright mood is also translating into her power control." 
         "Although, in the end, you still have to step in when she goes too far."
@@ -184,6 +212,7 @@ label Jean_chapter_one_season_one_training_sessions:
         call Jean_deactivate_psychic from _call_Jean_deactivate_psychic_18
 
         $ Jean.change_face("worried1")
+        $ Jean.change_arms("crossed")
 
         ch_Jean "Damn, I was having fun." 
 
@@ -192,6 +221,7 @@ label Jean_chapter_one_season_one_training_sessions:
         ch_Player "You were doing better than usual too, seems like your mood has a lot to do with it." 
 
         $ Jean.change_face("smirk2", mouth = "lipbite")
+        $ Jean.change_arms("hips")
 
         ch_Jean "I think you're right." 
         ch_Jean "I guess that means you'll have to be around more often to keep me in a good one. . ."

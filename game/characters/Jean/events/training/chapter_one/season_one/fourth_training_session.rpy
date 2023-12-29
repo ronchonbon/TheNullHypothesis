@@ -18,6 +18,7 @@ label Jean_chapter_one_season_one_fourth_training_session:
     $ ongoing_Event = True
 
     $ Jean.change_face("worried1")
+    $ Jean.change_arms("crossed")
 
     ch_Player "Everything okay?"
     ch_Jean "I'm just worried. . ."
@@ -77,6 +78,7 @@ label Jean_chapter_one_season_one_fourth_training_session:
             ch_Jean "I'll figure it out." 
             
     $ Jean.change_face("smirk1")
+    $ Jean.change_arms("sass")
 
     ch_Jean "Alright, time to get warmed up."
 
@@ -92,12 +94,15 @@ label Jean_chapter_one_season_one_fourth_training_session:
     ch_Player "It seems like your idea last time worked pretty well, should we start with that again?" 
 
     $ Jean.change_face("confused1")
+    $ Jean.change_arms("hips")
 
     ch_Jean "Hmm." 
 
     $ Jean.change_face("neutral")
 
     ch_Jean "Yeah, let's start with what we know works."
+
+    $ Jean.change_arms("psychic1")
 
     call Jean_activate_psychic from _call_Jean_activate_psychic_7
 
@@ -110,7 +115,12 @@ label Jean_chapter_one_season_one_fourth_training_session:
 
     call Jean_deactivate_psychic from _call_Jean_deactivate_psychic_7
 
+    $ Jean.change_arms("psychic1")
+
+    pause 1.0
+
     $ Jean.change_face("smirk2")
+    $ Jean.change_arms("sass")
 
     ch_Jean "Good job!" 
     ch_Jean "That was definitely better than last time."
@@ -119,6 +129,7 @@ label Jean_chapter_one_season_one_fourth_training_session:
     ch_Player "But it's working I guess."
 
     $ Jean.change_face("worried1")
+    $ Jean.change_arms("crossed")
 
     ch_Jean "Don't worry, you'll get there."
 
@@ -126,6 +137,8 @@ label Jean_chapter_one_season_one_fourth_training_session:
 
     ch_Jean "Now try without touching me."
     ch_Jean "See if you can let the ball come to you."
+
+    $ Jean.change_arms("psychic1")
 
     call Jean_activate_psychic from _call_Jean_activate_psychic_8
 
@@ -137,11 +150,16 @@ label Jean_chapter_one_season_one_fourth_training_session:
     "The rest of the session is spent lightly sparring with [Jean.name] before she starts working her own powers."
     "She's making some progress too and even manages to maintain control the entire time."
 
+    $ Jean.change_face("worried1")
+    $ Jean.change_arms("psychic2")
+
     $ fade_in_from_black(0.4)
 
     call Jean_deactivate_psychic from _call_Jean_deactivate_psychic_8
 
-    $ Jean.change_face("worried1")
+    pause 1.0
+
+    $ Jean.change_arms("crossed")
 
     ch_Player "Nice! I could tell that was more than last time, and you didn't even need my help." 
 
@@ -150,15 +168,18 @@ label Jean_chapter_one_season_one_fourth_training_session:
     ch_Jean "I still almost lost it at the end there. . ." 
 
     $ Jean.change_face("smirk1")
+    $ Jean.change_arms("sass")
 
     ch_Jean "But thanks." 
     ch_Jean "I still don't even know why it's happening." 
 
     $ Jean.change_face("worried1", eyes = "right")
+    $ Jean.change_arms("angry")
 
     ch_Player "Don't worry, we'll figure it out." 
 
     $ Jean.change_face("smirk2", mouth = "lipbite", blush = 1)
+    $ Jean.change_arms("neutral")
 
     ch_Jean "You're right, together. . ." 
 

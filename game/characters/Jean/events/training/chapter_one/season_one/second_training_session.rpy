@@ -18,6 +18,7 @@ label Jean_chapter_one_season_one_second_training_session:
     $ ongoing_Event = True
 
     $ Jean.change_face("smirk2")
+    $ Jean.change_arms("sass")
 
     ch_Jean "Ready?"
     ch_Jean "Let's get warmed up."
@@ -29,6 +30,7 @@ label Jean_chapter_one_season_one_second_training_session:
     $ fade_in_from_black(0.4)
 
     $ Jean.change_face("neutral")
+    $ Jean.change_arms("crossed")
 
     ch_Player "I was hoping we could work more on control today." 
     ch_Player "I can reliably feel whenever my power reacts to something."
@@ -43,6 +45,7 @@ label Jean_chapter_one_season_one_second_training_session:
     ch_Jean "Usually I'm the mind reader."
 
     $ Jean.change_face("smirk2")
+    $ Jean.change_arms("psychic1")
 
     call Jean_activate_psychic from _call_Jean_activate_psychic_9
 
@@ -78,12 +81,14 @@ label Jean_chapter_one_season_one_second_training_session:
     call Jean_deactivate_psychic from _call_Jean_deactivate_psychic_9
 
     $ Jean.change_face("surprised1")
+    $ Jean.change_arms("hips")
 
     ch_Player "Goddamnit, this is fucking impossible."
     ch_Jean "But it kinda worked that time!"
     ch_Player "Really?" 
 
     $ Jean.change_face("smirk2")
+    $ Jean.change_arms(right_arm = "extended", left_arm = "rub_neck")
 
     ch_Jean "Well sorta. . ."
     ch_Jean "It did get a couple inches closer to you." 
@@ -93,6 +98,7 @@ label Jean_chapter_one_season_one_second_training_session:
     ch_Player "I guess that's something. . ." 
 
     $ Jean.change_face("neutral")
+    $ Jean.change_arms("psychic1")
 
     call Jean_activate_psychic from _call_Jean_activate_psychic_10
 
@@ -107,10 +113,18 @@ label Jean_chapter_one_season_one_second_training_session:
     call Jean_deactivate_psychic from _call_Jean_deactivate_psychic_10
 
     $ Jean.change_face("worried1")
+    $ Jean.change_arms("psychic1")
+
+    pause 1.0
+
+    $ Jean.change_arms("angry")
 
     ch_Player "You alright? Need any help?"
     ch_Jean "No, I'm okay."
     ch_Jean "I thought it would be fine if I just limited myself. . ."
+    
+    $ Jean.change_arms("crossed")
+
     ch_Jean "But that got pretty close."
     ch_Jean "That's enough for today, I need a break." 
 

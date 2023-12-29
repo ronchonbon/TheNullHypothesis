@@ -18,10 +18,14 @@ label Jean_chapter_one_season_three_first_training_session:
     $ ongoing_Event = True
 
     $ Jean.change_face("angry1")
+    $ Jean.change_arms("angry")
 
     ch_Player "Are you okay. . . ?"
     ch_Jean "Ugh, no."
     ch_Jean "I'm still mad at you for almost dying again."
+
+    $ Jean.change_arms("crossed")
+
     ch_Jean "Especially when It's only been a few months since the last time!"
 
     menu:
@@ -32,6 +36,7 @@ label Jean_chapter_one_season_three_first_training_session:
             ch_Jean "If that's what it takes for you to get stronger. . ." 
             
             $ Jean.change_face("worried1", eyes = "right") 
+            $ Jean.change_arms("angry")
             
             ch_Jean "Just let me be strong enough for the both of us. . ." 
             
@@ -43,6 +48,7 @@ label Jean_chapter_one_season_three_first_training_session:
             ch_Jean "I'm just glad you're okay. . . and maybe with this new ability of yours, next time won't be so bad. . ." 
             
             $ Jean.change_face("worried1", eyes = "right") 
+            $ Jean.change_arms("angry")
             
             ch_Jean "I hope there isn't a next time." 
             
@@ -52,7 +58,8 @@ label Jean_chapter_one_season_three_first_training_session:
 
             ch_Jean "Ugh, at least you're making it easier to not feel bad for you." 
             
-            $ Jean.change_face("worried1", eyes = "right") 
+            $ Jean.change_face("worried1", eyes = "right")
+            $ Jean.change_arms("angry") 
             
             ch_Jean "Not by much. . ." 
             
@@ -60,26 +67,36 @@ label Jean_chapter_one_season_three_first_training_session:
             call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_188
 
     $ Jean.change_face("confused1")
+    $ Jean.change_arms("hips", left_arm = "extended")
 
     ch_Jean "What the hell's the deal with this new ability of yours anyway?"
+    
+    $ Jean.change_arms("hips")
+
     ch_Jean "It hasn't been too difficult keeping it off, right?"
     ch_Player "Not really, seems like getting it to turn off was the hard part."
     ch_Player "It also feels distinct. . . like it's separate from my nullification."
 
     $ Jean.change_face("angry1")
+    $ Jean.change_arms("angry")
 
     ch_Jean "This better not be a thing with you. . ."
     ch_Jean "Having to almost die in order to get stronger."
 
     $ Jean.change_face("worried1")
+    $ Jean.change_arms("hips")
 
     ch_Jean "I kinda think it might be, though."
     ch_Player "You do?"
     ch_Jean "Yeah, I've been giving it some thought since last time."
     ch_Jean "First it was your healing thing, and now this."
+    
+    $ Jean.change_arms("hips", right_arm = "extended")
+
     ch_Jean "What if they're, like, a response to getting hurt."
 
     $ Jean.change_face("worried2")
+    $ Jean.change_arms("crossed")
 
     ch_Jean "Your power figures out a way to grow, in order to keep you alive. . ."
     ch_Player "Well, shit. . . that would kinda suck. . ."
@@ -115,6 +132,8 @@ label Jean_chapter_one_season_three_first_training_session:
             
             $ Jean.change_face("confused1")
 
+    $ Jean.change_arms("hips")
+
     ch_Jean "What are you talking about?"
     ch_Player "So, I noticed a pattern."
 
@@ -123,14 +142,19 @@ label Jean_chapter_one_season_three_first_training_session:
     ch_Player "Both times, when I got messed, I had other people's power in mind when it happened."
 
     $ Jean.change_face("surprised3")
+    $ Jean.change_arms("neutral")
 
     ch_Player "During the Juggernaut thing, I was thinking about how useful a healing ability like [Laura.name]'s would be."
     ch_Player "And now, with these Sentinels, I was thinking about Rogue."
     ch_Player "Where she can steal someone else's strength. . ."
 
     $ Jean.change_face("surprised2")
+    $ Jean.change_arms("neutral", left_arm = "extended")
 
     ch_Jean "So you think. . ."
+
+    $ Jean.change_arms("sass")
+
     ch_Player "Yeah. . . my own power took inspiration. . . and now I'm like this."
 
     $ Jean.change_face("confused1")
@@ -149,6 +173,7 @@ label Jean_chapter_one_season_three_first_training_session:
     ch_Jean "Since you said the new power feels like its own thing, can you try only turning your nullification back on?"
 
     $ Jean.change_face("confused1", mouth = "smirk")
+    $ Jean.change_arms("crossed")
 
     ch_Jean "I think you should see [Laura.public_name] about training the new thing. . ."
     ch_Player "Probably for the best."
@@ -175,6 +200,8 @@ label Jean_chapter_one_season_three_first_training_session:
 
     "You instantly feel a presence right in front of your face, followed by a thud."
 
+    $ Jean.change_arms("psychic1")
+
     call Jean_activate_psychic from _call_Jean_activate_psychic_19
 
     $ fade_in_from_black(0.4)
@@ -185,6 +212,7 @@ label Jean_chapter_one_season_three_first_training_session:
     "You look down and realize the thud was a tennis ball falling to the floor."
 
     $ Jean.change_face("smirk2")
+    $ Jean.change_arms("hips")
 
     $ Player.power = 0
 
@@ -205,6 +233,7 @@ label Jean_chapter_one_season_three_first_training_session:
     ch_Player "Doesn't seem like using one at a time is an issue."
 
     $ Jean.change_face("sly")
+    $ Jean.change_arms("sass")
 
     ch_Jean "Let's test a few more things out."
 
@@ -218,19 +247,32 @@ label Jean_chapter_one_season_three_first_training_session:
     "Despite your physical prowess, it's not even a contest."
     "By the end, she tries showing off her own progress, but loses control more than once."
 
+    $ Jean.change_arms("psychic2")
+
     $ fade_in_from_black(0.4)
 
     $ Player.power = 0
 
+    pause 1.0
+
     $ Jean.change_face("angry1", eyes = "right")
+    $ Jean.change_arms("neutral")
+
 
     ch_Jean "Goddamnit. . ."
+
+    $ Jean.change_arms("angry")
+
     ch_Jean "You're doing so much better, and I'm barely any different."
     ch_Player "You sho-"
 
     $ Jean.change_face("angry1")
+    $ Jean.change_arms("angry", left_arm = "extended")
 
     ch_Jean "And don't tell me I shouldn't compare myself to you."
+    
+    $ Jean.change_arms("crossed")
+
     ch_Jean "You can't understand how frustrating this is. . ."
     ch_Player ". . ."
 

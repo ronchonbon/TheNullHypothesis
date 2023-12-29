@@ -132,7 +132,7 @@ screen Wardrobe_screen(Character):
                     
                     selected Character.Outfit.name == Outfit_list[i].name
 
-                    text Outfit_list[i].name align (0.5, 0.5):
+                    text Outfit_list[i].name:
                         font "agency_fb.ttf"
 
                         if len(Outfit_list[i].name) > 10:
@@ -313,7 +313,7 @@ screen Wardrobe_screen(Character):
         hover_sound None
         activate_sound None
 
-        text f"{Character.Outfit.shame}" align (0.5, 0.5):
+        text f"{Character.Outfit.shame}":
             size 36
 
             color "#000000"
@@ -358,7 +358,7 @@ screen accessory_screen(Character):
                         
                         if Character.Clothes[I.Clothing_type].string == I.string and Character.Clothes[I.Clothing_type].covered or (("swimsuit" in I.name or "bikini" in I.name) and Character.location == "bg_pool"):
                             frame xysize (int(0.0344*config.screen_width), int(240*interface_new_adjustment)):
-                                text f"{I.shame[0]}" align (0.5, 0.5):
+                                text f"{I.shame[0]}":
                                     size 36
 
                                     text_align 0.5
@@ -372,7 +372,7 @@ screen accessory_screen(Character):
                             null width int(0.0171*config.screen_width)
 
                             frame xysize (int(0.0344*config.screen_width), int(240*interface_new_adjustment)):
-                                text f"{I.shame[1]}" align (0.5, 0.5):
+                                text f"{I.shame[1]}":
                                     size 36
 
                                     text_align 0.5
@@ -928,7 +928,7 @@ screen upper_screen(Character):
                         
                         if Character.Clothes[I.Clothing_type].string == I.string and Character.Clothes[I.Clothing_type].covered or (("swimsuit" in I.name or "bikini" in I.name) and Character.location == "bg_pool"):
                             frame xysize (int(0.0344*config.screen_width), int(240*interface_new_adjustment)):
-                                text f"{I.shame[0]}" align (0.5, 0.5):
+                                text f"{I.shame[0]}":
                                     size 36
 
                                     text_align 0.5
@@ -942,7 +942,7 @@ screen upper_screen(Character):
                             null width int(0.0171*config.screen_width)
 
                             frame xysize (int(0.0344*config.screen_width), int(240*interface_new_adjustment)):
-                                text f"{I.shame[1]}" align (0.5, 0.5):
+                                text f"{I.shame[1]}":
                                     size 36
 
                                     text_align 0.5
@@ -1008,7 +1008,7 @@ screen lower_screen(Character):
                         
                         if Character.Clothes[I.Clothing_type].string == I.string and Character.Clothes[I.Clothing_type].covered or (("swimsuit" in I.name or "bikini" in I.name) and Character.location == "bg_pool"):
                             frame xysize (int(0.0344*config.screen_width), int(240*interface_new_adjustment)):
-                                text f"{I.shame[0]}" align (0.5, 0.5):
+                                text f"{I.shame[0]}":
                                     size 36
 
                                     text_align 0.5
@@ -1022,7 +1022,7 @@ screen lower_screen(Character):
                             null width int(0.0171*config.screen_width)
 
                             frame xysize (int(0.0344*config.screen_width), int(240*interface_new_adjustment)):
-                                text f"{I.shame[1]}" align (0.5, 0.5):
+                                text f"{I.shame[1]}":
                                     size 36
 
                                     text_align 0.5

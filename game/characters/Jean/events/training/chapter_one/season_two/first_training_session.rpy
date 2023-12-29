@@ -18,16 +18,21 @@ label Jean_chapter_one_season_two_first_training_session:
     $ ongoing_Event = True
     
     $ Jean.change_face("worried1")
+    $ Jean.change_arms("sass")
     
     ch_Player "You okay?"
 
     $ Jean.change_face("angry1")
+    $ Jean.change_arms("angry")
 
     ch_Jean "I'm not the one who almost died."
 
     $ Jean.change_face("worried1")
 
     ch_Jean "I was just worried about you. . ."
+
+    $ Jean.change_arms("crossed")
+
     ch_Jean "Are {i}you{/i} okay?"
 
     menu:
@@ -53,8 +58,12 @@ label Jean_chapter_one_season_two_first_training_session:
             call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_201
 
     $ Jean.change_face("worried1")
+    $ Jean.change_arms("hips", left_arm = "extended")
 
     ch_Jean "What about your injuries?"
+
+    $ Jean.change_arms("crossed")
+
     ch_Jean "I thought they were pretty bad?"
     ch_Player "Physically, I feel better than ever."
 
@@ -67,6 +76,7 @@ label Jean_chapter_one_season_two_first_training_session:
     ch_Player "How do you mean?"
 
     $ Jean.change_face("smirk1")
+    $ Jean.change_arms("sass")
 
     ch_Jean "Well, at first, I thought my powers were only telepathic."
     ch_Jean "It wasn't until later that I figured out I also had telekinesis."
@@ -78,6 +88,7 @@ label Jean_chapter_one_season_two_first_training_session:
     ch_Jean "Okay, that's enough chit-chat."
 
     $ Jean.change_face("happy")
+    $ Jean.change_arms("psychic1")
 
     ch_Jean "Time to hit you with tennis balls and see if anything's changed."
 
@@ -93,17 +104,23 @@ label Jean_chapter_one_season_two_first_training_session:
     "Imposing your will on it feels like trying to keep hold of a wet bar of soap."
     "Just as you're about to get a grip, it slips through your fingers."
 
+    $ Jean.change_arms("psychic1")
+
     $ fade_in_from_black(0.4)
 
     call Jean_deactivate_psychic from _call_Jean_deactivate_psychic_27
 
+    pause 1.0
+
     $ Jean.change_face("confused1")
+    $ Jean.change_arms("hips")
 
     ch_Jean "Any easier today?"
     ch_Player "Actually yeah, a bit."
     ch_Player "It's like I'm more aware of the power, but still have a hard time getting hold of it."
 
     $ Jean.change_face("smirk2")
+    $ Jean.change_arms("sass")
 
     ch_Jean "That's great!"
     ch_Jean "You're getting there."
@@ -115,6 +132,7 @@ label Jean_chapter_one_season_two_first_training_session:
     ch_Jean "Let's try something else."
 
     $ Jean.change_face("sly", blush = 1) 
+    $ Jean.change_arms("fight")
 
     ch_Jean "We don't want you to hurt yourself."
 
@@ -128,6 +146,7 @@ label Jean_chapter_one_season_two_first_training_session:
     $ fade_in_from_black(0.4)
 
     $ Jean.change_face("confused1", eyes = "squint")
+    $ Jean.change_arms("crossed")
 
     ch_Jean "Since when were you this strong. . . and fast?"
 
@@ -151,6 +170,7 @@ label Jean_chapter_one_season_two_first_training_session:
     ch_Jean "It's impressive. . ."
 
     $ Jean.change_face("sly")
+    $ Jean.change_arms("psychic2")
 
     ch_Jean "But still not as impressive as this. . ."
 
@@ -165,15 +185,21 @@ label Jean_chapter_one_season_two_first_training_session:
 
     $ fade_in_from_black(0.4)
 
+    $ Jean.change_arms("psychic2")
+
     call Jean_deactivate_psychic from _call_Jean_deactivate_psychic_28
 
+    pause 1.0
+
     $ Jean.change_face("angry1", eyes = "right")
+    $ Jean.change_arms("angry")
 
     ch_Player "Why are you angry?"
     ch_Player "That was great!"
     ch_Player "You didn't even need my help."
 
     $ Jean.change_face("angry1")
+    $ Jean.change_arms("crossed")
 
     ch_Jean "Ugh!"
     ch_Jean "Because you're making leaps and bounds, while I'm over here barely crawling."
@@ -204,12 +230,17 @@ label Jean_chapter_one_season_two_first_training_session:
             call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_204
 
     $ Jean.change_face("worried1", eyes = "right")
+    $ Jean.change_arms("neutral", left_arm = "rub_neck")
 
     ch_Jean "I'm sorry for getting mad."
 
     $ Jean.change_face("worried1")
+    $ Jean.change_arms(right_arm = "extended", left_arm = "rub_neck")
 
     ch_Jean "It's not like any of this is your fault."
+
+    $ Jean.change_arms("crossed")
+
     ch_Jean "You don't need me venting at you."
     ch_Jean "But I'm here if you need someone to vent to yourself, got it?" 
 
@@ -244,6 +275,7 @@ label Jean_chapter_one_season_two_first_training_session:
             call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_208
 
     $ Jean.change_face("smirk1")
+    $ Jean.change_arms("sass")
 
     ch_Jean "That's enough for today, and I really need a shower." 
     ch_Jean "Catch you later."

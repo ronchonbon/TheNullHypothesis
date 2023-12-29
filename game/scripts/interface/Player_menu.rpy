@@ -268,7 +268,7 @@ screen database_screen():
         base_bar At("images/interface/Player_menu/database_scrollbar.webp", interface)
 
         thumb At("images/interface/Player_menu/database_scrollbar_thumb.webp", interface)
-        thumb_offset int(276*interface_new_adjustment/2/3)
+        thumb_offset int(276*interface_new_adjustment/2/10)
 
         unscrollable "hide"
 
@@ -869,7 +869,7 @@ screen journal_screen():
         base_bar At("images/interface/Player_menu/journal_scrollbar.webp", interface)
 
         thumb At("images/interface/Player_menu/journal_scrollbar_thumb.webp", interface)
-        thumb_offset int(276*interface_new_adjustment/2/3)
+        thumb_offset int(276*interface_new_adjustment/2/10)
 
         unscrollable "hide"
 

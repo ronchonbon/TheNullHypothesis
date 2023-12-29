@@ -18,10 +18,12 @@ label Jean_chapter_one_season_three_second_training_session:
     $ ongoing_Event = True
 
     $ Jean.change_face("worried1")
+    $ Jean.change_arms("neutral", left_arm = "rub_neck")
 
     ch_Jean "So, [Jean.Player_petname]. . ."
 
     $ Jean.change_face("confused1", mouth = "smirk")
+    $ Jean.change_arms(right_arm = "extended", left_arm = "rub_neck")
 
     ch_Jean "You're not mad about the end of our last training session. . . right?"
 
@@ -29,6 +31,7 @@ label Jean_chapter_one_season_three_second_training_session:
         extend ""
         "Not at all. I feel bad about all the stress you're going through.":
             $ Jean.change_face("worried1", mouth = "smirk")
+            $ Jean.change_arms("crossed")
 
             ch_Jean "Thanks for being so understanding. . ." 
             
@@ -36,12 +39,14 @@ label Jean_chapter_one_season_three_second_training_session:
             call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_192
         "It made me a little sad to have you upset at me. . . But don't worry, I understand.":
             $ Jean.change_face("worried2")
+            $ Jean.change_arms("crossed")
 
             ch_Jean "I don't like it when you're sad, [Jean.Player_petname]." 
             
             call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_193
         "A little bit to be honest. . . it was pretty uncalled for. But it's fine, I'd be frustrated too if I were in your shoes.":
             $ Jean.change_face("confused2")
+            $ Jean.change_arms("crossed")
 
             ch_Jean "At least you get it. . . I guess." 
             
@@ -53,11 +58,13 @@ label Jean_chapter_one_season_three_second_training_session:
     ch_Jean "I am sorry, though."
 
     $ Jean.change_face("smirk1")
+    $ Jean.change_arms("sass")
 
     ch_Jean "But on a different note, I've been thinking about your powers since last time."
     ch_Jean "If it really is some inspirational power thing. . ."
 
     $ Jean.change_face("suspicious1")
+    $ Jean.change_arms("hips")
 
     ch_Jean "How come you haven't been inspired by me yet?"
     ch_Player "Uh. . . I. . . don't know. . ."
@@ -67,6 +74,7 @@ label Jean_chapter_one_season_three_second_training_session:
     ch_Jean "I'm {i}mostly{/i} messing with you."
 
     $ Jean.change_face("confused1", mouth = "smirk")
+    $ Jean.change_arms("crossed")
 
     ch_Jean "But seriously, I wonder if it really does only work in times of need. . ."
 
@@ -79,6 +87,7 @@ label Jean_chapter_one_season_three_second_training_session:
     ch_Player "What if it doesn't work and I really do die. . ."
 
     $ Jean.change_face("worried1")
+    $ Jean.change_arms("sass")
 
     ch_Jean "Good point. . ."
     ch_Player "Not to mention how shitty it made me feel each time."
@@ -92,15 +101,18 @@ label Jean_chapter_one_season_three_second_training_session:
     ch_Jean "Okay, yeah, let's not do that to you."
 
     $ Jean.change_face("smirk2")
+    $ Jean.change_arms("sass", right_arm = "extended")
 
     ch_Jean "Let's just focus on improving the abilities you currently have."
 
     $ Jean.change_face("worried3")
+    $ Jean.change_arms("angry")
 
     ch_Jean "Wait, what if your old abilities start going away since your body doesn't need them to survive anymore?!"
     ch_Player "No, if anything, it feels like they're even more a part of me than ever."
 
     $ Jean.change_face("worried1")
+    $ Jean.change_arms("neutral")
 
     ch_Jean "Okay good."
 
@@ -125,6 +137,9 @@ label Jean_chapter_one_season_three_second_training_session:
     $ Jean.change_face("sly")
 
     ch_Jean "Alright, turn it back on."
+
+    $ Jean.change_arms("psychic2")
+
     ch_Jean "I'm gonna mess with my powers for a bit."
 
     $ Jean.change_face("worried1")
@@ -143,6 +158,8 @@ label Jean_chapter_one_season_three_second_training_session:
 
     call Jean_deactivate_psychic from _call_Jean_deactivate_psychic_20
 
+    $ Jean.change_arms("crossed")
+    
     ch_Jean "I think that'll do it."
     ch_Jean "Don't want to keep pushing it and just end up ruining my day."
     ch_Player "I getcha."

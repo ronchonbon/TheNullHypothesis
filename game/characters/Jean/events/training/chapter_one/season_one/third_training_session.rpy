@@ -18,6 +18,7 @@ label Jean_chapter_one_season_one_third_training_session:
     $ ongoing_Event = True
 
     $ Jean.change_face("happy")
+    $ Jean.change_arms("sass")
 
     ch_Player "Ready to warm up?" 
 
@@ -33,6 +34,8 @@ label Jean_chapter_one_season_one_third_training_session:
     $ fade_in_from_black(0.4)
 
     ch_Jean "I have an idea, let's do things a bit differently today." 
+
+    $ Jean.change_arms("psychic1")
 
     call Jean_activate_psychic from _call_Jean_activate_psychic_11
 
@@ -58,10 +61,13 @@ label Jean_chapter_one_season_one_third_training_session:
     "The tennis ball falls and hits you on the head."
 
     $ Jean.change_face("worried1", mouth = "smirk")
+    $ Jean.change_arms("sass")
 
     ch_Player "Damnit."
     ch_Player "It was a good idea."
     ch_Jean "Let's keep trying, see if anything changes."
+
+    $ Jean.change_arms("psychic1")
 
     call Jean_activate_psychic from _call_Jean_activate_psychic_12
 
@@ -87,6 +93,7 @@ label Jean_chapter_one_season_one_third_training_session:
     "Right as you open your mouth, the ball falls and bonks you on the head."
 
     $ Jean.change_face("confused1", mouth = "smirk") 
+    $ Jean.change_arms("sass")
 
     ch_Jean "Heh, well it worked for a second there." 
 
@@ -101,11 +108,16 @@ label Jean_chapter_one_season_one_third_training_session:
     ch_Jean "You're welcome." 
 
     $ Jean.change_face("smirk2")
+    $ Jean.change_arms("hips")
 
     ch_Jean "And don't worry, control always takes a while." 
+    
+    $ Jean.change_arms("hips", right_arm = "extended")
+
     ch_Jean "But it's like riding a bike. Once you get it in the first place, it becomes easier."
 
     $ Jean.change_face("smirk1")
+    $ Jean.change_arms("psychic1")
 
     ch_Jean "Let's go again, and maybe I'll give the ball a little downward push this time."
 
@@ -121,8 +133,19 @@ label Jean_chapter_one_season_one_third_training_session:
 
     call Jean_deactivate_psychic from _call_Jean_deactivate_psychic_13
 
+    $ Jean.change_arms("psychic1")
+
+    pause 1.0
+
+    $ Jean.change_arms("sass")
+
     "By the end, you can barely think straight, and she suggests switching things up."
+    
+    $ Jean.change_arms("fight")
+
     "You both do some sparring practice before Jean goes through control exercises with her own power."
+
+    $ Jean.change_arms("psychic2")
 
     call Jean_activate_psychic from _call_Jean_activate_psychic_14
 
@@ -138,6 +161,7 @@ label Jean_chapter_one_season_one_third_training_session:
     "You rush over and grab her hand."
 
     $ Jean.change_face("surprised2") 
+    $ Jean.change_arms("angry", left_arm = "extended")
 
     pause 1.0
 
@@ -145,7 +169,12 @@ label Jean_chapter_one_season_one_third_training_session:
 
     call Jean_deactivate_psychic from _call_Jean_deactivate_psychic_14
 
+    $ Jean.change_arms("neutral")
+
     ch_Jean "Thanks."
+    
+    $ Jean.change_arms("crossed")
+
     ch_Jean "I think that's enough for today. . ." 
     ch_Jean "I'll see you later."
 
