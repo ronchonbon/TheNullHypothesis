@@ -6,7 +6,7 @@ init -1:
 
     default cinematic_bars = True
 
-    default comic_filter = False
+    default image_filter = None
 
     default flashing_lights = True
 
@@ -235,7 +235,7 @@ screen preferences():
         text preferences_label + "_" anchor (0.0, 0.5) pos (0.065, 0.336)
 
     if preferences_tab == "graphics":
-        hbox anchor (0.5, 0.5) pos (0.431, 0.643) xysize (int(2800*interface_new_adjustment), int(1150*interface_new_adjustment)):
+        hbox anchor (0.5, 0.5) pos (0.431, 0.675) xysize (int(2800*interface_new_adjustment), int(1150*interface_new_adjustment)):
             spacing 50
 
             vbox:
@@ -266,25 +266,35 @@ screen preferences():
                 spacing 50
                 
                 vbox:
-                    text "COMIC FILTER" anchor (0.5, 0.5) pos (0.47, 0.5)
+                    text "IMAGE FILTER" anchor (0.5, 0.5) pos (0.5, 0.5)
 
-                    button xysize (int(321*interface_new_adjustment), int(190*interface_new_adjustment)):
-                        idle_background At("images/interface/preferences/off.webp", interface) 
-                        hover_background At("images/interface/preferences/off.webp", interface) 
-                        selected_idle_background At("images/interface/preferences/on.webp", interface) 
-                        selected_hover_background At("images/interface/preferences/on.webp", interface)
+                    fixed xysize (int(700*interface_new_adjustment), int(190*interface_new_adjustment)):
+                        imagebutton anchor (0.0, 0.5) pos (0.0, 0.5):
+                            idle At("images/interface/Player_customization/left_idle.webp", interface)
+                            hover At("images/interface/Player_customization/left.webp", interface)
 
-                        hover_sound None
-                        
-                        selected comic_filter
+                            if image_filter == "comic":
+                                action SetVariable("image_filter", None)
+                            elif image_filter == "tv":
+                                action SetVariable("image_filter", "comic")
+                            else:
+                                action SetVariable("image_filter", "tv")
 
-                        text "OFF" anchor (0.5, 0.5) pos (0.2, 0.461):
-                            size 25
+                        if image_filter:
+                            text image_filter.upper() anchor (0.5, 0.5) pos (0.5, 0.5)
+                        else:
+                            text "OFF" anchor (0.5, 0.5) pos (0.5, 0.5)
 
-                        text "ON" anchor (0.5, 0.5) pos (0.7, 0.461):
-                            size 25
+                        imagebutton anchor (1.0, 0.5) pos (1.0, 0.5):
+                            idle At("images/interface/Player_customization/right_idle.webp", interface)
+                            hover At("images/interface/Player_customization/right.webp", interface)
 
-                        action ToggleVariable("comic_filter")
+                            if image_filter == "comic":
+                                action SetVariable("image_filter", "tv")
+                            elif image_filter == "tv":
+                                action SetVariable("image_filter", None)
+                            else:
+                                action SetVariable("image_filter", "comic")
 
                 vbox:
                     text "CINEMATIC BARS" anchor (0.5, 0.5) pos (0.47, 0.5)
@@ -375,6 +385,27 @@ screen preferences():
                             ToggleVariable("dialogue_hidden"),
                             ToggleVariable("belt_hidden"),
                             ToggleVariable("Action_screen_hidden")]
+
+                vbox:
+                    text "WARDROBE MAGAZINE" anchor (0.5, 0.5) pos (0.47, 0.5)
+
+                    button xysize (int(321*interface_new_adjustment), int(190*interface_new_adjustment)):
+                        idle_background At("images/interface/preferences/off.webp", interface) 
+                        hover_background At("images/interface/preferences/off.webp", interface) 
+                        selected_idle_background At("images/interface/preferences/on.webp", interface) 
+                        selected_hover_background At("images/interface/preferences/on.webp", interface)
+
+                        hover_sound None
+                        
+                        selected wardrobe_magazine
+
+                        text "OFF" anchor (0.5, 0.5) pos (0.2, 0.461):
+                            size 25
+
+                        text "ON" anchor (0.5, 0.5) pos (0.7, 0.461):
+                            size 25
+
+                        action ToggleVariable("wardrobe_magazine")
     elif preferences_tab == "audio":
         hbox anchor (0.5, 0.5) pos (0.431, 0.643) xysize (int(2800*interface_new_adjustment), int(1150*interface_new_adjustment)):
             spacing 50

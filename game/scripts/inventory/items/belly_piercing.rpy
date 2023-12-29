@@ -5,13 +5,14 @@ init -1 python:
         string = "belly_piercing"
 
         shop_type = "sex"
-        filter_type = None
+        filter_type = "gifts"
 
         threshold = [500, 500]
         criteria = []
 
-        description = "All piercings are done in house by a certified body piercer. Don't worry, she's very gentle."
-        
+        # description = "All piercings are done in house by a certified body piercer. Don't worry, she's very gentle."
+        description = "Non-toxic and made to last: the perfect gift to spice up that special someone's look."
+
         price = 3
         
         return ItemClass(

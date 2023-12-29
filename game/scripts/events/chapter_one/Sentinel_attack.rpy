@@ -275,7 +275,7 @@ label ch1_Sentinel_attack:
     play music "sounds/cinematic/Sentinels.ogg" fadeout 0.25
     show screen disable_click(1.0)
 
-    ch_cashier "Unfortunately it's only one item per custo. . .{w= 1.5}{nw}"
+    ch_cashier "Is there anything else I can help you with to. . .{w= 1.5}{nw}"
 
     show expression "images/effects/crash.webp" as crash onlayer effects:
         anchor (0.5, 0.5) pos (0.5, 0.5)

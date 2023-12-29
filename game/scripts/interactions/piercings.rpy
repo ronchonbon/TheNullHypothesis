@@ -80,6 +80,11 @@ label give_Character_piercing(Character, Piercing, mall = False, discounted = Fa
         if Piercing.string not in Character.inventory.keys():
             $ Character.inventory[Piercing.string] = Piercing
 
+            if len(Player.inventory[Piercing.string]) > 1:
+                $ Player.inventory[Piercing.string].remove(Piercing)
+            else:
+                $ del Player.inventory[Piercing.string]
+
         $ Character.History.update(f"put_in_{Piercing.string}")
     else:
         if Character.History.check(f"said_no_to_{Piercing.string}", tracker = "recent") >= 1:
@@ -100,6 +105,6 @@ label give_Character_piercing(Character, Piercing, mall = False, discounted = Fa
         $ Character_picker_disabled = False
         $ belt_disabled = False
 
-        show screen shop_screen("sex")
+        call screen shop_screen("sex")
 
     return

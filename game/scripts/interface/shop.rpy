@@ -5,13 +5,18 @@ init -1:
         "gift": {},
         "lingerie": {},
         "sex": {}}
-    default current_shop_Item = None
-    
     default unrestricted_shop_inventory = {
         "clothing": {},
         "gift": {},
         "lingerie": {},
         "sex": {}}
+
+    default current_shop_page = 0
+    default current_shop_Item = None
+    
+    default shopping_cart = []
+
+    default something_bought = False
 
 init python:
 
@@ -19,26 +24,15 @@ init python:
 
 style shop is default
 
-style shop_button:
-    idle_background Frame(At("images/interface/box1.webp", interface), 10, 10)
-    hover_background Frame(At("images/interface/box2.webp", interface), 10, 10)
-
-    padding (20, 20, 20, 20)
-
-    xsize 0.2
-    yminimum 0.07
-
-style shop_text:
-    font "agency_fb.ttf"
-
-    color "#000000"
-
 screen shop_screen(shop_type, discount = False, restricted = True):
     layer "interface"
     
     style_prefix "shop"
 
     on "show" action [
+        SetVariable("current_shop_page", 0),
+        SetVariable("current_shop_Item", None),
+        SetVariable("shopping_cart", []),
         SetVariable("belt_hidden", True),
         SetVariable("say_obscured", True),
         SetVariable("choice_disabled", True),
@@ -49,255 +43,235 @@ screen shop_screen(shop_type, discount = False, restricted = True):
         SetVariable("choice_disabled", False),
         SetVariable("Character_picker_disabled", False)]
 
+    timer 0.5 repeat True action ToggleVariable("blinking")
+
     if discount:
         $ modifier = 0.5
     else:
         $ modifier = 1.0
 
-    frame xysize (1041, 888) anchor (0.5, 0.5) pos (0.5, 0.55):
-        background "images/interface/shop/shop.webp"
+    add "images/interface/main_menu/blank_background.webp" zoom interface_new_adjustment
 
-        if shop_type == "clothing":
-            add "images/interface/shop/mutant_couture.webp" pos (0.03, -0.15)
-        elif shop_type == "gift":
-            add "images/interface/shop/bear_with_me.webp" pos (0.03, -0.15)
-        elif shop_type == "lingerie":
-            add "images/interface/shop/xtreme_intimates.webp" pos (0.03, -0.15)
-        elif shop_type == "sex":
-            add "images/interface/shop/moaning_of_life.webp" pos (0.03, -0.15)
+    add At("images/interface/preferences/spin.webp", spinning_element) anchor (0.5, 0.5) pos (0.502, 0.502) zoom interface_new_adjustment
 
-        viewport id "shop_screen_viewport" anchor (0.5, 0.0) pos (0.297, 0.18) xysize (500, 620):
-            draggable True
-            mousewheel True
+    add "images/interface/shop/background.webp" zoom interface_new_adjustment
 
-            xfill True
+    if shop_type == "clothing":
+        add "images/interface/shop/mutant_couture.webp" zoom interface_new_adjustment
+    elif shop_type == "gift":
+        add "images/interface/shop/bear_with_me.webp" zoom interface_new_adjustment
+    elif shop_type == "lingerie":
+        add "images/interface/shop/xtreme_intimates.webp" zoom interface_new_adjustment
+    elif shop_type == "sex":
+        add "images/interface/shop/moaning_of_life.webp" zoom interface_new_adjustment
 
-            vbox align (0.0, 0.0):
-                spacing 5
+    add "images/interface/shop/tab.webp" zoom interface_new_adjustment
 
-                if restricted:
-                    for I in shop_inventory[shop_type].values():
-                        if not "piercing" in I.string or focused_Character in Present:
-                            button xysize (490, 93):
-                                idle_background "images/interface/shop/Item.webp" 
-                                hover_background "images/interface/shop/Item_selected.webp" 
-                                selected_idle_background "images/interface/shop/Item_selected.webp"
-                                
-                                selected current_shop_Item and current_shop_Item.Owner == I.Owner and current_shop_Item.string == I.string
+    if restricted:
+        $ shopping_list = list(shop_inventory[shop_type].values())
+    else:
+        $ shopping_list = list(unrestricted_shop_inventory[shop_type].values())
 
-                                action SetScreenVariable("current_shop_Item", copy.copy(I))
-
-                                text f"{I.name}" anchor (0.0, 0.5) pos (0.01, 0.5) size 30
-
-                                if discount:
-                                    $ temp = int(modifier*I.price)
-
-                                    text "{s}[I.price]{/s} [temp]" anchor (1.0, 0.5) pos (0.99, 0.5) size 30
-                                else:
-                                    text f"{I.price}" anchor (1.0, 0.5) pos (0.99, 0.5) size 30
-                else:
-                    for I in unrestricted_shop_inventory[shop_type].values():
-                        if not "piercing" in I.string or focused_Character in Present:
-                            button xysize (490, 93):
-                                idle_background "images/interface/shop/Item.webp" 
-                                hover_background "images/interface/shop/Item_selected.webp" 
-                                selected_idle_background "images/interface/shop/Item_selected.webp"
-                                
-                                selected current_shop_Item and current_shop_Item.Owner == I.Owner and current_shop_Item.string == I.string
-
-                                action SetScreenVariable("current_shop_Item", copy.copy(I))
-
-                                text f"{I.name}" anchor (0.0, 0.5) pos (0.01, 0.5) size 30
-
-                                if discount:
-                                    $ temp = int(modifier*I.price)
-
-                                    text "{s}[I.price]{/s} [temp]" anchor (1.0, 0.5) pos (0.99, 0.5) size 30
-                                else:
-                                    text f"{I.price}" anchor (1.0, 0.5) pos (0.99, 0.5) size 30
-
-        vbar value YScrollValue("shop_screen_viewport") anchor (0.0, 0.0) pos (0.538, 0.178) xysize (22, 626):
-            base_bar Frame("images/interface/wardrobe/scrollbar.webp")
-
-            thumb "images/interface/wardrobe/scrollbar_thumb.webp"
-            thumb_offset 10
-
-            unscrollable "hide"
-
-        text f"{Player.cash}" anchor (1.0, 0.5) pos (0.9, 0.554) size 44 
-
-        if current_shop_Item:
-            if shop_type in ["gift", "sex"]: 
-                if current_shop_Item.string in Player.inventory.keys():
-                    $ quantities = len(Player.inventory[current_shop_Item.string])
-                elif "piercing" in current_shop_Item.string:
-                    $ quantities = None
-                else:
-                    $ quantities = 0
-
-                if quantities is not None:
-                    add "images/interface/shop/quantity.webp" anchor (0.5, 0.5) pos (0.739, 0.663)
-
-                    text f"{quantities}" anchor (1.0, 0.5) pos (0.82, 0.66) size 44
-
-            if hasattr(current_shop_Item, "description"):
-                text f"{current_shop_Item.description}" anchor (0.5, 0.5) pos (0.807, 0.19) xysize (300, 250) size 30
-            elif shop_type == "clothing":
-                add "images/interface/items/mutant_couture.webp" anchor (0.5, 0.5) pos (0.805, 0.19) zoom 1.2*item_adjustment
-            elif shop_type == "lingerie":
-                add "images/interface/items/xtreme_intimates.webp" anchor (0.5, 0.5) pos (0.805, 0.19) zoom 1.2*item_adjustment
-        else:
-            if shop_type in ["gift", "sex"]: 
-                add "images/interface/shop/quantity.webp" anchor (0.5, 0.5) pos (0.739, 0.663)
-
-        if current_shop_Item and (shop_type in ["clothing", "lingerie"] or current_shop_Item.filter_type == "key_gifts"):
-            add At(f"images/interface/phone/icons/{current_shop_Item.Owner.tag}.webp", humhum_icon) anchor (0.5, 0.5) pos (0.93, 0.435)
-
-        if shop_type in ["clothing", "lingerie"]:
-            imagebutton anchor (0.5, 0.5) pos (0.737, 0.671):
-                idle "images/interface/shop/try_idle.webp" 
-                hover "images/interface/shop/try.webp"
-                
-                if current_shop_Item and current_shop_Item.Owner in Present:
-                    action Call("ask_Character_to_try_on", current_shop_Item, from_current = True)
-                else:
-                    action None
-                
-                tooltip "Try On"
-
-        imagebutton anchor (0.5, 0.5) pos (0.737, 0.805):
-            idle "images/interface/shop/buy_idle.webp" 
-            hover "images/interface/shop/buy.webp"
-            
-            if current_shop_Item and Player.cash >= int(modifier*current_shop_Item.price):
-                if ongoing_Event:
-                    if shop_type in ["clothing", "lingerie"]:
-                        if current_shop_Item.string in shop_inventory[shop_type].keys():
-                            action [
-                                SetDict(Player.inventory, current_shop_Item.string, current_shop_Item),
-                                SetVariable("Player.cash", Player.cash - int(modifier*current_shop_Item.price)),
-                                Function(exec, f"del shop_inventory['{shop_type}']['{current_shop_Item.string}']"),
-                                Function(exec, f"del unrestricted_shop_inventory['{shop_type}']['{current_shop_Item.string}']"),
-                                SetScreenVariable("current_shop_Item", None),
-                                SetVariable("inventory_alert", True),
-                                Return(True)]
-                        else:
-                            action [
-                                SetDict(Player.inventory, current_shop_Item.string, current_shop_Item),
-                                SetVariable("Player.cash", Player.cash - int(modifier*current_shop_Item.price)),
-                                Function(exec, f"del unrestricted_shop_inventory['{shop_type}']['{current_shop_Item.string}']"),
-                                SetScreenVariable("current_shop_Item", None),
-                                SetVariable("inventory_alert", True),
-                                Return(True)]
-                    elif current_shop_Item.filter_type == "key_gifts":
-                        if current_shop_Item.string in shop_inventory[shop_type].keys():
-                            action [
-                                SetDict(Player.inventory, current_shop_Item.string, [current_shop_Item]),
-                                SetVariable("Player.cash", Player.cash - int(modifier*current_shop_Item.price)),
-                                Function(exec, f"del shop_inventory['{shop_type}']['{current_shop_Item.string}']"),
-                                Function(exec, f"del unrestricted_shop_inventory['{shop_type}']['{current_shop_Item.string}']"),
-                                SetScreenVariable("current_shop_Item", None),
-                                SetVariable("inventory_alert", True),
-                                Return(True)]
-                        else:
-                            action [
-                                SetDict(Player.inventory, current_shop_Item.string, [current_shop_Item]),
-                                SetVariable("Player.cash", Player.cash - int(modifier*current_shop_Item.price)),
-                                Function(exec, f"del unrestricted_shop_inventory['{shop_type}']['{current_shop_Item.string}']"),
-                                SetScreenVariable("current_shop_Item", None),
-                                SetVariable("inventory_alert", True),
-                                Return(True)]
-                    else:
-                        if current_shop_Item.string in Player.inventory.keys():
-                            action [
-                                AddToSet(Player.inventory[current_shop_Item.string], current_shop_Item),
-                                SetVariable("Player.cash", Player.cash - int(modifier*current_shop_Item.price)),
-                                SetScreenVariable("current_shop_Item", copy.copy(current_shop_Item)),
-                                SetVariable("inventory_alert", True),
-                                Return(True)]
-                        else:
-                            action [
-                                SetDict(Player.inventory, current_shop_Item.string, [current_shop_Item]),
-                                SetVariable("Player.cash", Player.cash - int(modifier*current_shop_Item.price)),
-                                SetScreenVariable("current_shop_Item", copy.copy(current_shop_Item)),
-                                SetVariable("inventory_alert", True),
-                                Return(True)]
-                else:
-                    if "piercing" in current_shop_Item.string:
-                        action Show("piercings_screen", Characters = Present, Piercing = current_shop_Item, discount = discount)
-                    elif shop_type in ["gift", "sex"]:
-                        action [
-                            Show("buy_gift_screen", Characters = Present, Item = current_shop_Item, discount = discount),
-                            SetScreenVariable("current_shop_Item", None)]
-                    elif current_shop_Item.Owner not in Present:
-                        if shop_type in ["clothing", "lingerie"]:
-                            if current_shop_Item.string in shop_inventory[shop_type].keys():
-                                action [
-                                    SetDict(Player.inventory, current_shop_Item.string, current_shop_Item),
-                                    SetVariable("Player.cash", Player.cash - int(modifier*current_shop_Item.price)),
-                                    Function(exec, f"del shop_inventory['{shop_type}']['{current_shop_Item.string}']"),
-                                    Function(exec, f"del unrestricted_shop_inventory['{shop_type}']['{current_shop_Item.string}']"),
-                                    SetScreenVariable("current_shop_Item", None),
-                                    SetVariable("inventory_alert", True)]
-                            else:
-                                action [
-                                    SetDict(Player.inventory, current_shop_Item.string, current_shop_Item),
-                                    SetVariable("Player.cash", Player.cash - int(modifier*current_shop_Item.price)),
-                                    Function(exec, f"del unrestricted_shop_inventory['{shop_type}']['{current_shop_Item.string}']"),
-                                    SetScreenVariable("current_shop_Item", None),
-                                    SetVariable("inventory_alert", True)]
-                        elif current_shop_Item.filter_type == "key_gifts":
-                            if current_shop_Item.string in shop_inventory[shop_type].keys():
-                                action [
-                                    SetDict(Player.inventory, current_shop_Item.string, [current_shop_Item]),
-                                    SetVariable("Player.cash", Player.cash - int(modifier*current_shop_Item.price)),
-                                    Function(exec, f"del shop_inventory['{shop_type}']['{current_shop_Item.string}']"),
-                                    Function(exec, f"del unrestricted_shop_inventory['{shop_type}']['{current_shop_Item.string}']"),
-                                    SetScreenVariable("current_shop_Item", None),
-                                    SetVariable("inventory_alert", True)]
-                            else:
-                                action [
-                                    SetDict(Player.inventory, current_shop_Item.string, [current_shop_Item]),
-                                    SetVariable("Player.cash", Player.cash - int(modifier*current_shop_Item.price)),
-                                    Function(exec, f"del unrestricted_shop_inventory['{shop_type}']['{current_shop_Item.string}']"),
-                                    SetScreenVariable("current_shop_Item", None),
-                                    SetVariable("inventory_alert", True)]
-                        else:
-                            if current_shop_Item.string in Player.inventory.keys():
-                                action [
-                                    AddToSet(Player.inventory[current_shop_Item.string], current_shop_Item),
-                                    SetVariable("Player.cash", Player.cash - int(modifier*current_shop_Item.price)),
-                                    SetScreenVariable("current_shop_Item", copy.copy(current_shop_Item)),
-                                    SetVariable("inventory_alert", True)]
-                            else:
-                                action [
-                                    SetDict(Player.inventory, current_shop_Item.string, [current_shop_Item]),
-                                    SetVariable("Player.cash", Player.cash - int(modifier*current_shop_Item.price)),
-                                    SetScreenVariable("current_shop_Item", copy.copy(current_shop_Item)),
-                                    SetVariable("inventory_alert", True)]
-                    else:
-                        action [
-                            Function(renpy.call_in_new_context, "buy_Character_Clothing", current_shop_Item, discounted = discount),
-                            SetScreenVariable("current_shop_Item", None)]
-            else:
-                action None
-
-            tooltip "Buy"
-
-        imagebutton anchor (0.5, 0.5) pos (0.9105, 0.7505):
-            idle "images/interface/shop/back_idle.webp" 
-            hover "images/interface/shop/back.webp"
-
-            if ongoing_Event:
-                action Return(False)
-            else:
-                action Call("debrief_Outfit_change", Present, instant = True, from_current = True)
-
-            tooltip "Exit"
-
-    if current_shop_Item and current_shop_Item.Owner in Present:
-        add f"{current_shop_Item.Owner.tag}_sprite standing" anchor (current_shop_Item.Owner.sprite_anchor[0], current_shop_Item.Owner.sprite_anchor[1]) pos (0.85, eval(f"{current_shop_Item.Owner.tag}_standing_height")) zoom eval(f"{current_shop_Item.Owner.tag}_standing_zoom")
+    imagebutton:
+        idle At("images/interface/shop/left_idle.webp", interface) 
+        hover At("images/interface/shop/left.webp", interface)
         
+        if len(shopping_list) > 7:
+            action SetScreenVariable("current_shop_page", (current_shop_page - 1) % math.ceil(len(shopping_list)/7))    
+        else:
+            action None
+
+    if current_shop_page < 9:
+        if blinking:
+            text "TAB{alpha=0.0}_{/alpha}" + f"0{current_shop_page + 1}" anchor (0.5, 0.5) pos (0.186, 0.661):
+                size 35
+        else:
+            text f"TAB_0{current_shop_page + 1}" anchor (0.5, 0.5) pos (0.186, 0.661):
+                size 35
+    else:
+        if blinking:
+            text "TAB{alpha=0.0}_{/alpha}" + f"{current_shop_page + 1}" anchor (0.5, 0.5) pos (0.186, 0.661):
+                size 35
+        else:
+            text f"TAB_{current_shop_page + 1}" anchor (0.5, 0.5) pos (0.186, 0.661):
+                size 35
+
+    imagebutton:
+        idle At("images/interface/shop/right_idle.webp", interface) 
+        hover At("images/interface/shop/right.webp", interface)
+
+        if len(shopping_list) > 7:
+            action SetScreenVariable("current_shop_page", (current_shop_page + 1) % math.ceil(len(shopping_list)/7))    
+        else:
+            action None
+
+    vbox anchor (0.5, 0.0) pos (0.546, 0.315) xysize (0.41, 0.6):
+        spacing -5
+
+        for i in range(7*current_shop_page, 7*current_shop_page + 7):
+            if i <= len(shopping_list) - 1:
+                $ I = shopping_list[i]
+                
+                $ quantity = 0
+                $ removable_Item = None
+
+                for I_temp in shopping_cart:
+                    if I.Owner == I_temp.Owner and I.string == I_temp.string:
+                        $ quantity += 1
+                        $ removable_Item = I_temp
+
+                fixed xysize (1.0, int(177*interface_new_adjustment)):
+                    button anchor (0.0, 0.5) pos (0.0, 0.5) xysize (int(925*interface_new_adjustment), int(177*interface_new_adjustment)):
+                        idle_background At("images/interface/shop/item_idle.webp", interface)
+                        hover_background At("images/interface/shop/item.webp", interface) 
+                        selected_idle_background At("images/interface/shop/item.webp", interface)
+
+                        selected current_shop_Item and current_shop_Item.Owner == I.Owner and current_shop_Item.string == I.string
+
+                        action SetScreenVariable("current_shop_Item", copy.copy(I))
+
+                        text f"{I.name.upper()}" anchor (0.0, 0.5) pos (0.02, 0.5):
+                            font "agency_fb.ttf"
+
+                            size 30
+
+                    add "images/interface/shop/price.webp" anchor (0.5, 0.5) pos (0.6735, 0.53) zoom interface_new_adjustment
+
+                    if discount:
+                        $ temp = int(modifier*I.price)
+
+                        text "${s}[I.price]{/s} [temp]" anchor (0.5, 0.5) pos (0.6735, 0.53):
+                            size 30
+                    else:
+                        text f"${I.price}" anchor (0.5, 0.5) pos (0.6735, 0.53):
+                            size 30
+
+                    imagebutton anchor (0.5, 0.5) pos (0.8068, 0.52):
+                        idle At("images/interface/shop/plus_idle.webp", interface)
+                        hover At("images/interface/shop/plus.webp", interface)
+
+                        action AddToSet(shopping_cart, copy.copy(I))
+
+                    add "images/interface/shop/quantity.webp" anchor (0.5, 0.5) pos (0.88, 0.53) zoom interface_new_adjustment
+
+                    text f"{quantity}" anchor (0.5, 0.5) pos (0.88, 0.53):
+                        size 30
+
+                    imagebutton anchor (1.0, 0.5) pos (1.0, 0.52):
+                        idle At("images/interface/shop/minus_idle.webp", interface)
+                        hover At("images/interface/shop/minus.webp", interface)
+
+                        if removable_Item:
+                            action RemoveFromSet(shopping_cart, removable_Item)
+                        else:
+                            action None
+
+    # if blinking:
+    text "CASH" + "{alpha=0.0}_{/alpha}" anchor (0.0, 0.5) pos (0.065, 0.586):
+        size 36
+    # else:
+    #     text Character.Outfit.name.upper() + "_" anchor (0.0, 0.5) pos (0.242, 0.063):
+    #         size 32
+
+    text f"${Player.cash}" anchor (1.0, 0.5) pos (0.318, 0.586):
+        size 36
+
+    $ total_cost = 0
+
+    for I in shopping_cart:
+        $ total_cost += I.price
+
+    $ total_cost = int(total_cost*modifier)
+
+    # if blinking:
+    text "TOTAL" + "{alpha=0.0}_{/alpha}" anchor (0.0, 0.5) pos (0.505, 0.91):
+        size 36
+    # else:
+    #     text Character.Outfit.name.upper() + "_" anchor (0.0, 0.5) pos (0.242, 0.063):
+    #         size 32
+
+    text f"${total_cost}" anchor (1.0, 0.5) pos (0.745, 0.91):
+        size 36
+
+    imagebutton:
+        idle At("images/interface/shop/buy_idle.webp", interface)
+        hover At("images/interface/shop/buy.webp", interface)
+
+        if shopping_cart and Player.cash >= total_cost:
+            action [
+                SetVariable("something_bought", True),
+                SetVariable("Player.cash", Player.cash - total_cost),
+                Function(buy_shopping_cart, cart = shopping_cart),
+                SetVariable("shopping_cart", []),
+                SetVariable("inventory_alert", True)]
+        else:
+            action None
+
+        tooltip "Buy Cart"
+
+    text "BUY" anchor (0.5, 0.5) pos (0.367, 0.91):
+        size 36
+
+    imagebutton:
+        idle At("images/interface/shop/clear_idle.webp", interface)
+        hover At("images/interface/shop/clear.webp", interface)
+
+        action SetVariable("shopping_cart", [])
+
+        tooltip "Clear Cart"
+
+    text "CLEAR" anchor (0.5, 0.5) pos (0.445, 0.91):
+        size 36
+
+    imagebutton:
+        idle At("images/interface/shop/quit_idle.webp", interface)
+        hover At("images/interface/shop/quit.webp", interface)
+
+        action [
+            Hide("shop_screen"),
+            Return(something_bought)]
+
+        tooltip "Exit"
+
+    text "DONE" anchor (0.0, 0.5) pos (0.065, 0.738):
+        size 36
+
+    # if blinking:
+    text "ITEM DESCRIPTION" + "{alpha=0.0}_{/alpha}" anchor (0.0, 0.5) pos (0.776, 0.336):
+        size 36
+    # else:
+    #     text Character.Outfit.name.upper() + "_" anchor (0.0, 0.5) pos (0.242, 0.063):
+    #         size 32
+
+    # if blinking:
+    text "FAVORITE" + "{alpha=0.0}_{/alpha}" anchor (0.0, 0.5) pos (0.776, 0.683):
+        size 36
+    # else:
+    #     text Character.Outfit.name.upper() + "_" anchor (0.0, 0.5) pos (0.242, 0.063):
+    #         size 32
+
+    # if blinking:
+    text "OWNED" + "{alpha=0.0}_{/alpha}" anchor (0.0, 0.5) pos (0.776, 0.91):
+        size 36
+    # else:
+    #     text Character.Outfit.name.upper() + "_" anchor (0.0, 0.5) pos (0.242, 0.063):
+    #         size 32
+
+    if current_shop_Item:
+        if hasattr(current_shop_Item, "description"):
+            text f"{current_shop_Item.description}" anchor (0.5, 0.5) pos (0.851, 0.507) xysize (0.159, 0.235):
+                size 30
+
+        if shop_type in ["clothing", "lingerie"] or current_shop_Item.filter_type == "key_gifts":
+            add f"images/interface/phone/icons/{current_shop_Item.Owner.tag}.webp" anchor (0.5, 0.5) pos (0.851, 0.797) zoom 0.5
+
+        if current_shop_Item.string in Player.inventory.keys():
+            text f"{len(Player.inventory[current_shop_Item.string])}" anchor (1.0, 0.5) pos (0.926, 0.91):
+                size 36
+        else:
+            text "0" anchor (1.0, 0.5) pos (0.926, 0.91):
+                size 36
+
     if black_screen or renpy.get_screen("say"):
         button xysize (1.0, 1.0):
             background None
@@ -311,134 +285,3 @@ screen shop_screen(shop_type, discount = False, restricted = True):
 
     if tooltips_enabled:
         use tooltips
-
-screen buy_gift_screen(Characters, Item, discount = False):
-    modal True
-
-    style_prefix "shop"
-
-    if discount:
-        $ modifier = 0.5
-    else:
-        $ modifier = 1.0
-
-    frame xysize (0.25, 0.45):
-        idle_background Frame(At("images/interface/box1.webp", interface), 10, 10)
-
-        viewport id "buy_gift_screen_viewport" align (0.5, 0.5) xysize (0.8, 0.9):
-            vbox align (0.5, 0.0) xsize 1.0:
-                spacing 5
-
-                text "Give to whom?" xsize 1.0:
-                    size 36
-
-                    color "#ffffff"
-
-                if Item.string in Player.inventory.keys():
-                    $ quantities = len(Player.inventory[Item.string])
-                else:
-                    $ quantities = 0
-
-                for C in Characters:
-                    if C in all_Companions and Item.string not in C.inventory.keys() and (not Item.Owner or Item.Owner == C):
-                        textbutton f"{C.name}" xsize 1.0:
-                            text_font "agency_fb.ttf"
-
-                            action [
-                                Hide("buy_gift_screen"),
-                                Call("buy_Character_gift", C, Item, discounted = discount, from_current = True)]
-
-                            text_size 36
-
-                textbutton "Put in bag" xsize 1.0:
-                    text_font "agency_fb.ttf"
-
-                    if Item.filter_type == "key_gifts":
-                        if Item.string in Player.inventory.keys():
-                            action [
-                                AddToSet(Player.inventory[Item.string], Item),
-                                SetVariable("Player.cash", Player.cash - int(modifier*Item.price)),
-                                Function(exec, f"del shop_inventory['{Item.shop_type}']['{Item.string}']"),
-                                Function(exec, f"del unrestricted_shop_inventory['{Item.shop_type}']['{Item.string}']"),
-                                SetVariable("inventory_alert", True),
-                                Hide("buy_gift_screen")]
-                        else:
-                            action [
-                                SetDict(Player.inventory, Item.string, [Item]),
-                                SetVariable("Player.cash", Player.cash - int(modifier*Item.price)),
-                                Function(exec, f"del shop_inventory['{Item.shop_type}']['{Item.string}']"),
-                                Function(exec, f"del unrestricted_shop_inventory['{Item.shop_type}']['{Item.string}']"),
-                                SetVariable("inventory_alert", True),
-                                Hide("buy_gift_screen")]
-                    else:
-                        if Item.string in Player.inventory.keys():
-                            action [
-                                AddToSet(Player.inventory[Item.string], Item),
-                                SetVariable("Player.cash", Player.cash - int(modifier*Item.price)),
-                                SetVariable("inventory_alert", True),
-                                Hide("buy_gift_screen")]
-                        else:
-                            action [
-                                SetDict(Player.inventory, Item.string, [Item]),
-                                SetVariable("Player.cash", Player.cash - int(modifier*Item.price)),
-                                SetVariable("inventory_alert", True),
-                                Hide("buy_gift_screen")]
-
-                    text_size 36
-
-                textbutton _("Cancel") xsize 1.0:
-                    text_font "agency_fb.ttf"
-
-                    action Hide("buy_gift_screen")
-
-                    text_size 36
-
-        vbar value YScrollValue("buy_gift_screen_viewport") anchor (0.0, 0.5) pos (0.925, 0.5) xsize 22 ysize 0.9:
-            base_bar Frame("images/interface/wardrobe/scrollbar.webp")
-
-            thumb "images/interface/wardrobe/scrollbar_thumb.webp"
-            thumb_offset 10
-
-            unscrollable "hide"
-
-screen piercings_screen(Characters, Piercing, discount = False):
-    modal True
-
-    style_prefix "shop"
-
-    frame xysize (0.25, 0.45):
-        idle_background Frame(At("images/interface/box1.webp", interface), 10, 10)
-
-        viewport id "piercings_screen_viewport" align (0.5, 0.5) xysize (0.8, 0.9):
-            vbox align (0.5, 0.0) xsize 1.0:
-                spacing 5
-
-                text "Who should get a piercing?" xsize 1.0:
-                    size 36
-
-                    color "#ffffff"
-
-                for C in Characters:
-                    if C in all_Companions:
-                        if Piercing.string not in C.inventory.keys():
-                            textbutton f"{C.name}" xsize 1.0:
-                                text_font "agency_fb.ttf"
-
-                                action Call("give_Character_piercing", C, Piercing, mall = True, discounted = discount, from_current = True)
-
-                                text_size 36
-
-                textbutton _("Cancel") xsize 1.0:
-                    text_font "agency_fb.ttf"
-
-                    action Hide("piercings_screen")
-
-                    text_size 36
-
-        vbar value YScrollValue("piercings_screen_viewport") anchor (0.0, 0.5) pos (0.925, 0.5) xsize 22 ysize 0.9:
-            base_bar Frame("images/interface/wardrobe/scrollbar.webp")
-
-            thumb "images/interface/wardrobe/scrollbar_thumb.webp"
-            thumb_offset 10
-
-            unscrollable "hide"

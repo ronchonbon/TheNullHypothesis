@@ -670,7 +670,6 @@ label ch1_mutant_hate:
 
     ". . ."
 
-    hide town_background onlayer master
     hide mob onlayer master
     hide solid_black onlayer cinematic
 

@@ -48,7 +48,7 @@ screen test_screen():
     vbox anchor (0.5, 0.0) pos (0.51, 0.32):
         spacing 117
 
-        for item in ["flashing_lights", "comic_filter", "tooltips_enabled", "cinematic_bars"]:
+        for item in ["flashing_lights", "image_filter", "tooltips_enabled", "cinematic_bars"]:
             hbox anchor (0.0, 0.5) pos (0.0, 0.5):
                 spacing 50
 
@@ -57,7 +57,10 @@ screen test_screen():
 
                     selected eval(item)
 
-                    action SetVariable(item, True)
+                    if item == "image_filter":
+                        action SetVariable(item, "comic")
+                    else:
+                        action SetVariable(item, True)
 
                     focus_mask None
 
@@ -66,7 +69,10 @@ screen test_screen():
 
                     selected not eval(item)
 
-                    action SetVariable(item, False)
+                    if item == "image_filter":
+                        action SetVariable(item, None)
+                    else:
+                        action SetVariable(item, True)
 
                     focus_mask None
 

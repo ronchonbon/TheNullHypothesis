@@ -7,8 +7,8 @@ image menu_background:
     # pause 5.0
     "images/interface/main_menu/Charles.webp" with Dissolve(0.5, alpha = True)
     pause 5.0
-    # "images/interface/main_menu/Jean.webp" with Dissolve(0.5, alpha = True)
-    # pause 5.0
+    "images/interface/main_menu/Jean.webp" with Dissolve(0.5, alpha = True)
+    pause 5.0
     # "images/interface/main_menu/Kurt.webp" with Dissolve(0.5, alpha = True)
     # pause 5.0
     # repeat

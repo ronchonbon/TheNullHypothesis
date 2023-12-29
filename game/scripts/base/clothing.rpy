@@ -105,7 +105,7 @@ init -3 python:
             self.shame = 0
 
             self.Outfit_type = "default"
-            self.color = "yellow"
+            self.color = "grey"
 
             self.disabled = False
 

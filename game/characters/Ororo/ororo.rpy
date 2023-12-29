@@ -426,6 +426,8 @@ init -2 python:
         all_Companions.append(Ororo)
         Professors.append(Ororo)
 
+        bedrooms.append(Ororo.home)
+
         return Ororo
 
     def Ororo_faces(face):

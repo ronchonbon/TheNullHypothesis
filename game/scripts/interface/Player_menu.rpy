@@ -43,18 +43,19 @@ init -4:
                 "bg_Laura",
                 "bg_Player",
                 "bg_Rogue",
-                "bg_Ororo",
                 "bg_Charles"],
-            "Attic": []},
+            "Attic": [
+                "bg_Ororo"]},
 
         "Mall": {
             "First Floor": [
                 "bg_mall",
                 "bg_movies"]},
 
-        "Town": {
-            "Main Street": [
-                "bg_town"]}}
+        # "Town": {
+        #     "Main Street": [
+        #         "bg_town"]}
+        }
 
     default current_group = "Institute"
     default current_subgroup = "Second Floor"
@@ -81,7 +82,8 @@ init -4:
         "bg_Rogue": [],
         "bg_lockers": [],
         "bg_study": [],
-        "bg_Charles": []}
+        "bg_Charles": [],
+        "bg_Ororo": []}
 
 init -1 python:
 
@@ -643,7 +645,10 @@ screen inventory_screen():
 
                     hover_sound None
 
-                    add f"images/interface/items/{Item_string}.webp" anchor (0.5, 0.5) pos (0.5, 0.5) zoom item_adjustment
+                    if "piercing" in Item_string:
+                        add "images/interface/items/xtreme_intimates.webp" anchor (0.5, 0.5) pos (0.5, 0.5) zoom 0.4
+                    else:
+                        add f"images/interface/items/{Item_string}.webp" anchor (0.5, 0.5) pos (0.5, 0.5) zoom item_adjustment
 
                     text f"x{len(Player.inventory[Item_string])}" anchor (1.0, 1.0) pos (1.05, 1.0):
                         size 32
@@ -666,9 +671,9 @@ screen inventory_screen():
                     hover_sound None
 
                     if Clothing.shop_type == "clothing":
-                        add "images/interface/items/mutant_couture.webp" anchor (0.5, 0.5) pos (0.5, 0.5) zoom 0.5
+                        add "images/interface/items/mutant_couture.webp" anchor (0.5, 0.5) pos (0.5, 0.5) zoom 0.4
                     elif Clothing.shop_type == "lingerie":
-                        add "images/interface/items/xtreme_intimates.webp" anchor (0.5, 0.5) pos (0.5, 0.5) zoom 0.5
+                        add "images/interface/items/xtreme_intimates.webp" anchor (0.5, 0.5) pos (0.5, 0.5) zoom 0.4
 
                     add At(f"images/interface/phone/icons/{Clothing.Owner.tag}.webp", humhum_icon) anchor (0.5, 0.5) pos (0.93, 0.89)
 
@@ -728,13 +733,13 @@ screen inventory_screen():
 
     if blinking:
         text "CASH" + "{alpha=0.0}_{/alpha}" anchor (0.0, 0.5) pos (0.674, 0.907):
-            size 50
+            size 45
     else:
         text "CASH" + "_" anchor (0.0, 0.5) pos (0.674, 0.907):
-            size 50
+            size 45
 
     text f"$ {Player.cash}" anchor (1.0, 0.5) pos (0.93, 0.907):
-        size 50
+        size 45
 
 screen confirm_gift_screen(Character, Item):
     modal True
@@ -742,8 +747,6 @@ screen confirm_gift_screen(Character, Item):
     style_prefix "confirm"
 
     frame anchor (0.5, 0.5) pos (0.5, 0.5):
-        padding (25, 25, 25, 25)
-
         vbox:
             spacing 25
 
@@ -756,7 +759,11 @@ screen confirm_gift_screen(Character, Item):
                 textbutton _("Yes"): 
                     text_size 36
 
-                    if hasattr(Item, "available_states"):
+                    if "piercing" in Item.string:
+                        action [
+                            Hide("confirm_gift_screen"),
+                            Call("give_Character_piercing", Character, Item, from_current = True)]
+                    elif hasattr(Item, "available_states"):
                         action [
                             Hide("confirm_gift_screen"),
                             Call("give_Character_Clothing", Character, Item, from_current = True)]
@@ -988,13 +995,13 @@ screen map_screen():
             if type(location_groups[possible_group]) is dict:
                 for possible_subgroup in location_groups[possible_group].keys():
                     for possible_location in location_groups[possible_group][possible_subgroup]:
-                        if possible_location in unlocked_locations.keys():
-                            $ available_groups.append(possible_group)
-                            $ available_subgroups.append(possible_subgroup)
+                        # if possible_location in unlocked_locations.keys():
+                        $ available_groups.append(possible_group)
+                        $ available_subgroups.append(possible_subgroup)
             else:        
                 for possible_location in location_groups[possible_group]:
-                    if possible_location in unlocked_locations.keys():
-                        $ available_groups.append(possible_group)
+                    # if possible_location in unlocked_locations.keys():
+                    $ available_groups.append(possible_group)
 
     add "images/interface/Player_menu/map_background.webp" zoom interface_new_adjustment
 
@@ -1198,7 +1205,7 @@ screen map_screen():
                             idle_background At(f"images/interface/Player_menu/Player_{Player.background_color}_idle.webp", interface)
                             hover_background At(f"images/interface/Player_menu/Player_{Player.background_color}.webp", interface)
                             selected_idle_background At(f"images/interface/Player_menu/Player_{Player.background_color}.webp", interface)
-                        elif possible_location not in ["bg_Kurt", "bg_Charles"]:
+                        elif possible_location not in ["bg_Charles", "bg_Kurt"]:
                             if possible_location in available_locations.keys():
                                 idle_background At(f"images/interface/Player_menu/{possible_location[3:]}_idle.webp", interface)
                                 hover_background At(f"images/interface/Player_menu/{possible_location[3:]}.webp", interface)

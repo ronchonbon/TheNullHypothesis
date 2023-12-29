@@ -21,19 +21,19 @@ label mall:
 
         menu(menu_location = "bg_mall"):
             "'Mutant Couture'" if time_index < 3:
-                show screen shop_screen("clothing")
+                call screen shop_screen("clothing")
             "'Mutant Couture' (locked)" if time_index > 2:
                 pass
             "'Bear With Me'" if time_index < 3:
-                show screen shop_screen("gift")
+                call screen shop_screen("gift")
             "'Bear With Me' (locked)" if time_index > 2:
                 pass
             "'X-Treme Intimates'" if time_index < 3:
-                show screen shop_screen("lingerie")
+                call screen shop_screen("lingerie")
             "'X-Treme Intimates' (locked)" if time_index > 2:
                 pass
             "'The Moaning of Life'" if time_index < 3:
-                show screen shop_screen("sex")
+                call screen shop_screen("sex")
             "'The Moaning of Life' (locked)" if time_index > 2:
                 pass
             "Approach. . ." if Offscreen:

@@ -233,15 +233,7 @@ screen updates_screen():
 
         if update_message:
             if Action_screen_showing:
-                frame pos (0.85, 0.05):
-                    text update_message
-
-                    at transform:
-                        fade_in(0.4)
-                        pause 2.5
-                        fade_out(0.4)
-            elif belt_hidden or ongoing_Event or not sandbox:
-                frame pos (0.98, 0.05):
+                frame anchor (0.0, 1.0) pos (0.02, 0.98):
                     text update_message
 
                     at transform:
@@ -249,7 +241,7 @@ screen updates_screen():
                         pause 2.5
                         fade_out(0.4)
             else:
-                frame pos (0.925, 0.18):
+                frame anchor (0.0, 0.0) pos (0.02, 0.02):
                     text update_message
 
                     at transform:
