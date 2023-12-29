@@ -17,8 +17,8 @@ init python:
         
         optional_objectives = {}
 
-        rewards = ["Increased Love and Trust Cap"]
-
+        rewards = {
+            "unlock": ["love", "trust"]}
         criteria = [
             "chapter == 1 and season == 3"]
 

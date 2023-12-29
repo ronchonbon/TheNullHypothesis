@@ -18,6 +18,8 @@ init -2 python:
         Kurt.full_name = "Kurt Wagner"
         Kurt.call_sign = "Nightcrawler"
 
+        Kurt.database_type = "ally"
+
         Kurt.chat_options.append("Can you tell me anything about. . . ?")
         Kurt.chat_options.append("Any tips regarding. . . ?")
         Kurt.text_options.append("what the heck is a 'BAMF taxi'?")
@@ -242,6 +244,11 @@ init -2 python:
         return possible_locations
 
 label update_Kurt:
+    $ Kurt.full_name = "Kurt Wagner"
+    $ Kurt.call_sign = "Nightcrawler"
+
+    $ Kurt.database_type = "ally"
+    
     $ Kurt.sprite_anchor = Kurt_standing_anchor
     $ Kurt.sprite_position[1] = Kurt_standing_height
     $ Kurt.sprite_zoom = Kurt_standing_zoom

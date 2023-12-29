@@ -18,7 +18,7 @@ init python:
 
         optional_objectives = {}
 
-        rewards = ["Probably best to focus on not irrevocably pissing her off"]
+        rewards = {}
 
         criteria = [
             "EventScheduler.Events['Laura_boyfriend'].completed"]
@@ -43,7 +43,7 @@ init python:
 
         optional_objectives = {}
 
-        rewards = ["Be a good boyfriend or else"]
+        rewards = {}
 
         criteria = [
             "EventScheduler.Events['Laura_enjoying_being_girlfriend'].completed"]
@@ -68,7 +68,7 @@ init python:
 
         optional_objectives = {}
 
-        rewards = ["Not everything is about rewards. . . but yes, you will be rewarded"]
+        rewards = {}
 
         criteria = [
             "EventScheduler.Events['Laura_I_love_you'].completed"]

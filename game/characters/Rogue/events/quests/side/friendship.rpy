@@ -18,7 +18,7 @@ init python:
 
         optional_objectives = {}
 
-        rewards = ["The friends we make along the way"]
+        rewards = {}
 
         criteria = [
             "chapter == 1 and season == 1"]

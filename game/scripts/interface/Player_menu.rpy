@@ -6,8 +6,12 @@ init -4:
     
     default current_Player_menu_page = "database"
 
-    default current_database_Character = None
     default current_database_page = 0
+    default current_database_filter = "info"
+    default current_database_section = "personal"
+    default current_database_Entry = None
+
+    default current_mutant_ability = None
 
     default current_inventory_page = 0
     default current_inventory_filter = "gift"
@@ -160,14 +164,14 @@ screen Player_menu():
             else:
                 action Hide("Player_menu")
 
-        # if current_Player_menu_page == "database":
-        #     use database_screen
-        # elif current_Player_menu_page == "skills":
-        #     use skills_screen
-        if current_Player_menu_page == "inventory":
+        if current_Player_menu_page == "database":
+            use database_screen
+        elif current_Player_menu_page == "skills":
+            use skills_screen
+        elif current_Player_menu_page == "inventory":
             use inventory_screen
-        # elif current_Player_menu_page == "journal":
-        #     use journal_screen
+        elif current_Player_menu_page == "journal":
+            use journal_screen
         elif current_Player_menu_page == "map":
             use map_screen
 
@@ -185,135 +189,382 @@ screen Player_menu():
 screen database_screen():
     style_prefix "Player_menu"
 
+    $ database_Entries = []
+
     $ database_Characters = unlocked_Characters[:]
     $ database_Characters.sort(key = return_last_name)
     $ database_Characters.insert(0, Player)
 
-    add "images/interface/Player_menu/database_background.webp"
+    for C in database_Characters:
+        $ database_Entries.append(C)
 
-    viewport id "database_viewport" anchor (0.5, 0.0) pos (0.1435, 0.192) xysize (int(450*interface_new_sampling), int(803*interface_new_sampling)):
+    add "images/interface/Player_menu/database_background.webp" zoom interface_new_adjustment
+
+    for filter in ["enemy", "info", "ally"]:
+        imagebutton:
+            idle At(f"images/interface/Player_menu/database_filter_{filter}_idle.webp", interface)
+            hover At(f"images/interface/Player_menu/database_filter_{filter}.webp", interface)
+            selected_idle At(f"images/interface/Player_menu/database_filter_{filter}_selected.webp", interface)
+            selected_hover At(f"images/interface/Player_menu/database_filter_{filter}_selected.webp", interface)
+
+            selected current_database_filter == filter
+
+            if current_database_filter == filter:
+                action SetVariable("current_database_filter", None)
+            else:
+                action [
+                    SetVariable("current_database_filter", None),
+                    SetVariable("current_database_filter", filter)]
+
+    text "ENEMY" anchor (0.5, 0.5) pos (0.096, 0.244):
+        size 35
+
+        color "#000000"
+
+    text "INFO" anchor (0.5, 0.5) pos (0.19, 0.244):
+        size 35
+
+        color "#000000"
+
+    text "ALLY" anchor (0.5, 0.5) pos (0.283, 0.244):
+        size 35
+
+        color "#000000"
+
+    if blinking:
+        text "CEREBRO DATABASE" + "{alpha=0.0}_{/alpha}" anchor (0.0, 0.5) pos (0.065, 0.335):
+            size 35
+    else:
+        text "CEREBRO DATABASE" + "_" anchor (0.0, 0.5) pos (0.065, 0.335):
+            size 35
+
+    viewport id "database_viewport" anchor (0.5, 0.0) pos (0.176, 0.405) xysize (int(911*interface_new_adjustment), int(1114*interface_new_adjustment)):
         draggable True
         mousewheel True
 
         vbox:
-            for C in database_Characters:
-                button xysize (int(453*interface_new_sampling), int(114*interface_new_sampling)):
-                    idle_background "images/interface/Player_menu/database_name_idle.webp" 
-                    hover_background f"images/interface/Player_menu/database_name.webp" 
-                    selected_idle_background f"images/interface/Player_menu/database_name.webp"
-                    
-                    selected current_database_Character == C
+            for D in database_Entries:
+                if hasattr(D, "database_type") and D.database_type and D.database_type and (not current_database_filter or D.database_type == current_database_filter):
+                    button xysize (int(911*interface_new_adjustment), int(191*interface_new_adjustment)):
+                        idle_background At(f"images/interface/Player_menu/database_{D.database_type}_idle.webp", interface)
+                        hover_background At(f"images/interface/Player_menu/database_{D.database_type}.webp", interface)
+                        selected_idle_background At(f"images/interface/Player_menu/database_{D.database_type}.webp", interface)
+                        
+                        selected current_database_Entry == D
 
-                    text C.call_sign anchor (0.5, 0.5) pos (0.5, 0.5):
-                        size 36
+                        if D in all_Characters or current_database_Entry == Player:
+                            text D.call_sign anchor (0.0, 0.5) pos (0.1, 0.5):
+                                font "agency_fb.ttf"
 
-                        color "#000000"
+                                size 36
 
-                    action SetVariable("current_database_Character", C)
+                                color "#000000"
 
-    vbar value YScrollValue("database_viewport") anchor (0.5, 0.0) pos (0.2693, 0.19) xysize (int(22*interface_new_sampling), int(803*interface_new_sampling)):
-        base_bar Frame("images/interface/Player_menu/database_scrollbar.webp")
+                        action SetVariable("current_database_Entry", D)
 
-        thumb "images/interface/Player_menu/database_scrollbar_thumb.webp"
-        thumb_offset 10
+    vbar value YScrollValue("database_viewport") anchor (0.5, 0.0) pos (0.315, 0.405) xysize (int(40*interface_new_adjustment), int(1114*interface_new_adjustment)):
+        base_bar At("images/interface/Player_menu/database_scrollbar.webp", interface)
+
+        thumb At("images/interface/Player_menu/database_scrollbar_thumb.webp", interface)
+        thumb_offset int(276*interface_new_adjustment/2/3)
 
         unscrollable "hide"
 
-    if current_database_Character:
+    if current_database_Entry:
+        add "images/interface/Player_menu/database_profile.webp" zoom interface_new_adjustment
+
+        if current_database_section in ["personal", "mutiefan"]:
+            add "images/interface/Player_menu/database_profile_box.webp" zoom interface_new_adjustment
+        
+        if current_database_Entry in all_Characters or current_database_Entry == Player:
+            $ Entry_name = current_database_Entry.call_sign
+        else:
+            $ Entry_name = current_database_Entry.title
+
+        if blinking:
+            text Entry_name.upper() + "{alpha=0.0}_{/alpha}" anchor (0.0, 0.5) pos (0.364, 0.247):
+                size 35
+        else:
+            text Entry_name.upper() + "_" anchor (0.0, 0.5) pos (0.364, 0.247):
+                size 35
+
+        for section in ["personal", "combat", "mutiefan"]:
+            imagebutton:
+                idle At(f"images/interface/Player_menu/database_{section}_idle.webp", interface)
+                hover At(f"images/interface/Player_menu/database_{section}.webp", interface)
+                selected_idle At(f"images/interface/Player_menu/database_{section}.webp", interface)
+
+                selected current_database_section == section
+
+                if current_database_section == section:
+                    action NullAction()
+                else:
+                    action [
+                        SetVariable("current_database_section", None),
+                        SetVariable("current_database_section", section)]
+
+        text "PERSONAL" anchor (0.5, 0.5) pos (0.693, 0.247):
+            size 35
+
+        text "COMBAT" anchor (0.5, 0.5) pos (0.79, 0.247):
+            size 35
+
         $ database_length = 0
 
-        if "description" in current_database_Character.database.keys():
-            $ database_length += len(current_database_Character.database["description"])
+        if "description" in current_database_Entry.database.keys() and current_database_section == "personal":
+            $ database_length += len(current_database_Entry.database["description"])
 
-        if "wiki" in current_database_Character.database.keys():
+        if "wiki" in current_database_Entry.database.keys() and current_database_section == "mutiefan":
             $ database_length += 1
 
         if database_length > 1:
             imagebutton:
-                idle "images/interface/Player_menu/database_previous_idle.webp" 
-                hover "images/interface/Player_menu/database_previous.webp"
+                idle At("images/interface/Player_menu/database_left_idle.webp", interface)
+                hover At("images/interface/Player_menu/database_left.webp", interface)
 
                 action SetVariable("current_database_page", (current_database_page - 1) % database_length)
 
-            text f"{current_database_page + 1} / {database_length}" anchor (0.5, 0.5) pos (0.735, 0.1995):
+            text f"{current_database_page + 1} / {database_length}" anchor (0.5, 0.5) pos (0.777, 0.875):
                 size 36
 
-                color "#000000"
-
             imagebutton:
-                idle "images/interface/Player_menu/database_next_idle.webp" 
-                hover "images/interface/Player_menu/database_next.webp"
+                idle At("images/interface/Player_menu/database_right_idle.webp", interface)
+                hover At("images/interface/Player_menu/database_right.webp", interface)
 
                 action SetVariable("current_database_page", (current_database_page + 1) % database_length)
         
-        if current_database_Character in all_Companions or current_database_Character in all_NPCs:
-            add At(f"images/interface/phone/photos/{current_database_Character.tag}.webp", database_photo) anchor (0.0, 0.0) pos (0.33, 0.24)
-        elif current_database_Character == Player:
-            add At("Player_portrait", database_photo) anchor (0.0, 0.0) pos (0.33, 0.24)
-
         if database_length >= 1:
-            if current_database_page < len(current_database_Character.database["description"]):
-                frame anchor (0.5, 0.0) pos (0.5825, 0.25) xsize 0.25:
-                    background Frame("images/interface/Player_menu/database_text_frame.webp", 10, 10)
-
-                    text current_database_Character.database["stats"]:
-                        size 24
-
-                        color "#000000"
-
-                        text_align 0.0
-
-                frame anchor (0.5, 0.0) pos (0.8375, 0.25) xsize 0.225:
-                    background Frame("images/interface/Player_menu/database_text_frame.webp", 10, 10)
-
-                    text current_database_Character.database["study_materials"]:
-                        size 28
-
-                        color "#000000"
-
-                        text_align 0.0
-
-                frame anchor (0.0, 0.0) pos (0.33, 0.55) xsize 0.62:
-                    background Frame("images/interface/Player_menu/database_text_frame.webp", 10, 10)
-
-                    text current_database_Character.database["description"][current_database_page]:
-                        if len(current_database_Character.database["description"][current_database_page]) < 800:
-                            size 36
-                        elif len(current_database_Character.database["description"][current_database_page]) < 1500:
-                            size 30
-                        else:
-                            size 24
-
-                        color "#000000"
-
-                        text_align 0.0
-            elif "wiki" in current_database_Character.database.keys():
-                frame anchor (0.0, 0.0) pos (0.4575, 0.25) xsize 0.475:
-                    background Frame("images/interface/Player_menu/database_text_frame.webp", 10, 10)
-
-                    text current_database_Character.database["wiki"]:
-                        size 36
-
-                        color "#000000"
-
-                        text_align 0.0
-
-                vbox anchor (0.0, 1.0) pos (0.33, 0.9) xsize 0.62:
-                    for comment in current_database_Character.database["comments"]:
-                        frame xalign 0.0 xsize 0.62:
-                            background Frame("images/interface/Player_menu/database_text_frame.webp", 10, 10)
-
-                            text comment xalign 0.0:
+            if current_database_section == "personal" and current_database_page < len(current_database_Entry.database["description"]):
+                if current_database_Entry in all_Characters or current_database_Entry == Player:
+                    frame anchor (0.0, 0.0) pos (0.375, 0.345) xysize (0.543, 0.55):
+                        frame align (0.0, 0.0) xsize 0.4:
+                            text current_database_Entry.database["stats"] xalign 0.0:
+                                font "agency_fb.ttf"
+                                        
                                 size 24
-
-                                color "#000000"
 
                                 text_align 0.0
 
-        text f"CODENAME: {current_database_Character.call_sign}" anchor (0.5, 0.5) pos (0.415, 0.2):
-            size 36
+                        frame align (0.0, 1.0) xsize 0.4:
+                            text current_database_Entry.database["study_materials"] xalign 0.0:
+                                font "agency_fb.ttf"
 
-            color "#512908"
+                                size 28
+
+                                text_align 0.0
+
+                        frame align (1.0, 0.0) xsize 0.58:
+                            text current_database_Entry.database["description"][current_database_page] xalign 1.0:
+                                font "agency_fb.ttf"
+
+                                if len(current_database_Entry.database["description"][current_database_page]) < 800:
+                                    size 30
+                                elif len(current_database_Entry.database["description"][current_database_page]) < 1500:
+                                    size 24
+                                else:
+                                    size 20
+
+                                text_align 1.0
+            elif current_database_section == "mutiefan" and "wiki" in current_database_Entry.database.keys():
+                frame anchor (0.0, 0.0) pos (0.375, 0.345) xysize (0.543, 0.55):
+                    text current_database_Entry.database["wiki"] align (0.0, 0.0):
+                        font "agency_fb.ttf"
+
+                        size 36
+
+                        text_align 0.0
+
+                    frame align (0.0, 1.0) xsize 0.4:
+                        vbox xsize 1.0:
+                            for comment in current_database_Entry.database["comments"]:
+                                text comment xalign 0.0:
+                                    font "agency_fb.ttf"
+
+                                    size 24
+
+                                    text_align 0.0
+
+screen skills_screen():
+    style_prefix "Player_menu"
+
+    add "images/interface/Player_menu/skills_background.webp" zoom interface_new_adjustment
+
+    if blinking:
+        text "X-EVOLUTION" + "{alpha=0.0}_{/alpha}" anchor (0.0, 0.5) pos (0.066, 0.238):
+            size 35
+    else:
+        text "X-EVOLUTION" + "_" anchor (0.0, 0.5) pos (0.066, 0.238):
+            size 35
+
+    add At("Player_portrait", customization_portrait) pos (0.738, 0.459)
+
+    add f"images/interface/Player_menu/skills_{Player.scholarship}.webp" zoom interface_new_adjustment
+
+    if Player.scholarship == "athletic":
+        text "ATHLETICS" anchor (0.5, 0.5) pos (0.89, 0.352):
+            font "agency_fb.ttf"
+
+            size 30
+    elif Player.scholarship == "academic":
+        text "ACADEMICS" anchor (0.5, 0.5) pos (0.89, 0.352):
+            font "agency_fb.ttf"
+
+            size 30
+    elif Player.scholarship == "artistic":
+        text "ARTS" anchor (0.5, 0.5) pos (0.89, 0.352):
+            font "agency_fb.ttf"
+
+            size 30
+
+    text "LVL" anchor (0.0, 0.5) pos (0.818, 0.421):
+        font "agency_fb.ttf"
+
+        size 30
+
+    text f"{Player.level}" anchor (1.0, 0.5) pos (0.87, 0.421):
+        font "agency_fb.ttf"
+        
+        size 30
+
+    text f"{Player.ability_points}" anchor (0.5, 0.5) pos (0.898, 0.421):
+        font "agency_fb.ttf"
+        
+        size 30
+
+    text "XP" anchor (0.0, 0.5) pos (0.818, 0.465):
+        font "agency_fb.ttf"
+        
+        size 30
+
+    bar value Player.XP range Player.XP_goal anchor (0.5, 0.5) pos (0.878, 0.465) xysize (int(277*interface_new_adjustment), int(24*interface_new_adjustment)):
+        left_bar At("images/interface/Player_menu/skills_xp.webp", interface)
+        right_bar At("images/interface/Player_menu/skills_xp_empty.webp", interface)
+
+        thumb None
+        thumb_offset 0
+
+    text "MUTANT RANK" anchor (0.0, 0.5) pos (0.818, 0.513):
+        font "agency_fb.ttf"
+        
+        size 25
+
+    text Player.mutant_rank.upper() anchor (1.0, 0.5) pos (0.921, 0.513):
+        font "agency_fb.ttf"
+        
+        size 25
+
+    $ mutant_abilities = [
+        "nullify",
+        "stamina_boost1", 
+        "stamina_boost2", 
+        "stamina_boost3",
+        "orgasm_control"]
+
+    if "regen" in Player.mutant_abilities:
+        $ mutant_abilities.append("regen")
+
+    for ability in mutant_abilities:
+        if ability == "nullify":
+            $ x = 0.11
+            $ y = 0.4
+        elif ability == "regen":
+            $ x = 0.149
+            $ y = 0.36
+        elif ability == "stamina_boost1":
+            $ x = 0.11
+            $ y = 0.6
+        elif ability == "stamina_boost2":
+            $ x = 0.149
+            $ y = 0.56
+        elif ability == "stamina_boost3":
+            $ x = 0.188
+            $ y = 0.6
+        elif ability == "orgasm_control":
+            $ x = 0.11
+            $ y = 0.8
+
+        button anchor (0.5, 0.5) pos (x, y) xysize (int(209*interface_new_adjustment), int(193*interface_new_adjustment)):
+            if ability in Player.mutant_abilities:
+                idle_background At("images/interface/Player_menu/skills_node_purchased.webp", interface)
+                hover_background At("images/interface/Player_menu/skills_node_selected.webp", interface)
+                selected_idle_background At("images/interface/Player_menu/skills_node_selected.webp", interface)
+            else:
+                idle_background At("images/interface/Player_menu/skills_node_idle.webp", interface)
+                hover_background At("images/interface/Player_menu/skills_node.webp", interface)
+                selected_idle_background At("images/interface/Player_menu/skills_node.webp", interface)
+
+            selected current_mutant_ability == ability
+
+            if "stamina" in ability:
+                add "images/interface/Player_menu/skills_stamina.webp" anchor (0.5, 0.5) pos (0.48, 0.47) zoom interface_new_adjustment
+            else:
+                add f"images/interface/Player_menu/skills_{ability}.webp" anchor (0.5, 0.5) pos (0.48, 0.47) zoom interface_new_adjustment
+
+            action SetVariable("current_mutant_ability", ability)
+
+    if current_mutant_ability:
+        add "images/interface/Player_menu/skills_box.webp" zoom interface_new_adjustment
+
+        text ability_names[current_mutant_ability].upper() anchor (0.0, 0.5) pos (0.679, 0.68):
+            size 30
+
+        frame anchor (0.5, 0.5) pos (0.801, 0.805) xysize (0.245, 0.202):
+            text ability_descriptions[current_mutant_ability] xalign 0.5:
+                font "agency_fb.ttf"
+                
+                size 30
+
+                text_align 0.5
+
+        if current_mutant_ability not in Player.mutant_abilities and current_mutant_ability in ability_costs.keys() and Player.ability_points >= ability_costs[current_mutant_ability]:
+            imagebutton:
+                idle At("images/interface/Player_menu/skills_purchase.webp", interface)
+                hover At("images/interface/Player_menu/skills_purchased.webp", interface)
+
+                if "stamina" in current_mutant_ability:
+                    action [
+                        SetVariable("Player.ability_points", Player.ability_points - ability_costs[current_mutant_ability]),
+                        AddToSet(Player.mutant_abilities, current_mutant_ability),
+                        SetVariable("Player.max_stamina", Player.max_stamina + 1)]
+                else:
+                    action [
+                        SetVariable("Player.ability_points", Player.ability_points - ability_costs[current_mutant_ability]),
+                        AddToSet(Player.mutant_abilities, current_mutant_ability)]
+
+            text "AWAKEN" anchor (0.5, 0.5) pos (0.825, 0.68):
+                font "agency_fb.ttf"
+                
+                size 25
+        elif current_mutant_ability not in Player.mutant_abilities:
+            add "images/interface/Player_menu/skills_purchase.webp" zoom interface_new_adjustment
+
+            text "AWAKEN" anchor (0.5, 0.5) pos (0.825, 0.68):
+                font "agency_fb.ttf"
+                
+                size 25
+        else:
+            add "images/interface/Player_menu/skills_purchased.webp" zoom interface_new_adjustment
+
+            text "ACTIVE" anchor (0.5, 0.5) pos (0.825, 0.68):
+                font "agency_fb.ttf"
+                
+                size 25
+
+        text "COST" anchor (0.0, 0.5) pos (0.8725, 0.68):
+            font "agency_fb.ttf"
+            
+            size 24
+
+        if current_mutant_ability not in Player.mutant_abilities and current_mutant_ability in ability_costs.keys():
+            text f"{ability_costs[current_mutant_ability]}" anchor (1.0, 0.5) pos (0.902, 0.68):
+                font "agency_fb.ttf"
+                
+                size 24
+        else:
+            text "0" anchor (1.0, 0.5) pos (0.902, 0.68):
+                font "agency_fb.ttf"
+                
+                size 24
 
 screen inventory_screen():
     style_prefix "Player_menu"
@@ -351,17 +602,17 @@ screen inventory_screen():
 
     if current_inventory_page < 9:
         if blinking:
-            text "TAB{alpha=0.0}_{/alpha}" + f" 0{current_inventory_page + 1}" anchor (0.5, 0.5) pos (0.086, 0.808):
+            text "TAB{alpha=0.0}_{/alpha}" + f"0{current_inventory_page + 1}" anchor (0.5, 0.5) pos (0.086, 0.808):
                 size 35
         else:
-            text f"TAB_ 0{current_inventory_page + 1}" anchor (0.5, 0.5) pos (0.086, 0.808):
+            text f"TAB_0{current_inventory_page + 1}" anchor (0.5, 0.5) pos (0.086, 0.808):
                 size 35
     else:
         if blinking:
-            text "TAB{alpha=0.0}_{/alpha}" + f" {current_inventory_page + 1}" anchor (0.5, 0.5) pos (0.086, 0.808):
+            text "TAB{alpha=0.0}_{/alpha}" + f"{current_inventory_page + 1}" anchor (0.5, 0.5) pos (0.086, 0.808):
                 size 35
         else:
-            text f"TAB_ {current_inventory_page + 1}" anchor (0.5, 0.5) pos (0.086, 0.808):
+            text f"TAB_{current_inventory_page + 1}" anchor (0.5, 0.5) pos (0.086, 0.808):
                 size 35
 
     grid 5 3 anchor (0.0, 0.0) pos (0.146, 0.4) xysize (0.492, 0.524):
@@ -522,116 +773,65 @@ screen confirm_gift_screen(Character, Item):
 screen journal_screen():
     style_prefix "Player_menu"
 
-    add "images/interface/Player_menu/journal_background.webp" anchor (0.5, 0.5) pos (0.5, 0.5)
+    add "images/interface/Player_menu/journal_background.webp" zoom interface_new_adjustment
 
-    hbox anchor (0.0, 0.5) pos (0.075, 0.185):
-        spacing 10
+    for filter in ["main", "side", "addon"]:
+        imagebutton:
+            idle At(f"images/interface/Player_menu/journal_{filter}_idle.webp", interface)
+            hover At(f"images/interface/Player_menu/journal_{filter}.webp", interface)
+            selected_idle At(f"images/interface/Player_menu/journal_{filter}_selected.webp", interface)
+            selected_hover At(f"images/interface/Player_menu/journal_{filter}_selected.webp", interface)
 
-        button xysize (int(225*interface_new_sampling), int(65*interface_new_sampling)):
-            idle_background "images/interface/Player_menu/journal_filter_idle.webp" 
-            hover_background "images/interface/Player_menu/journal_filter.webp" 
-            selected_idle_background "images/interface/Player_menu/journal_filter_selected_main.webp" 
-            selected_hover_background "images/interface/Player_menu/journal_filter_selected_main.webp"
+            selected current_journal_filter == filter
 
-            selected current_journal_filter == "main"
-
-            text "Main" anchor (0.5, 0.5) pos (0.5, 0.5):
-                size 36
-
-                color "#000000"
-
-            if current_journal_filter == "main":
+            if current_journal_filter == filter:
                 action SetVariable("current_journal_filter", None)
             else:
                 action [
                     SetVariable("current_journal_Quest", None),
-                    SetVariable("current_journal_filter", "main")]
+                    SetVariable("current_journal_filter", filter)]
 
-        button xysize (int(225*interface_new_sampling), int(65*interface_new_sampling)):
-            idle_background "images/interface/Player_menu/journal_filter_idle.webp" 
-            hover_background "images/interface/Player_menu/journal_filter.webp" 
-            selected_idle_background "images/interface/Player_menu/journal_filter_selected_side.webp" 
-            selected_hover_background "images/interface/Player_menu/journal_filter_selected_side.webp"
+    text "MAIN" anchor (0.5, 0.5) pos (0.096, 0.244):
+        size 35
 
-            selected current_journal_filter == "side"
+        color "#000000"
 
-            text "Side" anchor (0.5, 0.5) pos (0.5, 0.5):
-                size 36
+    text "SIDE" anchor (0.5, 0.5) pos (0.19, 0.244):
+        size 35
 
-                color "#000000"
+        color "#000000"
 
-            if current_journal_filter == "side":
-                action SetVariable("current_journal_filter", None)
+    text "ADD-ON" anchor (0.5, 0.5) pos (0.283, 0.244):
+        size 35
+
+        color "#000000"
+
+    for c in range(1, chapter + 1):
+        imagebutton:
+            idle At(f"images/interface/Player_menu/journal_chapter{c}_idle.webp", interface)
+            hover At(f"images/interface/Player_menu/journal_chapter{c}.webp", interface)
+            selected_idle At(f"images/interface/Player_menu/journal_chapter{c}.webp", interface)
+
+            selected current_journal_chapter == c
+
+            if current_journal_chapter == c:
+                action SetVariable("current_journal_chapter", None)
             else:
                 action [
                     SetVariable("current_journal_Quest", None),
-                    SetVariable("current_journal_filter", "side")]
+                    SetVariable("current_journal_chapter", c)]
 
-        button xysize (int(225*interface_new_sampling), int(65*interface_new_sampling)):
-            idle_background "images/interface/Player_menu/journal_filter_idle.webp" 
-            hover_background "images/interface/Player_menu/journal_filter.webp" 
-            selected_idle_background "images/interface/Player_menu/journal_filter_selected_dlc.webp" 
-            selected_hover_background "images/interface/Player_menu/journal_filter_selected_dlc.webp"
+    text "CHAPTER I" anchor (0.5, 0.5) pos (0.395, 0.242):
+        size 35
 
-            selected current_journal_filter == "dlc"
+    if blinking:
+        text "QUEST LIST" + "{alpha=0.0}_{/alpha}" anchor (0.0, 0.5) pos (0.065, 0.335):
+            size 35
+    else:
+        text "QUEST LIST" + "_" anchor (0.0, 0.5) pos (0.065, 0.335):
+            size 35
 
-            text "Add-Ons" anchor (0.5, 0.5) pos (0.5, 0.5):
-                size 36
-
-                color "#000000"
-
-            if current_journal_filter == "dlc":
-                action SetVariable("current_journal_filter", None)
-            else:
-                action [
-                    SetVariable("current_journal_Quest", None),
-                    SetVariable("current_journal_filter", "dlc")]
-
-    hbox anchor (0.0, 0.5) pos (0.07325, 0.283):
-        spacing 10 
-        
-        button xysize (int(225*interface_new_sampling), int(65*interface_new_sampling)):
-            idle_background "images/interface/Player_menu/journal_chapter_idle.webp" 
-            hover_background "images/interface/Player_menu/journal_chapter.webp" 
-            selected_idle_background "images/interface/Player_menu/journal_chapter_selected.webp" 
-            selected_hover_background "images/interface/Player_menu/journal_chapter_selected.webp"
-
-            selected not show_completed_Quests
-
-            text "Current" anchor (0.5, 0.5) pos (0.55, 0.55):
-                size 36
-
-                color "#000000"
-
-            if not show_completed_Quests:
-                action SetVariable("show_completed_Quests", True)
-            else:
-                action [
-                    SetVariable("current_journal_Quest", None),
-                    SetVariable("show_completed_Quests", False)]
-
-        for c in range(1, chapter + 1):
-            button xysize (int(225*interface_new_sampling), int(65*interface_new_sampling)):
-                idle_background "images/interface/Player_menu/journal_chapter_idle.webp" 
-                hover_background "images/interface/Player_menu/journal_chapter.webp" 
-                selected_idle_background "images/interface/Player_menu/journal_chapter_selected.webp" 
-                selected_hover_background "images/interface/Player_menu/journal_chapter_selected.webp"
-
-                selected current_journal_chapter == c
-
-                text f"Chapter {chapter_names[c]}" anchor (0.5, 0.5) pos (0.53, 0.55):
-                    size 36
-
-                    color "#000000"
-
-                if current_journal_chapter == c:
-                    action SetVariable("current_journal_chapter", None)
-                else:
-                    action [
-                        SetVariable("current_journal_Quest", None),
-                        SetVariable("current_journal_chapter", c)]
-
-    viewport id "journal_viewport" anchor (0.5, 0.0) pos (0.187, 0.378) xysize (int(456*interface_new_sampling), int(575*interface_new_sampling)):
+    viewport id "journal_viewport" anchor (0.5, 0.0) pos (0.176, 0.405) xysize (int(911*interface_new_adjustment), int(1114*interface_new_adjustment)):
         draggable True
         mousewheel True
 
@@ -639,57 +839,58 @@ screen journal_screen():
             for Q in reversed(QuestPool.Quests.values()):
                 if Q.unlocked and (not current_journal_filter or Q.Quest_type == current_journal_filter) and (not current_journal_chapter or Q.chapter == current_journal_chapter):
                     if show_completed_Quests or not Q.completed:
-                        button xysize (int(456*interface_new_sampling), int(96*interface_new_sampling)):
-                            idle_background f"images/interface/Player_menu/journal_quest_{Q.Quest_type}.webp" hover_background f"images/interface/Player_menu/journal_quest_{Q.Quest_type}_selected.webp" selected_idle_background f"images/interface/Player_menu/journal_quest_{Q.Quest_type}_selected.webp"
+                        button xysize (int(911*interface_new_adjustment), int(191*interface_new_adjustment)):
+                            idle_background At(f"images/interface/Player_menu/journal_button_{Q.Quest_type}_idle.webp", interface)
+                            hover_background At(f"images/interface/Player_menu/journal_button_{Q.Quest_type}.webp", interface)
+                            selected_idle_background At(f"images/interface/Player_menu/journal_button_{Q.Quest_type}.webp", interface)
                             
                             selected current_journal_Quest == Q
 
-                            text Q.name anchor (0.5, 0.5) pos (0.5, 0.5):
+                            text Q.name anchor (0.0, 0.5) pos (0.1, 0.5):
+                                font "agency_fb.ttf"
+
                                 size 36
 
                                 color "#000000"
 
                             if Q.completed:
-                                add "images/interface/Player_menu/journal_quest_completed.webp" anchor (0.5, 0.5) pos (0.5, 0.49)
-
-                                text "CLEAR" anchor (0.5, 0.5) pos (0.5, 0.75):
-                                    size 24
-
-                                    color "#ffc107"
+                                add At("images/interface/Player_menu/journal_clear.webp", interface) anchor (0.5, 0.5) pos (0.5, 0.49)
 
                             action SetVariable("current_journal_Quest", Q)
 
-    vbar value YScrollValue("journal_viewport") anchor (0.5, 0.0) pos (0.325, 0.364) xysize (int(22*interface_new_sampling), int(602*interface_new_sampling)):
-        base_bar Frame("images/interface/Player_menu/journal_scrollbar.webp")
+    vbar value YScrollValue("journal_viewport") anchor (0.5, 0.0) pos (0.315, 0.405) xysize (int(40*interface_new_adjustment), int(1114*interface_new_adjustment)):
+        base_bar At("images/interface/Player_menu/journal_scrollbar.webp", interface)
 
-        thumb "images/interface/Player_menu/journal_scrollbar_thumb.webp"
-        thumb_offset 10
+        thumb At("images/interface/Player_menu/journal_scrollbar_thumb.webp", interface)
+        thumb_offset int(276*interface_new_adjustment/2/3)
 
         unscrollable "hide"
 
     if current_journal_Quest:
+        add "images/interface/Player_menu/journal_quest_box.webp" zoom interface_new_adjustment
+
         if current_journal_Quest.completed:
-            add "images/interface/Player_menu/journal_complete.webp"
+            add At("images/interface/Player_menu/journal_complete.webp", interface)
+        else:
+            add At("images/interface/Player_menu/journal_pending.webp", interface)
 
-        text "SUMMARY" anchor (0.0, 0.0) pos (0.37, 0.36):
-            size 36
+        if blinking:
+            text "SUMMARY" + "{alpha=0.0}_{/alpha}" anchor (0.0, 0.5) pos (0.364, 0.335):
+                size 35
+        else:
+            text "SUMMARY" + "_" anchor (0.0, 0.5) pos (0.364, 0.335):
+                size 35
 
-            color "#512908"
-
-        text current_journal_Quest.description anchor (0.5, 0.0) pos (0.64, 0.365):
+        text current_journal_Quest.description anchor (0.5, 0.0) pos (0.635, 0.402):
             if len(current_journal_Quest.description) >= 25:
                 size 32
             else:
                 size 36
 
-            color "#000000"
+        text "OBJECTIVES" anchor (0.0, 0.0) pos (0.364, 0.4):
+            size 35
 
-        text "OBJECTIVES" anchor (0.0, 0.0) pos (0.37, 0.44):
-            size 36
-
-            color "#512908"
-
-        vbox anchor (0.5, 0.0) pos (0.64, 0.445):
+        vbox anchor (0.5, 0.0) pos (0.635, 0.48):
             spacing 5
 
             for objective in current_journal_Quest.objectives.keys():
@@ -704,29 +905,29 @@ screen journal_screen():
 
                     if progress == target:
                         text "{s}[objective]: [progress]/[target]{/s}" anchor (0.5, 0.5) pos (0.5, 0.5):
-                            size 32
+                            font "agency_fb.ttf"
 
-                            color "#000000"
+                            size 32
                     else:
                         text "[objective]: [progress]/[target]" anchor (0.5, 0.5) pos (0.5, 0.5):
-                            size 32
+                            font "agency_fb.ttf"
 
-                            color "#000000"
+                            size 32
                 else:
                     if eval(current_journal_Quest.objectives[objective][0]):
                         $ objective = renpy.substitute(objective)
 
                         text "{s}[objective]{/s}" anchor (0.5, 0.5) pos (0.5, 0.5):
-                            size 32
+                            font "agency_fb.ttf"
 
-                            color "#000000"
+                            size 32
                     else:
                         $ objective = renpy.substitute(objective)
 
                         text "[objective]" anchor (0.5, 0.5) pos (0.5, 0.5):
-                            size 32
+                            font "agency_fb.ttf"
 
-                            color "#000000"
+                            size 32
 
             for optional_objective in current_journal_Quest.optional_objectives.keys():
                 if current_journal_Quest.optional_objectives[optional_objective][1]:
@@ -740,46 +941,41 @@ screen journal_screen():
 
                     if progress == target:
                         text "{s}{i}[optional_objective]: [progress]/[target]{/i}{/s}" anchor (0.5, 0.5) pos (0.5, 0.5):
-                            size 32
+                            font "agency_fb.ttf"
 
-                            color "#000000"
+                            size 32
                     else:
                         text "{i}[optional_objective]: [progress]/[target]{/i}" anchor (0.5, 0.5) pos (0.5, 0.5):
-                            size 32
+                            font "agency_fb.ttf"
 
-                            color "#000000"
+                            size 32
                 else:
                     if eval(current_journal_Quest.optional_objectives[optional_objective][0]):
                         $ optional_objective = renpy.substitute(optional_objective)
 
                         text "{s}{i}[optional_objective]{/i}{/s}" anchor (0.5, 0.5) pos (0.5, 0.5):
-                            size 32
+                            font "agency_fb.ttf"
 
-                            color "#000000"
+                            size 32
                     else:
                         $ optional_objective = renpy.substitute(optional_objective)
 
                         text "{i}[optional_objective]{/i}" anchor (0.5, 0.5) pos (0.5, 0.5):
+                            font "agency_fb.ttf"
+
                             size 32
 
-                            color "#000000"
+        if current_journal_Quest.rewards:
+            hbox anchor (0.0, 0.5) pos (0.436, 0.885) xysize (0.41, int(248*interface_new_adjustment)):
+                spacing 0
 
-        text "REWARDS" anchor (0.0, 0.0) pos (0.37, 0.8):
-            size 36
-            
-            color "#512908"
+                for reward_type in current_journal_Quest.rewards.keys():
+                    for reward in current_journal_Quest.rewards[reward_type]:
+                        fixed xysize (int(249*interface_new_adjustment), int(249*interface_new_adjustment)):
+                            add At(f"images/interface/Player_menu/journal_{reward_type}.webp", interface)
 
-        vbox anchor (0.5, 0.0) pos (0.64, 0.8025):
-            spacing 5
-
-            for reward in current_journal_Quest.rewards:
-                text reward anchor (0.5, 0.5) pos (0.5, 0.5):
-                    if len(current_journal_Quest.rewards) > 2:
-                        size 28
-                    else:
-                        size 36
-
-                    color "#000000"
+                            text reward.upper() anchor (0.5, 0.5) pos (0.5, 0.81):
+                                size 20
 
 screen map_screen():
     style_prefix "Player_menu"

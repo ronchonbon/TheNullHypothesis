@@ -10,8 +10,14 @@ init -2 python:
         Hank.full_name = "Henry 'Hank' McCoy"
         Hank.call_sign = "Beast"
 
+        Hank.database_type = "ally"
+
         return Hank
 
 label update_Hank:
+    $ Hank.full_name = "Henry 'Hank' McCoy"
+    $ Hank.call_sign = "Beast"
+
+    $ Hank.database_type = "ally"
 
     return

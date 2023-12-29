@@ -69,6 +69,7 @@ label prologue:
     $ Player.first_name = first_name
     $ Player.last_name = last_name
     $ Player.full_name = f"{first_name} {last_name}"
+    $ Player.call_sign = f"{first_name} {last_name}"
 
     $ save_name = Player.full_name + "\nPrologue"
 
@@ -104,6 +105,7 @@ label prologue:
     ch_Player "There can't be anything worse than being brainwashed like that."
     ch_Player "I'd give anything to not be affected by that kind of danger. . ."
 
+    $ Player.mutant_abilities.append("nullify")
     $ Player.power = 50
 
     "You feel a sharp pain radiate throughout your body, followed by a sudden bout of nausea. " with small_screenshake

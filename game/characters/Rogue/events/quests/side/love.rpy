@@ -18,7 +18,7 @@ init python:
 
         optional_objectives = {}
 
-        rewards = ["The real question is: do you really deserve a reward?"]
+        rewards = {}
 
         criteria = [
             "EventScheduler.Events['Rogue_penultimate_quirk'].completed"]

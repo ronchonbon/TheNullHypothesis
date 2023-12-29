@@ -11,7 +11,9 @@ init -2 python:
         Cain = NPCClass("Cain", voice = ch_Cain)
         
         Cain.full_name = "Cain Marko"
-        Cain.call_sign = "Juggernaut"
+        Cain.call_sign = "The Juggernaut"
+
+        Cain.database_type = "enemy"
 
         Cameos.append(Cain.tag)
 
@@ -20,5 +22,9 @@ init -2 python:
         return Cain
 
 label update_Cain:
+    $ Cain.full_name = "Cain Marko"
+    $ Cain.call_sign = "The Juggernaut"
+
+    $ Cain.database_type = "enemy"
 
     return

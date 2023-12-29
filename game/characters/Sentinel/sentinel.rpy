@@ -13,6 +13,8 @@ init -2 python:
         Sentinel.full_name = "Sentinel"
         Sentinel.call_sign = "Sentinel"
 
+        Sentinel.database_type = "enemy"
+
         Cameos.append(Sentinel.tag)
 
         all_Characters.append(Sentinel)
@@ -20,5 +22,9 @@ init -2 python:
         return Sentinel
 
 label update_Sentinel:
+    $ Sentinel.full_name = "Sentinel"
+    $ Sentinel.call_sign = "Sentinel"
+
+    $ Sentinel.database_type = "enemy"
 
     return

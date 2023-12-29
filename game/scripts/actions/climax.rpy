@@ -92,9 +92,13 @@ label Player_orgasms:
                         $ climax_choice = "cum_down_throat"
                     "In her ass" if focused_Character.History.check("anal"):
                         $ climax_choice = "anal_creampie"
-                    "Delay" if Player.orgasm_control or (focused_Character.History.check("made_Player_orgasm") >= 5 and Player.History.check("delayed_orgasm", tracker = "recent") < 3):
+                    "Delay" if "orgasm_control" in Player.mutant_abilities or (focused_Character.History.check("made_Player_orgasm") >= 5 and Player.History.check("delayed_orgasm", tracker = "recent") < 3):
                         $ Player.History.update("delayed_orgasm")
-                        $ Player.desire -= 50/Player.History.check("delayed_orgasm", tracker = "recent")
+
+                        if "orgasm_control" in Player.mutant_abilities:
+                            $ Player.desire = 0
+                        else:
+                            $ Player.desire -= 50/Player.History.check("delayed_orgasm", tracker = "recent")
 
                         $ has_progression_control = True
                         $ has_Action_control = True

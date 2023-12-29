@@ -13,6 +13,11 @@ init -2 python:
             self.database = {}
 
             self.voice = properties.get("voice", None)
+            
+            self.level = 1
+            self.XP = 0
+            self.XP_goal = 200
+            self.ability_points = 0
 
             self.electronic = False
             self.telepathic = False
@@ -69,6 +74,8 @@ init -2 python:
             self.wants_alone_time = 0
             
             self.schedule = {}
+
+            self.database_type = None
             
             self.temp = None
 

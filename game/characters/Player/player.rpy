@@ -60,6 +60,9 @@ init -2 python:
             first_name, last_name,
             voice = ch_Player)
 
-        Player.call_sign = "Null"
+        Player.call_sign = f"{first_name} {last_name}"
+
+        Player.database_type = "ally"
+        Player.mutant_rank = "delta"
             
         return Player

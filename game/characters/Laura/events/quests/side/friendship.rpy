@@ -22,7 +22,7 @@ init python:
 
         optional_objectives = {}
 
-        rewards = ["Is friendship not a reward unto itself?"]
+        rewards = {}
 
         criteria = [
             "chapter == 1 and season == 1"]

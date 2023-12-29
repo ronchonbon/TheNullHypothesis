@@ -13,6 +13,8 @@ init -2 python:
         Logan.full_name = "Logan"
         Logan.call_sign = "Wolverine"
 
+        Logan.database_type = "ally"
+
         Cameos.append(Logan.tag)
 
         all_Characters.append(Logan)
@@ -20,5 +22,9 @@ init -2 python:
         return Logan
 
 label update_Logan:
+    $ Logan.full_name = "Logan"
+    $ Logan.call_sign = "Wolverine"
+
+    $ Logan.database_type = "ally"
 
     return

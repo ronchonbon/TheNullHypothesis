@@ -8,7 +8,7 @@ label update_Jean_database:
         "NOTE: Jean has recently suffered some psychic trauma, leading to a loss of control with her telekinesis. It is my recommendation that she refrain from exerting herself in training or in missions, unless *extremely necessary*, due to the potential for harm, both to herself and others. This situation is being closely monitored, with checkups several times a week and full safety protocols in the Danger Room active whenever she is training."]
 
     $ Jean.database["study_materials"] = [
-        "RECOMMENDED STUDY MATERIALS\n\n- Dark Phoenix Saga (1980)\n- New X-Men (2001)\n- X-Men Red (2018)\n- X-Men Season One (2012)\n- Phoenix Endsong/Resurrection (2005/2017)"]
+        "RECOMMENDED STUDY MATERIALS\n- Dark Phoenix Saga (1980)\n- New X-Men (2001)\n- X-Men Red (2018)\n- X-Men Season One (2012)\n- Phoenix Endsong/Resurrection (2005/2017)"]
 
     $ Jean.database["wiki"] = [
         "Mutiefan Entry for JEAN GREY\n\nThe heart and soul of her team, Jean tends to her friends with almost motherly devotion. Always the first to open a dialogue, Jean displays a saintly level of compassion and understanding, even towards her foes. She sees her reluctance to fight as a strength, believing that a strong connection to the hearts of her foes is the real way to mutant/human relations and that there will come a day when a true, lasting peace can be enjoyed by all."]

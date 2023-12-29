@@ -29,10 +29,9 @@ init python:
 
         optional_objectives = {}
 
-        rewards = [
-            "New Available Actions",
-            "New Shop Items"]
-
+        rewards = {
+            "unlock": ["actions", "shop"]}
+            
         criteria = [
             "chapter == 1 and season == 2"]
 
@@ -671,6 +670,7 @@ label ch1_Sentinel_attack:
 
     with big_screenshake
 
+    $ Player.mutant_abilities.append("absorption")
     $ Player.power = 50
 
     "As soon as you speak, you're racked by a wave of nausea, and a paralyzing pain shoots throughout your body."

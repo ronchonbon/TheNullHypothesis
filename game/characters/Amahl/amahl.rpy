@@ -11,7 +11,9 @@ init -2 python:
         Amahl = NPCClass("Amahl", voice = ch_Amahl)
         
         Amahl.full_name = "Amahl Farouk"
-        Amahl.call_sign = "Shadow King"
+        Amahl.call_sign = "The Shadow King"
+
+        Amahl.database_type = "enemy"
 
         Cameos.append(Amahl.tag)
 
@@ -20,5 +22,9 @@ init -2 python:
         return Amahl
 
 label update_Amahl:
+    $ Amahl.full_name = "Amahl Farouk"
+    $ Amahl.call_sign = "The Shadow King"
+
+    $ Amahl.database_type = "enemy"
 
     return

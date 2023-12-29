@@ -18,7 +18,7 @@ init python:
 
         optional_objectives = {}
 
-        rewards = ["She really seems to like you - better not mess it up"]
+        rewards = {}
 
         criteria = [
             "EventScheduler.Events['Laura_penultimate_quirk'].completed"]

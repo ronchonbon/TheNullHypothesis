@@ -400,14 +400,17 @@ init -2 python:
         Ororo.public_name = "Storm"
         Ororo.call_sign = "Storm"
 
-        Ororo.Player_petname = Player.first_name
-        Ororo.Player_petnames.append(Player.first_name)
-        Ororo.Player_petnames.append("Mr. [Player.last_name]")
+        Ororo.database_type = "ally"
 
         Ororo.default_body_hair = {
             "pubic": "bush",
             "anus": None,
             "armpits": None}
+
+        Ororo.Player_petname = Player.first_name
+        Ororo.Player_petnames.append(Player.first_name)
+        Ororo.Player_petnames.append("Mr. [Player.last_name]")
+
         Ororo.body_hair = Ororo.default_body_hair
         Ororo.desired_body_hair = Ororo.default_body_hair
 
@@ -656,6 +659,17 @@ init -2 python:
         return possible_locations
 
 label update_Ororo:
+    $ Ororo.full_name = "Ororo Munroe"
+    $ Ororo.public_name = "Storm"
+    $ Ororo.call_sign = "Storm"
+
+    $ Ororo.database_type = "ally"
+
+    $ Ororo.default_body_hair = {
+        "pubic": "bush",
+        "anus": None,
+        "armpits": None}
+        
     $ Ororo.sprite_anchor = Ororo_standing_anchor
     $ Ororo.sprite_position[1] = Ororo_standing_height
     $ Ororo.sprite_zoom = Ororo_standing_zoom

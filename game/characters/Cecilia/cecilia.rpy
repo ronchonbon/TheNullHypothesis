@@ -13,6 +13,8 @@ init -2 python:
         Cecilia.full_name = "Cecilia Reyes"
         Cecilia.call_sign = "Cecilia Reyes"
 
+        Cecilia.database_type = "ally"
+
         Cast.append(Cecilia.tag)
 
         all_Characters.append(Cecilia)
@@ -20,5 +22,9 @@ init -2 python:
         return Cecilia
 
 label update_Cecilia:
+    $ Cecilia.full_name = "Cecilia Reyes"
+    $ Cecilia.call_sign = "Cecilia Reyes"
+
+    $ Cecilia.database_type = "ally"
 
     return

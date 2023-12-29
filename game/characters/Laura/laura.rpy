@@ -458,14 +458,17 @@ init -2 python:
         Laura.public_name = "X-23"
         Laura.call_sign = "X-23"
 
-        Laura.Player_petname = Player.first_name
-        Laura.Player_petnames.append(Player.first_name)
-        Laura.Player_petnames.append("guy")
-
+        Laura.database_type = "ally"
+        
         Laura.default_body_hair = {
             "pubic": "hairy",
             "anus": None,
             "armpits": None}
+
+        Laura.Player_petname = Player.first_name
+        Laura.Player_petnames.append(Player.first_name)
+        Laura.Player_petnames.append("guy")
+
         Laura.body_hair = Laura.default_body_hair
         Laura.desired_body_hair = Laura.default_body_hair
 
@@ -724,6 +727,17 @@ init -2 python:
         return possible_locations
 
 label update_Laura:
+    $ Laura.full_name = "Laura Kinney"
+    $ Laura.public_name = "X-23"
+    $ Laura.call_sign = "X-23"
+
+    $ Laura.database_type = "ally"
+    
+    $ Laura.default_body_hair = {
+        "pubic": "hairy",
+        "anus": None,
+        "armpits": None}
+
     $ Laura.sprite_anchor = Laura_standing_anchor
     $ Laura.sprite_position[1] = Laura_standing_height
     $ Laura.sprite_zoom = Laura_standing_zoom

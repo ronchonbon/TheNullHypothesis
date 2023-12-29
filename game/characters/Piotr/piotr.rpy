@@ -13,6 +13,8 @@ init -2 python:
         Piotr.full_name = "Piotr Rasputin"
         Piotr.call_sign = "Colossus"
 
+        Piotr.database_type = "ally"
+
         Cast.append(Piotr.tag)
 
         all_Characters.append(Piotr)
@@ -20,5 +22,9 @@ init -2 python:
         return Piotr
 
 label update_Piotr:
+    $ Piotr.full_name = "Piotr Rasputin"
+    $ Piotr.call_sign = "Colossus"
+
+    $ Piotr.database_type = "ally"
 
     return

@@ -20,7 +20,7 @@ init python:
 
         optional_objectives = {}
 
-        rewards = ["Seems like there are a lot of potential upsides here"]
+        rewards = {}
 
         criteria = [
             "EventScheduler.Events['Jean_asked_on_date'].completed"]

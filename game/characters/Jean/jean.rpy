@@ -458,13 +458,16 @@ init -2 python:
         Jean.public_name = "Jean"
         Jean.call_sign = "Marvel Girl"
 
-        Jean.Player_petname = Player.first_name
-        Jean.Player_petnames.append(Player.first_name)
+        Jean.database_type = "ally"
 
         Jean.default_body_hair = {
             "pubic": "bush",
             "anus": None,
             "armpits": None}
+
+        Jean.Player_petname = Player.first_name
+        Jean.Player_petnames.append(Player.first_name)
+
         Jean.body_hair = Jean.default_body_hair
         Jean.desired_body_hair = Jean.default_body_hair
 
@@ -722,6 +725,17 @@ init -2 python:
         return possible_locations
 
 label update_Jean:
+    $ Jean.full_name = "Jean Grey"
+    $ Jean.public_name = "Jean"
+    $ Jean.call_sign = "Marvel Girl"
+
+    $ Jean.database_type = "ally"
+
+    $ Jean.default_body_hair = {
+        "pubic": "bush",
+        "anus": None,
+        "armpits": None}
+        
     $ Jean.sprite_anchor = Jean_standing_anchor
     $ Jean.sprite_position[1] = Jean_standing_height
     $ Jean.sprite_zoom = Jean_standing_zoom

@@ -95,8 +95,8 @@ screen Action_screen(automatic = False):
             add At("images/interface/Action_menu/lightning_male.webp", pulse(intensity = 0.2)) zoom interface_new_adjustment
 
         bar value Player.desire range 100 anchor (0.5, 0.5) pos (0.94, 0.0478) xysize (int(291*interface_new_adjustment), int(37*interface_new_adjustment)):
-            left_bar Frame(At("images/interface/Action_menu/climax_full_male.webp", interface))
-            right_bar Frame(At("images/interface/Action_menu/climax_empty.webp", interface))
+            left_bar At("images/interface/Action_menu/climax_full_male.webp", interface)
+            right_bar At("images/interface/Action_menu/climax_empty.webp", interface)
 
             thumb None
             thumb_offset 0
@@ -126,8 +126,8 @@ screen Action_screen(automatic = False):
             add At("images/interface/Action_menu/lightning_female.webp", pulse(intensity = 0.2)) zoom interface_new_adjustment
 
         bar value focused_Character.desire range 100 anchor (0.5, 0.5) pos (0.94, 0.0851) xysize (int(291*interface_new_adjustment), int(37*interface_new_adjustment)):
-            left_bar Frame(At("images/interface/Action_menu/climax_full_female.webp", interface))
-            right_bar Frame(At("images/interface/Action_menu/climax_empty.webp", interface))
+            left_bar At("images/interface/Action_menu/climax_full_female.webp", interface)
+            right_bar At("images/interface/Action_menu/climax_empty.webp", interface)
 
             thumb None
             thumb_offset 0

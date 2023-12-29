@@ -18,7 +18,7 @@ init python:
 
         optional_objectives = {}
 
-        rewards = ["Do you know the difference between love and obsession?"]
+        rewards = {}
 
         criteria = [
             "EventScheduler.Events['Jean_first_sex_part_two'].completed"]

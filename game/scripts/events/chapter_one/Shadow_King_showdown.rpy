@@ -22,10 +22,9 @@ init python:
 
         optional_objectives = {}
 
-        rewards = [
-            "New Available Actions",
-            "New Shop Items"]
-
+        rewards = {
+            "unlock": ["actions", "shop"]}
+            
         criteria = [
             "chapter == 1 and season == 4"]
 

@@ -20,7 +20,7 @@ init python:
 
         optional_objectives = {}
 
-        rewards = ["You'll never know if you don't go for it"]
+        rewards = {}
 
         criteria = [
             "EventScheduler.Events['Rogue_confession'].completed",

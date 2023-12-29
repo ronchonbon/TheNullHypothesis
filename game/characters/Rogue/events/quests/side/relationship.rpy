@@ -18,7 +18,7 @@ init python:
 
         optional_objectives = {}
 
-        rewards = ["Seems kind of selfish to ask, doesn't it?"]
+        rewards = {}
 
         criteria = [
             "EventScheduler.Events['Rogue_boyfriend'].completed"]
@@ -43,7 +43,7 @@ init python:
 
         optional_objectives = {}
 
-        rewards = ["She really, really likes you, if you can't tell"]
+        rewards = {}
 
         criteria = [
             "EventScheduler.Events['Rogue_enjoying_being_girlfriend'].completed"]
@@ -68,7 +68,7 @@ init python:
 
         optional_objectives = {}
 
-        rewards = ["You two are looking awfully close - that's a reward, right?"]
+        rewards = {}
 
         criteria = [
             "EventScheduler.Events['Rogue_penultimate_penultimate_quirk'].completed"]

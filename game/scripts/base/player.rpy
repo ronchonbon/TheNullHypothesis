@@ -104,8 +104,6 @@ init -3 python:
 
             self.orgasming = None
 
-            self.orgasm_control = False
-
             self.behavior = None
             self.behavior_Partners = []
             
@@ -116,6 +114,12 @@ init -3 python:
             self.clothes_on_floor = False
 
             self.scores = {}
+
+            self.mutant_rank = None
+            self.mutant_abilities = []
+            self.ability_points = 0
+
+            self.database_type = None
 
             self.temp = None
 

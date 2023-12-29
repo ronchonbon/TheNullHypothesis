@@ -458,14 +458,17 @@ init -2 python:
         Rogue.public_name = "Rogue"
         Rogue.call_sign = "Rogue"
 
-        Rogue.Player_petname = "hon'"
-        Rogue.Player_petnames.append(Player.first_name)
-        Rogue.Player_petnames.append(Rogue.Player_petname)
+        Rogue.database_type = "ally"
 
         Rogue.default_body_hair = {
             "pubic": "bush",
             "anus": None,
             "armpits": None}
+
+        Rogue.Player_petname = "hon'"
+        Rogue.Player_petnames.append(Player.first_name)
+        Rogue.Player_petnames.append(Rogue.Player_petname)
+
         Rogue.body_hair = Rogue.default_body_hair
         Rogue.desired_body_hair = Rogue.default_body_hair
 
@@ -709,6 +712,17 @@ init -2 python:
         return possible_locations
 
 label update_Rogue:
+    $ Rogue.full_name = "???"
+    $ Rogue.public_name = "Rogue"
+    $ Rogue.call_sign = "Rogue"
+
+    $ Rogue.database_type = "ally"
+    
+    $ Rogue.default_body_hair = {
+        "pubic": "bush",
+        "anus": None,
+        "armpits": None}
+        
     $ Rogue.sprite_anchor = Rogue_standing_anchor
     $ Rogue.sprite_position[1] = Rogue_standing_height
     $ Rogue.sprite_zoom = Rogue_standing_zoom

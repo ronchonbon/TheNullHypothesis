@@ -18,6 +18,8 @@ init -2 python:
         Charles.full_name = "Charles Xavier"
         Charles.call_sign = "Professor X"
 
+        Charles.database_type = "ally"
+
         Charles.gives_quests = True
 
         Charles.psychic = False
@@ -180,6 +182,11 @@ init -2 python:
         return possible_locations
 
 label update_Charles:
+    $ Charles.full_name = "Charles Xavier"
+    $ Charles.call_sign = "Professor X"
+
+    $ Charles.database_type = "ally"
+
     $ Charles.sprite_anchor = Charles_standing_anchor
     $ Charles.sprite_position[1] = Charles_standing_height
     $ Charles.sprite_zoom = Charles_standing_zoom

@@ -22,10 +22,9 @@ init python:
 
         optional_objectives = {}
 
-        rewards = [
-            "New Available Actions",
-            "New Shop Items"]
-
+        rewards = {
+            "unlock": ["actions", "shop"]}
+            
         criteria = [
             "chapter == 1 and season == 1"]
 
@@ -1921,6 +1920,7 @@ label ch1_Juggernaut_attack_path_1A:
 
     camera
 
+    $ Player.mutant_abilities.append("regen")
     $ Player.power = 50
 
     "The pain from your ribs suddenly envelops your entire body for a split second."

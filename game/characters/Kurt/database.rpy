@@ -8,7 +8,7 @@ label update_Kurt_database:
         "Kurt's main power is the ability to teleport or, as he calls it, 'bamfing', due to the sound produced when he uses it. His ability also produces a cloud of purple smoke, which dissipates quickly, along with a lingering smell of sulfur. He is currently limited to distances of around 50 meters and while he can teleport through walls, he either has to have line of sight (i.e. through a window or security camera) or be familiar with the area he is moving to. This limits his effectiveness on infiltration missions, and the smell of sulfur unfortunately makes him easy to track."]
 
     $ Kurt.database["study_materials"] = [
-        "RECOMMENDED STUDY MATERIALS\n\n- Giant-Size X-Men #1 (1975)\n- Excalibur (Vol.1 1988)\n- Amazing X-Men (2013)\n- Way of X (2021)"]
+        "RECOMMENDED STUDY MATERIALS\n- Giant-Size X-Men #1 (1975)\n- Excalibur (Vol.1 1988)\n- Amazing X-Men (2013)\n- Way of X (2021)"]
 
     $ Kurt.database["wiki"] = [
         "Mutiefan Entry for NIGHTCRAWLER\n\nWith little more than a sharp sword and an even sharper one-liner, this devil-may-care devil swoops into battle, ready to cut his foes down to size! A debonair ladies man, Nightcrawler always arrives right on time to save the day - and save the girl!"]

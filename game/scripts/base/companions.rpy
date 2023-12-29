@@ -24,6 +24,7 @@ init -2 python:
             self.level = 1
             self.XP = 0
             self.XP_goal = 200
+            self.ability_points = 0
 
             self.platonic = False
 
@@ -216,6 +217,8 @@ init -2 python:
             self.pussy_hidden = False
             self.anus_hidden = False
             self.feet_hidden = False
+
+            self.database_type = None
 
             self.temp = None
 

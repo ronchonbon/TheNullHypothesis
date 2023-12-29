@@ -16,7 +16,8 @@ init python:
 
         optional_objectives = {}
 
-        rewards = ["+10% on Love, Trust, and XP Gains for the Following Week"]
+        rewards = {
+            "unlock": ["stat buff"]}
 
         criteria = [
             "chapter == 1 and season == 1"]
