@@ -17,7 +17,7 @@ init -2:
         "bg_study"]
 
     define location_names = {
-        "bg_campus": "Campus",
+        "bg_campus": "Grounds",
         "bg_Charles": "[Charles.name]'s Room",
         "bg_classroom": "Classroom",
         "bg_danger": "Danger Room",

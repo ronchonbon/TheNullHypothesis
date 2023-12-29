@@ -10,7 +10,7 @@ init -4:
     default current_database_page = 0
 
     default current_inventory_page = 0
-    default current_inventory_filter = "gifts"
+    default current_inventory_filter = "gift"
     default current_inventory_list = []
     default current_inventory_Item = None
 
@@ -88,12 +88,6 @@ init -1 python:
 
 style Player_menu is default
 
-style Player_menu_button:
-    minimum (0.2, 0.07)
-
-style Player_menu_text:
-    font "agency_fb.ttf"
-
 screen Player_menu():
     layer "interface"
 
@@ -104,7 +98,7 @@ screen Player_menu():
     on "show" action [
         Hide("say"),
         Hide("phone_screen"),
-        SetVariable("current_inventory_filter", "gifts"),
+        SetVariable("current_inventory_filter", "gift"),
         SetVariable("choice_disabled", True),
         Function(EventScheduler.update_conditions)]
     on "hide" action [
@@ -112,29 +106,52 @@ screen Player_menu():
         SetVariable("current_inventory_Item", None),
         SetVariable("choice_disabled", False)]
 
-    if not black_screen and not renpy.get_screen("say"):
-        add "images/interface/Player_menu/background.webp"
+    timer 0.5 repeat True action ToggleVariable("blinking")
 
-        for page in ["database", "inventory", "journal", "map"]:
-            imagebutton:
-                idle f"images/interface/Player_menu/{page}_idle.webp" 
-                hover f"images/interface/Player_menu/{page}.webp" 
-                selected_idle f"images/interface/Player_menu/{page}.webp" 
-                selected_hover f"images/interface/Player_menu/{page}.webp"
+    if not black_screen and not renpy.get_screen("say"):
+        add "images/interface/main_menu/blank_background.webp" zoom interface_new_adjustment
+
+        add At("images/interface/preferences/spin.webp", spinning_element) anchor (0.5, 0.5) pos (0.502, 0.502) zoom interface_new_adjustment
+
+        add "images/interface/Player_menu/top.webp" zoom interface_new_adjustment
+
+        for page in ["database", "skills", "inventory", "journal", "map"]:
+            button:
+                idle_background At(f"images/interface/Player_menu/{page}_idle.webp", interface)
+                hover_background At(f"images/interface/Player_menu/{page}.webp", interface)
+                selected_idle_background At(f"images/interface/Player_menu/{page}.webp", interface)
+                selected_hover_background At(f"images/interface/Player_menu/{page}.webp", interface)
 
                 selected current_Player_menu_page == page
 
                 action SetVariable("current_Player_menu_page", page)
 
+                focus_mask True
+
+        text "DATABASE" anchor (0.5, 0.5) pos (0.147, 0.064):
+            size 55
+
+        text "SKILLS" anchor (0.5, 0.5) pos (0.28, 0.064):
+            size 50
+
+        text "INVENTORY" anchor (0.5, 0.5) pos (0.425, 0.064):
+            size 55
+
+        text "JOURNAL" anchor (0.5, 0.5) pos (0.586, 0.064):
+            size 55
+
+        text "MAP" anchor (0.5, 0.5) pos (0.711, 0.064):
+            size 55
+
         imagebutton:
-            idle "images/interface/Player_menu/preferences_idle.webp" 
-            hover "images/interface/Player_menu/preferences.webp"
+            idle At("images/interface/Player_menu/preferences_idle.webp", interface)
+            hover At("images/interface/Player_menu/preferences.webp", interface)
 
             action ShowMenu("preferences")
 
         imagebutton:
-            idle "images/interface/Player_menu/exit_idle.webp" 
-            hover "images/interface/Player_menu/exit.webp"
+            idle At("images/interface/Player_menu/exit_idle.webp", interface)
+            hover At("images/interface/Player_menu/exit.webp", interface)
 
             if not sandbox:
                 action [
@@ -143,12 +160,14 @@ screen Player_menu():
             else:
                 action Hide("Player_menu")
 
-        if current_Player_menu_page == "database":
-            use database_screen
-        elif current_Player_menu_page == "inventory":
+        # if current_Player_menu_page == "database":
+        #     use database_screen
+        # elif current_Player_menu_page == "skills":
+        #     use skills_screen
+        if current_Player_menu_page == "inventory":
             use inventory_screen
-        elif current_Player_menu_page == "journal":
-            use journal_screen
+        # elif current_Player_menu_page == "journal":
+        #     use journal_screen
         elif current_Player_menu_page == "map":
             use map_screen
 
@@ -302,7 +321,7 @@ screen inventory_screen():
     $ current_inventory_list = []
     
     for Item_string in Player.inventory.keys():
-        if current_inventory_filter == "gifts" and not isinstance(Player.inventory[Item_string], list):
+        if current_inventory_filter == "gift" and not isinstance(Player.inventory[Item_string], list):
             $ current_inventory_list.append(Item_string)
 
         if isinstance(Player.inventory[Item_string], list):
@@ -311,35 +330,43 @@ screen inventory_screen():
                     if Item_string not in current_inventory_list:
                         if I.Owner == Player and current_inventory_filter == "key":
                             $ current_inventory_list.append(Item_string)
-                        elif I.Owner != Player and current_inventory_filter == "gifts":
+                        elif I.Owner != Player and current_inventory_filter == "gift":
                             $ current_inventory_list.append(Item_string)
 
-    add "images/interface/Player_menu/inventory_background.webp" anchor (0.5, 0.5) pos (0.5, 0.5)
+    add "images/interface/Player_menu/inventory_background.webp" zoom interface_new_adjustment
 
     if math.floor(len(current_inventory_list)/15) > 0:
         imagebutton:
-            idle "images/interface/Player_menu/inventory_left_arrow_idle.webp"
-            hover "images/interface/Player_menu/inventory_left_arrow.webp"
+            idle At("images/interface/Player_menu/inventory_left_idle.webp", interface)
+            hover At("images/interface/Player_menu/inventory_left.webp", interface)
 
             action SetVariable("current_inventory_page", (current_inventory_page - 1) % math.ceil(len(current_inventory_list)/15))
 
     if math.floor(len(current_inventory_list)/15) > 0:
         imagebutton:
-            idle "images/interface/Player_menu/inventory_right_arrow_idle.webp" 
-            hover "images/interface/Player_menu/inventory_right_arrow.webp"
+            idle At("images/interface/Player_menu/inventory_right_idle.webp", interface)
+            hover At("images/interface/Player_menu/inventory_right.webp", interface)
 
             action SetVariable("current_inventory_page", (current_inventory_page + 1) % math.ceil(len(current_inventory_list)/15))
 
-    if math.floor(len(current_inventory_list)/15):
-        for i in range(math.ceil(len(current_inventory_list)/15)):
-            add "images/interface/Player_menu/inventory_page_empty.webp" anchor (0.5, 0.5) pos (0.05 + 0.05*i, 0.26)
+    if current_inventory_page < 9:
+        if blinking:
+            text "TAB{alpha=0.0}_{/alpha}" + f" 0{current_inventory_page + 1}" anchor (0.5, 0.5) pos (0.086, 0.808):
+                size 35
+        else:
+            text f"TAB_ 0{current_inventory_page + 1}" anchor (0.5, 0.5) pos (0.086, 0.808):
+                size 35
+    else:
+        if blinking:
+            text "TAB{alpha=0.0}_{/alpha}" + f" {current_inventory_page + 1}" anchor (0.5, 0.5) pos (0.086, 0.808):
+                size 35
+        else:
+            text f"TAB_ {current_inventory_page + 1}" anchor (0.5, 0.5) pos (0.086, 0.808):
+                size 35
 
-            if current_inventory_page == i:
-                add "images/interface/Player_menu/inventory_page.webp" anchor (0.5, 0.5) pos (0.05 + 0.05*i, 0.26)
-
-    grid 5 3 anchor (0.5, 0.5) pos (0.352, 0.628) xysize (int(1075*interface_new_sampling), int(640*interface_new_sampling)):
-        xspacing 13
-        yspacing 11
+    grid 5 3 anchor (0.0, 0.0) pos (0.146, 0.4) xysize (0.492, 0.524):
+        xspacing 15
+        yspacing 16
 
         for i in range(15*current_inventory_page, min(15*(current_inventory_page + 1), len(current_inventory_list))):
             $ Item_string = current_inventory_list[i]
@@ -351,15 +378,15 @@ screen inventory_screen():
                     if not Item:
                         if I.Owner == Player and current_inventory_filter == "key":
                             $ Item = I
-                        elif I.Owner != Player and current_inventory_filter == "gifts":
+                        elif I.Owner != Player and current_inventory_filter == "gift":
                             $ Item = I
 
                 if giving_gift and Item.Owner == Player:
                     continue
                     
-                button xysize (int(205*interface_new_sampling), int(205*interface_new_sampling)):
+                button xysize (int(355*interface_new_adjustment), int(355*interface_new_adjustment)):
                     if current_inventory_Item == Item_string:
-                        background "images/interface/Player_menu/inventory_selector.webp"
+                        background At("images/interface/Player_menu/inventory_selector.webp", interface)
                     else:
                         background None
 
@@ -370,8 +397,6 @@ screen inventory_screen():
                     text f"x{len(Player.inventory[Item_string])}" anchor (1.0, 1.0) pos (1.05, 1.0):
                         size 32
 
-                        color "#000000"
-
                     if giving_gift:
                         action [
                             SetVariable("current_inventory_Item", Item_string),
@@ -381,9 +406,9 @@ screen inventory_screen():
             else:
                 $ Clothing = Player.inventory[Item_string]
                 
-                button xysize (int(205*interface_new_sampling), int(205*interface_new_sampling)):
+                button xysize (int(355*interface_new_adjustment), int(355*interface_new_adjustment)):
                     if current_inventory_Item == Clothing:
-                        background "images/interface/Player_menu/inventory_selector.webp"
+                        background At("images/interface/Player_menu/inventory_selector.webp", interface)
                     else:
                         background None
 
@@ -403,11 +428,11 @@ screen inventory_screen():
                     else:
                         action SetVariable("current_inventory_Item", Clothing)
 
-    for filter in ["gifts", "key", "cards"]:
+    for filter in ["gift", "key"]:
         imagebutton:
-            idle f"images/interface/Player_menu/inventory_{filter}_idle.webp" 
-            hover f"images/interface/Player_menu/inventory_{filter}.webp" 
-            selected_idle f"images/interface/Player_menu/inventory_{filter}_selected.webp"
+            idle At(f"images/interface/Player_menu/inventory_{filter}_idle.webp", interface)
+            hover At(f"images/interface/Player_menu/inventory_{filter}.webp", interface) 
+            selected_idle At(f"images/interface/Player_menu/inventory_{filter}.webp", interface)
 
             selected current_inventory_filter == filter
 
@@ -415,59 +440,50 @@ screen inventory_screen():
                 SetVariable("current_inventory_Item", None),
                 SetVariable("current_inventory_filter", filter)]
 
-    text "NAME" anchor (0.0, 0.5) pos (0.6925, 0.235):
-        size 50
+    text "GIFT" anchor (0.5, 0.5) pos (0.51, 0.335):
+        size 35
 
-        color "#512908"
+    text "KEY" anchor (0.5, 0.5) pos (0.602, 0.335):
+        size 35
+
+    if blinking:
+        text "ITEM NAME" + "{alpha=0.0}_{/alpha}" anchor (0.0, 0.5) pos (0.674, 0.335):
+            size 35
+    else:
+        text "ITEM NAME" + "_" anchor (0.0, 0.5) pos (0.674, 0.335):
+            size 35
 
     if isinstance(current_inventory_Item, str):
         $ Item = eval(f"{current_inventory_Item}(None)")
 
-        text f"{Item.name.upper()}" anchor (0.5, 0.5) pos (0.833, 0.295):
+        text f"{Item.name.upper()}" anchor (1.0, 0.5) pos (0.93, 0.335):
+            if len(Item.name) > 20:
+                size 25
+            elif len(Item.name) > 15:
+                size 30
+            else:
+                size 35
+
+        text f"{Item.description}" anchor (0.5, 0.5) pos (0.8, 0.608) xysize (0.25, 0.44):
             size 40
+    elif current_inventory_Item:
+        text f"{current_inventory_Item.name.upper()}" anchor (1.0, 0.5) pos (0.93, 0.335):
+            if len(current_inventory_Item.name) > 20:
+                size 25
+            elif len(current_inventory_Item.name) > 15:
+                size 30
+            else:
+                size 35
 
-            color "#512908"
-
-        text "DESCRIPTION" anchor (0.0, 0.5) pos (0.6925, 0.385):
+    if blinking:
+        text "CASH" + "{alpha=0.0}_{/alpha}" anchor (0.0, 0.5) pos (0.674, 0.907):
+            size 50
+    else:
+        text "CASH" + "_" anchor (0.0, 0.5) pos (0.674, 0.907):
             size 50
 
-            color "#512908"
-
-        text f"{Item.description}" anchor (0.5, 0.5) pos (0.831, 0.585) xysize (int(500*interface_new_sampling), int(500*interface_new_sampling)):
-            size 40
-
-            color "#512908"
-
-        text "Quantity" anchor (0.0, 0.5) pos (0.6925, 0.787):
-            size 40
-
-            color "#512908"
-
-        if isinstance(Player.inventory[Item.string], list):
-            text f"{len(Player.inventory[Item.string])}" anchor (1.0, 0.5) pos (0.96, 0.787):
-                size 40
-
-                color "#512908"
-        else:
-            text "1" anchor (1.0, 0.5) pos (0.96, 0.787):
-                size 40
-
-                color "#512908"
-    elif current_inventory_Item:
-        text f"{current_inventory_Item.name.upper()}" anchor (0.5, 0.5) pos (0.833, 0.295):
-            size 40
-
-            color "#512908"
-
-    text "Money" anchor (0.0, 0.5) pos (0.6925, 0.898):
+    text f"$ {Player.cash}" anchor (1.0, 0.5) pos (0.93, 0.907):
         size 50
-
-        color "#512908"
-
-    text f"$ {Player.cash}" anchor (1.0, 0.5) pos (0.96, 0.898):
-        size 50
-
-        color "#512908"
 
 screen confirm_gift_screen(Character, Item):
     modal True
@@ -784,145 +800,124 @@ screen map_screen():
                     if possible_location in unlocked_locations.keys():
                         $ available_groups.append(possible_group)
 
-    if current_group == "Institute":
-        add "images/interface/Player_menu/institute_background.webp" anchor (0.5, 0.5) pos (0.5, 0.5)
-    elif current_group == "Mall":
-        add "images/interface/Player_menu/mall_background.webp" anchor (0.5, 0.5) pos (0.5, 0.5)
-    elif current_group == "Town":
-        add "images/interface/Player_menu/town_background.webp" anchor (0.5, 0.5) pos (0.5, 0.5)
+    add "images/interface/Player_menu/map_background.webp" zoom interface_new_adjustment
 
-    vbox anchor (0.5, 0.0) pos (0.120, 0.17):
-        spacing 5
+    for location_group in location_groups.keys():
+        if location_group in available_groups:
+            imagebutton:
+                idle At(f"images/interface/Player_menu/map_selection_{location_group}_idle.webp", interface)
+                hover At(f"images/interface/Player_menu/map_selection_{location_group}.webp", interface)
+                selected_idle At(f"images/interface/Player_menu/map_selection_{location_group}.webp", interface)
 
-        for location_group in location_groups.keys():
-            if location_group in available_groups:
-                button xysize (int(348*interface_new_sampling), int(64*interface_new_sampling)):
-                    idle_background "images/interface/Player_menu/map_location_idle.webp" 
-                    hover_background "images/interface/Player_menu/map_location.webp"
+                selected location_group == current_group
 
-                    if location_group == "Institute":
-                        selected_idle_background "images/interface/Player_menu/map_location_institute.webp" 
-                        selected_hover_background "images/interface/Player_menu/map_location_institute.webp"
-                    elif location_group == "Mall":
-                        selected_idle_background "images/interface/Player_menu/map_location_mall.webp" 
-                        selected_hover_background "images/interface/Player_menu/map_location_mall.webp"
-                    elif location_group == "Town":
-                        selected_idle_background "images/interface/Player_menu/map_location_town.webp" 
-                        selected_hover_background "images/interface/Player_menu/map_location_town.webp"
+                action [
+                    SetVariable("current_group", location_group),
+                    SetVariable("current_subgroup", "First Floor")]
 
-
-                    selected location_group == current_group
-
-                    action [
-                        SetVariable("current_group", location_group),
-                        SetVariable("current_subgroup", "First Floor")]
-
-                    text location_group:
-                        size 36
+            if location_group == "Institute":
+                text "INSTITUTE" anchor (0.5, 0.5) pos (0.107, 0.251):
+                    size 36
+            elif location_group == "Mall":
+                text "MALL" anchor (0.5, 0.5) pos (0.107, 0.331):
+                    size 36
 
     if type(location_groups[current_group]) is dict:
-        vbox anchor (0.5, 0.0) pos (0.120, 0.405):
-            spacing 10
+        for location_subgroup in location_groups[current_group].keys():
+            if location_subgroup in available_subgroups:
+                imagebutton:
+                    idle At(f"images/interface/Player_menu/map_floor_{location_subgroup.replace(' ', '_')}_idle.webp", interface)
+                    hover At(f"images/interface/Player_menu/map_floor_{location_subgroup.replace(' ', '_')}.webp", interface)
+                    selected_idle At(f"images/interface/Player_menu/map_floor_{location_subgroup.replace(' ', '_')}.webp", interface)
 
-            for location_subgroup in location_groups[current_group].keys():
-                if location_subgroup in available_subgroups:
-                    button xysize (int(247*interface_new_sampling), int(57*interface_new_sampling)):
-                        idle_background "images/interface/Player_menu/map_sublocation_idle.webp" 
-                        hover_background "images/interface/Player_menu/map_sublocation.webp" 
-                        selected_idle_background "images/interface/Player_menu/map_sublocation_selected.webp"
-                        selected_hover_background "images/interface/Player_menu/map_sublocation_selected.webp"
+                    action SetVariable("current_subgroup", location_subgroup)
 
-                        action SetVariable("current_subgroup", location_subgroup)
-
-                        text location_subgroup:
-                            size 36
-
-                            color "#000000"
+    if blinking:
+        text "FLOORS" + "{alpha=0.0}_{/alpha}" anchor (0.0, 0.5) pos (0.065, 0.444):
+            size 35
+    else:
+        text "FLOORS" + "_" anchor (0.0, 0.5) pos (0.065, 0.444):
+            size 35
 
     if sandbox:
-        vbox anchor (0.5, 0.0) pos (0.120, 0.74):
-            spacing 30
+        imagebutton:
+            idle At("images/interface/Player_menu/map_quikloc1_idle.webp", interface)
+            hover At("images/interface/Player_menu/map_quikloc1.webp", interface)
+            selected_idle At("images/interface/Player_menu/map_quikloc1.webp", interface)
 
-            button xysize (int(247*interface_new_sampling), int(57*interface_new_sampling)):
-                idle_background "images/interface/Player_menu/map_sublocation_idle.webp" 
-                hover_background "images/interface/Player_menu/map_sublocation.webp" 
-                selected_idle_background "images/interface/Player_menu/map_sublocation_selected.webp" 
-                selected_hover_background "images/interface/Player_menu/map_sublocation_selected.webp"
+            selected quick_location_1 is None
 
-                selected quick_location_1 is None
+            if quick_location_2 is None:
+                action [
+                    SetVariable("quick_location_2", False),
+                    SetVariable("quick_location_1", None)]
+            elif quick_location_3 is None:
+                action [
+                    SetVariable("quick_location_3", False),
+                    SetVariable("quick_location_1", None)]
+            else:
+                if quick_location_1 is None:
+                    action SetVariable("quick_location_1", False)
+                else:
+                    action SetVariable("quick_location_1", None)
 
+        imagebutton:
+            idle At("images/interface/Player_menu/map_quikloc2_idle.webp", interface)
+            hover At("images/interface/Player_menu/map_quikloc2.webp", interface)
+            selected_idle At("images/interface/Player_menu/map_quikloc2.webp", interface)
+
+            selected quick_location_2 is None
+
+            if quick_location_1 is None:
+                action [
+                    SetVariable("quick_location_1", False),
+                    SetVariable("quick_location_2", None)]
+            elif quick_location_3 is None:
+                action [
+                    SetVariable("quick_location_3", False),
+                    SetVariable("quick_location_2", None)]
+            else:
                 if quick_location_2 is None:
-                    action [
-                        SetVariable("quick_location_2", False),
-                        SetVariable("quick_location_1", None)]
-                elif quick_location_3 is None:
-                    action [
-                        SetVariable("quick_location_3", False),
-                        SetVariable("quick_location_1", None)]
+                    action SetVariable("quick_location_2", False)
                 else:
-                    if quick_location_1 is None:
-                        action SetVariable("quick_location_1", False)
-                    else:
-                        action SetVariable("quick_location_1", None)
+                    action SetVariable("quick_location_2", None)
 
-                text "Set QuikLoc 1":
-                    size 36
+        imagebutton:
+            idle At("images/interface/Player_menu/map_quikloc3_idle.webp", interface)
+            hover At("images/interface/Player_menu/map_quikloc3.webp", interface)
+            selected_idle At("images/interface/Player_menu/map_quikloc3.webp", interface)
 
-                    color "#000000"
+            selected quick_location_3 is None
 
-            button xysize (int(247*interface_new_sampling), int(57*interface_new_sampling)):
-                idle_background "images/interface/Player_menu/map_sublocation_idle.webp" 
-                hover_background "images/interface/Player_menu/map_sublocation.webp" 
-                selected_idle_background "images/interface/Player_menu/map_sublocation_selected.webp" 
-                selected_hover_background "images/interface/Player_menu/map_sublocation_selected.webp"
-
-                selected quick_location_2 is None
-
-                if quick_location_1 is None:
-                    action [
-                        SetVariable("quick_location_1", False),
-                        SetVariable("quick_location_2", None)]
-                elif quick_location_3 is None:
-                    action [
-                        SetVariable("quick_location_3", False),
-                        SetVariable("quick_location_2", None)]
+            if quick_location_1 is None:
+                action [
+                    SetVariable("quick_location_1", False),
+                    SetVariable("quick_location_3", None)]
+            elif quick_location_2 is None:
+                action [
+                    SetVariable("quick_location_2", False),
+                    SetVariable("quick_location_3", None)]
+            else:
+                if quick_location_3 is None:
+                    action SetVariable("quick_location_3", False)
                 else:
-                    if quick_location_2 is None:
-                        action SetVariable("quick_location_2", False)
-                    else:
-                        action SetVariable("quick_location_2", None)
+                    action SetVariable("quick_location_3", None)
 
-                text "Set QuikLoc 2":
-                    size 36
+        text "1" anchor (0.5, 0.5) pos (0.073, 0.892):
+            size 36
 
-                    color "#000000"
+        text "2" anchor (0.5, 0.5) pos (0.107, 0.892):
+            size 36
 
-            button xysize (int(247*interface_new_sampling), int(57*interface_new_sampling)):
-                idle_background "images/interface/Player_menu/map_sublocation_idle.webp"
-                hover_background "images/interface/Player_menu/map_sublocation.webp" 
-                selected_idle_background "images/interface/Player_menu/map_sublocation_selected.webp" 
-                selected_hover_background "images/interface/Player_menu/map_sublocation_selected.webp"
+        text "3" anchor (0.5, 0.5) pos (0.14, 0.892):
+            size 36
 
-                selected quick_location_3 is None
-
-                if quick_location_1 is None:
-                    action [
-                        SetVariable("quick_location_1", False),
-                        SetVariable("quick_location_3", None)]
-                elif quick_location_2 is None:
-                    action [
-                        SetVariable("quick_location_2", False),
-                        SetVariable("quick_location_3", None)]
-                else:
-                    if quick_location_3 is None:
-                        action SetVariable("quick_location_3", False)
-                    else:
-                        action SetVariable("quick_location_3", None)
-
-                text "Set QuikLoc 3":
-                    size 36
-
-                    color "#000000"
+    if blinking:
+        text "QUICK TRAVEL" + "{alpha=0.0}_{/alpha}" anchor (0.0, 0.5) pos (0.065, 0.801):
+            size 30
+    else:
+        text "QUICK TRAVEL" + "_" anchor (0.0, 0.5) pos (0.065, 0.801):
+            size 30
 
     $ map_to_show = None
 
@@ -936,18 +931,18 @@ screen map_screen():
         elif current_subgroup == "Attic":
             $ map_to_show = "attic"
             
-        add f"images/interface/Player_menu/map_institute_{map_to_show}.webp"
+        add f"images/interface/Player_menu/map_institute_{map_to_show}.webp" zoom interface_new_adjustment
     elif current_group == "Mall":
         if current_subgroup == "First Floor":
             $ map_to_show = "mall"
             
-        add f"images/interface/Player_menu/map_mall.webp"
+        add "images/interface/Player_menu/map_mall.webp" zoom interface_new_adjustment
         
     if map_to_show:
         if current_subgroup:
             for possible_location in location_groups[current_group][current_subgroup]:
                 if possible_location in marked_locations.keys():
-                    button anchor (0.5, 0.5):
+                    button:
                         selected Player.location == possible_location
 
                         if possible_location in available_locations.keys():
@@ -974,7 +969,9 @@ screen map_screen():
                                     size 36
 
                                     if possible_location in available_locations.keys():
-                                        color "#000000" hover_color "#ffa903" selected_color "#ffa903"
+                                        color "#000000" 
+                                        hover_color "#aa4b14" 
+                                        selected_color "#aa4b14"
                                     else:
                                         color "#bfbfbf"
 
@@ -984,7 +981,9 @@ screen map_screen():
                                     size 36
 
                                     if possible_location in available_locations.keys():
-                                        color "#000000" hover_color "#ffa903" selected_color "#ffa903"
+                                        color "#000000" 
+                                        hover_color "#aa4b14" 
+                                        selected_color "#aa4b14"
                                     else:
                                         color "#bfbfbf"
 
@@ -994,14 +993,20 @@ screen map_screen():
                                     size 36
 
                                     if possible_location in available_locations.keys():
-                                        color "#000000" hover_color "#ffa903" selected_color "#ffa903"
+                                        color "#000000" 
+                                        hover_color "#aa4b14" 
+                                        selected_color "#aa4b14"
                                     else:
                                         color "#bfbfbf"
                         elif possible_location == "bg_Player":
-                            idle_background f"images/interface/Player_menu/Player_{Player.background_color}_idle.webp" hover_background f"images/interface/Player_menu/Player_{Player.background_color}.webp" selected_idle_background f"images/interface/Player_menu/Player_{Player.background_color}.webp"
+                            idle_background At(f"images/interface/Player_menu/Player_{Player.background_color}_idle.webp", interface)
+                            hover_background At(f"images/interface/Player_menu/Player_{Player.background_color}.webp", interface)
+                            selected_idle_background At(f"images/interface/Player_menu/Player_{Player.background_color}.webp", interface)
                         elif possible_location not in ["bg_Kurt", "bg_Charles"]:
                             if possible_location in available_locations.keys():
-                                idle_background f"images/interface/Player_menu/{possible_location[3:]}_idle.webp" hover_background f"images/interface/Player_menu/{possible_location[3:]}.webp" selected_idle_background f"images/interface/Player_menu/{possible_location[3:]}.webp"
+                                idle_background At(f"images/interface/Player_menu/{possible_location[3:]}_idle.webp", interface)
+                                hover_background At(f"images/interface/Player_menu/{possible_location[3:]}.webp", interface)
+                                selected_idle_background At(f"images/interface/Player_menu/{possible_location[3:]}.webp", interface)
                             else:
                                 background None
                         else:
@@ -1016,77 +1021,70 @@ screen map_screen():
                                     color "#bfbfbf"
 
                         if possible_location == "bg_campus":
-                            pos (0.622, 0.919) xysize (int(1000*interface_new_sampling), int(150*interface_new_sampling))
-                        elif possible_location == "bg_classroom":
-                            pos (0.83095, 0.3686) xysize (int(260*interface_new_sampling), int(210*interface_new_sampling))
-                        elif possible_location == "bg_danger":
-                            pos (0.414, 0.369) xysize (int(260*interface_new_sampling), int(215*interface_new_sampling))
-                        elif possible_location == "bg_entrance":
-                            pos (0.622, 0.7965) xysize (int(50*interface_new_sampling), int(50*interface_new_sampling))
-                        elif possible_location == "bg_girls_hallway":
-                            pos (0.4135, 0.561) xysize (int(50*interface_new_sampling), int(600*interface_new_sampling))
-                        elif possible_location == "bg_hallway":
-                            pos (0.8315, 0.561) xysize (int(50*interface_new_sampling), int(600*interface_new_sampling))
-                        elif possible_location == Jean.home:
-                            pos (0.370, 0.307) xysize (int(96*interface_new_sampling), int(71*interface_new_sampling))
-                        elif possible_location == "bg_Kurt":
-                            pos (0.788, 0.591) xysize (int(96*interface_new_sampling), int(71*interface_new_sampling))
-                        elif possible_location == Laura.home:
-                            pos (0.370, 0.591) xysize (int(96*interface_new_sampling), int(71*interface_new_sampling))
-                        elif possible_location == "bg_lockers":
-                            pos (0.497, 0.51) xysize (int(260*interface_new_sampling), int(150*interface_new_sampling))
-                        elif possible_location == "bg_mall":
-                            pos (0.51, 0.5915) xysize (int(80*interface_new_sampling), int(550*interface_new_sampling))
-                        elif possible_location == "bg_movies":
-                            pos (0.662, 0.48) xysize (int(150*interface_new_sampling), int(240*interface_new_sampling))
-                        elif possible_location == "bg_Player":
-                            pos (0.8735, 0.4495) xysize (int(96*interface_new_sampling), int(71*interface_new_sampling))
-                        elif possible_location == "bg_pool":
-                            pos (0.609, 0.306) xysize (int(450*interface_new_sampling), int(200*interface_new_sampling))
-                        elif possible_location == Rogue.home:
-                            pos (0.4555, 0.377) xysize (int(96*interface_new_sampling), int(71*interface_new_sampling))
-                        elif possible_location == "bg_study":
-                            pos (0.83095, 0.744) xysize (int(260*interface_new_sampling), int(240*interface_new_sampling))
+                            pos (0.445, 0.89) xysize (0.49, 0.11)
                         elif possible_location == "bg_Charles":
-                            pos (0.622, 0.475) xysize (int(350*interface_new_sampling), int(160*interface_new_sampling))
-
-                        if possible_location in ["bg_girls_hallway", "bg_hallway"]:
-                            vbox anchor (0.5, 1.0) pos (0.525, 0.9) xysize (int(44*interface_new_sampling), int(100*interface_new_sampling)):
-                                for C in all_Characters:
-                                    if C.location == possible_location:
-                                        add At(f"images/interface/phone/icons/{C.tag}.webp", map_icon)
-
-                                if Player.location == possible_location:
-                                    add At(f"images/interface/phone/icons/Player_{Player.background_color}.webp", map_icon)
-
-                            if marked_locations[possible_location]:
-                                add At("images/interface/Player_menu/event_alert.webp", phone_icon) anchor (0.5, 0.0) pos (0.525, 0.25)
-                        elif possible_location in ["bg_mall"]:
-                            vbox anchor (0.5, 1.0) pos (0.55, 0.9) xysize (int(44*interface_new_sampling), int(100*interface_new_sampling)):
-                                for C in all_Characters:
-                                    if C.location == possible_location:
-                                        add At(f"images/interface/phone/icons/{C.tag}.webp", map_icon)
-
-                                if Player.location == possible_location:
-                                    add At(f"images/interface/phone/icons/Player_{Player.background_color}.webp", map_icon)
-
-                            if marked_locations[possible_location]:
-                                add At("images/interface/Player_menu/event_alert.webp", phone_icon) anchor (0.5, 0.0) pos (0.55, 0.25)
+                            pos (0.445, 0.503) xysize (0.1, 0.135)
+                        elif possible_location == "bg_classroom":
+                            pos (0.628, 0.408) xysize (0.12, 0.166)
+                        elif possible_location == "bg_danger":
+                            pos (0.2615, 0.408) xysize (0.125, 0.169)
+                        elif possible_location == "bg_entrance":
+                            pos (0.445, 0.7965) xysize (0.01, 0.01)
+                        elif possible_location == "bg_girls_hallway":
+                            pos (0.2615, 0.578) xysize (0.0274, 0.51)
+                        elif possible_location == "bg_hallway":
+                            pos (0.6285, 0.578) xysize (0.0274, 0.51)
+                        elif possible_location == "bg_Kurt":
+                            pos (0.589, 0.604) xysize (0.05, 0.05)
+                        elif possible_location == "bg_lockers":
+                            pos (0.336, 0.534) xysize (0.118, 0.075)
+                        elif possible_location == "bg_mall":
+                            pos (0.347, 0.5765) xysize (0.038, 0.533)
+                        elif possible_location == "bg_movies":
+                            pos (0.485, 0.477) xysize (0.074, 0.2)
+                        elif possible_location == "bg_pool":
+                            pos (0.445, 0.352) xysize (0.243, 0.157)
+                        elif possible_location == "bg_study":
+                            pos (0.628, 0.739) xysize (0.12, 0.183)
                         else:
-                            hbox anchor (0.5, 1.0) pos (0.5, 0.95):
-                                if possible_location in bedrooms:
-                                    xysize (int(60*interface_new_sampling), int(44*interface_new_sampling))
+                            focus_mask True
 
-                                    spacing -25
-                                else:
-                                    xysize (int(100*interface_new_sampling), int(44*interface_new_sampling))
+    if blinking:
+        text "X-TRACKER" + "{alpha=0.0}_{/alpha}" anchor (0.0, 0.5) pos (0.733, 0.237):
+            size 35
+    else:
+        text "X-TRACKER" + "_" anchor (0.0, 0.5) pos (0.733, 0.237):
+            size 35
 
-                                for C in all_Characters:
-                                    if C.location == possible_location:
-                                        add At(f"images/interface/phone/icons/{C.tag}.webp", map_icon)
+    vpgrid anchor (0.5, 0.0) pos (0.828, 0.294) xysize (0.19, 0.63):
+        cols 1
 
-                                if Player.location == possible_location:
-                                    add At(f"images/interface/phone/icons/Player_{Player.background_color}.webp", map_icon)
+        spacing 15
 
-                            if marked_locations[possible_location]:
-                                add At("images/interface/Player_menu/event_alert.webp", phone_icon) anchor (0.5, 0.0) pos (0.5, 0.2)
+        draggable True
+        mousewheel True
+
+        xfill True
+
+        for possible_group in location_groups.keys():
+            for possible_subgroup in location_groups[possible_group].keys():
+                for possible_location in location_groups[possible_group][possible_subgroup]:
+                    if possible_location in marked_locations.keys():
+                        if marked_locations[possible_location] or Player.location == possible_location or get_Present(location = possible_location)[0]:
+                            text location_names[possible_location] xalign 0.0:
+                                size 36
+
+                                text_align 0.0
+
+                            fixed xysize(1.0, int(44*interface_new_sampling)):
+                                hbox xalign 0.0:
+                                    spacing 5
+                                    if marked_locations[possible_location]:
+                                        add At("images/interface/Player_menu/event_alert.webp", phone_icon)
+
+                                    if Player.location == possible_location:
+                                        add At(f"images/interface/phone/icons/Player_{Player.background_color}.webp", map_icon)
+
+                                    for C in all_Characters:
+                                        if C.location == possible_location:
+                                            add At(f"images/interface/phone/icons/{C.tag}.webp", map_icon)

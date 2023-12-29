@@ -1,12 +1,12 @@
 image menu_background:
     # "images/interface/main_menu/Ororo.webp" with Dissolve(0.5, alpha = True)
     # pause 5.0
-    # "images/interface/main_menu/Rogue.webp" with Dissolve(0.5, alpha = True)
-    # pause 5.0
+    "images/interface/main_menu/Rogue.webp" with Dissolve(0.5, alpha = True)
+    pause 5.0
     # "images/interface/main_menu/Laura.webp" with Dissolve(0.5, alpha = True)
     # pause 5.0
     "images/interface/main_menu/Charles.webp" with Dissolve(0.5, alpha = True)
-    # pause 5.0
+    pause 5.0
     # "images/interface/main_menu/Jean.webp" with Dissolve(0.5, alpha = True)
     # pause 5.0
     # "images/interface/main_menu/Kurt.webp" with Dissolve(0.5, alpha = True)
@@ -41,7 +41,10 @@ screen main_menu():
 
     add "menu_comic"
 
-    text f"{config.version}" anchor (1.0, 0.5) pos (0.155, 0.96):
+    text "GAME VERSION" anchor (0.0, 0.5) pos (0.025, 0.96):
+        size 25
+
+    text f"{config.version}" anchor (1.0, 0.5) pos (0.157, 0.96):
         size 25
 
     imagebutton:
@@ -69,6 +72,9 @@ screen main_menu():
 
         action Start()
 
+    text "NEW GAME" anchor (0.5, 0.5) pos (0.272, 0.507):
+        size 45
+
     $ last_save = renpy.newest_slot()
 
     if last_save is not None:
@@ -82,7 +88,13 @@ screen main_menu():
         else:
             action NullAction()
 
+    text "CONTINUE" anchor (0.5, 0.5) pos (0.272, 0.613):
+        size 45
+
     imagebutton:
         idle At("images/interface/main_menu/options_idle.webp", interface) hover At("images/interface/main_menu/options.webp", interface)
 
         action ShowMenu("preferences")
+
+    text "OPTIONS" anchor (0.5, 0.5) pos (0.272, 0.718):
+        size 45

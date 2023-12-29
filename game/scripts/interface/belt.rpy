@@ -33,7 +33,7 @@ screen belt_screen():
     style_prefix "belt"
 
     if not black_screen and not belt_hidden and sandbox and not ongoing_Event:
-        add At("images/interface/belt/background.webp", interface)
+        add "images/interface/belt/background.webp" zoom interface_new_adjustment
 
         imagebutton:
             idle At("images/interface/belt/hide_idle.webp", interface) 

@@ -95,8 +95,8 @@ screen Action_screen(automatic = False):
             add At("images/interface/Action_menu/lightning_male.webp", pulse(intensity = 0.2)) zoom interface_new_adjustment
 
         bar value Player.desire range 100 anchor (0.5, 0.5) pos (0.94, 0.0478) xysize (int(291*interface_new_adjustment), int(37*interface_new_adjustment)):
-            left_bar Frame("images/interface/Action_menu/climax_male.webp")
-            right_bar Frame("images/interface/Action_menu/climax_empty.webp")
+            left_bar Frame(At("images/interface/Action_menu/climax_full_male.webp", interface))
+            right_bar Frame(At("images/interface/Action_menu/climax_empty.webp", interface))
 
             thumb None
             thumb_offset 0
@@ -126,8 +126,8 @@ screen Action_screen(automatic = False):
             add At("images/interface/Action_menu/lightning_female.webp", pulse(intensity = 0.2)) zoom interface_new_adjustment
 
         bar value focused_Character.desire range 100 anchor (0.5, 0.5) pos (0.94, 0.0851) xysize (int(291*interface_new_adjustment), int(37*interface_new_adjustment)):
-            left_bar Frame("images/interface/Action_menu/climax_female.webp")
-            right_bar Frame("images/interface/Action_menu/climax_empty.webp")
+            left_bar Frame(At("images/interface/Action_menu/climax_full_female.webp", interface))
+            right_bar Frame(At("images/interface/Action_menu/climax_empty.webp", interface))
 
             thumb None
             thumb_offset 0
@@ -241,7 +241,7 @@ screen Action_screen(automatic = False):
                                     action NullAction()
 
                     vbar value YScrollValue("pose_viewport") anchor (0.0, 0.0) pos (0.98, 0.276) xysize (int(29*interface_new_adjustment), int(980*interface_new_adjustment)):
-                        base_bar Frame("images/interface/Action_menu/scrollbar.webp")
+                        base_bar Frame(At("images/interface/Action_menu/scrollbar.webp", interface))
 
                         thumb At("images/interface/Action_menu/scrollbar_thumb.webp", interface)
                         thumb_offset 10
@@ -404,7 +404,7 @@ screen Action_screen(automatic = False):
                                             Call("request_Action", Action_type, focused_Character, Player, from_current = True)]
 
                     vbar value YScrollValue("Action_viewport") anchor (0.0, 0.0) pos (0.98, 0.276) xysize (int(29*interface_new_adjustment), int(980*interface_new_adjustment)):
-                        base_bar Frame("images/interface/Action_menu/scrollbar.webp")
+                        base_bar Frame(At("images/interface/Action_menu/scrollbar.webp", interface))
 
                         thumb At("images/interface/Action_menu/scrollbar_thumb.webp", interface)
                         thumb_offset 10
@@ -452,8 +452,8 @@ screen Action_screen(automatic = False):
                     tooltip "Auto Progress"
 
                 bar value Action_auto_progress_timer range 5.0 anchor (0.5, 0.5) pos (0.9281, 0.825) xysize (int(419*interface_new_adjustment), int(78*interface_new_adjustment)):
-                    left_bar Frame("images/interface/Action_menu/progress_full.webp")
-                    right_bar Frame("images/interface/Action_menu/progress_empty.webp")
+                    left_bar Frame(At("images/interface/Action_menu/progress_full.webp", interface))
+                    right_bar Frame(At("images/interface/Action_menu/progress_empty.webp", interface))
 
                     thumb None
                     thumb_offset 0
@@ -639,7 +639,11 @@ screen grade_screen(total_Character_orgasms, total_Player_orgasms, total_unique_
             else:
                 add At("images/interface/Action_menu/C.webp", interface) anchor (1.0, 0.5) pos (1.0, 0.5)
 
-        imagebutton anchor (0.5, 0.5) pos (0.5, 0.895):
-            idle At("images/interface/Action_menu/done_idle.webp", interface) hover At("images/interface/Action_menu/done.webp", interface)
+        button anchor (0.5, 0.5) pos (0.5, 0.895) xysize (int(374*interface_new_adjustment), int(177*interface_new_adjustment)):
+            idle_background At("images/interface/Action_menu/done_idle.webp", interface) 
+            hover_background At("images/interface/Action_menu/done.webp", interface)
+
+            text "DONE":
+                size 35
 
             action Return()

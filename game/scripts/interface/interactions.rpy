@@ -154,7 +154,8 @@ screen interactions_screen(Character):
                 else:
                     if Character.gives_work:
                         imagebutton:
-                            idle At("images/interface/interactions/work_idle.webp", interface) hover At("images/interface/interactions/work.webp", interface)
+                            idle At("images/interface/interactions/work_idle.webp", interface) 
+                            hover At("images/interface/interactions/work.webp", interface)
 
                             action Call("work", Character, from_current = True)
 
@@ -163,7 +164,8 @@ screen interactions_screen(Character):
                         null width int(236*interface_new_adjustment) height int(238*interface_new_adjustment)
 
                 imagebutton:
-                    idle At("images/interface/interactions/chat_idle.webp", interface) hover At("images/interface/interactions/chat.webp", interface)
+                    idle At("images/interface/interactions/chat_idle.webp", interface) 
+                    hover At("images/interface/interactions/chat.webp", interface)
 
                     action Call("chat", Character, from_current = True)
 
@@ -171,7 +173,8 @@ screen interactions_screen(Character):
 
                 if Character in all_Companions:
                     imagebutton:
-                        idle At("images/interface/interactions/gift_idle.webp", interface) hover At("images/interface/interactions/gift.webp", interface)
+                        idle At("images/interface/interactions/gift_idle.webp", interface) 
+                        hover At("images/interface/interactions/gift.webp", interface)
 
                         action [
                             Hide("interactions_screen"),
@@ -183,7 +186,8 @@ screen interactions_screen(Character):
 
                     if approval_check(Character, threshold = "change_Outfit"):
                         imagebutton:
-                            idle At("images/interface/interactions/wardrobe_idle.webp", interface) hover At("images/interface/interactions/wardrobe.webp", interface)
+                            idle At("images/interface/interactions/wardrobe_idle.webp", interface) 
+                            hover At("images/interface/interactions/wardrobe.webp", interface)
 
                             action [
                                 Hide("interactions_screen"), 
@@ -192,13 +196,15 @@ screen interactions_screen(Character):
                             tooltip "Open Wardrobe"
                     else:
                         imagebutton:
-                            idle At("images/interface/interactions/lock.webp", interface) hover At("images/interface/interactions/lock.webp", interface)
+                            idle At("images/interface/interactions/lock.webp", interface) 
+                            hover At("images/interface/interactions/lock.webp", interface)
 
                             action NullAction()
 
                     if approval_check(Character, threshold = "hookup") and len(Present) == 1 and Player.location in bedrooms:
                         imagebutton:
-                            idle At("images/interface/interactions/hookup_idle.webp", interface) hover At("images/interface/interactions/hookup.webp", interface)
+                            idle At("images/interface/interactions/hookup_idle.webp", interface) 
+                            hover At("images/interface/interactions/hookup.webp", interface)
 
                             action [
                                 Hide("interactions_screen"), 
@@ -207,7 +213,8 @@ screen interactions_screen(Character):
                             tooltip "Ask to Hookup"
                     else:
                         imagebutton:
-                            idle At("images/interface/interactions/lock.webp", interface) hover At("images/interface/interactions/lock.webp", interface)
+                            idle At("images/interface/interactions/lock.webp", interface) 
+                            hover At("images/interface/interactions/lock.webp", interface)
 
                             action NullAction()
                 else:
@@ -218,7 +225,8 @@ screen interactions_screen(Character):
                     null width int(236*interface_new_adjustment) height int(238*interface_new_adjustment)
 
                 imagebutton:
-                    idle At("images/interface/interactions/close_idle.webp", interface) hover At("images/interface/interactions/close.webp", interface)
+                    idle At("images/interface/interactions/close_idle.webp", interface) 
+                    hover At("images/interface/interactions/close.webp", interface)
 
                     action [
                         Hide("interactions_screen"), 

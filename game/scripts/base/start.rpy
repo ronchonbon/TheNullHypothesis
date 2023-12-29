@@ -53,7 +53,7 @@ label start:
 
     $ _skipping = False
 
-    show expression "images/interface/preferences/background.webp" as new_game_background:
+    show expression "images/interface/main_menu/blank_background.webp" as new_game_background:
         subpixel True
         transform_anchor True
 
@@ -65,7 +65,8 @@ label start:
         subpixel True
         transform_anchor True
 
-        align (0.5, 0.5)
+        anchor (0.5, 0.5) 
+        pos (0.502, 0.502)
 
         zoom interface_new_adjustment
 

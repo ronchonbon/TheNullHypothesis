@@ -25,13 +25,13 @@ style choice_text:
 style confirm is default
 
 style confirm_frame:
-    background Frame("images/interface/box1.webp", 10, 10)
+    background Frame(At("images/interface/box1.webp", interface), 10, 10)
 
     padding (25, 25, 25, 25)
 
 style confirm_button:
-    idle_background Frame("images/interface/box1.webp", 10, 10)
-    hover_background Frame("images/interface/box2.webp", 10, 10)
+    idle_background Frame(At("images/interface/box1.webp", interface), 10, 10)
+    hover_background Frame(At("images/interface/box2.webp", interface), 10, 10)
 
     padding (15, 15, 15, 15)
 
@@ -334,8 +334,13 @@ screen confirm(message, yes_action, no_action):
 
     if message == "Are you sure you want to quit?":
         add At("images/interface/exit_popup.webp", interface) align (0.5, 0.5)
+
+        text message anchor (0.5, 0.5) pos (0.5, 0.59):
+            font "agency_fb.ttf"
+
+            size 36
                     
-        hbox anchor (0.5, 0.5) pos (0.5, 0.64):
+        hbox anchor (0.5, 0.5) pos (0.5, 0.675):
             spacing 100
 
             textbutton _("YES"): 

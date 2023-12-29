@@ -331,7 +331,7 @@ layeredimage filter:
         "black_fade" at invisible
 
     if comic_filter:
-        "images/effects/comic.webp"
+        "images/interface/preferences/comic.webp"
 
     if Player.desire >= 90:
         "images/interface/Action_menu/climax_fringe.webp" at pulse(intensity = 1.0)

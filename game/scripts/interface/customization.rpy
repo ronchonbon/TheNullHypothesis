@@ -43,9 +43,11 @@ screen Player_customization_screen(scholarship = False):
     timer 0.5 repeat True action ToggleVariable("blinking")
 
     if not black_screen:
+        add "images/interface/main_menu/blank_background.webp" zoom interface_new_adjustment
+
         add "images/interface/Player_customization/background.webp" zoom interface_new_adjustment
 
-        add At(At("images/interface/preferences/spin.webp", interface), spinning_element) anchor (0.5, 0.5) pos (0.502, 0.502)
+        add At("images/interface/preferences/spin.webp", spinning_element) anchor (0.5, 0.5) pos (0.502, 0.502) zoom interface_new_adjustment
 
         if scholarship:
             imagebutton:
@@ -84,7 +86,7 @@ screen Player_customization_screen(scholarship = False):
             add "images/interface/Player_customization/athletics_selected.webp" zoom interface_new_adjustment
             add "images/interface/Player_customization/athletics_icon.webp" zoom interface_new_adjustment
 
-            text "ATHLETICS" anchor (0.5, 0.5) pos (0.455, 0.432):
+            text "ATHLETICS" anchor (0.5, 0.5) pos (0.454, 0.433):
                 font "agency_fb.ttf"
 
                 size 35
@@ -92,7 +94,7 @@ screen Player_customization_screen(scholarship = False):
             add "images/interface/Player_customization/academics_selected.webp" zoom interface_new_adjustment
             add "images/interface/Player_customization/academics_icon.webp" zoom interface_new_adjustment
 
-            text "ACADEMICS" anchor (0.5, 0.5) pos (0.455, 0.432):
+            text "ACADEMICS" anchor (0.5, 0.5) pos (0.454, 0.433):
                 font "agency_fb.ttf"
 
                 size 35
@@ -100,7 +102,7 @@ screen Player_customization_screen(scholarship = False):
             add "images/interface/Player_customization/arts_selected.webp" zoom interface_new_adjustment
             add "images/interface/Player_customization/arts_icon.webp" zoom interface_new_adjustment
 
-            text "ARTS" anchor (0.5, 0.5) pos (0.455, 0.432):
+            text "ARTS" anchor (0.5, 0.5) pos (0.454, 0.433):
                 font "agency_fb.ttf"
 
                 size 35

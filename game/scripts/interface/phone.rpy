@@ -1128,7 +1128,7 @@ screen humhum_choice_screen():
         add At("images/interface/phone/humhum_bar.webp", interface)
 
         imagebutton:
-            idle At("images/interface/phone/humhum_home.webp", interface)
+            idle At("images/interface/phone/humhum_home_idle.webp", interface)
             hover At("images/interface/phone/humhum_home.webp", interface)
 
             if phone_interactable and not phone_disabled:

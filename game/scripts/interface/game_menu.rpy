@@ -23,8 +23,8 @@ style game_menu_vbox:
     spacing 5
     
 style game_menu_button:
-    idle_background Frame("images/interface/box1.webp", 10, 10)
-    hover_background Frame("images/interface/box2.webp", 10, 10)
+    idle_background Frame(At("images/interface/box1.webp", interface), 10, 10)
+    hover_background Frame(At("images/interface/box2.webp", interface), 10, 10)
 
     padding (15, 15, 15, 15)
 
@@ -36,8 +36,8 @@ style game_menu_text:
 style files is default
 
 style files_button:
-    idle_background Frame("images/interface/box1.webp", 10, 10)
-    hover_background Frame("images/interface/box2.webp", 10, 10)
+    idle_background Frame(At("images/interface/box1.webp", interface), 10, 10)
+    hover_background Frame(At("images/interface/box2.webp", interface), 10, 10)
 
     padding (30, 10, 30, 10)
 
@@ -95,7 +95,7 @@ screen load():
 screen file_picker():
     style_prefix "game_menu"
 
-    add At("images/interface/preferences/background.webp", interface)
+    add "images/interface/main_menu/blank_background.webp" zoom interface_new_adjustment
 
     add At(At("images/interface/preferences/spin.webp", interface), spinning_element) anchor (0.5, 0.5) pos (0.502, 0.502)
 
@@ -179,39 +179,55 @@ screen preferences():
 
     timer 0.5 repeat True action ToggleVariable("blinking")
 
-    add At("images/interface/preferences/background.webp", interface)
+    add "images/interface/main_menu/blank_background.webp" zoom interface_new_adjustment
 
-    add At(At("images/interface/preferences/spin.webp", interface), spinning_element) anchor (0.5, 0.5) pos (0.502, 0.502)
+    add At("images/interface/preferences/spin.webp", spinning_element) anchor (0.5, 0.5) pos (0.502, 0.502) zoom interface_new_adjustment
 
-    add At("images/interface/preferences/frame.webp", interface)
+    add "images/interface/preferences/frame.webp" zoom interface_new_adjustment
 
     imagebutton:
-        idle At("images/interface/preferences/graphics_idle.webp", interface) hover At("images/interface/preferences/graphics.webp", interface) selected_idle At("images/interface/preferences/graphics.webp", interface)
+        idle At("images/interface/preferences/graphics_idle.webp", interface) 
+        hover At("images/interface/preferences/graphics.webp", interface) 
+        selected_idle At("images/interface/preferences/graphics.webp", interface)
 
         action [
             SetVariable("preferences_tab", "graphics"),
             SetVariable("preferences_label", "GRAPHICS OPTIONS")]
 
+    text "GRAPHICS" anchor (0.5, 0.5) pos (0.256, 0.336)
+
     imagebutton:
-        idle At("images/interface/preferences/audio_idle.webp", interface) hover At("images/interface/preferences/audio.webp", interface) selected_idle At("images/interface/preferences/audio.webp", interface)
+        idle At("images/interface/preferences/audio_idle.webp", interface) 
+        hover At("images/interface/preferences/audio.webp", interface) 
+        selected_idle At("images/interface/preferences/audio.webp", interface)
 
         action [
             SetVariable("preferences_tab", "audio"),
             SetVariable("preferences_label", "AUDIO OPTIONS")]
 
+    text "AUDIO" anchor (0.5, 0.5) pos (0.353, 0.336)
+
     imagebutton:
-        idle At("images/interface/preferences/hotkeys_idle.webp", interface) hover At("images/interface/preferences/hotkeys.webp", interface) selected_idle At("images/interface/preferences/hotkeys.webp", interface)
+        idle At("images/interface/preferences/hotkeys_idle.webp", interface) 
+        hover At("images/interface/preferences/hotkeys.webp", interface) 
+        selected_idle At("images/interface/preferences/hotkeys.webp", interface)
 
         action [
             SetVariable("preferences_tab", "hotkeys"),
             SetVariable("preferences_label", "HOTKEYS")]
 
+    text "HOTKEYS" anchor (0.5, 0.5) pos (0.45, 0.336)
+
     imagebutton:
-        idle At("images/interface/preferences/gameplay_idle.webp", interface) hover At("images/interface/preferences/gameplay.webp", interface) selected_idle At("images/interface/preferences/gameplay.webp", interface)
+        idle At("images/interface/preferences/gameplay_idle.webp", interface) 
+        hover At("images/interface/preferences/gameplay.webp", interface) 
+        selected_idle At("images/interface/preferences/gameplay.webp", interface)
 
         action [
             SetVariable("preferences_tab", "gameplay"),
             SetVariable("preferences_label", "GAMEPLAY OPTIONS")]
+
+    text "GAMEPLAY" anchor (0.5, 0.5) pos (0.548, 0.336)
 
     if blinking:
         text preferences_label + "{alpha=0.0}_{/alpha}" anchor (0.0, 0.5) pos (0.065, 0.336)
@@ -225,12 +241,21 @@ screen preferences():
             vbox:
                 text "FULLSCREEN" anchor (0.5, 0.5) pos (0.47, 0.5)
 
-                imagebutton:
-                    idle At("images/interface/preferences/off.webp", interface) hover At("images/interface/preferences/off.webp", interface) selected_idle At("images/interface/preferences/on.webp", interface) selected_hover At("images/interface/preferences/on.webp", interface)
+                button xysize (int(321*interface_new_adjustment), int(190*interface_new_adjustment)):
+                    idle_background At("images/interface/preferences/off.webp", interface) 
+                    hover_background At("images/interface/preferences/off.webp", interface) 
+                    selected_idle_background At("images/interface/preferences/on.webp", interface) 
+                    selected_hover_background At("images/interface/preferences/on.webp", interface)
 
                     hover_sound None
                     
                     selected preferences.fullscreen
+
+                    text "OFF" anchor (0.5, 0.5) pos (0.2, 0.461):
+                        size 25
+
+                    text "ON" anchor (0.5, 0.5) pos (0.7, 0.461):
+                        size 25
 
                     if preferences.fullscreen:
                         action Preference("display", "window")
@@ -243,36 +268,63 @@ screen preferences():
                 vbox:
                     text "COMIC FILTER" anchor (0.5, 0.5) pos (0.47, 0.5)
 
-                    imagebutton:
-                        idle At("images/interface/preferences/off.webp", interface) hover At("images/interface/preferences/off.webp", interface) selected_idle At("images/interface/preferences/on.webp", interface) selected_hover At("images/interface/preferences/on.webp", interface)
+                    button xysize (int(321*interface_new_adjustment), int(190*interface_new_adjustment)):
+                        idle_background At("images/interface/preferences/off.webp", interface) 
+                        hover_background At("images/interface/preferences/off.webp", interface) 
+                        selected_idle_background At("images/interface/preferences/on.webp", interface) 
+                        selected_hover_background At("images/interface/preferences/on.webp", interface)
 
                         hover_sound None
                         
                         selected comic_filter
+
+                        text "OFF" anchor (0.5, 0.5) pos (0.2, 0.461):
+                            size 25
+
+                        text "ON" anchor (0.5, 0.5) pos (0.7, 0.461):
+                            size 25
 
                         action ToggleVariable("comic_filter")
 
                 vbox:
                     text "CINEMATIC BARS" anchor (0.5, 0.5) pos (0.47, 0.5)
 
-                    imagebutton:
-                        idle At("images/interface/preferences/off.webp", interface) hover At("images/interface/preferences/off.webp", interface) selected_idle At("images/interface/preferences/on.webp", interface) selected_hover At("images/interface/preferences/on.webp", interface)
+                    button xysize (int(321*interface_new_adjustment), int(190*interface_new_adjustment)):
+                        idle_background At("images/interface/preferences/off.webp", interface) 
+                        hover_background At("images/interface/preferences/off.webp", interface) 
+                        selected_idle_background At("images/interface/preferences/on.webp", interface) 
+                        selected_hover_background At("images/interface/preferences/on.webp", interface)
 
                         hover_sound None
-
+                        
                         selected cinematic_bars
+
+                        text "OFF" anchor (0.5, 0.5) pos (0.2, 0.461):
+                            size 25
+
+                        text "ON" anchor (0.5, 0.5) pos (0.7, 0.461):
+                            size 25
 
                         action ToggleVariable("cinematic_bars")
 
             vbox:
                 text "FLASHING LIGHTS" anchor (0.5, 0.5) pos (0.47, 0.5)
 
-                imagebutton:
-                    idle At("images/interface/preferences/off.webp", interface) hover At("images/interface/preferences/off.webp", interface) selected_idle At("images/interface/preferences/on.webp", interface) selected_hover At("images/interface/preferences/on.webp", interface)
+                button xysize (int(321*interface_new_adjustment), int(190*interface_new_adjustment)):
+                    idle_background At("images/interface/preferences/off.webp", interface) 
+                    hover_background At("images/interface/preferences/off.webp", interface) 
+                    selected_idle_background At("images/interface/preferences/on.webp", interface) 
+                    selected_hover_background At("images/interface/preferences/on.webp", interface)
 
                     hover_sound None
-
+                    
                     selected flashing_lights
+
+                    text "OFF" anchor (0.5, 0.5) pos (0.2, 0.461):
+                        size 25
+
+                    text "ON" anchor (0.5, 0.5) pos (0.7, 0.461):
+                        size 25
 
                     action ToggleVariable("flashing_lights")
 
@@ -282,24 +334,42 @@ screen preferences():
                 vbox:
                     text "PLAYER BODY VISIBLE" anchor (0.5, 0.5) pos (0.47, 0.5)
 
-                    imagebutton:
-                        idle At("images/interface/preferences/off.webp", interface) hover At("images/interface/preferences/off.webp", interface) selected_idle At("images/interface/preferences/on.webp", interface) selected_hover At("images/interface/preferences/on.webp", interface)
+                    button xysize (int(321*interface_new_adjustment), int(190*interface_new_adjustment)):
+                        idle_background At("images/interface/preferences/off.webp", interface) 
+                        hover_background At("images/interface/preferences/off.webp", interface) 
+                        selected_idle_background At("images/interface/preferences/on.webp", interface) 
+                        selected_hover_background At("images/interface/preferences/on.webp", interface)
 
                         hover_sound None
-
+                        
                         selected Player.body_visible
+
+                        text "OFF" anchor (0.5, 0.5) pos (0.2, 0.461):
+                            size 25
+
+                        text "ON" anchor (0.5, 0.5) pos (0.7, 0.461):
+                            size 25
 
                         action ToggleVariable("Player.body_visible")
 
                 vbox:
                     text "UI VISIBLE" anchor (0.5, 0.5) pos (0.47, 0.5)
 
-                    imagebutton:
-                        idle At("images/interface/preferences/off.webp", interface) hover At("images/interface/preferences/off.webp", interface) selected_idle At("images/interface/preferences/on.webp", interface) selected_hover At("images/interface/preferences/on.webp", interface)
+                    button xysize (int(321*interface_new_adjustment), int(190*interface_new_adjustment)):
+                        idle_background At("images/interface/preferences/off.webp", interface) 
+                        hover_background At("images/interface/preferences/off.webp", interface) 
+                        selected_idle_background At("images/interface/preferences/on.webp", interface) 
+                        selected_hover_background At("images/interface/preferences/on.webp", interface)
 
                         hover_sound None
-
+                        
                         selected (not dialogue_hidden or not belt_hidden or not Action_screen_hidden)
+
+                        text "OFF" anchor (0.5, 0.5) pos (0.2, 0.461):
+                            size 25
+
+                        text "ON" anchor (0.5, 0.5) pos (0.7, 0.461):
+                            size 25
 
                         action [
                             ToggleVariable("dialogue_hidden"),
@@ -336,7 +406,10 @@ screen preferences():
                 text "MUTE" anchor (0.5, 0.5) pos (0.47, 0.5)
 
                 imagebutton:
-                    idle At("images/interface/preferences/off.webp", interface) hover At("images/interface/preferences/off.webp", interface) selected_idle At("images/interface/preferences/on.webp", interface) selected_hover At("images/interface/preferences/on.webp", interface)
+                    idle At("images/interface/preferences/off.webp", interface) 
+                    hover At("images/interface/preferences/off.webp", interface) 
+                    selected_idle At("images/interface/preferences/on.webp", interface) 
+                    selected_hover At("images/interface/preferences/on.webp", interface)
 
                     hover_sound None
 
@@ -494,12 +567,21 @@ screen preferences():
                 vbox:
                     text "SCROLLING ROLLBACK" anchor (0.5, 0.5) pos (0.47, 0.5)
 
-                    imagebutton:
-                        idle At("images/interface/preferences/off.webp", interface) hover At("images/interface/preferences/off.webp", interface) selected_idle At("images/interface/preferences/on.webp", interface) selected_hover At("images/interface/preferences/on.webp", interface)
+                    button xysize (int(321*interface_new_adjustment), int(190*interface_new_adjustment)):
+                        idle_background At("images/interface/preferences/off.webp", interface) 
+                        hover_background At("images/interface/preferences/off.webp", interface) 
+                        selected_idle_background At("images/interface/preferences/on.webp", interface) 
+                        selected_hover_background At("images/interface/preferences/on.webp", interface)
 
                         hover_sound None
-
+                        
                         selected scrolling_rollback
+
+                        text "OFF" anchor (0.5, 0.5) pos (0.2, 0.461):
+                            size 25
+
+                        text "ON" anchor (0.5, 0.5) pos (0.7, 0.461):
+                            size 25
 
                         if scrolling_rollback:
                             action [
@@ -515,12 +597,21 @@ screen preferences():
             vbox:
                 text "TOOLTIPS" anchor (0.5, 0.5) pos (0.47, 0.5)
 
-                imagebutton:
-                    idle At("images/interface/preferences/off.webp", interface) hover At("images/interface/preferences/off.webp", interface) selected_idle At("images/interface/preferences/on.webp", interface) selected_hover At("images/interface/preferences/on.webp", interface)
+                button xysize (int(321*interface_new_adjustment), int(190*interface_new_adjustment)):
+                    idle_background At("images/interface/preferences/off.webp", interface) 
+                    hover_background At("images/interface/preferences/off.webp", interface) 
+                    selected_idle_background At("images/interface/preferences/on.webp", interface) 
+                    selected_hover_background At("images/interface/preferences/on.webp", interface)
 
                     hover_sound None
-
+                    
                     selected tooltips_enabled
+
+                    text "OFF" anchor (0.5, 0.5) pos (0.2, 0.461):
+                        size 25
+
+                    text "ON" anchor (0.5, 0.5) pos (0.7, 0.461):
+                        size 25
 
                     action ToggleVariable("tooltips_enabled")
 
