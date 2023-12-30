@@ -115,11 +115,11 @@ screen Player_menu():
     timer 0.5 repeat True action ToggleVariable("blinking")
 
     if not black_screen and not renpy.get_screen("say"):
-        add "images/interface/main_menu/blank_background.webp" zoom interface_new_adjustment
+        add "images/interface/main_menu/blank_background.webp" zoom interface_adjustment
 
-        add At("images/interface/preferences/spin.webp", spinning_element) anchor (0.5, 0.5) pos (0.502, 0.502) zoom interface_new_adjustment
+        add At("images/interface/preferences/spin.webp", spinning_element) anchor (0.5, 0.5) pos (0.502, 0.502) zoom interface_adjustment
 
-        add "images/interface/Player_menu/top.webp" zoom interface_new_adjustment
+        add "images/interface/Player_menu/top.webp" zoom interface_adjustment
 
         for page in ["database", "skills", "inventory", "journal", "map"]:
             button:
@@ -200,7 +200,7 @@ screen database_screen():
     for C in database_Characters:
         $ database_Entries.append(C)
 
-    add "images/interface/Player_menu/database_background.webp" zoom interface_new_adjustment
+    add "images/interface/Player_menu/database_background.webp" zoom interface_adjustment
 
     for filter in ["enemy", "info", "ally"]:
         imagebutton:
@@ -240,14 +240,14 @@ screen database_screen():
         text "CEREBRO DATABASE" + "_" anchor (0.0, 0.5) pos (0.065, 0.335):
             size 35
 
-    viewport id "database_viewport" anchor (0.5, 0.0) pos (0.176, 0.405) xysize (int(911*interface_new_adjustment), int(1114*interface_new_adjustment)):
+    viewport id "database_viewport" anchor (0.5, 0.0) pos (0.176, 0.405) xysize (int(911*interface_adjustment), int(1114*interface_adjustment)):
         draggable True
         mousewheel True
 
         vbox:
             for D in database_Entries:
                 if hasattr(D, "database_type") and D.database_type and D.database_type and (not current_database_filter or D.database_type == current_database_filter):
-                    button xysize (int(911*interface_new_adjustment), int(191*interface_new_adjustment)):
+                    button xysize (int(911*interface_adjustment), int(191*interface_adjustment)):
                         idle_background At(f"images/interface/Player_menu/database_{D.database_type}_idle.webp", interface)
                         hover_background At(f"images/interface/Player_menu/database_{D.database_type}.webp", interface)
                         selected_idle_background At(f"images/interface/Player_menu/database_{D.database_type}.webp", interface)
@@ -264,19 +264,19 @@ screen database_screen():
 
                         action SetVariable("current_database_Entry", D)
 
-    vbar value YScrollValue("database_viewport") anchor (0.5, 0.0) pos (0.315, 0.405) xysize (int(40*interface_new_adjustment), int(1114*interface_new_adjustment)):
+    vbar value YScrollValue("database_viewport") anchor (0.5, 0.0) pos (0.315, 0.405) xysize (int(40*interface_adjustment), int(1114*interface_adjustment)):
         base_bar At("images/interface/Player_menu/database_scrollbar.webp", interface)
 
         thumb At("images/interface/Player_menu/database_scrollbar_thumb.webp", interface)
-        thumb_offset int(276*interface_new_adjustment/2/10)
+        thumb_offset int(276*interface_adjustment/2/10)
 
         unscrollable "hide"
 
     if current_database_Entry:
-        add "images/interface/Player_menu/database_profile.webp" zoom interface_new_adjustment
+        add "images/interface/Player_menu/database_profile.webp" zoom interface_adjustment
 
         if current_database_section in ["personal", "mutiefan"]:
-            add "images/interface/Player_menu/database_profile_box.webp" zoom interface_new_adjustment
+            add "images/interface/Player_menu/database_profile_box.webp" zoom interface_adjustment
         
         if current_database_Entry in all_Characters or current_database_Entry == Player:
             $ Entry_name = current_database_Entry.call_sign
@@ -389,7 +389,7 @@ screen database_screen():
 screen skills_screen():
     style_prefix "Player_menu"
 
-    add "images/interface/Player_menu/skills_background.webp" zoom interface_new_adjustment
+    add "images/interface/Player_menu/skills_background.webp" zoom interface_adjustment
 
     if blinking:
         text "X-EVOLUTION" + "{alpha=0.0}_{/alpha}" anchor (0.0, 0.5) pos (0.066, 0.238):
@@ -400,7 +400,7 @@ screen skills_screen():
 
     add At("Player_portrait", customization_portrait) pos (0.738, 0.459)
 
-    add f"images/interface/Player_menu/skills_{Player.scholarship}.webp" zoom interface_new_adjustment
+    add f"images/interface/Player_menu/skills_{Player.scholarship}.webp" zoom interface_adjustment
 
     if Player.scholarship == "athletic":
         text "ATHLETICS" anchor (0.5, 0.5) pos (0.89, 0.352):
@@ -438,7 +438,7 @@ screen skills_screen():
         
         size 30
 
-    bar value Player.XP range Player.XP_goal anchor (0.5, 0.5) pos (0.878, 0.465) xysize (int(277*interface_new_adjustment), int(24*interface_new_adjustment)):
+    bar value Player.XP range Player.XP_goal anchor (0.5, 0.5) pos (0.878, 0.465) xysize (int(277*interface_adjustment), int(24*interface_adjustment)):
         left_bar At("images/interface/Player_menu/skills_xp.webp", interface)
         right_bar At("images/interface/Player_menu/skills_xp_empty.webp", interface)
 
@@ -485,7 +485,7 @@ screen skills_screen():
             $ x = 0.11
             $ y = 0.8
 
-        button anchor (0.5, 0.5) pos (x, y) xysize (int(209*interface_new_adjustment), int(193*interface_new_adjustment)):
+        button anchor (0.5, 0.5) pos (x, y) xysize (int(209*interface_adjustment), int(193*interface_adjustment)):
             if ability in Player.mutant_abilities:
                 idle_background At("images/interface/Player_menu/skills_node_purchased.webp", interface)
                 hover_background At("images/interface/Player_menu/skills_node_selected.webp", interface)
@@ -498,14 +498,14 @@ screen skills_screen():
             selected current_mutant_ability == ability
 
             if "stamina" in ability:
-                add "images/interface/Player_menu/skills_stamina.webp" anchor (0.5, 0.5) pos (0.48, 0.47) zoom interface_new_adjustment
+                add "images/interface/Player_menu/skills_stamina.webp" anchor (0.5, 0.5) pos (0.48, 0.47) zoom interface_adjustment
             else:
-                add f"images/interface/Player_menu/skills_{ability}.webp" anchor (0.5, 0.5) pos (0.48, 0.47) zoom interface_new_adjustment
+                add f"images/interface/Player_menu/skills_{ability}.webp" anchor (0.5, 0.5) pos (0.48, 0.47) zoom interface_adjustment
 
             action SetVariable("current_mutant_ability", ability)
 
     if current_mutant_ability:
-        add "images/interface/Player_menu/skills_box.webp" zoom interface_new_adjustment
+        add "images/interface/Player_menu/skills_box.webp" zoom interface_adjustment
 
         text ability_names[current_mutant_ability].upper() anchor (0.0, 0.5) pos (0.679, 0.68):
             size 30
@@ -538,14 +538,14 @@ screen skills_screen():
                 
                 size 25
         elif current_mutant_ability not in Player.mutant_abilities:
-            add "images/interface/Player_menu/skills_purchase.webp" zoom interface_new_adjustment
+            add "images/interface/Player_menu/skills_purchase.webp" zoom interface_adjustment
 
             text "AWAKEN" anchor (0.5, 0.5) pos (0.825, 0.68):
                 font "agency_fb.ttf"
                 
                 size 25
         else:
-            add "images/interface/Player_menu/skills_purchased.webp" zoom interface_new_adjustment
+            add "images/interface/Player_menu/skills_purchased.webp" zoom interface_adjustment
 
             text "ACTIVE" anchor (0.5, 0.5) pos (0.825, 0.68):
                 font "agency_fb.ttf"
@@ -586,7 +586,7 @@ screen inventory_screen():
                         elif I.Owner != Player and current_inventory_filter == "gift":
                             $ current_inventory_list.append(Item_string)
 
-    add "images/interface/Player_menu/inventory_background.webp" zoom interface_new_adjustment
+    add "images/interface/Player_menu/inventory_background.webp" zoom interface_adjustment
 
     if math.floor(len(current_inventory_list)/15) > 0:
         imagebutton:
@@ -637,7 +637,7 @@ screen inventory_screen():
                 if giving_gift and Item.Owner == Player:
                     continue
                     
-                button xysize (int(355*interface_new_adjustment), int(355*interface_new_adjustment)):
+                button xysize (int(355*interface_adjustment), int(355*interface_adjustment)):
                     if current_inventory_Item == Item_string:
                         background At("images/interface/Player_menu/inventory_selector.webp", interface)
                     else:
@@ -662,7 +662,7 @@ screen inventory_screen():
             else:
                 $ Clothing = Player.inventory[Item_string]
                 
-                button xysize (int(355*interface_new_adjustment), int(355*interface_new_adjustment)):
+                button xysize (int(355*interface_adjustment), int(355*interface_adjustment)):
                     if current_inventory_Item == Clothing:
                         background At("images/interface/Player_menu/inventory_selector.webp", interface)
                     else:
@@ -780,7 +780,7 @@ screen confirm_gift_screen(Character, Item):
 screen journal_screen():
     style_prefix "Player_menu"
 
-    add "images/interface/Player_menu/journal_background.webp" zoom interface_new_adjustment
+    add "images/interface/Player_menu/journal_background.webp" zoom interface_adjustment
 
     for filter in ["main", "side", "addon"]:
         imagebutton:
@@ -838,7 +838,7 @@ screen journal_screen():
         text "QUEST LIST" + "_" anchor (0.0, 0.5) pos (0.065, 0.335):
             size 35
 
-    viewport id "journal_viewport" anchor (0.5, 0.0) pos (0.176, 0.405) xysize (int(911*interface_new_adjustment), int(1114*interface_new_adjustment)):
+    viewport id "journal_viewport" anchor (0.5, 0.0) pos (0.176, 0.405) xysize (int(911*interface_adjustment), int(1114*interface_adjustment)):
         draggable True
         mousewheel True
 
@@ -846,7 +846,7 @@ screen journal_screen():
             for Q in reversed(QuestPool.Quests.values()):
                 if Q.unlocked and (not current_journal_filter or Q.Quest_type == current_journal_filter) and (not current_journal_chapter or Q.chapter == current_journal_chapter):
                     if show_completed_Quests or not Q.completed:
-                        button xysize (int(911*interface_new_adjustment), int(191*interface_new_adjustment)):
+                        button xysize (int(911*interface_adjustment), int(191*interface_adjustment)):
                             idle_background At(f"images/interface/Player_menu/journal_button_{Q.Quest_type}_idle.webp", interface)
                             hover_background At(f"images/interface/Player_menu/journal_button_{Q.Quest_type}.webp", interface)
                             selected_idle_background At(f"images/interface/Player_menu/journal_button_{Q.Quest_type}.webp", interface)
@@ -865,16 +865,16 @@ screen journal_screen():
 
                             action SetVariable("current_journal_Quest", Q)
 
-    vbar value YScrollValue("journal_viewport") anchor (0.5, 0.0) pos (0.315, 0.405) xysize (int(40*interface_new_adjustment), int(1114*interface_new_adjustment)):
+    vbar value YScrollValue("journal_viewport") anchor (0.5, 0.0) pos (0.315, 0.405) xysize (int(40*interface_adjustment), int(1114*interface_adjustment)):
         base_bar At("images/interface/Player_menu/journal_scrollbar.webp", interface)
 
         thumb At("images/interface/Player_menu/journal_scrollbar_thumb.webp", interface)
-        thumb_offset int(276*interface_new_adjustment/2/10)
+        thumb_offset int(276*interface_adjustment/2/10)
 
         unscrollable "hide"
 
     if current_journal_Quest:
-        add "images/interface/Player_menu/journal_quest_box.webp" zoom interface_new_adjustment
+        add "images/interface/Player_menu/journal_quest_box.webp" zoom interface_adjustment
 
         if current_journal_Quest.completed:
             add At("images/interface/Player_menu/journal_complete.webp", interface)
@@ -973,12 +973,12 @@ screen journal_screen():
                             size 32
 
         if current_journal_Quest.rewards:
-            hbox anchor (0.0, 0.5) pos (0.436, 0.885) xysize (0.41, int(248*interface_new_adjustment)):
+            hbox anchor (0.0, 0.5) pos (0.436, 0.885) xysize (0.41, int(248*interface_adjustment)):
                 spacing 0
 
                 for reward_type in current_journal_Quest.rewards.keys():
                     for reward in current_journal_Quest.rewards[reward_type]:
-                        fixed xysize (int(249*interface_new_adjustment), int(249*interface_new_adjustment)):
+                        fixed xysize (int(249*interface_adjustment), int(249*interface_adjustment)):
                             add At(f"images/interface/Player_menu/journal_{reward_type}.webp", interface)
 
                             text reward.upper() anchor (0.5, 0.5) pos (0.5, 0.81):
@@ -1003,7 +1003,7 @@ screen map_screen():
                     # if possible_location in unlocked_locations.keys():
                     $ available_groups.append(possible_group)
 
-    add "images/interface/Player_menu/map_background.webp" zoom interface_new_adjustment
+    add "images/interface/Player_menu/map_background.webp" zoom interface_adjustment
 
     for location_group in location_groups.keys():
         if location_group in available_groups:
@@ -1134,12 +1134,12 @@ screen map_screen():
         elif current_subgroup == "Attic":
             $ map_to_show = "attic"
             
-        add f"images/interface/Player_menu/map_institute_{map_to_show}.webp" zoom interface_new_adjustment
+        add f"images/interface/Player_menu/map_institute_{map_to_show}.webp" zoom interface_adjustment
     elif current_group == "Mall":
         if current_subgroup == "First Floor":
             $ map_to_show = "mall"
             
-        add "images/interface/Player_menu/map_mall.webp" zoom interface_new_adjustment
+        add "images/interface/Player_menu/map_mall.webp" zoom interface_adjustment
         
     if map_to_show:
         if current_subgroup:
@@ -1279,7 +1279,7 @@ screen map_screen():
 
                                 text_align 0.0
 
-                            fixed xysize(1.0, int(44*interface_new_sampling)):
+                            fixed xysize(1.0, int(88*interface_adjustment)):
                                 hbox xalign 0.0:
                                     spacing 5
                                     if marked_locations[possible_location]:

@@ -43,11 +43,11 @@ screen Player_customization_screen(scholarship = False):
     timer 0.5 repeat True action ToggleVariable("blinking")
 
     if not black_screen:
-        add "images/interface/main_menu/blank_background.webp" zoom interface_new_adjustment
+        add "images/interface/main_menu/blank_background.webp" zoom interface_adjustment
 
-        add "images/interface/Player_customization/background.webp" zoom interface_new_adjustment
+        add "images/interface/Player_customization/background.webp" zoom interface_adjustment
 
-        add At("images/interface/preferences/spin.webp", spinning_element) anchor (0.5, 0.5) pos (0.502, 0.502) zoom interface_new_adjustment
+        add At("images/interface/preferences/spin.webp", spinning_element) anchor (0.5, 0.5) pos (0.502, 0.502) zoom interface_adjustment
 
         if scholarship:
             imagebutton:
@@ -83,24 +83,24 @@ screen Player_customization_screen(scholarship = False):
         add At("Player_portrait", customization_portrait) pos (0.431, 0.635)
             
         if Player.scholarship == "athletic":
-            add "images/interface/Player_customization/athletics_selected.webp" zoom interface_new_adjustment
-            add "images/interface/Player_customization/athletics_icon.webp" zoom interface_new_adjustment
+            add "images/interface/Player_customization/athletics_selected.webp" zoom interface_adjustment
+            add "images/interface/Player_customization/athletics_icon.webp" zoom interface_adjustment
 
             text "ATHLETICS" anchor (0.5, 0.5) pos (0.454, 0.433):
                 font "agency_fb.ttf"
 
                 size 35
         elif Player.scholarship == "academic":
-            add "images/interface/Player_customization/academics_selected.webp" zoom interface_new_adjustment
-            add "images/interface/Player_customization/academics_icon.webp" zoom interface_new_adjustment
+            add "images/interface/Player_customization/academics_selected.webp" zoom interface_adjustment
+            add "images/interface/Player_customization/academics_icon.webp" zoom interface_adjustment
 
             text "ACADEMICS" anchor (0.5, 0.5) pos (0.454, 0.433):
                 font "agency_fb.ttf"
 
                 size 35
         elif Player.scholarship == "artistic":
-            add "images/interface/Player_customization/arts_selected.webp" zoom interface_new_adjustment
-            add "images/interface/Player_customization/arts_icon.webp" zoom interface_new_adjustment
+            add "images/interface/Player_customization/arts_selected.webp" zoom interface_adjustment
+            add "images/interface/Player_customization/arts_icon.webp" zoom interface_adjustment
 
             text "ARTS" anchor (0.5, 0.5) pos (0.454, 0.433):
                 font "agency_fb.ttf"
@@ -116,8 +116,8 @@ screen Player_customization_screen(scholarship = False):
         text "ARTS" anchor (0.5, 0.5) pos (0.198, 0.728):
             size 40
 
-        vbox anchor (0.5, 0.5) pos (0.73, 0.59):
-            spacing 50
+        vbox anchor (0.5, 0.5) pos (0.73, 0.6):
+            spacing 25
                 
             if current_customization_tab == "body":
                 fixed xysize (0.195, 0.01):
@@ -169,6 +169,34 @@ screen Player_customization_screen(scholarship = False):
                             action SetVariable("Player.ears", "fin")
                         elif Player.ears == "fin":
                             action SetVariable("Player.ears", "human")
+
+                null height 0.1
+
+                fixed xysize (0.195, 0.01):
+                    text "HANDEDNESS":
+                        size 35
+
+                fixed xysize (0.195, 0.06):
+                    imagebutton anchor (0.0, 0.5) pos (0.0, 0.5):
+                        idle At("images/interface/Player_customization/left_idle.webp", interface)
+                        hover At("images/interface/Player_customization/left.webp", interface)
+
+                        if Player.handedness == "right":
+                            action SetVariable("Player.handedness", "left")
+                        elif Player.handedness == "left":
+                            action SetVariable("Player.handedness", "right")
+
+                    text Player.handedness.upper():
+                        size 32
+
+                    imagebutton anchor (1.0, 0.5) pos (1.0, 0.5):
+                        idle At("images/interface/Player_customization/right_idle.webp", interface)
+                        hover At("images/interface/Player_customization/right.webp", interface)
+
+                        if Player.handedness == "right":
+                            action SetVariable("Player.handedness", "left")
+                        elif Player.handedness == "left":
+                            action SetVariable("Player.handedness", "right")
             elif current_customization_tab == "hair":
                 fixed xysize (0.195, 0.01):
                     text "HAIR":
@@ -253,7 +281,7 @@ screen Player_customization_screen(scholarship = False):
                             SetVariable("Player.Outfit_index", (Player.Outfit_index - 1) % list_size),
                             SetVariable("Player.Outfit", Player.Outfits[(Player.Outfit_index - 1) % list_size])]
 
-                    text Player.Outfits[Player.Outfit_index].name.upper() xmaximum int(180*interface_new_sampling):
+                    text Player.Outfits[Player.Outfit_index].name.upper() xmaximum int(360*interface_adjustment):
                         size 32
 
                     imagebutton anchor (1.0, 0.5) pos (1.0, 0.5):

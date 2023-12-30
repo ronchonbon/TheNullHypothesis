@@ -47,7 +47,7 @@ screen Action_screen(automatic = False):
             if G == focused_Character:
                 $ focused_Character_index = g
 
-        add "images/interface/Action_menu/background.webp" zoom interface_new_adjustment
+        add "images/interface/Action_menu/background.webp" zoom interface_adjustment
 
         text f"{Player.stamina}" anchor (0.5, 0.5) pos (0.839, 0.03752):
             size 35
@@ -84,17 +84,17 @@ screen Action_screen(automatic = False):
                 add At(At(At("images/interface/Action_menu/[Action_hover_type].webp", change_anchor(0.5, 0.5)), change_pos(0.825, 0.283)), zoom_sprite(0.5))
 
         if Player.desire >= 90:
-            add At("images/interface/Action_menu/lightning_male.webp", pulse(intensity = 1.0)) zoom interface_new_adjustment
+            add At("images/interface/Action_menu/lightning_male.webp", pulse(intensity = 1.0)) zoom interface_adjustment
         elif Player.desire >= 80:
-            add At("images/interface/Action_menu/lightning_male.webp", pulse(intensity = 0.8)) zoom interface_new_adjustment
+            add At("images/interface/Action_menu/lightning_male.webp", pulse(intensity = 0.8)) zoom interface_adjustment
         elif Player.desire >= 70:
-            add At("images/interface/Action_menu/lightning_male.webp", pulse(intensity = 0.6)) zoom interface_new_adjustment
+            add At("images/interface/Action_menu/lightning_male.webp", pulse(intensity = 0.6)) zoom interface_adjustment
         elif Player.desire >= 60:
-            add At("images/interface/Action_menu/lightning_male.webp", pulse(intensity = 0.4)) zoom interface_new_adjustment
+            add At("images/interface/Action_menu/lightning_male.webp", pulse(intensity = 0.4)) zoom interface_adjustment
         elif Player.desire >= 50:
-            add At("images/interface/Action_menu/lightning_male.webp", pulse(intensity = 0.2)) zoom interface_new_adjustment
+            add At("images/interface/Action_menu/lightning_male.webp", pulse(intensity = 0.2)) zoom interface_adjustment
 
-        bar value Player.desire range 100 anchor (0.5, 0.5) pos (0.94, 0.0478) xysize (int(291*interface_new_adjustment), int(37*interface_new_adjustment)):
+        bar value Player.desire range 100 anchor (0.5, 0.5) pos (0.94, 0.0478) xysize (int(291*interface_adjustment), int(37*interface_adjustment)):
             left_bar At("images/interface/Action_menu/climax_full_male.webp", interface)
             right_bar At("images/interface/Action_menu/climax_empty.webp", interface)
 
@@ -104,28 +104,28 @@ screen Action_screen(automatic = False):
             tooltip f"{Player.first_name}'s Desire"
 
         if Player.desire >= 90:
-            add At("images/interface/Action_menu/glow_male.webp", pulse(intensity = 1.0)) zoom interface_new_adjustment
+            add At("images/interface/Action_menu/glow_male.webp", pulse(intensity = 1.0)) zoom interface_adjustment
         elif Player.desire >= 80:
-            add At("images/interface/Action_menu/glow_male.webp", pulse(intensity = 0.8)) zoom interface_new_adjustment
+            add At("images/interface/Action_menu/glow_male.webp", pulse(intensity = 0.8)) zoom interface_adjustment
         elif Player.desire >= 70:
-            add At("images/interface/Action_menu/glow_male.webp", pulse(intensity = 0.6)) zoom interface_new_adjustment
+            add At("images/interface/Action_menu/glow_male.webp", pulse(intensity = 0.6)) zoom interface_adjustment
         elif Player.desire >= 60:
-            add At("images/interface/Action_menu/glow_male.webp", pulse(intensity = 0.4)) zoom interface_new_adjustment
+            add At("images/interface/Action_menu/glow_male.webp", pulse(intensity = 0.4)) zoom interface_adjustment
         elif Player.desire >= 50:
-            add At("images/interface/Action_menu/glow_male.webp", pulse(intensity = 0.2)) zoom interface_new_adjustment
+            add At("images/interface/Action_menu/glow_male.webp", pulse(intensity = 0.2)) zoom interface_adjustment
 
         if focused_Character.desire >= 90:
-            add At("images/interface/Action_menu/lightning_female.webp", pulse(intensity = 1.0)) zoom interface_new_adjustment
+            add At("images/interface/Action_menu/lightning_female.webp", pulse(intensity = 1.0)) zoom interface_adjustment
         elif focused_Character.desire >= 80:
-            add At("images/interface/Action_menu/lightning_female.webp", pulse(intensity = 0.8)) zoom interface_new_adjustment
+            add At("images/interface/Action_menu/lightning_female.webp", pulse(intensity = 0.8)) zoom interface_adjustment
         elif focused_Character.desire >= 70:
-            add At("images/interface/Action_menu/lightning_female.webp", pulse(intensity = 0.6)) zoom interface_new_adjustment
+            add At("images/interface/Action_menu/lightning_female.webp", pulse(intensity = 0.6)) zoom interface_adjustment
         elif focused_Character.desire >= 60:
-            add At("images/interface/Action_menu/lightning_female.webp", pulse(intensity = 0.4)) zoom interface_new_adjustment
+            add At("images/interface/Action_menu/lightning_female.webp", pulse(intensity = 0.4)) zoom interface_adjustment
         elif focused_Character.desire >= 50:
-            add At("images/interface/Action_menu/lightning_female.webp", pulse(intensity = 0.2)) zoom interface_new_adjustment
+            add At("images/interface/Action_menu/lightning_female.webp", pulse(intensity = 0.2)) zoom interface_adjustment
 
-        bar value focused_Character.desire range 100 anchor (0.5, 0.5) pos (0.94, 0.0851) xysize (int(291*interface_new_adjustment), int(37*interface_new_adjustment)):
+        bar value focused_Character.desire range 100 anchor (0.5, 0.5) pos (0.94, 0.0851) xysize (int(291*interface_adjustment), int(37*interface_adjustment)):
             left_bar At("images/interface/Action_menu/climax_full_female.webp", interface)
             right_bar At("images/interface/Action_menu/climax_empty.webp", interface)
 
@@ -135,20 +135,22 @@ screen Action_screen(automatic = False):
             tooltip f"{focused_Character.name}'s Desire"
 
         if focused_Character.desire >= 90:
-            add At("images/interface/Action_menu/glow_female.webp", pulse(intensity = 1.0)) zoom interface_new_adjustment
+            add At("images/interface/Action_menu/glow_female.webp", pulse(intensity = 1.0)) zoom interface_adjustment
         elif focused_Character.desire >= 80:
-            add At("images/interface/Action_menu/glow_female.webp", pulse(intensity = 0.8)) zoom interface_new_adjustment
+            add At("images/interface/Action_menu/glow_female.webp", pulse(intensity = 0.8)) zoom interface_adjustment
         elif focused_Character.desire >= 70:
-            add At("images/interface/Action_menu/glow_female.webp", pulse(intensity = 0.6)) zoom interface_new_adjustment
+            add At("images/interface/Action_menu/glow_female.webp", pulse(intensity = 0.6)) zoom interface_adjustment
         elif focused_Character.desire >= 60:
-            add At("images/interface/Action_menu/glow_female.webp", pulse(intensity = 0.4)) zoom interface_new_adjustment
+            add At("images/interface/Action_menu/glow_female.webp", pulse(intensity = 0.4)) zoom interface_adjustment
         elif focused_Character.desire >= 50:
-            add At("images/interface/Action_menu/glow_female.webp", pulse(intensity = 0.2)) zoom interface_new_adjustment
+            add At("images/interface/Action_menu/glow_female.webp", pulse(intensity = 0.2)) zoom interface_adjustment
 
         if has_progression_control:
             if has_position_control:
                 imagebutton:
-                    idle At("images/interface/Action_menu/pose_idle.webp", interface) hover At("images/interface/Action_menu/pose.webp", interface) selected_idle At("images/interface/Action_menu/pose.webp", interface)
+                    idle At("images/interface/Action_menu/pose_idle.webp", interface) 
+                    hover At("images/interface/Action_menu/pose.webp", interface) 
+                    selected_idle At("images/interface/Action_menu/pose.webp", interface)
 
                     selected Action_screen_tab == "pose"
 
@@ -161,7 +163,9 @@ screen Action_screen(automatic = False):
 
             if has_Action_control:
                 imagebutton:
-                    idle At("images/interface/Action_menu/action_idle.webp", interface) hover At("images/interface/Action_menu/action.webp", interface) selected_idle At("images/interface/Action_menu/action.webp", interface)
+                    idle At("images/interface/Action_menu/action_idle.webp", interface) 
+                    hover At("images/interface/Action_menu/action.webp", interface) 
+                    selected_idle At("images/interface/Action_menu/action.webp", interface)
 
                     selected Action_screen_tab == "action"
 
@@ -174,7 +178,9 @@ screen Action_screen(automatic = False):
 
             if has_Action_control:
                 imagebutton:
-                    idle At("images/interface/Action_menu/strip_idle.webp", interface) hover At("images/interface/Action_menu/strip.webp", interface) selected_idle At("images/interface/Action_menu/strip.webp", interface)
+                    idle At("images/interface/Action_menu/strip_idle.webp", interface)
+                    hover At("images/interface/Action_menu/strip.webp", interface) 
+                    selected_idle At("images/interface/Action_menu/strip.webp", interface)
 
                     selected Action_screen_tab == "strip"
 
@@ -204,7 +210,7 @@ screen Action_screen(automatic = False):
                     else:
                         $ viewport_position = 0.922
 
-                    vpgrid id "pose_viewport" anchor (0.5, 0.0) pos (viewport_position, 0.276) xysize (int(447*interface_new_adjustment), int(980*interface_new_adjustment)):
+                    vpgrid id "pose_viewport" anchor (0.5, 0.0) pos (viewport_position, 0.276) xysize (int(447*interface_adjustment), int(980*interface_adjustment)):
                         cols 1
 
                         draggable True
@@ -215,7 +221,7 @@ screen Action_screen(automatic = False):
                         for pose in pose_list:
                             $ pose_name = pose_names[pose]
 
-                            button xysize (int(447*interface_new_adjustment), int(177*interface_new_adjustment)):
+                            button xysize (int(447*interface_adjustment), int(177*interface_adjustment)):
                                 idle_background At("images/interface/Action_menu/button_off.webp", interface) 
                                 hover_background At("images/interface/Action_menu/button_on.webp", interface) 
                                 selected_idle_background At("images/interface/Action_menu/button_on.webp", interface)
@@ -240,7 +246,7 @@ screen Action_screen(automatic = False):
                                 else:
                                     action NullAction()
 
-                    vbar value YScrollValue("pose_viewport") anchor (0.0, 0.0) pos (0.98, 0.276) xysize (int(29*interface_new_adjustment), int(980*interface_new_adjustment)):
+                    vbar value YScrollValue("pose_viewport") anchor (0.0, 0.0) pos (0.98, 0.276) xysize (int(29*interface_adjustment), int(980*interface_adjustment)):
                         base_bar Frame(At("images/interface/Action_menu/scrollbar.webp", interface))
 
                         thumb At("images/interface/Action_menu/scrollbar_thumb.webp", interface)
@@ -297,7 +303,7 @@ screen Action_screen(automatic = False):
                     else:
                         $ viewport_position = 0.922
 
-                    vpgrid id "Action_viewport" anchor (0.5, 0.0) pos (viewport_position, 0.276) xysize (int(447*interface_new_adjustment), int(980*interface_new_adjustment)):
+                    vpgrid id "Action_viewport" anchor (0.5, 0.0) pos (viewport_position, 0.276) xysize (int(447*interface_adjustment), int(980*interface_adjustment)):
                         cols 1
 
                         draggable True
@@ -305,7 +311,7 @@ screen Action_screen(automatic = False):
 
                         spacing -10
                                             
-                        button xysize (int(447*interface_new_adjustment), int(177*interface_new_adjustment)):
+                        button xysize (int(447*interface_adjustment), int(177*interface_adjustment)):
                             idle_background At("images/interface/Action_menu/button_off.webp", interface) 
                             hover_background At("images/interface/Action_menu/button_on.webp", interface) 
                             selected_idle_background At("images/interface/Action_menu/button_on.webp", interface)
@@ -346,7 +352,7 @@ screen Action_screen(automatic = False):
                                     if A.Action_type == Action_type:
                                         $ ongoing_Action = A
 
-                            button xysize (int(447*interface_new_adjustment), int(177*interface_new_adjustment)):
+                            button xysize (int(447*interface_adjustment), int(177*interface_adjustment)):
                                 idle_background At("images/interface/Action_menu/button_off.webp", interface) 
                                 hover_background At("images/interface/Action_menu/button_on.webp", interface) 
                                 selected_idle_background At("images/interface/Action_menu/button_on.webp", interface)
@@ -403,7 +409,7 @@ screen Action_screen(automatic = False):
                                             SetVariable("starting_depth", 0.0),
                                             Call("request_Action", Action_type, focused_Character, Player, from_current = True)]
 
-                    vbar value YScrollValue("Action_viewport") anchor (0.0, 0.0) pos (0.98, 0.276) xysize (int(29*interface_new_adjustment), int(980*interface_new_adjustment)):
+                    vbar value YScrollValue("Action_viewport") anchor (0.0, 0.0) pos (0.98, 0.276) xysize (int(29*interface_adjustment), int(980*interface_adjustment)):
                         base_bar Frame(At("images/interface/Action_menu/scrollbar.webp", interface))
 
                         thumb At("images/interface/Action_menu/scrollbar_thumb.webp", interface)
@@ -413,7 +419,8 @@ screen Action_screen(automatic = False):
 
             if ongoing_Actions:
                 imagebutton:
-                    idle At("images/interface/Action_menu/continue_idle.webp", interface) hover At("images/interface/Action_menu/continue.webp", interface)
+                    idle At("images/interface/Action_menu/continue_idle.webp", interface) 
+                    hover At("images/interface/Action_menu/continue.webp", interface)
 
                     action [
                         SetVariable("Action_auto_progress", False),
@@ -424,7 +431,8 @@ screen Action_screen(automatic = False):
 
                 if has_movement_control:
                     imagebutton:
-                        idle At("images/interface/Action_menu/pause_idle.webp", interface) hover At("images/interface/Action_menu/pause.webp", interface)
+                        idle At("images/interface/Action_menu/pause_idle.webp", interface) 
+                        hover At("images/interface/Action_menu/pause.webp", interface)
 
                         if Player.cock_Actions:
                             action [
@@ -441,7 +449,9 @@ screen Action_screen(automatic = False):
                         tooltip "Pause Action"
 
                 imagebutton:
-                    idle At("images/interface/Action_menu/auto_idle.webp", interface) hover At("images/interface/Action_menu/auto.webp", interface) selected_idle At("images/interface/Action_menu/auto.webp", interface)
+                    idle At("images/interface/Action_menu/auto_idle.webp", interface) 
+                    hover At("images/interface/Action_menu/auto.webp", interface) 
+                    selected_idle At("images/interface/Action_menu/auto.webp", interface)
 
                     selected Action_auto_progress
 
@@ -451,7 +461,7 @@ screen Action_screen(automatic = False):
 
                     tooltip "Auto Progress"
 
-                bar value Action_auto_progress_timer range 5.0 anchor (0.5, 0.5) pos (0.9281, 0.825) xysize (int(419*interface_new_adjustment), int(78*interface_new_adjustment)):
+                bar value Action_auto_progress_timer range 5.0 anchor (0.5, 0.5) pos (0.9281, 0.825) xysize (int(419*interface_adjustment), int(78*interface_adjustment)):
                     left_bar Frame(At("images/interface/Action_menu/progress_full.webp", interface))
                     right_bar Frame(At("images/interface/Action_menu/progress_empty.webp", interface))
 
@@ -461,11 +471,11 @@ screen Action_screen(automatic = False):
                     tooltip "Auto Progress Timer"
 
             if has_Action_control and Player.cock_Actions and len(Player.cock_Actions[0].modes) > 1:
-                hbox anchor (0.5, 0.5) pos (0.9281, 0.88) xysize (int(475*interface_new_adjustment), int(177*interface_new_adjustment)):
+                hbox anchor (0.5, 0.5) pos (0.9281, 0.88) xysize (int(475*interface_adjustment), int(177*interface_adjustment)):
                     spacing -14
 
                     for mode in Player.cock_Actions[0].modes:
-                        button xysize (int(191*interface_new_adjustment), int(177*interface_new_adjustment)):
+                        button xysize (int(191*interface_adjustment), int(177*interface_adjustment)):
                             idle_background At("images/interface/Action_menu/mode_idle.webp", interface) 
                             hover_background At("images/interface/Action_menu/mode.webp", interface) 
                             selected_background At("images/interface/Action_menu/mode.webp", interface)
@@ -499,7 +509,9 @@ screen Action_screen(automatic = False):
 
             if has_movement_control and different_intensities_available:
                 imagebutton:
-                    idle At("images/interface/Action_menu/x1_idle.webp", interface) hover At("images/interface/Action_menu/x1.webp", interface) selected_idle At("images/interface/Action_menu/x1.webp", interface)
+                    idle At("images/interface/Action_menu/x1_idle.webp", interface) 
+                    hover At("images/interface/Action_menu/x1.webp", interface) 
+                    selected_idle At("images/interface/Action_menu/x1.webp", interface)
 
                     selected speed == 0.5 and intensity == 0.5
 
@@ -516,7 +528,9 @@ screen Action_screen(automatic = False):
                     tooltip "Set Intensity to 1"
 
                 imagebutton:
-                    idle At("images/interface/Action_menu/x2_idle.webp", interface) hover At("images/interface/Action_menu/x2.webp", interface) selected_idle At("images/interface/Action_menu/x2.webp", interface)
+                    idle At("images/interface/Action_menu/x2_idle.webp", interface) 
+                    hover At("images/interface/Action_menu/x2.webp", interface) 
+                    selected_idle At("images/interface/Action_menu/x2.webp", interface)
 
                     selected speed == 1.0 and intensity == 1.0
 
@@ -533,7 +547,9 @@ screen Action_screen(automatic = False):
                     tooltip "Set Intensity to 2"
 
                 imagebutton:
-                    idle At("images/interface/Action_menu/x3_idle.webp", interface) hover At("images/interface/Action_menu/x3.webp", interface) selected_idle At("images/interface/Action_menu/x3.webp", interface)
+                    idle At("images/interface/Action_menu/x3_idle.webp", interface) 
+                    hover At("images/interface/Action_menu/x3.webp", interface) 
+                    selected_idle At("images/interface/Action_menu/x3.webp", interface)
 
                     selected speed == 2.0 and intensity == 2.0
 
@@ -550,7 +566,8 @@ screen Action_screen(automatic = False):
                     tooltip "Set Intensity to 3"
 
             imagebutton:
-                idle At("images/interface/Action_menu/close_idle.webp", interface) hover At("images/interface/Action_menu/close.webp", interface)
+                idle At("images/interface/Action_menu/close_idle.webp", interface) 
+                hover At("images/interface/Action_menu/close.webp", interface)
 
                 if automatic:
                     action [
@@ -588,7 +605,7 @@ screen grade_screen(total_Character_orgasms, total_Player_orgasms, total_unique_
 
     timer 0.5 repeat True action ToggleVariable("blinking")
 
-    frame anchor (0.5, 0.5) pos (0.3, 0.5) xysize (int(878*interface_new_adjustment), int(1056*interface_new_adjustment)):
+    frame anchor (0.5, 0.5) pos (0.3, 0.5) xysize (int(878*interface_adjustment), int(1056*interface_adjustment)):
         background At("images/interface/Action_menu/grade.webp", interface)
 
         if blinking:
@@ -602,31 +619,31 @@ screen grade_screen(total_Character_orgasms, total_Player_orgasms, total_unique_
 
                 size 35
 
-        vbox anchor (0.5, 0.0) pos (0.482, 0.19) xysize (int(700*interface_new_adjustment), int(350*interface_new_adjustment)):
+        vbox anchor (0.5, 0.0) pos (0.482, 0.19) xysize (int(700*interface_adjustment), int(350*interface_adjustment)):
             spacing 10
 
-            fixed xysize (int(700*interface_new_adjustment), 50):
+            fixed xysize (int(700*interface_adjustment), 50):
                 text "[focused_Character.name]'s Orgasms" anchor (0.0, 0.5) pos (0.0, 0.5):
                     size 30
 
                 text "[total_Character_orgasms]" anchor (1.0, 0.5) pos (1.0, 0.5):
                     size 35
 
-            fixed xysize (int(700*interface_new_adjustment), 50):
+            fixed xysize (int(700*interface_adjustment), 50):
                 text "[Player.first_name]'s Orgasms" anchor (0.0, 0.5) pos (0.0, 0.5):
                     size 30
 
                 text "[total_Player_orgasms]" anchor (1.0, 0.5) pos (1.0, 0.5):
                     size 35
 
-            fixed xysize (int(700*interface_new_adjustment), 50):
+            fixed xysize (int(700*interface_adjustment), 50):
                 text "Unique Actions" anchor (0.0, 0.5) pos (0.0, 0.5):
                     size 30
 
                 text "[total_unique_Actions]" anchor (1.0, 0.5) pos (1.0, 0.5):
                     size 35
 
-        fixed anchor (0.5, 0.5) pos (0.482, 0.755) xysize (int(700*interface_new_adjustment), 75):
+        fixed anchor (0.5, 0.5) pos (0.482, 0.755) xysize (int(700*interface_adjustment), 75):
             text "Final Grade" anchor (0.0, 0.5) pos (0.0, 0.5):
                 size 35
 
@@ -639,7 +656,7 @@ screen grade_screen(total_Character_orgasms, total_Player_orgasms, total_unique_
             else:
                 add At("images/interface/Action_menu/C.webp", interface) anchor (1.0, 0.5) pos (1.0, 0.5)
 
-        button anchor (0.5, 0.5) pos (0.5, 0.895) xysize (int(374*interface_new_adjustment), int(177*interface_new_adjustment)):
+        button anchor (0.5, 0.5) pos (0.5, 0.895) xysize (int(374*interface_adjustment), int(177*interface_adjustment)):
             idle_background At("images/interface/Action_menu/done_idle.webp", interface) 
             hover_background At("images/interface/Action_menu/done.webp", interface)
 

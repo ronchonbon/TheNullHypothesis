@@ -50,22 +50,22 @@ screen shop_screen(shop_type, discount = False, restricted = True):
     else:
         $ modifier = 1.0
 
-    add "images/interface/main_menu/blank_background.webp" zoom interface_new_adjustment
+    add "images/interface/main_menu/blank_background.webp" zoom interface_adjustment
 
-    add At("images/interface/preferences/spin.webp", spinning_element) anchor (0.5, 0.5) pos (0.502, 0.502) zoom interface_new_adjustment
+    add At("images/interface/preferences/spin.webp", spinning_element) anchor (0.5, 0.5) pos (0.502, 0.502) zoom interface_adjustment
 
-    add "images/interface/shop/background.webp" zoom interface_new_adjustment
+    add "images/interface/shop/background.webp" zoom interface_adjustment
 
     if shop_type == "clothing":
-        add "images/interface/shop/mutant_couture.webp" zoom interface_new_adjustment
+        add "images/interface/shop/mutant_couture.webp" zoom interface_adjustment
     elif shop_type == "gift":
-        add "images/interface/shop/bear_with_me.webp" zoom interface_new_adjustment
+        add "images/interface/shop/bear_with_me.webp" zoom interface_adjustment
     elif shop_type == "lingerie":
-        add "images/interface/shop/xtreme_intimates.webp" zoom interface_new_adjustment
+        add "images/interface/shop/xtreme_intimates.webp" zoom interface_adjustment
     elif shop_type == "sex":
-        add "images/interface/shop/moaning_of_life.webp" zoom interface_new_adjustment
+        add "images/interface/shop/moaning_of_life.webp" zoom interface_adjustment
 
-    add "images/interface/shop/tab.webp" zoom interface_new_adjustment
+    add "images/interface/shop/tab.webp" zoom interface_adjustment
 
     if restricted:
         $ shopping_list = list(shop_inventory[shop_type].values())
@@ -120,8 +120,8 @@ screen shop_screen(shop_type, discount = False, restricted = True):
                         $ quantity += 1
                         $ removable_Item = I_temp
 
-                fixed xysize (1.0, int(177*interface_new_adjustment)):
-                    button anchor (0.0, 0.5) pos (0.0, 0.5) xysize (int(925*interface_new_adjustment), int(177*interface_new_adjustment)):
+                fixed xysize (1.0, int(177*interface_adjustment)):
+                    button anchor (0.0, 0.5) pos (0.0, 0.5) xysize (int(925*interface_adjustment), int(177*interface_adjustment)):
                         idle_background At("images/interface/shop/item_idle.webp", interface)
                         hover_background At("images/interface/shop/item.webp", interface) 
                         selected_idle_background At("images/interface/shop/item.webp", interface)
@@ -135,7 +135,7 @@ screen shop_screen(shop_type, discount = False, restricted = True):
 
                             size 30
 
-                    add "images/interface/shop/price.webp" anchor (0.5, 0.5) pos (0.6735, 0.53) zoom interface_new_adjustment
+                    add "images/interface/shop/price.webp" anchor (0.5, 0.5) pos (0.6735, 0.53) zoom interface_adjustment
 
                     if discount:
                         $ temp = int(modifier*I.price)
@@ -152,7 +152,7 @@ screen shop_screen(shop_type, discount = False, restricted = True):
 
                         action AddToSet(shopping_cart, copy.copy(I))
 
-                    add "images/interface/shop/quantity.webp" anchor (0.5, 0.5) pos (0.88, 0.53) zoom interface_new_adjustment
+                    add "images/interface/shop/quantity.webp" anchor (0.5, 0.5) pos (0.88, 0.53) zoom interface_adjustment
 
                     text f"{quantity}" anchor (0.5, 0.5) pos (0.88, 0.53):
                         size 30

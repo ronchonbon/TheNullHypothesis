@@ -39,6 +39,7 @@ init -3 python:
             self.hair = properties.get("hair", 1)
             self.ears = properties.get("ears", "human")
             self.beard = properties.get("beard", 0)
+            self.handedness = properties.get("handedness", "right")
 
             self.visible_mutation = False
 

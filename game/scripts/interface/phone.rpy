@@ -375,7 +375,7 @@ screen home_screen():
             else:
                 action None
 
-        fixed anchor (0.5, 0.5) pos (0.486, 0.392) xysize (int(905*interface_new_adjustment), int(354*interface_new_adjustment)):
+        fixed anchor (0.5, 0.5) pos (0.486, 0.392) xysize (int(905*interface_adjustment), int(354*interface_adjustment)):
             add At("images/interface/phone/home_humhum_box.webp", interface)
 
             if humhumthread_to_display.HumHums[0].Owner != Player:
@@ -387,7 +387,7 @@ screen home_screen():
 
                 text humhumthread_to_display.HumHums[0].Owner.call_sign anchor (0.0, 0.5) pos (0.125, 0.122) size 32
 
-            viewport id "home_humhum_viewport" yadjustment humhum_yadjustment anchor (0.0, 0.0) pos (0.0, 0.3) xysize (int(905*interface_new_adjustment), int(240*interface_new_adjustment)):
+            viewport id "home_humhum_viewport" yadjustment humhum_yadjustment anchor (0.0, 0.0) pos (0.0, 0.3) xysize (int(905*interface_adjustment), int(240*interface_adjustment)):
                 draggable True
                 mousewheel True
 
@@ -423,7 +423,7 @@ screen home_screen():
 
                                         null width 8
 
-                                        fixed yalign 0.0 xysize (int(750*interface_new_adjustment), int(100*interface_new_adjustment)):
+                                        fixed yalign 0.0 xysize (int(750*interface_adjustment), int(100*interface_adjustment)):
                                             if len(humhumthread_to_display.HumHums[h].body) > 75:
                                                 text humhumthread_to_display.HumHums[h].body align (0.0, 0.0):
                                                     size 16
@@ -444,11 +444,11 @@ screen home_screen():
 
         add At("images/interface/phone/home_humhum_scrollbar_background.webp", interface)
 
-        vbar value YScrollValue("home_humhum_viewport") anchor (0.5, 0.5) pos (0.614, 0.392) xysize (int(27*interface_new_adjustment), int(330*interface_new_adjustment)):
+        vbar value YScrollValue("home_humhum_viewport") anchor (0.5, 0.5) pos (0.614, 0.392) xysize (int(27*interface_adjustment), int(330*interface_adjustment)):
             base_bar At("images/interface/phone/home_humhum_scrollbar.webp", interface)
 
             thumb At("images/interface/phone/home_humhum_scrollbar_thumb.webp", interface)
-            thumb_offset int(66*interface_new_adjustment/2/3)
+            thumb_offset int(66*interface_adjustment/2/3)
 
             unscrollable "hide"
 
@@ -609,7 +609,7 @@ screen call_choice_screen():
 
         color "#bbbbbb"
 
-    vpgrid id "call_choice_screen_viewport" anchor (0.5, 0.0) pos (0.49, 0.217) xysize (int(919*interface_new_adjustment), int(1350*interface_new_adjustment)):
+    vpgrid id "call_choice_screen_viewport" anchor (0.5, 0.0) pos (0.49, 0.217) xysize (int(919*interface_adjustment), int(1350*interface_adjustment)):
         cols 1
 
         spacing 15
@@ -618,7 +618,7 @@ screen call_choice_screen():
         mousewheel True
 
         for C in Contacts:
-            button xysize (int(919*interface_new_adjustment), int(199*interface_new_adjustment)):
+            button xysize (int(919*interface_adjustment), int(199*interface_adjustment)):
                 idle_background At("images/interface/phone/call_contact_idle.webp", interface)
                 hover_background At("images/interface/phone/call_contact.webp", interface)
 
@@ -646,11 +646,11 @@ screen call_choice_screen():
                 else:
                     action NullAction()
 
-    vbar value YScrollValue("call_choice_screen_viewport") anchor (0.0, 0.0) pos (0.612, 0.217) xysize (int(29*interface_new_adjustment), int(1350*interface_new_adjustment)):
+    vbar value YScrollValue("call_choice_screen_viewport") anchor (0.0, 0.0) pos (0.612, 0.217) xysize (int(29*interface_adjustment), int(1350*interface_adjustment)):
         base_bar At("images/interface/phone/call_scrollbar.webp", interface)
 
         thumb At("images/interface/phone/call_scrollbar_thumb.webp", interface)
-        thumb_offset int(79*interface_new_adjustment/2/3)
+        thumb_offset int(79*interface_adjustment/2/3)
 
         unscrollable "hide"
 
@@ -718,7 +718,7 @@ screen text_choice_screen():
 
             color "#bbbbbb"
 
-        vpgrid id "text_choice_screen_viewport" anchor (0.5, 0.0) pos (0.49, 0.217) xysize (int(919*interface_new_adjustment), int(1350*interface_new_adjustment)):
+        vpgrid id "text_choice_screen_viewport" anchor (0.5, 0.0) pos (0.49, 0.217) xysize (int(919*interface_adjustment), int(1350*interface_adjustment)):
             cols 1
 
             spacing 15
@@ -727,7 +727,7 @@ screen text_choice_screen():
             mousewheel True
 
             for C in Contacts:
-                button xysize (int(919*interface_new_adjustment), int(199*interface_new_adjustment)):
+                button xysize (int(919*interface_adjustment), int(199*interface_adjustment)):
                     idle_background At("images/interface/phone/blah_contact_idle.webp", interface)
                     hover_background At("images/interface/phone/blah_contact.webp", interface)
                     selected_idle_background At("images/interface/phone/blah_contact.webp", interface)
@@ -746,11 +746,11 @@ screen text_choice_screen():
                     else:
                         action NullAction()
 
-        vbar value YScrollValue("text_choice_screen_viewport") anchor (0.0, 0.0) pos (0.612, 0.217) xysize (int(29*interface_new_adjustment), int(1350*interface_new_adjustment)):
+        vbar value YScrollValue("text_choice_screen_viewport") anchor (0.0, 0.0) pos (0.612, 0.217) xysize (int(29*interface_adjustment), int(1350*interface_adjustment)):
             base_bar At("images/interface/phone/blah_scrollbar.webp", interface)
 
             thumb At("images/interface/phone/blah_scrollbar_thumb.webp", interface)
-            thumb_offset int(79*interface_new_adjustment/2/3)
+            thumb_offset int(79*interface_adjustment/2/3)
 
             unscrollable "hide"
 
@@ -969,13 +969,13 @@ screen humhum_home_screen():
 
             color "#d56cc4"
 
-        viewport id "humhum_home_screen_viewport" anchor (0.5, 0.0) pos (0.488, 0.195) xysize (int(905*interface_new_adjustment), int(1299*interface_new_adjustment)):
+        viewport id "humhum_home_screen_viewport" anchor (0.5, 0.0) pos (0.488, 0.195) xysize (int(905*interface_adjustment), int(1299*interface_adjustment)):
             draggable True
             mousewheel True
         
             vbox xsize 1.0:
                 for H in HumHumPool.HumHumThreads.values():
-                    fixed xysize (int(905*interface_new_adjustment), int(354*interface_new_adjustment)):
+                    fixed xysize (int(905*interface_adjustment), int(354*interface_adjustment)):
                         yfit True
                         
                         add At("images/interface/phone/home_humhum_box.webp", interface)
@@ -991,7 +991,7 @@ screen humhum_home_screen():
                             text H.HumHums[0].Owner.call_sign anchor (0.0, 0.5) pos (0.125, 22):
                                 size 32
 
-                        fixed anchor (0.5, 0.0) pos (0.5, int(106*interface_new_adjustment)) xysize (1.0, 115):
+                        fixed anchor (0.5, 0.0) pos (0.5, int(106*interface_adjustment)) xysize (1.0, 115):
                             text H.HumHums[0].body anchor (0.0, 0.0) pos (0.02, 0.015): 
                                 if len(H.HumHums[0].body) > 125:
                                     size 24
@@ -1007,7 +1007,7 @@ screen humhum_home_screen():
                                 text_align 0.0
 
                         if len(H.HumHums) > 1:
-                            frame anchor (0.5, 0.0) pos (0.5, int(340*interface_new_adjustment)) xsize 1.0:
+                            frame anchor (0.5, 0.0) pos (0.5, int(340*interface_adjustment)) xsize 1.0:
                                 background Frame(At("images/interface/phone/home_humhum_reply_box.webp", interface), 0, 15, 0, 15)
 
                                 vbox xsize 1.0:
@@ -1022,7 +1022,7 @@ screen humhum_home_screen():
 
                                             null width 8
 
-                                            fixed yalign 0.0 xysize (int(750*interface_new_adjustment), int(100*interface_new_adjustment)):
+                                            fixed yalign 0.0 xysize (int(750*interface_adjustment), int(100*interface_adjustment)):
                                                 if len(H.HumHums[h].body) > 75:
                                                     text H.HumHums[h].body align (0.0, 0.0):
                                                         size 16
@@ -1043,11 +1043,11 @@ screen humhum_home_screen():
 
                     null height 15
 
-        vbar value YScrollValue("humhum_home_screen_viewport") anchor (0.0, 0.0) pos (0.614, 0.195) xysize (int(27*interface_new_adjustment), int(1299*interface_new_adjustment)):
+        vbar value YScrollValue("humhum_home_screen_viewport") anchor (0.0, 0.0) pos (0.614, 0.195) xysize (int(27*interface_adjustment), int(1299*interface_adjustment)):
             base_bar At("images/interface/phone/humhum_scrollbar.webp", interface)
 
             thumb At("images/interface/phone/humhum_scrollbar_thumb.webp", interface)
-            thumb_offset int(66*interface_new_adjustment/2/2)
+            thumb_offset int(66*interface_adjustment/2/2)
 
             unscrollable "hide"
 
@@ -1095,7 +1095,7 @@ screen humhum_choice_screen():
 
             color "#ffffff"
 
-        vpgrid id "humhum_choice_screen_viewport" anchor (0.5, 0.0) pos (0.496, 0.175) xysize (int(905*interface_new_adjustment), int(1299*interface_new_adjustment)):
+        vpgrid id "humhum_choice_screen_viewport" anchor (0.5, 0.0) pos (0.496, 0.175) xysize (int(905*interface_adjustment), int(1299*interface_adjustment)):
             cols 3
 
             spacing 0
@@ -1117,11 +1117,11 @@ screen humhum_choice_screen():
                     else:
                         action None
 
-        vbar value YScrollValue("humhum_choice_screen_viewport") anchor (0.0, 0.0) pos (0.614, 0.175) xysize (int(27*interface_new_adjustment), int(1299*interface_new_adjustment)):
+        vbar value YScrollValue("humhum_choice_screen_viewport") anchor (0.0, 0.0) pos (0.614, 0.175) xysize (int(27*interface_adjustment), int(1299*interface_adjustment)):
             base_bar At("images/interface/phone/humhum_scrollbar.webp", interface)
 
             thumb At("images/interface/phone/humhum_scrollbar_thumb.webp", interface)
-            thumb_offset int(66*interface_new_adjustment/2/2)
+            thumb_offset int(66*interface_adjustment/2/2)
 
             unscrollable "hide"
 
@@ -1272,7 +1272,7 @@ screen news_screen():
     if daily_bungle_article is not None:
         add At("images/interface/phone/daily_bungle_article.webp", interface) anchor (0.5, 0.0) pos (0.49, 0.41)
 
-        vpgrid id "news_screen_viewport" anchor (0.5, 0.0) pos (0.49, 0.41) xysize (int(887*interface_new_adjustment), int(990*interface_new_adjustment)):
+        vpgrid id "news_screen_viewport" anchor (0.5, 0.0) pos (0.49, 0.41) xysize (int(887*interface_adjustment), int(990*interface_adjustment)):
             cols 1
 
             spacing 15
@@ -1280,7 +1280,7 @@ screen news_screen():
             draggable True
             mousewheel True
     else:
-        vpgrid id "news_screen_viewport" anchor (0.5, 0.0) pos (0.49, 0.41) xysize (int(887*interface_new_adjustment), int(990*interface_new_adjustment)):
+        vpgrid id "news_screen_viewport" anchor (0.5, 0.0) pos (0.49, 0.41) xysize (int(887*interface_adjustment), int(990*interface_adjustment)):
             cols 1
 
             spacing 15
@@ -1288,23 +1288,23 @@ screen news_screen():
             draggable True
             mousewheel True
 
-            fixed xysize (1.0, int(495*interface_new_adjustment)):
+            fixed xysize (1.0, int(495*interface_adjustment)):
                 add At("images/interface/phone/daily_bungle_article_panel.webp", interface)
 
-            fixed xysize (1.0, int(495*interface_new_adjustment)):
+            fixed xysize (1.0, int(495*interface_adjustment)):
                 add At("images/interface/phone/daily_bungle_article_panel.webp", interface)
 
-            fixed xysize (1.0, int(495*interface_new_adjustment)):
+            fixed xysize (1.0, int(495*interface_adjustment)):
                 add At("images/interface/phone/daily_bungle_article_panel.webp", interface)
 
-            fixed xysize (1.0, int(495*interface_new_adjustment)):
+            fixed xysize (1.0, int(495*interface_adjustment)):
                 add At("images/interface/phone/daily_bungle_article_panel.webp", interface)
 
-    vbar value YScrollValue("news_screen_viewport") anchor (0.0, 0.0) pos (0.614, 0.41) xysize (int(32*interface_new_adjustment), int(990*interface_new_adjustment)):
+    vbar value YScrollValue("news_screen_viewport") anchor (0.0, 0.0) pos (0.614, 0.41) xysize (int(32*interface_adjustment), int(990*interface_adjustment)):
         base_bar At("images/interface/phone/daily_bungle_scrollbar.webp", interface)
 
         thumb At("images/interface/phone/daily_bungle_scrollbar_thumb.webp", interface)
-        thumb_offset int(72*interface_new_adjustment/2/3)
+        thumb_offset int(72*interface_adjustment/2/3)
 
         unscrollable "hide"
 
@@ -1318,12 +1318,12 @@ screen remote_screen():
 
         color "#ffffff"
 
-    bar value 0.0 anchor (0.5, 0.5) pos (0.495, 0.618) xysize (int(397*interface_new_adjustment), int(63*interface_new_adjustment)):
+    bar value 0.0 anchor (0.5, 0.5) pos (0.495, 0.618) xysize (int(397*interface_adjustment), int(63*interface_adjustment)):
         left_bar At("images/interface/phone/hot_control_intensity.webp", interface)
         right_bar At("images/interface/phone/hot_control_intensity.webp", interface)
 
         thumb Frame(At("images/interface/phone/hot_control_selector.webp", interface))
-        thumb_offset int(22*interface_new_adjustment)
+        thumb_offset int(22*interface_adjustment)
 
     imagebutton:
         idle At("images/interface/phone/hot_control_off.webp", interface)
@@ -1394,7 +1394,7 @@ screen achievements_home_screen():
 
         add At(At("images/interface/phone/achievements_trophy_sparkle.webp", interface), pulse(1.0)) anchor (0.5, 0.5) pos (0.57, 0.775)
 
-        button anchor (0.5, 0.5) pos (0.558, 0.233) xysize (int(458*interface_new_adjustment), int(367*interface_new_adjustment)):
+        button anchor (0.5, 0.5) pos (0.558, 0.233) xysize (int(458*interface_adjustment), int(367*interface_adjustment)):
             idle_background At("images/interface/phone/achievements_button_idle.webp", interface)
             hover_background At("images/interface/phone/achievements_button.webp", interface)
 
@@ -1423,7 +1423,7 @@ screen achievements_list_screen():
 
         color "#ffffff"
 
-    vpgrid id "achievements_list_screen_viewport" anchor (0.5, 0.0) pos (0.496, 0.165) xysize (int(927*interface_new_adjustment), int(1491*interface_new_adjustment)):
+    vpgrid id "achievements_list_screen_viewport" anchor (0.5, 0.0) pos (0.496, 0.165) xysize (int(927*interface_adjustment), int(1491*interface_adjustment)):
         cols 1
 
         spacing 15
@@ -1431,23 +1431,23 @@ screen achievements_list_screen():
         draggable True
         mousewheel True
 
-        fixed xysize (1.0, int(202*interface_new_adjustment)):
+        fixed xysize (1.0, int(202*interface_adjustment)):
             add At("images/interface/phone/achievements_list_box.webp", interface)
 
-        fixed xysize (1.0, int(202*interface_new_adjustment)):
+        fixed xysize (1.0, int(202*interface_adjustment)):
             add At("images/interface/phone/achievements_list_box.webp", interface)
 
-        fixed xysize (1.0, int(202*interface_new_adjustment)):
+        fixed xysize (1.0, int(202*interface_adjustment)):
             add At("images/interface/phone/achievements_list_box.webp", interface)
 
-        fixed xysize (1.0, int(202*interface_new_adjustment)):
+        fixed xysize (1.0, int(202*interface_adjustment)):
             add At("images/interface/phone/achievements_list_box.webp", interface)
 
-    vbar value YScrollValue("achievements_list_screen_viewport") anchor (0.0, 0.0) pos (0.614, 0.165) xysize (int(28*interface_new_adjustment), int(1491*interface_new_adjustment)):
+    vbar value YScrollValue("achievements_list_screen_viewport") anchor (0.0, 0.0) pos (0.614, 0.165) xysize (int(28*interface_adjustment), int(1491*interface_adjustment)):
         base_bar At("images/interface/phone/achievements_scrollbar.webp", interface)
 
         thumb At("images/interface/phone/achievements_scrollbar_thumb.webp", interface)
-        thumb_offset int(72*interface_new_adjustment/2/3)
+        thumb_offset int(72*interface_adjustment/2/3)
 
         unscrollable "hide"
 
@@ -1478,7 +1478,7 @@ screen music_screen():
         text renpy.music.get_playing().split("/")[-1].split(".")[0] anchor (0.0, 0.5) pos (0.46, 0.19):
             size 45
 
-        bar value AudioPositionValue(channel = 'music') anchor (0.0, 0.5) pos (0.46, 0.22) xysize (int(576*interface_new_adjustment), int(16*interface_new_adjustment)):
+        bar value AudioPositionValue(channel = 'music') anchor (0.0, 0.5) pos (0.46, 0.22) xysize (int(576*interface_adjustment), int(16*interface_adjustment)):
             left_bar At("images/interface/phone/music_bar.webp", interface)
             right_bar At("images/interface/phone/music_bar_empty.webp", interface)
 
@@ -1550,7 +1550,7 @@ screen music_screen():
         else:
             action None
 
-    viewport id "music_screen_viewport" anchor (0.5, 0.0) pos (0.487, 0.378) xysize (int(847*interface_new_adjustment), int(1035*interface_new_adjustment)):
+    viewport id "music_screen_viewport" anchor (0.5, 0.0) pos (0.487, 0.378) xysize (int(847*interface_adjustment), int(1035*interface_adjustment)):
         draggable True
         mousewheel True
 
@@ -1558,7 +1558,7 @@ screen music_screen():
             spacing 10
 
             for file in song_list:
-                button xalign 0.0 xysize (int(847*interface_new_adjustment), int(140*interface_new_adjustment)):
+                button xalign 0.0 xysize (int(847*interface_adjustment), int(140*interface_adjustment)):
                     idle_background At("images/interface/phone/music_song_idle.webp", interface)
                     hover_background At("images/interface/phone/music_song.webp", interface)
                     selected_idle_background At("images/interface/phone/music_song.webp", interface)
@@ -1573,11 +1573,11 @@ screen music_screen():
                     else:
                         action None
 
-    vbar value YScrollValue("music_screen_viewport") anchor (0.0, 0.0) pos (0.605, 0.378) xysize (int(29*interface_new_adjustment), int(1035*interface_new_adjustment)):
+    vbar value YScrollValue("music_screen_viewport") anchor (0.0, 0.0) pos (0.605, 0.378) xysize (int(29*interface_adjustment), int(1035*interface_adjustment)):
         base_bar At("images/interface/phone/music_scrollbar.webp", interface)
 
         thumb At("images/interface/phone/music_scrollbar_thumb.webp", interface)
-        thumb_offset int(72*interface_new_adjustment/2/3)
+        thumb_offset int(72*interface_adjustment/2/3)
 
         unscrollable "hide"
 
@@ -1591,7 +1591,7 @@ screen config_screen():
 
         color "#ffffff"
 
-    vbox anchor (0.5, 0.0) pos (0.496, 0.15) xysize (int(930*interface_new_adjustment), int(1299*interface_new_adjustment)):
+    vbox anchor (0.5, 0.0) pos (0.496, 0.15) xysize (int(930*interface_adjustment), int(1299*interface_adjustment)):
         xfill True
 
         fixed xysize (1.0, 57):

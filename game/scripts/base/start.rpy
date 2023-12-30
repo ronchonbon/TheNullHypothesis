@@ -59,7 +59,7 @@ label start:
 
         align (0.5, 0.5)
 
-        zoom interface_new_adjustment
+        zoom interface_adjustment
 
     show expression "images/interface/preferences/spin.webp" as new_game_foreground:
         subpixel True
@@ -68,7 +68,7 @@ label start:
         anchor (0.5, 0.5) 
         pos (0.502, 0.502)
 
-        zoom interface_new_adjustment
+        zoom interface_adjustment
 
     show expression "images/interface/main_menu/comic.webp" as new_game_comic:
         subpixel True
@@ -77,7 +77,7 @@ label start:
         anchor (2257, 1045)
         offset (2172, 398)
 
-        zoom interface_new_adjustment
+        zoom interface_adjustment
 
     $ renpy.pause(0.2, hard = True)
 
@@ -99,7 +99,7 @@ label start:
         anchor (2257, 1045)
         offset (2172, 398)
 
-        zoom interface_new_adjustment
+        zoom interface_adjustment
 
         parallel:
             ease 2.0 rotate -21

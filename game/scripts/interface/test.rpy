@@ -13,9 +13,9 @@ screen test_screen():
 
     style_prefix "test"
 
-    add "images/interface/test/test.webp" zoom interface_new_adjustment
+    add "images/interface/test/test.webp" zoom interface_adjustment
 
-    frame anchor (0.0, 0.5) pos (0.41, 0.145) xysize (int(400*interface_new_adjustment), int(70*interface_new_adjustment)):
+    frame anchor (0.0, 0.5) pos (0.41, 0.145) xysize (int(400*interface_adjustment), int(70*interface_adjustment)):
         input id "first_name_input" value first_name_value xalign 1.0:
             font "agency_fb.ttf"
 
@@ -25,7 +25,7 @@ screen test_screen():
 
             length 10
     
-    frame anchor (0.0, 0.5) pos (0.41, 0.185) xysize (int(400*interface_new_adjustment), int(70*interface_new_adjustment)):
+    frame anchor (0.0, 0.5) pos (0.41, 0.185) xysize (int(400*interface_adjustment), int(70*interface_adjustment)):
         input id "last_name_input" value last_name_value xalign 1.0:
             font "agency_fb.ttf"
 
@@ -35,12 +35,12 @@ screen test_screen():
 
             length 15
 
-    button anchor (0.0, 0.5) pos (0.41, 0.15) xysize (int(400*interface_new_adjustment), int(70*interface_new_adjustment)):
+    button anchor (0.0, 0.5) pos (0.41, 0.15) xysize (int(400*interface_adjustment), int(70*interface_adjustment)):
         background None
 
         action first_name_value.Toggle()
 
-    button anchor (0.0, 0.5) pos (0.41, 0.1905) xysize (int(400*interface_new_adjustment), int(70*interface_new_adjustment)):
+    button anchor (0.0, 0.5) pos (0.41, 0.1905) xysize (int(400*interface_adjustment), int(70*interface_adjustment)):
         background None
         
         action last_name_value.Toggle()
@@ -53,7 +53,9 @@ screen test_screen():
                 spacing 50
 
                 imagebutton:
-                    idle At("images/interface/test/yes_off.webp", interface) hover At("images/interface/test/yes_on.webp", interface) selected_idle At("images/interface/test/yes_on.webp", interface)
+                    idle At("images/interface/test/yes_off.webp", interface) 
+                    hover At("images/interface/test/yes_on.webp", interface) 
+                    selected_idle At("images/interface/test/yes_on.webp", interface)
 
                     selected eval(item)
 
@@ -65,7 +67,9 @@ screen test_screen():
                     focus_mask None
 
                 imagebutton:
-                    idle At("images/interface/test/no_off.webp", interface) hover At("images/interface/test/no_on.webp", interface) selected_idle At("images/interface/test/no_on.webp", interface)
+                    idle At("images/interface/test/no_off.webp", interface) 
+                    hover At("images/interface/test/no_on.webp", interface) 
+                    selected_idle At("images/interface/test/no_on.webp", interface)
 
                     selected not eval(item)
 
@@ -77,7 +81,8 @@ screen test_screen():
                     focus_mask None
 
     imagebutton:
-        idle At("images/interface/test/finish_idle.webp", interface) hover At("images/interface/test/finish.webp", interface)
+        idle At("images/interface/test/finish_idle.webp", interface) 
+        hover At("images/interface/test/finish.webp", interface)
 
         action Return()
 

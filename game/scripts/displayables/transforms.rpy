@@ -116,7 +116,7 @@ init -99:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom interface_new_adjustment
+        zoom interface_adjustment
 
     transform customization_portrait:
         transform_anchor True

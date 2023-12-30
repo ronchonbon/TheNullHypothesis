@@ -22,7 +22,7 @@ image menu_comic:
     anchor (2257, 1045)
     offset (2172, 398)
 
-    zoom interface_new_adjustment
+    zoom interface_adjustment
 
 style main_menu is default
 
@@ -31,13 +31,13 @@ screen main_menu():
 
     style_prefix "main_menu"
 
-    add "menu_background" zoom interface_new_adjustment
+    add "menu_background" zoom interface_adjustment
 
-    add "images/interface/main_menu/small_elements.webp" zoom interface_new_adjustment
+    add "images/interface/main_menu/small_elements.webp" zoom interface_adjustment
 
-    add "images/interface/main_menu/big_elements.webp" zoom interface_new_adjustment
+    add "images/interface/main_menu/big_elements.webp" zoom interface_adjustment
 
-    add "images/interface/main_menu/game_version.webp" zoom interface_new_adjustment
+    add "images/interface/main_menu/game_version.webp" zoom interface_adjustment
 
     add "menu_comic"
 
