@@ -3,6 +3,15 @@ default volume_muted = False
 screen hotkeys_screen():
     if not input_cheats:
         if not black_screen and not belt_hidden and sandbox and not ongoing_Event and (not current_phone_Character or not current_phone_Character.mandatory_text_options):
+            key "mousedown_3" action [
+                                Hide("Action_screen"),
+                                Hide("phone_screen"),
+                                Hide("Player_customization_screen"),
+                                Hide("shop_screen"),
+                                Hide("Wardrobe_screen"),
+                                SetVariable("current_Player_menu_page", "map"),
+                                ToggleScreen("Player_menu")]
+            
             key "m" action [
                         SetVariable("current_Player_menu_page", "map"),
                         ToggleScreen("Player_menu")]

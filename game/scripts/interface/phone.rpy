@@ -214,15 +214,20 @@ screen phone_screen():
 
                 if phone_interactable and not phone_disabled and (not current_phone_Character or not current_phone_Character.mandatory_text_options):
                     if current_phone_screen in ["call", "humhum"]:
-                        action SetVariable("current_phone_screen", current_phone_screen + "_choice")
+                        action [
+                            SetVariable("current_phone_screen", current_phone_screen + "_choice"),
+                            Call("set_music", from_current = True)]
                     elif current_phone_screen == "text":
                         action [
                             Function(renpy.call_in_new_context, "read_texts", current_phone_Character, override = True),
-                            SetVariable("current_phone_screen", current_phone_screen + "_choice")]
+                            SetVariable("current_phone_screen", current_phone_screen + "_choice"),
+                            Call("set_music", from_current = True)]
                     elif current_phone_screen in ["achievements_list", "achievements_shop"]:
                         action SetVariable("current_phone_screen", "achievements_home")
                     else:
-                        action SetVariable("current_phone_screen", "home")
+                        action [
+                            SetVariable("current_phone_screen", "home"),
+                            Call("set_music", from_current = True)]
                 else:
                     action None
 
@@ -246,9 +251,12 @@ screen phone_screen():
                     elif current_phone_screen == "text":
                         action [
                             Function(renpy.call_in_new_context, "read_texts", current_phone_Character, override = True),
-                            SetVariable("current_phone_screen", "home")]
+                            SetVariable("current_phone_screen", "home"),
+                            Call("set_music", from_current = True)]
                     else:
-                        action SetVariable("current_phone_screen", "home")
+                        action [
+                            SetVariable("current_phone_screen", "home"),
+                            Call("set_music", from_current = True)]
                 else:
                     action None
 
@@ -268,9 +276,12 @@ screen phone_screen():
                     if current_phone_screen == "text":
                         action [
                             Function(renpy.call_in_new_context, "read_texts", current_phone_Character, override = True),
-                            SetVariable("current_phone_screen", "apps")]
+                            SetVariable("current_phone_screen", "apps"),
+                            Call("set_music", from_current = True)]
                     else:                                
-                        action SetVariable("current_phone_screen", "apps")
+                        action [
+                            SetVariable("current_phone_screen", "apps"),
+                            Call("set_music", from_current = True)]
                 else:
                     action None
 
@@ -1360,6 +1371,9 @@ screen remote_screen():
 screen achievements_home_screen():
     style_prefix "phone"
 
+    if renpy.music.get_playing() != "sounds/music/Achievements.ogg":
+        timer 0.01 action Play("music", "sounds/music/Achievements.ogg", fadeout = 0.5, fadein = 0.1, loop = True)
+
     timer 1.0 action SetVariable("loading", False)
 
     if loading:
@@ -1383,16 +1397,29 @@ screen achievements_home_screen():
 
             color "#801a48"
 
-        text "69/69" anchor (0.5, 0.5) pos (0.496, 0.77):
+        $ completed_achievements = 0
+
+        for a in achievements.keys():
+            if achievement.has(a):
+                $ completed_achievements += 1
+
+        text f"{completed_achievements}/{len(achievements)}" anchor (0.5, 0.5) pos (0.496, 0.77):
             font "agency_fb_bold.ttf"
 
             size 70
 
             color "#ffffff"
 
-        add At("images/interface/phone/achievements_trophy_foil.webp", interface) anchor (0.5, 0.5) pos (0.57, 0.775)
+        if completed_achievements == len(achievements):
+            add "images/interface/phone/achievements_trophy_foil.webp" anchor (0.5, 0.5) pos (0.57, 0.775) zoom interface_adjustment
 
-        add At(At("images/interface/phone/achievements_trophy_sparkle.webp", interface), pulse(1.0)) anchor (0.5, 0.5) pos (0.57, 0.775)
+            add At("images/interface/phone/achievements_trophy_sparkle.webp", pulse(1.0)) anchor (0.5, 0.5) pos (0.57, 0.775) zoom interface_adjustment
+        elif completed_achievements/len(achievements) >= 0.75:
+            add "images/interface/phone/achievements_trophy_gold.webp" anchor (0.5, 0.5) pos (0.57, 0.775) zoom interface_adjustment
+        elif completed_achievements/len(achievements) >= 0.50:
+            add "images/interface/phone/achievements_trophy_silver.webp" anchor (0.5, 0.5) pos (0.57, 0.775) zoom interface_adjustment
+        elif completed_achievements/len(achievements) >= 0.25:
+            add "images/interface/phone/achievements_trophy_bronze.webp" anchor (0.5, 0.5) pos (0.57, 0.775) zoom interface_adjustment
 
         button anchor (0.5, 0.5) pos (0.558, 0.233) xysize (int(458*interface_adjustment), int(367*interface_adjustment)):
             idle_background At("images/interface/phone/achievements_button_idle.webp", interface)
@@ -1423,7 +1450,7 @@ screen achievements_list_screen():
 
         color "#ffffff"
 
-    vpgrid id "achievements_list_screen_viewport" anchor (0.5, 0.0) pos (0.496, 0.165) xysize (int(927*interface_adjustment), int(1491*interface_adjustment)):
+    vpgrid id "achievements_list_screen_viewport" anchor (0.5, 0.0) pos (0.49, 0.165) xysize (int(927*interface_adjustment), int(1491*interface_adjustment)):
         cols 1
 
         spacing 15
@@ -1431,17 +1458,38 @@ screen achievements_list_screen():
         draggable True
         mousewheel True
 
-        fixed xysize (1.0, int(202*interface_adjustment)):
-            add At("images/interface/phone/achievements_list_box.webp", interface)
+        for a in achievements.keys():
+            fixed xysize (1.0, int(202*interface_adjustment)):
+                add "images/interface/phone/achievements_list_box.webp" zoom interface_adjustment
 
-        fixed xysize (1.0, int(202*interface_adjustment)):
-            add At("images/interface/phone/achievements_list_box.webp", interface)
+                if achievement.has(a):
+                    if achievements[a]["points"] == 5:
+                        add "images/interface/phone/achievements_trophy_bronze.webp" anchor (0.5, 0.5) pos (0.115, 0.53) zoom interface_adjustment
+                    elif achievements[a]["points"] == 10:
+                        add "images/interface/phone/achievements_trophy_silver.webp" anchor (0.5, 0.5) pos (0.115, 0.53) zoom interface_adjustment
+                    elif achievements[a]["points"] == 20:
+                        add "images/interface/phone/achievements_trophy_gold.webp" anchor (0.5, 0.5) pos (0.115, 0.53) zoom interface_adjustment
+                    elif achievements[a]["points"] == 40:
+                        add "images/interface/phone/achievements_trophy_foil.webp" anchor (0.5, 0.5) pos (0.115, 0.53) zoom interface_adjustment
+                else:
+                    add "images/interface/phone/achievements_locked.webp" anchor (0.5, 0.5) pos (0.118, 0.505) zoom interface_adjustment
 
-        fixed xysize (1.0, int(202*interface_adjustment)):
-            add At("images/interface/phone/achievements_list_box.webp", interface)
+                if achievement.has(a) or not achievements[a]["secret"]:
+                    frame anchor (0.5, 0.0) pos (0.6, 0.1) xysize (0.7, 0.4):
+                        background None
 
-        fixed xysize (1.0, int(202*interface_adjustment)):
-            add At("images/interface/phone/achievements_list_box.webp", interface)
+                        text a:
+                            size 28
+
+                            color "#ffffff"
+
+                    frame anchor (0.5, 1.0) pos (0.6, 0.9) xysize (0.7, 0.4):
+                        background None
+
+                        text achievements[a]["description"]:
+                            size 18
+
+                            color "#ffffff"
 
     vbar value YScrollValue("achievements_list_screen_viewport") anchor (0.0, 0.0) pos (0.614, 0.165) xysize (int(28*interface_adjustment), int(1491*interface_adjustment)):
         base_bar At("images/interface/phone/achievements_scrollbar.webp", interface)

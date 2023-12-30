@@ -233,12 +233,12 @@ screen database_screen():
 
         color "#000000"
 
-    if blinking:
-        text "CEREBRO DATABASE" + "{alpha=0.0}_{/alpha}" anchor (0.0, 0.5) pos (0.065, 0.335):
-            size 35
-    else:
-        text "CEREBRO DATABASE" + "_" anchor (0.0, 0.5) pos (0.065, 0.335):
-            size 35
+    # if blinking:
+    text "CEREBRO DATABASE" + "{alpha=0.0}_{/alpha}" anchor (0.0, 0.5) pos (0.065, 0.335):
+        size 35
+    # else:
+    #     text "CEREBRO DATABASE" + "_" anchor (0.0, 0.5) pos (0.065, 0.335):
+    #         size 35
 
     viewport id "database_viewport" anchor (0.5, 0.0) pos (0.176, 0.405) xysize (int(911*interface_adjustment), int(1114*interface_adjustment)):
         draggable True
@@ -702,12 +702,12 @@ screen inventory_screen():
     text "KEY" anchor (0.5, 0.5) pos (0.602, 0.335):
         size 35
 
-    if blinking:
-        text "ITEM NAME" + "{alpha=0.0}_{/alpha}" anchor (0.0, 0.5) pos (0.674, 0.335):
-            size 35
-    else:
-        text "ITEM NAME" + "_" anchor (0.0, 0.5) pos (0.674, 0.335):
-            size 35
+    # if blinking:
+    text "ITEM NAME" + "{alpha=0.0}_{/alpha}" anchor (0.0, 0.5) pos (0.674, 0.335):
+        size 35
+    # else:
+    #     text "ITEM NAME" + "_" anchor (0.0, 0.5) pos (0.674, 0.335):
+    #         size 35
 
     if isinstance(current_inventory_Item, str):
         $ Item = eval(f"{current_inventory_Item}(None)")
@@ -731,12 +731,12 @@ screen inventory_screen():
             else:
                 size 35
 
-    if blinking:
-        text "CASH" + "{alpha=0.0}_{/alpha}" anchor (0.0, 0.5) pos (0.674, 0.907):
-            size 45
-    else:
-        text "CASH" + "_" anchor (0.0, 0.5) pos (0.674, 0.907):
-            size 45
+    # if blinking:
+    text "CASH" + "{alpha=0.0}_{/alpha}" anchor (0.0, 0.5) pos (0.674, 0.907):
+        size 45
+    # else:
+    #     text "CASH" + "_" anchor (0.0, 0.5) pos (0.674, 0.907):
+    #         size 45
 
     text f"$ {Player.cash}" anchor (1.0, 0.5) pos (0.93, 0.907):
         size 45
@@ -831,12 +831,12 @@ screen journal_screen():
     text "CHAPTER I" anchor (0.5, 0.5) pos (0.395, 0.242):
         size 35
 
-    if blinking:
-        text "QUEST LIST" + "{alpha=0.0}_{/alpha}" anchor (0.0, 0.5) pos (0.065, 0.335):
-            size 35
-    else:
-        text "QUEST LIST" + "_" anchor (0.0, 0.5) pos (0.065, 0.335):
-            size 35
+    # if blinking:
+    text "QUEST LIST" + "{alpha=0.0}_{/alpha}" anchor (0.0, 0.5) pos (0.065, 0.335):
+        size 35
+    # else:
+    #     text "QUEST LIST" + "_" anchor (0.0, 0.5) pos (0.065, 0.335):
+    #         size 35
 
     viewport id "journal_viewport" anchor (0.5, 0.0) pos (0.176, 0.405) xysize (int(911*interface_adjustment), int(1114*interface_adjustment)):
         draggable True
@@ -1035,12 +1035,12 @@ screen map_screen():
 
                     action SetVariable("current_subgroup", location_subgroup)
 
-    if blinking:
-        text "FLOORS" + "{alpha=0.0}_{/alpha}" anchor (0.0, 0.5) pos (0.065, 0.444):
-            size 35
-    else:
-        text "FLOORS" + "_" anchor (0.0, 0.5) pos (0.065, 0.444):
-            size 35
+    # if blinking:
+    text "FLOORS" + "{alpha=0.0}_{/alpha}" anchor (0.0, 0.5) pos (0.065, 0.444):
+        size 35
+    # else:
+    #     text "FLOORS" + "_" anchor (0.0, 0.5) pos (0.065, 0.444):
+    #         size 35
 
     if sandbox:
         imagebutton:
@@ -1115,12 +1115,12 @@ screen map_screen():
         text "3" anchor (0.5, 0.5) pos (0.14, 0.892):
             size 36
 
-    if blinking:
-        text "QUICK TRAVEL" + "{alpha=0.0}_{/alpha}" anchor (0.0, 0.5) pos (0.065, 0.801):
-            size 30
-    else:
-        text "QUICK TRAVEL" + "_" anchor (0.0, 0.5) pos (0.065, 0.801):
-            size 30
+    # if blinking:
+    text "QUICK TRAVEL" + "{alpha=0.0}_{/alpha}" anchor (0.0, 0.5) pos (0.065, 0.801):
+        size 30
+    # else:
+    #     text "QUICK TRAVEL" + "_" anchor (0.0, 0.5) pos (0.065, 0.801):
+    #         size 30
 
     $ map_to_show = None
 

@@ -8,7 +8,6 @@ label Jean_flirt_a:
         "f": "Your green eyes are so vibrant. . . mesmerizing.",
         "g": "Do you work out a lot? You're super slender. . . in a good way.",
         "h": "I had a dream about you. . . It was nice.",
-        "j": "Thanks for offering to tutor me. Studying with a genius is a huge help.",
         "k": "You always smell so good.",
         "l": "Your hair is stunning, such a vibrant red.",
         "n": "Your smile really brightens my day.",
@@ -16,6 +15,9 @@ label Jean_flirt_a:
 
     if Jean.quirk:
         $ lines.update({"i": "I couldn't be luckier. . . you take great care of me."})
+
+    if Jean.History.check("studied_with_Player"):
+        $ lines.update({"j": "Thanks for offering to tutor me. Studying with a genius is a huge help."})
 
     if Jean.History.check("trained_with_Player"):
         $ lines.update({"m": "Your powers are super impressive, not to mention you look awesome while you use them."})

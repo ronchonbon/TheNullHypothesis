@@ -6,9 +6,10 @@ label refresh_season_content:
 
     $ EventScheduler.update_conditions()
 
-    show screen updates_screen()
     show screen belt_screen()
     show screen Character_picker()
+    show screen updates_screen()
+    show screen achievements_screen()
     show screen hotkeys_screen()
 
     show filter onlayer filters:

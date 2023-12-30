@@ -436,15 +436,21 @@ screen preferences():
             vbox:
                 text "MUTE" anchor (0.5, 0.5) pos (0.47, 0.5)
 
-                imagebutton:
-                    idle At("images/interface/preferences/off.webp", interface) 
-                    hover At("images/interface/preferences/off.webp", interface) 
-                    selected_idle At("images/interface/preferences/on.webp", interface) 
-                    selected_hover At("images/interface/preferences/on.webp", interface)
+                button xysize (int(321*interface_adjustment), int(190*interface_adjustment)):
+                    idle_background At("images/interface/preferences/off.webp", interface) 
+                    hover_background At("images/interface/preferences/off.webp", interface) 
+                    selected_idle_background At("images/interface/preferences/on.webp", interface) 
+                    selected_hover_background At("images/interface/preferences/on.webp", interface)
 
                     hover_sound None
-
+                    
                     selected volume_muted
+
+                    text "OFF" anchor (0.5, 0.5) pos (0.2, 0.461):
+                        size 25
+
+                    text "ON" anchor (0.5, 0.5) pos (0.7, 0.461):
+                        size 25
 
                     if volume_muted:
                         action [

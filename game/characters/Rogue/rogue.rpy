@@ -196,7 +196,8 @@ init -1:
         "flirting_pd": [0, 0],
         "flirting_qa": [0, 0],
         "flirting_qb": [0, 0],
-        "flirting_qc": [0, 0]}
+        "flirting_qc": [0, 0],
+        "flirting_r": [0, 0]}
 
     define Rogue_conditions = {
         "love": ["EventScheduler.Events['Rogue_I_love_you'].completed"],
@@ -319,6 +320,7 @@ init -1:
         "flirting_qa": ["Rogue.quirk"],
         "flirting_qb": ["Rogue.quirk"],
         "flirting_qc": ["Rogue.quirk"],
+        "flirting_r": ["Rogue in Partners", "EventScheduler.Events['Rogue_I_love_you'].completed"],
         
         "sexy_gifts": ["Rogue in Partners"],
         

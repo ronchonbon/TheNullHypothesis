@@ -196,7 +196,8 @@ init -1:
         "flirting_pd": [0, 0],
         "flirting_qa": [0, 0],
         "flirting_qb": [0, 0],
-        "flirting_qc": [0, 0]}
+        "flirting_qc": [0, 0],
+        "flirting_r": [0, 0]}
 
     define Jean_conditions = {
         "love": ["EventScheduler.Events['Jean_I_love_you'].completed"],
@@ -319,6 +320,7 @@ init -1:
         "flirting_qa": ["Jean.quirk"],
         "flirting_qb": ["Jean.quirk"],
         "flirting_qc": ["Jean.quirk"],
+        "flirting_r": ["Jean in Partners", "EventScheduler.Events['Jean_I_love_you'].completed"],
         
         "sexy_gifts": ["Jean in Partners"],
         

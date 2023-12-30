@@ -1,0 +1,61 @@
+init -1:
+
+    default achievement_messages = []
+    default achievement_message = None
+
+style achievements is default
+
+style achievements_frame:
+    background Frame(At("images/interface/belt/update.webp", interface), 10, 10)
+
+    padding (15, 15, 15, 15)
+
+style achievements_text:
+    font "agency_fb.ttf"
+
+    size 32
+    
+screen achievements_screen():
+    layer "interface"
+
+    style_prefix "achievements"
+
+    for a in achievements.keys():
+        $ achievement.register(a, stat_max = achievements[a]["goal"])
+
+        $ achievement.progress(a, eval(achievements[a]["condition"]))
+
+        if eval(achievements[a]["condition"]) >= achievements[a]["goal"]:
+            if not achievement.has(a):
+                $ achievement.grant(a)
+
+                if a not in achievement_messages:
+                    $ achievement_messages.append(a)
+
+    if achievement_messages and not achievement_message:
+        timer 0.2 action [
+            SetVariable("achievement_message", achievement_messages[0]), 
+            RemoveFromSet(achievement_messages, achievement_messages[0])]
+
+    if achievement_message:
+        fixed align (0.0, 1.0) xysize (int(766*interface_adjustment), int(277*interface_adjustment)):
+            if achievements[achievement_message]["points"] == 5:
+                add "images/interface/belt/achievement_bronze.webp" zoom interface_adjustment
+            elif achievements[achievement_message]["points"] == 10:
+                add "images/interface/belt/achievement_silver.webp" zoom interface_adjustment
+            elif achievements[achievement_message]["points"] == 20:
+                add "images/interface/belt/achievement_gold.webp" zoom interface_adjustment
+            elif achievements[achievement_message]["points"] == 40:
+                add "images/interface/belt/achievement_foil.webp" zoom interface_adjustment
+
+            frame anchor (0.5, 0.5) pos (0.65, 0.5) xysize (0.6, 0.9):
+                background None
+
+                text achievement_message
+
+            at transform:
+                fade_in(0.4)
+                pause 2.5
+                fade_out(0.4)
+
+        timer 3.3 action SetVariable("achievement_message", None)

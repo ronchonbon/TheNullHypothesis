@@ -196,7 +196,8 @@ init -1:
         "flirting_pd": [0, 0],
         "flirting_qa": [0, 0],
         "flirting_qb": [0, 0],
-        "flirting_qc": [0, 0]}
+        "flirting_qc": [0, 0],
+        "flirting_r": [0, 0]}
 
     define Laura_conditions = {
         "love": ["EventScheduler.Events['Laura_I_love_you'].completed"],
@@ -319,6 +320,7 @@ init -1:
         "flirting_qa": ["Laura.quirk"],
         "flirting_qb": ["Laura.quirk"],
         "flirting_qc": ["Laura.quirk"],
+        "flirting_r": ["Laura in Partners", "EventScheduler.Events['Laura_I_love_you'].completed"],
         
         "sexy_gifts": ["Laura in Partners"],
         

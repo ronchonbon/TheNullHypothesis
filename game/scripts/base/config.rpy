@@ -57,6 +57,7 @@ init python:
     config.default_sfx_volume = 0.25
     
     config.keymap["rollback"] = ["any_K_PAGEUP", "any_KP_PAGEUP", "K_AC_BACK"]
+    config.keymap["game_menu"] = ["K_ESCAPE", "K_MENU", "K_PAUSE"]
 
     preferences.text_cps = 0
     preferences.afm_time = 10

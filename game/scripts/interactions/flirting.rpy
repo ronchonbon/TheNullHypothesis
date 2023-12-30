@@ -102,7 +102,7 @@ label flirt(Character):
             #             pass
             "Chastise her playfully" if Character in [Rogue] and approval_check(Character, threshold = "flirting_qa"):
                 menu:
-                    "Chastise her, playfully"
+                    "Chastise her playfully"
                     "You've been a bad girl." if approval_check(Character, threshold = "flirting_qa"):
                         $ flirting_type = "qa"
                     "You need to work on satisfying my needs more." if approval_check(Character, threshold = "flirting_qb"):
