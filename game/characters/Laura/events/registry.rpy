@@ -31,6 +31,19 @@ init python:
             Laura_seen_anus(),
             
             Laura_seeing_penis(),
+
+            Laura_remote_vibrator_off(),
+            Laura_remote_vibrator_on(),
+            Laura_remote_vibrator_25(),
+            Laura_remote_vibrator_50(),
+            Laura_remote_vibrator_75(),
+            Laura_remote_vibrator_orgasm(),
+            Laura_remote_vibrator_out_of_stamina(),
+            
+            Laura_masturbating_25(),
+            Laura_masturbating_50(),
+            Laura_masturbating_75(),
+            Laura_masturbating_orgasm(),
             
             Laura_bedroom_changing(),
             Laura_bedroom_masturbating(),

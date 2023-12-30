@@ -497,14 +497,14 @@ screen accessory_screen(Character):
                         hover_background At("images/interface/wardrobe/clothing.webp", interface)
                         selected_background At("images/interface/wardrobe/clothing.webp", interface)
                     
-                        selected Character.remote_vibrator
+                        selected Character.remote_vibrator is not None
 
                         text "remote vibrator":
                             font "agency_fb.ttf"
                             
                             size 36
 
-                        if Character.remote_vibrator:
+                        if Character.remote_vibrator is not None:
                             action SetField(Character, "remote_vibrator", None)
                         else:
                             action Call("ask_Character_to_use_Toy", Character, Character.inventory["remote_vibrator"][0], from_current = True)

@@ -3,21 +3,28 @@ init python:
     import copy
 
 label Character_orgasms(Character):
-    $ Action_auto_progress = False
-    $ Action_auto_progress_timer = 0.0
+    if Character.location == Player.location and Action_screen_showing:
+        $ Action_auto_progress = False
+        $ Action_auto_progress_timer = 0.0
 
-    $ has_progression_control = False
-    $ has_Action_control = False
-    $ has_position_control = False
-    $ has_movement_control = False
+        $ has_progression_control = False
+        $ has_Action_control = False
+        $ has_position_control = False
+        $ has_movement_control = False
 
-    $ Character.orgasming = True
+    if Character.location == Player.location:
+        $ orgasm_faces([Character])
 
-    call Character_orgasm_narrations(Character) from _call_Character_orgasm_narrations
+        $ Character.orgasming = True
 
-    $ Character.History.update("orgasmed_with_Player")
+        call Character_orgasm_narrations(Character) from _call_Character_orgasm_narrations
 
-    $ Character.orgasming = False
+    $ Character.History.update("orgasmed")
+    
+    if Character.location == Player.location and (Action_screen_showing or Character.remote_vibrator):
+        $ Character.History.update("orgasmed_with_Player")
+
+        $ Character.orgasming = False
 
     $ Character.stamina -= 1 if Character.stamina > 0 else 0
 
@@ -28,17 +35,18 @@ label Character_orgasms(Character):
 
     $ Character.status["horny"] = False
 
-    # if not Character.stamina or hookup_length >= max_hookup_length:
-    #     python:
-    #         for A in Character.all_Actions:
-    #             if A not in Player.cock_Actions:
-    #                 stop_Action(A)
+    if Character.location == Player.location and Action_screen_showing:
+        # if not Character.stamina or hookup_length >= max_hookup_length:
+        #     python:
+        #         for A in Character.all_Actions:
+        #             if A not in Player.cock_Actions:
+        #                 stop_Action(A)
 
-    $ has_progression_control = True
-    $ has_Action_control = True
-    $ has_position_control = True
-    $ has_movement_control = True
-    $ has_ejaculation_control = True
+        $ has_progression_control = True
+        $ has_Action_control = True
+        $ has_position_control = True
+        $ has_movement_control = True
+        $ has_ejaculation_control = True
 
     return
 

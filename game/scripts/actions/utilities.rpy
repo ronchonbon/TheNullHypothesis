@@ -127,7 +127,7 @@ init python:
                 if T.clitoris_Actions:
                     return True
 
-                if T.remote_vibrator:
+                if T.remote_vibrator is not None:
                     return True
         elif Action_type == "finger_pussy":
             for A in Actors:
@@ -147,7 +147,7 @@ init python:
                 if T.vagina_Actions:
                     return True
 
-                if T.remote_vibrator:
+                if T.remote_vibrator is not None:
                     return True
         elif Action_type == "finger_ass":
             for A in Actors:
@@ -192,7 +192,7 @@ init python:
                 if T.vagina_Actions:
                     return True
 
-                if T.remote_vibrator:
+                if T.remote_vibrator is not None:
                     return True
         elif Action_type == "eat_ass":
             for A in Actors:
@@ -347,7 +347,7 @@ init python:
                 if T.clitoris_Actions:
                     return True
 
-                if T.remote_vibrator:
+                if T.remote_vibrator is not None:
                     return True
         elif Action_type in ["self_finger_ass"]:
             for A in Actors:
@@ -369,7 +369,7 @@ init python:
                 if T.clitoris_Actions:
                     return True
 
-                if T.remote_vibrator:
+                if T.remote_vibrator is not None:
                     return True
         elif Action_type in ["self_dildo_pussy", "dildo_pussy"]:
             for A in Actors:
@@ -383,7 +383,7 @@ init python:
                 if T.vagina_Actions:
                     return True
 
-                if T.remote_vibrator:
+                if T is not None:
                     return True
         elif Action_type in ["self_dildo_ass", "dildo_ass"]:
             for A in Actors:
@@ -416,7 +416,7 @@ init python:
                     if T.anus_Actions:
                         return True
 
-                T.remote_vibrator = False
+                T.remote_vibrator = None
         elif Action_type in ["sex"]:
             for A in Actors:
                 if A.cock_Actions:
@@ -433,7 +433,7 @@ init python:
                 if T.vagina_Actions:
                     return True
 
-                if T.remote_vibrator:
+                if T.remote_vibrator is not None:
                     return True
         elif Action_type in ["grind_ass"]:
             for A in Actors:
@@ -537,7 +537,7 @@ init python:
             for T in Targets:
                 stop_Actions(T, organ = "clitoris")
 
-                T.remote_vibrator = False
+                T.remote_vibrator = None
         elif Action_type == "finger_pussy":
             for A in Actors:
                 if Jean in Targets and Jean.position == "doggy":
@@ -555,7 +555,7 @@ init python:
             for T in Targets:
                 stop_Actions(T, organ = "vagina")
 
-                T.remote_vibrator = False
+                T.remote_vibrator = None
         elif Action_type == "finger_ass":
             for A in Actors:
                 if Jean in Targets and Jean.position == "doggy":
@@ -593,7 +593,7 @@ init python:
                 stop_Actions(T, organ = "clitoris")
                 stop_Actions(T, organ = "vagina")
 
-                T.remote_vibrator = False
+                T.remote_vibrator = None
         elif Action_type == "eat_ass":
             for A in Actors:
                 stop_Actions(A, organ = "mouth")
@@ -725,7 +725,7 @@ init python:
                 stop_Actions(T, organ = "clitoris")
                 # stop_Actions(T, organ = "vagina")
 
-                T.remote_vibrator = False
+                T.remote_vibrator = None
         elif Action_type in ["self_finger_ass"]:
             for A in Actors:
                 stop_Actions(A, organ = "right_hand")
@@ -742,7 +742,7 @@ init python:
             for T in Targets:
                 stop_Actions(T, organ = "clitoris")
 
-                T.remote_vibrator = False
+                T.remote_vibrator = None
         elif Action_type in ["self_dildo_pussy", "dildo_pussy"]:
             for A in Actors:
                 if A.right_hand_Actions and A.left_hand_Actions:
@@ -752,7 +752,7 @@ init python:
                 stop_Actions(T, organ = "clitoris")
                 stop_Actions(T, organ = "vagina")
 
-                T.remote_vibrator = False
+                T.remote_vibrator = None
         elif Action_type in ["self_dildo_ass", "dildo_ass"]:
             for A in Actors:
                 if A.right_hand_Actions and A.left_hand_Actions:
@@ -777,7 +777,7 @@ init python:
                 if T.position == "doggy":
                     stop_Actions(T, organ = "anus")
 
-                T.remote_vibrator = False
+                T.remote_vibrator = None
         elif Action_type in ["sex"]:
             for A in Actors:
                 stop_Actions(A, organ = "cock")
@@ -790,7 +790,7 @@ init python:
             for T in Targets:
                 stop_Actions(T, organ = "vagina")
 
-                T.remote_vibrator = False
+                T.remote_vibrator = None
         elif Action_type in ["grind_ass"]:
             for A in Actors:
                 stop_Actions(A, organ = "cock")

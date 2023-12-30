@@ -1209,9 +1209,7 @@ transform masturbation_vibrator_animation1:
     xzoom 1.0 yzoom 1.0
     rotate 0.0
 
-    block:
-        vibrate
-        repeat
+    vibrating
 
 transform masturbation_male_head_suck_left_nipple_animation0:
     subpixel True

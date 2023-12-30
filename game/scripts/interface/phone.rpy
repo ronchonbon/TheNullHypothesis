@@ -25,6 +25,8 @@ init -1:
     default daily_bungle_article = None
     default daily_bungle_yadjustment = ui.adjustment()
 
+    default current_vibrator_index = 0
+
     default available_songs = []
     default available_ringtones = []
     default music_repeating = True
@@ -1322,6 +1324,16 @@ screen news_screen():
 screen remote_screen():
     style_prefix "phone"
 
+    $ vibrator_Characters = []
+
+    for C in all_Companions:
+        if C.location != "hold":
+            if C.remote_vibrator is not None:
+                $ vibrator_Characters.append(C)
+
+    if current_vibrator_index > len(vibrator_Characters) - 1:
+        $ current_vibrator_index = 0
+
     add At("images/interface/phone/hot_control_background.webp", interface)
 
     text "HOT CONTROL" anchor (0.0, 0.5) pos (0.402, 0.118):
@@ -1329,20 +1341,37 @@ screen remote_screen():
 
         color "#ffffff"
 
-    bar value 0.0 anchor (0.5, 0.5) pos (0.495, 0.618) xysize (int(397*interface_adjustment), int(63*interface_adjustment)):
-        left_bar At("images/interface/phone/hot_control_intensity.webp", interface)
-        right_bar At("images/interface/phone/hot_control_intensity.webp", interface)
+    if vibrator_Characters and vibrator_Characters[current_vibrator_index].remote_vibrator > 0.0:
+        bar value VariableValue(f"{vibrator_Characters[current_vibrator_index].tag}.remote_vibrator", 1.0) anchor (0.5, 0.5) pos (0.495, 0.618) xysize (int(397*interface_adjustment), int(63*interface_adjustment)):
+            left_bar At("images/interface/phone/hot_control_intensity.webp", interface)
+            right_bar At("images/interface/phone/hot_control_intensity.webp", interface)
 
-        thumb Frame(At("images/interface/phone/hot_control_selector.webp", interface))
-        thumb_offset int(22*interface_adjustment)
+            thumb Frame(At("images/interface/phone/hot_control_selector.webp", interface))
+            thumb_offset int(22*interface_adjustment)
+    else:
+        bar value 0.0 range 1.0 anchor (0.5, 0.5) pos (0.495, 0.618) xysize (int(397*interface_adjustment), int(63*interface_adjustment)):
+            left_bar At("images/interface/phone/hot_control_intensity.webp", interface)
+            right_bar At("images/interface/phone/hot_control_intensity.webp", interface)
+
+            thumb Frame(At("images/interface/phone/hot_control_selector.webp", interface))
+            thumb_offset int(22*interface_adjustment)
 
     imagebutton:
         idle At("images/interface/phone/hot_control_off.webp", interface)
         hover At("images/interface/phone/hot_control_on.webp", interface)
         selected_idle At("images/interface/phone/hot_control_on.webp", interface)
 
-        if phone_interactable and not phone_disabled:
-            action NullAction()
+        selected vibrator_Characters[current_vibrator_index].remote_vibrator > 0.0
+
+        if vibrator_Characters and phone_interactable and not phone_disabled:
+            if vibrator_Characters[current_vibrator_index].remote_vibrator == 0.0:
+                action [
+                    SetField(vibrator_Characters[current_vibrator_index], "remote_vibrator", 0.1),
+                    Function(renpy.call_in_new_context, f"{vibrator_Characters[current_vibrator_index].tag}_remote_vibrator_on")]
+            else:
+                action [
+                    SetField(vibrator_Characters[current_vibrator_index], "remote_vibrator", 0.0),
+                    Function(renpy.call_in_new_context, f"{vibrator_Characters[current_vibrator_index].tag}_remote_vibrator_off")]
         else:
             action None
 
@@ -1350,21 +1379,21 @@ screen remote_screen():
         idle At("images/interface/phone/hot_control_left_idle.webp", interface)
         hover At("images/interface/phone/hot_control_left.webp", interface)
 
-        if phone_interactable and not phone_disabled:
-            action NullAction()
+        if vibrator_Characters and phone_interactable and not phone_disabled:
+            action SetVariable("current_vibrator_index", (current_vibrator_index - 1) % len(vibrator_Characters))
         else:
             action None
 
-    if focused_Character:
-        text focused_Character.name anchor (0.5, 0.5) pos (0.495, 0.228):
+    if vibrator_Characters:
+        text vibrator_Characters[current_vibrator_index].name anchor (0.5, 0.5) pos (0.495, 0.228):
             size 50
 
     imagebutton:
         idle At("images/interface/phone/hot_control_right_idle.webp", interface)
         hover At("images/interface/phone/hot_control_right.webp", interface)
 
-        if phone_interactable and not phone_disabled:
-            action NullAction()
+        if vibrator_Characters and phone_interactable and not phone_disabled:
+            action SetVariable("current_vibrator_index", (current_vibrator_index + 1) % len(vibrator_Characters))
         else:
             action None
 

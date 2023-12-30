@@ -1273,7 +1273,7 @@ screen map_screen():
             for possible_subgroup in location_groups[possible_group].keys():
                 for possible_location in location_groups[possible_group][possible_subgroup]:
                     if possible_location in marked_locations.keys():
-                        if marked_locations[possible_location] or Player.location == possible_location or get_Present(location = possible_location)[0]:
+                        if marked_locations[possible_location] or Player.location == possible_location or get_Present(location = possible_location, include_Party = False)[0]:
                             text location_names[possible_location] xalign 0.0:
                                 size 36
 

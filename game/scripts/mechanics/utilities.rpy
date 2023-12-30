@@ -1,7 +1,7 @@
 init python:
      
-    def get_Present(location = None, selected_Character = None, traveling = False):
-        temp_Present = Party[:] if Party else []
+    def get_Present(location = None, selected_Character = None, traveling = False, include_Party = True):
+        temp_Present = Party[:] if Party and include_Party else []
         temp_left_Slot = left_Slot if left_Slot else None
         temp_middle_Slot = middle_Slot if middle_Slot else None
         temp_right_Slot = right_Slot if right_Slot else None

@@ -10,6 +10,7 @@ label refresh_season_content:
     show screen Character_picker()
     show screen updates_screen()
     show screen achievements_screen()
+    show screen climax_screen()
     show screen hotkeys_screen()
 
     show filter onlayer filters:

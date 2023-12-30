@@ -1,13 +1,3 @@
-transform tremble(repetitions):
-    subpixel True
-    transform_anchor True
-    
-    block:
-        ease 0.04 xoffset -0.7
-        ease 0.08 xoffset 0.7
-        ease 0.04 xoffset 0
-        repeat repetitions
-    
 image Laura_sprite missionary:
     contains:
         "Laura_missionary_temp"
@@ -347,7 +337,7 @@ layeredimage Laura_missionary_thighs:
     else:
         "characters/Laura/images/missionary/pubes_[Laura.body_hair[pubic]].webp"
 
-    if Laura.remote_vibrator:
+    if Laura.remote_vibrator is not None:
         "characters/Laura/images/missionary/remote_vibrator.webp"
 
     if Player.orgasming and focused_Character == Laura:

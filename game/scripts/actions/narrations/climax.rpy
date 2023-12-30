@@ -155,16 +155,10 @@ label Character_orgasm_narrations(Character):
         $ dice_roll = renpy.random.randint(1, 2)
 
         if dice_roll == 1:
-            $ Character.change_face("surprised2", mouth = "lipbite", blush = 2) 
-            
             $ renpy.say(None, f"{owner.capitalize()} body shudders uncontrollably and she tightens, orgasming around your cock.") 
         elif dice_roll == 2:
-            $ Character.change_face("sly", mouth = "lipbite", blush = 2) 
-            
             $ renpy.say(None, f"{owner.capitalize()} legs wrap around you as she convulses and tightens around your cock, the orgasm racking her body.")
     elif Character.mouth_Actions and Character.mouth_Actions[0].animation_type in ["blowjob", "deepthroat"]:
-        $ Character.change_face("surprised2", mouth = "lipbite", blush = 2) 
-        
         $ renpy.say(None, f"{owner.capitalize()} body shudders as waves of pleasure flow throughout her body.")
 
         $ Character.change_face("sexy", blush = 2) 
@@ -174,12 +168,8 @@ label Character_orgasm_narrations(Character):
         $ dice_roll = renpy.random.randint(1, 2)
 
         if dice_roll == 1:
-            $ Character.change_face("surprised2", mouth = "lipbite", blush = 2) 
-            
             $ renpy.say(None, f"{subject.capitalize()} starts twitching uncontrollably as an orgasm takes over her body. It lasts for a minute before she's able to calm down.")
         elif dice_roll == 2:
-            $ Character.change_face("surprised2", mouth = "lipbite", blush = 2) 
-
             $ renpy.say(None, f"{subject.capitalize()} moans as waves of pleasure run through her. The orgasm causes her to shake uncontrollably.")
 
     $ renpy.pause(1.0, hard = True)

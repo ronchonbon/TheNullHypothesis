@@ -1,13 +1,3 @@
-transform tremble(repetitions):
-    subpixel True
-    transform_anchor True
-    
-    block:
-        ease 0.04 xoffset -0.7
-        ease 0.08 xoffset 0.7
-        ease 0.04 xoffset 0
-        repeat repetitions
-    
 image Jean_sprite doggy:
     contains:
         "Jean_doggy_temp"
@@ -345,7 +335,7 @@ layeredimage Jean_doggy_ass:
     else:
         "characters/Jean/images/doggy/creampie_pussy_closed.webp"
 
-    if Jean.remote_vibrator:
+    if Jean.remote_vibrator is not None:
         "characters/Jean/images/doggy/remote_vibrator.webp"
 
     if Player.cock_Actions and Jean in Player.cock_Actions[0].Targets:

@@ -93,7 +93,7 @@ init -2 python:
             self.buttplug = None
             self.buttplug_size = None
 
-            self.remote_vibrator = False
+            self.remote_vibrator = None
 
             self.ground_shadow = True
 

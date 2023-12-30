@@ -1,13 +1,3 @@
-transform tremble(repetitions):
-    subpixel True
-    transform_anchor True
-    
-    block:
-        ease 0.04 xoffset -0.7
-        ease 0.08 xoffset 0.7
-        ease 0.04 xoffset 0
-        repeat repetitions
-    
 transform Laura_standing_head_animation:
     subpixel True
     transform_anchor True
@@ -101,9 +91,9 @@ image Laura_sprite standing:
 
 layeredimage Laura_standing_temp:
     if Laura.hovered:
-        At("Laura_standing", hover)
+        "Laura_standing" at hover
     elif Laura.orgasming:
-        At("Laura_standing", tremble(20))
+        "Laura_standing" at tremble(20)
     else:
         "Laura_standing"
 
@@ -111,30 +101,26 @@ layeredimage Laura_standing:
     if not Player.left_hand_Actions or Laura not in Player.left_hand_Actions[0].Targets:
         Null()
     elif Player.left_hand_Actions[0].animation_type == "grab_ass":
-        At("Laura_standing_male_left_arm_grab_ass_animation[Player.left_hand_Actions[0].mode]", change_offset(Laura_standing_ass_position[0], Laura_standing_ass_position[1]))
+        "Laura_standing_male_left_arm_grab_ass_animation[Player.left_hand_Actions[0].mode]" at Transform(offset = (Laura_standing_ass_position[0], Laura_standing_ass_position[1]))
 
     if not Player.right_hand_Actions or Laura not in Player.right_hand_Actions[0].Targets:
         Null()
     elif Player.right_hand_Actions[0].animation_type == "grab_ass":
-        At("Laura_standing_male_right_arm_grab_ass_animation[Player.right_hand_Actions[0].mode]", change_offset(Laura_standing_ass_position[0], Laura_standing_ass_position[1]))
+        "Laura_standing_male_right_arm_grab_ass_animation[Player.right_hand_Actions[0].mode]" at Transform(offset = (Laura_standing_ass_position[0], Laura_standing_ass_position[1]))
 
     if Laura.ground_shadow:
         "characters/Laura/images/standing/ground_shadow.webp"
 
-    if renpy.get_screen("Wardrobe_screen"):
-        "Laura_standing_hair_back"
-    else:
-        At("Laura_standing_hair_back", Laura_standing_head_animation)
+    always:
+        "Laura_standing_hair_back" at Laura_standing_head_animation
 
     if Laura.left_arm in ["bra", "touch_ass"]:
         "characters/Laura/images/standing/left_forearm_[Laura.left_arm].webp"
 
     if Laura.right_arm not in ["bra", "claws", "crossed", "extended", "fight", "fist", "hip", "neutral", "touch_pussy", "X"]:
         Null()
-    elif renpy.get_screen("Wardrobe_screen"):
-        "Laura_standing_right_arm"
     elif Laura.right_arm == "neutral":
-        At("Laura_standing_right_arm", Laura_standing_right_arm_animation)
+        "Laura_standing_right_arm" at Laura_standing_right_arm_animation
     else:
         "Laura_standing_right_arm"
 
@@ -143,10 +129,8 @@ layeredimage Laura_standing:
 
     if Laura.left_arm not in ["bra", "claws", "crossed", "fight", "fist", "grope", "hip", "neutral", "touch_ass", "X"]:
         Null()
-    elif renpy.get_screen("Wardrobe_screen"):
-        "Laura_standing_left_arm"
     elif Laura.left_arm == "neutral":
-        At("Laura_standing_left_arm", Laura_standing_left_arm_animation)
+        "Laura_standing_left_arm" at Laura_standing_left_arm_animation
     else:
         "Laura_standing_left_arm"
 
@@ -162,17 +146,15 @@ layeredimage Laura_standing:
     if not Player.left_hand_Actions or Laura not in Player.left_hand_Actions[0].Targets:
         Null()
     elif Player.left_hand_Actions[0].animation_type == "choke":
-        At("Laura_standing_male_left_arm_choke_animation[Player.left_hand_Actions[0].mode]", change_offset(Laura_standing_neck_position[0], Laura_standing_neck_position[1]))
+        "Laura_standing_male_left_arm_choke_animation[Player.left_hand_Actions[0].mode]" at Transform(offset = (Laura_standing_neck_position[0], Laura_standing_neck_position[1]))
 
     if not Player.right_hand_Actions or Laura not in Player.right_hand_Actions[0].Targets:
         Null()
     elif Player.right_hand_Actions[0].animation_type == "choke":
-        At("Laura_standing_male_right_arm_choke_animation[Player.right_hand_Actions[0].mode]", change_offset(Laura_standing_neck_position[0], Laura_standing_neck_position[1]))
+        "Laura_standing_male_right_arm_choke_animation[Player.right_hand_Actions[0].mode]" at Transform(offset = (Laura_standing_neck_position[0], Laura_standing_neck_position[1]))
 
-    if renpy.get_screen("Wardrobe_screen"):
-        "Laura_standing_head"
-    else:
-        At("Laura_standing_head", Laura_standing_head_animation)
+    always:
+        "Laura_standing_head" at Laura_standing_head_animation
 
     if Laura.left_arm in ["rub_neck"]:
         "characters/Laura/images/standing/left_arm_[Laura.left_arm]_shadow.webp"
@@ -252,9 +234,9 @@ layeredimage Laura_standing:
     if not Player.mouth_Actions or Laura not in Player.mouth_Actions[0].Targets:
         Null()
     elif Player.mouth_Actions[0].animation_type in ["suck_nipples"] and Laura.left_nipple_Actions and Player.mouth_Actions[0].animation_type == Laura.left_nipple_Actions[0].animation_type:
-        At("Laura_standing_male_head_suck_left_nipple_animation[Player.mouth_Actions[0].mode]", change_offset(Laura_standing_left_nipple_position[0], Laura_standing_left_nipple_position[1]))
+        "Laura_standing_male_head_suck_left_nipple_animation[Player.mouth_Actions[0].mode]" at Transform(offset = (Laura_standing_left_nipple_position[0], Laura_standing_left_nipple_position[1]))
     elif Player.mouth_Actions[0].animation_type in ["suck_nipples"] and Laura.right_nipple_Actions and Player.mouth_Actions[0].animation_type == Laura.right_nipple_Actions[0].animation_type:
-        At("Laura_standing_male_head_suck_right_nipple_animation[Player.mouth_Actions[0].mode]", change_offset(Laura_standing_right_nipple_position[0], Laura_standing_right_nipple_position[1]))
+        "Laura_standing_male_head_suck_right_nipple_animation[Player.mouth_Actions[0].mode]" at Transform(offset = (Laura_standing_right_nipple_position[0], Laura_standing_right_nipple_position[1]))
 
 layeredimage Laura_standing_hair_back:
     always:
@@ -297,8 +279,12 @@ layeredimage Laura_standing_body:
     if Laura.body_hair["pubic"]:
         "characters/Laura/images/standing/pubes_[Laura.body_hair[pubic]].webp"
 
-    if Laura.desire >= 75:
+    if Laura.desire >= 75 or Laura.History.check("orgasmed", tracker = "recent"):
         "characters/Laura/images/standing/grool.webp"
+    elif Laura.desire >= 50:
+        "characters/Laura/images/standing/grool.webp" at Transform(alpha = 0.5)
+    elif Laura.desire >= 25:
+        "characters/Laura/images/standing/grool.webp" at Transform(alpha = 0.1)
 
     if Laura.creampie["pussy"]:
         "characters/Laura/images/standing/creampie1.webp"
@@ -306,7 +292,11 @@ layeredimage Laura_standing_body:
     if Laura.creampie["pussy"] == 2:
         "characters/Laura/images/standing/creampie2.webp"
 
-    if Laura.remote_vibrator:
+    if Laura.remote_vibrator is None:
+        Null()
+    elif Laura.remote_vibrator > 0.0:
+        "characters/Laura/images/standing/remote_vibrator.webp" at vibrating
+    else:
         "characters/Laura/images/standing/remote_vibrator.webp"
 
     if Laura.piercings["belly"]:

@@ -1,13 +1,3 @@
-transform tremble(repetitions):
-    subpixel True
-    transform_anchor True
-    
-    block:
-        ease 0.04 xoffset -0.7
-        ease 0.08 xoffset 0.7
-        ease 0.04 xoffset 0
-        repeat repetitions
-    
 image Jean_sprite missionary:
     contains:
         "Jean_missionary_temp"
@@ -347,7 +337,7 @@ layeredimage Jean_missionary_thighs:
     else:
         "characters/Jean/images/missionary/pubes_[Jean.body_hair[pubic]].webp"
 
-    if Jean.remote_vibrator:
+    if Jean.remote_vibrator is not None:
         "characters/Jean/images/missionary/remote_vibrator.webp"
 
     if Player.orgasming and focused_Character == Jean:

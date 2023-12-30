@@ -1,13 +1,3 @@
-transform tremble(repetitions):
-    subpixel True
-    transform_anchor True
-    
-    block:
-        ease 0.04 xoffset -0.7
-        ease 0.08 xoffset 0.7
-        ease 0.04 xoffset 0
-        repeat repetitions
-    
 image Jean_sprite masturbation:
     contains:
         "Jean_masturbation_temp"
@@ -466,7 +456,7 @@ layeredimage Jean_masturbation_thighs:
     else:
         "characters/Jean/images/masturbation/pubes_[Jean.body_hair[pubic]].webp"
 
-    if Jean.remote_vibrator:
+    if Jean.remote_vibrator is not None:
         "characters/Jean/images/masturbation/remote_vibrator.webp"
 
     if Jean.right_hand_Actions and Jean.right_hand_Actions[0].animation_type == "self_touch_pussy":

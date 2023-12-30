@@ -35,16 +35,6 @@
 #     # always:
 #     #     AlphaMask("2_x3_cock_green_sex", "2_x3_mask_sex")
 
-transform tremble(repetitions):
-    subpixel True
-    transform_anchor True
-    
-    block:
-        ease 0.04 xoffset -0.7
-        ease 0.08 xoffset 0.7
-        ease 0.04 xoffset 0
-        repeat repetitions
-    
 image Rogue_sprite missionary:
     contains:
         "Rogue_missionary_temp"
@@ -384,7 +374,7 @@ layeredimage Rogue_missionary_thighs:
     else:
         "characters/Rogue/images/missionary/pubes_[Rogue.body_hair[pubic]].webp"
 
-    if Rogue.remote_vibrator:
+    if Rogue.remote_vibrator is not None:
         "characters/Rogue/images/missionary/remote_vibrator.webp"
 
     if Player.orgasming and focused_Character == Rogue:

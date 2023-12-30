@@ -33,7 +33,7 @@ label ask_Character_to_use_Toy(Character, Toy, buttplug_size = None, instant = F
 
             pause 1.0
 
-            $ Character.remote_vibrator = True
+            $ Character.remote_vibrator = 0.0
 
             pause 1.0
 

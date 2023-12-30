@@ -1,13 +1,3 @@
-transform tremble(repetitions):
-    subpixel True
-    transform_anchor True
-    
-    block:
-        ease 0.04 xoffset -0.7
-        ease 0.08 xoffset 0.7
-        ease 0.04 xoffset 0
-        repeat repetitions
-    
 image Laura_sprite masturbation:
     contains:
         "Laura_masturbation_temp"
@@ -468,7 +458,7 @@ layeredimage Laura_masturbation_thighs:
     else:
         "characters/Laura/images/masturbation/pubes_[Laura.body_hair[pubic]].webp"
 
-    if Laura.remote_vibrator:
+    if Laura.remote_vibrator is not None:
         "characters/Laura/images/masturbation/remote_vibrator.webp"
 
     if Laura.right_hand_Actions and Laura.right_hand_Actions[0].animation_type == "self_touch_pussy":

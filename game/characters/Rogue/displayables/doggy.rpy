@@ -1,13 +1,3 @@
-transform tremble(repetitions):
-    subpixel True
-    transform_anchor True
-    
-    block:
-        ease 0.04 xoffset -0.7
-        ease 0.08 xoffset 0.7
-        ease 0.04 xoffset 0
-        repeat repetitions
-    
 image Rogue_sprite doggy:
     contains:
         "Rogue_doggy_temp"
@@ -351,7 +341,7 @@ layeredimage Rogue_doggy_ass:
     else:
         "characters/Rogue/images/doggy/creampie_pussy_closed.webp"
 
-    if Rogue.remote_vibrator:
+    if Rogue.remote_vibrator is not None:
         "characters/Rogue/images/doggy/remote_vibrator.webp"
 
     if Player.cock_Actions and Rogue in Player.cock_Actions[0].Targets:

@@ -1,13 +1,3 @@
-transform tremble(repetitions):
-    subpixel True
-    transform_anchor True
-    
-    block:
-        ease 0.04 xoffset -0.7
-        ease 0.08 xoffset 0.7
-        ease 0.04 xoffset 0
-        repeat repetitions
-    
 image Laura_sprite doggy:
     contains:
         "Laura_doggy_temp"
@@ -351,7 +341,7 @@ layeredimage Laura_doggy_ass:
     else:
         "characters/Laura/images/doggy/creampie_pussy_closed.webp"
 
-    if Laura.remote_vibrator:
+    if Laura.remote_vibrator is not None:
         "characters/Laura/images/doggy/remote_vibrator.webp"
 
     if Player.cock_Actions and Laura in Player.cock_Actions[0].Targets:

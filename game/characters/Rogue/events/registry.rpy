@@ -32,6 +32,19 @@ init python:
 
             Rogue_seeing_penis(),
 
+            Rogue_remote_vibrator_off(),
+            Rogue_remote_vibrator_on(),
+            Rogue_remote_vibrator_25(),
+            Rogue_remote_vibrator_50(),
+            Rogue_remote_vibrator_75(),
+            Rogue_remote_vibrator_orgasm(),
+            Rogue_remote_vibrator_out_of_stamina(),
+            
+            Rogue_masturbating_25(),
+            Rogue_masturbating_50(),
+            Rogue_masturbating_75(),
+            Rogue_masturbating_orgasm(),
+
             Rogue_bedroom_changing(),
             Rogue_bedroom_masturbating(),
 

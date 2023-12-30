@@ -1,13 +1,3 @@
-transform tremble(repetitions):
-    subpixel True
-    transform_anchor True
-    
-    block:
-        ease 0.04 xoffset -0.7
-        ease 0.08 xoffset 0.7
-        ease 0.04 xoffset 0
-        repeat repetitions
-    
 image Rogue_sprite masturbation:
     contains:
         "Rogue_masturbation_temp"
@@ -458,7 +448,7 @@ layeredimage Rogue_masturbation_thighs:
     else:
         "characters/Rogue/images/masturbation/pubes_[Rogue.body_hair[pubic]].webp"
 
-    if Rogue.remote_vibrator:
+    if Rogue.remote_vibrator is not None:
         "characters/Rogue/images/masturbation/remote_vibrator.webp"
 
     if Rogue.right_hand_Actions and Rogue.right_hand_Actions[0].animation_type == "self_touch_pussy":

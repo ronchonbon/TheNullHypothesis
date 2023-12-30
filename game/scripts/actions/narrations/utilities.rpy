@@ -4,28 +4,28 @@ init python:
 
     def sex_faces(Characters):
         for C in Characters:
-            if not C.mouth_Actions:
-                if hookup_length >= max_hookup_length*math.sqrt(C.max_stamina) and C.desire <= 75:
-                    brows = None
-                    eyes = None
-                    mouth = None
+            if hookup_length >= max_hookup_length*math.sqrt(C.max_stamina) and C.desire <= 75:
+                brows = None
+                eyes = None
+                mouth = None
 
-                    dice_roll = renpy.random.randint(1, 2)
+                dice_roll = renpy.random.randint(1, 2)
 
-                    if dice_roll == 1:
-                        brows = "neutral"
-                    elif dice_roll == 2:
-                        brows = "cocked"
+                if dice_roll == 1:
+                    brows = "neutral"
+                elif dice_roll == 2:
+                    brows = "cocked"
 
-                    dice_roll = renpy.random.randint(1, 3)
+                dice_roll = renpy.random.randint(1, 3)
 
-                    if dice_roll == 1:
-                        eyes = "left"
-                    elif dice_roll == 2:
-                        eyes = "right"
-                    elif dice_roll == 3:
-                        eyes = "neutral"
+                if dice_roll == 1:
+                    eyes = "left"
+                elif dice_roll == 2:
+                    eyes = "right"
+                elif dice_roll == 3:
+                    eyes = "neutral"
 
+                if not C.mouth_Actions:
                     dice_roll = renpy.random.randint(1, 2)
 
                     if dice_roll == 1:
@@ -33,20 +33,21 @@ init python:
                     elif dice_roll == 2:
                         mouth = "neutral"
 
-                    C.change_face(brows = brows, eyes = eyes, mouth = mouth)
-                elif C.desire >= 90:
-                    eyes = None
-                    mouth = None
+                C.change_face(brows = brows, eyes = eyes, mouth = mouth)
+            elif C.desire >= 90:
+                eyes = None
+                mouth = None
 
-                    dice_roll = renpy.random.randint(1, 3)
+                dice_roll = renpy.random.randint(1, 3)
 
-                    if dice_roll == 1:
-                        eyes = "down"
-                    elif dice_roll == 2:
-                        eyes = "up"
-                    elif dice_roll == 3:
-                        eyes = "sexy"
+                if dice_roll == 1:
+                    eyes = "down"
+                elif dice_roll == 2:
+                    eyes = "up"
+                elif dice_roll == 3:
+                    eyes = "sexy"
 
+                if not C.mouth_Actions:
                     dice_roll = renpy.random.randint(1, 3)
 
                     if dice_roll == 1:
@@ -56,18 +57,19 @@ init python:
                     elif dice_roll == 3:
                         mouth = "agape"
 
-                    C.change_face(brows = "worried", eyes = eyes, mouth = mouth, blush = 3)
-                elif C.desire >= 75:
-                    eyes = None
-                    mouth = None
+                C.change_face(brows = "worried", eyes = eyes, mouth = mouth, blush = 3)
+            elif C.desire >= 75:
+                eyes = None
+                mouth = None
 
-                    dice_roll = renpy.random.randint(1, 2)
+                dice_roll = renpy.random.randint(1, 2)
 
-                    if dice_roll == 1:
-                        eyes = "down"
-                    elif dice_roll == 2:
-                        eyes = "sexy"
+                if dice_roll == 1:
+                    eyes = "down"
+                elif dice_roll == 2:
+                    eyes = "sexy"
 
+                if not C.mouth_Actions:
                     dice_roll = renpy.random.randint(1, 2)
 
                     if dice_roll == 1:
@@ -75,18 +77,19 @@ init python:
                     elif dice_roll == 2:
                         mouth = "open"
 
-                    C.change_face(brows = "worried", eyes = eyes, mouth = mouth, blush = 2)
-                elif C.desire >= 50:
-                    eyes = None
-                    mouth = None
+                C.change_face(brows = "worried", eyes = eyes, mouth = mouth, blush = 2)
+            elif C.desire >= 50:
+                eyes = None
+                mouth = None
 
-                    dice_roll = renpy.random.randint(1, 2)
+                dice_roll = renpy.random.randint(1, 2)
 
-                    if dice_roll == 1:
-                        eyes = "down"
-                    elif dice_roll == 2:
-                        eyes = "sexy"
+                if dice_roll == 1:
+                    eyes = "down"
+                elif dice_roll == 2:
+                    eyes = "sexy"
 
+                if not C.mouth_Actions:
                     dice_roll = renpy.random.randint(1, 3)
 
                     if dice_roll == 1:
@@ -96,18 +99,19 @@ init python:
                     elif dice_roll == 3:
                         mouth = "smirk"
 
-                    C.change_face(brows = "neutral", eyes = eyes, mouth = mouth, blush = 1)
-                else:
-                    eyes = None
-                    mouth = None
+                C.change_face(brows = "neutral", eyes = eyes, mouth = mouth, blush = 1)
+            else:
+                eyes = None
+                mouth = None
 
-                    dice_roll = renpy.random.randint(1, 2)
+                dice_roll = renpy.random.randint(1, 2)
 
-                    if dice_roll == 1:
-                        eyes = "neutral"
-                    elif dice_roll == 2:
-                        eyes = "sexy"
+                if dice_roll == 1:
+                    eyes = "neutral"
+                elif dice_roll == 2:
+                    eyes = "sexy"
 
+                if not C.mouth_Actions:
                     dice_roll = renpy.random.randint(1, 3)
 
                     if dice_roll == 1:
@@ -117,7 +121,96 @@ init python:
                     elif dice_roll == 3:
                         mouth = "happy"
 
-                    C.change_face(brows = "neutral", eyes = eyes, mouth = mouth)
+                C.change_face(brows = "neutral", eyes = eyes, mouth = mouth)
+
+        return
+
+    def orgasm_faces(Characters):
+        for C in Characters:
+            if C.History.check("orgasmed_with_Player", tracker = "recent") >= 2:
+                brows = None
+                eyes = None
+                mouth = None
+
+                dice_roll = renpy.random.randint(1, 2)
+
+                if dice_roll == 1:
+                    brows = "raised"
+                elif dice_roll == 2:
+                    brows = "worried"
+
+                dice_roll = renpy.random.randint(1, 2)
+
+                if dice_roll == 1:
+                    eyes = "wide"
+                elif dice_roll == 2:
+                    eyes = "up"
+
+                if not C.mouth_Actions:
+                    dice_roll = renpy.random.randint(1, 2)
+
+                    if dice_roll == 1 and brows == "worried" and eyes == "up":
+                        mouth = "tongue"
+                    else:
+                        mouth = "agape"
+
+                C.change_face(brows = brows, eyes = eyes, mouth = mouth, blush = 3)
+            elif C.History.check("orgasmed_with_Player", tracker = "recent"):
+                brows = None
+                eyes = None
+                mouth = None
+
+                dice_roll = renpy.random.randint(1, 2)
+
+                if dice_roll == 1:
+                    brows = "raised"
+                elif dice_roll == 2:
+                    brows = "worried"
+
+                dice_roll = renpy.random.randint(1, 2)
+
+                if dice_roll == 1:
+                    eyes = "closed"
+                elif dice_roll == 2:
+                    eyes = "sexy"
+
+                if not C.mouth_Actions:
+                    dice_roll = renpy.random.randint(1, 2)
+
+                    if dice_roll == 1:
+                        mouth = "open"
+                    elif dice_roll == 2:
+                        mouth = "agape"
+
+                C.change_face(brows = brows, eyes = eyes, mouth = mouth, blush = 2)
+            else:
+                brows = None
+                eyes = None
+                mouth = None
+
+                dice_roll = renpy.random.randint(1, 2)
+
+                if dice_roll == 1:
+                    brows = "raised"
+                elif dice_roll == 2:
+                    brows = "worried"
+
+                dice_roll = renpy.random.randint(1, 2)
+
+                if dice_roll == 1:
+                    eyes = "closed"
+                elif dice_roll == 2:
+                    eyes = "sexy"
+
+                if not C.mouth_Actions:
+                    dice_roll = renpy.random.randint(1, 2)
+
+                    if dice_roll == 1:
+                        mouth = "open"
+                    elif dice_roll == 2:
+                        mouth = "lipbite"
+
+                C.change_face(brows = brows, eyes = eyes, mouth = mouth, blush = 1)
 
         return
 
@@ -276,5 +369,8 @@ init python:
                     modifier *= boredom_penalty
 
                 C.desire += base*modifier
+
+            if C.remote_vibrator is not None:
+                C.desire += int(2*C.remote_vibrator)
 
         return

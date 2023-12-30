@@ -31,7 +31,20 @@ init python:
             Jean_seen_anus(),
 
             Jean_seeing_penis(),
+
+            Jean_remote_vibrator_off(),
+            Jean_remote_vibrator_on(),
+            Jean_remote_vibrator_25(),
+            Jean_remote_vibrator_50(),
+            Jean_remote_vibrator_75(),
+            Jean_remote_vibrator_orgasm(),
+            Jean_remote_vibrator_out_of_stamina(),
             
+            Jean_masturbating_25(),
+            Jean_masturbating_50(),
+            Jean_masturbating_75(),
+            Jean_masturbating_orgasm(),
+
             Jean_locker_room_changing(),
             Jean_locker_room_showering(),
 

@@ -756,9 +756,7 @@ transform doggy_vibrator_animation1:
     xzoom 1.0 yzoom 1.0
     rotate 0.0
 
-    block:
-        vibrate
-        repeat
+    vibrate(True)
     
 transform doggy_dildo_pussy_animation0:
     subpixel True
