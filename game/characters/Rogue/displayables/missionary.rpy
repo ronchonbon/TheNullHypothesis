@@ -633,16 +633,18 @@ layeredimage Rogue_missionary_head:
     offset (int(2299*sex_sampling), int(1031*sex_sampling))
     
 layeredimage Rogue_missionary_hair:
-    # if Rogue.wet or Rogue.Clothes["hair"].string == "wet":
-    #     "characters/Rogue/images/missionary/hair_shadow_wet.webp"
-    # else:
-    always:
+    if Rogue.wet or Rogue.Clothes["hair"].string == "wet":
+        "characters/Rogue/images/missionary/hair_shadow_wet.webp"
+    elif Rogue.Clothes["hair"].string in ["messy", "ponytail"]:
+        "characters/Rogue/images/missionary/hair_shadow_asymmetric.webp"
+    else:
         "characters/Rogue/images/missionary/hair_shadow_[Rogue.Clothes[hair].string].webp"
 
-    # if Rogue.wet or Rogue.Clothes["hair"].string == "wet":
-    #     "characters/Rogue/images/missionary/hair_wet.webp"
-    # else:
-    always:
+    if Rogue.wet or Rogue.Clothes["hair"].string == "wet":
+        "characters/Rogue/images/missionary/hair_wet.webp"
+    elif Rogue.Clothes["hair"].string in ["messy", "ponytail"]:
+        "characters/Rogue/images/missionary/hair_asymmetric.webp"
+    else:
         "characters/Rogue/images/missionary/hair_[Rogue.Clothes[hair].string].webp"
 
     if Rogue.spunk["hair"]:

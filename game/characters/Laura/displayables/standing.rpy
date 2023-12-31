@@ -200,36 +200,36 @@ layeredimage Laura_standing:
     if not Player.left_hand_Actions or Laura not in Player.left_hand_Actions[0].Targets:
         Null()
     elif Player.left_hand_Actions[0].animation_type == "touch_breasts" and Laura.right_breast_Actions and Player.left_hand_Actions[0].animation_type == Laura.right_breast_Actions[0].animation_type:
-        At("Laura_standing_male_left_arm_touch_right_breast_animation[Player.left_hand_Actions[0].mode]", change_offset(Laura_standing_right_breast_position[0], Laura_standing_right_breast_position[1]))
+        "Laura_standing_male_left_arm_touch_right_breast_animation[Player.left_hand_Actions[0].mode]" at change_offset(Laura_standing_right_breast_position[0], Laura_standing_right_breast_position[1])
     elif Player.left_hand_Actions[0].animation_type == "touch_breasts" and Laura.left_breast_Actions and Player.left_hand_Actions[0].animation_type == Laura.left_breast_Actions[0].animation_type:
-        At("Laura_standing_male_left_arm_touch_left_breast_animation[Player.left_hand_Actions[0].mode]", change_offset(Laura_standing_left_breast_position[0], Laura_standing_left_breast_position[1]))
+        "Laura_standing_male_left_arm_touch_left_breast_animation[Player.left_hand_Actions[0].mode]" at change_offset(Laura_standing_left_breast_position[0], Laura_standing_left_breast_position[1])
     elif Player.left_hand_Actions[0].animation_type == "pinch_nipples" and Laura.right_nipple_Actions and Player.left_hand_Actions[0].animation_type == Laura.right_nipple_Actions[0].animation_type:
-        At("Laura_standing_male_left_arm_touch_right_breast_animation[Player.left_hand_Actions[0].mode]", change_offset(Laura_standing_right_nipple_position[0], Laura_standing_right_nipple_position[1]))
+        "Laura_standing_male_left_arm_touch_right_breast_animation[Player.left_hand_Actions[0].mode]" at change_offset(Laura_standing_right_nipple_position[0], Laura_standing_right_nipple_position[1])
     elif Player.left_hand_Actions[0].animation_type == "pinch_nipples" and Laura.left_nipple_Actions and Player.left_hand_Actions[0].animation_type == Laura.left_nipple_Actions[0].animation_type:
-        At("Laura_standing_male_left_arm_touch_left_breast_animation[Player.left_hand_Actions[0].mode]", change_offset(Laura_standing_left_nipple_position[0], Laura_standing_left_nipple_position[1]))
+        "Laura_standing_male_left_arm_touch_left_breast_animation[Player.left_hand_Actions[0].mode]" at change_offset(Laura_standing_left_nipple_position[0], Laura_standing_left_nipple_position[1])
     elif Player.left_hand_Actions[0].animation_type == "touch_thighs":
-        At("Laura_standing_male_left_arm_touch_thighs_animation[Player.left_hand_Actions[0].mode]", change_offset(Laura_standing_thigh_position[0], Laura_standing_thigh_position[1]))
+        "Laura_standing_male_left_arm_touch_thighs_animation[Player.left_hand_Actions[0].mode]" at change_offset(Laura_standing_thigh_position[0], Laura_standing_thigh_position[1])
     elif Player.left_hand_Actions[0].animation_type == "touch_thighs_higher":
-        At("Laura_standing_male_left_arm_touch_thighs_higher_animation[Player.left_hand_Actions[0].mode]", change_offset(Laura_standing_thigh_higher_position[0], Laura_standing_thigh_higher_position[1]))
+        "Laura_standing_male_left_arm_touch_thighs_higher_animation[Player.left_hand_Actions[0].mode]" at change_offset(Laura_standing_thigh_higher_position[0], Laura_standing_thigh_higher_position[1])
     elif Player.left_hand_Actions[0].animation_type == "touch_pussy":
-        At("Laura_standing_male_left_arm_touch_pussy_animation[Player.left_hand_Actions[0].mode]", change_offset(Laura_standing_pussy_position[0], Laura_standing_pussy_position[1]))
+        "Laura_standing_male_left_arm_touch_pussy_animation[Player.left_hand_Actions[0].mode]" at change_offset(Laura_standing_pussy_position[0], Laura_standing_pussy_position[1])
 
     if not Player.right_hand_Actions or Laura not in Player.right_hand_Actions[0].Targets:
         Null()
     elif Player.right_hand_Actions[0].animation_type == "touch_breasts" and Laura.right_breast_Actions and Player.right_hand_Actions[0].animation_type == Laura.right_breast_Actions[0].animation_type:
-        At("Laura_standing_male_right_arm_touch_right_breast_animation[Player.right_hand_Actions[0].mode]", change_offset(Laura_standing_right_breast_position[0], Laura_standing_right_breast_position[1]))
+        "Laura_standing_male_right_arm_touch_right_breast_animation[Player.right_hand_Actions[0].mode]" at change_offset(Laura_standing_right_breast_position[0], Laura_standing_right_breast_position[1])
     elif Player.right_hand_Actions[0].animation_type == "touch_breasts" and Laura.left_breast_Actions and Player.right_hand_Actions[0].animation_type == Laura.left_breast_Actions[0].animation_type:
-        At("Laura_standing_male_right_arm_touch_left_breast_animation[Player.right_hand_Actions[0].mode]", change_offset(Laura_standing_left_breast_position[0], Laura_standing_left_breast_position[1]))
+        "Laura_standing_male_right_arm_touch_left_breast_animation[Player.right_hand_Actions[0].mode]" at change_offset(Laura_standing_left_breast_position[0], Laura_standing_left_breast_position[1])
     elif Player.right_hand_Actions[0].animation_type == "pinch_nipples" and Laura.right_nipple_Actions and Player.right_hand_Actions[0].animation_type == Laura.right_nipple_Actions[0].animation_type:
-        At("Laura_standing_male_right_arm_touch_right_breast_animation[Player.right_hand_Actions[0].mode]", change_offset(Laura_standing_right_nipple_position[0], Laura_standing_right_nipple_position[1]))
+        "Laura_standing_male_right_arm_touch_right_breast_animation[Player.right_hand_Actions[0].mode]" at change_offset(Laura_standing_right_nipple_position[0], Laura_standing_right_nipple_position[1])
     elif Player.right_hand_Actions[0].animation_type == "pinch_nipples" and Laura.left_nipple_Actions and Player.right_hand_Actions[0].animation_type == Laura.left_nipple_Actions[0].animation_type:
-        At("Laura_standing_male_right_arm_touch_left_breast_animation[Player.right_hand_Actions[0].mode]", change_offset(Laura_standing_left_nipple_position[0], Laura_standing_left_nipple_position[1]))
+        "Laura_standing_male_right_arm_touch_left_breast_animation[Player.right_hand_Actions[0].mode]" at change_offset(Laura_standing_left_nipple_position[0], Laura_standing_left_nipple_position[1])
     elif Player.right_hand_Actions[0].animation_type == "touch_thighs":
-        At("Laura_standing_male_right_arm_touch_thighs_animation[Player.right_hand_Actions[0].mode]", change_offset(Laura_standing_thigh_position[0], Laura_standing_thigh_position[1]))
+        "Laura_standing_male_right_arm_touch_thighs_animation[Player.right_hand_Actions[0].mode]" at change_offset(Laura_standing_thigh_position[0], Laura_standing_thigh_position[1])
     elif Player.right_hand_Actions[0].animation_type == "touch_thighs_higher":
-        At("Laura_standing_male_right_arm_touch_thighs_higher_animation[Player.right_hand_Actions[0].mode]", change_offset(Laura_standing_thigh_higher_position[0], Laura_standing_thigh_higher_position[1]))
+        "Laura_standing_male_right_arm_touch_thighs_higher_animation[Player.right_hand_Actions[0].mode]" at change_offset(Laura_standing_thigh_higher_position[0], Laura_standing_thigh_higher_position[1])
     elif Player.right_hand_Actions[0].animation_type == "touch_pussy":
-        At("Laura_standing_male_right_arm_touch_pussy_animation[Player.right_hand_Actions[0].mode]", change_offset(Laura_standing_pussy_position[0], Laura_standing_pussy_position[1]))
+        "Laura_standing_male_right_arm_touch_pussy_animation[Player.right_hand_Actions[0].mode]" at change_offset(Laura_standing_pussy_position[0], Laura_standing_pussy_position[1])
 
     if not Player.mouth_Actions or Laura not in Player.mouth_Actions[0].Targets:
         Null()
@@ -414,18 +414,16 @@ layeredimage Laura_standing_head:
 
     # if Laura.Clothes["face_outer_accessory"].string:
     #     Null()
-    # elif Laura.wet or Laura.Clothes["hair"].string == "wet":
-    #     "characters/Laura/images/standing/hair_wet_shadow.webp"
-    # else:
-    always:
+    if Laura.wet or Laura.Clothes["hair"].string == "wet":
+        "characters/Laura/images/standing/hair_wet_shadow.webp"
+    else:
         "characters/Laura/images/standing/hair_[Laura.Clothes[hair].string]_shadow.webp"
 
     # if Laura.Clothes["face_outer_accessory"].string:
     #     Null()
-    # elif Laura.wet or Laura.Clothes["hair"].string == "wet":
-    #     "characters/Laura/images/standing/hair_wet.webp"
-    # else:
-    always:
+    if Laura.wet or Laura.Clothes["hair"].string == "wet":
+        "characters/Laura/images/standing/hair_wet.webp"
+    else:
         "characters/Laura/images/standing/hair_[Laura.Clothes[hair].string].webp"
 
     if Laura.spunk["hair"]:

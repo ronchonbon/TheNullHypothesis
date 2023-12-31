@@ -313,6 +313,7 @@ label Player_orgasms:
     call Player_cumshot_narrations(focused_Character, location = cumshot_location) from _call_Player_cumshot_narrations
 
     $ Player.History.update("orgasmed")
+    $ Player.History.update(cumshot_location)
 
     $ Player.orgasming = None
 

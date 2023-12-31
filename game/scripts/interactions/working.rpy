@@ -48,6 +48,8 @@ label work(Character):
 
             call expression f"{Character.tag}_ask_for_job" from _call_expression_371
 
+            $ Character.History.update("gave_job")
+
             $ Character.electronic = False
             $ Character.telepathic = False
 
@@ -56,6 +58,7 @@ label work(Character):
             $ income = Player.level*int(work_unit*min(max(renpy.random.gauss(1.0, 0.15), 0.85), 1.15))
 
             $ Player.cash += income
+            $ Player.total_cash += income
 
             $ update_messages.append("{color=%s}%s{/color} gained {color=%s}$%s{/color}" % ("#feba00", Player.first_name, "#feba00", income))
 

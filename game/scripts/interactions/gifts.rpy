@@ -43,6 +43,8 @@ label give_Character_gift(Character, Item):
             else:
                 $ del Player.inventory[Item.string]
                 
+            $ Player.History.update("gave_gift")
+            
             $ Character.History.update(f"given_{Item_string}")
         else:
             $ Character.History.update(f"said_no_to_{Item_string}")

@@ -28,6 +28,10 @@ init python:
             # Rogue_green_thong(),
             # Rogue_greenblack_boyshorts(),
             Rogue_greenyellow_classic_suit(),
+            Rogue_ponytail(),
+            Rogue_messy_hair(),
+            Rogue_symmetric_hair(),
+            Rogue_wet_hair(),
             Rogue_yellow_classic_boots(),
             Rogue_yellow_gloves(),
             Rogue_yellow_panties()]

@@ -4,7 +4,7 @@ init -2:
 
         "Aim for the tits, Hawkeye": {
             "description": "Cum on someone's tits 10 times",
-            "condition": "Player.History.check('came_on_tits')",
+            "condition": "Player.History.check('cumshot_breasts')",
             "goal": 10,
             "points": 5,
             "secret": False},

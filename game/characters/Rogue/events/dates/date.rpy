@@ -23,6 +23,8 @@ init python:
 label Rogue_date:
     $ ongoing_Event = True
 
+    $ total_spent = 0
+
     hide screen phone_screen
 
     if weather == "rain":
@@ -789,6 +791,8 @@ label Rogue_date_dinner:
                     call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_527
 
                     $ Player.cash -= restaurant_bill[Player] + restaurant_bill[Rogue]
+                
+                    $ total_spent += restaurant_bill[Player] + restaurant_bill[Rogue]
                 else:
                     "You realize you don't have enough money. . ." 
                     
@@ -802,6 +806,8 @@ label Rogue_date_dinner:
                     "[Rogue.name] pays the difference." 
                     
                     call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_528
+
+                    $ total_spent += Player.cash
 
                     $ Player.cash = 0
             else:
@@ -835,6 +841,8 @@ label Rogue_date_dinner:
                     "You both pay the bill and head back into the mall."
 
                     $ Player.cash -= math.ceil((restaurant_bill[Player] + restaurant_bill[Rogue])/2)
+                    
+                    $ total_spent += math.ceil((restaurant_bill[Player] + restaurant_bill[Rogue])/2)
                 else:
                     "You realize you don't have enough money to pay for half. . ." 
                     
@@ -848,6 +856,8 @@ label Rogue_date_dinner:
                     "[Rogue.name] pays the difference." 
                     
                     call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_530
+                    
+                    $ total_spent += Player.cash
 
                     $ Player.cash = 0
             else:
@@ -1370,6 +1380,8 @@ label Rogue_date_movie:
                     call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_540
 
                     $ Player.cash -= 2*ticket_price
+
+                    $ total_spent += 2*ticket_price
                 else:
                     "You realize you don't have enough money. . ." 
                     
@@ -1383,6 +1395,8 @@ label Rogue_date_movie:
                     "[Rogue.name] pays the difference." 
                     
                     call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_541
+                    
+                    $ total_spent += Player.cash
 
                     $ Player.cash = 0
             else:
@@ -1415,6 +1429,8 @@ label Rogue_date_movie:
                     "You both pay for the tickets."
 
                     $ Player.cash -= ticket_price
+
+                    $ total_spent += ticket_price
                 else:
                     "You realize you don't have enough money to pay for half. . ." 
                     
@@ -1428,6 +1444,8 @@ label Rogue_date_movie:
                     "[Rogue.name] pays the difference." 
                     
                     call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_543
+
+                    $ total_spent += Player.cash
 
                     $ Player.cash = 0
             else:
@@ -1486,6 +1504,8 @@ label Rogue_date_movie_ron_bic1:
     call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_545
     call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_546
 
+    $ Player.History.update("seen_Ron_Bic_I")
+    
     return
 
 label Rogue_date_movie_ron_bic2:
@@ -1534,6 +1554,8 @@ label Rogue_date_movie_ron_bic2:
 
     call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_547
     call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_548
+
+    $ Player.History.update("seen_Ron_Bic_II")
 
     return
 
@@ -2377,6 +2399,8 @@ label Rogue_date_mall_dessert:
         "Fresh Baked Cookies ($10)":
             $ Player.cash -= 10
 
+    $ total_spent += 10
+    
     $ Rogue.change_face("smirk2", eyes = "right")
 
     "After paying for the dessert, you both wander around the mall while enjoying it."

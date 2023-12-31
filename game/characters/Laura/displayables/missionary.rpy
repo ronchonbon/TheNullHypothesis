@@ -607,18 +607,16 @@ layeredimage Laura_missionary_head:
     offset (int(2299*sex_sampling), int(1031*sex_sampling))
     
 layeredimage Laura_missionary_hair:
-    # if Laura.wet or Laura.Clothes["hair"].string == "wet":
-    #     "characters/Laura/images/missionary/hair_shadow_wet.webp"
-    # else:
-    if Laura.Clothes["hair"].string in ["bun", "tucked"]:
+    if Laura.wet or Laura.Clothes["hair"].string == "wet":
+        "characters/Laura/images/missionary/hair_shadow_wet.webp"
+    elif Laura.Clothes["hair"].string in ["bun", "tucked"]:
         "characters/Laura/images/missionary/hair_shadow_straight.webp"
     else:
         "characters/Laura/images/missionary/hair_shadow_[Laura.Clothes[hair].string].webp"
 
-    # if Laura.wet or Laura.Clothes["hair"].string == "wet":
-    #     "characters/Laura/images/missionary/hair_wet.webp"
-    # else:
-    if Laura.Clothes["hair"].string in ["bun", "tucked"]:
+    if Laura.wet or Laura.Clothes["hair"].string == "wet":
+        "characters/Laura/images/missionary/hair_wet.webp"
+    elif Laura.Clothes["hair"].string in ["bun", "tucked"]:
         "characters/Laura/images/missionary/hair_straight.webp"
     else:
         "characters/Laura/images/missionary/hair_[Laura.Clothes[hair].string].webp"

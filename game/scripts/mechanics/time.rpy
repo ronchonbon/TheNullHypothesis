@@ -231,8 +231,8 @@ label start_new_day(fast = False):
     else:
         $ check_attendance = None
 
-    if day > 3:
-        $ Player.cash += Player.income
+    $ Player.cash += Player.income
+    $ Player.total_cash += Player.income
 
     $ Player.desire = 0
     $ Player.stamina = Player.max_stamina

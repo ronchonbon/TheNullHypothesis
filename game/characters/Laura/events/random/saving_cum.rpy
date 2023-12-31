@@ -101,7 +101,7 @@ label Laura_saving_cum:
         "[Laura.name] stares at you intently."
         "Her nostrils flare."  
 
-    if Player.dirty_cock:
+    if Player.grool or Player.dirty_cock:
         $ Laura.change_face("angry1", blush = 2)
 
         ch_Laura "You didn't do as I said."

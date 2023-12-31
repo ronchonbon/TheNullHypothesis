@@ -588,16 +588,18 @@ image Rogue_doggy_left_arm:
     offset (int(1474*sex_sampling), int(1200*sex_sampling))
 
 layeredimage Rogue_doggy_hair:
-    # if Rogue.wet or Rogue.Clothes["hair"].string == "wet":
-    #     "characters/Rogue/images/doggy/hair_shadow_wet.webp"
-    # else:
-    always:
+    if Rogue.wet or Rogue.Clothes["hair"].string == "wet":
+        "characters/Rogue/images/doggy/hair_shadow_wet.webp"
+    elif Rogue.Clothes["hair"].string in ["messy", "ponytail"]:
+        "characters/Rogue/images/doggy/hair_shadow_asymmetric.webp"
+    else:
         "characters/Rogue/images/doggy/hair_shadow_[Rogue.Clothes[hair].string].webp"
 
-    # if Rogue.wet or Rogue.Clothes["hair"].string == "wet":
-    #     "characters/Rogue/images/doggy/hair_wet.webp"
-    # else:
-    always:
+    if Rogue.wet or Rogue.Clothes["hair"].string == "wet":
+        "characters/Rogue/images/doggy/hair_wet.webp"
+    elif Rogue.Clothes["hair"].string in ["messy", "ponytail"]:
+        "characters/Rogue/images/doggy/hair_asymmetric.webp"
+    else:
         "characters/Rogue/images/doggy/hair_[Rogue.Clothes[hair].string].webp"
 
     if Rogue.spunk["hair"]:

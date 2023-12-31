@@ -63,9 +63,9 @@ image Rogue_sprite standing:
 
 layeredimage Rogue_standing_temp:
     if Rogue.hovered:
-        At("Rogue_standing", hover)
+        "Rogue_standing" at hover
     elif Rogue.orgasming:
-        At("Rogue_standing", tremble(20))
+        "Rogue_standing" at tremble(20)
     else:
         "Rogue_standing"
 
@@ -73,20 +73,18 @@ layeredimage Rogue_standing:
     if not Player.left_hand_Actions or Rogue not in Player.left_hand_Actions[0].Targets:
         Null()
     elif Player.left_hand_Actions[0].animation_type == "grab_ass":
-        At("Rogue_standing_male_left_arm_grab_ass_animation[Player.left_hand_Actions[0].mode]", change_offset(Rogue_standing_ass_position[0], Rogue_standing_ass_position[1]))
+        "Rogue_standing_male_left_arm_grab_ass_animation[Player.left_hand_Actions[0].mode]" at change_offset(Rogue_standing_ass_position[0], Rogue_standing_ass_position[1])
 
     if not Player.right_hand_Actions or Rogue not in Player.right_hand_Actions[0].Targets:
         Null()
     elif Player.right_hand_Actions[0].animation_type == "grab_ass":
-        At("Rogue_standing_male_right_arm_grab_ass_animation[Player.right_hand_Actions[0].mode]", change_offset(Rogue_standing_ass_position[0], Rogue_standing_ass_position[1]))
+        "Rogue_standing_male_right_arm_grab_ass_animation[Player.right_hand_Actions[0].mode]" at change_offset(Rogue_standing_ass_position[0], Rogue_standing_ass_position[1])
 
     if Rogue.ground_shadow:
         "characters/Rogue/images/standing/ground_shadow.webp"
 
-    if renpy.get_screen("Wardrobe_screen"):
-        "Rogue_standing_hair_back"
-    else:
-        At("Rogue_standing_hair_back", Rogue_standing_head_animation)
+    always:
+        "Rogue_standing_hair_back" at Rogue_standing_head_animation
 
     if Rogue.left_arm in ["bra", "touch_ass"]:
         "characters/Rogue/images/standing/left_forearm_[Rogue.left_arm].webp"
@@ -115,10 +113,8 @@ layeredimage Rogue_standing:
 
     if Rogue.right_arm not in ["bra", "extended", "fight", "fist", "hip", "neutral", "touch_pussy"]:
         Null()
-    elif renpy.get_screen("Wardrobe_screen"):
-        "Rogue_standing_right_arm"
     elif Rogue.right_arm == "neutral":
-        At("Rogue_standing_right_arm", Rogue_standing_right_arm_animation)
+        "Rogue_standing_right_arm" at Rogue_standing_right_arm_animation
     else:
         "Rogue_standing_right_arm"
 
@@ -127,10 +123,8 @@ layeredimage Rogue_standing:
 
     if Rogue.left_arm not in ["bra", "extended", "fight", "fist", "grope", "hip", "neutral", "rub_neck", "touch_ass"]:
         Null()
-    elif renpy.get_screen("Wardrobe_screen"):
-        "Rogue_standing_left_arm"
     elif Rogue.left_arm == "neutral":
-        At("Rogue_standing_left_arm", Rogue_standing_left_arm_animation)
+        "Rogue_standing_left_arm" at Rogue_standing_left_arm_animation
     else:
         "Rogue_standing_left_arm"
 
@@ -145,10 +139,8 @@ layeredimage Rogue_standing:
 
     if Rogue.left_arm not in ["bra", "fight", "fist", "grope", "hip", "neutral", "rub_neck", "touch_ass"]:
         Null()
-    elif renpy.get_screen("Wardrobe_screen"):
-        "Rogue_standing_left_sleeve"
     elif Rogue.left_arm == "neutral":
-        At("Rogue_standing_left_sleeve", Rogue_standing_left_arm_animation)
+        "Rogue_standing_left_sleeve" at Rogue_standing_left_arm_animation
     else:
         "Rogue_standing_left_sleeve"
 
@@ -220,17 +212,15 @@ layeredimage Rogue_standing:
     if not Player.left_hand_Actions or Rogue not in Player.left_hand_Actions[0].Targets:
         Null()
     elif Player.left_hand_Actions[0].animation_type == "choke":
-        At("Rogue_standing_male_left_arm_choke_animation[Player.left_hand_Actions[0].mode]", change_offset(Rogue_standing_neck_position[0], Rogue_standing_neck_position[1]))
+        "Rogue_standing_male_left_arm_choke_animation[Player.left_hand_Actions[0].mode]" at change_offset(Rogue_standing_neck_position[0], Rogue_standing_neck_position[1])
 
     if not Player.right_hand_Actions or Rogue not in Player.right_hand_Actions[0].Targets:
         Null()
     elif Player.right_hand_Actions[0].animation_type == "choke":
-        At("Rogue_standing_male_right_arm_choke_animation[Player.right_hand_Actions[0].mode]", change_offset(Rogue_standing_neck_position[0], Rogue_standing_neck_position[1]))
+        "Rogue_standing_male_right_arm_choke_animation[Player.right_hand_Actions[0].mode]" at change_offset(Rogue_standing_neck_position[0], Rogue_standing_neck_position[1])
 
-    if renpy.get_screen("Wardrobe_screen"):
-        "Rogue_standing_head"
-    else:
-        At("Rogue_standing_head", Rogue_standing_head_animation)
+    always:
+        "Rogue_standing_head" at Rogue_standing_head_animation
 
     if Rogue.right_arm in ["fight"]:
         "characters/Rogue/images/standing/right_forearm_[Rogue.right_arm].webp"
@@ -298,49 +288,58 @@ layeredimage Rogue_standing:
     elif Rogue.left_arm in ["extended"]:
         "characters/Rogue/images/standing/jacket_[Rogue.Clothes[jacket].string]_left_forearm_sleeve_[Rogue.left_arm].webp"
 
+    if Rogue.spunk["hand"] and Rogue.right_arm in ["extended"]:
+        "characters/Rogue/images/standing/spunk_hand1.webp"
+
+    if Rogue.spunk["hand"] == 2 and Rogue.right_arm in ["extended"]:
+        "characters/Rogue/images/standing/spunk_hand2.webp"
+
     if not Player.left_hand_Actions or Rogue not in Player.left_hand_Actions[0].Targets:
         Null()
     elif Player.left_hand_Actions[0].animation_type == "touch_breasts" and Rogue.right_breast_Actions and Player.left_hand_Actions[0].animation_type == Rogue.right_breast_Actions[0].animation_type:
-        At("Rogue_standing_male_left_arm_touch_right_breast_animation[Player.left_hand_Actions[0].mode]", change_offset(Rogue_standing_right_breast_position[0], Rogue_standing_right_breast_position[1]))
+        "Rogue_standing_male_left_arm_touch_right_breast_animation[Player.left_hand_Actions[0].mode]" at change_offset(Rogue_standing_right_breast_position[0], Rogue_standing_right_breast_position[1])
     elif Player.left_hand_Actions[0].animation_type == "touch_breasts" and Rogue.left_breast_Actions and Player.left_hand_Actions[0].animation_type == Rogue.left_breast_Actions[0].animation_type:
-        At("Rogue_standing_male_left_arm_touch_left_breast_animation[Player.left_hand_Actions[0].mode]", change_offset(Rogue_standing_left_breast_position[0], Rogue_standing_left_breast_position[1]))
+        "Rogue_standing_male_left_arm_touch_left_breast_animation[Player.left_hand_Actions[0].mode]" at change_offset(Rogue_standing_left_breast_position[0], Rogue_standing_left_breast_position[1])
     elif Player.left_hand_Actions[0].animation_type == "pinch_nipples" and Rogue.right_nipple_Actions and Player.left_hand_Actions[0].animation_type == Rogue.right_nipple_Actions[0].animation_type:
-        At("Rogue_standing_male_left_arm_touch_right_breast_animation[Player.left_hand_Actions[0].mode]", change_offset(Rogue_standing_right_nipple_position[0], Rogue_standing_right_nipple_position[1]))
+        "Rogue_standing_male_left_arm_touch_right_breast_animation[Player.left_hand_Actions[0].mode]" at change_offset(Rogue_standing_right_nipple_position[0], Rogue_standing_right_nipple_position[1])
     elif Player.left_hand_Actions[0].animation_type == "pinch_nipples" and Rogue.left_nipple_Actions and Player.left_hand_Actions[0].animation_type == Rogue.left_nipple_Actions[0].animation_type:
-        At("Rogue_standing_male_left_arm_touch_left_breast_animation[Player.left_hand_Actions[0].mode]", change_offset(Rogue_standing_left_nipple_position[0], Rogue_standing_left_nipple_position[1]))
+        "Rogue_standing_male_left_arm_touch_left_breast_animation[Player.left_hand_Actions[0].mode]" at change_offset(Rogue_standing_left_nipple_position[0], Rogue_standing_left_nipple_position[1])
     elif Player.left_hand_Actions[0].animation_type == "touch_thighs":
-        At("Rogue_standing_male_left_arm_touch_thighs_animation[Player.left_hand_Actions[0].mode]", change_offset(Rogue_standing_thigh_position[0], Rogue_standing_thigh_position[1]))
+        "Rogue_standing_male_left_arm_touch_thighs_animation[Player.left_hand_Actions[0].mode]" at change_offset(Rogue_standing_thigh_position[0], Rogue_standing_thigh_position[1])
     elif Player.left_hand_Actions[0].animation_type == "touch_thighs_higher":
-        At("Rogue_standing_male_left_arm_touch_thighs_higher_animation[Player.left_hand_Actions[0].mode]", change_offset(Rogue_standing_thigh_higher_position[0], Rogue_standing_thigh_higher_position[1]))
+        "Rogue_standing_male_left_arm_touch_thighs_higher_animation[Player.left_hand_Actions[0].mode]" at change_offset(Rogue_standing_thigh_higher_position[0], Rogue_standing_thigh_higher_position[1])
     elif Player.left_hand_Actions[0].animation_type == "touch_pussy":
-        At("Rogue_standing_male_left_arm_touch_pussy_animation[Player.left_hand_Actions[0].mode]", change_offset(Rogue_standing_pussy_position[0], Rogue_standing_pussy_position[1]))
+        "Rogue_standing_male_left_arm_touch_pussy_animation[Player.left_hand_Actions[0].mode]" at change_offset(Rogue_standing_pussy_position[0], Rogue_standing_pussy_position[1])
 
     if not Player.right_hand_Actions or Rogue not in Player.right_hand_Actions[0].Targets:
         Null()
     elif Player.right_hand_Actions[0].animation_type == "touch_breasts" and Rogue.right_breast_Actions and Player.right_hand_Actions[0].animation_type == Rogue.right_breast_Actions[0].animation_type:
-        At("Rogue_standing_male_right_arm_touch_right_breast_animation[Player.right_hand_Actions[0].mode]", change_offset(Rogue_standing_right_breast_position[0], Rogue_standing_right_breast_position[1]))
+        "Rogue_standing_male_right_arm_touch_right_breast_animation[Player.right_hand_Actions[0].mode]" at change_offset(Rogue_standing_right_breast_position[0], Rogue_standing_right_breast_position[1])
     elif Player.right_hand_Actions[0].animation_type == "touch_breasts" and Rogue.left_breast_Actions and Player.right_hand_Actions[0].animation_type == Rogue.left_breast_Actions[0].animation_type:
-        At("Rogue_standing_male_right_arm_touch_left_breast_animation[Player.right_hand_Actions[0].mode]", change_offset(Rogue_standing_left_breast_position[0], Rogue_standing_left_breast_position[1]))
+        "Rogue_standing_male_right_arm_touch_left_breast_animation[Player.right_hand_Actions[0].mode]" at change_offset(Rogue_standing_left_breast_position[0], Rogue_standing_left_breast_position[1])
     elif Player.right_hand_Actions[0].animation_type == "pinch_nipples" and Rogue.right_nipple_Actions and Player.right_hand_Actions[0].animation_type == Rogue.right_nipple_Actions[0].animation_type:
-        At("Rogue_standing_male_right_arm_touch_right_breast_animation[Player.right_hand_Actions[0].mode]", change_offset(Rogue_standing_right_nipple_position[0], Rogue_standing_right_nipple_position[1]))
+        "Rogue_standing_male_right_arm_touch_right_breast_animation[Player.right_hand_Actions[0].mode]" at change_offset(Rogue_standing_right_nipple_position[0], Rogue_standing_right_nipple_position[1])
     elif Player.right_hand_Actions[0].animation_type == "pinch_nipples" and Rogue.left_nipple_Actions and Player.right_hand_Actions[0].animation_type == Rogue.left_nipple_Actions[0].animation_type:
-        At("Rogue_standing_male_right_arm_touch_left_breast_animation[Player.right_hand_Actions[0].mode]", change_offset(Rogue_standing_left_nipple_position[0], Rogue_standing_left_nipple_position[1]))
+        "Rogue_standing_male_right_arm_touch_left_breast_animation[Player.right_hand_Actions[0].mode]" at change_offset(Rogue_standing_left_nipple_position[0], Rogue_standing_left_nipple_position[1])
     elif Player.right_hand_Actions[0].animation_type == "touch_thighs":
-        At("Rogue_standing_male_right_arm_touch_thighs_animation[Player.right_hand_Actions[0].mode]", change_offset(Rogue_standing_thigh_position[0], Rogue_standing_thigh_position[1]))
+        "Rogue_standing_male_right_arm_touch_thighs_animation[Player.right_hand_Actions[0].mode]" at change_offset(Rogue_standing_thigh_position[0], Rogue_standing_thigh_position[1])
     elif Player.right_hand_Actions[0].animation_type == "touch_thighs_higher":
-        At("Rogue_standing_male_right_arm_touch_thighs_higher_animation[Player.right_hand_Actions[0].mode]", change_offset(Rogue_standing_thigh_higher_position[0], Rogue_standing_thigh_higher_position[1]))
+        "Rogue_standing_male_right_arm_touch_thighs_higher_animation[Player.right_hand_Actions[0].mode]" at change_offset(Rogue_standing_thigh_higher_position[0], Rogue_standing_thigh_higher_position[1])
     elif Player.right_hand_Actions[0].animation_type == "touch_pussy":
-        At("Rogue_standing_male_right_arm_touch_pussy_animation[Player.right_hand_Actions[0].mode]", change_offset(Rogue_standing_pussy_position[0], Rogue_standing_pussy_position[1]))
+        "Rogue_standing_male_right_arm_touch_pussy_animation[Player.right_hand_Actions[0].mode]" at change_offset(Rogue_standing_pussy_position[0], Rogue_standing_pussy_position[1])
 
     if not Player.mouth_Actions or Rogue not in Player.mouth_Actions[0].Targets:
         Null()
     elif Player.mouth_Actions[0].animation_type in ["suck_nipples"] and Rogue.left_nipple_Actions and Player.mouth_Actions[0].animation_type == Rogue.left_nipple_Actions[0].animation_type:
-        At("Rogue_standing_male_head_suck_left_nipple_animation[Player.mouth_Actions[0].mode]", change_offset(Rogue_standing_left_nipple_position[0], Rogue_standing_left_nipple_position[1]))
+        "Rogue_standing_male_head_suck_left_nipple_animation[Player.mouth_Actions[0].mode]" at change_offset(Rogue_standing_left_nipple_position[0], Rogue_standing_left_nipple_position[1])
     elif Player.mouth_Actions[0].animation_type in ["suck_nipples"] and Rogue.right_nipple_Actions and Player.mouth_Actions[0].animation_type == Rogue.right_nipple_Actions[0].animation_type:
-        At("Rogue_standing_male_head_suck_right_nipple_animation[Player.mouth_Actions[0].mode]", change_offset(Rogue_standing_right_nipple_position[0], Rogue_standing_right_nipple_position[1]))
+        "Rogue_standing_male_head_suck_right_nipple_animation[Player.mouth_Actions[0].mode]" at change_offset(Rogue_standing_right_nipple_position[0], Rogue_standing_right_nipple_position[1])
 
-image Rogue_standing_hair_back:
-    "characters/Rogue/images/standing/hair_back.webp"
+layeredimage Rogue_standing_hair_back: 
+    if Rogue.wet or Rogue.Clothes["hair"].string == "wet":
+        "characters/Rogue/images/standing/hair_back_wet.webp"
+    else:
+        "characters/Rogue/images/standing/hair_back_[Rogue.Clothes[hair].string].webp"
 
     anchor (int(1340*character_sampling), int(1300*character_sampling))
     offset (int(1340*character_sampling), int(1300*character_sampling))
@@ -400,6 +399,47 @@ layeredimage Rogue_standing_body:
         
     always:
         "characters/Rogue/images/standing/left_foot.webp"
+
+    if Rogue.piercings["labia"] in ["barbell", "both"]:
+        "characters/Rogue/images/standing/labia_piercings_barbell.webp"
+
+    if Rogue.piercings["labia"] in ["ring", "both"]:
+        "characters/Rogue/images/standing/labia_piercings_ring.webp"
+
+    if "pubic" in Rogue.body_hair_growing.keys():
+        "characters/Rogue/images/standing/pubes_growing.webp"
+
+    if Rogue.body_hair["pubic"]:
+        "characters/Rogue/images/standing/pubes_[Rogue.body_hair[pubic]].webp"
+
+    if Rogue.desire >= 75 or Rogue.History.check("orgasmed", tracker = "recent"):
+        "characters/Rogue/images/standing/grool.webp"
+    elif Rogue.desire >= 50:
+        "characters/Rogue/images/standing/grool.webp" at Transform(alpha = 0.5)
+    elif Rogue.desire >= 25:
+        "characters/Rogue/images/standing/grool.webp" at Transform(alpha = 0.1)
+
+    if Rogue.creampie["pussy"]:
+        "characters/Rogue/images/standing/creampie1.webp"
+
+    if Rogue.creampie["pussy"] == 2:
+        "characters/Rogue/images/standing/creampie2.webp"
+
+    if Rogue.remote_vibrator is None:
+        Null()
+    elif Rogue.remote_vibrator > 0.0:
+        "characters/Rogue/images/standing/remote_vibrator.webp" at vibrating
+    else:
+        "characters/Rogue/images/standing/remote_vibrator.webp"
+
+    if Rogue.piercings["belly"]:
+        "characters/Rogue/images/standing/belly_piercing.webp"
+
+    if Rogue.spunk["belly"]:
+        "characters/Rogue/images/standing/spunk_belly1.webp"
+
+    if Rogue.spunk["belly"] == 2:
+        "characters/Rogue/images/standing/spunk_belly2.webp"
 
     if Rogue.Clothes["underwear"].string:
         "characters/Rogue/images/standing/underwear_[Rogue.Clothes[underwear].string]_[Rogue.Clothes[underwear].state].webp"
@@ -489,6 +529,34 @@ layeredimage Rogue_standing_body:
 
     if Rogue.left_arm == "grope":
         "characters/Rogue/images/standing/breasts_grope.webp"
+
+    if Rogue.piercings["nipple"] not in ["barbell", "both"]:
+        Null()
+    elif Rogue.left_arm == "crossed" and Rogue.right_arm == "crossed":
+        "characters/Rogue/images/standing/nipple_piercings_barbell_crossed.webp"
+    elif Rogue.breasts_supported:
+        "characters/Rogue/images/standing/nipple_piercings_barbell_supported.webp"
+    elif Rogue.left_arm == "grope":
+        "characters/Rogue/images/standing/nipple_piercings_barbell_grope.webp"
+    else:
+        "characters/Rogue/images/standing/nipple_piercings_barbell.webp"
+
+    if Rogue.piercings["nipple"] not in ["ring", "both"]:
+        Null()
+    elif Rogue.left_arm == "crossed" and Rogue.right_arm == "crossed":
+        "characters/Rogue/images/standing/nipple_piercings_ring_crossed.webp"
+    elif Rogue.breasts_supported:
+        "characters/Rogue/images/standing/nipple_piercings_ring_supported.webp"
+    elif Rogue.left_arm == "grope":
+        "characters/Rogue/images/standing/nipple_piercings_ring_grope.webp"
+    else:
+        "characters/Rogue/images/standing/nipple_piercings_ring.webp"
+
+    if Rogue.spunk["breasts"]:
+        "characters/Rogue/images/standing/spunk_breasts1.webp"
+
+    if Rogue.spunk["breasts"] == 2:
+        "characters/Rogue/images/standing/spunk_breasts2.webp"
         
     if not Rogue.Clothes["bra"].string:
         Null()
@@ -600,17 +668,53 @@ layeredimage Rogue_standing_head:
     if Rogue.Clothes["face_inner_accessory"].string:
         "characters/Rogue/images/standing/face_inner_accessory_[Rogue.Clothes[face_inner_accessory].string].webp"
 
-    # if Rogue.wet or Rogue.Clothes["hair"].string == "wet":
-    #     "characters/Rogue/images/standing/hair_wet_shadow.webp"
-    # else:
-    always:
+    if Rogue.spunk["mouth"] and Rogue.mouth in ["agape", "open"]:
+        "characters/Rogue/images/standing/spunk_mouth1_agape.webp"
+
+    if Rogue.spunk["mouth"] == 2 and Rogue.mouth in ["agape", "open"]:
+        "characters/Rogue/images/standing/spunk_mouth2_agape.webp"
+
+    if Rogue.spunk["mouth"] and Rogue.mouth in ["tongue"]:
+        "characters/Rogue/images/standing/spunk_mouth1_tongue.webp"
+
+    if Rogue.spunk["mouth"] == 2 and Rogue.mouth in ["tongue"]:
+        "characters/Rogue/images/standing/spunk_mouth2_tongue.webp"
+
+    if not Rogue.spunk["chin"]:
+        Null()
+    elif Rogue.mouth in ["agape", "open", "tongue"]:
+        "characters/Rogue/images/standing/spunk_chin1_open.webp"
+    else:
+        "characters/Rogue/images/standing/spunk_chin1.webp"
+
+    if Rogue.spunk["chin"] != 2:
+        Null()
+    elif Rogue.mouth in ["agape", "open", "tongue"]:
+        "characters/Rogue/images/standing/spunk_chin2_open.webp"
+    else:
+        "characters/Rogue/images/standing/spunk_chin2.webp"
+
+    if Rogue.spunk["face"]:
+        "characters/Rogue/images/standing/spunk_face1.webp"
+
+    if Rogue.spunk["face"] == 2:
+        "characters/Rogue/images/standing/spunk_face2.webp"
+
+    if Rogue.wet or Rogue.Clothes["hair"].string == "wet":
+        "characters/Rogue/images/standing/hair_wet_shadow.webp"
+    else:
         "characters/Rogue/images/standing/hair_[Rogue.Clothes[hair].string]_shadow.webp"
 
-    # if Rogue.wet or Rogue.Clothes["hair"].string == "wet":
-    #     "characters/Rogue/images/standing/hair_wet.webp"
-    # else:
-    always:
+    if Rogue.wet or Rogue.Clothes["hair"].string == "wet":
+        "characters/Rogue/images/standing/hair_wet.webp"
+    else:
         "characters/Rogue/images/standing/hair_[Rogue.Clothes[hair].string].webp"
+
+    if Rogue.spunk["hair"]:
+        "characters/Rogue/images/standing/spunk_hair1_[Rogue.Clothes[hair].string].webp"
+
+    if Rogue.spunk["hair"] == 2:
+        "characters/Rogue/images/standing/spunk_hair2_[Rogue.Clothes[hair].string].webp"
 
     anchor (int(1340*character_sampling), int(1300*character_sampling))
     offset (int(1340*character_sampling), int(1300*character_sampling))

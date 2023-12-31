@@ -1306,8 +1306,20 @@ label start_Action(Action, initiator = None):
 
         $ ongoing_Actions.append(Action)
 
-        if Action.Action_type in ["sex", "anal"]:
+        if Action.Action_type == "deepthroat":
+            $ Player.saliva = True
+
+        if Action.Action_type == "sex":
+            $ Player.grool = True
+
+        if Action.Action_type == "anal":
             $ Player.dirty_cock = True
+
+        if not Player.History.check(Action.Action_type, tracker = "recent"):
+            $ Player.History.update(Action.Action_type)
+
+        if Action.Action_type in ["blowjob", "deepthroat"] and Player.dirty_cock:
+            $ Player.History.update("ass_to_mouth")
 
         $ renpy.dynamic(temp_Characters = list(set(Actors[:] + Targets[:])))
 

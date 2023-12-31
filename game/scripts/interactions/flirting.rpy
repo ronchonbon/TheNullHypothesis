@@ -7,6 +7,8 @@ label flirt(Character):
         menu:
             "Tell her you love her" if EventScheduler.Events[f"{Character.tag}_I_love_you"].completed:
                 $ flirting_type = "r"
+
+                $ Character.History.update("told_Player_loves_them")
             "Pay her a compliment":
                 $ flirting_type = "a"
             "Try a cheesy pickup line":

@@ -728,6 +728,8 @@ label Jean_boyfriend:
 
     $ Partners.append(Jean)
 
+    $ Jean.History.update("started_relationship")
+
     $ temp = Jean.chat_options[:]
 
     python:

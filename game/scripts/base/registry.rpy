@@ -47,15 +47,15 @@ init python:
                         del C.Wardrobe.Clothes[I]
 
                 for I in Clothing_list:
-                    if I.name in C.Wardrobe.Clothes.keys() or "hair" in I.name:
-                        if "hair" not in I.name:
+                    if I.name in C.Wardrobe.Clothes.keys() or "hair" in I.name or "bun" in I.name or "ponytail" in I.name or "mohawk" in I.name:
+                        if "hair" not in I.name and "bun" not in I.name and "ponytail" not in I.name and "mohawk" not in I.name:
                             I.selected_state = C.Wardrobe.Clothes[I.name].selected_state
 
                         C.Wardrobe.Clothes[I.name] = copy.copy(I)
 
                         for O in C.Wardrobe.Outfits.values():
                             if I.string == O.Clothes[I.Clothing_type].string:
-                                if "hair" not in I.name:
+                                if "hair" not in I.name and "bun" not in I.name and "ponytail" not in I.name and "mohawk" not in I.name:
                                     I.selected_state = O.Clothes[I.Clothing_type].selected_state
                                     
                                 O.Clothes[I.Clothing_type] = copy.copy(I)

@@ -527,11 +527,13 @@ screen skills_screen():
                     action [
                         SetVariable("Player.ability_points", Player.ability_points - ability_costs[current_mutant_ability]),
                         AddToSet(Player.mutant_abilities, current_mutant_ability),
-                        SetVariable("Player.max_stamina", Player.max_stamina + 1)]
+                        SetVariable("Player.max_stamina", Player.max_stamina + 1),
+                        Function(Player.History.update, "bought_skill")]
                 else:
                     action [
                         SetVariable("Player.ability_points", Player.ability_points - ability_costs[current_mutant_ability]),
-                        AddToSet(Player.mutant_abilities, current_mutant_ability)]
+                        AddToSet(Player.mutant_abilities, current_mutant_ability),
+                        Function(Player.History.update, "bought_skill")]
 
             text "AWAKEN" anchor (0.5, 0.5) pos (0.825, 0.68):
                 font "agency_fb.ttf"

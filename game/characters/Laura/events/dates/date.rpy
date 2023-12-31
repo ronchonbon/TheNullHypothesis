@@ -23,6 +23,8 @@ init python:
 label Laura_date:
     $ ongoing_Event = True
 
+    $ total_spent = 0
+
     hide screen phone_screen
 
     if weather == "rain":
@@ -656,6 +658,8 @@ label Laura_date_dinner:
                     call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_281
 
                     $ Player.cash -= restaurant_bill[Player] + restaurant_bill[Laura]
+                                    
+                    $ total_spent += restaurant_bill[Player] + restaurant_bill[Laura]
                 else:
                     "You realize you don't have enough money. . ." 
                     
@@ -669,6 +673,8 @@ label Laura_date_dinner:
                     "[Laura.name] pays the difference." 
                     
                     call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_282 
+
+                    $ total_spent += Player.cash
 
                     $ Player.cash = 0
             else:
@@ -699,6 +705,8 @@ label Laura_date_dinner:
                     "You both pay the bill and head back into the mall."
 
                     $ Player.cash -= math.ceil((restaurant_bill[Player] + restaurant_bill[Laura])/2)
+                
+                    $ total_spent += math.ceil((restaurant_bill[Player] + restaurant_bill[Laura])/2)
                 else:
                     "You realize you don't have enough money to pay for half. . ." 
                     
@@ -712,6 +720,8 @@ label Laura_date_dinner:
                     "[Laura.name] pays the difference." 
                     
                     call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_284 
+
+                    $ total_spent += Player.cash
 
                     $ Player.cash = 0
             else:
@@ -1166,6 +1176,8 @@ label Laura_date_movie:
                     call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_294
 
                     $ Player.cash -= 2*ticket_price
+
+                    $ total_spent += 2*ticket_price
                 else:
                     "You realize you don't have enough money. . ." 
                     
@@ -1179,7 +1191,9 @@ label Laura_date_movie:
                     "[Laura.name] pays the difference." 
                     
                     call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_295
-
+                    
+                    $ total_spent += Player.cash
+                    
                     $ Player.cash = 0
             else:
                 $ Laura.change_face("suspicious1") 
@@ -1207,7 +1221,9 @@ label Laura_date_movie:
                 if Player.cash >= ticket_price:
                     "You both pay for the tickets."
 
-                    $ Player.cash -= ticket_price
+                    $ Player.cash -= ticket_price                    
+                    
+                    $ total_spent += ticket_price
                 else:
                     "You realize you don't have enough money to pay for half. . ." 
                     
@@ -1221,6 +1237,8 @@ label Laura_date_movie:
                     "[Laura.name] pays the difference." 
 
                     call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_297 
+                    
+                    $ total_spent += Player.cash
 
                     $ Player.cash = 0
             else:
@@ -1270,6 +1288,8 @@ label Laura_date_movie_ron_bic1:
 
     call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_298
 
+    $ Player.History.update("seen_Ron_Bic_I")
+    
     return
 
 label Laura_date_movie_ron_bic2:
@@ -1318,6 +1338,8 @@ label Laura_date_movie_ron_bic2:
     ch_Laura "I do not like 'cliffhangers.'"
 
     call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_299
+
+    $ Player.History.update("seen_Ron_Bic_II")
 
     return
 
@@ -2172,6 +2194,8 @@ label Laura_date_mall_dessert:
             $ Player.cash -= 10
 
             $ Laura.History.update("tried_chocolate")
+
+    $ total_spent += 10
 
     $ Laura.change_face("smirk2", eyes = "right")
 

@@ -466,7 +466,8 @@ screen home_screen():
             unscrollable "hide"
 
     imagebutton anchor (0.5, 0.5) pos (0.416, 0.8):
-        idle At("images/interface/phone/icons/call_idle.webp", phone_icon) hover At("images/interface/phone/icons/call.webp", phone_icon)
+        idle At("images/interface/phone/icons/call_idle.webp", phone_icon) 
+        hover At("images/interface/phone/icons/call.webp", phone_icon)
         
         if phone_interactable and not phone_disabled:
             action [
@@ -476,7 +477,8 @@ screen home_screen():
             action None
 
     imagebutton anchor (0.5, 0.5) pos (0.496, 0.8):
-        idle At("images/interface/phone/icons/humhum_idle.webp", phone_icon) hover At("images/interface/phone/icons/humhum.webp", phone_icon)
+        idle At("images/interface/phone/icons/humhum_idle.webp", phone_icon) 
+        hover At("images/interface/phone/icons/humhum.webp", phone_icon)
         
         if phone_interactable and not phone_disabled:
             action [
@@ -486,7 +488,8 @@ screen home_screen():
             action None
 
     imagebutton anchor (0.5, 0.5) pos (0.576, 0.8):
-        idle At("images/interface/phone/icons/blah_idle.webp", phone_icon) hover At("images/interface/phone/icons/blah.webp", phone_icon)
+        idle At("images/interface/phone/icons/blah_idle.webp", phone_icon) 
+        hover At("images/interface/phone/icons/blah.webp", phone_icon)
         
         if phone_interactable and not phone_disabled:
             action [
@@ -506,7 +509,8 @@ screen app_screen():
         color "#ffffff"
 
     imagebutton anchor (0.5, 0.5) pos (0.416, 0.23):
-        idle At("images/interface/phone/icons/call_idle.webp", phone_icon) hover At("images/interface/phone/icons/call.webp", phone_icon)
+        idle At("images/interface/phone/icons/call_idle.webp", phone_icon) 
+        hover At("images/interface/phone/icons/call.webp", phone_icon)
         
         if phone_interactable and not phone_disabled:
             action [
@@ -516,7 +520,8 @@ screen app_screen():
             action None
 
     imagebutton anchor (0.5, 0.5) pos (0.576, 0.23):
-        idle At("images/interface/phone/icons/blah_idle.webp", phone_icon) hover At("images/interface/phone/icons/blah.webp", phone_icon)
+        idle At("images/interface/phone/icons/blah_idle.webp", phone_icon) 
+        hover At("images/interface/phone/icons/blah.webp", phone_icon)
         
         if phone_interactable and not phone_disabled:
             action [
@@ -526,7 +531,8 @@ screen app_screen():
             action None
 
     imagebutton anchor (0.5, 0.5) pos (0.416, 0.41333):
-        idle At("images/interface/phone/icons/daily_bungle_idle.webp", phone_icon) hover At("images/interface/phone/icons/daily_bungle.webp", phone_icon)
+        idle At("images/interface/phone/icons/daily_bungle_idle.webp", phone_icon) 
+        hover At("images/interface/phone/icons/daily_bungle.webp", phone_icon)
         
         if phone_interactable and not phone_disabled:
             action [
@@ -537,7 +543,8 @@ screen app_screen():
 
     if humhum_available:
         imagebutton anchor (0.5, 0.5) pos (0.496, 0.41333):
-            idle At("images/interface/phone/icons/humhum_idle.webp", phone_icon) hover At("images/interface/phone/icons/humhum.webp", phone_icon)
+            idle At("images/interface/phone/icons/humhum_idle.webp", phone_icon) 
+            hover At("images/interface/phone/icons/humhum.webp", phone_icon)
             
             if phone_interactable and not phone_disabled:
                 action [
@@ -547,7 +554,8 @@ screen app_screen():
                 action None
 
     imagebutton anchor (0.5, 0.5) pos (0.576, 0.4133):
-        idle At("images/interface/phone/icons/hot_control_idle.webp", phone_icon) hover At("images/interface/phone/icons/hot_control.webp", phone_icon)
+        idle At("images/interface/phone/icons/hot_control_idle.webp", phone_icon) 
+        hover At("images/interface/phone/icons/hot_control.webp", phone_icon)
         
         if phone_interactable and not phone_disabled:
             action SetVariable("current_phone_screen", "remote")
@@ -555,7 +563,8 @@ screen app_screen():
             action None
 
     imagebutton anchor (0.5, 0.5) pos (0.416, 0.59666):
-        idle At("images/interface/phone/icons/achievements_idle.webp", phone_icon) hover At("images/interface/phone/icons/achievements.webp", phone_icon)
+        idle At("images/interface/phone/icons/achievements_idle.webp", phone_icon) 
+        hover At("images/interface/phone/icons/achievements.webp", phone_icon)
         
         if phone_interactable and not phone_disabled:
             action [
@@ -565,7 +574,8 @@ screen app_screen():
             action None
 
     imagebutton anchor (0.5, 0.5) pos (0.576, 0.59666):
-        idle At("images/interface/phone/icons/music_idle.webp", phone_icon) hover At("images/interface/phone/icons/music.webp", phone_icon)
+        idle At("images/interface/phone/icons/music_idle.webp", phone_icon) 
+        hover At("images/interface/phone/icons/music.webp", phone_icon)
         
         if phone_interactable and not phone_disabled:
             action [
@@ -575,7 +585,8 @@ screen app_screen():
             action None
 
     imagebutton anchor (0.5, 0.5) pos (0.416, 0.78):
-        idle At("images/interface/phone/icons/save_idle.webp", phone_icon) hover At("images/interface/phone/icons/save.webp", phone_icon)
+        idle At("images/interface/phone/icons/save_idle.webp", phone_icon) 
+        hover At("images/interface/phone/icons/save.webp", phone_icon)
         
         if phone_interactable and not phone_disabled:
             action ShowMenu("save")
@@ -583,7 +594,8 @@ screen app_screen():
             action None
 
     imagebutton anchor (0.5, 0.5) pos (0.496, 0.78):
-        idle At("images/interface/phone/icons/load_idle.webp", phone_icon) hover At("images/interface/phone/icons/load.webp", phone_icon)
+        idle At("images/interface/phone/icons/load_idle.webp", phone_icon) 
+        hover At("images/interface/phone/icons/load.webp", phone_icon)
         
         if phone_interactable and not phone_disabled:
             action ShowMenu("load")
@@ -591,7 +603,8 @@ screen app_screen():
             action None
 
     imagebutton anchor (0.5, 0.5) pos (0.576, 0.78):
-        idle At("images/interface/phone/icons/config_idle.webp", phone_icon) hover At("images/interface/phone/icons/config.webp", phone_icon)
+        idle At("images/interface/phone/icons/config_idle.webp", phone_icon) 
+        hover At("images/interface/phone/icons/config.webp", phone_icon)
         
         if phone_interactable and not phone_disabled:
             action [
@@ -890,7 +903,7 @@ screen text_history(Character):
 
             for Owner, content, status in Character.text_history:
                 if last_status == "read" and status in ["unread", "current", "recently_read"]:
-                    add "images/interface/phone/texts_end.webp"
+                    add "images/interface/phone/texts_end.webp" align (0.5, 0.5) zoom interface_adjustment
 
                 if Owner != Player:
                     hbox align (0.0, 0.0):

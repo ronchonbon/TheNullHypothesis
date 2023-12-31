@@ -488,6 +488,8 @@ label Rogue_boyfriend:
 
     $ Partners.append(Rogue)
 
+    $ Rogue.History.update("started_relationship")
+
     $ temp = Rogue.chat_options[:]
 
     python:

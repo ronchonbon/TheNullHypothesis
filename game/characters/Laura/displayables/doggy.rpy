@@ -595,18 +595,16 @@ image Laura_doggy_left_arm:
     offset (int(1474*sex_sampling), int(1200*sex_sampling))
 
 layeredimage Laura_doggy_hair:
-    # if Laura.wet or Laura.Clothes["hair"].string == "wet":
-    #     "characters/Laura/images/doggy/hair_shadow_wet.webp"
-    # else:
-    if Laura.Clothes["hair"].string in ["bun", "tucked"]:
+    if Laura.wet or Laura.Clothes["hair"].string == "wet":
+        "characters/Laura/images/doggy/hair_shadow_wet.webp"
+    elif Laura.Clothes["hair"].string in ["bun", "tucked"]:
         "characters/Laura/images/doggy/hair_shadow_straight.webp"
     else:
         "characters/Laura/images/doggy/hair_shadow_[Laura.Clothes[hair].string].webp"
 
-    # if Laura.wet or Laura.Clothes["hair"].string == "wet":
-    #     "characters/Laura/images/doggy/hair_wet.webp"
-    # else:
-    if Laura.Clothes["hair"].string in ["bun", "tucked"]:
+    if Laura.wet or Laura.Clothes["hair"].string == "wet":
+        "characters/Laura/images/doggy/hair_wet.webp"
+    elif Laura.Clothes["hair"].string in ["bun", "tucked"]:
         "characters/Laura/images/doggy/hair_straight.webp"
     else:
         "characters/Laura/images/doggy/hair_[Laura.Clothes[hair].string].webp"

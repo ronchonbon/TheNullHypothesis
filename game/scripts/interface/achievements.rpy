@@ -3,6 +3,8 @@ init -1:
     default achievement_messages = []
     default achievement_message = None
 
+    default temp_achievements = [0]
+
 style achievements is default
 
 style achievements_frame:
@@ -20,22 +22,13 @@ screen achievements_screen():
 
     style_prefix "achievements"
 
-    for a in achievements.keys():
-        $ achievement.register(a, stat_max = achievements[a]["goal"])
-
-        $ achievement.progress(a, eval(achievements[a]["condition"]))
-
-        if eval(achievements[a]["condition"]) >= achievements[a]["goal"]:
-            if not achievement.has(a):
-                $ achievement.grant(a)
-
-                if a not in achievement_messages:
-                    $ achievement_messages.append(a)
+    timer 10.0 action Function(achievements_screen_result) repeat True
 
     if achievement_messages and not achievement_message:
         timer 0.2 action [
             SetVariable("achievement_message", achievement_messages[0]), 
-            RemoveFromSet(achievement_messages, achievement_messages[0])]
+            RemoveFromSet(achievement_messages, achievement_messages[0]),
+            Play("sound", "sounds/interface/achievement.ogg")]
 
     if achievement_message:
         fixed align (0.0, 1.0) xysize (int(766*interface_adjustment), int(277*interface_adjustment)):
@@ -59,3 +52,24 @@ screen achievements_screen():
                 fade_out(0.4)
 
         timer 3.3 action SetVariable("achievement_message", None)
+
+init python:
+
+    def achievements_screen_result():
+        global achievement_messsages
+
+        for a in achievements.keys():
+            achievement.register(a, stat_max = achievements[a]["goal"])
+
+            if eval(achievements[a]["condition"]) >= achievements[a]["goal"]:
+                if not achievement.has(a):
+                    if a not in achievement_messages:
+                        achievement_messages.append(a)            
+
+            achievement.progress(a, eval(achievements[a]["condition"]))
+
+            if eval(achievements[a]["condition"]) >= achievements[a]["goal"]:
+                if not achievement.has(a):
+                    achievement.grant(a)
+
+        return

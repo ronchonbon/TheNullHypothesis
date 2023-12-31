@@ -21,6 +21,8 @@ init python:
 label Jean_date:
     $ ongoing_Event = True
 
+    $ total_spent = 0
+
     hide screen phone_screen
 
     if weather == "rain":
@@ -730,6 +732,8 @@ label Jean_date_dinner:
                     call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_2
 
                     $ Player.cash -= restaurant_bill[Player] + restaurant_bill[Jean]
+
+                    $ total_spent += restaurant_bill[Player] + restaurant_bill[Jean]
                 else:
                     "You realize you don't have enough money. . ." 
                     
@@ -743,6 +747,8 @@ label Jean_date_dinner:
                     "[Jean.name] pays the difference." 
                     
                     call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_3
+
+                    $ total_spent += Player.cash
 
                     $ Player.cash = 0
             else:
@@ -772,6 +778,8 @@ label Jean_date_dinner:
                     "You both pay the bill and head back into the mall."
 
                     $ Player.cash -= math.ceil((restaurant_bill[Player] + restaurant_bill[Jean])/2)
+                                    
+                    $ total_spent += math.ceil((restaurant_bill[Player] + restaurant_bill[Jean])/2)
                 else:
                     "You realize you don't have enough money to pay for half. . ."  
                     
@@ -785,6 +793,8 @@ label Jean_date_dinner:
                     "[Jean.name] pays the difference." 
                     
                     call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_5
+
+                    $ total_spent += Player.cash
 
                     $ Player.cash = 0
             else:
@@ -1287,7 +1297,9 @@ label Jean_date_movie:
                     
                     call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_15
 
-                    $ Player.cash -= 2*ticket_price
+                    $ Player.cash -= 2*ticket_price                    
+                    
+                    $ total_spent += 2*ticket_price  
                 else:
                     "You realize you don't have enough money. . ." 
                     
@@ -1301,6 +1313,8 @@ label Jean_date_movie:
                     "[Jean.name] pays the difference." 
                     
                     call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_16
+
+                    $ total_spent = Player.cash
 
                     $ Player.cash = 0
             else:
@@ -1330,6 +1344,8 @@ label Jean_date_movie:
                     "You both pay for the tickets."
 
                     $ Player.cash -= ticket_price
+
+                    $ total_spent += ticket_price
                 else:
                     "You realize you don't have enough money to pay for half. . ." 
                     
@@ -1343,6 +1359,8 @@ label Jean_date_movie:
                     "[Jean.name] pays the difference." 
                     
                     call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_18
+
+                    $ total_spent += Player.cash
 
                     $ Player.cash = 0
             else:
@@ -1396,6 +1414,8 @@ label Jean_date_movie_ron_bic1:
     call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_19
     call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_20
 
+    $ Player.History.update("seen_Ron_Bic_I")
+
     return
 
 label Jean_date_movie_ron_bic2:
@@ -1444,6 +1464,8 @@ label Jean_date_movie_ron_bic2:
 
     call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_21
     call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_22
+
+    $ Player.History.update("seen_Ron_Bic_II")
 
     return
 
@@ -2265,6 +2287,8 @@ label Jean_date_mall_dessert:
             $ Player.cash -= 10
         "Fresh Baked Cookies ($10)":
             $ Player.cash -= 10
+
+    $ total_spent += 10
 
     $ Jean.change_face("smirk2", eyes = "right")
 

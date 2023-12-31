@@ -74,6 +74,7 @@ init -3 python:
 
             self.income = 10
             self.cash = 20
+            self.total_cash = 20
 
             self.History = HistoryClass()
 

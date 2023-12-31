@@ -356,18 +356,16 @@ layeredimage Laura_masturbation_head:
     offset (int(2787*sex_sampling), int(1333*sex_sampling))
     
 layeredimage Laura_masturbation_hair:
-    # if Laura.wet or Laura.Clothes["hair"].string == "wet":
-    #     "characters/Laura/images/masturbation/hair_shadow_wet.webp"
-    # else:
-    if Laura.Clothes["hair"].string in ["bun", "tucked"]:
+    if Laura.wet or Laura.Clothes["hair"].string == "wet":
+        "characters/Laura/images/masturbation/hair_shadow_wet.webp"
+    elif Laura.Clothes["hair"].string in ["bun", "tucked"]:
         "characters/Laura/images/masturbation/hair_shadow_straight.webp"
     else:
         "characters/Laura/images/masturbation/hair_shadow_[Laura.Clothes[hair].string].webp"
 
-    # if Laura.wet or Laura.Clothes["hair"].string == "wet":
-    #     "characters/Laura/images/masturbation/hair_wet.webp"
-    # else:
-    if Laura.Clothes["hair"].string in ["bun", "tucked"]:
+    if Laura.wet or Laura.Clothes["hair"].string == "wet":
+        "characters/Laura/images/masturbation/hair_wet.webp"
+    elif Laura.Clothes["hair"].string in ["bun", "tucked"]:
         "characters/Laura/images/masturbation/hair_straight.webp"
     else:
         "characters/Laura/images/masturbation/hair_[Laura.Clothes[hair].string].webp"

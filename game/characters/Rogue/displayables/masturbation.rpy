@@ -356,10 +356,11 @@ layeredimage Rogue_masturbation_head:
     offset (int(2787*sex_sampling), int(1333*sex_sampling))
     
 layeredimage Rogue_masturbation_hair:
-    # if Rogue.wet or Rogue.Clothes["hair"].string == "wet":
-    #     "characters/Rogue/images/masturbation/hair_wet.webp"
-    # else:
-    always:
+    if Rogue.wet or Rogue.Clothes["hair"].string == "wet":
+        "characters/Rogue/images/masturbation/hair_wet.webp"
+    elif Rogue.Clothes["hair"].string in ["messy", "ponytail"]:
+        "characters/Rogue/images/masturbation/hair_asymmetric.webp"
+    else:
         "characters/Rogue/images/masturbation/hair_[Rogue.Clothes[hair].string].webp"
 
     if Rogue.spunk["hair"]:

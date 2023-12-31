@@ -8,6 +8,7 @@ label enter_cheat_code(code):
     if parsed_code[0] == "give" and len(parsed_code) > 1:
         if parsed_code[1] == "cash" and len(parsed_code) == 3:
             $ Player.cash += eval("parsed_code[2]")
+            $ Player.total_cash += eval("parsed_code[2]")
 
             if Player.cash < 0:
                 $ Player.cash = 0 
