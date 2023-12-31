@@ -97,7 +97,7 @@ layeredimage Kurt_standing:
     if Kurt.teleporting_out or Kurt.smoke or not Kurt.ground_shadow:
         Null()
     else:
-        "characters/Kurt/images/ground_shadow.webp"
+        "characters/Kurt/images/ground_shadow.webp" at Transform(blend = "multiply")
 
     if Kurt.teleporting_out or Kurt.smoke or Kurt.tail_hidden:
         Null()
@@ -131,8 +131,8 @@ layeredimage Kurt_standing:
 
     if Kurt.teleporting_out or Kurt.smoke:
         Null()
-    elif Kurt.left_arm in ["crossed", "neutral", "rub_neck"]:
-        "characters/Kurt/images/left_arm_[Kurt.left_arm]_shadow.webp"
+    elif Kurt.left_arm in ["crossed", "fist", "neutral", "rub_neck"]:
+        "characters/Kurt/images/left_arm_[Kurt.left_arm]_shadow.webp" at Transform(blend = "multiply")
 
     if Kurt.teleporting_out or Kurt.smoke:
         Null()
@@ -185,6 +185,9 @@ layeredimage Kurt_standing_head:
         "characters/Kurt/images/mouth_[Kurt.mouth].webp"
 
     if Kurt.beard:
+        "characters/Kurt/images/beard_[Kurt.beard]_shadow.webp" at Transform(blend = "multiply")
+
+    if Kurt.beard:
         "characters/Kurt/images/beard_[Kurt.beard].webp"
 
     if Kurt.eyes in ["closed", "down", "left", "right", "squint", "up", "wink"]:
@@ -197,6 +200,9 @@ layeredimage Kurt_standing_head:
 
     if Kurt.blush:
         "characters/Kurt/images/blush[Kurt.blush].webp"
+
+    if Kurt.hair:
+        "characters/Kurt/images/hair_[Kurt.hair]_shadow.webp" at Transform(blend = "multiply")
 
     if Kurt.hair:
         "characters/Kurt/images/hair_[Kurt.hair].webp"

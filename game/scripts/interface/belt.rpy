@@ -79,6 +79,24 @@ screen belt_screen():
 
         text f"{temperature[time_index]} " + u"\u00b0C" anchor (0.5, 0.5) pos (0.903, 0.082):
             size 25
+
+        if Player.sweat >= Player.sweaty_threshold:
+            imagebutton:
+                idle At("images/interface/belt/sweaty.webp", interface) 
+                hover At("images/interface/belt/sweaty.webp", interface)
+
+                action NullAction()
+
+                tooltip "Sweaty"
+
+        if Player.attendance_bonus:
+            imagebutton:
+                idle At("images/interface/belt/attendance.webp", interface) 
+                hover At("images/interface/belt/attendance.webp", interface)
+
+                action NullAction()
+
+                tooltip "Attendance Bonus"
                 
         if not belt_collapsed:
             if renpy.get_screen("say"):
@@ -196,24 +214,6 @@ screen belt_screen():
 
             if phone_alert or unread_messages:
                 add At("images/interface/belt/phone_alert.webp", interface)
-
-            if Player.sweat >= Player.sweaty_threshold:
-                imagebutton:
-                    idle At("images/interface/belt/sweaty.webp", interface) 
-                    hover At("images/interface/belt/sweaty.webp", interface)
-
-                    action NullAction()
-
-                    tooltip "Sweaty"
-
-            if Player.attendance_bonus:
-                imagebutton:
-                    idle At("images/interface/belt/attendance.webp", interface) 
-                    hover At("images/interface/belt/attendance.webp", interface)
-
-                    action NullAction()
-
-                    tooltip "Attendance Bonus"
 
     if tooltips_enabled:
         use tooltips

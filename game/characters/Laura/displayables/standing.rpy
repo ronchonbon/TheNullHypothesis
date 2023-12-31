@@ -109,7 +109,7 @@ layeredimage Laura_standing:
         "Laura_standing_male_right_arm_grab_ass_animation[Player.right_hand_Actions[0].mode]" at Transform(offset = (Laura_standing_ass_position[0], Laura_standing_ass_position[1]))
 
     if Laura.ground_shadow:
-        "characters/Laura/images/standing/ground_shadow.webp"
+        "characters/Laura/images/standing/ground_shadow.webp" at Transform(blend = "multiply")
 
     if renpy.get_screen("Wardrobe_screen"):
         "Laura_standing_hair_back"
@@ -131,6 +131,9 @@ layeredimage Laura_standing:
     always:
         "Laura_standing_body"
 
+    if Laura.left_arm in ["grope", "hip"]:
+        "characters/Laura/images/standing/left_arm_[Laura.left_arm]_shadow.webp" at Transform(blend = "multiply")
+
     if Laura.left_arm not in ["bra", "claws", "crossed", "fight", "fist", "grope", "hip", "neutral", "touch_ass", "X"]:
         Null()
     elif renpy.get_screen("Wardrobe_screen"):
@@ -141,13 +144,16 @@ layeredimage Laura_standing:
         "Laura_standing_left_arm"
 
     if Laura.right_arm in ["hip", "touch_pussy"]:
-        "characters/Laura/images/standing/right_forearm_[Laura.right_arm]_shadow.webp"
+        "characters/Laura/images/standing/right_forearm_[Laura.right_arm]_shadow.webp" at Transform(blend = "multiply")
 
     if Laura.right_arm in ["hip", "touch_pussy"]:
         "characters/Laura/images/standing/right_forearm_[Laura.right_arm].webp"
 
     if Laura.Clothes["hair"].string in ["tucked"]:
         "characters/Laura/images/standing/hair_tucked_mid.webp"
+
+    if Laura.Clothes["hair"].string in ["tucked"]:
+        "characters/Laura/images/standing/hair_tucked_mid_shadow.webp" at Transform(blend = "multiply")
 
     if not Player.left_hand_Actions or Laura not in Player.left_hand_Actions[0].Targets:
         Null()
@@ -164,29 +170,29 @@ layeredimage Laura_standing:
     else:
         "Laura_standing_head" at Laura_standing_head_animation
 
-    if Laura.left_arm in ["rub_neck"]:
-        "characters/Laura/images/standing/left_arm_[Laura.left_arm]_shadow.webp"
-
-    if Laura.left_arm in ["extended", "rub_neck"]:
+    if Laura.left_arm in ["extended"]:
         "characters/Laura/images/standing/left_arm_[Laura.left_arm].webp"
 
     if Laura.right_arm in ["extended", "fight", "X"]:
         "characters/Laura/images/standing/right_forearm_[Laura.right_arm].webp"
 
     if Laura.left_arm == "X" and Laura.right_arm == "X":
-        "characters/Laura/images/standing/left_forearm_X_shadow.webp"
+        "characters/Laura/images/standing/left_forearm_X_shadow.webp" at Transform(blend = "multiply")
 
     if not Laura.right_claw or Laura.Clothes["gloves"].string:
         Null()
     elif Laura.right_arm in ["fight", "X"]:
-        "characters/Laura/images/standing/claws_right_[Laura.right_arm]_shadow.webp"
+        "characters/Laura/images/standing/claws_right_[Laura.right_arm]_shadow.webp" at Transform(blend = "multiply")
 
     if not Laura.right_claw:
         Null()
     elif Laura.right_arm in ["fight", "X"]:
         "characters/Laura/images/standing/claws_right_[Laura.right_arm].webp"
 
-    if Laura.left_arm in ["fight", "X"]:
+    if Laura.left_arm in ["rub_neck"]:
+        "characters/Laura/images/standing/left_forearm_[Laura.left_arm]_shadow.webp" at Transform(blend = "multiply")
+
+    if Laura.left_arm in ["fight", "rub_neck", "X"]:
         "characters/Laura/images/standing/left_forearm_[Laura.left_arm].webp"
 
     if not Laura.left_claw or Laura.Clothes["gloves"].string:
@@ -317,13 +323,13 @@ layeredimage Laura_standing_body:
         "characters/Laura/images/standing/spunk_belly2.webp"
 
     always:
-        "characters/Laura/images/standing/breasts_shadow.webp"
+        "characters/Laura/images/standing/breasts_shadow.webp" at Transform(blend = "multiply")
 
     always:
         "characters/Laura/images/standing/breasts.webp"
 
     if Laura.left_arm == "grope":
-        "characters/Laura/images/standing/breasts_grope_shadow.webp"
+        "characters/Laura/images/standing/breasts_grope_shadow.webp" at Transform(blend = "multiply")
 
     if Laura.left_arm == "grope":
         "characters/Laura/images/standing/breasts_grope.webp"
@@ -423,9 +429,9 @@ layeredimage Laura_standing_head:
     # if Laura.Clothes["face_outer_accessory"].string:
     #     Null()
     if Laura.wet or Laura.Clothes["hair"].string == "wet":
-        "characters/Laura/images/standing/hair_wet_shadow.webp"
+        "characters/Laura/images/standing/hair_wet_shadow.webp" at Transform(blend = "multiply")
     else:
-        "characters/Laura/images/standing/hair_[Laura.Clothes[hair].string]_shadow.webp"
+        "characters/Laura/images/standing/hair_[Laura.Clothes[hair].string]_shadow.webp" at Transform(blend = "multiply")
 
     # if Laura.Clothes["face_outer_accessory"].string:
     #     Null()

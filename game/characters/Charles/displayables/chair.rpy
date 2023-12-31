@@ -67,13 +67,13 @@ layeredimage Charles_chair_temp:
 
 layeredimage Charles_chair:
     if Charles.ground_shadow:
-        "characters/Charles/images/ground_shadow.webp"
+        "characters/Charles/images/ground_shadow.webp" at Transform(blend = "multiply")
 
     always:
         "characters/Charles/images/body.webp"
 
     always:
-        "characters/Charles/images/arms_shadow.webp"
+        "characters/Charles/images/arms_shadow.webp" at Transform(blend = "multiply")
 
     always:
         "characters/Charles/images/arms.webp"

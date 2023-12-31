@@ -81,7 +81,7 @@ layeredimage Rogue_standing:
         "Rogue_standing_male_right_arm_grab_ass_animation[Player.right_hand_Actions[0].mode]" at change_offset(Rogue_standing_ass_position[0], Rogue_standing_ass_position[1])
 
     if Rogue.ground_shadow:
-        "characters/Rogue/images/standing/ground_shadow.webp"
+        "characters/Rogue/images/standing/ground_shadow.webp" at Transform(blend = "multiply")
 
     if renpy.get_screen("Wardrobe_screen"):
         "Rogue_standing_hair_back"
@@ -125,6 +125,9 @@ layeredimage Rogue_standing:
     always:
         "Rogue_standing_body"
 
+    if Rogue.left_arm in ["fist", "hip", "neutral"]:
+        "characters/Rogue/images/standing/left_arm_[Rogue.left_arm]_shadow.webp" at Transform(blend = "multiply")
+
     if Rogue.left_arm not in ["bra", "extended", "fight", "fist", "grope", "hip", "neutral", "rub_neck", "touch_ass"]:
         Null()
     elif renpy.get_screen("Wardrobe_screen"):
@@ -151,6 +154,9 @@ layeredimage Rogue_standing:
         "Rogue_standing_left_sleeve" at Rogue_standing_left_arm_animation
     else:
         "Rogue_standing_left_sleeve"
+
+    if Rogue.right_arm in ["hip", "touch_pussy"]:
+        "characters/Rogue/images/standing/right_forearm_[Rogue.right_arm]_shadow.webp" at Transform(blend = "multiply")
 
     if Rogue.right_arm in ["hip", "touch_pussy"]:
         "characters/Rogue/images/standing/right_forearm_[Rogue.right_arm].webp"
@@ -265,6 +271,9 @@ layeredimage Rogue_standing:
     elif Rogue.right_arm in ["fight"]:
         "characters/Rogue/images/standing/jacket_[Rogue.Clothes[jacket].string]_right_forearm_sleeve_[Rogue.right_arm].webp"
         
+    if Rogue.left_arm in ["rub_neck"]:
+        "characters/Rogue/images/standing/left_forearm_[Rogue.left_arm]_shadow.webp" at Transform(blend = "multiply")
+
     if Rogue.left_arm in ["fight", "rub_neck"]:
         "characters/Rogue/images/standing/left_forearm_[Rogue.left_arm].webp"
 
@@ -524,11 +533,11 @@ layeredimage Rogue_standing_body:
         "characters/Rogue/images/standing/sleeves_[Rogue.Clothes[sleeves].string]_right_[Rogue.right_arm].webp"
 
     if Rogue.left_arm == "crossed" and Rogue.right_arm == "crossed":
-        "characters/Rogue/images/standing/breasts_crossed_shadow.webp"
+        "characters/Rogue/images/standing/breasts_crossed_shadow.webp" at Transform(blend = "multiply")
     elif Rogue.breasts_supported:
-        "characters/Rogue/images/standing/breasts_supported_shadow.webp"
+        "characters/Rogue/images/standing/breasts_supported_shadow.webp" at Transform(blend = "multiply")
     else:
-        "characters/Rogue/images/standing/breasts_shadow.webp"
+        "characters/Rogue/images/standing/breasts_shadow.webp" at Transform(blend = "multiply")
 
     if Rogue.left_arm == "crossed" and Rogue.right_arm == "crossed":
         "characters/Rogue/images/standing/breasts_crossed.webp"
@@ -711,9 +720,9 @@ layeredimage Rogue_standing_head:
         "characters/Rogue/images/standing/spunk_face2.webp"
 
     if Rogue.wet or Rogue.Clothes["hair"].string == "wet":
-        "characters/Rogue/images/standing/hair_wet_shadow.webp"
+        "characters/Rogue/images/standing/hair_wet_shadow.webp" at Transform(blend = "multiply")
     else:
-        "characters/Rogue/images/standing/hair_[Rogue.Clothes[hair].string]_shadow.webp"
+        "characters/Rogue/images/standing/hair_[Rogue.Clothes[hair].string]_shadow.webp" at Transform(blend = "multiply")
 
     if Rogue.wet or Rogue.Clothes["hair"].string == "wet":
         "characters/Rogue/images/standing/hair_wet.webp"

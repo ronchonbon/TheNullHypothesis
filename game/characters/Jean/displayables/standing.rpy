@@ -115,7 +115,7 @@ layeredimage Jean_standing:
         At("Jean_standing_male_right_arm_grab_ass_animation[Player.right_hand_Actions[0].mode]", change_offset(Jean_standing_ass_position[0], Jean_standing_ass_position[1]))
 
     if Jean.ground_shadow:
-        "characters/Jean/images/standing/ground_shadow.webp"
+        "characters/Jean/images/standing/ground_shadow.webp" at Transform(blend = "multiply")
 
     if renpy.get_screen("Wardrobe_screen"):
         "Jean_standing_hair_back"
@@ -160,6 +160,9 @@ layeredimage Jean_standing:
         "characters/Jean/images/standing/bodysuit_blueyellow_classic_suit_right_pauldron_[Jean.right_arm].webp"
     else:
         "characters/Jean/images/standing/bodysuit_blueyellow_classic_suit_right_pauldron.webp"
+    
+    if Jean.left_arm not in ["hip", "neutral"]:
+        "characters/Jean/images/standing/left_arm_[Jean.left_arm]_shadow.webp" at Transform(blend = "multiply")
 
     if Jean.left_arm not in ["bra", "crossed", "extended", "fight", "fist", "grope", "hip", "neutral", "psychic1", "psychic2", "rub_neck", "touch_ass"]:
         Null()
@@ -190,6 +193,9 @@ layeredimage Jean_standing:
         "characters/Jean/images/standing/bodysuit_blueyellow_classic_suit_left_pauldron_[Jean.left_arm].webp"
     elif Jean.left_arm not in ["extended"]:
         "characters/Jean/images/standing/bodysuit_blueyellow_classic_suit_left_pauldron.webp"
+    
+    if Jean.right_arm in ["hip", "touch_pussy"]:
+        "characters/Jean/images/standing/right_forearm_[Jean.right_arm]_shadow.webp" at Transform(blend = "multiply")
 
     if Jean.right_arm in ["hip", "touch_pussy"]:
         "characters/Jean/images/standing/right_forearm_[Jean.right_arm].webp"
@@ -208,6 +214,9 @@ layeredimage Jean_standing:
         Null()
     elif Jean.right_arm in ["hip", "touch_pussy"]:
         "characters/Jean/images/standing/sleeves_[Jean.Clothes[sleeves].string]_right_[Jean.right_arm].webp"
+
+    if Jean.left_arm in ["grope"]:
+        "characters/Jean/images/standing/left_forearm_[Jean.left_arm]_shadow.webp" at Transform(blend = "multiply")
 
     if Jean.left_arm in ["grope"]:
         "characters/Jean/images/standing/left_forearm_[Jean.left_arm].webp"
@@ -361,10 +370,10 @@ layeredimage Jean_standing_head:
         "characters/Jean/images/standing/face_inner_accessory_[Jean.Clothes[face_inner_accessory].string].webp"
 
     # if Jean.wet or Jean.Clothes["hair"].string == "wet":
-    #     "characters/Jean/images/standing/hair_wet_shadow.webp"
+    #     "characters/Jean/images/standing/hair_wet_shadow.webp" at Transform(blend = "multiply")
     # else:
     always:
-        "characters/Jean/images/standing/hair_[Jean.Clothes[hair].string]_shadow.webp"
+        "characters/Jean/images/standing/hair_[Jean.Clothes[hair].string]_shadow.webp" at Transform(blend = "multiply")
 
     # if Jean.wet or Jean.Clothes["hair"].string == "wet":
     #     "characters/Jean/images/standing/hair_wet.webp"
@@ -452,7 +461,7 @@ layeredimage Jean_standing_body:
         "characters/Jean/images/standing/pants_[Jean.Clothes[pants].string]_[Jean.Clothes[pants].state].webp"
 
     always:
-        "characters/Jean/images/standing/breasts_shadow.webp"
+        "characters/Jean/images/standing/breasts_shadow.webp" at Transform(blend = "multiply")
 
     if Jean.left_arm == "crossed" and Jean.right_arm == "crossed":
         "characters/Jean/images/standing/breasts_crossed.webp"
@@ -460,7 +469,7 @@ layeredimage Jean_standing_body:
         "characters/Jean/images/standing/breasts.webp"
 
     if Jean.left_arm == "grope":
-        "characters/Jean/images/standing/left_forearm_grope_shadow.webp"
+        "characters/Jean/images/standing/left_forearm_grope_shadow.webp" at Transform(blend = "multiply")
 
     if not Jean.Clothes["bra"].string:
         Null()
