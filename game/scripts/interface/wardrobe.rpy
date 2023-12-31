@@ -21,9 +21,14 @@ init -1:
         "sleepwear": False,
         "winterwear": False}
 
+    default Wardrobe_animation_time = 0.0
+    default Wardrobe_anchor = [0.0, 0.0]
+    default Wardrobe_position = [0.0, 0.0]
+    default Wardrobe_zoom = 0.0
+
     default changed_body_hair = False
 
-    default wardrobe_magazine = True
+    default Wardrobe_magazine = True
 
 style Wardrobe is default
 
@@ -39,6 +44,10 @@ screen Wardrobe_screen(Character):
         SetVariable("choice_disabled", True), 
         SetVariable("Character_picker_disabled", True),
         SetVariable("tab", "default"),
+        SetVariable("Wardrobe_animation_time", 0.0),
+        SetVariable("Wardrobe_anchor", [eval(f"{Character.tag}_standing_anchor")[0], eval(f"{Character.tag}_standing_bottom")]),
+        SetVariable("Wardrobe_position", [0.5, 0.95]),
+        SetVariable("Wardrobe_zoom", 0.6),
         SetVariable("changed_body_hair", False),
         SetField(Character, "previous_Outfit", Character.Outfit.name)]
     on "hide" action [
@@ -63,13 +72,17 @@ screen Wardrobe_screen(Character):
         idle At("images/interface/wardrobe/exit_idle.webp", interface)
         hover At("images/interface/wardrobe/exit.webp", interface)
         
-        action Call("review_Outfit", Character, from_current = True)
+        action [
+            SetVariable("Wardrobe_animation_time", 1.0),
+            SetVariable("Wardrobe_position", [0.5, 0.95]),
+            SetVariable("Wardrobe_zoom", 0.6),
+            Call("review_Outfit", Character, from_current = True)]
 
         tooltip "Exit"
 
     add "images/interface/wardrobe/outfit_box.webp" zoom interface_adjustment
 
-    if wardrobe_magazine:
+    if Wardrobe_magazine:
         add "images/interface/wardrobe/magazine.webp" zoom interface_adjustment
 
     imagebutton:
@@ -165,12 +178,9 @@ screen Wardrobe_screen(Character):
     #     text "FILTERS" + "_" anchor (0.0, 0.5) pos (0.242, 0.129):
     #         size 28
 
-    add f"{Character.tag}_sprite standing":
-        transform_anchor True
-
-        anchor (eval(f"{Character.tag}_standing_anchor")[0], eval(f"{Character.tag}_standing_bottom")) 
-        pos (0.38, 0.915) 
-        zoom 0.6*eval(f"{Character.tag}_standing_zoom")
+    viewport anchor (0.0, 0.0) pos (0.234, 0.211) xysize (0.295, 0.733):
+        fixed align (0.5, 0.5) xysize (1.0, 1.0):
+            add f"{Character.tag}_sprite standing" at Wardrobe_transform(Wardrobe_animation_time, Wardrobe_anchor, Wardrobe_position, Wardrobe_zoom*eval(f"{Character.tag}_standing_zoom"))
 
     imagebutton:
         idle At("images/interface/wardrobe/accessory_idle.webp", interface)
@@ -179,7 +189,11 @@ screen Wardrobe_screen(Character):
         
         selected current_Wardrobe_screen == "accessory"
         
-        action SetVariable("current_Wardrobe_screen", "accessory")
+        action [
+            SetVariable("current_Wardrobe_screen", "accessory"),
+            SetVariable("Wardrobe_animation_time", 1.0),
+            SetVariable("Wardrobe_position", [0.5, 0.95]),
+            SetVariable("Wardrobe_zoom", 0.6)]
 
     imagebutton:
         idle At("images/interface/wardrobe/hair_idle.webp", interface)
@@ -188,7 +202,11 @@ screen Wardrobe_screen(Character):
         
         selected current_Wardrobe_screen == "hair"
         
-        action SetVariable("current_Wardrobe_screen", "hair")
+        action [
+            SetVariable("current_Wardrobe_screen", "hair"),
+            SetVariable("Wardrobe_animation_time", 1.0),
+            SetVariable("Wardrobe_position", [0.5, 2.8]),
+            SetVariable("Wardrobe_zoom", 1.0/eval(f"{Character.tag}_standing_zoom"))]
 
     imagebutton:
         idle At("images/interface/wardrobe/upper_idle.webp", interface)
@@ -197,7 +215,11 @@ screen Wardrobe_screen(Character):
         
         selected current_Wardrobe_screen == "upper"
         
-        action SetVariable("current_Wardrobe_screen", "upper")
+        action [
+            SetVariable("current_Wardrobe_screen", "upper"),
+            SetVariable("Wardrobe_animation_time", 1.0),
+            SetVariable("Wardrobe_position", [0.5, 2.25]),
+            SetVariable("Wardrobe_zoom", 0.9/eval(f"{Character.tag}_standing_zoom"))]
         
     imagebutton:
         idle At("images/interface/wardrobe/lower_idle.webp", interface)
@@ -206,7 +228,11 @@ screen Wardrobe_screen(Character):
         
         selected current_Wardrobe_screen == "lower"
         
-        action SetVariable("current_Wardrobe_screen", "lower")
+        action [
+            SetVariable("current_Wardrobe_screen", "lower"),
+            SetVariable("Wardrobe_animation_time", 1.0),
+            SetVariable("Wardrobe_position", [0.5, 0.95]),
+            SetVariable("Wardrobe_zoom", 0.55/eval(f"{Character.tag}_standing_zoom"))]
 
     text "ACCESSORIES" anchor (0.5, 0.5) pos (0.685, 0.13):
         size 30
@@ -580,7 +606,7 @@ screen accessory_screen(Character):
         base_bar At("images/interface/wardrobe/clothing_scrollbar.webp", interface)
 
         thumb At("images/interface/wardrobe/clothing_scrollbar_thumb.webp", interface)
-        thumb_offset int(212*interface_adjustment/2/3)
+        thumb_offset int(212*interface_adjustment/2/10)
 
         unscrollable "hide"
 
@@ -666,9 +692,17 @@ screen hair_screen(Character):
                                 action NullAction()
                             else:
                                 if hair_style == "shaven":
-                                    action SetDict(Character.body_hair, "pubic", None)
+                                    action [
+                                        SetDict(Character.body_hair, "pubic", None),
+                                        SetVariable("Wardrobe_animation_time", 1.0),
+                                        SetVariable("Wardrobe_position", [0.5, 1.8]),
+                                        SetVariable("Wardrobe_zoom", 1.0/eval(f"{Character.tag}_standing_zoom"))]
                                 else:
-                                    action SetDict(Character.body_hair, "pubic", hair_style)
+                                    action [
+                                        SetDict(Character.body_hair, "pubic", hair_style),
+                                        SetVariable("Wardrobe_animation_time", 1.0),
+                                        SetVariable("Wardrobe_position", [0.5, 1.8]),
+                                        SetVariable("Wardrobe_zoom", 1.0/eval(f"{Character.tag}_standing_zoom"))]
                                 # action [
                                 #     SetVariable("changed_body_hair", True),
                                 #     Call("ask_Character_to_shave", Character, hair_style, from_current = True)]
@@ -905,7 +939,7 @@ screen hair_screen(Character):
         base_bar At("images/interface/wardrobe/clothing_scrollbar.webp", interface)
 
         thumb At("images/interface/wardrobe/clothing_scrollbar_thumb.webp", interface)
-        thumb_offset int(212*interface_adjustment/2/3)
+        thumb_offset int(212*interface_adjustment/2/10)
 
         unscrollable "hide"
 
@@ -985,7 +1019,7 @@ screen upper_screen(Character):
         base_bar At("images/interface/wardrobe/clothing_scrollbar.webp", interface)
 
         thumb At("images/interface/wardrobe/clothing_scrollbar_thumb.webp", interface)
-        thumb_offset int(212*interface_adjustment/2/3)
+        thumb_offset int(212*interface_adjustment/2/10)
 
         unscrollable "hide"
 
@@ -1065,7 +1099,7 @@ screen lower_screen(Character):
         base_bar At("images/interface/wardrobe/clothing_scrollbar.webp", interface)
 
         thumb At("images/interface/wardrobe/clothing_scrollbar_thumb.webp", interface)
-        thumb_offset int(212*interface_adjustment/2/3)
+        thumb_offset int(212*interface_adjustment/2/10)
 
         unscrollable "hide"
 

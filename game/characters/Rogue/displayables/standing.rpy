@@ -83,7 +83,9 @@ layeredimage Rogue_standing:
     if Rogue.ground_shadow:
         "characters/Rogue/images/standing/ground_shadow.webp"
 
-    always:
+    if renpy.get_screen("Wardrobe_screen"):
+        "Rogue_standing_hair_back"
+    else:
         "Rogue_standing_hair_back" at Rogue_standing_head_animation
 
     if Rogue.left_arm in ["bra", "touch_ass"]:
@@ -113,6 +115,8 @@ layeredimage Rogue_standing:
 
     if Rogue.right_arm not in ["bra", "extended", "fight", "fist", "hip", "neutral", "touch_pussy"]:
         Null()
+    elif renpy.get_screen("Wardrobe_screen"):
+        "Rogue_standing_right_arm"
     elif Rogue.right_arm == "neutral":
         "Rogue_standing_right_arm" at Rogue_standing_right_arm_animation
     else:
@@ -123,6 +127,8 @@ layeredimage Rogue_standing:
 
     if Rogue.left_arm not in ["bra", "extended", "fight", "fist", "grope", "hip", "neutral", "rub_neck", "touch_ass"]:
         Null()
+    elif renpy.get_screen("Wardrobe_screen"):
+        "Rogue_standing_left_arm"
     elif Rogue.left_arm == "neutral":
         "Rogue_standing_left_arm" at Rogue_standing_left_arm_animation
     else:
@@ -139,6 +145,8 @@ layeredimage Rogue_standing:
 
     if Rogue.left_arm not in ["bra", "fight", "fist", "grope", "hip", "neutral", "rub_neck", "touch_ass"]:
         Null()
+    elif renpy.get_screen("Wardrobe_screen"):
+        "Rogue_standing_left_sleeve"
     elif Rogue.left_arm == "neutral":
         "Rogue_standing_left_sleeve" at Rogue_standing_left_arm_animation
     else:
@@ -219,7 +227,9 @@ layeredimage Rogue_standing:
     elif Player.right_hand_Actions[0].animation_type == "choke":
         "Rogue_standing_male_right_arm_choke_animation[Player.right_hand_Actions[0].mode]" at change_offset(Rogue_standing_neck_position[0], Rogue_standing_neck_position[1])
 
-    always:
+    if renpy.get_screen("Wardrobe_screen"):
+        "Rogue_standing_head"
+    else:
         "Rogue_standing_head" at Rogue_standing_head_animation
 
     if Rogue.right_arm in ["fight"]:

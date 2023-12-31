@@ -386,26 +386,26 @@ screen preferences():
                             ToggleVariable("belt_hidden"),
                             ToggleVariable("Action_screen_hidden")]
 
-                vbox:
-                    text "WARDROBE MAGAZINE" anchor (0.5, 0.5) pos (0.47, 0.5)
+                # vbox:
+                #     text "WARDROBE MAGAZINE" anchor (0.5, 0.5) pos (0.47, 0.5)
 
-                    button xysize (int(321*interface_adjustment), int(190*interface_adjustment)):
-                        idle_background At("images/interface/preferences/off.webp", interface) 
-                        hover_background At("images/interface/preferences/off.webp", interface) 
-                        selected_idle_background At("images/interface/preferences/on.webp", interface) 
-                        selected_hover_background At("images/interface/preferences/on.webp", interface)
+                #     button xysize (int(321*interface_adjustment), int(190*interface_adjustment)):
+                #         idle_background At("images/interface/preferences/off.webp", interface) 
+                #         hover_background At("images/interface/preferences/off.webp", interface) 
+                #         selected_idle_background At("images/interface/preferences/on.webp", interface) 
+                #         selected_hover_background At("images/interface/preferences/on.webp", interface)
 
-                        hover_sound None
+                #         hover_sound None
                         
-                        selected wardrobe_magazine
+                #         selected Wardrobe_magazine
 
-                        text "OFF" anchor (0.5, 0.5) pos (0.2, 0.461):
-                            size 25
+                #         text "OFF" anchor (0.5, 0.5) pos (0.2, 0.461):
+                #             size 25
 
-                        text "ON" anchor (0.5, 0.5) pos (0.7, 0.461):
-                            size 25
+                #         text "ON" anchor (0.5, 0.5) pos (0.7, 0.461):
+                #             size 25
 
-                        action ToggleVariable("wardrobe_magazine")
+                #         action ToggleVariable("Wardrobe_magazine")
     elif preferences_tab == "audio":
         hbox anchor (0.5, 0.5) pos (0.431, 0.643) xysize (int(2800*interface_adjustment), int(1150*interface_adjustment)):
             spacing 50

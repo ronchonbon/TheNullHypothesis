@@ -32,7 +32,6 @@ init -1 python:
                 "back": [0]}}
         hides = {
             "standing": {
-                "breasts": [0],
                 "back": [0]}}
 
         covered_by = {}

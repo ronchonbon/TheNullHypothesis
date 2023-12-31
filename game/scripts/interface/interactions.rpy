@@ -25,7 +25,7 @@ screen Character_picker():
                         hovered SetField(C, "hovered", True)
                         unhovered SetField(C, "hovered", False)
 
-                        if C == middle_Slot:
+                        if C == middle_Slot or not left_Slot or not right_Slot:
                             action [
                                 SetVariable("focused_Character", C),
                                 SetField(C, "hovered", False),
@@ -34,7 +34,7 @@ screen Character_picker():
                             action [
                                 SetVariable("focused_Character", C),
                                 SetField(C, "hovered", False),
-                                Call("set_the_scene", fade = False, selected_Character = C)]
+                                Call("set_the_scene", fade = False, selected_Character = C, from_current = True)]
 
                         focus_mask True
                         
@@ -45,14 +45,14 @@ screen Character_picker():
                         hovered SetField(C, "hovered", True)
                         unhovered SetField(C, "hovered", False)
 
-                        if C == middle_Slot:
+                        if C == middle_Slot or not left_Slot or not right_Slot:
                             action [
                                 SetField(C, "hovered", False),
                                 Show("interactions_screen", Character = C)]
                         else:
                             action [
                                 SetField(C, "hovered", False),
-                                Call("set_the_scene", fade = False, selected_Character = C)]
+                                Call("set_the_scene", fade = False, selected_Character = C, from_current = True)]
 
                         focus_mask True
 

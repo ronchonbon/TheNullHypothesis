@@ -111,7 +111,9 @@ layeredimage Laura_standing:
     if Laura.ground_shadow:
         "characters/Laura/images/standing/ground_shadow.webp"
 
-    always:
+    if renpy.get_screen("Wardrobe_screen"):
+        "Laura_standing_hair_back"
+    else:
         "Laura_standing_hair_back" at Laura_standing_head_animation
 
     if Laura.left_arm in ["bra", "touch_ass"]:
@@ -119,6 +121,8 @@ layeredimage Laura_standing:
 
     if Laura.right_arm not in ["bra", "claws", "crossed", "extended", "fight", "fist", "hip", "neutral", "touch_pussy", "X"]:
         Null()
+    elif renpy.get_screen("Wardrobe_screen"):
+        "Laura_standing_right_arm"
     elif Laura.right_arm == "neutral":
         "Laura_standing_right_arm" at Laura_standing_right_arm_animation
     else:
@@ -129,6 +133,8 @@ layeredimage Laura_standing:
 
     if Laura.left_arm not in ["bra", "claws", "crossed", "fight", "fist", "grope", "hip", "neutral", "touch_ass", "X"]:
         Null()
+    elif renpy.get_screen("Wardrobe_screen"):
+        "Laura_standing_left_arm"
     elif Laura.left_arm == "neutral":
         "Laura_standing_left_arm" at Laura_standing_left_arm_animation
     else:
@@ -153,7 +159,9 @@ layeredimage Laura_standing:
     elif Player.right_hand_Actions[0].animation_type == "choke":
         "Laura_standing_male_right_arm_choke_animation[Player.right_hand_Actions[0].mode]" at Transform(offset = (Laura_standing_neck_position[0], Laura_standing_neck_position[1]))
 
-    always:
+    if renpy.get_screen("Wardrobe_screen"):
+        "Laura_standing_head"
+    else:
         "Laura_standing_head" at Laura_standing_head_animation
 
     if Laura.left_arm in ["rub_neck"]:

@@ -171,3 +171,9 @@ init -99:
 
         align (0.5, 0.5)
         zoom 0.15
+
+    transform Wardrobe_transform(t, a, xy, z):
+        subpixel True
+        transform_anchor True
+        
+        ease t anchor (a[0], a[1]) pos (xy[0], xy[1]) zoom z
