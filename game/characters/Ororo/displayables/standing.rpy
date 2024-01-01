@@ -76,26 +76,81 @@ layeredimage Ororo_standing:
     else:
         "Ororo_standing_hair_back" at Ororo_standing_head_animation
 
+    if Ororo.Clothes["cloak"].string:
+        "characters/Ororo/images/standing/cloak_[Ororo.Clothes[cloak].string]_back.webp"
+
     if Ororo.right_arm in ["bra"]:
         "characters/Ororo/images/standing/right_forearm_[Ororo.right_arm].webp"
+
+    if not Ororo.Clothes["bodysuit"].string:
+        Null()
+    elif Ororo.Clothes["bodysuit"].string in ["black_classic_suit"] and Ororo.Clothes["bodysuit"].state == 1:
+        Null()
+    elif Ororo.right_arm in ["bra"]:
+        "characters/Ororo/images/standing/bodysuit_[Ororo.Clothes[bodysuit].string]_right_forearm_sleeve_[Ororo.right_arm].webp"
+
+    if not Ororo.Clothes["gloves"].string:
+        Null()
+    elif Ororo.right_arm in ["bra"]:
+        "characters/Ororo/images/standing/gloves_[Ororo.Clothes[gloves].string]_right_[Ororo.right_arm].webp"
 
     if Ororo.left_arm in ["bra", "storm1", "touch_ass"]:
         "characters/Ororo/images/standing/left_forearm_[Ororo.left_arm].webp"
 
+    if not Ororo.Clothes["bodysuit"].string:
+        Null()
+    elif Ororo.Clothes["bodysuit"].string in ["black_classic_suit"] and Ororo.Clothes["bodysuit"].state == 1:
+        Null()
+    elif Ororo.left_arm in ["bra", "storm1", "touch_ass"]:
+        "characters/Ororo/images/standing/bodysuit_[Ororo.Clothes[bodysuit].string]_left_forearm_sleeve_[Ororo.left_arm].webp"
+
+    if not Ororo.Clothes["gloves"].string:
+        Null()
+    elif Ororo.left_arm in ["bra", "storm1", "touch_ass"]:
+        "characters/Ororo/images/standing/gloves_[Ororo.Clothes[gloves].string]_left_[Ororo.left_arm].webp"
+
     always:
         "Ororo_standing_body"
 
-    if Ororo.right_arm in ["touch_pussy"]:
+    if Ororo.right_arm in ["hip", "touch_pussy"]:
         "characters/Ororo/images/standing/right_forearm_[Ororo.right_arm]_shadow.webp" at Transform(blend = "multiply")
 
-    if Ororo.right_arm in ["crossed", "touch_pussy"]:
+    if Ororo.right_arm in ["crossed", "hip", "touch_pussy"]:
         "characters/Ororo/images/standing/right_forearm_[Ororo.right_arm].webp"
 
-    if Ororo.left_arm in ["grope"]:
+    if not Ororo.Clothes["bodysuit"].string:
+        Null()
+    elif Ororo.Clothes["bodysuit"].string in ["black_classic_suit"] and Ororo.Clothes["bodysuit"].state == 1:
+        Null()
+    elif Ororo.left_arm == "crossed" and Ororo.right_arm == "crossed":
+        "characters/Ororo/images/standing/bodysuit_[Ororo.Clothes[bodysuit].string]_sleeves_crossed.webp"
+    elif Ororo.right_arm in ["hip", "touch_pussy"]:
+        "characters/Ororo/images/standing/bodysuit_[Ororo.Clothes[bodysuit].string]_right_forearm_sleeve_[Ororo.right_arm].webp"
+
+    if not Ororo.Clothes["gloves"].string:
+        Null()
+    elif Ororo.left_arm == "crossed" and Ororo.right_arm == "crossed":
+        "characters/Ororo/images/standing/gloves_[Ororo.Clothes[gloves].string]_crossed.webp"
+    elif Ororo.right_arm in ["hip", "touch_pussy"]:
+        "characters/Ororo/images/standing/gloves_[Ororo.Clothes[gloves].string]_right_[Ororo.right_arm].webp"
+
+    if Ororo.left_arm in ["grope", "hip"]:
         "characters/Ororo/images/standing/left_forearm_[Ororo.left_arm]_shadow.webp" at Transform(blend = "multiply")
 
-    if Ororo.left_arm in ["grope"]:
+    if Ororo.left_arm in ["grope", "hip"]:
         "characters/Ororo/images/standing/left_forearm_[Ororo.left_arm].webp"
+
+    if not Ororo.Clothes["bodysuit"].string:
+        Null()
+    elif Ororo.Clothes["bodysuit"].string in ["black_classic_suit"] and Ororo.Clothes["bodysuit"].state == 1:
+        Null()
+    elif Ororo.left_arm in ["grope", "hip"]:
+        "characters/Ororo/images/standing/bodysuit_[Ororo.Clothes[bodysuit].string]_left_forearm_sleeve_[Ororo.left_arm].webp"
+
+    if not Ororo.Clothes["gloves"].string:
+        Null()
+    elif Ororo.left_arm in ["grope", "hip"]:
+        "characters/Ororo/images/standing/gloves_[Ororo.Clothes[gloves].string]_left_[Ororo.left_arm].webp"
 
     if renpy.get_screen("Wardrobe_screen"):
         "Ororo_standing_head"
@@ -105,11 +160,35 @@ layeredimage Ororo_standing:
     if Ororo.right_arm in ["extended", "fight", "storm1"]:
         "characters/Ororo/images/standing/right_forearm_[Ororo.right_arm].webp"
 
+    if not Ororo.Clothes["bodysuit"].string:
+        Null()
+    elif Ororo.Clothes["bodysuit"].string in ["black_classic_suit"] and Ororo.Clothes["bodysuit"].state == 1:
+        Null()
+    elif Ororo.right_arm in ["extended", "fight"]:
+        "characters/Ororo/images/standing/bodysuit_[Ororo.Clothes[bodysuit].string]_right_forearm_sleeve_[Ororo.right_arm].webp"
+
+    if not Ororo.Clothes["gloves"].string:
+        Null()
+    elif Ororo.right_arm in ["extended", "fight", "storm1"]:
+        "characters/Ororo/images/standing/gloves_[Ororo.Clothes[gloves].string]_right_[Ororo.right_arm].webp"
+
     if Ororo.left_arm in ["rub_neck"]:
         "characters/Ororo/images/standing/left_forearm_[Ororo.left_arm]_shadow.webp" at Transform(blend = "multiply")
 
     if Ororo.left_arm in ["fight", "rub_neck"]:
         "characters/Ororo/images/standing/left_forearm_[Ororo.left_arm].webp"
+
+    if not Ororo.Clothes["bodysuit"].string:
+        Null()
+    elif Ororo.Clothes["bodysuit"].string in ["black_classic_suit"] and Ororo.Clothes["bodysuit"].state == 1:
+        Null()
+    elif Ororo.left_arm in ["fight", "rub_neck"]:
+        "characters/Ororo/images/standing/bodysuit_[Ororo.Clothes[bodysuit].string]_left_forearm_sleeve_[Ororo.left_arm].webp"
+
+    if not Ororo.Clothes["gloves"].string:
+        Null()
+    elif Ororo.left_arm in ["fight", "rub_neck"]:
+        "characters/Ororo/images/standing/gloves_[Ororo.Clothes[gloves].string]_left_[Ororo.left_arm].webp"
 
 layeredimage Ororo_standing_hair_back:
     # if not Ororo.wet and "wet" not in Ororo.Clothes["hair"].string:
@@ -133,13 +212,22 @@ layeredimage Ororo_standing_body:
     always:
         "characters/Ororo/images/standing/left_foot.webp"
 
+    if Ororo.Clothes["bodysuit"].string:
+        "characters/Ororo/images/standing/bodysuit_[Ororo.Clothes[bodysuit].string]_lower.webp"
+
+    if Ororo.Clothes["footwear"].string:
+        "characters/Ororo/images/standing/footwear_[Ororo.Clothes[footwear].string].webp"
+
+    if Ororo.Clothes["pants"].string:
+        "characters/Ororo/images/standing/pants_[Ororo.Clothes[pants].string]_[Ororo.Clothes[pants].state].webp"
+
     if Ororo.left_arm == "crossed" and Ororo.right_arm == "crossed":
         "characters/Ororo/images/standing/arms_crossed_shadow.webp" at Transform(blend = "multiply")
 
     if Ororo.left_arm == "crossed" and Ororo.right_arm == "crossed":
         "characters/Ororo/images/standing/arms_crossed.webp"
 
-    if Ororo.right_arm in ["hip", "neutral"]:
+    if Ororo.right_arm in ["neutral"]:
         "characters/Ororo/images/standing/right_arm_[Ororo.right_arm]_shadow.webp" at Transform(blend = "multiply")
 
     if Ororo.right_arm not in ["bra", "extended", "fight", "fist", "hip", "neutral", "storm1", "storm2", "touch_pussy"]:
@@ -150,9 +238,6 @@ layeredimage Ororo_standing_body:
         "Ororo_standing_right_arm" at Ororo_standing_right_arm_animation
     else:
         "Ororo_standing_right_arm"
-
-    if Ororo.left_arm in ["hip"]:
-        "characters/Ororo/images/standing/left_arm_[Ororo.left_arm]_shadow.webp" at Transform(blend = "multiply")
 
     if Ororo.left_arm not in ["bra", "extended", "fight", "fist", "hip", "neutral", "rub_neck", "storm1", "storm2", "touch_ass"]:
         Null()
@@ -177,9 +262,47 @@ layeredimage Ororo_standing_body:
     else:
         "characters/Ororo/images/standing/breasts.webp"
 
+    if not Ororo.Clothes["bodysuit"].string:
+        Null()
+    elif Ororo.Clothes["bodysuit"].string in ["black_classic_suit"] and Ororo.Clothes["bodysuit"].state == 1:
+        "characters/Ororo/images/standing/bodysuit_[Ororo.Clothes[bodysuit].string]_[Ororo.Clothes[bodysuit].state].webp"
+    elif Ororo.left_arm == "crossed" and Ororo.right_arm == "crossed":
+        "characters/Ororo/images/standing/bodysuit_[Ororo.Clothes[bodysuit].string]_[Ororo.Clothes[bodysuit].state]_crossed.webp"
+    else:
+        "characters/Ororo/images/standing/bodysuit_[Ororo.Clothes[bodysuit].string]_[Ororo.Clothes[bodysuit].state].webp"
+
+    if Ororo.Clothes["top"].string:
+        "characters/Ororo/images/standing/top_[Ororo.Clothes[top].string]_[Ororo.Clothes[top].state].webp"
+
+    if not Ororo.Clothes["cloak"].string:
+        Null()
+    elif Ororo.right_arm in ["crossed", "fist"]:
+        "characters/Ororo/images/standing/cloak_[Ororo.Clothes[cloak].string]_right_shoulder_neutral.webp"
+    elif Ororo.right_arm in ["bra", "extended", "fight", "hip", "neutral", "storm1", "storm2", "touch_pussy"]:
+        "characters/Ororo/images/standing/cloak_[Ororo.Clothes[cloak].string]_right_shoulder_[Ororo.right_arm].webp"
+
+    if not Ororo.Clothes["cloak"].string:
+        Null()
+    elif Ororo.left_arm in ["crossed", "fist"]:
+        "characters/Ororo/images/standing/cloak_[Ororo.Clothes[cloak].string]_left_shoulder_neutral.webp"
+    elif Ororo.left_arm in ["bra", "extended", "fight", "hip", "neutral", "rub_neck", "storm1", "storm2", "touch_ass"]:
+        "characters/Ororo/images/standing/cloak_[Ororo.Clothes[cloak].string]_left_shoulder_[Ororo.left_arm].webp"
+
 layeredimage Ororo_standing_right_arm:
     always:
         "characters/Ororo/images/standing/right_arm_[Ororo.right_arm].webp"
+
+    if not Ororo.Clothes["bodysuit"].string:
+        Null()
+    elif Ororo.Clothes["bodysuit"].string in ["black_classic_suit"] and Ororo.Clothes["bodysuit"].state == 1:
+        Null()
+    else:
+        "characters/Ororo/images/standing/bodysuit_[Ororo.Clothes[bodysuit].string]_right_sleeve_[Ororo.right_arm].webp"
+
+    if not Ororo.Clothes["gloves"].string:
+        Null()
+    elif Ororo.right_arm in ["fist", "hip", "neutral", "storm2"]:
+        "characters/Ororo/images/standing/gloves_[Ororo.Clothes[gloves].string]_right_[Ororo.right_arm].webp"
 
     anchor (int(940*character_sampling), int(1420*character_sampling))
     offset (int(940*character_sampling), int(1420*character_sampling))
@@ -187,6 +310,18 @@ layeredimage Ororo_standing_right_arm:
 layeredimage Ororo_standing_left_arm:
     always:
         "characters/Ororo/images/standing/left_arm_[Ororo.left_arm].webp"
+
+    if not Ororo.Clothes["bodysuit"].string:
+        Null()
+    elif Ororo.Clothes["bodysuit"].string in ["black_classic_suit"] and Ororo.Clothes["bodysuit"].state == 1:
+        Null()
+    else:
+        "characters/Ororo/images/standing/bodysuit_[Ororo.Clothes[bodysuit].string]_left_sleeve_[Ororo.left_arm].webp"
+
+    if not Ororo.Clothes["gloves"].string:
+        Null()
+    elif Ororo.left_arm in ["extended", "fist", "hip", "neutral", "storm2"]:
+        "characters/Ororo/images/standing/gloves_[Ororo.Clothes[gloves].string]_left_[Ororo.left_arm].webp"
 
     anchor (int(1600*character_sampling), int(1460*character_sampling))
     offset (int(1600*character_sampling), int(1460*character_sampling))
@@ -196,20 +331,20 @@ layeredimage Ororo_standing_head:
         "characters/Ororo/images/standing/head.webp"
 
     always:
-        "characters/Ororo/images/standing/mouth_[Ororo.mouth].webp" at fade_in(0.1)
+        "characters/Ororo/images/standing/mouth_[Ororo.mouth].webp"
 
     if Ororo.white or Ororo.electricity:
-        "characters/Ororo/images/standing/eyes_white.webp" at fade_in(0.1)
+        "characters/Ororo/images/standing/eyes_white.webp"
     elif Ororo.eyes in ["closed", "down", "left", "right", "squint", "up", "wink"]:
-        "characters/Ororo/images/standing/eyes_[Ororo.eyes].webp" at fade_in(0.1)
+        "characters/Ororo/images/standing/eyes_[Ororo.eyes].webp"
     else:
-        "Ororo_standing_blinking" at fade_in(0.1)
+        "Ororo_standing_blinking"
 
     always:
-        "characters/Ororo/images/standing/brows_[Ororo.brows].webp" at fade_in(0.1)
+        "characters/Ororo/images/standing/brows_[Ororo.brows].webp"
 
     if Ororo.blush:
-        "characters/Ororo/images/standing/blush[Ororo.blush].webp" at fade_in(0.1)
+        "characters/Ororo/images/standing/blush[Ororo.blush].webp"
 
     # if not Ororo.wet and "wet" not in Ororo.Clothes["hair"].string:
     always:
@@ -226,6 +361,9 @@ layeredimage Ororo_standing_head:
     #     "characters/Ororo/images/standing/hair_wet_mohawk.webp"
     # else:
     #     "characters/Ororo/images/standing/hair_wet.webp"
+
+    if Ororo.Clothes["face_inner_accessory"].string:
+        "characters/Ororo/images/standing/face_inner_accessory_[Ororo.Clothes[face_inner_accessory].string].webp"
 
     if Ororo.electricity:
         "characters/Ororo/images/standing/electricity.webp"

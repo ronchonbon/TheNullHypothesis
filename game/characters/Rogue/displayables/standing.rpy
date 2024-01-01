@@ -381,7 +381,7 @@ layeredimage Rogue_standing_right_arm:
 
     if not Rogue.Clothes["top"].string:
         Null()
-    elif Rogue.Clothes["top"].string in ["black_lowcut_top"]:
+    elif Rogue.Clothes["top"].string in ["black_lowcut_top"] and Rogue.right_arm in ["extended", "fight", "fist", "neutral"]:
         "characters/Rogue/images/standing/top_[Rogue.Clothes[top].string]_right_sleeve_[Rogue.right_arm].webp"
     elif Rogue.Clothes["top"].string in ["green_mesh_top"] and Rogue.right_arm in ["bra", "extended", "neutral"]:
         "characters/Rogue/images/standing/top_[Rogue.Clothes[top].string]_right_sleeve_[Rogue.right_arm].webp"

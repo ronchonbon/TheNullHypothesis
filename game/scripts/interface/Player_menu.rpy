@@ -216,6 +216,7 @@ screen database_screen():
             else:
                 action [
                     SetVariable("current_database_filter", None),
+                    SetVariable("current_database_page", 0),
                     SetVariable("current_database_filter", filter)]
 
     text "ENEMY" anchor (0.5, 0.5) pos (0.096, 0.244):
@@ -262,7 +263,9 @@ screen database_screen():
 
                                 color "#000000"
 
-                        action SetVariable("current_database_Entry", D)
+                        action [
+                            SetVariable("current_database_page", 0),
+                            SetVariable("current_database_Entry", D)]
 
     vbar value YScrollValue("database_viewport") anchor (0.5, 0.0) pos (0.315, 0.405) xysize (int(40*interface_adjustment), int(1114*interface_adjustment)):
         base_bar At("images/interface/Player_menu/database_scrollbar.webp", interface)
@@ -303,6 +306,7 @@ screen database_screen():
                 else:
                     action [
                         SetVariable("current_database_section", None),
+                        SetVariable("current_database_page", 0),
                         SetVariable("current_database_section", section)]
 
         text "PERSONAL" anchor (0.5, 0.5) pos (0.693, 0.247):
@@ -314,9 +318,9 @@ screen database_screen():
         $ database_length = 0
 
         if "description" in current_database_Entry.database.keys() and current_database_section == "personal":
-            $ database_length += len(current_database_Entry.database["stats"])
-            $ database_length += len(current_database_Entry.database["description"])
-            $ database_length += len(current_database_Entry.database["study_materials"])
+            $ database_length += 1
+            $ database_length += math.ceil(len(current_database_Entry.database["description"][0])/500)# + int(count("\n\n", current_database_Entry.database["description"][0])/5)
+            $ database_length += 1
 
         if "wiki" in current_database_Entry.database.keys() and current_database_section == "mutiefan":
             $ database_length += 1
@@ -338,10 +342,10 @@ screen database_screen():
                 action SetVariable("current_database_page", (current_database_page + 1) % database_length)
         
         if database_length >= 1:
-            if current_database_section == "personal" and current_database_page < len(current_database_Entry.database["stats"]) + len(current_database_Entry.database["description"]) + len(current_database_Entry.database["study_materials"]):
+            if current_database_section == "personal":
                 if current_database_Entry in all_Characters or current_database_Entry == Player:
                     frame anchor (0.0, 0.0) pos (0.375, 0.345) xysize (0.543, 0.55):
-                        if current_database_page < len(current_database_Entry.database["stats"]):
+                        if current_database_page == 0:
                             frame anchor (0.0, 0.0) pos (0.5, 0.01) xsize 0.5:
                                 text current_database_Entry.database["stats"] xalign 0.0:
                                     font "agency_fb.ttf"
@@ -349,24 +353,33 @@ screen database_screen():
                                     size 30
 
                                     text_align 0.0
-                        elif current_database_page < len(current_database_Entry.database["stats"]) + len(current_database_Entry.database["description"]):
+                        elif current_database_page == database_length - 1:
                             frame anchor (0.0, 0.0) pos (0.5, 0.01) xsize 0.5:
-                                text current_database_Entry.database["description"][current_database_page - len(current_database_Entry.database["stats"])] xalign 0.0:
+                                text current_database_Entry.database["study_materials"] xalign 0.0:
                                     font "agency_fb.ttf"
 
-                                    if len(current_database_Entry.database["description"][current_database_page - len(current_database_Entry.database["stats"])]) < 800:
-                                        size 28
-                                    elif len(current_database_Entry.database["description"][current_database_page - len(current_database_Entry.database["stats"])]) < 1000:
-                                        size 24
-                                    elif len(current_database_Entry.database["description"][current_database_page - len(current_database_Entry.database["stats"])]) < 1200:
-                                        size 22
-                                    else:
-                                        size 20
+                                    size 30
 
                                     text_align 0.0
                         else:
+                            $ start = 500*(current_database_page - 1)
+                            $ finish = 500*current_database_page
+
+                            for i in range(20):
+                                if start <= 1:
+                                    $ start = -1
+                                elif current_database_Entry.database["description"][0][start] != " " and current_database_Entry.database["description"][0][start:start + 2] != "\n":
+                                    $ start += 1
+                                elif current_database_Entry.database["description"][0][start + 1] == " " or current_database_Entry.database["description"][0][start:start + 2] == "\n" or current_database_Entry.database["description"][0][start - 1:start + 1] == "\n":
+                                    $ start += 1
+
+                                if finish >= len(current_database_Entry.database["description"][0]) - 1:
+                                    $ finish = len(current_database_Entry.database["description"][0])
+                                elif current_database_Entry.database["description"][0][finish] != " " and current_database_Entry.database["description"][0][finish - 1:finish + 1] != "\n":
+                                    $ finish += 1
+
                             frame anchor (0.0, 0.0) pos (0.5, 0.01) xsize 0.5:
-                                text current_database_Entry.database["study_materials"] xalign 0.0:
+                                text current_database_Entry.database["description"][0][start + 1:finish] xalign 0.0:
                                     font "agency_fb.ttf"
 
                                     size 30
@@ -375,7 +388,6 @@ screen database_screen():
 
                         if current_database_Entry in [Rogue, Jean, Charles]:
                             add f"images/interface/comics/{current_database_Entry.tag}.webp" anchor (0.0, 0.0) pos (0.04, 0.06) zoom interface_adjustment
-
             elif current_database_section == "mutiefan" and "wiki" in current_database_Entry.database.keys():
                 frame anchor (0.0, 0.0) pos (0.375, 0.345) xysize (0.543, 0.55):
                     text current_database_Entry.database["wiki"] align (0.0, 0.0):
@@ -385,13 +397,23 @@ screen database_screen():
 
                         text_align 0.0
 
-                    frame align (0.0, 1.0) xsize 0.4:
+                    frame align (0.0, 1.0) xsize 0.45:
                         vbox xsize 1.0:
                             for comment in current_database_Entry.database["comments"]:
+                                $ comment_color = "#ffffff"
+                                
+                                $ commenter = comment.split(':')[0]
+
+                                for C in all_Characters:
+                                    if C.call_sign == commenter:
+                                        $ comment_color = eval(f"{C.tag}_color")
+
                                 text comment xalign 0.0:
                                     font "agency_fb.ttf"
 
-                                    size 24
+                                    size 26
+
+                                    color comment_color
 
                                     text_align 0.0
 

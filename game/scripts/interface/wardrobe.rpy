@@ -646,6 +646,101 @@ screen accessory_screen(Character):
 
                             null width int(260*interface_adjustment)
 
+            if True:
+                if Character in [Rogue]:
+                    $ left_arms = [
+                        "bra", "crossed", "extended", "fight", "fist", "grope", "hip", "neutral", "rub_neck", "touch_ass"]
+                elif Character in [Laura]:
+                    $ left_arms = [
+                        "bra", "claws", "crossed", "extended", "fight", "fist", "grope", "hip", "neutral", "rub_neck", "touch_ass", "X"]
+                elif Character in [Jean]:
+                    $ left_arms = [
+                        "bra", "crossed", "extended", "fight", "fist", "grope", "hip", "neutral", "psychic1", "psychic2", "rub_neck", "touch_ass"]
+                elif Character in [Ororo]:
+                    $ left_arms = [
+                        "bra", "crossed", "extended", "fight", "fist", "grope", "hip", "neutral", "rub_neck", "storm1", "storm2", "touch_ass"]
+
+                for left_arm in left_arms:
+                    hbox:
+                        spacing -10
+                        
+                        null width int(0.0344*config.screen_width)
+
+                        null width int(0.0171*config.screen_width)
+
+                        null width int(0.0344*config.screen_width)
+
+                        null width int(0.0145*config.screen_width)
+
+                        button xysize (int(1062*interface_adjustment), int(240*interface_adjustment)):
+                            idle_background At("images/interface/wardrobe/clothing_idle.webp", interface)
+                            hover_background At("images/interface/wardrobe/clothing.webp", interface)
+
+                            text f"left arm: {left_arm}":
+                                font "agency_fb.ttf"
+                            
+                                size 36
+
+                            if left_arm == "crossed":
+                                action [
+                                    SetField(Character, "left_arm", left_arm),
+                                    SetField(Character, "right_arm", left_arm)]
+                            elif Character.right_arm == "crossed":
+                                action [
+                                    SetField(Character, "left_arm", left_arm),
+                                    SetField(Character, "right_arm", "neutral")]
+                            else:
+                                action SetField(Character, "left_arm", left_arm)
+
+                        null width int(260*interface_adjustment)
+
+                if Character in [Rogue]:
+                    $ right_arms = [
+                        "bra", "crossed", "extended", "fight", "fist", "hip", "neutral", "touch_pussy"]
+                elif Character in [Laura]:
+                    $ right_arms = [
+                        "bra", "claws", "crossed", "extended", "fight", "fist", "hip", "neutral", "touch_pussy", "X"]
+                elif Character in [Jean]:
+                    $ right_arms = [
+                        "bra", "crossed", "extended", "fight", "fist", "hip", "neutral", "psychic1", "psychic2", "touch_pussy"]
+                elif Character in [Ororo]:
+                    $ right_arms = [
+                        "bra", "crossed", "extended", "fight", "fist", "hip", "neutral", "storm1", "storm2", "touch_pussy"]
+
+                for right_arm in right_arms:
+                    hbox:
+                        spacing -10
+                        
+                        null width int(0.0344*config.screen_width)
+
+                        null width int(0.0171*config.screen_width)
+
+                        null width int(0.0344*config.screen_width)
+
+                        null width int(0.0145*config.screen_width)
+
+                        button xysize (int(1062*interface_adjustment), int(240*interface_adjustment)):
+                            idle_background At("images/interface/wardrobe/clothing_idle.webp", interface)
+                            hover_background At("images/interface/wardrobe/clothing.webp", interface)
+
+                            text f"right arm: {right_arm}":
+                                font "agency_fb.ttf"
+                            
+                                size 36
+
+                            if right_arm == "crossed":
+                                action [
+                                    SetField(Character, "left_arm", right_arm),
+                                    SetField(Character, "right_arm", right_arm)]
+                            elif Character.left_arm == "crossed":
+                                action [
+                                    SetField(Character, "left_arm", "neutral"),
+                                    SetField(Character, "right_arm", right_arm)]
+                            else:
+                                action SetField(Character, "right_arm", right_arm)
+
+                        null width int(260*interface_adjustment)
+
     vbar value YScrollValue("accessory_screen_viewport") anchor (0.5, 0.0) pos (0.982, 0.172) xysize (int(29*interface_adjustment), int(1249*interface_adjustment)):
         base_bar At("images/interface/wardrobe/clothing_scrollbar.webp", interface)
 
@@ -881,101 +976,6 @@ screen hair_screen(Character):
                                 font "agency_fb.ttf"
                                 
                                 size 36
-
-                        null width int(260*interface_adjustment)
-
-            if False:
-                if Character in [Rogue]:
-                    $ left_arms = [
-                        "bra", "crossed", "extended", "fight", "fist", "grope", "hip", "neutral", "rub_neck", "touch_ass"]
-                elif Character in [Laura]:
-                    $ left_arms = [
-                        "bra", "claws", "crossed", "extended", "fight", "fist", "grope", "hip", "neutral", "rub_neck", "touch_ass", "X"]
-                elif Character in [Jean]:
-                    $ left_arms = [
-                        "bra", "crossed", "extended", "fight", "fist", "grope", "hip", "neutral", "psychic1", "psychic2", "rub_neck", "touch_ass"]
-                elif Character in [Ororo]:
-                    $ left_arms = [
-                        "bra", "crossed", "extended", "fight", "fist", "grope", "hip", "neutral", "rub_neck", "storm1", "storm2", "touch_ass"]
-
-                for left_arm in left_arms:
-                    hbox:
-                        spacing -10
-                        
-                        null width int(0.0344*config.screen_width)
-
-                        null width int(0.0171*config.screen_width)
-
-                        null width int(0.0344*config.screen_width)
-
-                        null width int(0.0145*config.screen_width)
-
-                        button xysize (int(1062*interface_adjustment), int(240*interface_adjustment)):
-                            idle_background At("images/interface/wardrobe/clothing_idle.webp", interface)
-                            hover_background At("images/interface/wardrobe/clothing.webp", interface)
-
-                            text f"left arm: {left_arm}":
-                                font "agency_fb.ttf"
-                            
-                                size 36
-
-                            if left_arm == "crossed":
-                                action [
-                                    SetField(Character, "left_arm", left_arm),
-                                    SetField(Character, "right_arm", left_arm)]
-                            elif Character.right_arm == "crossed":
-                                action [
-                                    SetField(Character, "left_arm", left_arm),
-                                    SetField(Character, "right_arm", "neutral")]
-                            else:
-                                action SetField(Character, "left_arm", left_arm)
-
-                        null width int(260*interface_adjustment)
-
-                if Character in [Rogue]:
-                    $ right_arms = [
-                        "bra", "crossed", "extended", "fight", "fist", "hip", "neutral", "touch_pussy"]
-                elif Character in [Laura]:
-                    $ right_arms = [
-                        "bra", "claws", "crossed", "extended", "fight", "fist", "hip", "neutral", "touch_pussy", "X"]
-                elif Character in [Jean]:
-                    $ right_arms = [
-                        "bra", "crossed", "extended", "fight", "fist", "hip", "neutral", "psychic1", "psychic2", "touch_pussy"]
-                elif Character in [Ororo]:
-                    $ right_arms = [
-                        "bra", "crossed", "extended", "fight", "fist", "hip", "neutral", "storm1", "storm2", "touch_pussy"]
-
-                for right_arm in right_arms:
-                    hbox:
-                        spacing -10
-                        
-                        null width int(0.0344*config.screen_width)
-
-                        null width int(0.0171*config.screen_width)
-
-                        null width int(0.0344*config.screen_width)
-
-                        null width int(0.0145*config.screen_width)
-
-                        button xysize (int(1062*interface_adjustment), int(240*interface_adjustment)):
-                            idle_background At("images/interface/wardrobe/clothing_idle.webp", interface)
-                            hover_background At("images/interface/wardrobe/clothing.webp", interface)
-
-                            text f"right arm: {right_arm}":
-                                font "agency_fb.ttf"
-                            
-                                size 36
-
-                            if right_arm == "crossed":
-                                action [
-                                    SetField(Character, "left_arm", right_arm),
-                                    SetField(Character, "right_arm", right_arm)]
-                            elif Character.left_arm == "crossed":
-                                action [
-                                    SetField(Character, "left_arm", "neutral"),
-                                    SetField(Character, "right_arm", right_arm)]
-                            else:
-                                action SetField(Character, "right_arm", right_arm)
 
                         null width int(260*interface_adjustment)
 

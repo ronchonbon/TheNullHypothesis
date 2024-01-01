@@ -161,7 +161,7 @@ layeredimage Jean_standing:
     else:
         "characters/Jean/images/standing/bodysuit_blueyellow_classic_suit_right_pauldron.webp"
     
-    if Jean.left_arm not in ["hip", "neutral"]:
+    if Jean.left_arm in ["crossed", "fist", "hip", "neutral"]:
         "characters/Jean/images/standing/left_arm_[Jean.left_arm]_shadow.webp" at Transform(blend = "multiply")
 
     if Jean.left_arm not in ["bra", "crossed", "extended", "fight", "fist", "grope", "hip", "neutral", "psychic1", "psychic2", "rub_neck", "touch_ass"]:
@@ -417,7 +417,7 @@ layeredimage Jean_standing_right_arm:
         Null()
     elif Jean.right_arm == "fist":
         "characters/Jean/images/standing/top_[Jean.Clothes[top].string]_right_sleeve_neutral.webp"
-    elif Jean.right_arm in ["bra", "crossed", "extended", "fight", "hip", "neutral", "psychic1", "touch_pussy"]:
+    else:
         "characters/Jean/images/standing/top_[Jean.Clothes[top].string]_right_sleeve_[Jean.right_arm].webp"
 
     if not Jean.Clothes["sleeves"].string:
