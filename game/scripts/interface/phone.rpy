@@ -392,11 +392,11 @@ screen home_screen():
             add At("images/interface/phone/home_humhum_box.webp", interface)
 
             if humhumthread_to_display.HumHums[0].Owner != Player:
-                add At(f"images/interface/phone/icons/{humhumthread_to_display.HumHums[0].Owner.tag}.webp", humhum_icon) anchor (0.5, 0.5) pos (0.055, 0.122)
+                add At(f"images/interface/icons/{humhumthread_to_display.HumHums[0].Owner.tag}.webp", humhum_icon) anchor (0.5, 0.5) pos (0.055, 0.122)
 
                 text humhumthread_to_display.HumHums[0].Owner.call_sign anchor (0.0, 0.5) pos (0.125, 0.122) size 32
             else:
-                add At(f"images/interface/phone/icons/Player_{Player.background_color}.webp", humhum_icon) anchor (0.5, 0.5) pos (0.055, 0.122)
+                add At(f"images/interface/icons/Player_{Player.background_color}.webp", humhum_icon) anchor (0.5, 0.5) pos (0.055, 0.122)
 
                 text humhumthread_to_display.HumHums[0].Owner.call_sign anchor (0.0, 0.5) pos (0.125, 0.122) size 32
 
@@ -430,9 +430,9 @@ screen home_screen():
                                 for h in range(1, len(humhumthread_to_display.HumHums)):
                                     hbox xsize 425:
                                         if humhumthread_to_display.HumHums[h].Owner != Player:
-                                            add At(f"images/interface/phone/icons/{humhumthread_to_display.HumHums[h].Owner.tag}.webp", humhum_icon) yalign 0.0
+                                            add At(f"images/interface/icons/{humhumthread_to_display.HumHums[h].Owner.tag}.webp", humhum_icon) yalign 0.0
                                         else:
-                                            add At(f"images/interface/phone/icons/Player_{Player.background_color}.webp", humhum_icon) yalign 0.0
+                                            add At(f"images/interface/icons/Player_{Player.background_color}.webp", humhum_icon) yalign 0.0
 
                                         null width 8
 
@@ -466,8 +466,8 @@ screen home_screen():
             unscrollable "hide"
 
     imagebutton anchor (0.5, 0.5) pos (0.416, 0.8):
-        idle At("images/interface/phone/icons/call_idle.webp", phone_icon) 
-        hover At("images/interface/phone/icons/call.webp", phone_icon)
+        idle At("images/interface/icons/call_idle.webp", phone_icon) 
+        hover At("images/interface/icons/call.webp", phone_icon)
         
         if phone_interactable and not phone_disabled:
             action [
@@ -477,8 +477,8 @@ screen home_screen():
             action None
 
     imagebutton anchor (0.5, 0.5) pos (0.496, 0.8):
-        idle At("images/interface/phone/icons/humhum_idle.webp", phone_icon) 
-        hover At("images/interface/phone/icons/humhum.webp", phone_icon)
+        idle At("images/interface/icons/humhum_idle.webp", phone_icon) 
+        hover At("images/interface/icons/humhum.webp", phone_icon)
         
         if phone_interactable and not phone_disabled:
             action [
@@ -488,8 +488,8 @@ screen home_screen():
             action None
 
     imagebutton anchor (0.5, 0.5) pos (0.576, 0.8):
-        idle At("images/interface/phone/icons/blah_idle.webp", phone_icon) 
-        hover At("images/interface/phone/icons/blah.webp", phone_icon)
+        idle At("images/interface/icons/blah_idle.webp", phone_icon) 
+        hover At("images/interface/icons/blah.webp", phone_icon)
         
         if phone_interactable and not phone_disabled:
             action [
@@ -509,8 +509,8 @@ screen app_screen():
         color "#ffffff"
 
     imagebutton anchor (0.5, 0.5) pos (0.416, 0.23):
-        idle At("images/interface/phone/icons/call_idle.webp", phone_icon) 
-        hover At("images/interface/phone/icons/call.webp", phone_icon)
+        idle At("images/interface/icons/call_idle.webp", phone_icon) 
+        hover At("images/interface/icons/call.webp", phone_icon)
         
         if phone_interactable and not phone_disabled:
             action [
@@ -520,8 +520,8 @@ screen app_screen():
             action None
 
     imagebutton anchor (0.5, 0.5) pos (0.576, 0.23):
-        idle At("images/interface/phone/icons/blah_idle.webp", phone_icon) 
-        hover At("images/interface/phone/icons/blah.webp", phone_icon)
+        idle At("images/interface/icons/blah_idle.webp", phone_icon) 
+        hover At("images/interface/icons/blah.webp", phone_icon)
         
         if phone_interactable and not phone_disabled:
             action [
@@ -531,8 +531,8 @@ screen app_screen():
             action None
 
     imagebutton anchor (0.5, 0.5) pos (0.416, 0.41333):
-        idle At("images/interface/phone/icons/daily_bungle_idle.webp", phone_icon) 
-        hover At("images/interface/phone/icons/daily_bungle.webp", phone_icon)
+        idle At("images/interface/icons/daily_bungle_idle.webp", phone_icon) 
+        hover At("images/interface/icons/daily_bungle.webp", phone_icon)
         
         if phone_interactable and not phone_disabled:
             action [
@@ -543,8 +543,8 @@ screen app_screen():
 
     if humhum_available:
         imagebutton anchor (0.5, 0.5) pos (0.496, 0.41333):
-            idle At("images/interface/phone/icons/humhum_idle.webp", phone_icon) 
-            hover At("images/interface/phone/icons/humhum.webp", phone_icon)
+            idle At("images/interface/icons/humhum_idle.webp", phone_icon) 
+            hover At("images/interface/icons/humhum.webp", phone_icon)
             
             if phone_interactable and not phone_disabled:
                 action [
@@ -554,8 +554,8 @@ screen app_screen():
                 action None
 
     imagebutton anchor (0.5, 0.5) pos (0.576, 0.4133):
-        idle At("images/interface/phone/icons/hot_control_idle.webp", phone_icon) 
-        hover At("images/interface/phone/icons/hot_control.webp", phone_icon)
+        idle At("images/interface/icons/hot_control_idle.webp", phone_icon) 
+        hover At("images/interface/icons/hot_control.webp", phone_icon)
         
         if phone_interactable and not phone_disabled:
             action SetVariable("current_phone_screen", "remote")
@@ -563,8 +563,8 @@ screen app_screen():
             action None
 
     imagebutton anchor (0.5, 0.5) pos (0.416, 0.59666):
-        idle At("images/interface/phone/icons/achievements_idle.webp", phone_icon) 
-        hover At("images/interface/phone/icons/achievements.webp", phone_icon)
+        idle At("images/interface/icons/achievements_idle.webp", phone_icon) 
+        hover At("images/interface/icons/achievements.webp", phone_icon)
         
         if phone_interactable and not phone_disabled:
             action [
@@ -574,8 +574,8 @@ screen app_screen():
             action None
 
     imagebutton anchor (0.5, 0.5) pos (0.576, 0.59666):
-        idle At("images/interface/phone/icons/music_idle.webp", phone_icon) 
-        hover At("images/interface/phone/icons/music.webp", phone_icon)
+        idle At("images/interface/icons/music_idle.webp", phone_icon) 
+        hover At("images/interface/icons/music.webp", phone_icon)
         
         if phone_interactable and not phone_disabled:
             action [
@@ -585,8 +585,8 @@ screen app_screen():
             action None
 
     imagebutton anchor (0.5, 0.5) pos (0.416, 0.78):
-        idle At("images/interface/phone/icons/save_idle.webp", phone_icon) 
-        hover At("images/interface/phone/icons/save.webp", phone_icon)
+        idle At("images/interface/icons/save_idle.webp", phone_icon) 
+        hover At("images/interface/icons/save.webp", phone_icon)
         
         if phone_interactable and not phone_disabled:
             action ShowMenu("save")
@@ -594,8 +594,8 @@ screen app_screen():
             action None
 
     imagebutton anchor (0.5, 0.5) pos (0.496, 0.78):
-        idle At("images/interface/phone/icons/load_idle.webp", phone_icon) 
-        hover At("images/interface/phone/icons/load.webp", phone_icon)
+        idle At("images/interface/icons/load_idle.webp", phone_icon) 
+        hover At("images/interface/icons/load.webp", phone_icon)
         
         if phone_interactable and not phone_disabled:
             action ShowMenu("load")
@@ -603,8 +603,8 @@ screen app_screen():
             action None
 
     imagebutton anchor (0.5, 0.5) pos (0.576, 0.78):
-        idle At("images/interface/phone/icons/config_idle.webp", phone_icon) 
-        hover At("images/interface/phone/icons/config.webp", phone_icon)
+        idle At("images/interface/icons/config_idle.webp", phone_icon) 
+        hover At("images/interface/icons/config.webp", phone_icon)
         
         if phone_interactable and not phone_disabled:
             action [
@@ -648,7 +648,7 @@ screen call_choice_screen():
                 idle_background At("images/interface/phone/call_contact_idle.webp", interface)
                 hover_background At("images/interface/phone/call_contact.webp", interface)
 
-                add At(f"images/interface/phone/icons/{C.tag}.webp", call_icon) anchor (0.5, 0.5) pos (0.1, 0.5)
+                add At(f"images/interface/icons/{C.tag}.webp", call_icon) anchor (0.5, 0.5) pos (0.1, 0.5)
 
                 text f"{C.name}" anchor (0.0, 0.5) pos (0.215, 0.5):
                     size 40
@@ -760,7 +760,7 @@ screen text_choice_screen():
 
                     selected C in unread_messages.keys()
 
-                    add At(f"images/interface/phone/icons/{C.tag}.webp", call_icon) anchor (0.5, 0.5) pos (0.1, 0.5)
+                    add At(f"images/interface/icons/{C.tag}.webp", call_icon) anchor (0.5, 0.5) pos (0.1, 0.5)
 
                     text f"{C.name}" anchor (0.0, 0.5) pos (0.215, 0.5):
                         size 40
@@ -910,7 +910,7 @@ screen text_history(Character):
                         spacing 5
 
                         if previous_Owner != Owner.tag:
-                            add At(f"images/interface/phone/icons/{Owner.tag}.webp", humhum_icon):
+                            add At(f"images/interface/icons/{Owner.tag}.webp", humhum_icon):
                                 if status == "current":
                                     at message_appear_icon()
                         else:
@@ -947,7 +947,7 @@ screen text_history(Character):
                         box_reverse True
 
                         if previous_Owner != Owner.tag:
-                            add At(f"images/interface/phone/icons/Player_{Player.background_color}.webp", humhum_icon):
+                            add At(f"images/interface/icons/Player_{Player.background_color}.webp", humhum_icon):
                                 if status == "current":
                                     at message_appear_icon()
                         else:
@@ -1007,12 +1007,12 @@ screen humhum_home_screen():
                         add At("images/interface/phone/home_humhum_box.webp", interface)
 
                         if H.HumHums[0].Owner != Player:
-                            add At(f"images/interface/phone/icons/{H.HumHums[0].Owner.tag}.webp", humhum_icon) anchor (0.5, 0.5) pos (0.055, 22)
+                            add At(f"images/interface/icons/{H.HumHums[0].Owner.tag}.webp", humhum_icon) anchor (0.5, 0.5) pos (0.055, 22)
 
                             text H.HumHums[0].Owner.call_sign anchor (0.0, 0.5) pos (0.125, 22):
                                 size 32
                         else:
-                            add At(f"images/interface/phone/icons/Player_{Player.background_color}.webp", humhum_icon) anchor (0.5, 0.5) pos (0.055, 22)
+                            add At(f"images/interface/icons/Player_{Player.background_color}.webp", humhum_icon) anchor (0.5, 0.5) pos (0.055, 22)
 
                             text H.HumHums[0].Owner.call_sign anchor (0.0, 0.5) pos (0.125, 22):
                                 size 32
@@ -1042,9 +1042,9 @@ screen humhum_home_screen():
                                     for h in range(1, len(H.HumHums)):
                                         hbox xsize 425:
                                             if H.HumHums[h].Owner != Player:
-                                                add At(f"images/interface/phone/icons/{H.HumHums[h].Owner.tag}.webp", humhum_icon) yalign 0.0
+                                                add At(f"images/interface/icons/{H.HumHums[h].Owner.tag}.webp", humhum_icon) yalign 0.0
                                             else:
-                                                add At(f"images/interface/phone/icons/Player_{Player.background_color}.webp", humhum_icon) yalign 0.0
+                                                add At(f"images/interface/icons/Player_{Player.background_color}.webp", humhum_icon) yalign 0.0
 
                                             null width 8
 
@@ -1133,8 +1133,8 @@ screen humhum_choice_screen():
 
             for G in active_Companions:
                 imagebutton:
-                    idle At(f"images/interface/phone/icons/{G.tag}_idle.webp", phone_icon) 
-                    hover At(f"images/interface/phone/icons/{G.tag}.webp", phone_icon)
+                    idle At(f"images/interface/icons/{G.tag}_idle.webp", phone_icon) 
+                    hover At(f"images/interface/icons/{G.tag}.webp", phone_icon)
                     
                     if phone_interactable and not phone_disabled:
                         action [

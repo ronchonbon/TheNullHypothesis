@@ -89,7 +89,7 @@ image Kurt_sprite:
 
 layeredimage Kurt_standing_temp:
     if Kurt.hovered:
-        At("Kurt_standing", hover)
+        "Kurt_standing" at hover
     else:
         "Kurt_standing"
 
@@ -102,7 +102,7 @@ layeredimage Kurt_standing:
     if Kurt.teleporting_out or Kurt.smoke or Kurt.tail_hidden:
         Null()
     else:
-        At("Kurt_standing_tail", Kurt_standing_tail_animation)
+        "Kurt_standing_tail" at Kurt_standing_tail_animation
 
     if Kurt.teleporting_out or Kurt.smoke:
         Null()
@@ -112,7 +112,7 @@ layeredimage Kurt_standing:
     if Kurt.teleporting_out or Kurt.smoke:
         Null()
     elif Kurt.right_arm in ["crossed", "extended", "fight", "fist", "neutral", "question"]:
-        At("Kurt_standing_right_arm", Kurt_standing_right_arm_animation)
+        "Kurt_standing_right_arm" at Kurt_standing_right_arm_animation
 
     if Kurt.teleporting_out or Kurt.smoke:
         Null()
@@ -137,12 +137,12 @@ layeredimage Kurt_standing:
     if Kurt.teleporting_out or Kurt.smoke:
         Null()
     elif Kurt.left_arm in ["crossed", "fight", "fist", "neutral", "rub_neck"]:
-        At("Kurt_standing_left_arm", Kurt_standing_left_arm_animation)
+        "Kurt_standing_left_arm" at Kurt_standing_left_arm_animation
 
     if Kurt.teleporting_out or Kurt.smoke:
         Null()
     else:
-        At("Kurt_standing_head", Kurt_standing_head_animation)
+        "Kurt_standing_head" at Kurt_standing_head_animation
 
     if Kurt.teleporting_out or Kurt.smoke:
         Null()
@@ -212,9 +212,9 @@ layeredimage Kurt_standing_head:
 
 layeredimage Kurt_smoke:
     if Kurt.smoke:
-        At("characters/Kurt/images/purple_smoke.webp", fade_in(0.1))
+        "characters/Kurt/images/purple_smoke.webp" at fade_in(0.1)
     else:
-        At("characters/Kurt/images/purple_smoke.webp", fade_out(3.0))
+        "characters/Kurt/images/purple_smoke.webp" at fade_out(3.0)
 
 image Kurt_blinking:
     "characters/Kurt/images/eyes_[Kurt.eyes].webp"

@@ -7,19 +7,11 @@ init -1:
     default Wardrobe_tab = "default"
     default current_Wardrobe_screen = None
     default current_Wardrobe_Outfit_page = 0
+    default current_Wardrobe_filter = []
 
     default current_input = ""
     default current_Outfit_color = "yellow"
-    default current_flags = {
-        "wear_in_public": False,
-        "wear_in_private": False,
-        "activewear": False,
-        "superwear": False,
-        "swimwear": False,
-        "datewear": False,
-        "sexwear": False,
-        "sleepwear": False,
-        "winterwear": False}
+    default current_flags = []
 
     default Wardrobe_animation_time = 0.0
     default Wardrobe_anchor = [0.0, 0.0]
@@ -60,7 +52,14 @@ screen Wardrobe_screen(Character):
 
     for O in Character.Wardrobe.Outfits.values():
         if O.Outfit_type == Wardrobe_tab:
-            $ Outfit_list.append(O)
+            $ filtered_out = False
+
+            for filter in current_Wardrobe_filter:
+                if filter not in O.flags:
+                    $ filtered_out = True
+
+            if not filtered_out:
+                $ Outfit_list.append(O)
 
     add "images/interface/main_menu/blank_background.webp" zoom interface_adjustment
 
@@ -177,6 +176,51 @@ screen Wardrobe_screen(Character):
     # else:
     #     text "FILTERS" + "_" anchor (0.0, 0.5) pos (0.242, 0.129):
     #         size 28
+
+    vpgrid id "Wardrobe_filter_viewport" anchor (0.5, 0.0) pos (0.4, 0.109) xysize (0.22, int(180*interface_adjustment)):
+        cols 4
+
+        draggable True
+        mousewheel True
+        
+        spacing -17
+
+        for filter in ["public", "winter", "day", "date", "exercise", "hero", "swim", "empty", "private", "sexy", "sleep"]:
+            if filter in ["public", "day"]:
+                $ color = "blue"
+            elif filter in ["exercise", "hero", "swim"]:
+                $ color = "red"
+            elif filter in ["private", "sexy", "sleep"]:
+                $ color = "pink"
+
+            if filter != "empty":
+                button xysize (int(240*interface_adjustment), int(115*interface_adjustment)):
+                    idle_background At(f"images/interface/wardrobe/tag_{color}.webp", interface)
+                    hover_background At(f"images/interface/wardrobe/tag_{color}.webp", interface)
+
+                    selected_foreground At(At("images/interface/wardrobe/tag_selector.webp", interface), Transform(anchor = (0.5, 0.5), pos = (0.504, 0.515)))
+
+                    selected filter in current_Wardrobe_filter
+
+                    text filter.upper() anchor (0.5, 0.5) pos (0.504, 0.515):
+                        size 26
+
+                    if filter in current_Wardrobe_filter:
+                        action RemoveFromSet(current_Wardrobe_filter, filter)
+                    else:
+                        action [
+                            SetVariable("current_Wardrobe_Outfit_page", 0),
+                            AddToSet(current_Wardrobe_filter, filter)]
+            else:
+                null width int(240*interface_adjustment) height int(115*interface_adjustment)
+
+    vbar value YScrollValue("Wardrobe_filter_viewport") anchor (0.5, 0.0) pos (0.52, 0.109) xysize (int(29*interface_adjustment), int(180*interface_adjustment)):
+        base_bar At("images/interface/wardrobe/tag_scrollbar.webp", interface)
+
+        thumb At("images/interface/wardrobe/tag_scrollbar_thumb.webp", interface)
+        thumb_offset int(74*interface_adjustment/2/3)
+
+        unscrollable "hide"
 
     viewport anchor (0.0, 0.0) pos (0.234, 0.211) xysize (0.295, 0.733):
         fixed align (0.5, 0.5) xysize (1.0, 1.0):
@@ -1111,14 +1155,7 @@ screen save_Outfit_screen(Character):
     on "show" action [
         SetVariable("current_input", ""),
         SetVariable("current_Outfit_color", None),
-        SetDict(current_flags, "wear_in_public", False),
-        SetDict(current_flags, "wear_in_private", False),
-        SetDict(current_flags, "datewear", False),
-        SetDict(current_flags, "activewear", False),
-        SetDict(current_flags, "swimwear", False),
-        SetDict(current_flags, "sexwear", False),
-        SetDict(current_flags, "sleepwear", False),
-        SetDict(current_flags, "winterwear", False)]
+        SetVariable("current_flags", [])]
 
     $ Outfit_list = []
 
@@ -1151,7 +1188,7 @@ screen save_Outfit_screen(Character):
     #     text "OUTFIT COLOR" + "_" anchor (0.0, 0.5) pos (0.242, 0.344):
     #         size 28
 
-    hbox anchor (0.5, 0.5) pos (0.372, 0.4) ysize int(114*interface_adjustment):
+    hbox anchor (0.5, 0.5) pos (0.374, 0.4) ysize int(114*interface_adjustment):
         spacing 15
 
         for Outfit_color in ["blue", "green", "pink", "purple", "red"]:
@@ -1165,53 +1202,55 @@ screen save_Outfit_screen(Character):
 
                 action SetVariable("current_Outfit_color", Outfit_color)
 
-    # text "OUTFIT TYPE:" anchor (0.0, 0.0) pos (0.025, 0.49):
-    #     size 42
+    # if blinking:
+    text "OUTFIT FLAGS" + "{alpha=0.0}_{/alpha}" anchor (0.0, 0.5) pos (0.242, 0.455):
+        size 28
+    # else:
+    #     text "OUTFIT FLAGS" + "_" anchor (0.0, 0.5) pos (0.242, 0.42):
+    #         size 28
 
-    #     color "#512908"
+    vpgrid id "Wardrobe_save_flags_viewport" anchor (0.5, 0.0) pos (0.374, 0.475) xysize (0.22, int(646*interface_adjustment)):
+        cols 4
 
-    # hbox ysize 88 align (0.5, 0.65):
-    #     spacing 5
+        draggable True
+        mousewheel True
+        
+        spacing -17
 
-    #     imagebutton:
-    #         idle "images/interface/wardrobe/public_idle.webp" 
-    #         hover "images/interface/wardrobe/public.webp" 
-    #         selected_idle "images/interface/wardrobe/public_selected.webp" 
-    #         selected_hover "images/interface/wardrobe/public_selected.webp"
+        for flag in ["public", "winter", "day", "date", "exercise", "hero", "swim", "empty", "private", "sexy", "sleep"]:
+            if flag in ["public", "day"]:
+                $ color = "blue"
+            elif flag in ["exercise", "hero", "swim"]:
+                $ color = "red"
+            elif flag in ["private", "sexy", "sleep"]:
+                $ color = "pink"
 
-    #         selected current_flags["wear_in_public"]
+            if flag != "empty":
+                button xysize (int(240*interface_adjustment), int(115*interface_adjustment)):
+                    idle_background At(f"images/interface/wardrobe/tag_{color}.webp", interface)
+                    hover_background At(f"images/interface/wardrobe/tag_{color}.webp", interface)
 
-    #         action ToggleDict(current_flags, "wear_in_public")
+                    selected_foreground At(At("images/interface/wardrobe/tag_selector.webp", interface), Transform(anchor = (0.5, 0.5), pos = (0.504, 0.515)))
 
-    #         tooltip "Public"
+                    selected flag in current_flags
 
-    #     imagebutton:
-    #         idle "images/interface/wardrobe/private_idle.webp" 
-    #         hover "images/interface/wardrobe/private.webp" 
-    #         selected_idle "images/interface/wardrobe/private_selected.webp" 
-    #         selected_hover "images/interface/wardrobe/private_selected.webp"
+                    text flag.upper() anchor (0.5, 0.5) pos (0.504, 0.515):
+                        size 26
 
-    #         selected current_flags["wear_in_private"]
+                    if flag in current_flags:
+                        action RemoveFromSet(current_flags, flag)
+                    else:
+                        action AddToSet(current_flags, flag)
+            else:
+                null width int(240*interface_adjustment) height int(115*interface_adjustment)
 
-    #         action ToggleDict(current_flags, "wear_in_private")
+    vbar value YScrollValue("Wardrobe_save_flags_viewport") anchor (0.5, 0.0) pos (0.52, 0.475) xysize (int(29*interface_adjustment), int(646*interface_adjustment)):
+        base_bar At("images/interface/wardrobe/popup_scrollbar.webp", interface)
 
-    #         tooltip "Private"
+        thumb At("images/interface/wardrobe/popup_scrollbar_thumb.webp", interface)
+        thumb_offset int(212*interface_adjustment/2/10)
 
-    # hbox ysize 88 align (0.5, 0.8):
-    #     spacing 5
-
-    #     for wear_type in ["activewear", "swimwear", "datewear", "sexwear", "sleepwear", "winterwear"]:
-    #         imagebutton:
-    #             idle f"images/interface/wardrobe/{wear_type}_idle.webp" 
-    #             hover f"images/interface/wardrobe/{wear_type}.webp" 
-    #             selected_idle f"images/interface/wardrobe/{wear_type}_selected.webp" 
-    #             selected_hover f"images/interface/wardrobe/{wear_type}_selected.webp"
-
-    #             selected current_flags[wear_type]
-
-    #             action ToggleDict(current_flags, wear_type)
-
-    #             tooltip wear_type.capitalize()
+        unscrollable "hide"
 
     imagebutton:
         idle At("images/interface/wardrobe/continue_idle.webp", interface)
@@ -1221,6 +1260,7 @@ screen save_Outfit_screen(Character):
             if current_input in Character.Wardrobe.Outfits.keys() and Character.Wardrobe.Outfits[current_input].Outfit_type == "custom":
                 action [
                     Hide("save_Outfit_screen"), 
+                    SetVariable("Wardrobe_tab", "default"),
                     Show("confirm_overwrite_screen", Character = Character)]
             elif current_input in Character.Wardrobe.Outfits.keys() and Character.Wardrobe.Outfits[current_input].Outfit_type == "default":
                 action [
@@ -1232,6 +1272,7 @@ screen save_Outfit_screen(Character):
                 if len(Outfit_list) < 28:
                     action [
                         Hide("save_Outfit_screen"), 
+                        SetVariable("Wardrobe_tab", "default"),
                         Call("save_new_Outfit", Character, current_input, current_Outfit_color, current_flags, from_current = True)]
                 else:
                     action [
@@ -1257,15 +1298,7 @@ screen edit_Outfit_screen(Character):
     on "show" action [
         SetVariable("current_input", Character.Outfit.name),
         SetVariable("current_Outfit_color", Character.Outfit.color),
-        SetDict(current_flags, "wear_in_public", Character.Outfit.wear_in_public),
-        SetDict(current_flags, "wear_in_private", Character.Outfit.wear_in_private),
-        SetDict(current_flags, "activewear", Character.Outfit.activewear),
-        SetDict(current_flags, "superwear", Character.Outfit.superwear),
-        SetDict(current_flags, "swimwear", Character.Outfit.swimwear),
-        SetDict(current_flags, "datewear", Character.Outfit.datewear),
-        SetDict(current_flags, "sexwear", Character.Outfit.sexwear),
-        SetDict(current_flags, "sleepwear", Character.Outfit.sleepwear),
-        SetDict(current_flags, "winterwear", Character.Outfit.winterwear)]
+        SetVariable("current_flags", Character.Outfit.flags)]
 
     add "images/interface/wardrobe/popup_background.webp" zoom interface_adjustment
 
@@ -1292,7 +1325,7 @@ screen edit_Outfit_screen(Character):
     #     text "OUTFIT COLOR" + "_" anchor (0.0, 0.5) pos (0.242, 0.344):
     #         size 28
 
-    hbox anchor (0.5, 0.5) pos (0.372, 0.4) ysize int(114*interface_adjustment):
+    hbox anchor (0.5, 0.5) pos (0.374, 0.4) ysize int(114*interface_adjustment):
         spacing 15
 
         for Outfit_color in ["blue", "green", "pink", "purple", "red"]:
@@ -1306,53 +1339,55 @@ screen edit_Outfit_screen(Character):
 
                 action SetVariable("current_Outfit_color", Outfit_color)
                     
-#         text "OUTFIT TYPE:" anchor (0.0, 0.0) pos (0.025, 0.49):
-#             size 42
+    # if blinking:
+    text "OUTFIT FLAGS" + "{alpha=0.0}_{/alpha}" anchor (0.0, 0.5) pos (0.242, 0.455):
+        size 28
+    # else:
+    #     text "OUTFIT FLAGS" + "_" anchor (0.0, 0.5) pos (0.242, 0.42):
+    #         size 28
 
-#             color "#512908"
+    vpgrid id "Wardrobe_edit_flags_viewport" anchor (0.5, 0.0) pos (0.374, 0.475) xysize (0.22, int(646*interface_adjustment)):
+        cols 4
 
-#         hbox ysize 88 align (0.5, 0.65):
-#             spacing 5
+        draggable True
+        mousewheel True
+        
+        spacing -17
 
-#             imagebutton:
-#                 idle "images/interface/wardrobe/public_idle.webp" 
-#                 hover "images/interface/wardrobe/public.webp" 
-#                 selected_idle "images/interface/wardrobe/public_selected.webp" 
-#                 selected_hover "images/interface/wardrobe/public_selected.webp"
+        for flag in ["public", "winter", "day", "date", "exercise", "hero", "swim", "empty", "private", "sexy", "sleep"]:
+            if flag in ["public", "day"]:
+                $ color = "blue"
+            elif flag in ["exercise", "hero", "swim"]:
+                $ color = "red"
+            elif flag in ["private", "sexy", "sleep"]:
+                $ color = "pink"
 
-#                 selected current_flags["wear_in_public"]
+            if flag != "empty":
+                button xysize (int(240*interface_adjustment), int(115*interface_adjustment)):
+                    idle_background At(f"images/interface/wardrobe/tag_{color}.webp", interface)
+                    hover_background At(f"images/interface/wardrobe/tag_{color}.webp", interface)
 
-#                 action ToggleDict(current_flags, "wear_in_public")
+                    selected_foreground At(At("images/interface/wardrobe/tag_selector.webp", interface), Transform(anchor = (0.5, 0.5), pos = (0.504, 0.515)))
 
-#                 tooltip "Public"
+                    selected flag in current_flags
 
-#             imagebutton:
-#                 idle "images/interface/wardrobe/private_idle.webp" 
-#                 hover "images/interface/wardrobe/private.webp" 
-#                 selected_idle "images/interface/wardrobe/private_selected.webp" 
-#                 selected_hover "images/interface/wardrobe/private_selected.webp"
+                    text flag.upper() anchor (0.5, 0.5) pos (0.504, 0.515):
+                        size 26
 
-#                 selected current_flags["wear_in_private"]
+                    if flag in current_flags:
+                        action RemoveFromSet(current_flags, flag)
+                    else:
+                        action AddToSet(current_flags, flag)
+            else:
+                null width int(240*interface_adjustment) height int(115*interface_adjustment)
 
-#                 action ToggleDict(current_flags, "wear_in_private")
+    vbar value YScrollValue("Wardrobe_edit_flags_viewport") anchor (0.5, 0.0) pos (0.52, 0.475) xysize (int(29*interface_adjustment), int(646*interface_adjustment)):
+        base_bar At("images/interface/wardrobe/popup_scrollbar.webp", interface)
 
-#                 tooltip "Private"
+        thumb At("images/interface/wardrobe/popup_scrollbar_thumb.webp", interface)
+        thumb_offset int(212*interface_adjustment/2/10)
 
-#         hbox ysize 88 align (0.5, 0.8):
-#             spacing 5
-
-#             for wear_type in ["activewear", "swimwear", "datewear", "sexwear", "sleepwear", "winterwear"]:
-#                 imagebutton:
-#                     idle f"images/interface/wardrobe/{wear_type}_idle.webp" 
-#                     hover f"images/interface/wardrobe/{wear_type}.webp" 
-#                     selected_idle f"images/interface/wardrobe/{wear_type}_selected.webp" 
-#                     selected_hover f"images/interface/wardrobe/{wear_type}_selected.webp"
-
-#                     selected current_flags[wear_type]
-
-#                     action ToggleDict(current_flags, wear_type)
-
-#                     tooltip wear_type.capitalize()
+        unscrollable "hide"
                     
     imagebutton:
         idle At("images/interface/wardrobe/continue_idle.webp", interface)

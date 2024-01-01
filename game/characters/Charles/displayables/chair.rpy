@@ -59,7 +59,7 @@ image Charles_sprite:
 
 layeredimage Charles_chair_temp:
     if Charles.hovered:
-        At("Charles_chair", hover)
+        "Charles_chair" at hover
     else:
         "Charles_chair"
 
@@ -79,7 +79,7 @@ layeredimage Charles_chair:
         "characters/Charles/images/arms.webp"
 
     always:
-        At("Charles_chair_head", Charles_chair_head_animation)
+        "Charles_chair_head" at Charles_chair_head_animation
 
 layeredimage Charles_chair_head:
     always:
@@ -100,11 +100,11 @@ layeredimage Charles_chair_head:
         "characters/Charles/images/standing/blush[Charles.blush].webp"
 
     if Charles.psychic and Charles.activating_psychic:
-        At("Charles_chair_psychic", Charles_chair_activating_psychic_animation)
+        "Charles_chair_psychic" at Charles_chair_activating_psychic_animation
     elif Charles.psychic:
-        At("Charles_chair_psychic", Charles_chair_psychic_animation)
+        "Charles_chair_psychic" at Charles_chair_psychic_animation
     elif Charles.deactivating_psychic:
-        At("Charles_chair_psychic", Charles_chair_deactivating_psychic_animation)
+        "Charles_chair_psychic" at Charles_chair_deactivating_psychic_animation
 
     anchor (int(1200*character_sampling), int(1770*character_sampling))
     offset (int(1200*character_sampling), int(1770*character_sampling))

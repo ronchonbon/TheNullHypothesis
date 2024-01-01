@@ -3,7 +3,7 @@ init python:
     def default_Jean_Outfits():
         Outfits = []
         
-        Outfits.append(OutfitClass("Casual 1", wear_in_public = True))
+        Outfits.append(OutfitClass("Casual 1", flags = ["public", "day"]))
 
         Outfits[-1].Clothes.update({
             "hair": Jean_straight_hair(),
@@ -11,7 +11,7 @@ init python:
             "pants": Jean_khaki_pants(),
             "top": Jean_pink_top()})
 
-        Outfits.append(OutfitClass("Hero (Chapter I)", superwear = True))
+        Outfits.append(OutfitClass("Hero (Chapter I)", flags = ["hero"]))
 
         Outfits[-1].Clothes.update({
             "face_inner_accessory": Jean_blue_mask(), "hair": Jean_straight_hair(),
@@ -20,13 +20,13 @@ init python:
             "boots": Jean_blue_boots(),
             "gloves": Jean_blue_gloves(), "sleeves": Jean_blue_gauntlets()})
 
-        Outfits.append(OutfitClass("Swimsuit (One-Piece)", swimwear = True))
+        Outfits.append(OutfitClass("Swimsuit (One-Piece)", flags = ["swim"]))
 
         Outfits[-1].Clothes.update({
             "hair": Jean_straight_hair(),
             "bodysuit": Jean_red_swimsuit()})
 
-        Outfits.append(OutfitClass("Pajamas 1", sleepwear = True))
+        Outfits.append(OutfitClass("Pajamas 1", flags = ["sleep"]))
 
         Outfits[-1].Clothes.update({
             "hair": Jean_straight_hair(),

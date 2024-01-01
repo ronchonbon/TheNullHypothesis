@@ -57,11 +57,15 @@ transform Ororo_standing_left_arm_animation:
     
 image Ororo_sprite standing:
     contains:
-        ConditionSwitch(
-            "Ororo.hovered", At("Ororo_standing", hover),
-            "True", "Ororo_standing")
+        "Ororo_standing_temp"
 
     xysize (int(2500*character_sampling), int(4500*character_sampling))
+
+layeredimage Ororo_standing_temp:
+    if Ororo.hovered:
+        "Ororo_standing" at hover
+    else:
+        "Ororo_standing"
 
 layeredimage Ororo_standing:
     if Ororo.ground_shadow:
@@ -70,7 +74,7 @@ layeredimage Ororo_standing:
     if renpy.get_screen("Wardrobe_screen"):
         "Ororo_standing_hair_back"
     else:
-        At("Ororo_standing_hair_back", Ororo_standing_head_animation)
+        "Ororo_standing_hair_back" at Ororo_standing_head_animation
 
     if Ororo.right_arm in ["bra"]:
         "characters/Ororo/images/standing/right_forearm_[Ororo.right_arm].webp"
@@ -96,7 +100,7 @@ layeredimage Ororo_standing:
     if renpy.get_screen("Wardrobe_screen"):
         "Ororo_standing_head"
     else:
-        At("Ororo_standing_head", Ororo_standing_head_animation)
+        "Ororo_standing_head" at Ororo_standing_head_animation
 
     if Ororo.right_arm in ["extended", "fight", "storm1"]:
         "characters/Ororo/images/standing/right_forearm_[Ororo.right_arm].webp"
@@ -143,7 +147,7 @@ layeredimage Ororo_standing_body:
     elif renpy.get_screen("Wardrobe_screen"):
         "Ororo_standing_right_arm"
     elif Ororo.right_arm == "neutral":
-        At("Ororo_standing_right_arm", Ororo_standing_right_arm_animation)
+        "Ororo_standing_right_arm" at Ororo_standing_right_arm_animation
     else:
         "Ororo_standing_right_arm"
 
@@ -155,7 +159,7 @@ layeredimage Ororo_standing_body:
     elif renpy.get_screen("Wardrobe_screen"):
         "Ororo_standing_left_arm"
     elif Ororo.left_arm == "neutral":
-        At("Ororo_standing_left_arm", Ororo_standing_left_arm_animation)
+        "Ororo_standing_left_arm" at Ororo_standing_left_arm_animation
     else:
         "Ororo_standing_left_arm"
 

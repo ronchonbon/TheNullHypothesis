@@ -195,7 +195,7 @@ label set_Character_Outfits(Characters = None, instant = True):
             else:
                 $ Outfit = temp_Characters[0].Wardrobe.indoor_Outfit
 
-            if temp_Characters[0].location in public_locations and not Outfit.wear_in_public and (Outfit.wear_in_private or Outfit.sleepwear):
+            if temp_Characters[0].location in public_locations and "public" not in Outfit.flags and ("private" in Outfit.flags or "sleep" in Outfit.flags):
                 $ Outfit = temp_Characters[0].Wardrobe.indoor_Outfit
 
             if renpy.showing(f"{temp_Characters[0].tag}_sprite") and not black_screen and not instant:

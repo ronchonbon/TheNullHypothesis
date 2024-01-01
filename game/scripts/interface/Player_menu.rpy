@@ -254,7 +254,7 @@ screen database_screen():
                         
                         selected current_database_Entry == D
 
-                        if D in all_Characters or current_database_Entry == Player:
+                        if D in all_Characters or D == Player:
                             text D.call_sign anchor (0.0, 0.5) pos (0.1, 0.5):
                                 font "agency_fb.ttf"
 
@@ -677,7 +677,7 @@ screen inventory_screen():
                     elif Clothing.shop_type == "lingerie":
                         add "images/interface/items/xtreme_intimates.webp" anchor (0.5, 0.5) pos (0.5, 0.5) zoom 0.4
 
-                    add At(f"images/interface/phone/icons/{Clothing.Owner.tag}.webp", humhum_icon) anchor (0.5, 0.5) pos (0.93, 0.89)
+                    add At(f"images/interface/icons/{Clothing.Owner.tag}.webp", humhum_icon) anchor (0.5, 0.5) pos (0.93, 0.89)
 
                     if giving_gift and focused_Character == Clothing.Owner:
                         action [
@@ -1288,8 +1288,8 @@ screen map_screen():
                                         add At("images/interface/Player_menu/event_alert.webp", phone_icon)
 
                                     if Player.location == possible_location:
-                                        add At(f"images/interface/phone/icons/Player_{Player.background_color}.webp", map_icon)
+                                        add At(f"images/interface/icons/Player_{Player.background_color}.webp", map_icon)
 
                                     for C in all_Characters:
                                         if C.location == possible_location:
-                                            add At(f"images/interface/phone/icons/{C.tag}.webp", map_icon)
+                                            add At(f"images/interface/icons/{C.tag}.webp", map_icon)

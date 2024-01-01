@@ -20,7 +20,7 @@ label travel(destination):
                 $ temp_Characters[0].destination = destination
                 $ temp_Characters[0].location = destination
 
-            if not temp_Characters[0].Outfit.wear_in_public:
+            if "public" not in temp_Characters[0].Outfit.flags:
                 call expression f"{temp_Characters[0].tag}_Party_change_into_public_Outfit" from _call_expression_378
 
                 pause 1.0

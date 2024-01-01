@@ -3,7 +3,7 @@ init python:
     def default_Rogue_Outfits():
         Outfits = []
         
-        Outfits.append(OutfitClass("Casual 1", wear_in_public = True))
+        Outfits.append(OutfitClass("Casual 1", flags = ["public", "day"]))
 
         Outfits[-1].Clothes.update({
             "hair": Rogue_asymmetric_hair(),
@@ -12,7 +12,7 @@ init python:
             "top": Rogue_black_lowcut_top(),
             "gloves": Rogue_black_gloves(), "sleeves": Rogue_black_spiked_bracelets()})
 
-        Outfits.append(OutfitClass("Hero (Chapter I)", superwear = True))
+        Outfits.append(OutfitClass("Hero (Chapter I)", flags = ["hero"]))
 
         Outfits[-1].Clothes.update({
             "face_inner_accessory": Rogue_green_headband(), "hair": Rogue_asymmetric_hair(),
@@ -22,13 +22,13 @@ init python:
             "gloves": Rogue_yellow_gloves(), "belt": Rogue_brown_utility_belt(),
             "jacket": Rogue_brown_classic_jacket()})
 
-        Outfits.append(OutfitClass("Swimsuit (Bikini)", swimwear = True))
+        Outfits.append(OutfitClass("Swimsuit (Bikini)", flags = ["swim"]))
 
         Outfits[-1].Clothes.update({
             "hair": Rogue_asymmetric_hair(),
             "bra": Rogue_green_bikini_top(), "underwear": Rogue_green_bikini_bottoms()})
 
-        Outfits.append(OutfitClass("Pajamas 1", sleepwear = True))
+        Outfits.append(OutfitClass("Pajamas 1", flags = ["sleep"]))
 
         Outfits[-1].Clothes.update({
             "hair": Rogue_asymmetric_hair(),

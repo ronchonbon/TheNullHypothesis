@@ -97,9 +97,9 @@ image Jean_sprite standing:
 
 layeredimage Jean_standing_temp:
     if Jean.hovered:
-        At("Jean_standing", hover)
+        "Jean_standing" at hover
     elif Jean.orgasming:
-        At("Jean_standing", tremble(20))
+        "Jean_standing" at tremble(20)
     else:
         "Jean_standing"
 
@@ -107,12 +107,12 @@ layeredimage Jean_standing:
     if not Player.left_hand_Actions or Jean not in Player.left_hand_Actions[0].Targets:
         Null()
     elif Player.left_hand_Actions[0].animation_type == "grab_ass":
-        At("Jean_standing_male_left_arm_grab_ass_animation[Player.left_hand_Actions[0].mode]", change_offset(Jean_standing_ass_position[0], Jean_standing_ass_position[1]))
+        "Jean_standing_male_left_arm_grab_ass_animation[Player.left_hand_Actions[0].mode]" at change_offset(Jean_standing_ass_position[0], Jean_standing_ass_position[1])
 
     if not Player.right_hand_Actions or Jean not in Player.right_hand_Actions[0].Targets:
         Null()
     elif Player.right_hand_Actions[0].animation_type == "grab_ass":
-        At("Jean_standing_male_right_arm_grab_ass_animation[Player.right_hand_Actions[0].mode]", change_offset(Jean_standing_ass_position[0], Jean_standing_ass_position[1]))
+        "Jean_standing_male_right_arm_grab_ass_animation[Player.right_hand_Actions[0].mode]" at change_offset(Jean_standing_ass_position[0], Jean_standing_ass_position[1])
 
     if Jean.ground_shadow:
         "characters/Jean/images/standing/ground_shadow.webp" at Transform(blend = "multiply")
@@ -120,7 +120,7 @@ layeredimage Jean_standing:
     if renpy.get_screen("Wardrobe_screen"):
         "Jean_standing_hair_back"
     else:
-        At("Jean_standing_hair_back", Jean_standing_head_animation)
+        "Jean_standing_hair_back" at Jean_standing_head_animation
 
     if Jean.left_arm in ["bra", "rub_neck", "touch_ass"]:
         "characters/Jean/images/standing/left_forearm_[Jean.left_arm].webp"
@@ -147,7 +147,7 @@ layeredimage Jean_standing:
     elif renpy.get_screen("Wardrobe_screen"):
         "Jean_standing_right_arm"
     elif Jean.right_arm == "neutral":
-        At("Jean_standing_right_arm", Jean_standing_right_arm_animation)
+        "Jean_standing_right_arm" at Jean_standing_right_arm_animation
     else:
         "Jean_standing_right_arm"
 
@@ -169,7 +169,7 @@ layeredimage Jean_standing:
     elif renpy.get_screen("Wardrobe_screen"):
         "Jean_standing_left_arm"
     elif Jean.left_arm == "neutral":
-        At("Jean_standing_left_arm", Jean_standing_left_arm_animation)
+        "Jean_standing_left_arm" at Jean_standing_left_arm_animation
     else:
         "Jean_standing_left_arm"
 
@@ -183,7 +183,7 @@ layeredimage Jean_standing:
     elif renpy.get_screen("Wardrobe_screen"):
         "Jean_standing_left_sleeve"
     elif Jean.left_arm == "neutral":
-        At("Jean_standing_left_sleeve", Jean_standing_left_arm_animation)
+        "Jean_standing_left_sleeve" at Jean_standing_left_arm_animation
     else:
         "Jean_standing_left_sleeve"
 
@@ -249,17 +249,17 @@ layeredimage Jean_standing:
     if not Player.left_hand_Actions or Jean not in Player.left_hand_Actions[0].Targets:
         Null()
     elif Player.left_hand_Actions[0].animation_type == "choke":
-        At("Jean_standing_male_left_arm_choke_animation[Player.left_hand_Actions[0].mode]", change_offset(Jean_standing_neck_position[0], Jean_standing_neck_position[1]))
+        "Jean_standing_male_left_arm_choke_animation[Player.left_hand_Actions[0].mode]" at change_offset(Jean_standing_neck_position[0], Jean_standing_neck_position[1])
 
     if not Player.right_hand_Actions or Jean not in Player.right_hand_Actions[0].Targets:
         Null()
     elif Player.right_hand_Actions[0].animation_type == "choke":
-        At("Jean_standing_male_right_arm_choke_animation[Player.right_hand_Actions[0].mode]", change_offset(Jean_standing_neck_position[0], Jean_standing_neck_position[1]))
+        "Jean_standing_male_right_arm_choke_animation[Player.right_hand_Actions[0].mode]" at change_offset(Jean_standing_neck_position[0], Jean_standing_neck_position[1])
 
     if renpy.get_screen("Wardrobe_screen"):
         "Jean_standing_head"
     else:
-        At("Jean_standing_head", Jean_standing_head_animation)
+        "Jean_standing_head" at Jean_standing_head_animation
 
     if Jean.right_arm in ["extended", "fight", "psychic1"]:
         "characters/Jean/images/standing/right_forearm_[Jean.right_arm].webp"
@@ -300,43 +300,43 @@ layeredimage Jean_standing:
     if not Player.left_hand_Actions or Jean not in Player.left_hand_Actions[0].Targets:
         Null()
     elif Player.left_hand_Actions[0].animation_type == "touch_breasts" and Jean.right_breast_Actions and Player.left_hand_Actions[0].animation_type == Jean.right_breast_Actions[0].animation_type:
-        At("Jean_standing_male_left_arm_touch_right_breast_animation[Player.left_hand_Actions[0].mode]", change_offset(Jean_standing_right_breast_position[0], Jean_standing_right_breast_position[1]))
+        "Jean_standing_male_left_arm_touch_right_breast_animation[Player.left_hand_Actions[0].mode]" at change_offset(Jean_standing_right_breast_position[0], Jean_standing_right_breast_position[1])
     elif Player.left_hand_Actions[0].animation_type == "touch_breasts" and Jean.left_breast_Actions and Player.left_hand_Actions[0].animation_type == Jean.left_breast_Actions[0].animation_type:
-        At("Jean_standing_male_left_arm_touch_left_breast_animation[Player.left_hand_Actions[0].mode]", change_offset(Jean_standing_left_breast_position[0], Jean_standing_left_breast_position[1]))
+        "Jean_standing_male_left_arm_touch_left_breast_animation[Player.left_hand_Actions[0].mode]" at change_offset(Jean_standing_left_breast_position[0], Jean_standing_left_breast_position[1])
     elif Player.left_hand_Actions[0].animation_type == "pinch_nipples" and Jean.right_nipple_Actions and Player.left_hand_Actions[0].animation_type == Jean.right_nipple_Actions[0].animation_type:
-        At("Jean_standing_male_left_arm_touch_right_breast_animation[Player.left_hand_Actions[0].mode]", change_offset(Jean_standing_right_nipple_position[0], Jean_standing_right_nipple_position[1]))
+        "Jean_standing_male_left_arm_touch_right_breast_animation[Player.left_hand_Actions[0].mode]" at change_offset(Jean_standing_right_nipple_position[0], Jean_standing_right_nipple_position[1])
     elif Player.left_hand_Actions[0].animation_type == "pinch_nipples" and Jean.left_nipple_Actions and Player.left_hand_Actions[0].animation_type == Jean.left_nipple_Actions[0].animation_type:
-        At("Jean_standing_male_left_arm_touch_left_breast_animation[Player.left_hand_Actions[0].mode]", change_offset(Jean_standing_left_nipple_position[0], Jean_standing_left_nipple_position[1]))
+        "Jean_standing_male_left_arm_touch_left_breast_animation[Player.left_hand_Actions[0].mode]" at change_offset(Jean_standing_left_nipple_position[0], Jean_standing_left_nipple_position[1])
     elif Player.left_hand_Actions[0].animation_type == "touch_thighs":
-        At("Jean_standing_male_left_arm_touch_thighs_animation[Player.left_hand_Actions[0].mode]", change_offset(Jean_standing_thigh_position[0], Jean_standing_thigh_position[1]))
+        "Jean_standing_male_left_arm_touch_thighs_animation[Player.left_hand_Actions[0].mode]" at change_offset(Jean_standing_thigh_position[0], Jean_standing_thigh_position[1])
     elif Player.left_hand_Actions[0].animation_type == "touch_thighs_higher":
-        At("Jean_standing_male_left_arm_touch_thighs_higher_animation[Player.left_hand_Actions[0].mode]", change_offset(Jean_standing_thigh_higher_position[0], Jean_standing_thigh_higher_position[1]))
+        "Jean_standing_male_left_arm_touch_thighs_higher_animation[Player.left_hand_Actions[0].mode]" at change_offset(Jean_standing_thigh_higher_position[0], Jean_standing_thigh_higher_position[1])
     elif Player.left_hand_Actions[0].animation_type == "touch_pussy":
-        At("Jean_standing_male_left_arm_touch_pussy_animation[Player.left_hand_Actions[0].mode]", change_offset(Jean_standing_pussy_position[0], Jean_standing_pussy_position[1]))
+        "Jean_standing_male_left_arm_touch_pussy_animation[Player.left_hand_Actions[0].mode]" at change_offset(Jean_standing_pussy_position[0], Jean_standing_pussy_position[1])
 
     if not Player.right_hand_Actions or Jean not in Player.right_hand_Actions[0].Targets:
         Null()
     elif Player.right_hand_Actions[0].animation_type == "touch_breasts" and Jean.right_breast_Actions and Player.right_hand_Actions[0].animation_type == Jean.right_breast_Actions[0].animation_type:
-        At("Jean_standing_male_right_arm_touch_right_breast_animation[Player.right_hand_Actions[0].mode]", change_offset(Jean_standing_right_breast_position[0], Jean_standing_right_breast_position[1]))
+        "Jean_standing_male_right_arm_touch_right_breast_animation[Player.right_hand_Actions[0].mode]" at change_offset(Jean_standing_right_breast_position[0], Jean_standing_right_breast_position[1])
     elif Player.right_hand_Actions[0].animation_type == "touch_breasts" and Jean.left_breast_Actions and Player.right_hand_Actions[0].animation_type == Jean.left_breast_Actions[0].animation_type:
-        At("Jean_standing_male_right_arm_touch_left_breast_animation[Player.right_hand_Actions[0].mode]", change_offset(Jean_standing_left_breast_position[0], Jean_standing_left_breast_position[1]))
+        "Jean_standing_male_right_arm_touch_left_breast_animation[Player.right_hand_Actions[0].mode]" at change_offset(Jean_standing_left_breast_position[0], Jean_standing_left_breast_position[1])
     elif Player.right_hand_Actions[0].animation_type == "pinch_nipples" and Jean.right_nipple_Actions and Player.right_hand_Actions[0].animation_type == Jean.right_nipple_Actions[0].animation_type:
-        At("Jean_standing_male_right_arm_touch_right_breast_animation[Player.right_hand_Actions[0].mode]", change_offset(Jean_standing_right_nipple_position[0], Jean_standing_right_nipple_position[1]))
+        "Jean_standing_male_right_arm_touch_right_breast_animation[Player.right_hand_Actions[0].mode]" at change_offset(Jean_standing_right_nipple_position[0], Jean_standing_right_nipple_position[1])
     elif Player.right_hand_Actions[0].animation_type == "pinch_nipples" and Jean.left_nipple_Actions and Player.right_hand_Actions[0].animation_type == Jean.left_nipple_Actions[0].animation_type:
-        At("Jean_standing_male_right_arm_touch_left_breast_animation[Player.right_hand_Actions[0].mode]", change_offset(Jean_standing_left_nipple_position[0], Jean_standing_left_nipple_position[1]))
+        "Jean_standing_male_right_arm_touch_left_breast_animation[Player.right_hand_Actions[0].mode]" at change_offset(Jean_standing_left_nipple_position[0], Jean_standing_left_nipple_position[1])
     elif Player.right_hand_Actions[0].animation_type == "touch_thighs":
-        At("Jean_standing_male_right_arm_touch_thighs_animation[Player.right_hand_Actions[0].mode]", change_offset(Jean_standing_thigh_position[0], Jean_standing_thigh_position[1]))
+        "Jean_standing_male_right_arm_touch_thighs_animation[Player.right_hand_Actions[0].mode]" at change_offset(Jean_standing_thigh_position[0], Jean_standing_thigh_position[1])
     elif Player.right_hand_Actions[0].animation_type == "touch_thighs_higher":
-        At("Jean_standing_male_right_arm_touch_thighs_higher_animation[Player.right_hand_Actions[0].mode]", change_offset(Jean_standing_thigh_higher_position[0], Jean_standing_thigh_higher_position[1]))
+        "Jean_standing_male_right_arm_touch_thighs_higher_animation[Player.right_hand_Actions[0].mode]" at change_offset(Jean_standing_thigh_higher_position[0], Jean_standing_thigh_higher_position[1])
     elif Player.right_hand_Actions[0].animation_type == "touch_pussy":
-        At("Jean_standing_male_right_arm_touch_pussy_animation[Player.right_hand_Actions[0].mode]", change_offset(Jean_standing_pussy_position[0], Jean_standing_pussy_position[1]))
+        "Jean_standing_male_right_arm_touch_pussy_animation[Player.right_hand_Actions[0].mode]" at change_offset(Jean_standing_pussy_position[0], Jean_standing_pussy_position[1])
 
     if not Player.mouth_Actions or Jean not in Player.mouth_Actions[0].Targets:
         Null()
     elif Player.mouth_Actions[0].animation_type in ["suck_nipples"] and Jean.left_nipple_Actions and Player.mouth_Actions[0].animation_type == Jean.left_nipple_Actions[0].animation_type:
-        At("Jean_standing_male_head_suck_left_nipple_animation[Player.mouth_Actions[0].mode]", change_offset(Jean_standing_left_nipple_position[0], Jean_standing_left_nipple_position[1]))
+        "Jean_standing_male_head_suck_left_nipple_animation[Player.mouth_Actions[0].mode]" at change_offset(Jean_standing_left_nipple_position[0], Jean_standing_left_nipple_position[1])
     elif Player.mouth_Actions[0].animation_type in ["suck_nipples"] and Jean.right_nipple_Actions and Player.mouth_Actions[0].animation_type == Jean.right_nipple_Actions[0].animation_type:
-        At("Jean_standing_male_head_suck_right_nipple_animation[Player.mouth_Actions[0].mode]", change_offset(Jean_standing_right_nipple_position[0], Jean_standing_right_nipple_position[1]))
+        "Jean_standing_male_head_suck_right_nipple_animation[Player.mouth_Actions[0].mode]" at change_offset(Jean_standing_right_nipple_position[0], Jean_standing_right_nipple_position[1])
 
 layeredimage Jean_standing_hair_back:
     # if Jean.wet or Jean.Clothes["hair"].string == "wet":
@@ -382,11 +382,11 @@ layeredimage Jean_standing_head:
         "characters/Jean/images/standing/hair_[Jean.Clothes[hair].string].webp"
 
     if Jean.psychic and Jean.activating_psychic:
-        At("Jean_standing_psychic", Jean_standing_activating_psychic_animation)
+        "Jean_standing_psychic" at Jean_standing_activating_psychic_animation
     elif Jean.psychic:
-        At("Jean_standing_psychic", Jean_standing_psychic_animation)
+        "Jean_standing_psychic" at Jean_standing_psychic_animation
     elif Jean.deactivating_psychic:
-        At("Jean_standing_psychic", Jean_standing_deactivating_psychic_animation)
+        "Jean_standing_psychic" at Jean_standing_deactivating_psychic_animation
 
     anchor (int(1315*character_sampling), int(1360*character_sampling))
     offset (int(1315*character_sampling), int(1360*character_sampling))

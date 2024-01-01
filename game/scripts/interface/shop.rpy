@@ -263,7 +263,7 @@ screen shop_screen(shop_type, discount = False, restricted = True):
                 size 30
 
         if shop_type in ["clothing", "lingerie"] or current_shop_Item.filter_type == "key_gifts":
-            add f"images/interface/phone/icons/{current_shop_Item.Owner.tag}.webp" anchor (0.5, 0.5) pos (0.851, 0.797) zoom 0.5
+            add f"images/interface/icons/{current_shop_Item.Owner.tag}.webp" anchor (0.5, 0.5) pos (0.851, 0.797) zoom 0.5
 
         if current_shop_Item.string in Player.inventory.keys():
             text f"{len(Player.inventory[current_shop_Item.string])}" anchor (1.0, 0.5) pos (0.926, 0.91):

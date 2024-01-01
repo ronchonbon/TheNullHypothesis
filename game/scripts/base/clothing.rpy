@@ -89,18 +89,7 @@ init -3 python:
         def __init__(self, name, **properties):
             self.name = name
 
-            self.wear_in_public = properties.get("wear_in_public", False)
-            self.wear_in_private = properties.get("wear_in_private", False)
-
-            self.daywear = properties.get("daywear", False)
-            self.activewear = properties.get("activewear", False)
-            self.superwear = properties.get("superwear", False)
-            self.swimwear = properties.get("swimwear", False)
-            self.datewear = properties.get("datewear", False)
-            self.sexwear = properties.get("sexwear", False)
-            self.sleepwear = properties.get("sleepwear", False)
-
-            self.winterwear = properties.get("winterwear", False)
+            self.flags = properties.get("flags", [])
 
             self.shame = 0
 
@@ -189,58 +178,58 @@ init -3 python:
 
             for O in self.Outfits.values():
                 if not O.disabled:
-                    if O.wear_in_public:
+                    if "public" in O.flags:
                         if temperature[1] >= 10:
-                            if not O.winterwear and "Winter" not in O.name:
+                            if "winter" not in O.flags and "Winter" not in O.name:
                                 public_Outfits.append(O)
                         else:
-                            if O.winterwear:
+                            if "winter" in O.flags:
                                 public_Outfits.append(O)
 
-                    if O.wear_in_private:
+                    if "private" in O.flags:
                         private_Outfits.append(O)
 
-                    if O.daywear:
+                    if "day" in O.flags:
                         if temperature[0] >= 10:
-                            if not O.winterwear and "Winter" not in O.name:
+                            if "winter" not in O.flags and "Winter" not in O.name:
                                 day_Outfits.append(O)
                         else:
                             day_Outfits.append(O)
 
-                    if O.activewear:
+                    if "exercise" in O.flags:
                         if temperature[0] >= 10:
-                            if not O.winterwear and "Winter" not in O.name:
+                            if "winter" not in O.flags and "Winter" not in O.name:
                                 gym_Outfits.append(O)
                         else:
                             gym_Outfits.append(O)
 
-                    if O.superwear:
+                    if "hero" in O.flags:
                         if temperature[0] >= 10:
-                            if not O.winterwear and "Winter" not in O.name:
+                            if "winter" not in O.flags and "Winter" not in O.name:
                                 superhero_Outfits.append(O)
                         else:
                             superhero_Outfits.append(O)
 
-                    if O.swimwear:
+                    if "swim" in O.flags:
                         if temperature[0] >= 10:
-                            if not O.winterwear and "Winter" not in O.name:
+                            if "winter" not in O.flags and "Winter" not in O.name:
                                 swimming_Outfits.append(O)
                         else:
                             swimming_Outfits.append(O)
 
-                    if O.datewear:
+                    if "date" in O.flags:
                         if temperature[0] >= 10:
-                            if not O.winterwear and "Winter" not in O.name:
+                            if "winter" not in O.flags and "Winter" not in O.name:
                                 date_Outfits.append(O)
                         else:
                             date_Outfits.append(O)
                     
-                    if O.sexwear:
+                    if "sexy" in O.flags:
                         sex_Outfits.append(O)
 
-                    if O.sleepwear:
+                    if "sleep" in O.flags:
                         if temperature[0] >= 10:
-                            if not O.winterwear and "Winter" not in O.name:
+                            if "winter" not in O.flags and "Winter" not in O.name:
                                 sleeping_Outfits.append(O)
                         else:
                             sleeping_Outfits.append(O)
@@ -250,7 +239,7 @@ init -3 python:
 
             self.outdoor_Outfit = renpy.random.choice(public_Outfits) if public_Outfits else OutfitClass("null")
 
-            if self.outdoor_Outfit.winterwear:
+            if "winter" in self.outdoor_Outfit.flags:
                 Outfit_name = self.outdoor_Outfit.name.replace(" (Outdoor)", " (Indoor)")
 
                 if Outfit_name in self.Outfits.keys():
@@ -288,58 +277,58 @@ init -3 python:
 
             for O in self.Outfits.values():
                 if not O.disabled:
-                    if O.wear_in_public:
+                    if "public" in O.flags:
                         if temperature[1] >= 10:
-                            if not O.winterwear and "Winter" not in O.name:
+                            if "winter" not in O.flags and "Winter" not in O.name:
                                 public_Outfits.append(O)
                         else:
-                            if O.winterwear:
+                            if "winter" in O.flags:
                                 public_Outfits.append(O)
 
-                    if O.wear_in_private:
+                    if "private" in O.flags:
                         private_Outfits.append(O)
 
-                    if O.daywear:
+                    if "day" in O.flags:
                         if temperature[0] >= 10:
-                            if not O.winterwear and "Winter" not in O.name:
+                            if "winter" not in O.flags and "Winter" not in O.name:
                                 day_Outfits.append(O)
                         else:
                             day_Outfits.append(O)
 
-                    if O.activewear:
+                    if "exercise" in O.flags:
                         if temperature[0] >= 10:
-                            if not O.winterwear and "Winter" not in O.name:
+                            if "winter" not in O.flags and "Winter" not in O.name:
                                 gym_Outfits.append(O)
                         else:
                             gym_Outfits.append(O)
 
-                    if O.superwear:
+                    if "hero" in O.flags:
                         if temperature[0] >= 10:
-                            if not O.winterwear and "Winter" not in O.name:
+                            if "winter" not in O.flags and "Winter" not in O.name:
                                 superhero_Outfits.append(O)
                         else:
                             superhero_Outfits.append(O)
 
-                    if O.swimwear:
+                    if "swim" in O.flags:
                         if temperature[0] >= 10:
-                            if not O.winterwear and "Winter" not in O.name:
+                            if "winter" not in O.flags and "Winter" not in O.name:
                                 swimming_Outfits.append(O)
                         else:
                             swimming_Outfits.append(O)
 
-                    if O.datewear:
+                    if "date" in O.flags:
                         if temperature[0] >= 10:
-                            if not O.winterwear and "Winter" not in O.name:
+                            if "winter" not in O.flags and "Winter" not in O.name:
                                 date_Outfits.append(O)
                         else:
                             date_Outfits.append(O)
                     
-                    if O.sexwear:
+                    if "sexy" in O.flags:
                         sex_Outfits.append(O)
 
-                    if O.sleepwear:
+                    if "sleep" in O.flags:
                         if temperature[0] >= 10:
-                            if not O.winterwear and "Winter" not in O.name:
+                            if "winter" not in O.flags and "Winter" not in O.name:
                                 sleeping_Outfits.append(O)
                         else:
                             sleeping_Outfits.append(O)
@@ -350,7 +339,7 @@ init -3 python:
             if self.outdoor_Outfit.disabled or self.indoor_Outfit.disabled:
                 self.outdoor_Outfit = renpy.random.choice(public_Outfits) if public_Outfits else OutfitClass("null")
 
-                if self.outdoor_Outfit.winterwear:
+                if "winter" in self.outdoor_Outfit.flags:
                     Outfit_name = self.outdoor_Outfit.name.replace(" (Outdoor)", " (Indoor)")
 
                     if Outfit_name in self.Outfits.keys():

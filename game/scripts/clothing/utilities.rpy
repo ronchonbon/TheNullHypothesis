@@ -50,39 +50,16 @@ label save_new_Outfit(Character, name, color, flags):
             new_Outfit.Clothes[Clothing_type].selected_state = new_Outfit.Clothes[Clothing_type].state
 
     call set_Outfit_flags(Character, new_Outfit, hypothetical = True) from _call_set_Outfit_flags_21
-    
-    if flags["wear_in_public"]:
-        $ new_Outfit.wear_in_public = True
 
-    if flags["wear_in_private"]:
-        $ new_Outfit.wear_in_private = True
-
-    if flags["activewear"]:
-        $ new_Outfit.activewear = True
-
-    if flags["superwear"]:
-        $ new_Outfit.superwear = True
-        
-    if flags["swimwear"]:
-        $ new_Outfit.swimwear = True
-
-    if flags["datewear"]:
-        $ new_Outfit.datewear = True
-
-    if flags["sexwear"]:
-        $ new_Outfit.sexwear = True
-
-    if flags["sleepwear"]:
-        $ new_Outfit.sleepwear = True
-
-    if flags["winterwear"]:
-        $ new_Outfit.winterwear = True
+    python:
+        for flag in flags:
+            new_Outfit.flags.append(flag)
 
     $ new_Outfit.Outfit_type = "custom"
     $ new_Outfit.color = color
 
-    if new_Outfit.wear_in_public or new_Outfit.activewear or new_Outfit.superwear or new_Outfit.swimwear:
-        if (not new_Outfit.wear_in_public and (new_Outfit.activewear or new_Outfit.superwear or new_Outfit.swimwear) and approval_check(Character, threshold = 2.5*new_Outfit.shame, extra_condition = "new_Outfit")) or approval_check(Character, threshold = 4.0*new_Outfit.shame, extra_condition = "new_Outfit"):
+    if "public" in new_Outfit.flags or "exercise" in new_Outfit.flags or "hero" in new_Outfit.flags or "swim" in new_Outfit.flags:
+        if ("public" not in new_Outfit.flags and ("exercise" in new_Outfit.flags or "hero" in new_Outfit.flags or "swim" in new_Outfit.flags) and approval_check(Character, threshold = 2.5*new_Outfit.shame, extra_condition = "new_Outfit")) or approval_check(Character, threshold = 4.0*new_Outfit.shame, extra_condition = "new_Outfit"):
             call expression f"{Character.tag}_accept_public_Outfit" pass (Outfit = new_Outfit) from _call_expression_103
 
             if name in Character.Wardrobe.Outfits.keys():
@@ -143,8 +120,8 @@ label edit_Outfit(Character, Outfit, name, color, flags):
 
     call set_Outfit_flags(Character, Outfit, hypothetical = True) from _call_set_Outfit_flags_22
 
-    if flags["wear_in_public"] or flags["activewear"] or flags["swimwear"]:
-        if (not flags["wear_in_public"] and (flags["activewear"] or flags["swimwear"]) and approval_check(Character, threshold = 2.5*Character.Outfit.shame, extra_condition = "new_Outfit")) or approval_check(Character, threshold = 4.0*Character.Outfit.shame, extra_condition = "new_Outfit"):
+    if "public" in flags or "exercise" in flags or "swim" in flags:
+        if ("public" not in flags and ("exercise" in flags or "swim" in flags) and approval_check(Character, threshold = 2.5*Character.Outfit.shame, extra_condition = "new_Outfit")) or approval_check(Character, threshold = 4.0*Character.Outfit.shame, extra_condition = "new_Outfit"):
             call expression f"{Character.tag}_accept_public_Outfit" pass (Outfit = Outfit) from _call_expression_107
         else:
             call expression f"{Character.tag}_reject_public_Outfit" pass (Outfit = Outfit) from _call_expression_108
@@ -158,50 +135,11 @@ label edit_Outfit(Character, Outfit, name, color, flags):
 
             return
 
-    if flags["wear_in_public"]:
-        $ Outfit.wear_in_public = True
-    else:
-        $ Outfit.wear_in_public = False
+    $ Outfit.flags  = []
 
-    if flags["wear_in_private"]:
-        $ Outfit.wear_in_private = True
-    else:
-        $ Outfit.wear_in_private = False
-
-    if flags["activewear"]:
-        $ Outfit.activewear = True
-    else:
-        $ Outfit.activewear = False
-
-    if flags["superwear"]:
-        $ Outfit.superwear = True
-    else:
-        $ Outfit.superwear = False
-        
-    if flags["swimwear"]:
-        $ Outfit.swimwear = True
-    else:
-        $ Outfit.swimwear = False
-
-    if flags["datewear"]:
-        $ Outfit.datewear = True
-    else:
-        $ Outfit.datewear = False
-
-    if flags["sexwear"]:
-        $ Outfit.sexwear = True
-    else:
-        $ Outfit.sexwear = False
-
-    if flags["sleepwear"]:
-        $ Outfit.sleepwear = True
-    else:
-        $ Outfit.sleepwear = False
-        
-    if flags["winterwear"]:
-        $ Outfit.winterwear = True
-    else:
-        $ Outfit.winterwear = False
+    python:
+        for flag in flags:
+            Outfit.flags.append(flag)
 
     $ Outfit.color = color
     
@@ -251,7 +189,7 @@ label review_Outfit(Character):
 
         $ flag = are_Characters_in_Partners(Present)
 
-        if Character.Outfit.wear_in_public or ((Character.Outfit.activewear or Character.Outfit.superwear) and Player.location == "bg_danger") or (Character.Outfit.swimwear and Player.location == "bg_pool") or (Character.Outfit.sleepwear and Player.location in bedrooms and flag):
+        if "public" in Character.Outfit.flags or (("exercise" in Character.Outfit.flags or "hero" in Character.Outfit.flags) and Player.location == "bg_danger") or ("swim" in Character.Outfit.flags and Player.location == "bg_pool") or ("sleep" in Character.Outfit.flags and Player.location in bedrooms and flag):
             pass
         elif approval_check(Character, threshold = 4.0*Character.Outfit.shame):
             call expression f"{Character.tag}_accept_public_Outfit" pass (Outfit = Character.Outfit) from _call_expression_112
@@ -261,7 +199,7 @@ label review_Outfit(Character):
             call expression f"{Character.tag}_reject_public_Outfit" pass (Outfit = Character.Outfit) from _call_expression_129
 
             call set_Character_Outfits(Character) from _call_set_Character_Outfits_28
-        elif ((Character.Outfit.activewear or Character.Outfit.superwear) and Player.location != "bg_danger") or (Character.Outfit.swimwear and Player.location != "bg_pool") or (Character.Outfit.sleepwear and Player.location not in bedrooms):
+        elif (("exercise" in Character.Outfit.flags or "hero" in Character.Outfit.flags) and Player.location != "bg_danger") or ("swim" in Character.Outfit.flags and Player.location != "bg_pool") or ("sleep" in Character.Outfit.flags and Player.location not in bedrooms):
             call expression f"{Character.tag}_reject_contextual_Outfit" pass (Outfit = Character.Outfit) from _call_expression_111
 
             call set_Character_Outfits(Character) from _call_set_Character_Outfits_5
