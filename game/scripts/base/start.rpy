@@ -21,6 +21,8 @@ label splashscreen:
         transform_anchor True
 
         align (0.5, 0.5)
+        
+        zoom interface_adjustment
 
     $ renpy.pause(1.0, hard = True)
 
@@ -30,6 +32,8 @@ label splashscreen:
 
         align (0.5, 0.5)
         alpha 0.0
+
+        zoom interface_adjustment
 
         ease 2.0 alpha 1.0
 

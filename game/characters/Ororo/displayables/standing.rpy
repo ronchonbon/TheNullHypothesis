@@ -196,20 +196,20 @@ layeredimage Ororo_standing_head:
         "characters/Ororo/images/standing/head.webp"
 
     always:
-        "characters/Ororo/images/standing/mouth_[Ororo.mouth].webp"
+        "characters/Ororo/images/standing/mouth_[Ororo.mouth].webp" at fade_in(0.1)
 
     if Ororo.white or Ororo.electricity:
-        "characters/Ororo/images/standing/eyes_white.webp"
+        "characters/Ororo/images/standing/eyes_white.webp" at fade_in(0.1)
     elif Ororo.eyes in ["closed", "down", "left", "right", "squint", "up", "wink"]:
-        "characters/Ororo/images/standing/eyes_[Ororo.eyes].webp"
+        "characters/Ororo/images/standing/eyes_[Ororo.eyes].webp" at fade_in(0.1)
     else:
-        "Ororo_standing_blinking"
+        "Ororo_standing_blinking" at fade_in(0.1)
 
     always:
-        "characters/Ororo/images/standing/brows_[Ororo.brows].webp"
+        "characters/Ororo/images/standing/brows_[Ororo.brows].webp" at fade_in(0.1)
 
     if Ororo.blush:
-        "characters/Ororo/images/standing/blush[Ororo.blush].webp"
+        "characters/Ororo/images/standing/blush[Ororo.blush].webp" at fade_in(0.1)
 
     # if not Ororo.wet and "wet" not in Ororo.Clothes["hair"].string:
     always:

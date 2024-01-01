@@ -14,7 +14,7 @@ screen disclaimer():
 
     style_prefix "message"
 
-    add "images/interface/disclaimer.webp"
+    add "images/interface/disclaimer.webp" at interface
 
     text "DISCLAIMER: This is a fictional {color=#ffb100}parody{/color} made for adults. All characters depicted are at least 18 years old. All game assets are either created by the Null Hypothesis team or authorized via creative commons license." anchor (0.5, 0.5) pos (0.5, 0.8):
         xmaximum 1500

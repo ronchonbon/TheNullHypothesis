@@ -151,6 +151,8 @@ init -3 python:
             if Clothing.name not in self.Clothes.keys():
                 self.Clothes[Clothing.name] = Clothing
 
+            self.Clothes = dict(sorted(self.Clothes.items()))
+
             return
 
         def add_Outfit(self, Outfit):

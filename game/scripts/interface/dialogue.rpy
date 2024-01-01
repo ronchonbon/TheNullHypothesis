@@ -52,6 +52,9 @@ screen say(who, what, two_window = False, hide_after = None):
     if Action_screen_showing:
         $ dialogue_anchor = [0.5, 0.0]
         $ dialogue_position = [0.12, 0.15]
+    elif renpy.get_screen("Wardrobe_screen"):
+        $ dialogue_anchor = [0.5, 0.0]
+        $ dialogue_position = [0.12, 0.15]
     else:
         $ dialogue_anchor = [0.5, 0.0]
         $ dialogue_position = [0.12, 0.08]

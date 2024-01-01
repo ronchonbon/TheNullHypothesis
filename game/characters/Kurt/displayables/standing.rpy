@@ -73,13 +73,6 @@ transform Kurt_standing_left_arm_animation:
         ease 2.0 rotate 2
 
         repeat
-
-transform fade_in(delay):
-    alpha 0.0
-    linear delay alpha 1.0
-
-transform fade_out(delay):
-    linear delay alpha 0.0
     
 image Kurt_sprite:
     contains:
