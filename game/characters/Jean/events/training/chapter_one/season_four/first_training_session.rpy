@@ -31,6 +31,7 @@ label Jean_chapter_one_season_four_first_training_session:
         call remove_everyone_but(Jean) from _call_remove_everyone_but
 
     $ Jean.change_face("worried1") 
+    $ Jean.change_arms("crossed")
 
     ch_Player "Something has to change."
     ch_Player "I was strong enough this time. . . but too strong. . ."
@@ -40,12 +41,16 @@ label Jean_chapter_one_season_four_first_training_session:
     pause 1.0
 
     $ Jean.change_face("angry1")
+    $ Jean.change_arms("angry")
 
     ch_Jean "Better than not strong enough, [Jean.Player_petname]. . ."
 
     $ Jean.change_face("worried1") 
 
     ch_Jean "I'm just glad you're okay and didn't almost die again. . ."
+    
+    $ Jean.change_arms("neutral")
+
     ch_Jean "And nobody else died anyway."
 
     $ temp = Jean.petname.capitalize()
@@ -54,6 +59,7 @@ label Jean_chapter_one_season_four_first_training_session:
         extend ""
         "[temp]. . . you only feel that way because you care about me so much.":
             $ Jean.change_face("angry1", eyes = "right")
+            $ Jean.change_arms("crossed")
 
             ch_Jean "Ugh, I know. . ." 
             
@@ -65,6 +71,7 @@ label Jean_chapter_one_season_four_first_training_session:
             call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_143
         "I'm more glad than anyone. . . but it can't stay like this.":
             $ Jean.change_face("worried2")
+            $ Jean.change_arms("crossed")
 
             ch_Jean "What do you mean?" 
             ch_Jean "Any stronger and you definitely would've killed someone." 
@@ -72,6 +79,7 @@ label Jean_chapter_one_season_four_first_training_session:
             call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_144
         "Trust me, it feels great finally being powerful. . . but even I know there's something missing.":
             $ Jean.change_face("confused1") 
+            $ Jean.change_arms("crossed")
 
             ch_Jean "What are you talking about?" 
             ch_Jean "You still don't think you're strong enough?"
@@ -143,23 +151,33 @@ label Jean_chapter_one_season_four_first_training_session:
                 call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_158
 
     $ Jean.change_face("angry1")
+    $ Jean.change_arms("angry")
 
     ch_Jean ". . ."
     ch_Jean "Then let's do it."
     ch_Player "What?"
+
+    $ Jean.change_arms("angry", left_arm = "extended")
+
     ch_Jean "You need more control?"
+
+    $ Jean.change_arms("sass")
+
     ch_Jean "That's what we'll do today."
     ch_Jean "Turn your power on."
     ch_Jean "Both of them."
     ch_Player "Wait, but-"
 
     $ Jean.change_face("neutral")
+    $ Jean.change_arms("hips")
 
     ch_Jean "I'll be fine, as long as you don't keep it on for too long."
 
     $ Jean.change_face("angry1", mouth = "smirk")
 
     ch_Jean "Plus, this is the perfect opportunity to see if your power is more like [Rogue.name]'s than we thought."
+
+    $ Jean.change_arms("psychic1")
 
     $ Player.power = 50
 
@@ -237,6 +255,8 @@ label Jean_chapter_one_season_four_first_training_session:
 
     call Jean_deactivate_psychic from _call_Jean_deactivate_psychic
 
+    $ Jean.change_arms("sass")
+
     "With much mental effort, you managed to lower your powers just enough that she was able to overcome the stalemate."
     "You have a pounding headache, but it worked."
 
@@ -247,9 +267,13 @@ label Jean_chapter_one_season_four_first_training_session:
     ch_Jean "Heh, well I guess it worked."
 
     $ Jean.change_face("worried1", mouth = "smirk")
+    $ Jean.change_arms("neutral", left_arm = "rub_neck")
 
     ch_Jean "Didn't mean to hit you so hard. . ."
     ch_Player "It's fine, I was gonna have a headache anyway."
+    
+    $ Jean.change_arms("sass")
+
     ch_Player "But yeah, it worked."
     ch_Player "I think I can do it again. . . maybe after a bit of rest."
 
@@ -260,6 +284,7 @@ label Jean_chapter_one_season_four_first_training_session:
     ch_Player "It only felt like it gave me a little power boost."
 
     $ Jean.change_face("angry1")
+    $ Jean.change_arms("crossed")
 
     ch_Jean "Well if your power is really all about inspiration and stuff, your next one better be about me."
 
@@ -271,6 +296,7 @@ label Jean_chapter_one_season_four_first_training_session:
     ch_Player "Didn't feel like you got unstable at all."
 
     $ Jean.change_face("worried1", mouth = "smirk")
+    $ Jean.change_arms("sass")
 
     ch_Jean "Yeah. . . I think being so focused on helping you ended up making me a bit better too."
     ch_Player "Thanks, [Jean.petname]."
@@ -283,6 +309,9 @@ label Jean_chapter_one_season_four_first_training_session:
     $ Jean.change_face("smirk2")
 
     ch_Jean "And you've helped me a lot too. . . thanks."
+    
+    $ Jean.change_arms("hips")
+
     ch_Jean "But it sounds like you could use a break."
 
     $ Jean.change_face("sly")

@@ -22,11 +22,13 @@ label Jean_chapter_one_season_four_study_sessions:
 
     if dice_roll == 1:
         $ Jean.change_face("smirk2")
+        $ Jean.change_arms("hips")
 
         ch_Jean "Alright, [Jean.Player_petname], let's get set up." 
         ch_Player "What's the rush?"
 
         $ Jean.change_face("confused1")
+        $ Jean.change_arms("sass")
 
         "You know how [Jean.name] is, how slowing things down makes her anxious."
 
@@ -37,6 +39,7 @@ label Jean_chapter_one_season_four_study_sessions:
         "Although it's relatively unproductive, you treat it more like a hang out than anything else."
 
         $ Jean.change_face("worried1", mouth = "smirk")
+        $ Jean.change_arms("crossed")
 
         "She has a hard time neglecting the course materials, but you manage to show her how it's done."
         ch_Player "Oh, by the way."
@@ -44,12 +47,14 @@ label Jean_chapter_one_season_four_study_sessions:
         "You point to a particular question."
 
         $ Jean.change_face("confused1", mouth = "smirk")
+        $ Jean.change_arms("hips")
 
         ch_Jean "Hmm?"
         ch_Jean "Oh, that one?"
         ch_Jean "It's choice D." 
 
         $ Jean.change_face("smirk2")
+        $ Jean.change_arms("sass")
 
         "You actually try to focus a bit near the end of the session, but in the end not much studying actually happened."
 
@@ -59,6 +64,7 @@ label Jean_chapter_one_season_four_study_sessions:
         ch_Jean "It was nice, though."
     elif dice_roll == 2:
         $ Jean.change_face("happy")
+        $ Jean.change_arms("sass")
 
         ch_Jean "Gonna turn some music on, [Jean.Player_petname]?" 
         ch_Player "Now you're getting the right idea."
@@ -73,12 +79,14 @@ label Jean_chapter_one_season_four_study_sessions:
         "She still can't help but fuss over how things are organized, but at least it's not as bad as it used to be."
 
         $ Jean.change_face("smirk2", eyes = "down", blush = 1)
+        $ Jean.change_arms("crossed")
 
         "After plenty of procrastination, you hop on the bed next to each other, and she leans into your shoulder."
         "Once the session finally starts, [Jean.name] has you do some easy practice questions."
         "You both try a bit harder during today's session, but it's still fairly laid back compared to how it used to be." 
 
         $ Jean.change_face("confused1")
+        $ Jean.change_arms("hips")
 
         "She's also much better at this whole tutoring thing in general."
 
@@ -90,11 +98,13 @@ label Jean_chapter_one_season_four_study_sessions:
         ch_Player "A bit too easy. . ." 
 
         $ Jean.change_face("confused1", mouth = "smirk")
+        $ Jean.change_arms("crossed")
 
         ch_Player "The answer is obviously choice A." 
         "The session ends before either of you know it, as you both end up neglecting the studying and spend a long while chatting."
     elif dice_roll == 3:
         $ Jean.change_face("happy")
+        $ Jean.change_arms("sass")
 
         ch_Player "Excited?" 
 
@@ -112,12 +122,14 @@ label Jean_chapter_one_season_four_study_sessions:
         "After a long while just listening to music and hanging out, everything's finally set up."
 
         $ Jean.change_face("smirk2", eyes = "down", blush = 1)
+        $ Jean.change_arms("crossed")
 
         "She gets onto the bed next to you, leaning into your shoulder."
         "As the session finally starts, [Jean.name] keeps getting distracted every time a new song comes on in the background."
         "You're no help, as you encourage it all."
 
         $ Jean.change_face("confused1", mouth = "smirk")
+        $ Jean.change_arms("hips")
 
         "She finally forces things back on track."
 
@@ -133,12 +145,14 @@ label Jean_chapter_one_season_four_study_sessions:
         "After taking too long to answer. . ."
 
         $ Jean.change_face("smirk2")
+        $ Jean.change_arms("sass")
 
         $ temp = Jean.Player_petname.capitalize()
 
         ch_Jean "[temp], answer is choice B." 
 
         $ Jean.change_face("confused1", mouth = "smirk")
+        $ Jean.change_arms("crossed")
 
         ch_Jean "Okay, I think we should actually work on this stuff for you."
         "[Jean.name] makes you go through a bunch of review, as she jams out next to you, occasionally correcting your mistakes." 

@@ -26,6 +26,7 @@ label Jean_before_study_session_part_one:
     call send_Characters(Jean, Player.location) from _call_send_Characters_53
 
     $ Jean.change_face("confused1", mouth = "smirk")
+    $ Jean.change_arms("sass")
 
     ch_Jean "Hey, [Jean.Player_petname]."
     ch_Jean "I was about to do some studying, wanna join?"
@@ -44,6 +45,7 @@ label Jean_before_study_session_part_one:
             call actually_study(Jean) from _call_actually_study_2
         "Sorry, I had other plans. . .":
             $ Jean.change_face("worried1", mouth = "smirk")
+            $ Jean.change_arms("crossed")
 
             ch_Jean "Oh, okay. . ."
 
@@ -52,6 +54,7 @@ label Jean_before_study_session_part_one:
             call change_Character_stat(Jean, "love", -small_stat) from _call_change_Character_stat_129
 
             $ Jean.change_face("confused1")
+            $ Jean.change_arms("hips")
 
             ch_Jean "Really?" 
             
@@ -101,6 +104,7 @@ label Jean_before_study_session_part_two:
     call send_Characters(Jean, Player.location) from _call_send_Characters_54
 
     $ Jean.change_face("happy")
+    $ Jean.change_arms("sass")
 
     ch_Jean "Hey, [Jean.Player_petname]!"
 
@@ -124,6 +128,7 @@ label Jean_before_study_session_part_two:
             call actually_study(Jean) from _call_actually_study_3
         "Not right now, sorry. . .":
             $ Jean.change_face("worried1", mouth = "smirk")
+            $ Jean.change_arms("crossed")
 
             ch_Jean "Oh. . ."
 
@@ -132,6 +137,7 @@ label Jean_before_study_session_part_two:
             call change_Character_stat(Jean, "love", -small_stat) from _call_change_Character_stat_130
 
             $ Jean.change_face("confused1")
+            $ Jean.change_arms("hips")
 
             ch_Jean "Oh really?" 
 
@@ -155,6 +161,7 @@ label Jean_before_study_session_part_two:
         ch_Jean "{size=-5}But you'll study with [Laura.public_name], huh{/size}. . ."
 
     $ Jean.change_face("confused1")
+    $ Jean.change_arms("sass")
 
     ch_Player "What was that?"
     ch_Jean "Hm?"
@@ -198,6 +205,7 @@ label Jean_before_study_session_part_three:
     call send_Characters(Jean, Player.location) from _call_send_Characters_55
 
     $ Jean.change_face("neutral", eyes = "squint")
+    $ Jean.change_arms("crossed")
 
     ch_Jean "Hey, [Jean.Player_petname]."
     ch_Player "Hey, what's up?"
@@ -212,11 +220,13 @@ label Jean_before_study_session_part_three:
     ch_Jean "Oh, nothing. . ."
 
     $ Jean.change_face("smirk1")
+    $ Jean.change_arms("sass", right_arm = "extended")
 
-    ch_Jean "It's just that [Charles.name] wanted me to check up on you."
+    ch_Jean "It's just that Prof. X wanted me to check up on you."
     ch_Player "Th-"
 
     $ Jean.change_face("smirk2")
+    $ Jean.change_arms("hips")
 
     ch_Jean "And!"
     ch_Jean "He told me to study with you today. . ."

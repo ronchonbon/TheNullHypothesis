@@ -18,6 +18,7 @@ label Jean_chapter_one_season_four_first_study_session:
     $ ongoing_Event = True
     
     $ Jean.change_face("worried1", mouth = "smirk")
+    $ Jean.change_arms("crossed")
 
     pause 1.0
 
@@ -27,6 +28,7 @@ label Jean_chapter_one_season_four_first_study_session:
     ch_Player "What's wrong?"
 
     $ Jean.change_face("worried2")
+    $ Jean.change_arms("angry")
 
     ch_Jean "Nothing's wrong!"
 
@@ -35,9 +37,13 @@ label Jean_chapter_one_season_four_first_study_session:
     ch_Jean "It's just. . ."
 
     $ Jean.change_face("worried1", mouth = "smirk")
+    $ Jean.change_arms("neutral")
 
     ch_Jean "No. . ."
     ch_Jean "Nothing."
+
+    $ Jean.change_arms("crossed")
+
     ch_Jean "Let's just start studying."
     ch_Jean "Come help me with this stuff."
     ch_Player "Alright. . ."
@@ -48,6 +54,7 @@ label Jean_chapter_one_season_four_first_study_session:
     "Much unlike her normal self during these study sessions, she seems quite distracted and also doesn't seem to care much at all about how things are organized."
 
     $ Jean.change_face("smirk1", eyes = "right")
+    $ Jean.change_arms("sass")
 
     ch_Player "Are y-"
 
@@ -69,6 +76,7 @@ label Jean_chapter_one_season_four_first_study_session:
     "[Jean.name] doesn't give you another chance to speak, as she pushes you down onto the bed."
 
     $ Jean.change_face("worried1", eyes = "down")
+    $ Jean.change_arms("crossed")
 
     "Usually, such disorganization would bother her a lot, but not today apparently. . ."
 
@@ -111,6 +119,7 @@ label Jean_chapter_one_season_four_first_study_session:
             call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_121
 
     $ Jean.change_face("appalled2")
+    $ Jean.change_arms("angry")
 
     pause 1.0
 
@@ -120,6 +129,7 @@ label Jean_chapter_one_season_four_first_study_session:
     ch_Jean "I just can't do this anymore."
     
     $ Jean.change_face("worried3")
+    $ Jean.change_arms("crossed")
 
     if Jean in Partners:
         ch_Jean "I don't mean our relationship!"
@@ -127,11 +137,13 @@ label Jean_chapter_one_season_four_first_study_session:
         ch_Jean "I don't mean our friendship!"
 
     $ Jean.change_face("worried1", eyes = "down")
+    $ Jean.change_arms("angry", left_arm = "extended")
 
     ch_Jean "I mean. . . {i}this{/i}."
     "She gestures to the mess of papers and books all over her bed."
 
     $ Jean.change_face("worried1")
+    $ Jean.change_arms("angry")
 
     ch_Player "We can take a break from studying if you want."
 
@@ -139,6 +151,8 @@ label Jean_chapter_one_season_four_first_study_session:
 
     ch_Jean "Ugh, I mean in general, [Player.first_name]."
     
+    $ Jean.change_arms("crossed")
+
     if Player.scholarship == "academic":
         ch_Jean "C'mon, you probably know how I feel." 
         
@@ -158,14 +172,17 @@ label Jean_chapter_one_season_four_first_study_session:
     ch_Jean "[temp], I don't think you understand just how much of my life I've wasted staring at these goddamn books."
 
     $ Jean.change_face("angry1", eyes = "right")
+    $ Jean.change_arms("angry")
 
     ch_Jean "So focused on getting perfect grades, instead of having fun or taking care of myself."
 
     $ Jean.change_face("worried3")
+    $ Jean.change_arms("angry", right_arm = "extended")
 
     ch_Jean "I mean for god's sake, you're one of my best friends, and you've only been here for a few months."
 
     $ Jean.change_face("sad", eyes = "right")
+    $ Jean.change_arms("crossed")
 
     ch_Jean "How sad is that."
 
@@ -179,6 +196,7 @@ label Jean_chapter_one_season_four_first_study_session:
     ch_Jean "What did it even matter. . . being 'top of my class'?"
 
     $ Jean.change_face("angry1", eyes = "right")
+    $ Jean.change_arms("angry")
 
     ch_Jean "Who actually gives a shit."
     ch_Jean ". . . such a waste of time."
@@ -215,6 +233,7 @@ label Jean_chapter_one_season_four_first_study_session:
             call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_126
 
     $ Jean.change_face("confused2")
+    $ Jean.change_arms("crossed")
 
     ch_Player "You know just as well as I how much of a shit you give."
 
@@ -233,16 +252,22 @@ label Jean_chapter_one_season_four_first_study_session:
     ch_Player "There's still plenty of semester left to make up for lost time."
 
     $ Jean.change_face("worried1")
+    $ Jean.change_arms("hips", right_arm = "extended")
 
     ch_Jean "But what's the best way to do that?"
+
+    $ Jean.change_arms("hips")
+
     ch_Jean "Did. . . you have something in mind?"
     ch_Player "This isn't really something you meticulously plan and prepare for."
 
     $ Jean.change_face("worried2")
+    $ Jean.change_arms("sass")
 
     ch_Player "Why not, for once in your life, stop caring so much and focus on relaxing."
 
     $ Jean.change_face("confused1")
+    $ Jean.change_arms("crossed")
 
     ch_Jean "Well, since you seem to be an expert all of a sudden, you'll just have to take responsibility."
 
@@ -256,6 +281,7 @@ label Jean_chapter_one_season_four_first_study_session:
     "You haphazardly shove all the papers and books off of the bed."
 
     $ Jean.change_face("confused1")
+    $ Jean.change_arms("neutral")
 
     "Then, you get up and go to find her music player."
     "She just sits on the bed, looking bewildered."
@@ -263,6 +289,7 @@ label Jean_chapter_one_season_four_first_study_session:
     ch_Player "So, did I pick the right song?"
 
     $ Jean.change_face("confused1", mouth = "smirk")
+    $ Jean.change_arms("sass")
 
     ch_Jean "Oh hell yes." 
 
@@ -280,6 +307,7 @@ label Jean_chapter_one_season_four_first_study_session:
     $ fade_in_from_black(1.5)
 
     $ Jean.change_face("worried1", mouth = "smirk")
+    $ Jean.change_arms("crossed")
 
     ch_Jean "I haven't {i}wasted{/i} that much time in a long while. . ."
     ch_Player "Feels good, right?"

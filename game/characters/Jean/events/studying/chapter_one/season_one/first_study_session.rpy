@@ -18,6 +18,7 @@ label Jean_chapter_one_season_one_first_study_session:
     $ ongoing_Event = True
 
     $ Jean.change_face("happy")
+    $ Jean.change_arms("sass")
 
     ch_Jean "Alright, you gonna help me set all this stuff up?" 
     ch_Player "Sure." 
@@ -40,6 +41,7 @@ label Jean_chapter_one_season_one_first_study_session:
     pause 1.0
 
     $ Jean.change_face("smirk2", blush = 1) 
+    $ Jean.change_arms("crossed")
 
     ch_Jean "Good, now scoot over."
     "You both hop on the bed, and she scoots right up next to you."
@@ -53,10 +55,14 @@ label Jean_chapter_one_season_one_first_study_session:
     $ Jean.change_face("confused1")
 
     "Sure, she knows the answer to everything, but it's like she assumes you should as well."
+    
+    $ Jean.change_arms("hips")
+
     ch_Jean "Really, [Jean.Player_petname]?"
     ch_Jean "You didn't know how to do that one?"
 
     $ Jean.change_face("smirk2")
+    $ Jean.change_arms("sass")
 
     ch_Jean "Here. . ."
     "She flips directly to the exact page in the textbook as she explains the correct answer."
@@ -74,6 +80,7 @@ label Jean_chapter_one_season_one_first_study_session:
             pause 1.0 
             
             $ Jean.change_face("smirk2", eyes = "right")
+            $ Jean.change_arms("crossed")
 
             ch_Jean "You think so?"
         "Holy shit. . . are you a genius or something?":
@@ -84,6 +91,7 @@ label Jean_chapter_one_season_one_first_study_session:
             pause 1.0 
             
             $ Jean.change_face("sly") 
+            $ Jean.change_arms("crossed")
 
             ch_Jean "Well. . . a few people have told me my IQ is pretty high. . ." 
         "What the hell. . . is your entire life just spent studying and memorizing. . . ?":
@@ -94,12 +102,14 @@ label Jean_chapter_one_season_one_first_study_session:
             pause 1.0 
             
             $ Jean.change_face("angry1", eyes = "right")
+            $ Jean.change_arms("crossed")
 
             ch_Jean "No!" 
             ch_Jean "Of course not. . ." 
             ch_Jean "I. . . do other things. . ." 
             
     $ Jean.change_face("worried1")
+    $ Jean.change_arms("sass")
 
     ch_Jean "I just. . . take my studies really seriously. . . ya'know?"
     ch_Player "It is impressive, to say the least."
@@ -120,6 +130,7 @@ label Jean_chapter_one_season_one_first_study_session:
     "The rest of the session mainly consists of [Jean.name] systematically exposing all your academic inadequacies and proceeding to lowkey flaunt her knowledge as she does her best to fix them."
 
     $ Jean.change_face("worried1", mouth = "smirk")
+    $ Jean.change_arms("crossed")
 
     ch_Jean "I think we should stop here."
     ch_Jean "I can tell your brain is getting a bit burnt out."

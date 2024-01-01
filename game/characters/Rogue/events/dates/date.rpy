@@ -52,10 +52,12 @@ label Rogue_date:
     call send_Characters(Rogue, Player.location, behavior = "on_date") from _call_send_Characters_119
 
     $ Rogue.change_face("worried2")
+    $ Rogue.change_arms("angry")
 
     "When she sees you standing there, she slows down and catches her breath before approaching."
 
     $ Rogue.change_face("worried1")
+    $ Rogue.change_arms("sheepish", right_arm = "neutral")
 
     ch_Rogue "Howdy. . ."
     ch_Rogue "Ah just didn't wanna be late."
@@ -63,6 +65,9 @@ label Rogue_date:
     $ Rogue.change_face("worried1", mouth = "smirk")
 
     ch_Player "You ready to go?"
+
+    $ Rogue.change_arms("neutral")
+
     ch_Rogue "Yep."
 
     call remove_Characters(location = "bg_mall") from _call_remove_Characters_149
@@ -108,6 +113,7 @@ label Rogue_date:
                 call Rogue_date_movie from _call_Rogue_date_movie_1
             "Actually. . . can we just chill, hang out here?":
                 $ Rogue.change_face("worried1", mouth = "smirk")
+                $ Rogue.change_arms("sheepish", right_arm = "neutral")
 
                 ch_Rogue "You know ah don't mind, [Rogue.Player_petname]." 
                 
@@ -162,6 +168,7 @@ label Rogue_date:
         pause 1.0
 
         $ Rogue.change_face("worried1", mouth = "smirk")
+        $ Rogue.change_arms("sheepish", right_arm = "neutral")
 
         ch_Rogue "What're we doin' next, [Rogue.Player_petname]?" 
 
@@ -190,6 +197,7 @@ label Rogue_date:
                 ch_Rogue "Sure." 
                 
                 $ Rogue.change_face("sly") 
+                $ Rogue.change_arms("crossed")
                 
                 ch_Rogue "Ya wanna finish the date in private?"
 
@@ -208,6 +216,7 @@ label Rogue_date:
                 pause 1.0
 
                 $ Rogue.change_face("sexy", blush = 1)
+                $ Rogue.change_arms("hips")
 
                 ch_Rogue "Could we just head back. . . ?"
 
@@ -217,14 +226,17 @@ label Rogue_date:
 
                 if Rogue.status["horny"] or Rogue.status["nympho"]:
                     $ Rogue.change_face("worried1", mouth = "lipbite", blush = 1) 
-                    
+                    $ Rogue.change_arms("hips", right_arm = "touch_pussy")
+
                     ch_Rogue "Please, [Rogue.Player_petname]?" 
                     
                     $ Rogue.change_face("worried1", eyes = "down", mouth = "lipbite", blush = 1) 
+                    $ Rogue.change_arms("hips", right_arm = "extended")
                     
                     pause 1.0 
                     
                     $ Rogue.change_face("sexy", blush = 1) 
+                    $ Rogue.change_arms("hips", right_arm = "neutral")
                     
                     ch_Rogue "Ah'd really like to spend some time with you. . . alone." 
                     
@@ -233,6 +245,7 @@ label Rogue_date:
                     ch_Rogue "Some {i}special{/i} time with you. . . "
                 else:
                     $ Rogue.change_face("sly") 
+                    $ Rogue.change_arms("crossed")
                     
                     ch_Rogue "Just want to spend some time with ya alone. . ."
 
@@ -248,12 +261,16 @@ label Rogue_date:
         call send_Characters(Rogue, "bg_mall", behavior = "on_date") from _call_send_Characters_123
 
     $ Rogue.change_face("worried1", mouth = "smirk")
+    $ Rogue.change_arms("sheepish", right_arm = "neutral")
 
     ch_Rogue "We ready to go, [Rogue.Player_petname]?"
 
     $ Rogue.change_face("smirk2", eyes = "left")
 
     ch_Player "Yep, c'mon, let's go."
+
+    $ Rogue.change_arms("sheepish", right_arm = "fist")
+
     "You take her hand, and she follows you out of the mall."
 
     $ fade_to_black(0.4)
@@ -310,6 +327,7 @@ label Rogue_date_dinner:
             pause 1.0
 
             $ Rogue.change_face("worried1", mouth = "lipbite")
+            $ Rogue.change_arms("crossed")
 
             ch_Rogue "Ah'm real hungry."
             ch_Rogue "What about you?"
@@ -320,6 +338,7 @@ label Rogue_date_dinner:
             ch_Rogue "Why don't we go grab some dinner?"
 
             $ Rogue.change_face("smirk2", eyes = "right")
+            $ Rogue.change_arms("neutral", right_arm = "fist")
 
             "She grabs your hand, and you head to the restaurant together."
 
@@ -371,7 +390,8 @@ label Rogue_date_dinner:
                 ch_Rogue "Let's go to the steakhouse." 
 
                 $ Rogue.change_face("worried1", mouth = "smirk") 
-                
+                $ Rogue.change_arms("crossed")
+
                 ch_Rogue "If that's alright with you."
 
                 $ cuisine = "steakhouse"
@@ -379,7 +399,8 @@ label Rogue_date_dinner:
                 ch_Rogue "Seafood's always a good choice." 
                 
                 $ Rogue.change_face("worried1", mouth = "smirk") 
-                
+                $ Rogue.change_arms("crossed")
+
                 ch_Rogue "Ah've been cravin' it."
 
                 $ cuisine = "seafood"
@@ -387,16 +408,19 @@ label Rogue_date_dinner:
                 ch_Rogue "Ah've really wanted to go back to that Southern food place." 
                 
                 $ Rogue.change_face("worried1", mouth = "smirk") 
-                
+                $ Rogue.change_arms("crossed")
+
                 ch_Rogue "Can't get enough of it. . ."
 
                 $ cuisine = "southern"
         elif Player in first_event.keys():
             $ Rogue.change_face("smirk2")
+            $ Rogue.change_arms("sheepish")
 
             ch_Rogue "Where are we eatin', [Rogue.Player_petname]?"
 
             $ Rogue.change_face("worried1", mouth = "smirk")
+            $ Rogue.change_arms("sheepish", right_arm = "neutral")
 
             ch_Player "Were you in the mood for anything?"
             ch_Rogue "You know ah can't answer that fairly."
@@ -425,6 +449,8 @@ label Rogue_date_dinner:
     call set_the_scene(location = "bg_restaurant") from _call_set_the_scene_158
     call send_Characters(Rogue, "bg_restaurant", behavior = "on_date") from _call_send_Characters_125
 
+    $ Rogue.change_arms("neutral")
+
     "You get seated quickly, and the waitress hands out the menus."
 
     $ Rogue.change_face("smirk1", eyes = "down")
@@ -437,6 +463,7 @@ label Rogue_date_dinner:
         pause 1.0 
 
         $ Rogue.change_face("worried1", mouth = "lipbite")
+        $ Rogue.change_arms("sheepish")
         
         $ temp = Rogue.Player_petname.capitalize()
 
@@ -463,6 +490,7 @@ label Rogue_date_dinner:
         call restaurant_menu(Player, cuisine) from _call_restaurant_menu_10
 
     $ Rogue.change_face("smirk2")
+    $ Rogue.change_arms("crossed")
 
     "You have a nice time chatting with [Rogue.name], as you wait for the waitress to come back and take your orders."
 
@@ -564,6 +592,7 @@ label Rogue_date_dinner:
                 ch_Player "She'll have the [temp]."
 
                 $ Rogue.change_face("worried1", mouth = "lipbite")
+                $ Rogue.change_arms("sheepish", right_arm = "neutral")
 
                 ch_Rogue "Sorry. . ."
 
@@ -580,6 +609,7 @@ label Rogue_date_dinner:
         "Only order for yourself (discourage_quirk)":
             if Rogue.ordered_for_last_time:
                 $ Rogue.change_face("worried1", mouth = "lipbite")
+                $ Rogue.change_arms("angry")
 
                 "[Rogue.name] holds her tongue, staring at you expectantly."
             
@@ -592,6 +622,7 @@ label Rogue_date_dinner:
                 "When you don't say anything else, she gets the hint."
 
                 $ Rogue.change_face("worried1", eyes = "right")
+                $ Rogue.change_arms("crossed")
 
                 $ temp = chosen_meal[Rogue]
 
@@ -659,6 +690,7 @@ label Rogue_date_dinner:
             call expression f"Rogue_flirt_a{indices[2]}" from _call_expression_29
 
     $ Rogue.change_face("smirk2", blush = 1)
+    $ Rogue.change_arms("crossed")
 
     "You continue to have a nice conversation, as you wait for the food to arrive."
 
@@ -676,15 +708,18 @@ label Rogue_date_dinner:
     $ fade_in_from_black(0.4)
 
     $ Rogue.change_face("smirk2", eyes = "right")
+    $ Rogue.change_arms("neutral", right_arm = "extended")
 
     "The waitress finally comes back with your orders."
     ch_Rogue "Thanks darlin'."
 
     $ Rogue.change_face("smirk2", eyes = "down", mouth = "lipbite")
+    $ Rogue.change_arms("neutral")
 
     if Rogue.quirk:
         $ Rogue.change_face("worried1", mouth = "lipbite", blush = 1) 
-        
+        $ Rogue.change_arms("angry")
+
         $ temp = Rogue.Player_petname.capitalize()
 
         ch_Rogue "[temp]. . . am ah allowed to start eatin'?"
@@ -700,11 +735,13 @@ label Rogue_date_dinner:
                 "After a minute. . ."
 
                 $ Rogue.change_face("worried1", mouth = "lipbite", blush = 1) 
+                $ Rogue.change_arms("neutral")
 
                 ch_Player "Alright, you can eat."
                 ch_Rogue "Thank you."
 
     $ Rogue.change_face("smirk2", eyes = "down", mouth = "lipbite")
+    $ Rogue.change_arms("neutral")
 
     "[Rogue.name] digs right in."
 
@@ -732,6 +769,7 @@ label Rogue_date_dinner:
         ch_Rogue "Yer food looks real good."
 
         $ Rogue.change_face("worried1", mouth = "smirk", blush = 1)
+        $ Rogue.change_arms("sheepish", right_arm = "neutral")
 
         ch_Rogue "Maybe ah could get a bite of it?"
 
@@ -745,6 +783,7 @@ label Rogue_date_dinner:
                 pause 1.0
 
                 $ Rogue.change_face("smirk2", mouth = "lipbite", blush = 1)
+                $ Rogue.change_arms("neutral")
 
                 ch_Rogue "Delicious, thank you."
 
@@ -755,6 +794,7 @@ label Rogue_date_dinner:
                 ch_Rogue "Don't worry none." 
 
                 $ Rogue.change_face("worried1", mouth = "smirk") 
+                $ Rogue.change_arms("neutral")
 
                 ch_Rogue "My food's good too."
 
@@ -765,6 +805,7 @@ label Rogue_date_dinner:
     "You finish eating, and the waitress comes by with the check."
 
     $ Rogue.change_face("worried1", mouth = "smirk") 
+    $ Rogue.change_arms("crossed")
 
     menu:
         "Offer to pay":
@@ -881,6 +922,7 @@ label Rogue_date_dinner:
 
 label Rogue_date_dinner_sex:
     $ Rogue.change_face("sly", mouth = "lipbite", blush = 1)
+    $ Rogue.change_arms("neutral", right_arm = "touch_pussy")
 
     "You notice [Rogue.name] looking at you seductively."
 
@@ -929,7 +971,8 @@ label Rogue_date_dinner_sex:
                 "Go along with it":
                     $ sex_act = renpy.random.choice(sex_acts)
                 "Not right now, [Rogue.petname].":
-                    $ Rogue.change_face("worried1", blush = 1) 
+                    $ Rogue.change_face("worried1", blush = 1)
+                    $ Rogue.change_arms("crossed") 
                     
                     ch_Rogue "Alright, sorry. . ."
 
@@ -1008,6 +1051,7 @@ label Rogue_date_dinner_sex_handjob:
     call add_Characters(Rogue) from _call_add_Characters_91
 
     $ Rogue.change_face("sexy", blush = 2)
+    $ Rogue.change_arms("crossed")
 
     if Rogue.spunk["chin"]:
         ch_Player "You have a little something. . ."
@@ -1087,6 +1131,7 @@ label Rogue_date_dinner_sex_blowjob:
     call add_Characters(Rogue) from _call_add_Characters_92
 
     $ Rogue.change_face("sexy", blush = 2)
+    $ Rogue.change_arms("crossed")
 
     if Rogue.spunk["chin"]:
         ch_Player "You have a little something. . ."
@@ -1111,6 +1156,7 @@ label Rogue_date_dinner_sex_blowjob:
 
 label Rogue_date_dinner_sex_sex:
     $ Rogue.change_face("worried1", mouth = "lipbite", blush = 1)
+    $ Rogue.change_arms("crossed")
 
     ch_Rogue "Ya wanna have some fun. . . ?"
 
@@ -1144,6 +1190,7 @@ label Rogue_date_dinner_sex_sex:
     call set_the_scene(location = "bg_restaurant") from _call_set_the_scene_160
 
     $ Rogue.change_face("sly", blush = 2)
+    $ Rogue.change_arms("neutral")
     
     pause 1.0
 
@@ -1151,12 +1198,14 @@ label Rogue_date_dinner_sex_sex:
         ch_Player "Your hair's a bit. . ."
 
         $ Rogue.change_face("confused1", mouth = "smirk", blush = 1)
+        $ Rogue.change_arms("neutral", left_arm = "rub_neck")
 
         "She straightens it out."
 
         call try_on(Rogue, Rogue.Wardrobe.Clothes["asymmetric hair"]) from _call_try_on_8
 
     $ Rogue.change_face("worried1", mouth = "lipbite")
+    $ Rogue.change_arms("crossed")
 
     ch_Rogue "Ah hope that was as good for you as it was for me. . ."
 
@@ -1170,6 +1219,7 @@ label Rogue_date_dinner_sex_sex:
 
 label Rogue_date_dinner_sex_eat_pussy:
     $ Rogue.change_face("worried1", mouth = "lipbite", blush = 1)
+    $ Rogue.change_arms("crossed")
 
     ch_Rogue "Ya wanna have some fun. . . ?"
 
@@ -1203,6 +1253,7 @@ label Rogue_date_dinner_sex_eat_pussy:
     call set_the_scene(location = "bg_restaurant") from _call_set_the_scene_162
 
     $ Rogue.change_face("worried1", mouth = "lipbite")
+    $ Rogue.change_arms("neutral")
 
     ch_Rogue "Ah hope that was as good for you as it was for me. . ."
 
@@ -1231,6 +1282,7 @@ label Rogue_date_movie:
             ch_Rogue "Sweet."
 
             $ Rogue.change_face("smirk2", eyes = "right")
+            $ Rogue.change_arms("neutral", right_arm = "fist")
 
             "She grabs your hand, and you head to the theater together."
 
@@ -1292,6 +1344,7 @@ label Rogue_date_movie:
     
     if chosen_movie:
         $ Rogue.change_face("smirk2", eyes = "right")
+        $ Rogue.change_arms("crossed")
 
         "You arrive at the ticket counter, and [Rogue.name] looks over all the available movies."
 
@@ -1322,6 +1375,7 @@ label Rogue_date_movie:
         ch_Rogue "How 'bout we see this one."
     else:
         $ Rogue.change_face("smirk2", eyes = "right")
+        $ Rogue.change_arms("crossed")
 
         "You arrive at the ticket counter, and [Rogue.name] looks over all the available movies."
 
@@ -1480,12 +1534,14 @@ label Rogue_date_movie_ron_bic1:
     "[Rogue.name] starts holding your hand as the movie starts."
 
     $ Rogue.change_face("surprised1", eyes = "right")
+    $ Rogue.change_arms("angry")
 
     "Once the action starts, you look over to see [Rogue.name] entranced by all the action on screen."
     "Ron Bic is in a sticky situation after he's unwittingly sent to kill the CEO of his favorite lighter company."
     "Ron quickly realizes a rival lighter company set him up, and he vows to get revenge."
 
     $ Rogue.change_face("worried1", eyes = "right")
+    $ Rogue.change_arms("crossed")
 
     ##
 
@@ -1513,6 +1569,9 @@ label Rogue_date_movie_ron_bic2:
 
     ch_Rogue "Ah've been lookin' forward to this one. . ."
     "You get seated just in time."
+
+    $ Rogue.change_arms("neutral", right_arm = "fist")
+
     "[Rogue.name] starts holding your hand as the movie starts."
 
     $ Rogue.change_face("smirk2", eyes = "right")
@@ -1545,6 +1604,7 @@ label Rogue_date_movie_ron_bic2:
     "But, did he survive? Does he even know of his own success?"
 
     $ Rogue.change_face("furious", eyes = "right")
+    $ Rogue.change_arms("crossed")
 
     ch_Rogue "Ah really ain't a fan of cliffhangers."
 
@@ -1561,6 +1621,9 @@ label Rogue_date_movie_ron_bic2:
 
 label Rogue_date_movie_hamburg_portfolio:
     "The previews are already over by the time you reach your seats."
+    
+    $ Rogue.change_arms("neutral", right_arm = "fist")
+
     "[Rogue.name] starts holding your hand as the movie starts."
 
     $ Rogue.change_face("smirk2", eyes = "right")
@@ -1600,6 +1663,7 @@ label Rogue_date_movie_hamburg_portfolio:
     "In the end, he isn't able to put aside his morals, and his inaction causes everyone to suffer."
 
     $ Rogue.change_face("angry1", eyes = "right")
+    $ Rogue.change_arms("angry")
 
     "At least he survives and gets revenge. . . however hollow it is. . ."
 
@@ -1618,6 +1682,9 @@ label Rogue_date_movie_hamburg_portfolio:
 
 label Rogue_date_movie_beautiful_flower:
     "You quickly find your seats."
+
+    $ Rogue.change_arms("neutral", right_arm = "fist")
+
     "[Rogue.name] starts holding your hand as the movie starts."
 
     $ Rogue.change_face("smirk2", eyes = "right")
@@ -1651,6 +1718,8 @@ label Rogue_date_movie_beautiful_flower:
     return
 
 label Rogue_date_movie_fated:
+    $ Rogue.change_arms("neutral", right_arm = "fist")
+
     "You get seated and [Rogue.name] starts holding your hand as the movie starts."
 
     $ Rogue.change_face("confused1", mouth = "smirk", eyes = "right")
@@ -1685,6 +1754,7 @@ label Rogue_date_movie_fated:
     "Eventually they do officially get together, and the movie ends."
 
     $ Rogue.change_face("sexy", blush = 2)
+    $ Rogue.change_arms("crossed")
 
     ch_Rogue "That was. . ."
 
@@ -1698,6 +1768,8 @@ label Rogue_date_movie_fated:
     return
 
 label Rogue_date_movie_refilling_empty_glass:
+    $ Rogue.change_arms("neutral", right_arm = "fist")
+
     "You get seated and [Rogue.name] starts holding your hand as the movie starts."
 
     $ Rogue.change_face("smirk1", eyes = "right")
@@ -1730,6 +1802,7 @@ label Rogue_date_movie_refilling_empty_glass:
     "Nearly every other minute there's a graphic sex scene as the bartender demonstrates her prowess to her new beau."
 
     $ Rogue.change_face("worried1", mouth = "lipbite", blush = 1)
+    $ Rogue.change_arms("crossed")
 
     ch_Rogue "Ah like how they wrote the female lead."
 
@@ -1743,6 +1816,8 @@ label Rogue_date_movie_refilling_empty_glass:
     return
 
 label Rogue_date_movie_stale_air:
+    $ Rogue.change_arms("neutral", right_arm = "fist")
+
     "The movie starts only a few minutes after you get seated, and [Rogue.name] starts holding your hand."
 
     $ Rogue.change_face("smirk1", eyes = "right")
@@ -1772,6 +1847,7 @@ label Rogue_date_movie_stale_air:
     "Which is about a disturbed maniac who goes on a murder spree at their new job."
 
     $ Rogue.change_face("smirk2")
+    $ Rogue.change_arms("crossed")
 
     ch_Rogue "Ah really enjoyed that."
     ch_Rogue "Had an interestin' premise."
@@ -1782,6 +1858,8 @@ label Rogue_date_movie_stale_air:
     return
 
 label Rogue_date_movie_devils_spring_break:
+    $ Rogue.change_arms("neutral", right_arm = "fist")
+
     "You take your seats, and [Rogue.name] holds your hand as the movie starts."
 
     $ Rogue.change_face("confused1", eyes = "right")
@@ -1818,6 +1896,7 @@ label Rogue_date_movie_devils_spring_break:
     ch_Rogue "You could tell they wanted us to root for the demon."
 
     $ Rogue.change_face("smirk2")
+    $ Rogue.change_arms("crossed")
 
     ch_Rogue "Was still pretty entertainin''."
 
@@ -1827,6 +1906,9 @@ label Rogue_date_movie_devils_spring_break:
 
 label Rogue_date_movie_unsanctioned_crusade:
     "You take your seats just as the final preview ends."
+
+    $ Rogue.change_arms("neutral", right_arm = "fist")
+
     "[Rogue.name] starts holding your hand as the movie starts."
 
     $ Rogue.change_face("surprised1", eyes = "right")
@@ -1856,6 +1938,7 @@ label Rogue_date_movie_unsanctioned_crusade:
     "The knights are directly confronted by the atrocities they themselves committed and systematically eradicated in cruel and disturbing fashion."
 
     $ Rogue.change_face("confused1")
+    $ Rogue.change_arms("angry")
 
     pause 1.0
 
@@ -1869,6 +1952,7 @@ label Rogue_date_movie_unsanctioned_crusade:
 
 label Rogue_date_movie_sex:
     $ Rogue.change_face("sly", mouth = "lipbite", blush = 1)
+    $ Rogue.change_arms("neutral", right_arm = "touch_pussy")
 
     "You notice [Rogue.name] looking at you seductively."
 
@@ -1922,7 +2006,8 @@ label Rogue_date_movie_sex:
                 "Go along with it":
                     $ sex_act = renpy.random.choice(sex_acts)
                 "Not right now, [Rogue.petname].":
-                    $ Rogue.change_face("worried1", blush = 1) 
+                    $ Rogue.change_face("worried1", blush = 1)
+                    $ Rogue.change_arms("crossed") 
                     
                     ch_Rogue "Alright, sorry. . ."
 
@@ -1952,12 +2037,18 @@ label Rogue_date_movie_sex_makeout:
     $ Rogue.change_face("kiss2", blush = 2)
 
     "You have one hand firmly around her neck, preventing her from going anywhere."
+    
+    $ Rogue.change_arms("touch_self")
+
     "[Rogue.name] takes your other hand, running it across her body."
 
     $ Rogue.change_face("worried1", mouth = "lipbite", blush = 1)
 
     "Before things go too far, you pull away."
     ch_Rogue "Mmm. . ."
+
+    $ Rogue.change_arms("crossed")
+
     ch_Rogue "Wish ah could kiss ya forever."
 
     call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_561
@@ -1975,6 +2066,7 @@ label Rogue_date_movie_sex_handjob:
     pause 1.0
 
     $ Rogue.change_face("sexy", blush = 1)
+    $ Rogue.change_arms("neutral")
 
     "Once [Rogue.name]'s sure there's nobody around, she reaches over."
 
@@ -2000,6 +2092,8 @@ label Rogue_date_movie_sex_handjob:
         "Regardless, her enthusiasm brings you to the edge all the same."
 
     "[Rogue.name] can tell you're getting close and maintains the pace."
+
+    $ Rogue.change_arms("neutral", right_arm = "touch_pussy")
 
     $ Player.desire = 75
 
@@ -2035,6 +2129,7 @@ label Rogue_date_movie_sex_handjob:
         $ Rogue.History.update("clean_cum")
 
     $ Rogue.change_face("sexy", blush = 1)
+    $ Rogue.change_arms("crossed")
 
     "She puts your pants back into position."
 
@@ -2044,6 +2139,7 @@ label Rogue_date_movie_sex_handjob:
         $ Rogue.spunk["chin"] = 1
 
     $ Rogue.change_face("sexy", blush = 2)
+    $ Rogue.change_arms("crossed")
 
     if Rogue.spunk["chin"]:
         ch_Player "You have a little something. . ."
@@ -2078,6 +2174,8 @@ label Rogue_date_movie_sex_touch_pussy:
     "You can instantly feel how wet she is, as you slowly move your hand over her crotch."
 
     $ Rogue.change_face("sexy", eyes = "right", blush = 1)
+    $ Rogue.change_arms("angry", left_arm = "grope")
+
     call expose(Rogue, "pussy") from _call_expose_7
 
     "Slipping your hand under her pants, you tease her for a bit, before getting right to work."
@@ -2091,11 +2189,16 @@ label Rogue_date_movie_sex_touch_pussy:
     $ Rogue.change_face("worried1", eyes = "right", mouth = "lipbite", blush = 3)
 
     "Whatever you're doing seems to be working as she starts squirming and grinding against your hand."
+    
+    $ Rogue.change_arms("neutral", left_arm = "grope")
+
     "She also reaches over and starts teasing you as well."
 
     $ Rogue.change_face("surprised2", mouth = "lipbite", blush = 3)
 
     "You pick up the pace, and [Rogue.name] grabs your arm, holding it in place."
+
+    $ Rogue.change_arms("angry", left_arm = "grope")
 
     ch_Rogue "Don't stop, please!"
     "She's not letting go until you finish the job."
@@ -2110,6 +2213,7 @@ label Rogue_date_movie_sex_touch_pussy:
     "You don't stop, and the shuddering continues, her grip on your arm tightening." with small_screenshake
 
     $ Rogue.change_face("worried1", mouth = "lipbite", blush = 2)
+    $ Rogue.change_arms("crossed")
 
     "Finally, after a minute, she lets go."
     "She's still twitching even as you pull your hand away."
@@ -2138,6 +2242,8 @@ label Rogue_date_movie_sex_finger_pussy:
     "You can instantly feel how wet she is, as you slowly move your hand over her crotch."
 
     $ Rogue.change_face("sexy", eyes = "right", blush = 1)
+    $ Rogue.change_arms("angry", left_arm = "grope")
+
     call expose(Rogue, "pussy") from _call_expose_8
 
     "Slipping your hand under her pants, you tease her for a bit, before sliding your fingers inside."
@@ -2151,11 +2257,16 @@ label Rogue_date_movie_sex_finger_pussy:
     $ Rogue.change_face("worried1", eyes = "right", mouth = "lipbite", blush = 3)
 
     "Whatever you're doing seems to be working as she starts squirming and grinding against your hand."
+    
+    $ Rogue.change_arms("neutral", left_arm = "grope")
+
     "She also reaches over and starts teasing you as well."
 
     $ Rogue.change_face("surprised2", mouth = "lipbite", blush = 3)
 
     "You pick up the pace, and [Rogue.name] grabs your arm, holding it in place."
+
+    $ Rogue.change_arms("angry", left_arm = "grope")
 
     ch_Rogue "Don't stop, please!"
     "She's not letting go until you finish the job."
@@ -2170,6 +2281,7 @@ label Rogue_date_movie_sex_finger_pussy:
     "You don't stop, and the shuddering continues, her grip on your arm tightening." with small_screenshake
 
     $ Rogue.change_face("worried1", mouth = "lipbite", blush = 2)
+    $ Rogue.change_arms("crossed")
 
     "Finally, after a minute, she lets go."
     "She's still twitching even as you pull your hand away."
@@ -2244,6 +2356,7 @@ label Rogue_date_movie_sex_blowjob:
     call add_Characters(Rogue) from _call_add_Characters_94
 
     $ Rogue.change_face("sexy", blush = 2)
+    $ Rogue.change_arms("crossed")
 
     if Rogue.spunk["chin"]:
         ch_Player "You have a little something. . ."
@@ -2272,6 +2385,7 @@ label Rogue_date_mall:
         pause 1.0
 
         $ Rogue.change_face("worried1", mouth = "smirk")
+        $ Rogue.change_arms("sheepish", right_arm = "neutral")
 
         ch_Rogue "Could we just hang out in the mall?"
 
@@ -2285,14 +2399,18 @@ label Rogue_date_mall:
             $ second_event[Rogue] = "wander"
         else:
             $ Rogue.change_face("happy", brows = "raised", eyes = "right") 
-            
+            $ Rogue.change_arms("neutral", right_arm = "extended")
+
             ch_Rogue "Oh!" 
             
             $ Rogue.change_face("pleased2") 
+            $ Rogue.change_arms("neutral")
             
             ch_Rogue "How 'bout dessert!"
 
             $ second_event[Rogue] = "dessert"
+
+        $ Rogue.change_arms("neutral", right_arm = "fist")
 
         "She grabs your hand, and you walk through the mall."
     elif Player in second_event.keys():
@@ -2329,6 +2447,7 @@ label Rogue_date_mall_wander:
             extend ""
             "Hold hands with [Rogue.name]":
                 $ Rogue.change_face("smirk2", eyes = "right", blush = 1)
+                $ Rogue.change_arms("neutral", right_arm = "fist")
 
                 "She doesn't protest and just gives your hand a squeeze in response." 
                 
@@ -2353,6 +2472,9 @@ label Rogue_date_mall_wander:
         $ temp = Rogue.Player_petname.capitalize()
 
         ch_Rogue "[temp], can ah hold your hand?"
+
+        $ Rogue.change_arms("neutral", right_arm = "fist")
+
         "You put your hand out, and she starts holding it, interlacing your fingers."
 
         $ Rogue.change_face("smirk2", eyes = "right", mouth = "lipbite", blush = 1)
@@ -2377,6 +2499,7 @@ label Rogue_date_mall_dessert:
     "There are so many different options that it can be difficult to decide what to get." 
 
     $ Rogue.change_face("confused1", mouth = "smirk")
+    $ Rogue.change_arms("crossed")
 
     ch_Player "You in the mood for anything, [Rogue.petname]?"
     ch_Rogue "Ah'll get whatever ya want."
@@ -2402,6 +2525,7 @@ label Rogue_date_mall_dessert:
     $ total_spent += 10
     
     $ Rogue.change_face("smirk2", eyes = "right")
+    $ Rogue.change_arms("neutral")
 
     "After paying for the dessert, you both wander around the mall while enjoying it."
 
@@ -2423,6 +2547,7 @@ label Rogue_date_end:
         call send_Characters(Rogue, "bg_hallway", behavior = "on_date") from _call_send_Characters_136
 
         $ Rogue.change_face("worried1", mouth = "smirk")
+        $ Rogue.change_arms("crossed")
 
         menu:
             extend ""
@@ -2460,7 +2585,8 @@ label Rogue_date_end_invite:
             ch_Rogue "Thanks for takin' me out. . ." 
             
             $ Rogue.change_face("sly", mouth = "lipbite", blush = 2) 
-            
+            $ Rogue.change_arms("neutral", left_arm = "grope")
+
             ch_Rogue "But ah sure hope you have some {i}fun{/i} plans for me. . ." 
             
             $ Rogue.change_face("worried1", mouth = "lipbite", blush = 1) 
@@ -2521,6 +2647,7 @@ label Rogue_date_end_invite:
 
         if approval_check(Rogue, threshold = "hookup"):
             $ Rogue.change_face("sexy", blush = 1)
+            $ Rogue.change_arms("neutral", left_arm = "grope")
 
             ch_Rogue "Finish things up in my room."
         else:

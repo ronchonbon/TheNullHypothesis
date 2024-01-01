@@ -22,6 +22,7 @@ label Jean_chapter_one_season_one_study_sessions:
 
     if dice_roll == 1:
         $ Jean.change_face("confused1", mouth = "smirk")
+        $ Jean.change_arms("hips")
 
         ch_Jean "You gonna help me set this stuff up, [Jean.Player_petname]?" 
         ch_Player "Sure."
@@ -32,6 +33,7 @@ label Jean_chapter_one_season_one_study_sessions:
         "Despite [Jean.name]'s obsessiveness about where things should go, it only takes a few minutes to set everything up."
 
         $ Jean.change_face("smirk2", eyes = "down", blush = 1)
+        $ Jean.change_arms("crossed")
 
         "She plops down on the bed, 'accidentally' bumping into you, as she gets comfortable."
         "[Jean.name] takes charge, running you through the topics she thinks are most important."
@@ -49,6 +51,7 @@ label Jean_chapter_one_season_one_study_sessions:
         ch_Player "Uhhh. . ." 
 
         $ Jean.change_face("confused1", mouth = "smirk")
+        $ Jean.change_arms("sass")
 
         ch_Jean "Really, [Jean.Player_petname]?"
 
@@ -59,17 +62,20 @@ label Jean_chapter_one_season_one_study_sessions:
         "After only a couple hours, your brain feels like mashed potatoes."
 
         $ Jean.change_face("sly")
+        $ Jean.change_arms("crossed")
 
         ch_Jean "I think we should stop there."
         ch_Jean "You look like you could use a break."
         ch_Player "Thanks. . ."
     elif dice_roll == 2:
         $ Jean.change_face("happy")
+        $ Jean.change_arms("sass")
 
         ch_Jean "You excited, [Jean.Player_petname]?" 
         ch_Player "Excited. . . ?"
 
         $ Jean.change_face("worried1", mouth = "smirk")
+        $ Jean.change_arms("crossed")
 
         ch_Jean "Well, yeah. . ."
 
@@ -83,11 +89,13 @@ label Jean_chapter_one_season_one_study_sessions:
             ch_Player "I wouldn't say that. . ."
 
         $ Jean.change_face("sly")
+        $ Jean.change_arms("hips")
 
         ch_Jean "Well, help me set this stuff up already."
         "As you both organize everything, she 'accidentally' brushes against you a couple times."
 
         $ Jean.change_face("smirk2", eyes = "down", blush = 1)
+        $ Jean.change_arms("crossed")
 
         "She gets onto the bed next to you, inching closer."
         "Once the session starts, you ask some questions, and [Jean.name] basically starts teaching an entire course to you as she goes over the answers."
@@ -99,12 +107,14 @@ label Jean_chapter_one_season_one_study_sessions:
         "She tries quite hard to help you, but struggles with making things easily digestible."
 
         $ Jean.change_face("smirk2")
+        $ Jean.change_arms("hips")
 
         ch_Jean "Okay you should definitely know this already, and it'll be the quiz question this week for sure." 
         "She points to a particular question."
         ch_Player "Hehe, uhm. . ." 
 
         $ Jean.change_face("confused1", mouth = "smirk")
+        $ Jean.change_arms("sass")
 
         ch_Jean "Aw, c'mon, it's easyyy."
         ch_Jean "The answer is obviously choice D." 
@@ -115,11 +125,13 @@ label Jean_chapter_one_season_one_study_sessions:
         ch_Player "Want some help?" 
 
         $ Jean.change_face("smirk2")
+        $ Jean.change_arms("hips")
 
         ch_Jean "Sure do, [Jean.Player_petname]."
         "You 'helping' mostly means you end up doing most of the organizing, under [Jean.name]'s instruction."
 
         $ Jean.change_face("smirk2", eyes = "down", blush = 1)
+        $ Jean.change_arms("crossed")
 
         "She not so subtly checks you out several times, before teasingly shoving you onto the bed and plopping down next to you."
         "As the session starts, [Jean.name] tries her best to go over the subjects you've been struggling with, but she has trouble dumbing things down."
@@ -134,6 +146,7 @@ label Jean_chapter_one_season_one_study_sessions:
         "You point to a particular question." 
 
         $ Jean.change_face("happy")
+        $ Jean.change_arms("hips")
 
         ch_Jean "Great, then you'll get a head start on everyone else!"
 
@@ -142,6 +155,7 @@ label Jean_chapter_one_season_one_study_sessions:
         ch_Jean "The answer is choice C." 
 
         $ Jean.change_face("confused1")
+        $ Jean.change_arms("sass")
 
         "[Jean.name] was getting a bit fed up, so by the end of the session, she just started teaching you the higher level concepts."
         "They do clarify some questions you had, but most of the info won't be relevant for a while. . ."
