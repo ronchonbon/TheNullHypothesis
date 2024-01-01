@@ -221,6 +221,8 @@ label start_new_day(fast = False):
     if not fast:
         $ reset_Characters_at_end_of_day()
 
+    $ lights_on = True
+
     $ lighting = "day"
 
     if weekday == 0 and time_index == 0:

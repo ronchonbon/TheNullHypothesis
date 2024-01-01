@@ -8,7 +8,7 @@ label update_Rogue_database:
         "The reason I say her abilities are 'unfortunate' is that Rogue has, as yet, been unable to turn her power off, meaning any kind of prolonged close contact with others is a risk. While we do have access to power-dampening technology at the school, the technology is still in its early days and, due to its complexity, power requirements and other factors, it is, as yet, not suitable for portable use. Rogue currently wears gloves to aid against accidental touches and typically wears concealing clothes. For obvious reasons, the student body has been made aware of Rogue's 'condition', but this has had the unfortunate side-effect of causing her to be left somewhat isolated by her peers. Rogue has been resilient in the face of this, but it is obvious to see that it has taken a great personal toll on her."]
 
     $ Rogue.database["study_materials"] = [
-        "RECOMMENDED STUDY MATERIALS\n- X-Men Evolution (TV Show 2000-2003)\n- Age of Apocalypse (1995)\n- Supernovas (X-Men 188-199, 2007)\n- Uncanny Avengers (2012)\n- X-Men Legacy (2008)"]
+        "RECOMMENDED STUDY MATERIALS\n\n- X-Men Evolution (TV Show 2000-2003)\n- Age of Apocalypse (1995)\n- Supernovas (X-Men 188-199, 2007)\n- Uncanny Avengers (2012)\n- X-Men Legacy (2008)"]
 
     $ Rogue.database["wiki"] = [
         "Mutiefan Entry for ROGUE\n\nThis hot-tempered Southern Belle knows what she wants and isn't afraid to let anyone stand in her way. With the battlefield as a second home to her, Rogue plows through whatever gets between her and her target. But does she long for the chaos of the fight to fulfil some deep, long-buried, aching need in her? Or does she fight to take her mind off the one thing she can never have - the simple touch of another. . ."]

@@ -182,131 +182,51 @@ label Player_orgasms:
 
     call Player_orgasm_narrations(focused_Character, location = cumshot_location) from _call_Player_orgasm_narrations
 
-    if cumshot_location == "cumshot_belly":
-        $ focused_Character.spunk["belly"] = 1
-
-        pause 0.5
-
-        $ focused_Character.spunk["belly"] = 2
-
-        python:
-            for Clothing_type in all_Clothing_types:
-                if focused_Character.Clothes[Clothing_type].string:
-                    if "belly" in focused_Character.Clothes[Clothing_type].covers[focused_Character.position].keys() and focused_Character.Clothes[Clothing_type].state in focused_Character.Clothes[Clothing_type].covers[focused_Character.position]["belly"]:
-                        focused_Character.Clothes[Clothing_type].soiled = True
-                        
-                        for covering_Clothing_type in all_Clothing_types:
-                            if focused_Character.Clothes[covering_Clothing_type].string:
-                                if "belly" in focused_Character.Clothes[covering_Clothing_type].covers[focused_Character.position].keys() and focused_Character.Clothes[covering_Clothing_type].state in focused_Character.Clothes[covering_Clothing_type].covers[focused_Character.position]["belly"]:
-                                    if focused_Character.Clothes[covering_Clothing_type].string in focused_Character.Clothes[Clothing_type].covered_by.keys() and focused_Character.Clothes[covering_Clothing_type].state in focused_Character.Clothes[Clothing_type].covered_by[focused_Character.Clothes[covering_Clothing_type].string]:
-                                        focused_Character.Clothes[Clothing_type].soiled = False
-                                        focused_Character.Clothes[covering_Clothing_type].soiled = True
-    elif cumshot_location == "cumshot_breasts":
-        $ focused_Character.spunk["breasts"] = 1
-
-        pause 0.5
-
-        $ focused_Character.spunk["breasts"] = 2
-
-        python:
-            for Clothing_type in all_Clothing_types:
-                if focused_Character.Clothes[Clothing_type].string:
-                    if "breasts" in focused_Character.Clothes[Clothing_type].covers[focused_Character.position].keys() and focused_Character.Clothes[Clothing_type].state in focused_Character.Clothes[Clothing_type].covers[focused_Character.position]["breasts"]:
-                        focused_Character.Clothes[Clothing_type].soiled = True
-                        
-                        for covering_Clothing_type in all_Clothing_types:
-                            if focused_Character.Clothes[covering_Clothing_type].string:
-                                if "breasts" in focused_Character.Clothes[covering_Clothing_type].covers[focused_Character.position].keys() and focused_Character.Clothes[covering_Clothing_type].state in focused_Character.Clothes[covering_Clothing_type].covers[focused_Character.position]["breasts"]:
-                                    if focused_Character.Clothes[covering_Clothing_type].string in focused_Character.Clothes[Clothing_type].covered_by.keys() and focused_Character.Clothes[covering_Clothing_type].state in focused_Character.Clothes[Clothing_type].covered_by[focused_Character.Clothes[covering_Clothing_type].string]:
-                                        focused_Character.Clothes[Clothing_type].soiled = False
-                                        focused_Character.Clothes[covering_Clothing_type].soiled = True
-    elif cumshot_location == "cumshot_face":
-        $ focused_Character.spunk["face"] = 1
-
-        pause 0.5
-
-        $ focused_Character.spunk["face"] = 2
-    elif cumshot_location == "cumshot_hair":
-        $ focused_Character.spunk["hair"] = 1
-
-        pause 0.5
-
-        $ focused_Character.spunk["hair"] = 2
-    elif cumshot_location == "cumshot_back":
-        $ focused_Character.spunk["back"] = 1
-
-        pause 0.5
-
-        $ focused_Character.spunk["back"] = 2
-
-        python:
-            for Clothing_type in all_Clothing_types:
-                if focused_Character.Clothes[Clothing_type].string:
-                    if "back" in focused_Character.Clothes[Clothing_type].covers[focused_Character.position].keys() and focused_Character.Clothes[Clothing_type].state in focused_Character.Clothes[Clothing_type].covers[focused_Character.position]["back"]:
-                        focused_Character.Clothes[Clothing_type].soiled = True
-                        
-                        for covering_Clothing_type in all_Clothing_types:
-                            if focused_Character.Clothes[covering_Clothing_type].string:
-                                if "back" in focused_Character.Clothes[covering_Clothing_type].covers[focused_Character.position].keys() and focused_Character.Clothes[covering_Clothing_type].state in focused_Character.Clothes[covering_Clothing_type].covers[focused_Character.position]["back"]:
-                                    if focused_Character.Clothes[covering_Clothing_type].string in focused_Character.Clothes[Clothing_type].covered_by.keys() and focused_Character.Clothes[covering_Clothing_type].state in focused_Character.Clothes[Clothing_type].covered_by[focused_Character.Clothes[covering_Clothing_type].string]:
-                                        focused_Character.Clothes[Clothing_type].soiled = False
-                                        focused_Character.Clothes[covering_Clothing_type].soiled = True
-    elif cumshot_location == "cumshot_ass":
-        $ focused_Character.spunk["ass"] = 1
-
-        pause 0.5
-
-        $ focused_Character.spunk["ass"] = 2
-
-        python:
-            for Clothing_type in all_Clothing_types:
-                if focused_Character.Clothes[Clothing_type].string:
-                    if "ass" in focused_Character.Clothes[Clothing_type].covers[focused_Character.position].keys() and focused_Character.Clothes[Clothing_type].state in focused_Character.Clothes[Clothing_type].covers[focused_Character.position]["ass"]:
-                        focused_Character.Clothes[Clothing_type].soiled = True
-                        
-                        for covering_Clothing_type in all_Clothing_types:
-                            if focused_Character.Clothes[covering_Clothing_type].string:
-                                if "ass" in focused_Character.Clothes[covering_Clothing_type].covers[focused_Character.position].keys() and focused_Character.Clothes[covering_Clothing_type].state in focused_Character.Clothes[covering_Clothing_type].covers[focused_Character.position]["ass"]:
-                                    if focused_Character.Clothes[covering_Clothing_type].string in focused_Character.Clothes[Clothing_type].covered_by.keys() and focused_Character.Clothes[covering_Clothing_type].state in focused_Character.Clothes[Clothing_type].covered_by[focused_Character.Clothes[covering_Clothing_type].string]:
-                                        focused_Character.Clothes[Clothing_type].soiled = False
-                                        focused_Character.Clothes[covering_Clothing_type].soiled = True
-    elif cumshot_location == "cumshot_feet":
-        $ focused_Character.spunk["feet"] = 1
-
-        pause 0.5
-
-        $ focused_Character.spunk["feet"] = 2
-
-        python:
-            for Clothing_type in all_Clothing_types:
-                if focused_Character.Clothes[Clothing_type].string:
-                    if "feet" in focused_Character.Clothes[Clothing_type].covers[focused_Character.position].keys() and focused_Character.Clothes[Clothing_type].state in focused_Character.Clothes[Clothing_type].covers[focused_Character.position]["feet"]:
-                        focused_Character.Clothes[Clothing_type].soiled = True
-                        
-                        for covering_Clothing_type in all_Clothing_types:
-                            if focused_Character.Clothes[covering_Clothing_type].string:
-                                if "feet" in focused_Character.Clothes[covering_Clothing_type].covers[focused_Character.position].keys() and focused_Character.Clothes[covering_Clothing_type].state in focused_Character.Clothes[covering_Clothing_type].covers[focused_Character.position]["feet"]:
-                                    if focused_Character.Clothes[covering_Clothing_type].string in focused_Character.Clothes[Clothing_type].covered_by.keys() and focused_Character.Clothes[covering_Clothing_type].state in focused_Character.Clothes[Clothing_type].covered_by[focused_Character.Clothes[covering_Clothing_type].string]:
-                                        focused_Character.Clothes[Clothing_type].soiled = False
-                                        focused_Character.Clothes[covering_Clothing_type].soiled = True
-    elif cumshot_location == "creampie":
-        $ focused_Character.creampie["pussy"] = 1
-
-        pause 0.5
-
-        $ focused_Character.creampie["pussy"] = 2
+    if "cumshot" in cumshot_location:
+        $ location = cumshot_location.split("_")[1]
     elif cumshot_location == "cum_in_mouth":
-        $ focused_Character.spunk["mouth"] = 1
+        $ location = "mouth"
 
-        pause 0.5
+        if focused_Character.spunk[location] == 1:
+            $ focused_Character.spunk[location] = 2
+        elif "large_loads" in Player.mutant_abilities:
+            $ focused_Character.spunk[location] = 1
 
-        $ focused_Character.spunk["mouth"] = 2
-    elif cumshot_location == "anal_creampie":
-        $ focused_Character.creampie["anus"] = 1
+            pause 0.5
 
-        pause 0.5
+            $ focused_Character.spunk[location] = 2
+        else:
+            $ focused_Character.spunk[location] = 1
 
-        $ focused_Character.creampie["anus"] = 2
+        if location in ["belly", "breasts", "back", "ass", "feet"]:
+            python:
+                for Clothing_type in all_Clothing_types:
+                    if focused_Character.Clothes[Clothing_type].string:
+                        if location in focused_Character.Clothes[Clothing_type].covers[focused_Character.position].keys() and focused_Character.Clothes[Clothing_type].state in focused_Character.Clothes[Clothing_type].covers[focused_Character.position][location]:
+                            focused_Character.Clothes[Clothing_type].soiled = True
+                            
+                            for covering_Clothing_type in all_Clothing_types:
+                                if focused_Character.Clothes[covering_Clothing_type].string:
+                                    if location in focused_Character.Clothes[covering_Clothing_type].covers[focused_Character.position].keys() and focused_Character.Clothes[covering_Clothing_type].state in focused_Character.Clothes[covering_Clothing_type].covers[focused_Character.position][location]:
+                                        if focused_Character.Clothes[covering_Clothing_type].string in focused_Character.Clothes[Clothing_type].covered_by.keys() and focused_Character.Clothes[covering_Clothing_type].state in focused_Character.Clothes[Clothing_type].covered_by[focused_Character.Clothes[covering_Clothing_type].string]:
+                                            focused_Character.Clothes[Clothing_type].soiled = False
+                                            focused_Character.Clothes[covering_Clothing_type].soiled = True
+    elif "creampie" in cumshot_location:
+        if cumshot_location == "creampie":
+            $ location = "pussy"
+        elif cumshot_location == "anal_creampie":
+            $ location = "anus"
+
+        if focused_Character.creampie[location] == 1:
+            $ focused_Character.creampie[location] = 2
+        elif "large_loads" in Player.mutant_abilities:
+            $ focused_Character.creampie[location] = 1
+
+            pause 0.5
+
+            $ focused_Character.creampie[location] = 2
+        else:
+            $ focused_Character.creampie[location] = 1
 
     $ focused_Character.persistent_spunk = copy.copy(focused_Character.spunk)
 
@@ -451,6 +371,8 @@ label clean_cum_mess(Character):
     return
 
 label clean_cum(Character):
+    $ total_cum = 0
+
     $ Character.change_arms("neutral", right_arm = "extended")
 
     pause 0.5
@@ -467,11 +389,18 @@ label clean_cum(Character):
             Character.spunk[location] = 0
             Character.persistent_spunk[location] = 0
 
-    pause 0.1
+            total_cum += 1
 
-    $ Character.spunk["hand"] = 2
+    if total_cum >= 2:
+        pause 0.1
 
-    pause 2.0
+        $ Character.spunk["hand"] = 2
+
+        pause 1.0
+
+        $ Character.spunk["hand"] = 1
+
+    pause 1.0
 
     $ Character.spunk["hand"] = 0
 
@@ -480,6 +409,8 @@ label clean_cum(Character):
     return
 
 label swallow_cum(Character):
+    $ total_cum = 0
+
     $ Character.change_arms("neutral", right_arm = "extended")
 
     pause 0.5
@@ -496,9 +427,12 @@ label swallow_cum(Character):
             Character.spunk[location] = 0
             Character.persistent_spunk[location] = 0
 
-    pause 0.1
+            total_cum += 1
 
-    $ Character.spunk["hand"] = 2
+    if total_cum >= 2:
+        pause 0.1
+
+        $ Character.spunk["hand"] = 2
 
     pause 0.5
 
@@ -507,11 +441,14 @@ label swallow_cum(Character):
     pause 0.5
 
     $ Character.spunk["mouth"] = 1
-    $ Character.spunk["hand"] = 1
+    
+    if total_cum >= 2:
+        $ Character.spunk["hand"] = 1
 
-    pause 0.1
+        pause 0.1
 
-    $ Character.spunk["mouth"] = 2
+        $ Character.spunk["mouth"] = 2
+        
     $ Character.spunk["hand"] = 0
 
     pause 2.0

@@ -76,7 +76,7 @@ screen test_screen():
                     if item == "image_filter":
                         action SetVariable(item, None)
                     else:
-                        action SetVariable(item, True)
+                        action SetVariable(item, False)
 
                     focus_mask None
 

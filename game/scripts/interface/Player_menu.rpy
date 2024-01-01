@@ -314,7 +314,9 @@ screen database_screen():
         $ database_length = 0
 
         if "description" in current_database_Entry.database.keys() and current_database_section == "personal":
+            $ database_length += len(current_database_Entry.database["stats"])
             $ database_length += len(current_database_Entry.database["description"])
+            $ database_length += len(current_database_Entry.database["study_materials"])
 
         if "wiki" in current_database_Entry.database.keys() and current_database_section == "mutiefan":
             $ database_length += 1
@@ -336,37 +338,44 @@ screen database_screen():
                 action SetVariable("current_database_page", (current_database_page + 1) % database_length)
         
         if database_length >= 1:
-            if current_database_section == "personal" and current_database_page < len(current_database_Entry.database["description"]):
+            if current_database_section == "personal" and current_database_page < len(current_database_Entry.database["stats"]) + len(current_database_Entry.database["description"]) + len(current_database_Entry.database["study_materials"]):
                 if current_database_Entry in all_Characters or current_database_Entry == Player:
                     frame anchor (0.0, 0.0) pos (0.375, 0.345) xysize (0.543, 0.55):
-                        frame align (0.0, 0.0) xsize 0.4:
-                            text current_database_Entry.database["stats"] xalign 0.0:
-                                font "agency_fb.ttf"
-                                        
-                                size 24
-
-                                text_align 0.0
-
-                        frame align (0.0, 1.0) xsize 0.4:
-                            text current_database_Entry.database["study_materials"] xalign 0.0:
-                                font "agency_fb.ttf"
-
-                                size 28
-
-                                text_align 0.0
-
-                        frame align (1.0, 0.0) xsize 0.58:
-                            text current_database_Entry.database["description"][current_database_page] xalign 1.0:
-                                font "agency_fb.ttf"
-
-                                if len(current_database_Entry.database["description"][current_database_page]) < 800:
+                        if current_database_page < len(current_database_Entry.database["stats"]):
+                            frame anchor (0.0, 0.0) pos (0.5, 0.01) xsize 0.5:
+                                text current_database_Entry.database["stats"] xalign 0.0:
+                                    font "agency_fb.ttf"
+                                            
                                     size 30
-                                elif len(current_database_Entry.database["description"][current_database_page]) < 1500:
-                                    size 24
-                                else:
-                                    size 20
 
-                                text_align 1.0
+                                    text_align 0.0
+                        elif current_database_page < len(current_database_Entry.database["stats"]) + len(current_database_Entry.database["description"]):
+                            frame anchor (0.0, 0.0) pos (0.5, 0.01) xsize 0.5:
+                                text current_database_Entry.database["description"][current_database_page - len(current_database_Entry.database["stats"])] xalign 0.0:
+                                    font "agency_fb.ttf"
+
+                                    if len(current_database_Entry.database["description"][current_database_page - len(current_database_Entry.database["stats"])]) < 800:
+                                        size 28
+                                    elif len(current_database_Entry.database["description"][current_database_page - len(current_database_Entry.database["stats"])]) < 1000:
+                                        size 24
+                                    elif len(current_database_Entry.database["description"][current_database_page - len(current_database_Entry.database["stats"])]) < 1200:
+                                        size 22
+                                    else:
+                                        size 20
+
+                                    text_align 0.0
+                        else:
+                            frame anchor (0.0, 0.0) pos (0.5, 0.01) xsize 0.5:
+                                text current_database_Entry.database["study_materials"] xalign 0.0:
+                                    font "agency_fb.ttf"
+
+                                    size 30
+
+                                    text_align 0.0
+
+                        if current_database_Entry in [Rogue, Jean, Charles]:
+                            add f"images/interface/comics/{current_database_Entry.tag}.webp" anchor (0.0, 0.0) pos (0.04, 0.06) zoom interface_adjustment
+
             elif current_database_section == "mutiefan" and "wiki" in current_database_Entry.database.keys():
                 frame anchor (0.0, 0.0) pos (0.375, 0.345) xysize (0.543, 0.55):
                     text current_database_Entry.database["wiki"] align (0.0, 0.0):
@@ -455,15 +464,21 @@ screen skills_screen():
         
         size 25
 
-    $ mutant_abilities = [
-        "nullify",
-        "stamina_boost1", 
-        "stamina_boost2", 
-        "stamina_boost3",
-        "orgasm_control"]
+    $ mutant_abilities = ["nullify"]
+
+    if "stamina_boost1" in Player.mutant_abilities:
+        $ mutant_abilities.append("stamina_boost2")
+
+    if "stamina_boost2" in Player.mutant_abilities:
+        $ mutant_abilities.append("stamina_boost3")
 
     if "regen" in Player.mutant_abilities:
         $ mutant_abilities.append("regen")
+        $ mutant_abilities.append("stamina_boost1")
+        $ mutant_abilities.append("orgasm_control")
+
+    if "orgasm_control" in Player.mutant_abilities:
+        $ mutant_abilities.append("large_loads")
 
     for ability in mutant_abilities:
         if ability == "nullify":
@@ -471,19 +486,25 @@ screen skills_screen():
             $ y = 0.4
         elif ability == "regen":
             $ x = 0.149
-            $ y = 0.36
+            $ y = 0.44
+        elif ability == "absorption":
+            $ x = 0.188
+            $ y = 0.48
         elif ability == "stamina_boost1":
             $ x = 0.11
-            $ y = 0.6
+            $ y = 0.48
         elif ability == "stamina_boost2":
-            $ x = 0.149
+            $ x = 0.11
             $ y = 0.56
         elif ability == "stamina_boost3":
-            $ x = 0.188
-            $ y = 0.6
-        elif ability == "orgasm_control":
             $ x = 0.11
-            $ y = 0.8
+            $ y = 0.64
+        elif ability == "orgasm_control":
+            $ x = 0.149
+            $ y = 0.36
+        elif ability == "large_loads":
+            $ x = 0.188
+            $ y = 0.4
 
         button anchor (0.5, 0.5) pos (x, y) xysize (int(209*interface_adjustment), int(193*interface_adjustment)):
             if ability in Player.mutant_abilities:
@@ -508,7 +529,12 @@ screen skills_screen():
         add "images/interface/Player_menu/skills_box.webp" zoom interface_adjustment
 
         text ability_names[current_mutant_ability].upper() anchor (0.0, 0.5) pos (0.679, 0.68):
-            size 30
+            if len(ability_names[current_mutant_ability]) > 12:
+                size 24
+            elif len(ability_names[current_mutant_ability]) > 8:
+                size 26
+            else:
+                size 30
 
         frame anchor (0.5, 0.5) pos (0.801, 0.805) xysize (0.245, 0.202):
             text ability_descriptions[current_mutant_ability] xalign 0.5:
@@ -518,41 +544,42 @@ screen skills_screen():
 
                 text_align 0.5
 
-        if current_mutant_ability not in Player.mutant_abilities and current_mutant_ability in ability_costs.keys() and Player.ability_points >= ability_costs[current_mutant_ability]:
-            imagebutton:
-                idle At("images/interface/Player_menu/skills_purchase.webp", interface)
-                hover At("images/interface/Player_menu/skills_purchased.webp", interface)
+        if chapter > 1 or season > 1:
+            if current_mutant_ability not in Player.mutant_abilities and current_mutant_ability in ability_costs.keys() and Player.ability_points >= ability_costs[current_mutant_ability]:
+                imagebutton:
+                    idle At("images/interface/Player_menu/skills_purchase.webp", interface)
+                    hover At("images/interface/Player_menu/skills_purchased.webp", interface)
 
-                if "stamina" in current_mutant_ability:
-                    action [
-                        SetVariable("Player.ability_points", Player.ability_points - ability_costs[current_mutant_ability]),
-                        AddToSet(Player.mutant_abilities, current_mutant_ability),
-                        SetVariable("Player.max_stamina", Player.max_stamina + 1),
-                        Function(Player.History.update, "bought_skill")]
-                else:
-                    action [
-                        SetVariable("Player.ability_points", Player.ability_points - ability_costs[current_mutant_ability]),
-                        AddToSet(Player.mutant_abilities, current_mutant_ability),
-                        Function(Player.History.update, "bought_skill")]
+                    if "stamina" in current_mutant_ability:
+                        action [
+                            SetVariable("Player.ability_points", Player.ability_points - ability_costs[current_mutant_ability]),
+                            AddToSet(Player.mutant_abilities, current_mutant_ability),
+                            SetVariable("Player.max_stamina", Player.max_stamina + 1),
+                            Function(Player.History.update, "bought_skill")]
+                    else:
+                        action [
+                            SetVariable("Player.ability_points", Player.ability_points - ability_costs[current_mutant_ability]),
+                            AddToSet(Player.mutant_abilities, current_mutant_ability),
+                            Function(Player.History.update, "bought_skill")]
 
-            text "AWAKEN" anchor (0.5, 0.5) pos (0.825, 0.68):
-                font "agency_fb.ttf"
-                
-                size 25
-        elif current_mutant_ability not in Player.mutant_abilities:
-            add "images/interface/Player_menu/skills_purchase.webp" zoom interface_adjustment
+                text "AWAKEN" anchor (0.5, 0.5) pos (0.825, 0.68):
+                    font "agency_fb.ttf"
+                    
+                    size 25
+            elif current_mutant_ability not in Player.mutant_abilities:
+                add "images/interface/Player_menu/skills_purchase.webp" zoom interface_adjustment
 
-            text "AWAKEN" anchor (0.5, 0.5) pos (0.825, 0.68):
-                font "agency_fb.ttf"
-                
-                size 25
-        else:
-            add "images/interface/Player_menu/skills_purchased.webp" zoom interface_adjustment
+                text "AWAKEN" anchor (0.5, 0.5) pos (0.825, 0.68):
+                    font "agency_fb.ttf"
+                    
+                    size 25
+            else:
+                add "images/interface/Player_menu/skills_purchased.webp" zoom interface_adjustment
 
-            text "ACTIVE" anchor (0.5, 0.5) pos (0.825, 0.68):
-                font "agency_fb.ttf"
-                
-                size 25
+                text "ACTIVE" anchor (0.5, 0.5) pos (0.825, 0.68):
+                    font "agency_fb.ttf"
+                    
+                    size 25
 
         text "COST" anchor (0.0, 0.5) pos (0.8725, 0.68):
             font "agency_fb.ttf"
@@ -619,8 +646,8 @@ screen inventory_screen():
             text f"TAB_{current_inventory_page + 1}" anchor (0.5, 0.5) pos (0.086, 0.808):
                 size 35
 
-    grid 5 3 anchor (0.0, 0.0) pos (0.146, 0.4) xysize (0.492, 0.524):
-        xspacing 15
+    grid 5 3 anchor (0.0, 0.0) pos (0.147, 0.4) xysize (0.495, 0.524):
+        xspacing 13
         yspacing 16
 
         for i in range(15*current_inventory_page, min(15*(current_inventory_page + 1), len(current_inventory_list))):
@@ -648,11 +675,11 @@ screen inventory_screen():
                     hover_sound None
 
                     if "piercing" in Item_string:
-                        add "images/interface/items/xtreme_intimates.webp" anchor (0.5, 0.5) pos (0.5, 0.5) zoom 0.4
+                        add "images/interface/items/xtreme_intimates.webp" anchor (0.5, 0.5) pos (0.5, 0.4) zoom 0.3
                     else:
-                        add f"images/interface/items/{Item_string}.webp" anchor (0.5, 0.5) pos (0.5, 0.5) zoom item_adjustment
+                        add f"images/interface/items/{Item_string}.webp" anchor (0.5, 0.5) pos (0.5, 0.4) zoom item_adjustment
 
-                    text f"x{len(Player.inventory[Item_string])}" anchor (1.0, 1.0) pos (1.05, 1.0):
+                    text f"x{len(Player.inventory[Item_string])}" anchor (0.5, 1.0) pos (0.5, 1.0):
                         size 32
 
                     if giving_gift:
@@ -673,9 +700,9 @@ screen inventory_screen():
                     hover_sound None
 
                     if Clothing.shop_type == "clothing":
-                        add "images/interface/items/mutant_couture.webp" anchor (0.5, 0.5) pos (0.5, 0.5) zoom 0.4
+                        add "images/interface/items/mutant_couture.webp" anchor (0.5, 0.5) pos (0.5, 0.4) zoom 0.3
                     elif Clothing.shop_type == "lingerie":
-                        add "images/interface/items/xtreme_intimates.webp" anchor (0.5, 0.5) pos (0.5, 0.5) zoom 0.4
+                        add "images/interface/items/xtreme_intimates.webp" anchor (0.5, 0.5) pos (0.5, 0.4) zoom 0.3
 
                     add At(f"images/interface/icons/{Clothing.Owner.tag}.webp", humhum_icon) anchor (0.5, 0.5) pos (0.93, 0.89)
 
