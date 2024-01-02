@@ -158,8 +158,7 @@ label reset_all_interfaces:
     $ current_phone_screen = "home"
 
     if current_phone_Character:
-        if "electronic" in Character.traits:
-            $ current_phone_Character.remove_trait("electronic")
+        $ current_phone_Character.remove_trait("electronic")
 
         $ current_phone_Character = None
 

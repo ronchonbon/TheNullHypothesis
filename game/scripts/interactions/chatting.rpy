@@ -60,8 +60,7 @@ label chat(Character):
             $ belt_disabled = temp_belt_disabled
 
             if current_phone_screen == "call":
-                if "electronic" in Character.traits:
-                    $ Character.remove_trait("electronic")
+                $ Character.remove_trait("electronic")
 
                 $ current_phone_screen = "call_choice"
 
@@ -91,7 +90,7 @@ label chat(Character):
                 call expression f"{Character.tag}_chatting" pass (Character.chat_options[4]) from _call_expression_120
             "[Character.chat_options[4]] (locked)" if len(Character.chat_options) >= 5 and not Character.is_in_normal_mood():
                 pass
-            "I think I'm ready to be more than friends." if Character in all_Companions and "platonic" in Character.traits:
+            "I think I'm ready to be more than friends." if Character in all_Companions and Character.check_traits("platonic"):
                 call expression f"{Character.tag}_more_than_friends" from _call_expression_86
             "Tell her you would like to date. . ." if Character.is_in_normal_mood() and Character in Partners and Character.History.check("told_wants_multiple_partners"):
                 menu:
@@ -238,8 +237,7 @@ label chat(Character):
     $ belt_disabled = temp_belt_disabled
 
     if current_phone_screen == "call":
-        if "electronic" in Character.traits:
-            $ Character.remove_trait("electronic")
+        $ Character.remove_trait("electronic")
 
         $ current_phone_screen = "call_choice"
 

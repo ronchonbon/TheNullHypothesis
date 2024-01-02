@@ -49,12 +49,8 @@ label work(Character):
             call expression f"{Character.tag}_ask_for_job" from _call_expression_371
 
             $ Character.History.update("gave_job")
-
-            if "electronic" in Character.traits:
-                $ Character.remove_trait("electronic")
-
-            if "telepathic" in Character.traits:
-                $ Character.remove_trait("telepathic")
+            $ Character.remove_trait("electronic")
+            $ Character.remove_trait("telepathic")
 
             $ Player.sweat += 1
 
@@ -88,11 +84,8 @@ label work(Character):
 
         $ Character.History.update("said_too_late_to_work")
 
-    if "electronic" in Character.traits:
-        $ Character.remove_trait("electronic")
-
-    if "telepathic" in Character.traits:
-        $ Character.remove_trait("telepathic")
+    $ Character.remove_trait("electronic")
+    $ Character.remove_trait("telepathic")
 
     $ dialogue_hidden = temp_dialogue_hidden
     $ phone_interactable = temp_phone_interactable

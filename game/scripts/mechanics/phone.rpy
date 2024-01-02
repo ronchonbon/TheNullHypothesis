@@ -36,8 +36,7 @@ label end_call(Character):
 
     $ phone_disabled = False
 
-    if "electronic" in Character.traits:
-        $ Character.remove_trait("electronic")
+    $ Character.remove_trait("electronic")
 
     return
 
