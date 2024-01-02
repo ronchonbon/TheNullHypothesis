@@ -118,7 +118,7 @@ label day_two_morning_class:
     $ Rogue.change_face(brows = "neutral", eyes = "down", mouth = "lipbite", blush = 1)
     $ Rogue.change_arms("crossed")
 
-    "Out of the corner of your eye, you notice [Rogue.name] fidgeting a bit throughout the lesson."    
+    "Out of the corner of your eye, you notice [Rogue.name] fidgeting a bit throughout the lesson."  
     "She glances at your hands more than once as you take notes." 
 
     $ fade_to_black(0.4)
@@ -585,7 +585,7 @@ label day_two_after_tutoring:
         $ Rogue.change_face("worried3")
         $ Rogue.change_arms("neutral")
 
-        ch_Rogue "Ahwasjustwonderin'if\nmaybeahcouldtrytouchin'\nyousinceyou'reimmune\nanditwon'thurtyou."    
+        ch_Rogue "Ahwasjustwonderin'if\nmaybeahcouldtrytouchin'\nyousinceyou'reimmune\nanditwon'thurtyou."  
     else:
         $ Rogue.change_arms("sheepish")
 

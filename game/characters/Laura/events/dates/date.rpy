@@ -601,8 +601,6 @@ label Laura_date_dinner:
         $ Laura.change_face("neutral", eyes = "squint", mouth = "lipbite", blush = 1)
 
         ch_Laura "You picked {i}very{/i} well."
-
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_279
     elif not Player_picked_food and chosen_meal[Laura] not in ["ribeye", "salmon", "short ribs"] and chosen_meal[Player] in ["ribeye", "salmon", "short ribs"]:
         $ Laura.change_face("neutral", eyes = "squint", mouth = "lipbite", blush = 1)
 
@@ -620,8 +618,6 @@ label Laura_date_dinner:
                 $ Laura.change_face("sly", mouth = "lipbite")
 
                 ch_Laura "Thanks."
-
-                call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_280
             "Don't give her a bite":
                 $ Laura.change_face("suspicious1") 
 
@@ -654,8 +650,6 @@ label Laura_date_dinner:
 
                 if Player.cash >= restaurant_bill[Player] + restaurant_bill[Laura]:
                     "You pay the bill and head back into the mall." 
-                    
-                    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_281
 
                     $ Player.cash -= restaurant_bill[Player] + restaurant_bill[Laura]
                                     
@@ -670,9 +664,7 @@ label Laura_date_dinner:
                     $ Laura.change_face("suspicious1") 
                     
                     ch_Laura "Here." 
-                    "[Laura.name] pays the difference." 
-                    
-                    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_282 
+                    "[Laura.name] pays the difference."
 
                     $ total_spent += Player.cash
 
@@ -689,8 +681,6 @@ label Laura_date_dinner:
                 ch_Laura "You're. . . welcome."
                 "[Laura.name] pays the bill, and the waitress basically sprints away."
                 "You both head back into the mall."
-
-                call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_283
         "Recommend splitting the check":
             if "Player_initiated" in Player.date_planned[Laura]:
                 $ Laura.change_face("confused1")
@@ -717,9 +707,7 @@ label Laura_date_dinner:
                     $ Laura.change_face("suspicious1") 
                     
                     ch_Laura "Here." 
-                    "[Laura.name] pays the difference." 
-                    
-                    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_284 
+                    "[Laura.name] pays the difference."
 
                     $ total_spent += Player.cash
 
@@ -736,8 +724,6 @@ label Laura_date_dinner:
                 ch_Laura "You're. . . welcome."
                 "[Laura.name] pays the bill, and the waitress basically sprints away."
                 "You both head back into the mall."
-
-                call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_285
 
     return
 
@@ -874,9 +860,6 @@ label Laura_date_dinner_sex_handjob:
 
     ch_Laura "I can tell you enjoyed that."
 
-    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_286
-    call change_Character_stat(Laura, "desire", 0) from _call_change_Character_stat_287
-
     return
 
 label Laura_date_dinner_sex_blowjob:
@@ -949,9 +932,6 @@ label Laura_date_dinner_sex_blowjob:
 
     ch_Laura "The best meal they serve in this place."
 
-    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_288
-    call change_Character_stat(Laura, "desire", 0) from _call_change_Character_stat_289
-
     $ Laura.History.update("swallow_cum")
 
     return
@@ -1016,9 +996,6 @@ label Laura_date_dinner_sex_sex:
 
     ch_Laura "I enjoyed that. . . {i}a lot{/i}."
 
-    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_290
-    call change_Character_stat(Laura, "desire", 0) from _call_change_Character_stat_291
-
     $ Laura.available_Actions = []
     $ Laura.available_poses = []
 
@@ -1061,9 +1038,6 @@ label Laura_date_dinner_sex_eat_pussy:
     $ Laura.change_face("sexy")
 
     ch_Laura "I enjoyed that. . . {i}a lot{/i}."
-
-    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_292
-    call change_Character_stat(Laura, "desire", 0) from _call_change_Character_stat_293
 
     $ Laura.available_Actions = []
     $ Laura.available_poses = []
@@ -1172,8 +1146,6 @@ label Laura_date_movie:
 
                 if Player.cash >= 2*ticket_price:
                     "You pay for the tickets." 
-                    
-                    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_294
 
                     $ Player.cash -= 2*ticket_price
 
@@ -1190,8 +1162,6 @@ label Laura_date_movie:
                     ch_Laura "Here." 
                     "[Laura.name] pays the difference." 
                     
-                    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_295
-                    
                     $ total_spent += Player.cash
                     
                     $ Player.cash = 0
@@ -1206,8 +1176,6 @@ label Laura_date_movie:
 
                 ch_Laura "You're. . . welcome."
                 "[Laura.name] pays for the tickets."
-
-                call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_296
         "Recommend splitting the ticket price":
             if "Player_initiated" in Player.date_planned[Laura]:
                 $ Laura.change_face("confused1")
@@ -1235,8 +1203,6 @@ label Laura_date_movie:
                     
                     ch_Laura "Here." 
                     "[Laura.name] pays the difference." 
-
-                    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_297 
                     
                     $ total_spent += Player.cash
 
@@ -1286,8 +1252,6 @@ label Laura_date_movie_ron_bic1:
 
     $ Laura.change_face("angry1")
 
-    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_298
-
     $ Player.History.update("seen_Ron_Bic_I")
     
     return
@@ -1336,8 +1300,6 @@ label Laura_date_movie_ron_bic2:
     $ Laura.change_face("angry1", eyes = "right")
 
     ch_Laura "I do not like 'cliffhangers.'"
-
-    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_299
 
     $ Player.History.update("seen_Ron_Bic_II")
 
@@ -1394,8 +1356,6 @@ label Laura_date_movie_hamburg_portfolio:
 
     ch_Laura "I wouldn't hesitate, like him."
 
-    call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_300
-
     return
 
 label Laura_date_movie_beautiful_flower:
@@ -1427,9 +1387,6 @@ label Laura_date_movie_beautiful_flower:
     $ Laura.change_face("suspicious1")
 
     ch_Laura "Hmm. . ."
-
-    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_301
-    call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_302
 
     return
 
@@ -1464,8 +1421,6 @@ label Laura_date_movie_fated:
 
     "Instead the two become friends with benefits, ending the night with a very graphic sex scene."
 
-    call change_Character_stat(Laura, "desire", 0) from _call_change_Character_stat_303
-
     $ Laura.change_face("surprised1", eyes = "right", blush = 2)
 
     pause 1.0
@@ -1482,9 +1437,6 @@ label Laura_date_movie_fated:
     $ Laura.change_face("sexy", eyes = "squint", blush = 2)
 
     ch_Laura "Hmm. . ."
-
-    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_304
-    call change_Character_stat(Laura, "desire", 0) from _call_change_Character_stat_305
 
     return
 
@@ -1525,9 +1477,6 @@ label Laura_date_movie_refilling_empty_glass:
     ch_Laura "I like that character. . ."
     ch_Laura "She's a badass."
 
-    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_306
-    call change_Character_stat(Laura, "desire", 0) from _call_change_Character_stat_307
-
     return
 
 label Laura_date_movie_stale_air:
@@ -1562,9 +1511,6 @@ label Laura_date_movie_stale_air:
     $ Laura.change_face("sly")
 
     ch_Laura "That was. . . interesting. . ."
-
-    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_308
-    call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_309
 
     return
 
@@ -1612,8 +1558,6 @@ label Laura_date_movie_devils_spring_break:
     $ Laura.change_face("confused1")
 
     ch_Laura "Was I supposed to root for the demon?"
-
-    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_310
 
     return
 
@@ -1669,8 +1613,6 @@ label Laura_date_movie_unsanctioned_crusade:
     $ Laura.change_face("neutral")
 
     ch_Laura "Never mind."
-
-    call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_311
 
     return
 
@@ -1761,9 +1703,6 @@ label Laura_date_movie_sex_makeout:
     ch_Laura "Mmm. . ."
     ch_Laura "You taste {i}good{/i}."
 
-    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_312
-    call change_Character_stat(Laura, "desire", 0) from _call_change_Character_stat_313
-
     return
 
 label Laura_date_movie_sex_handjob:
@@ -1852,9 +1791,6 @@ label Laura_date_movie_sex_handjob:
 
     ch_Laura "I enjoy the way you squirm."
 
-    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_314
-    call change_Character_stat(Laura, "desire", 0) from _call_change_Character_stat_315
-
     return
 
 label Laura_date_movie_sex_touch_pussy:
@@ -1909,9 +1845,6 @@ label Laura_date_movie_sex_touch_pussy:
 
     ch_Laura "Mmm. . ."
 
-    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_316
-    call change_Character_stat(Laura, "desire", 0) from _call_change_Character_stat_317
-
     return
 
 label Laura_date_movie_sex_finger_pussy:
@@ -1965,9 +1898,6 @@ label Laura_date_movie_sex_finger_pussy:
     call change_Outfit(Laura, Laura.Wardrobe.Outfits[Laura.Outfit.name]) from _call_change_Outfit_7
 
     ch_Laura "Mmm. . ."
-
-    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_318
-    call change_Character_stat(Laura, "desire", 0) from _call_change_Character_stat_319
 
     return
 
@@ -2041,9 +1971,6 @@ label Laura_date_movie_sex_blowjob:
 
     ch_Laura "I always want more."
 
-    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_320
-    call change_Character_stat(Laura, "desire", 0) from _call_change_Character_stat_321
-
     $ Laura.History.update("swallow_cum")
 
     return
@@ -2110,9 +2037,6 @@ label Laura_date_mall_wander:
                 ch_Laura "Fine. . ." 
                 
                 $ Laura.change_face("smirk2", mouth = "lipbite", eyes = "right", blush = 1) 
-                
-                call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_322
-                call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_323
 
                 $ holding_hands = True
             "Just grab [Laura.name]'s hand.": 
@@ -2122,8 +2046,6 @@ label Laura_date_mall_wander:
                 "You can almost hear your bones creak."
                 
                 $ Laura.change_face("smirk2", mouth = "lipbite", eyes = "right", blush = 1) 
-                
-                call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_324
 
                 $ holding_hands = True
             "Do nothing":
@@ -2151,8 +2073,6 @@ label Laura_date_mall_wander:
     $ Laura.change_face("smirk2", eyes = "right", blush = 1)
 
     "Time flies by, spent well, doing nothing much at all aside from being close to each other."
-
-    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_325
 
     return
 

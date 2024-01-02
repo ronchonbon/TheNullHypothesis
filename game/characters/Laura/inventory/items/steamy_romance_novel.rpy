@@ -27,9 +27,6 @@ label Laura_steamy_romance_novel_shopping_accept:
 
         ch_Laura "Thank you."
 
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1481
-        call change_Character_stat(Laura, "desire", 0) from _call_change_Character_stat_1482
-
         return True
     else:
         $ Laura.change_face("confused1", eyes = "down")
@@ -81,9 +78,6 @@ label Laura_steamy_romance_novel_gift_accept:
         $ Laura.change_face("sly", mouth = "lipbite", blush = 1)
 
         ch_Laura "Thank you."
-
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1483
-        call change_Character_stat(Laura, "desire", 0) from _call_change_Character_stat_1484
 
         return True
     else:

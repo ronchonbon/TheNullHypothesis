@@ -13,10 +13,7 @@ label Rogue_horror_novel_shopping_accept:
 
     $ Rogue.change_face("worried1", mouth = "smirk", blush = 1)
 
-    ch_Rogue "Thank you." 
-
-    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1553
-    call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_1554
+    ch_Rogue "Thank you."
 
     return True
 
@@ -43,9 +40,6 @@ label Rogue_horror_novel_gift_accept:
     $ Rogue.change_face("worried1", mouth = "smirk", blush = 1)
 
     ch_Rogue "Thank you." 
-
-    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1555
-    call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_1556
 
     return True
 

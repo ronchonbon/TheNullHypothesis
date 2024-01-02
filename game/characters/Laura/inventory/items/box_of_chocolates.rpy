@@ -21,9 +21,6 @@ label Laura_box_of_chocolates_shopping_accept:
 
     ch_Laura "Thank you. . ."
 
-    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1443
-    call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_1444
-
     return True
 
 label Laura_box_of_chocolates_shopping_reject:
@@ -59,9 +56,6 @@ label Laura_box_of_chocolates_gift_accept:
     $ Laura.change_face("confused1", eyes = "down", blush = 1)
 
     ch_Laura "Thank you. . ."
-
-    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1445
-    call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_1446
 
     return True
 

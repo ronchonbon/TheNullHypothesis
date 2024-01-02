@@ -17,9 +17,6 @@ label Rogue_occult_posters_shopping_accept:
 
     ch_Rogue "Ah'll put 'em up right away."
 
-    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1565
-    call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_1566
-
     return True
 
 label Rogue_occult_posters_shopping_reject:
@@ -44,9 +41,6 @@ label Rogue_occult_posters_gift_accept:
     $ Rogue.change_face("smirk2")
 
     ch_Rogue "Ah'll put 'em up right away."
-
-    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1567
-    call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_1568
 
     return True
 

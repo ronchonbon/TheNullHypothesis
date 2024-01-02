@@ -5,11 +5,6 @@ init -1:
     define Kurt_color = "#183b82"
     define ch_Kurt = Character("[Kurt.tag]")
 
-    define Kurt_standing_anchor = [int(1250*character_sampling), int(1250*character_sampling)]
-    define Kurt_standing_height = 0.23
-    define Kurt_standing_zoom = 0.35*character_adjustment
-    define Kurt_standing_bottom = 0.943
-
 init -2 python:
 
     def create_Kurt():
@@ -27,12 +22,6 @@ init -2 python:
 
         Kurt.hair = "quiff"
         Kurt.outfit = "casual"
-
-        Kurt.shadow = False
-        Kurt.smoke = False
-        Kurt.teleporting_in = False
-        Kurt.teleporting_out = False
-        Kurt.tail_hidden = False
 
         Cast.append(Kurt.tag)
         Sprites.append(Kurt)
@@ -268,8 +257,8 @@ label Kurt_teleports_in(dialogue = None, x = None, y = None, add = True):
     $ Character_picker_disabled = True
     $ belt_disabled = True
 
-    $ Kurt.smoke = True
-    $ Kurt.teleporting_in = True
+    $ Kurt.give_trait("smoke")
+    $ Kurt.give_trait("teleporting_in")
 
     show expression "images/effects/bamf.webp" as bamf onlayer effects:
         anchor (0.5, 0.5) pos (0.5, 0.5)
@@ -287,14 +276,14 @@ label Kurt_teleports_in(dialogue = None, x = None, y = None, add = True):
 
     call show_Character(Kurt, x = x, y = y, fade = False) from _call_show_Character
 
-    $ Kurt.smoke = False
+    $ Kurt.remove_trait("smoke")
 
     if dialogue:
         ch_Kurt "[dialogue]" with small_screenshake
     else:
         $ renpy.pause(3.0, hard = True)
     
-    $ Kurt.teleporting_in = False
+    $ Kurt.remove_trait("teleporting_in")
 
     hide bamf onlayer effects
 
@@ -324,7 +313,7 @@ label Kurt_teleports_out:
     $ Character_picker_disabled = True
     $ belt_disabled = True
     
-    $ Kurt.teleporting_out = True
+    $ Kurt.give_trait("teleporting_out")
 
     show expression "images/effects/bamf.webp" as bamf onlayer effects:
         anchor (0.5, 0.5) pos (0.5, 0.5)
@@ -334,11 +323,11 @@ label Kurt_teleports_out:
         ease 0.1 zoom 1.0 alpha 1.0
         ease 2.0 alpha 0.0
 
-    $ Kurt.smoke = True
+    $ Kurt.give_trait("smoke")
 
     $ renpy.pause(0.1, hard = True)
     
-    $ Kurt.smoke = False
+    $ Kurt.remove_trait("smoke")
 
     $ renpy.pause(3.0, hard = True)
 
@@ -346,7 +335,7 @@ label Kurt_teleports_out:
 
     call remove_Characters(Kurt, fade = False) from _call_remove_Characters_65
 
-    $ Kurt.teleporting_out = False
+    $ Kurt.remove_trait("teleporting_out")
 
     $ dialogue_hidden = temp_dialogue_hidden
     $ phone_interactable = temp_phone_interactable

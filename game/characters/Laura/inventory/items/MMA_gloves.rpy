@@ -16,9 +16,6 @@ label Laura_MMA_gloves_shopping_accept:
     ch_Laura "I will break them in during our training."
     ch_Player "Wait a minute."
 
-    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1435
-    call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_1436
-
     return True
 
 label Laura_MMA_gloves_shopping_reject:
@@ -42,9 +39,6 @@ label Laura_MMA_gloves_gift_accept:
 
     ch_Laura "I will break them in during our training."
     ch_Player "Wait a minute."
-
-    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1437
-    call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_1438
 
     return True
 

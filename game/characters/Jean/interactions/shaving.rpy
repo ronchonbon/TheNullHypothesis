@@ -20,7 +20,7 @@ label Jean_pubic_hair_discussion:
 
         $ Jean.change_face("surprised3", blush = 1)
 
-        if approval_check(Jean, threshold = [400, 375]):
+        if approval_check(Jean, threshold = Jean_thresholds["customize_pubes"]):
             ch_Jean "You. . ." 
 
             $ Jean.change_face("sly", mouth = "lipbite", blush = 1)
@@ -28,7 +28,7 @@ label Jean_pubic_hair_discussion:
             ch_Jean "Naughty little. . ." 
             ch_Jean "Fine, maybe I could."
 
-            $ Jean.give_trait("customizable_body_hair")
+            $ Jean.give_trait("customizable_pubes")
         else:
             ch_Jean "Why would I. . ."
 

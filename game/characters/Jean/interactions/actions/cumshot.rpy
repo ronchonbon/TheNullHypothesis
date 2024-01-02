@@ -72,7 +72,7 @@ label Jean_accepts_cumshot_breasts_first_time:
     else:
         $ Jean.change_face("confused1", mouth = "smirk", blush = 1)
 
-        ch_Jean "You're really obsessed with them, huh?"  
+        ch_Jean "You're really obsessed with them, huh?"
 
         $ Jean.change_face("smirk2", mouth = "lipbite", blush = 2)
 
@@ -136,7 +136,7 @@ label Jean_accepts_cumshot_face_love:
 label Jean_rejects_cumshot_hair:
     $ Jean.change_face("neutral", eyes = "squint", blush = 1)
 
-    ch_Jean "I don't want that stuff in my hair."  
+    ch_Jean "I don't want that stuff in my hair."
 
     return
 

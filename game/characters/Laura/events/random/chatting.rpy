@@ -111,7 +111,7 @@ label Laura_chatting_training:
         "Because I like to take breaks between getting the shit kicked out of me?":
             $ Laura.change_face("angry1", eyes = "squint")
 
-            ch_Laura "Wimp. . ."    
+            ch_Laura "Wimp. . ."  
 
             call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_340
 

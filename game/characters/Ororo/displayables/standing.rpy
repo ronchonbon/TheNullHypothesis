@@ -339,7 +339,7 @@ layeredimage Ororo_standing_head:
     always:
         "characters/Ororo/images/standing/mouth_[Ororo.mouth].webp"
 
-    if Ororo.white or Ororo.electricity:
+    if Ororo.check_traits("white") or Ororo.check_traits("electricity"):
         "characters/Ororo/images/standing/eyes_white.webp"
     elif Ororo.eyes in ["closed", "down", "left", "right", "squint", "up", "wink"]:
         "characters/Ororo/images/standing/eyes_[Ororo.eyes].webp"
@@ -371,7 +371,7 @@ layeredimage Ororo_standing_head:
     if Ororo.Clothes["face_inner_accessory"].string:
         "characters/Ororo/images/standing/face_inner_accessory_[Ororo.Clothes[face_inner_accessory].string].webp"
 
-    if Ororo.electricity:
+    if Ororo.check_traits("electricity"):
         "characters/Ororo/images/standing/electricity.webp"
 
     anchor (int(1290*character_sampling), int(1190*character_sampling))

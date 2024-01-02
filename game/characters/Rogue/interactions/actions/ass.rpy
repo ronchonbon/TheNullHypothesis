@@ -109,7 +109,7 @@ label Rogue_accepts_finger_ass_love:
 label Rogue_rejects_eat_ass:
     $ Rogue.change_face("surprised2", blush = 1)
 
-    ch_Rogue "You want to lick it?!"  
+    ch_Rogue "You want to lick it?!"
 
     $ Rogue.change_face("worried1", eyes = "down", mouth = "lipbite", blush = 1)
 

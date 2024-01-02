@@ -381,9 +381,9 @@ layeredimage Jean_standing_head:
     always:
         "characters/Jean/images/standing/hair_[Jean.Clothes[hair].string].webp"
 
-    if Jean.psychic and Jean.activating_psychic:
+    if Jean.check_traits("psychic") and Jean.activating_psychic:
         "Jean_standing_psychic" at Jean_standing_activating_psychic_animation
-    elif Jean.psychic:
+    elif Jean.check_traits("psychic"):
         "Jean_standing_psychic" at Jean_standing_psychic_animation
     elif Jean.deactivating_psychic:
         "Jean_standing_psychic" at Jean_standing_deactivating_psychic_animation

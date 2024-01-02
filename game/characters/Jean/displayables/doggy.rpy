@@ -501,7 +501,7 @@ layeredimage Jean_doggy_torso:
     else:
         "Jean_doggy_hair_animation0"
 
-    if Jean.psychic:
+    if Jean.check_traits("psychic"):
         "characters/Jean/images/doggy/psychic.webp"
 
     anchor (int(2101*sex_sampling), int(2097*sex_sampling))

@@ -20,9 +20,6 @@ label Rogue_box_of_chocolates_shopping_accept:
 
     ch_Rogue "Ah reckon yer probably right. . ."
 
-    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1537
-    call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_1538
-
     return True
 
 label Rogue_box_of_chocolates_shopping_reject:
@@ -57,9 +54,6 @@ label Rogue_box_of_chocolates_gift_accept:
     $ Rogue.change_face("confused1", mouth = "smirk", blush = 1)
 
     ch_Rogue "Ah reckon yer probably right. . ."
-
-    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1539
-    call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_1540
 
     return True
 

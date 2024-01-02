@@ -150,7 +150,7 @@ label Rogue_chapter_one_season_one_first_training_session:
     $ Rogue.change_arms("crossed")
 
     ch_Player "But I still can't even figure out my own ability yet."
-    ch_Rogue "It's alright, [Rogue.Player_petname]."  
+    ch_Rogue "It's alright, [Rogue.Player_petname]."
 
     $ Rogue.change_face("worried1", mouth = "smirk")
 

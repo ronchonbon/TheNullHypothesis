@@ -5,11 +5,6 @@ init -1:
     define Charles_color = "#1b867d"
     define ch_Charles = Character("[Charles.tag]")
 
-    define Charles_standing_anchor = [int(1260*character_sampling), int(1792*character_sampling)]
-    define Charles_standing_height = 0.38
-    define Charles_standing_zoom = 0.35*character_adjustment
-    define Charles_standing_bottom = 0.983
-
 init -2 python:
 
     def create_Charles():
@@ -19,10 +14,6 @@ init -2 python:
         Charles.call_sign = "Professor X"
 
         Charles.database_type = "ally"
-
-        Charles.psychic = False
-        Charles.activating_psychic = False
-        Charles.deactivating_psychic = False
 
         Cast.append(Charles.tag)
         Sprites.append(Charles)
@@ -192,21 +183,21 @@ label update_Charles:
     return
 
 label Charles_activate_psychic:
-    $ Charles.psychic = True
-    $ Charles.activating_psychic = True
+    $ Charles.give_trait("psychic")
+    $ Charles.give_trait("activating_psychic")
 
     $ renpy.pause(0.5, hard = True)
 
-    $ Charles.activating_psychic = False
+    $ Charles.remove_trait("activating_psychic")
 
     return
 
 label Charles_deactivate_psychic:
-    $ Charles.psychic = False
-    $ Charles.deactivating_psychic = True
+    $ Charles.remove_trait("psychic")
+    $ Charles.give_trait("deactivating_psychic")
 
     $ renpy.pause(0.5, hard = True)
 
-    $ Charles.deactivating_psychic = False
+    $ Charles.remove_trait("deactivating_psychic")
 
     return

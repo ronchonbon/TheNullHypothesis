@@ -356,8 +356,6 @@ label day_one_intro:
             ch_Ororo "Charles, are you sure he's okay?"
         "It's great to meet you, [Ororo.name]. I can't believe I'm talking to one of the X-Men.":
             $ Ororo.change_face("happy", blush = 1)
-
-            call change_Character_stat(Ororo, "love", 0) from _call_change_Character_stat_872
         "Nice to meet you, too.":
             pass
 
@@ -385,8 +383,6 @@ label day_one_intro:
         "Thank you, [Charles.name]. I might be dead if not for you.":
             $ Ororo.change_face("smirk1")
             $ Ororo.change_arms("hips", right_arm = "neutral")
-
-            call change_Character_stat(Ororo, "love", 0) from _call_change_Character_stat_873
 
             ch_Charles "You are very welcome, [Player.first_name]."
 
@@ -531,15 +527,10 @@ label meet_Rogue:
             $ Ororo.change_face("neutral", eyes = "squint")
             $ Ororo.change_arms("crossed")
 
-            call change_Character_stat(Ororo, "love", 0) from _call_change_Character_stat_874
-            call change_Character_stat(Ororo, "trust", 0) from _call_change_Character_stat_875
-
             ch_Ororo "I'm afraid not, [Player.first_name]."
         "How would you compare the difficulty of the curriculum to a normal university's? (academic)" if Player.scholarship == "academic":
             $ Ororo.change_face("pleased1")
             $ Ororo.change_arms("hips")
-
-            call change_Character_stat(Ororo, "love", 0) from _call_change_Character_stat_876
 
             ch_Ororo "Well, I'd venture to say even the introductory courses are quite advanced. . ."
 
@@ -651,8 +642,7 @@ label meet_Rogue:
             $ Rogue.History.update("Player_looked_at_glove")
         "We are. Thank you very much, [Ororo.name], I'll make sure to study hard.":
             call change_Character_stat(Rogue, "trust", small_stat) from _call_change_Character_stat_639
-            call change_Character_stat(Ororo, "love", 0) from _call_change_Character_stat_879
-
+            
             $ Rogue.change_face("pleased1", blush = 1)
 
             $ Ororo.change_face("pleased1")
@@ -1067,9 +1057,6 @@ label day_one_tour_farewell:
 
             "A shiver runs up the professor's arm as you shake her hand."
 
-            call change_Character_stat(Ororo, "love", 0) from _call_change_Character_stat_886
-            call change_Character_stat(Ororo, "trust", 0) from _call_change_Character_stat_887
-
             $ Ororo.change_arms("crossed")
 
             ch_Ororo "{i}Ahem{/i}. . . Well, goodbye, [Player.first_name]. I have a mission to attend to."
@@ -1082,9 +1069,6 @@ label day_one_tour_farewell:
             $ Ororo.change_arms(right_arm = "fist", left_arm = "extended")
 
             "A shiver runs up the professor's arm as you shake her hand."
-
-            call change_Character_stat(Ororo, "love", 0) from _call_change_Character_stat_888
-            call change_Character_stat(Ororo, "trust", 0) from _call_change_Character_stat_889
 
             $ Ororo.change_arms("crossed")
 

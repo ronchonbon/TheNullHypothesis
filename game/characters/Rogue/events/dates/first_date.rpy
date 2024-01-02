@@ -629,7 +629,7 @@ label Rogue_first_date:
     $ Rogue.change_face("worried1", eyes = "right", mouth = "lipbite", blush = 1)
 
     "She looks apprehensive."
-    ch_Player "Everything okay?"    
+    ch_Player "Everything okay?"  
 
     menu:
         extend ""

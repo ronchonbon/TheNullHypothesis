@@ -11,13 +11,15 @@ label Ororo_flirt_a:
 
     # menu:
     #     "[first_compliment]":
-    #         call expression f"Ororo_flirt_a{indices[0]}"
+    #         $ flirting_type = "a" + indices[0]
     #     "[second_compliment]":
-    #         call expression f"Ororo_flirt_a{indices[1]}"
+    #         $ flirting_type = "a" + indices[1]
     #     "[third_compliment]":
-    #         call expression f"Ororo_flirt_a{indices[2]}"
+    #         $ flirting_type = "a" + indices[2]
     #     "Back":
     #         return
+
+    # call expression f"Ororo_flirt_{flirting_type}"
 
     return
 

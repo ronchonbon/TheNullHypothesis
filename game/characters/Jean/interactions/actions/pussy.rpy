@@ -131,7 +131,7 @@ label Jean_rejects_eat_pussy:
 label Jean_accepts_eat_pussy_first_time:
     $ Jean.change_face("confused2", mouth = "lipbite", blush = 2)
 
-    ch_Jean "You wanna lick it?"  
+    ch_Jean "You wanna lick it?"
 
     $ Jean.change_face("smirk2", mouth = "lipbite", blush = 2)
 
@@ -152,7 +152,7 @@ label Jean_accepts_eat_pussy:
     if dice_roll == 1:
         $ Jean.change_face("worried2", mouth = "lipbite", blush = 2)
 
-        ch_Jean "God, yes."  
+        ch_Jean "God, yes."
 
         $ Jean.change_face("sexy", blush = 2)
 
@@ -160,7 +160,7 @@ label Jean_accepts_eat_pussy:
     elif dice_roll == 2:
         $ Jean.change_face("sly", mouth = "lipbite", blush = 2)
 
-        ch_Jean "You wanna eat your big sister out?"  
+        ch_Jean "You wanna eat your big sister out?"
 
         $ Jean.change_face("sexy", blush = 2)
 

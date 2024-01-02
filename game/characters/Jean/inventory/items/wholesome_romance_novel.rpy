@@ -20,9 +20,6 @@ label Jean_wholesome_romance_novel_shopping_accept:
 
         ch_Jean "Now I just gotta find time to read it."
 
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1325
-        call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_1326
-
         return True
     else:
         $ Jean.change_face("surprised2")
@@ -73,9 +70,6 @@ label Jean_wholesome_romance_novel_gift_accept:
         $ Jean.change_face("worried1", eyes = "down", mouth = "smirk", blush = 1)
 
         ch_Jean "Now I just gotta find time to read it."
-
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1327
-        call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_1328
 
         return True
     else:

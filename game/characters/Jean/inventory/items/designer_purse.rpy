@@ -33,9 +33,6 @@ label Jean_designer_purse_shopping_accept:
 
     ch_Jean "I'll put it to good use."
 
-    call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1299
-    call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_1300
-
     return True
 
 label Jean_designer_purse_shopping_reject:
@@ -80,9 +77,6 @@ label Jean_designer_purse_gift_accept:
     $ Jean.change_face("smirk2", blush = 1)
 
     ch_Jean "I'll put it to good use."
-
-    call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1301
-    call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_1302
 
     return True
 

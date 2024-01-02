@@ -19,9 +19,6 @@ label Rogue_camera_shopping_accept:
 
     ch_Rogue "Thank you. . ."
 
-    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1541
-    call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_1542
-
     return True
 
 label Rogue_camera_shopping_reject:
@@ -48,9 +45,6 @@ label Rogue_camera_gift_accept:
     $ Rogue.change_face("worried1", mouth = "smirk", blush = 1)
 
     ch_Rogue "Thank you. . ."
-
-    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1543
-    call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_1544
 
     return True
 

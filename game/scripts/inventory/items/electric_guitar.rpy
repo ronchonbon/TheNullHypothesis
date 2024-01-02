@@ -7,9 +7,6 @@ init -1 python:
         shop_type = None
         filter_type = "key_gifts"
 
-        threshold = [0, 0]
-        criteria = []
-
         description = "A candy-red Stratocaster. Enough said."
         
         price = 15
@@ -19,7 +16,5 @@ init -1 python:
             name, string,
             shop_type, 
             filter_type,
-            threshold,
-            criteria,
             description,
             price = int(price*work_unit*min(max(renpy.random.gauss(1.0, 0.15), 0.85), 1.15)))

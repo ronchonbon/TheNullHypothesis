@@ -580,7 +580,7 @@ label day_three_combat_lesson:
             $ Laura.change_face("angry1")
             $ Laura.change_arms("angry")
 
-            ch_Player "*huff*. . . I. . . don't think I can keep going. . . *huff*"            
+            ch_Player "*huff*. . . I. . . don't think I can keep going. . . *huff*"          
             
             call change_Character_stat(Laura, "trust", -small_stat) from _call_change_Character_stat_1603
             

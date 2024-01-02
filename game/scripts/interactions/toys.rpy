@@ -3,7 +3,7 @@ label ask_Character_to_use_Toy(Character, Toy, buttplug_size = None, instant = F
         call expression f"{Character.tag}_{Toy.string}_change_reject" from _call_expression_335
 
         $ Character.History.update(f"said_no_to_{Toy.string}")
-    elif approval_check(Character, threshold = Toy.threshold, extra_condition = "sex_toy"):
+    elif approval_check(Character, threshold = eval(f"{Character.tag}_gift_thresholds[Toy.string]"), extra_condition = "sex_toy"):
         if Toy.string in ["heart_anal_plug", "round_anal_plug"]:
             if Character.History.check(f"used_buttplug_size_{buttplug_size}", tracker = "daily"):
                 call expression f"{Character.tag}_{Toy.string}_change_reject_worn_out" from _call_expression_336

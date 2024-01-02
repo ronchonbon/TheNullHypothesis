@@ -127,7 +127,7 @@ label Jean_disclosing_wants_to_date_Rogue:
     $ Jean.change_face("smirk2")
 
     ch_Jean "But I have a feeling she'd be into you even if that wasn't the case. . ."
-    ch_Player "So you don't mind if I start spending more time with her?"  
+    ch_Player "So you don't mind if I start spending more time with her?"
 
     $ Jean.change_face("worried1", mouth = "smirk")
 

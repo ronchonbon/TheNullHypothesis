@@ -10,7 +10,7 @@ label give_Character_piercing(Character, Piercing, mall = False, discounted = Fa
         call expression f"{Character.tag}_{Piercing.string}_reject" from _call_expression_261
 
         $ Character.History.update(f"said_no_to_{Piercing.string}")
-    elif approval_check(Character, threshold = Piercing.threshold, extra_condition = "piercing"):
+    elif approval_check(Character, threshold = eval(f"{Character.tag}_gift_thresholds[Piercing.string]"), extra_condition = "piercing"):
         call expression f"{Character.tag}_{Piercing.string}_accept" from _call_expression_262
 
         if mall and discounted:

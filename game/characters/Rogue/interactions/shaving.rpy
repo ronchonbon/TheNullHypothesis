@@ -20,7 +20,7 @@ label Rogue_pubic_hair_discussion:
 
         $ Rogue.change_face("worried3", blush = 1)
 
-        if approval_check(Rogue, threshold = [425, 425]):
+        if approval_check(Rogue, threshold = Rogue_thresholds["customize_pubes"]):
             ch_Rogue "My. . ."
 
             $ Rogue.change_face("worried2", mouth = "lipbite", blush = 1)
@@ -28,7 +28,7 @@ label Rogue_pubic_hair_discussion:
             ch_Rogue "Well. . . ah guess ah could try. . . if ya wanted."
             ch_Rogue "Just let me know what ya want."
 
-            $ Rogue.give_trait("customizable_body_hair")
+            $ Rogue.give_trait("customizable_pubes")
         else:
             ch_Rogue "Ah don't. . ."
             ch_Rogue "Uhm, ah. . ."

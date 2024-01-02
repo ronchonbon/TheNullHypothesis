@@ -150,7 +150,7 @@ label Jean_accepts_show_bra_before_love:
 
             $ Jean.change_face("sly", mouth = "lipbite", blush = 1)
 
-            ch_Jean "Fine, you can look."    
+            ch_Jean "Fine, you can look."  
         elif dice_roll == 3:
             $ Jean.change_face("sly", blush = 1)
 
@@ -170,7 +170,7 @@ label Jean_accepts_show_bra_before_love:
 
             $ Jean.change_face("sexy", blush = 1)
 
-            ch_Jean "Say pretty please."  
+            ch_Jean "Say pretty please."
             ch_Player "Pretty please. . ." 
 
             $ Jean.change_face("sly", mouth = "lipbite", blush = 1)
@@ -191,7 +191,7 @@ label Jean_accepts_show_bra_before_love:
             $ Jean.change_face("sexy", blush = 1)
 
             ch_Jean "Fiiiine." 
-            ch_Jean "Only a quick peek though."  
+            ch_Jean "Only a quick peek though."
         elif dice_roll == 3:
             $ Jean.change_face("sly", blush = 1)
 
@@ -359,12 +359,12 @@ label Jean_accepts_show_underwear_before_love:
 
             $ Jean.change_face("sexy", eyes = "down", blush = 1)
 
-            "You do as she says."  
+            "You do as she says."
             ch_Jean "Good boy, here."
         elif dice_roll == 2:
             $ Jean.change_face("confused1", mouth = "lipbite", blush = 1)
 
-            ch_Jean "Remember to say please."  
+            ch_Jean "Remember to say please."
 
             $ Jean.change_face("sly", mouth = "lipbite", blush = 1)
 
@@ -386,7 +386,7 @@ label Jean_accepts_show_underwear_before_love:
 
             $ Jean.change_face("sly", mouth = "lipbite", blush = 1)
 
-            ch_Jean "Gimme a kiss and I'll let you."  
+            ch_Jean "Gimme a kiss and I'll let you."
 
             $ Jean.change_face("kiss2", blush = 1)
 
@@ -501,7 +501,7 @@ label Jean_rejects_show_breasts_asked_once:
 label Jean_rejects_show_breasts_asked_twice:      
     $ Jean.change_face("perplexed")
 
-    ch_Jean "The fuck?"  
+    ch_Jean "The fuck?"
 
     call getting_kicked_out(Jean) from _call_getting_kicked_out_3
 
@@ -573,7 +573,7 @@ label Jean_accepts_show_breasts_before_love:
 
             $ Jean.change_face("sly", mouth = "lipbite", blush = 1)
 
-            ch_Player "I promise. . ."  
+            ch_Player "I promise. . ."
             ch_Jean "Good. . ."
         elif dice_roll == 2:
             $ Jean.change_face("sly", mouth = "lipbite", blush = 1)
@@ -758,8 +758,8 @@ label Jean_accepts_show_pussy_before_love:
         elif dice_roll == 3:
             $ Jean.change_face("sexy", eyes = "down", blush = 1)
 
-            ch_Jean "Okay, but first. . ."  
-            "She pulls your pants down just enough to expose you."  
+            ch_Jean "Okay, but first. . ."
+            "She pulls your pants down just enough to expose you."
 
             $ Jean.change_face("sly", mouth = "lipbite", blush = 1) 
 

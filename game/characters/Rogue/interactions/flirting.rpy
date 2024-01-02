@@ -37,13 +37,15 @@ label Rogue_flirt_a:
 
     menu:
         "[first_compliment]":
-            call expression f"Rogue_flirt_a{indices[0]}" from _call_expression_33
+            $ flirting_type = "a" + indices[0]
         "[second_compliment]":
-            call expression f"Rogue_flirt_a{indices[1]}" from _call_expression_34
+            $ flirting_type = "a" + indices[1]
         "[third_compliment]":
-            call expression f"Rogue_flirt_a{indices[2]}" from _call_expression_35
+            $ flirting_type = "a" + indices[2]
         "Back":
             return
+
+    call expression f"Rogue_flirt_{flirting_type}"
 
     return
 
@@ -61,8 +63,6 @@ label Rogue_flirt_aa:
         $ Rogue.change_face("smirk2")
         
         ch_Rogue "Ah could make a playlist for ya, if ya want."
-
-        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_689 
     elif dice_roll == 2:
         $ Rogue.change_face("pleased2")
 
@@ -71,8 +71,6 @@ label Rogue_flirt_aa:
         $ Rogue.change_face("worried1", blush = 1) 
 
         ch_Rogue "Maybe we could listen together. . . at some point."
-
-        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_690 
     elif dice_roll == 3:
         $ Rogue.change_face("surprised2", blush = 1)
 
@@ -85,8 +83,6 @@ label Rogue_flirt_aa:
         $ Rogue.change_face("smirk2", blush = 1)
 
         ch_Rogue "But, ah can try to make a playlist just for ya."
-
-        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_691
 
     return
 
@@ -108,8 +104,6 @@ label Rogue_flirt_ab:
         $ Rogue.change_face("smirk2") 
 
         ch_Rogue "Thanks. . ."
-
-        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_692
     elif dice_roll == 2:
         $ Rogue.change_face("surprised2")
 
@@ -120,8 +114,6 @@ label Rogue_flirt_ab:
         ch_Rogue "Well, thanks. . ." 
 
         $ Rogue.change_face("smirk2", eyes = "down")
-
-        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_693
     elif dice_roll == 3:
         $ Rogue.change_face("sly", eyes = "down")
 
@@ -132,9 +124,6 @@ label Rogue_flirt_ab:
         ch_Rogue "Yer lookin' pretty good yourself. . ." 
 
         $ Rogue.change_face("sly", mouth = "lipbite", blush = 1)
-
-        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_694
-        call change_Character_stat(Rogue, "desire", 0) from _call_change_Character_stat_695
 
     return
 
@@ -154,8 +143,6 @@ label Rogue_flirt_ac:
         ch_Rogue "Ah like it too. . ." 
 
         $ Rogue.change_face("smirk2", blush = 1)
-
-        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_696
     elif dice_roll == 2:
         $ Rogue.change_face("pleased2", blush = 1)
 
@@ -166,8 +153,6 @@ label Rogue_flirt_ac:
         ch_Rogue "It is nice, ain't it?" 
 
         $ Rogue.change_face("smirk2")
-
-        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_697
     elif dice_roll == 3:
         $ Rogue.change_face("confused1", mouth = "smirk", blush = 1) 
 
@@ -175,9 +160,7 @@ label Rogue_flirt_ac:
 
         $ Rogue.change_face("smirk2", blush = 1)
 
-        ch_Rogue "You picked this one out for me." 
-
-        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_698
+        ch_Rogue "You picked this one out for me."
     elif dice_roll == 4:
         $ Rogue.change_face("pleased1", blush = 1) 
 
@@ -189,14 +172,12 @@ label Rogue_flirt_ac:
 
         $ Rogue.change_face("smirk2", mouth = "lipbite", blush = 1) 
 
-        ch_Rogue "Thanks for pickin' it out for me." 
-
-        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_699
+        ch_Rogue "Thanks for pickin' it out for me."
 
     return
 
 label Rogue_flirt_ad:
-    if approval_check(Rogue, threshold = [150, 150]):
+    if approval_check(Rogue, threshold = Rogue_thresholds["flirting_ad"]):
         if Rogue.status["horny"] or Rogue.status["nympho"]:
             $ dice_roll = renpy.random.randint(1, 2)
         else:
@@ -212,8 +193,6 @@ label Rogue_flirt_ad:
             ch_Rogue "They make it look too. . . big?" 
 
             $ Rogue.change_face("worried1", blush = 1)
-
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_700
         elif dice_roll == 2:
             $ Rogue.change_face("sexy", blush = 1) 
 
@@ -224,9 +203,6 @@ label Rogue_flirt_ad:
             ch_Rogue "Maybe ah could let ya touch it later. . ." 
 
             $ Rogue.change_face("sexy", blush = 1)
-
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_701
-            call change_Character_stat(Rogue, "desire", 0) from _call_change_Character_stat_702
     else:
         $ dice_roll = renpy.random.randint(1, 2)
 
@@ -237,10 +213,7 @@ label Rogue_flirt_ad:
 
             $ Rogue.change_face("angry1") 
 
-            ch_Rogue "Keep yer eyes off my ass." 
-
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_703
-            call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_704
+            ch_Rogue "Keep yer eyes off my ass."
         elif dice_roll == 2:
             $ Rogue.change_face("perplexed")
 
@@ -248,15 +221,12 @@ label Rogue_flirt_ad:
 
             $ Rogue.change_face("appalled1") 
 
-            ch_Rogue "What in tarnation possessed ya to say that?!" 
-
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_705
-            call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_706
+            ch_Rogue "What in tarnation possessed ya to say that?!"
 
     return
 
 label Rogue_flirt_ae:
-    if approval_check(Rogue, threshold = [150, 150]):
+    if approval_check(Rogue, threshold = Rogue_thresholds["flirting_ae"]):
         if Rogue.status["horny"] or Rogue.status["nympho"]:
             $ dice_roll = renpy.random.randint(1, 2)
         else:
@@ -280,9 +250,6 @@ label Rogue_flirt_ae:
             $ Rogue.change_face("sexy", blush = 1) 
 
             ch_Rogue "Maybe ah'll show ya later. . ."
-
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_707
-            call change_Character_stat(Rogue, "desire", 0) from _call_change_Character_stat_708
     else:
         $ dice_roll = renpy.random.randint(1, 2)
 
@@ -296,9 +263,6 @@ label Rogue_flirt_ae:
             ch_Rogue "Why, somethin' wrong?"
 
             $ Rogue.change_face("worried1")
-
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_709
-            call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_710
         elif dice_roll == 2:
             $ Rogue.change_face("perplexed") 
 
@@ -309,9 +273,6 @@ label Rogue_flirt_ae:
             ch_Rogue "Are ya talkin' 'bout my. . . ?" 
 
             $ Rogue.change_face("angry1")
-
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_711
-            call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_712
 
     return
 
@@ -330,8 +291,6 @@ label Rogue_flirt_af:
         $ Rogue.change_face("smirk2", blush = 2)
 
         ch_Rogue "Ah like yours too. . ."
-
-        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_713
     elif dice_roll == 2:
         $ Rogue.change_face("pleased2")
 
@@ -341,12 +300,10 @@ label Rogue_flirt_af:
 
         ch_Rogue "Look into 'em whenever ya want. . ."
 
-        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_714
-
     return
 
 label Rogue_flirt_ag:
-    if approval_check(Rogue, threshold = [175, 175]):
+    if approval_check(Rogue, threshold = Rogue_thresholds["flirting_ag"]):
         if Player.scholarship == "athletic":
             $ dice_roll = renpy.random.randint(1, 2)
         else:
@@ -364,8 +321,6 @@ label Rogue_flirt_ag:
             $ Rogue.change_face("worried1", blush = 1) 
 
             ch_Rogue "Ya really think ah look better?" 
-
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_715
         elif dice_roll == 2:
             $ Rogue.change_face("surprised2")
 
@@ -386,8 +341,6 @@ label Rogue_flirt_ag:
             $ Rogue.change_face("smirk2", mouth = "lipbite", blush = 1) 
 
             ch_Rogue "Ah've been more motivated. . ." 
-
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_716
     else:
         $ dice_roll = renpy.random.randint(1, 2)
 
@@ -397,18 +350,12 @@ label Rogue_flirt_ag:
             ch_Rogue "What on god's green earth possessed ya to say somethin' like that?" 
 
             $ Rogue.change_face("appalled1")
-
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_717
-            call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_718
         elif dice_roll == 2:
             $ Rogue.change_face("appalled2") 
 
             ch_Rogue "Why are ya so damn focused on how 'tight' ah am?" 
 
             $ Rogue.change_face("angry1")
-
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_719
-            call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_720
 
     return
 
@@ -423,8 +370,6 @@ label Rogue_flirt_ah:
         $ Rogue.change_face("smirk2") 
 
         ch_Rogue "Ah'm glad. . ."
-
-        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_721
     elif dice_roll == 2:
         $ Rogue.change_face("surprised2")
 
@@ -437,8 +382,6 @@ label Rogue_flirt_ah:
         $ Rogue.change_face("smirk2", mouth = "lipbite", blush = 1) 
 
         ch_Rogue "Glad ya like it. . ."
-
-        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_722
 
     return
 
@@ -456,9 +399,6 @@ label Rogue_flirt_ai:
         ch_Rogue "Ah've been tryin'." 
 
         $ Rogue.change_face("smirk2", mouth = "lipbite", blush = 1)
-
-        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_723
-        call change_Character_stat(Rogue, "desire", 0) from _call_change_Character_stat_724
     elif dice_roll == 2:
         $ Rogue.change_face("worried3")
 
@@ -470,10 +410,7 @@ label Rogue_flirt_ai:
 
         $ Rogue.change_face("worried1", eyes = "down", mouth = "lipbite", blush = 1) 
 
-        ch_Rogue "Ya don't have to say it if ya don't mean it. . ." 
-
-        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_725
-        call change_Character_stat(Rogue, "desire", 0) from _call_change_Character_stat_726
+        ch_Rogue "Ya don't have to say it if ya don't mean it. . ."
     elif dice_roll == 3:
         $ Rogue.change_face("pleased2")
 
@@ -486,9 +423,6 @@ label Rogue_flirt_ai:
         $ Rogue.change_face("smirk2", eyes = "down", mouth = "lipbite", blush = 1)  
 
         ch_Rogue "Anythin' for you. . ."
-
-        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_727
-        call change_Character_stat(Rogue, "desire", 0) from _call_change_Character_stat_728
     elif dice_roll == 4:
         $ Rogue.change_face("pleased2")
 
@@ -504,9 +438,6 @@ label Rogue_flirt_ai:
         ch_Rogue "Please." 
 
         $ Rogue.change_face("worried1", mouth = "lipbite", blush = 2)
-
-        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_729
-        call change_Character_stat(Rogue, "desire", 0) from _call_change_Character_stat_730
 
     return
 
@@ -525,8 +456,6 @@ label Rogue_flirt_aj:
 
         ch_Rogue "Ah do try. . ." 
         ch_Rogue "Thanks, [Rogue.Player_petname]."
-
-        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_731 
     elif dice_roll == 2:
         $ Rogue.change_face("surprised2")
 
@@ -539,8 +468,6 @@ label Rogue_flirt_aj:
         $ Rogue.change_face("smirk2", blush = 1) 
 
         ch_Rogue "Yer a great student."
-
-        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_732 
     elif dice_roll == 3:
         $ Rogue.change_face("surprised2")
 
@@ -552,12 +479,10 @@ label Rogue_flirt_aj:
         ch_Rogue "But yer a big part of it." 
         ch_Rogue "Not hard to teach someone as smart as you. . ."
 
-        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_733
-
     return
 
 label Rogue_flirt_ak:
-    if approval_check(Rogue, threshold = [175, 175]):
+    if approval_check(Rogue, threshold = Rogue_thresholds["flirting_ak"]):
         $ dice_roll = renpy.random.randint(1, 2)
 
         if dice_roll == 1:
@@ -568,8 +493,6 @@ label Rogue_flirt_ak:
             ch_Rogue "Ah. . . think you smell nice too. . ." 
 
             $ Rogue.change_face("worried1", eyes =  "down", mouth = "smirk", blush = 1)
-
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_734
         elif dice_roll == 2:
             $ Rogue.change_face("worried2", blush = 1) 
 
@@ -578,17 +501,12 @@ label Rogue_flirt_ak:
             $ Rogue.change_face("worried1", mouth = "smirk", blush = 1) 
 
             ch_Rogue "Glad ya like it."
-
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_735
     else:
         $ Rogue.change_face("perplexed") 
 
         ch_Rogue "Ah reckon you shouldn't be worryin' 'bout how ah smell. . ." 
 
         $ Rogue.change_face("confused1")
-
-        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_736
-        call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_737
 
     return
 
@@ -600,8 +518,6 @@ label Rogue_flirt_al:
     $ Rogue.change_face("smirk2", blush = 1) 
 
     ch_Rogue "Ah don't dye it, was born like this. . ."
-
-    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_738 
 
     $ Rogue.History.update("asked_if_hair_dyed")
 
@@ -619,8 +535,6 @@ label Rogue_flirt_am:
 
         ch_Rogue "You were watchin'?" 
         ch_Rogue "Thanks. . ."
-
-        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_739
     elif dice_roll == 2:
         $ Rogue.change_face("pleased2")
 
@@ -633,8 +547,6 @@ label Rogue_flirt_am:
         $ Rogue.change_face("smirk2", blush = 2) 
 
         ch_Rogue "Glad ya think ah look good."
-
-        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_740
     elif dice_roll == 3:
         $ Rogue.change_face("smirk2", blush = 1) 
 
@@ -646,8 +558,6 @@ label Rogue_flirt_am:
         ch_Rogue "Look good doin' it too. . ." 
 
         $ Rogue.change_face("smirk2", mouth = "lipbite", blush = 2)
-
-        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_741
 
     return
 
@@ -662,8 +572,6 @@ label Rogue_flirt_an:
         $ Rogue.change_face("smirk2", eyes = "down", mouth = "lipbite", blush = 1) 
 
         ch_Rogue "Ah'll try to smile more, just for you. . ."
-
-        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_742
     elif dice_roll == 2:
         $ Rogue.change_face("pleased2")
 
@@ -675,8 +583,6 @@ label Rogue_flirt_an:
         ch_Rogue "Thanks. . ." 
 
         $ Rogue.change_face("smirk2", blush = 2) 
-
-        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_743
     elif dice_roll == 3:
         $ Rogue.change_face("surprised2")
 
@@ -689,8 +595,6 @@ label Rogue_flirt_an:
         $ Rogue.change_face("worried1", mouth = "lipbite", blush = 2) 
 
         ch_Rogue "Ah like yer smile too. . ."
-
-        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_744
 
     return
 
@@ -708,9 +612,6 @@ label Rogue_flirt_ao:
         $ Rogue.change_face("worried1", blush = 1)
 
         ch_Rogue "Ah really 'preciate that, been trainin' real hard lately. . ." 
-
-        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_745
-        call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_746
     elif dice_roll == 2:
         $ Rogue.change_face("pleased2")
 
@@ -728,9 +629,6 @@ label Rogue_flirt_ao:
         $ Rogue.change_face("smirk2", blush = 1) 
 
         ch_Rogue "Yer a natural at all 'o this."
-
-        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_747
-        call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_748
 
     return
 
@@ -755,9 +653,6 @@ label Rogue_flirt_ap:
 
     $ Rogue.change_face("worried1", mouth = "smirk", blush = 1)
 
-    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_749
-    call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_750
-
     return
 
 label Rogue_flirt_aq:
@@ -772,10 +667,7 @@ label Rogue_flirt_aq:
     $ Rogue.change_face("smirk2", blush = 1) 
 
     ch_Rogue "Most people are makin' assumptions 'bout my appearance and everythin'." 
-    ch_Rogue "But ah know you actually care." 
-
-    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_751
-    call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_752
+    ch_Rogue "But ah know you actually care."
 
     return
 
@@ -792,10 +684,7 @@ label Rogue_flirt_ar:
     $ Rogue.change_face("worried1", blush = 1) 
 
     ch_Rogue "And ah reckon yer way smarter than me." 
-    ch_Rogue "You absorb everythin' ah teach ya like a sponge." 
-
-    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_753
-    call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_754
+    ch_Rogue "You absorb everythin' ah teach ya like a sponge."
 
     return
 
@@ -808,8 +697,6 @@ label Rogue_flirt_b:
         $ Rogue.change_face("confused1", mouth = "smirk") 
 
         ch_Rogue "No. . . Mississippi. . ."
-
-        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_755
     elif dice_roll == 2:
         ch_Player "Are you from Georgia? Because your peach is gigan. . . wait that's not it. . ." 
 
@@ -818,24 +705,18 @@ label Rogue_flirt_b:
         ch_Rogue "Haven't ah told ya ah'm from Mississippi?"
 
         $ Rogue.change_face("confused1")
-
-        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_756
     elif dice_roll == 3:
         ch_Player "You lost? Heaven is a long ways away." 
 
         $ Rogue.change_face("confused1", mouth = "smirk") 
 
         ch_Rogue "Really, darlin'?"
-
-        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_757
     elif dice_roll == 4:
         ch_Player "If you were a biscuit, you wouldn't need any gravy, because you're perfect as it is." 
 
         $ Rogue.change_face("confused1", mouth = "smirk") 
 
-        ch_Rogue "Heh, at least yer creative. . ." 
-
-        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_758
+        ch_Rogue "Heh, at least yer creative. . ."
 
     return
 
@@ -848,8 +729,6 @@ label Rogue_flirt_c:
         ch_Rogue "Hey there. . ." 
 
         $ Rogue.change_face("smirk2", blush = 1)
-
-        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_759
     elif dice_roll == 2:
         $ Rogue.change_face("worried1", mouth = "smirk", blush = 1) 
 
@@ -866,8 +745,6 @@ label Rogue_flirt_c:
 
         $ Rogue.change_face("smirk2", eyes = "right", blush = 1)
 
-        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_760
-
     return
 
 label Rogue_flirt_d:
@@ -879,24 +756,18 @@ label Rogue_flirt_d:
         $ Rogue.change_face("worried1", mouth = "lipbite", blush = 1)
 
         "You gently grasp her hand."
-
-        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_761
     elif dice_roll == 2:
         ch_Rogue "Yes please." 
 
         $ Rogue.change_face("worried1", mouth = "lipbite", blush = 1)
 
         "She reaches out and takes your hand, interlacing her fingers with yours."
-
-        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_762
     elif dice_roll == 3:
         ch_Rogue "Was hopin' you'd wanna. . ." 
 
         $ Rogue.change_face("worried1", mouth = "lipbite", blush = 1)
 
         "You take her hand in yours and give it a light squeeze."
-
-        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_763
 
     return
 
@@ -905,8 +776,6 @@ label Rogue_flirt_ea:
     ch_Rogue "Sure."
 
     $ Rogue.change_face("smirk2")
-
-    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1489
 
     return
 
@@ -925,12 +794,10 @@ label Rogue_flirt_eb:
         ch_Rogue "Ah hope there's more later. . ."
 
         $ Rogue.change_face("worried1", blush = 1)
-
-        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1490
     elif Player.location in public_locations:
         $ Rogue.change_face("worried1", eyes = "right", blush = 1) 
 
-        ch_Rogue "Ah dunno. . . people are lookin'"
+        ch_Rogue "Ah dunno. . . people are lookin'."
         ch_Rogue "Maybe later. . ."
 
         $ Rogue.change_face("worried1", blush = 1)
@@ -950,8 +817,6 @@ label Rogue_flirt_eb:
         $ Rogue.change_face("pleased2", mouth = "lipbite", blush = 1) 
 
         ch_Rogue "Gladly. . ."
-
-        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1495 
 
         $ Rogue.change_face("kiss2", blush = 1) 
 
@@ -976,8 +841,6 @@ label Rogue_flirt_f:
         $ Rogue.change_face("worried1", mouth = "smirk", blush = 1) 
 
         ch_Rogue "You. . . smell nice. . ."
-
-        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1498
     elif Player.location in public_locations:
         $ Rogue.change_face("worried1", eyes = "right") 
 
@@ -987,8 +850,6 @@ label Rogue_flirt_f:
 
         ch_Rogue "Ah wouldn't mind. . ."
         ch_Rogue "But. . . maybe later, when there's not so many people 'round."
-
-        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1499
     elif approval_check(Rogue, threshold = [50, 50]):
         $ Rogue.change_face("pleased2", blush = 1) 
 
@@ -1003,8 +864,6 @@ label Rogue_flirt_f:
         $ Rogue.change_face("worried1", blush = 1)
 
         ch_Rogue "Could ya. . . hug me more often?"
-
-        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1500
     else:
         $ Rogue.change_face("surprised2")
 
@@ -1023,8 +882,6 @@ label Rogue_flirt_f:
         ch_Rogue "Thank you. . ."
         ch_Rogue "You can imagine ah don't get to do that too often. . ."
 
-        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1501
-
     return
 
 label Rogue_flirt_g:
@@ -1039,8 +896,6 @@ label Rogue_flirt_g:
     $ Rogue.change_face("worried1", blush = 1) 
 
     ch_Rogue "That was. . . great, thanks, [Rogue.Player_petname]."
-
-    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1502
 
     return
 
@@ -1057,8 +912,6 @@ label Rogue_flirt_h:
         $ Rogue.change_face("worried1", mouth = "lipbite", blush = 1)
 
         ch_Rogue "Ah. . . really like when you do that. . ."
-
-        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1503
     else:
         $ Rogue.change_face("surprised2", blush = 1) 
 
@@ -1075,8 +928,6 @@ label Rogue_flirt_h:
         $ Rogue.change_face("worried2", blush = 1) 
 
         ch_Rogue "Not that ah mind. . ."
-
-        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1504
 
     return
 
@@ -1096,8 +947,6 @@ label Rogue_flirt_i:
         "After another moment, she pulls away."
 
         $ Rogue.change_face("smirk2", blush = 1)
-
-        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1505
     elif Player.location in public_locations:
         $ Rogue.change_face("surprised2")
 
@@ -1121,13 +970,9 @@ label Rogue_flirt_i:
 
         "As you wrap your arm around [Rogue.name], she turns and hugs you."
 
-        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1506
-
         $ Rogue.change_face("smirk2", eyes = "closed", blush = 1) 
 
         "After a moment she pulls you into a kiss."
-
-        call change_Character_stat(Rogue, "desire", 0) from _call_change_Character_stat_1507
 
         $ Rogue.change_face("kiss2", blush = 2) 
 
@@ -1150,8 +995,6 @@ label Rogue_flirt_i:
         "After a moment she pulls away."
 
         $ Rogue.change_face("smirk2", blush = 1)
-
-        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1510
 
     return
 
@@ -1197,19 +1040,13 @@ label Rogue_flirt_l:
 
         "As you smack her glorious ass, she lets out a small yelp."
 
-        call change_Character_stat(Rogue, "desire", 0) from _call_change_Character_stat_1511
-
         $ Rogue.change_face("worried1", mouth = "lipbite", blush = 1) 
 
         ch_Rogue "Have ah been a bad girl?"
 
         $ Rogue.change_face("worried1", eyes = "down", mouth = "lipbite", blush = 2)
-
-        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1512
     elif dice_roll == 2:
         $ Rogue.change_face("pleased2")
-
-        call change_Character_stat(Rogue, "desire", 0) from _call_change_Character_stat_1513 
 
         "As you smack her ass, she moans slightly."
 
@@ -1219,12 +1056,8 @@ label Rogue_flirt_l:
         ch_Rogue "Maybe. . . harder next time?"
 
         $ Rogue.change_face("sexy", eyes = "down", blush = 2) 
-
-        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1514
     elif dice_roll == 3:
         $ Rogue.change_face("worried3") 
-
-        call change_Character_stat(Rogue, "desire", 0) from _call_change_Character_stat_1515
 
         "As you smack her ass, she lets out a gasp."
 
@@ -1233,8 +1066,6 @@ label Rogue_flirt_l:
         ch_Rogue "Ah like when you do that. . ."
 
         $ Rogue.change_face("worried1", mouth = "lipbite", blush = 2)
-
-        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1516
 
     return
 
@@ -1267,8 +1098,7 @@ label Rogue_flirt_oa:
 
     $ Rogue.change_face("pleased2")
 
-    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1517
-    call change_Character_stat(Rogue, "desire", 0) from _call_change_Character_stat_1518
+    pause 1.0
 
     $ Rogue.change_face("worried1", mouth = "smirk", blush = 1) 
 
@@ -1280,9 +1110,6 @@ label Rogue_flirt_ob:
     "You walk up to her, put a hand behind her neck, and pull her into a deep kiss."
 
     $ Rogue.change_face("kiss1", brows = "raised", blush = 1) 
-
-    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1519
-    call change_Character_stat(Rogue, "desire", 0) from _call_change_Character_stat_1520
 
     "You hold her tight for another second, before letting go."
 
@@ -1315,9 +1142,6 @@ label Rogue_flirt_pd:
 label Rogue_flirt_qa:
     $ Rogue.change_face("worried2", blush = 1)
 
-    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_764
-    call change_Character_stat(Rogue, "desire", 0) from _call_change_Character_stat_765 
-
     ch_Rogue "Ah have? Ah'm sorry. . ." 
 
     $ Rogue.change_face("worried1", blush = 1) 
@@ -1329,17 +1153,12 @@ label Rogue_flirt_qa:
 
     ch_Rogue "Maybe you want to. . . punish me?"
 
-    call change_Character_stat(Rogue, "desire", 0) from _call_change_Character_stat_766 
-
     $ Rogue.change_face("worried1", mouth = "lipbite", blush = 2) 
 
     return
 
 label Rogue_flirt_qb:
-    $ Rogue.change_face("worried3", blush = 1) 
-
-    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_767
-    call change_Character_stat(Rogue, "desire", 0) from _call_change_Character_stat_768
+    $ Rogue.change_face("worried3", blush = 1)
 
     ch_Rogue "Ah will, [Rogue.Player_petname], ah promise." 
 
@@ -1351,17 +1170,12 @@ label Rogue_flirt_qb:
 
     ch_Rogue "Ah'm yours to use however ya want."
 
-    call change_Character_stat(Rogue, "desire", 0) from _call_change_Character_stat_769 
-
     $ Rogue.change_face("worried1", mouth = "lipbite", blush = 2)
 
     return
 
 label Rogue_flirt_qc:
     $ Rogue.change_face("worried3", blush = 1)
-
-    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_770
-    call change_Character_stat(Rogue, "desire", 0) from _call_change_Character_stat_771
 
     ch_Rogue "Ah'm sorry!" 
 
@@ -1373,8 +1187,6 @@ label Rogue_flirt_qc:
 
     ch_Rogue "Please don't ignore me. . ." 
     ch_Rogue "Ah deserve to be punished."
-
-    call change_Character_stat(Rogue, "desire", 0) from _call_change_Character_stat_772 
 
     return
 
@@ -1395,9 +1207,6 @@ label Rogue_flirt_r:
 
         ch_Rogue "Have no idea how happy it makes me to hear ya say that."
         ch_Rogue "I love you too."
-
-        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1521
-        call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_1522
     elif dice_roll == 2:
         $ Rogue.change_face("worried1", mouth = "smirk", blush = 1)
 
@@ -1407,9 +1216,6 @@ label Rogue_flirt_r:
         $ Rogue.change_face("worried1", blush = 1)
 
         ch_Rogue "Ah love you so much."
-
-        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1523
-        call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_1524
     elif dice_roll == 3:
         $ Rogue.change_face("worried1", mouth = "smirk", blush = 1)
 
@@ -1419,9 +1225,6 @@ label Rogue_flirt_r:
         $ Rogue.change_face("worried1", blush = 1)
 
         ch_Rogue "And ah love when you say it. . ."
-
-        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1525
-        call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_1526
     elif dice_roll == 4:
         $ Rogue.change_face("worried3", blush = 1)
 
@@ -1433,8 +1236,5 @@ label Rogue_flirt_r:
 
         ch_Rogue "Sorry, ah just had to get that out. . ."
         ch_Player "Heh, I love you too."
-
-        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1527
-        call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_1528
 
     return

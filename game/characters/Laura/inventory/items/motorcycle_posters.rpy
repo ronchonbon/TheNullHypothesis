@@ -18,10 +18,7 @@ label Laura_motorcycle_posters_shopping_accept:
 
     $ Laura.change_face("angry1", eyes = "down", blush = 1)
 
-    ch_Laura "I will put them up immediately." 
-
-    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1469
-    call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_1470
+    ch_Laura "I will put them up immediately."
 
     return True
 
@@ -49,11 +46,8 @@ label Laura_motorcycle_posters_gift_accept:
 
     $ Laura.change_face("angry1", eyes = "down", blush = 1)
 
-    ch_Laura "I will put them up immediately." 
-
-    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1471
-    call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_1472
-
+    ch_Laura "I will put them up immediately."
+    
     return True
 
 label Laura_motorcycle_posters_gift_reject:

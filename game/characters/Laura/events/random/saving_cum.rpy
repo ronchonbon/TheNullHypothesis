@@ -94,12 +94,12 @@ label Laura_saving_cum:
         $ Laura.change_face("suspicious1", mouth = "lipbite", blush = 2)
         
         "As you enter, [Laura.name] stares at you intently."
-        "Her nostrils flare as you get closer."  
+        "Her nostrils flare as you get closer."
     else:
         call remove_everyone_but(Laura) from _call_remove_everyone_but_10
 
         "[Laura.name] stares at you intently."
-        "Her nostrils flare."  
+        "Her nostrils flare."
 
     if Player.check_traits("grool") or Player.check_traits("dirty_cock"):
         $ Laura.change_face("angry1", blush = 2)

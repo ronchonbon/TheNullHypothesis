@@ -351,7 +351,7 @@ layeredimage Jean_masturbation_head:
     else:
         "Jean_masturbation_hair_animation0"
 
-    if Jean.psychic:
+    if Jean.check_traits("psychic"):
         "characters/Jean/images/masturbation/psychic.webp"
 
     anchor (int(2787*sex_sampling), int(1333*sex_sampling))

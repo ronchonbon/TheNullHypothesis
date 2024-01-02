@@ -5,7 +5,7 @@ label Laura_rejects_touch_pussy_over_clothes:
 
     $ Laura.change_face("confused1", blush = 1)
 
-    ch_Laura "My crotch?"  
+    ch_Laura "My crotch?"
 
     $ Laura.change_face("neutral", eyes = "squint", blush = 1)
 
@@ -16,7 +16,7 @@ label Laura_rejects_touch_pussy_over_clothes:
 label Laura_accepts_touch_pussy_over_clothes_first_time:
     $ Laura.change_face("confused2", blush = 1)
 
-    ch_Laura "Down there?"  
+    ch_Laura "Down there?"
 
     $ Laura.change_face("sly", mouth = "lipbite", blush = 2)
 
@@ -50,7 +50,7 @@ label Laura_rejects_touch_pussy:
 
     $ Laura.change_face("confused1", blush = 1)
 
-    ch_Laura "My crotch?"  
+    ch_Laura "My crotch?"
 
     $ Laura.change_face("neutral", eyes = "squint", blush = 1)
 
@@ -61,7 +61,7 @@ label Laura_rejects_touch_pussy:
 label Laura_accepts_touch_pussy_first_time:
     $ Laura.change_face("confused2", blush = 1)
 
-    ch_Laura "Down there?"  
+    ch_Laura "Down there?"
 
     $ Laura.change_face("sly", mouth = "lipbite", blush = 2)
 

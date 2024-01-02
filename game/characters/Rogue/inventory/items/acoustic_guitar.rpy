@@ -37,9 +37,6 @@ label Rogue_acoustic_guitar_shopping_accept:
 
     ch_Rogue ". . . so much."
 
-    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1529
-    call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_1530
-
     return True
 
 label Rogue_acoustic_guitar_shopping_reject:
@@ -84,9 +81,6 @@ label Rogue_acoustic_guitar_gift_accept:
     $ Rogue.change_face("worried1", eyes = "down", blush = 1)
 
     ch_Rogue ". . . so much."
-
-    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1531
-    call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_1532
 
     return True
 

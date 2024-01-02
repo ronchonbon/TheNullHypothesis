@@ -28,7 +28,7 @@ label Jean_knocks(arriving_Characters):
                 
                 call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_245
     elif dice_roll == 2:
-        "You hear knocking at your door."  
+        "You hear knocking at your door."
         ch_Player "Who is it?" 
         ch_Jean "It's [Jean.name]!" 
         ch_Jean "I wanna hang out."
@@ -87,7 +87,7 @@ label Jean_knocks_love(arriving_Characters):
     $ choice_disabled = False
 
     if Jean.check_traits("quirk"):
-        "There's knocking at your door."  
+        "There's knocking at your door."
         ch_Jean "Better open up, [Jean.Player_petname]." 
         ch_Jean "Your big sis' needs some attention."
 
@@ -570,7 +570,7 @@ label Jean_greets_Player_knocking_reject(welcoming_Characters):
         ch_Jean "I'm busy right now." 
         ch_Jean "Definitely come by later, though."
     elif dice_roll == 2:
-        ch_Jean "Who is it?"  
+        ch_Jean "Who is it?"
         ch_Player "It's, [Player.first_name]." 
         ch_Jean "I'm about to take a shower." 
         ch_Jean "Come by later!"

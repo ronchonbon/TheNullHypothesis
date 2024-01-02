@@ -266,7 +266,7 @@ label ch1_mutant_hate:
     "As you walk into the town proper, you see [Kurt.name] put his hood up."
 
     $ Kurt.outfit = "casual_hood"
-    $ Kurt.tail_hidden = True
+    $ Kurt.give_trait("tail_hidden")
 
     ch_Player "C'mon man, it's not that cold out."
 
@@ -636,7 +636,7 @@ label ch1_mutant_hate:
 
     $ Player.power = 0
 
-    $ Kurt.tail_hidden = False
+    $ Kurt.remove_trait("tail_hidden")
 
     call Kurt_teleports_in from _call_Kurt_teleports_in_7
 
@@ -765,9 +765,6 @@ label ch1_mutant_hate:
             "She closely inspects your body to look for injuries."
             "So she says. . ."
 
-            call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_920 
-            call change_Character_stat(Laura, "desire", 0) from _call_change_Character_stat_921
-
             ch_Laura "Right here." 
             "She touches the exact spot where you got stabbed."
 
@@ -807,9 +804,7 @@ label ch1_mutant_hate:
             
             $ Laura.change_face("neutral", eyes = "right") 
             
-            ch_Laura "Your empathy is. . . admirable. . . but it doesn't make what you did, wrong." 
-            
-            call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_922
+            ch_Laura "Your empathy is. . . admirable. . . but it doesn't make what you did, wrong."
 
             $ Player.History.update("Determined")
         "I was scared shitless. . . would probably be dead without your training. . . (reluctant)":
@@ -818,9 +813,7 @@ label ch1_mutant_hate:
             $ Laura.change_face("suspicious2") 
             
             ch_Laura "You tie your emotions too strongly to it." 
-            ch_Laura "Were you expecting pity?" 
-
-            call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_923
+            ch_Laura "Were you expecting pity?"
 
             $ Player.History.update("Reluctant")
         "You're right, they tried to fucking kill me afterall. (bitter)":
@@ -829,10 +822,7 @@ label ch1_mutant_hate:
             
             $ Laura.change_face("neutral", eyes = "right") 
             
-            ch_Laura "That doesn't make it wrong, what you had to do." 
-            
-            call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_924
-            call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_925
+            ch_Laura "That doesn't make it wrong, what you had to do."
 
             $ Player.History.update("told_Laura_protesters_got_what_they_deserved_during_mutant_hate")
             $ Player.History.update("Bitter")
@@ -921,10 +911,7 @@ label ch1_mutant_hate:
         menu:
             extend ""
             "Lean into her for comfort":
-                "You squeeze her back, tightly, realizing she's right." 
-                
-                call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_926
-
+                "You squeeze her back, tightly, realizing she's right."
                 "Regardless of how you reacted at the time, you were terrified deep down."
                 "An angry mob of normal people just tried to murder you."
 
@@ -1114,24 +1101,17 @@ label ch1_mutant_hate:
     menu:
         extend ""
         "I did what I had to do. . . but I don't feel good about it. (determined)":
-            $ Rogue.change_face("worried1", eyes = "right") 
-            
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_927 
-            call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_928
+            $ Rogue.change_face("worried1", eyes = "right")
 
             $ Player.History.update("told_Rogue_did_what_had_to_do_during_mutant_hate")
             $ Player.History.update("Determined")
         "To be honest, it was scarier than when those Sentinels attacked. . . (reluctant)":
-            $ Rogue.change_face("worried1") 
-
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_929
+            $ Rogue.change_face("worried1")
 
             $ Player.History.update("told_Rogue_was_scared_during_mutant_hate")
             $ Player.History.update("Reluctant")
         "They had it coming. Imagine if I didn't have my power. . . (bitter)":
-            $ Rogue.change_face("appalled1", eyes = "right") 
-
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_930
+            $ Rogue.change_face("appalled1", eyes = "right")
 
             $ Player.History.update("told_Rogue_protesters_had_it_coming_during_mutant_hate")
             $ Player.History.update("Bitter")

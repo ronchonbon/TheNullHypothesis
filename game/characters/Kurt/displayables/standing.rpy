@@ -87,67 +87,67 @@ layeredimage Kurt_standing_temp:
         "Kurt_standing"
 
 layeredimage Kurt_standing:
-    if Kurt.teleporting_out or Kurt.smoke or not Kurt.check_traits("ground_shadow"):
+    if Kurt.check_traits("teleporting_out") or Kurt.check_traits("smoke") or not Kurt.check_traits("ground_shadow"):
         Null()
     else:
         "characters/Kurt/images/ground_shadow.webp" at Transform(blend = "multiply")
 
-    if Kurt.teleporting_out or Kurt.smoke or Kurt.tail_hidden:
+    if Kurt.check_traits("teleporting_out") or Kurt.check_traits("smoke") or Kurt.check_traits("tail_hidden"):
         Null()
     else:
         "Kurt_standing_tail" at Kurt_standing_tail_animation
 
-    if Kurt.teleporting_out or Kurt.smoke:
+    if Kurt.check_traits("teleporting_out") or Kurt.check_traits("smoke"):
         Null()
     elif Kurt.left_arm in ["rub_neck"]:
         "characters/Kurt/images/left_forearm_[Kurt.left_arm].webp"
 
-    if Kurt.teleporting_out or Kurt.smoke:
+    if Kurt.check_traits("teleporting_out") or Kurt.check_traits("smoke"):
         Null()
     elif Kurt.right_arm in ["crossed", "extended", "fight", "fist", "neutral", "question"]:
         "Kurt_standing_right_arm" at Kurt_standing_right_arm_animation
 
-    if Kurt.teleporting_out or Kurt.smoke:
+    if Kurt.check_traits("teleporting_out") or Kurt.check_traits("smoke"):
         Null()
     else:
         "characters/Kurt/images/body.webp"
 
-    if Kurt.teleporting_out or Kurt.smoke:
+    if Kurt.check_traits("teleporting_out") or Kurt.check_traits("smoke"):
         Null()
     else:
         "characters/Kurt/images/right_foot.webp"
 
-    if Kurt.teleporting_out or Kurt.smoke:
+    if Kurt.check_traits("teleporting_out") or Kurt.check_traits("smoke"):
         Null()
     else:
         "characters/Kurt/images/left_foot.webp"
 
-    if Kurt.teleporting_out or Kurt.smoke:
+    if Kurt.check_traits("teleporting_out") or Kurt.check_traits("smoke"):
         Null()
     elif Kurt.left_arm in ["crossed", "fist", "neutral", "rub_neck"]:
         "characters/Kurt/images/left_arm_[Kurt.left_arm]_shadow.webp" at Transform(blend = "multiply")
 
-    if Kurt.teleporting_out or Kurt.smoke:
+    if Kurt.check_traits("teleporting_out") or Kurt.check_traits("smoke"):
         Null()
     elif Kurt.left_arm in ["crossed", "fight", "fist", "neutral", "rub_neck"]:
         "Kurt_standing_left_arm" at Kurt_standing_left_arm_animation
 
-    if Kurt.teleporting_out or Kurt.smoke:
+    if Kurt.check_traits("teleporting_out") or Kurt.check_traits("smoke"):
         Null()
     else:
         "Kurt_standing_head" at Kurt_standing_head_animation
 
-    if Kurt.teleporting_out or Kurt.smoke:
+    if Kurt.check_traits("teleporting_out") or Kurt.check_traits("smoke"):
         Null()
     elif Kurt.right_arm in ["fight", "question"]:
         "characters/Kurt/images/right_forearm_[Kurt.right_arm].webp"
 
-    if Kurt.teleporting_out or Kurt.smoke:
+    if Kurt.check_traits("teleporting_out") or Kurt.check_traits("smoke"):
         Null()
     elif Kurt.left_arm in ["extended", "fight"]:
         "characters/Kurt/images/left_forearm_[Kurt.left_arm].webp"
 
-    if not Kurt.teleporting_out and not Kurt.teleporting_in and not Kurt.smoke:
+    if not Kurt.check_traits("teleporting_out") and not Kurt.check_traits("teleporting_in") and not Kurt.check_traits("smoke"):
         Null()
     else:
         "Kurt_smoke"
@@ -204,7 +204,7 @@ layeredimage Kurt_standing_head:
     offset (int(1250*character_sampling), int(1275*character_sampling))
 
 layeredimage Kurt_smoke:
-    if Kurt.smoke:
+    if Kurt.check_traits("smoke"):
         "characters/Kurt/images/purple_smoke.webp" at fade_in(0.1)
     else:
         "characters/Kurt/images/purple_smoke.webp" at fade_out(3.0)

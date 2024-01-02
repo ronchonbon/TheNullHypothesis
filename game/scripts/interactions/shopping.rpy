@@ -29,11 +29,14 @@ label buy_Character_gift(Character, Item, discounted = False):
     else:
         $ Item_string = Item.string
 
-    if (Item.shop_type in ["sex", "lingerie"] and approval_check(Character, threshold = Item.threshold, extra_condition = "sexy_gifts")) or approval_check(Character, threshold = Item.threshold):
+    if (Item.shop_type in ["sex", "lingerie"] and approval_check(Character, threshold = eval(f"{Character.tag}_gift_thresholds[Item.string]"), extra_condition = "sexy_gifts")) or approval_check(Character, threshold = eval(f"{Character.tag}_gift_thresholds[Item.string]")):
         $ Item.Owner = Character
             
         if Item.string not in Character.inventory.keys():
             call expression f"{Character.tag}_{Item_string}_shopping_accept" from _call_expression_234
+
+            call change_Character_stat(Character, "love", eval(f"{Character.tag}_gift_bonuses[Item.string]")[0])
+            call change_Character_stat(Character, "trust", eval(f"{Character.tag}_gift_bonuses[Item.string]")[1])
         else:
             $ _return = True
 

@@ -19,9 +19,6 @@ label Laura_band_posters_shopping_accept:
 
     $ Laura.change_face("angry1", eyes = "squint", blush = 1)
 
-    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1439
-    call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_1440
-
     return True
 
 label Laura_band_posters_shopping_reject:
@@ -48,9 +45,6 @@ label Laura_band_posters_gift_accept:
     ch_Laura "Thank you."
 
     $ Laura.change_face("angry1", eyes = "squint", blush = 1)
-
-    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1441
-    call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_1442
 
     return True
 

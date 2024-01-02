@@ -20,9 +20,6 @@ label Jean_mystery_novel_shopping_accept:
 
         ch_Jean "That upcoming exam can wait anyway."
 
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1303
-        call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_1304
-
         return True
     else:
         $ Jean.change_face("surprised2")
@@ -73,9 +70,6 @@ label Jean_mystery_novel_gift_accept:
         $ Jean.change_face("confused1", mouth = "smirk", blush = 1)
 
         ch_Jean "That upcoming exam can wait anyway."
-
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1305
-        call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_1306
 
         return True
     else:

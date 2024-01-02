@@ -24,9 +24,6 @@ label Jean_candle_shopping_accept:
 
     ch_Jean "Heh, sorry, spaced out for a second. . ."
 
-    call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1295
-    call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_1296
-
     return True
 
 label Jean_candle_shopping_reject:
@@ -63,9 +60,6 @@ label Jean_candle_gift_accept:
     $ Jean.change_face("worried1", eyes = "right", mouth = "smirk")
 
     ch_Jean "Heh, sorry, spaced out for a second. . ."
-
-    call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1297
-    call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_1298
 
     return True
 

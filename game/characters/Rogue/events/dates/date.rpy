@@ -751,8 +751,6 @@ label Rogue_date_dinner:
         ch_Rogue "Thanks for choosin' this for me."
         ch_Rogue "It's darn good."
 
-        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_525
-
         $ Rogue.change_face("worried1", mouth = "smirk", blush = 1)
 
         ch_Rogue "Is yer food good too?"
@@ -786,8 +784,6 @@ label Rogue_date_dinner:
                 $ Rogue.change_arms("neutral")
 
                 ch_Rogue "Delicious, thank you."
-
-                call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_526
             "Don't give her a bite":
                 $ Rogue.change_face("worried1") 
 
@@ -828,8 +824,6 @@ label Rogue_date_dinner:
 
                 if Player.cash >= restaurant_bill[Player] + restaurant_bill[Rogue]:
                     "You pay the bill and head back into the mall." 
-                    
-                    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_527
 
                     $ Player.cash -= restaurant_bill[Player] + restaurant_bill[Rogue]
                 
@@ -845,8 +839,6 @@ label Rogue_date_dinner:
                     
                     ch_Rogue "Why didn't ya just say somethin'?" 
                     "[Rogue.name] pays the difference." 
-                    
-                    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_528
 
                     $ total_spent += Player.cash
 
@@ -864,8 +856,6 @@ label Rogue_date_dinner:
                 $ Rogue.change_face("smirk2", blush = 1)
 
                 ch_Rogue "Yer welcome, [Rogue.Player_petname]."
-
-                call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_529
 
                 "[Rogue.name] pays the bill, and you both head back into the mall."
         "Recommend splitting the check":
@@ -894,9 +884,7 @@ label Rogue_date_dinner:
                     $ Rogue.change_face("worried1", mouth = "smirk") 
                     
                     ch_Rogue "Why didn't ya just say somethin'?" 
-                    "[Rogue.name] pays the difference." 
-                    
-                    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_530
+                    "[Rogue.name] pays the difference."
                     
                     $ total_spent += Player.cash
 
@@ -915,8 +903,6 @@ label Rogue_date_dinner:
 
                 ch_Rogue "Yer welcome, [Rogue.Player_petname]."
                 "[Rogue.name] pays the bill, and you both head back into the mall."
-
-                call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_531
 
     return
 
@@ -1066,9 +1052,6 @@ label Rogue_date_dinner_sex_handjob:
 
     ch_Rogue "Did ya enjoy that as much as ah did?"
 
-    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_532
-    call change_Character_stat(Rogue, "desire", 0) from _call_change_Character_stat_533
-
     return
 
 label Rogue_date_dinner_sex_blowjob:
@@ -1147,9 +1130,6 @@ label Rogue_date_dinner_sex_blowjob:
     ch_Rogue "Thanks for lettin' me. . ."
     ch_Rogue "Ah really love the way you taste." 
 
-    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_534
-    call change_Character_stat(Rogue, "desire", 0) from _call_change_Character_stat_535
-
     $ Rogue.History.update("swallow_cum")
 
     return
@@ -1209,9 +1189,6 @@ label Rogue_date_dinner_sex_sex:
 
     ch_Rogue "Ah hope that was as good for you as it was for me. . ."
 
-    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_536
-    call change_Character_stat(Rogue, "desire", 0) from _call_change_Character_stat_537
-
     $ Rogue.available_Actions = []
     $ Rogue.available_poses = []
 
@@ -1256,9 +1233,6 @@ label Rogue_date_dinner_sex_eat_pussy:
     $ Rogue.change_arms("neutral")
 
     ch_Rogue "Ah hope that was as good for you as it was for me. . ."
-
-    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_538
-    call change_Character_stat(Rogue, "desire", 0) from _call_change_Character_stat_539
 
     $ Rogue.available_Actions = []
     $ Rogue.available_poses = []
@@ -1430,8 +1404,6 @@ label Rogue_date_movie:
 
                 if Player.cash >= 2*ticket_price:
                     "You pay for the tickets." 
-                    
-                    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_540
 
                     $ Player.cash -= 2*ticket_price
 
@@ -1447,8 +1419,6 @@ label Rogue_date_movie:
                     
                     ch_Rogue "Why didn't ya just say somethin'?" 
                     "[Rogue.name] pays the difference." 
-                    
-                    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_541
                     
                     $ total_spent += Player.cash
 
@@ -1467,8 +1437,6 @@ label Rogue_date_movie:
 
                 ch_Rogue "Yer welcome, [Rogue.Player_petname]."
                 "[Rogue.name] pays for the tickets."
-
-                call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_542
         "Recommend splitting the ticket price":
             if "Player_initiated" in Player.date_planned[Rogue]:
                 $ Rogue.change_face("confused1", mouth = "smirk")
@@ -1496,8 +1464,6 @@ label Rogue_date_movie:
                     
                     ch_Rogue "Why didn't ya just say somethin'?" 
                     "[Rogue.name] pays the difference." 
-                    
-                    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_543
 
                     $ total_spent += Player.cash
 
@@ -1516,8 +1482,6 @@ label Rogue_date_movie:
 
                 ch_Rogue "Yer welcome, [Rogue.Player_petname]."
                 "[Rogue.name] pays for the tickets."
-
-                call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_544
 
     call remove_Characters(location = "bg_movies") from _call_remove_Characters_158
     call set_the_scene(location = "bg_movies") from _call_set_the_scene_164
@@ -1556,9 +1520,6 @@ label Rogue_date_movie_ron_bic1:
     $ Rogue.change_face("worried1", mouth = "smirk")
 
     ch_Rogue "Makes me wanna see the sequel."
-
-    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_545
-    call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_546
 
     $ Player.History.update("seen_Ron_Bic_I")
     
@@ -1611,9 +1572,6 @@ label Rogue_date_movie_ron_bic2:
     $ Rogue.change_face("angry1")
 
     ch_Rogue "Also that whole misinformation thing rubs me the wrong way."
-
-    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_547
-    call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_548
 
     $ Player.History.update("seen_Ron_Bic_II")
 
@@ -1675,9 +1633,6 @@ label Rogue_date_movie_hamburg_portfolio:
 
     ch_Rogue "Ah wouldn't hesitate to save you."
 
-    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_549
-    call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_550
-
     return
 
 label Rogue_date_movie_beautiful_flower:
@@ -1713,8 +1668,6 @@ label Rogue_date_movie_beautiful_flower:
 
     ch_Rogue "Ah do like happy endings. . ."
 
-    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_551
-
     return
 
 label Rogue_date_movie_fated:
@@ -1748,8 +1701,6 @@ label Rogue_date_movie_fated:
 
     "Instead the two become friends with benefits, ending the night with a very graphic sex scene."
 
-    call change_Character_stat(Rogue, "desire", 0) from _call_change_Character_stat_552 
-
     "There are many, very graphic sex scenes, as the two continue denying their romantic feelings for each other."
     "Eventually they do officially get together, and the movie ends."
 
@@ -1761,9 +1712,6 @@ label Rogue_date_movie_fated:
     $ Rogue.change_face("sexy", eyes = "right", blush = 2)
 
     ch_Rogue ". . . interestin'."
-
-    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_553
-    call change_Character_stat(Rogue, "desire", 0) from _call_change_Character_stat_554
 
     return
 
@@ -1810,9 +1758,6 @@ label Rogue_date_movie_refilling_empty_glass:
 
     ch_Rogue "She was real hot. . ."
 
-    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_555
-    call change_Character_stat(Rogue, "desire", 0) from _call_change_Character_stat_556
-
     return
 
 label Rogue_date_movie_stale_air:
@@ -1851,9 +1796,6 @@ label Rogue_date_movie_stale_air:
 
     ch_Rogue "Ah really enjoyed that."
     ch_Rogue "Had an interestin' premise."
-
-    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_557
-    call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_558
 
     return
 
@@ -1900,8 +1842,6 @@ label Rogue_date_movie_devils_spring_break:
 
     ch_Rogue "Was still pretty entertainin''."
 
-    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_559
-
     return
 
 label Rogue_date_movie_unsanctioned_crusade:
@@ -1945,8 +1885,6 @@ label Rogue_date_movie_unsanctioned_crusade:
     $ Rogue.change_face("worried1", eyes = "right")
 
     ch_Rogue "Ah reckon they got what they deserved. . ." 
-
-    call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_560
 
     return
 
@@ -2051,9 +1989,6 @@ label Rogue_date_movie_sex_makeout:
 
     ch_Rogue "Wish ah could kiss ya forever."
 
-    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_561
-    call change_Character_stat(Rogue, "desire", 0) from _call_change_Character_stat_562
-
     return
 
 label Rogue_date_movie_sex_handjob:
@@ -2154,9 +2089,6 @@ label Rogue_date_movie_sex_handjob:
 
     ch_Rogue "Ah really like touchin' ya like that."
 
-    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_563
-    call change_Character_stat(Rogue, "desire", 0) from _call_change_Character_stat_564
-
     return
 
 label Rogue_date_movie_sex_touch_pussy:
@@ -2220,10 +2152,7 @@ label Rogue_date_movie_sex_touch_pussy:
 
     call change_Outfit(Rogue, Rogue.Wardrobe.Outfits[Rogue.Outfit.name]) from _call_change_Outfit_12
 
-    ch_Rogue "Lord. . . that felt amazin'." 
-
-    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_565
-    call change_Character_stat(Rogue, "desire", 0) from _call_change_Character_stat_566
+    ch_Rogue "Lord. . . that felt amazin'."
 
     return
 
@@ -2289,9 +2218,6 @@ label Rogue_date_movie_sex_finger_pussy:
     call change_Outfit(Rogue, Rogue.Wardrobe.Outfits[Rogue.Outfit.name]) from _call_change_Outfit_13
 
     ch_Rogue "Lord. . . that felt amazin'." 
-
-    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_567
-    call change_Character_stat(Rogue, "desire", 0) from _call_change_Character_stat_568
 
     return
 
@@ -2371,9 +2297,6 @@ label Rogue_date_movie_sex_blowjob:
 
     ch_Rogue "Ah really like the way ya taste. . ."
 
-    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_569
-    call change_Character_stat(Rogue, "desire", 0) from _call_change_Character_stat_570
-
     $ Rogue.History.update("swallow_cum")
 
     return
@@ -2452,8 +2375,6 @@ label Rogue_date_mall_wander:
                 "She doesn't protest and just gives your hand a squeeze in response." 
                 
                 $ Rogue.change_face("smirk2", mouth = "lipbite", eyes = "right", blush = 1) 
-                
-                call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_571
 
                 $ holding_hands = True
             "Do nothing":
@@ -2487,8 +2408,6 @@ label Rogue_date_mall_wander:
     $ Rogue.change_face("smirk2", eyes = "right", blush = 1)
 
     "Time flies by, spent well, doing nothing much at all aside from being close to each other."
-
-    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_572
 
     return
 

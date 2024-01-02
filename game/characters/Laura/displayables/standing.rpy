@@ -179,12 +179,12 @@ layeredimage Laura_standing:
     if Laura.left_arm == "X" and Laura.right_arm == "X":
         "characters/Laura/images/standing/left_forearm_X_shadow.webp" at Transform(blend = "multiply")
 
-    if not Laura.right_claw or Laura.Clothes["gloves"].string:
+    if not Laura.check_traits("right_claw") or Laura.Clothes["gloves"].string:
         Null()
     elif Laura.right_arm in ["fight", "X"]:
         "characters/Laura/images/standing/claws_right_[Laura.right_arm]_shadow.webp" at Transform(blend = "multiply")
 
-    if not Laura.right_claw:
+    if not Laura.check_traits("right_claw"):
         Null()
     elif Laura.right_arm in ["fight", "X"]:
         "characters/Laura/images/standing/claws_right_[Laura.right_arm].webp"
@@ -195,12 +195,12 @@ layeredimage Laura_standing:
     if Laura.left_arm in ["fight", "rub_neck", "X"]:
         "characters/Laura/images/standing/left_forearm_[Laura.left_arm].webp"
 
-    if not Laura.left_claw or Laura.Clothes["gloves"].string:
+    if not Laura.check_traits("left_claw") or Laura.Clothes["gloves"].string:
         Null()
     elif Laura.left_arm in ["fight", "X"]:
         "characters/Laura/images/standing/claws_left_[Laura.left_arm]_shadow.webp"
 
-    if not Laura.left_claw:
+    if not Laura.check_traits("left_claw"):
         Null()
     elif Laura.left_arm in ["fight", "X"]:
         "characters/Laura/images/standing/claws_left_[Laura.left_arm].webp"
@@ -260,7 +260,7 @@ layeredimage Laura_standing_hair_back:
     offset (int(1300*character_sampling), int(1490*character_sampling))
 
 layeredimage Laura_standing_right_arm:
-    if not Laura.right_claw:
+    if not Laura.check_traits("right_claw"):
         Null()
     elif Laura.right_arm in ["claws", "fist"]:
         "characters/Laura/images/standing/claws_right_[Laura.right_arm].webp"
@@ -355,7 +355,7 @@ layeredimage Laura_standing_body:
         "characters/Laura/images/standing/spunk_breasts2.webp"
 
 layeredimage Laura_standing_left_arm:
-    if not Laura.left_claw:
+    if not Laura.check_traits("left_claw"):
         Null()
     elif Laura.left_arm in ["claws"]:
         "characters/Laura/images/standing/claws_left_[Laura.left_arm].webp"
@@ -363,12 +363,12 @@ layeredimage Laura_standing_left_arm:
     always:
         "characters/Laura/images/standing/left_arm_[Laura.left_arm].webp"
 
-    if not Laura.left_claw or Laura.Clothes["gloves"].string:
+    if not Laura.check_traits("left_claw") or Laura.Clothes["gloves"].string:
         Null()
     elif Laura.left_arm in ["fist"]:
         "characters/Laura/images/standing/claws_left_[Laura.left_arm]_shadow.webp"
 
-    if not Laura.left_claw:
+    if not Laura.check_traits("left_claw"):
         Null()
     elif Laura.left_arm in ["fist"]:
         "characters/Laura/images/standing/claws_left_[Laura.left_arm].webp"

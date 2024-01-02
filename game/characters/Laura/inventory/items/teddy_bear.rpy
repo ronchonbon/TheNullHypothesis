@@ -27,9 +27,6 @@ label Laura_teddy_bear_shopping_accept:
     ch_Laura "I don't snuggle. . ."
     ch_Laura "But, thank you."
 
-    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1485
-    call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_1486
-
     return True
 
 label Laura_teddy_bear_shopping_reject:
@@ -71,9 +68,6 @@ label Laura_teddy_bear_gift_accept:
 
     ch_Laura "I don't snuggle. . ."
     ch_Laura "But, thank you."
-
-    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1487
-    call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_1488
 
     return True
 

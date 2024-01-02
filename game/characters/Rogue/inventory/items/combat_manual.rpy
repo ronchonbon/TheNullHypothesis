@@ -25,9 +25,6 @@ label Rogue_combat_manual_shopping_accept:
 
     ch_Rogue "Ah'll put it to good use."
 
-    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1549
-    call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_1550
-
     return True
 
 label Rogue_combat_manual_shopping_reject:
@@ -63,9 +60,6 @@ label Rogue_combat_manual_gift_accept:
     $ Rogue.change_face("worried1", mouth = "smirk", blush = 1)
 
     ch_Rogue "Ah'll put it to good use."
-
-    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1551
-    call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_1552
 
     return True
 

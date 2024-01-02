@@ -40,7 +40,7 @@ label Jean_accepts_titjob:
         $ Jean.change_face("smirk2", mouth = "lipbite", blush = 1)
 
         ch_Jean "Sure." 
-        ch_Jean "It is kinda fun."     
+        ch_Jean "It is kinda fun."   
     elif dice_roll == 2:
         $ Jean.change_face("sly", blush = 1)
 

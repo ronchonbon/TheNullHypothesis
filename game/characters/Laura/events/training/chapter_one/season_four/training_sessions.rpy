@@ -24,7 +24,7 @@ label Laura_chapter_one_season_four_training_sessions:
         $ Laura.change_face("neutral")
         $ Laura.change_arms("hips")
 
-        ch_Laura "Today we'll properly warm up before sparring."  
+        ch_Laura "Today we'll properly warm up before sparring."
 
         $ Laura.change_face("sly")
 

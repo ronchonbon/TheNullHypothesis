@@ -4,8 +4,6 @@ label Jean_steamy_romance_novel_shopping_accept:
     ch_Jean "I don't know if I have enough free time to read another. . ."
     "[Jean.name] looks at the cover."
 
-    call change_Character_stat(Jean, "desire", 0) from _call_change_Character_stat_1315
-
     $ Jean.change_face("worried2", mouth = "lipbite", blush = 1)
 
     pause 1.0
@@ -27,9 +25,6 @@ label Jean_steamy_romance_novel_shopping_accept:
 
     call send_Characters(Jean, Jean.home, behavior = "masturbating") from _call_send_Characters_295
 
-    call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1316
-    call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_1317 
-
     return True
 
 label Jean_steamy_romance_novel_shopping_reject:
@@ -46,8 +41,6 @@ label Jean_steamy_romance_novel_gift_accept:
 
     ch_Jean "I don't know if I have enough free time to read another. . ."
     "[Jean.name] looks at the cover."
-
-    call change_Character_stat(Jean, "desire", 0) from _call_change_Character_stat_1318
 
     $ Jean.change_face("worried2", mouth = "lipbite", blush = 1)
 
@@ -69,9 +62,6 @@ label Jean_steamy_romance_novel_gift_accept:
     ch_Jean "I'll just be. . . in my room. . ."
 
     call send_Characters(Jean, Jean.home, behavior = "masturbating") from _call_send_Characters_296
-
-    call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1319
-    call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_1320 
 
     return True
 

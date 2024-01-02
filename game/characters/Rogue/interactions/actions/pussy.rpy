@@ -1,7 +1,7 @@
 label Rogue_rejects_touch_pussy_over_clothes:
     $ Rogue.change_face("surprised2", mouth = "lipbite", blush = 1) 
 
-    ch_Rogue "My. . ."  
+    ch_Rogue "My. . ."
 
     $ Rogue.change_face("worried2", mouth = "lipbite", blush = 1) 
 
@@ -55,7 +55,7 @@ label Rogue_accepts_touch_pussy_over_clothes_love:
 label Rogue_rejects_touch_pussy:
     $ Rogue.change_face("surprised2", mouth = "lipbite", blush = 1) 
 
-    ch_Rogue "My. . ."  
+    ch_Rogue "My. . ."
 
     $ Rogue.change_face("worried2", mouth = "lipbite", blush = 1) 
 

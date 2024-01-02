@@ -28,7 +28,7 @@ label chapter_1_season_2_training_narrations:
 
     if dice_roll == 1:
         "You look over the training regimen [Laura.name] left you with."
-        "It's a {i}lot{/i}, so you get to work."  
+        "It's a {i}lot{/i}, so you get to work."
         "You thought it would take way longer to complete and while you're exhausted, you made reasonable time."
     elif dice_roll == 2:
         "You get started and continue to surprise yourself with how much your exercise capacity has increased."
@@ -55,7 +55,7 @@ label chapter_1_season_3_training_narrations:
 
     if dice_roll == 1:
         "You start the training as normal, focusing on honing your body and your skills."
-        "Once you're satisfied, you activate your power and push yourself to exhaustion."  
+        "Once you're satisfied, you activate your power and push yourself to exhaustion."
         "Your work capacity and time with the power active is increasing, but progress is slow."
     elif dice_roll == 2:
         "Today, you start by activating your power and try to maintain it throughout the entire session."

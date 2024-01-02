@@ -39,13 +39,15 @@ label Jean_flirt_a:
 
     menu:
         "[first_compliment]":
-            call expression f"Jean_flirt_a{indices[0]}" from _call_expression_6
+            $ flirting_type = "a" + indices[0]
         "[second_compliment]":
-            call expression f"Jean_flirt_a{indices[1]}" from _call_expression_7
+            $ flirting_type = "a" + indices[1]
         "[third_compliment]":
-            call expression f"Jean_flirt_a{indices[2]}" from _call_expression_8
+            $ flirting_type = "a" + indices[2]
         "Back":
             return
+
+    call expression f"Jean_flirt_{flirting_type}"
 
     return
 
@@ -63,8 +65,6 @@ label Jean_flirt_aa:
         $ Jean.change_face("smirk2")
         
         ch_Jean "If I get a chance, I'll make you a playlist."
-
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_223 
     elif dice_roll == 2:
         $ Jean.change_face("pleased2")
 
@@ -77,8 +77,6 @@ label Jean_flirt_aa:
         $ Jean.change_face("smirk2", blush = 1)
 
         ch_Jean "I'll show you my favorites."
-
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_224 
     elif dice_roll == 3:
         $ Jean.change_face("pleased2", blush = 1)
 
@@ -92,8 +90,6 @@ label Jean_flirt_aa:
 
         ch_Jean "We should totally listen together at some point."
         ch_Jean "I know you're a big music guy, wouldn't mind hearing what kinda stuff you like." 
-
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_225
 
     return
 
@@ -115,8 +111,6 @@ label Jean_flirt_ab:
         $ Jean.change_face("smirk2") 
 
         ch_Jean "I'll forgive the little slip up. . ."
-
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_226
     elif dice_roll == 2:
         $ Jean.change_face("surprised2")
 
@@ -129,8 +123,6 @@ label Jean_flirt_ab:
         $ Jean.change_face("smirk2", eyes = "right")
 
         ch_Jean "You look pretty great yourself. . ."
-
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_227
     elif dice_roll == 3:
         $ Jean.change_face("sexy", eyes = "down")
 
@@ -142,9 +134,6 @@ label Jean_flirt_ab:
         ch_Jean "You look particularly good right now too. . ." 
 
         $ Jean.change_face("sly", mouth = "lipbite", blush = 1)
-
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_228
-        call change_Character_stat(Jean, "desire", 0) from _call_change_Character_stat_229
 
     return
 
@@ -164,8 +153,6 @@ label Jean_flirt_ac:
         ch_Jean "It is super cute. . . I look great." 
 
         $ Jean.change_face("smirk2", blush = 1)
-
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_230
     elif dice_roll == 2:
         $ Jean.change_face("pleased2", blush = 1)
 
@@ -176,8 +163,6 @@ label Jean_flirt_ac:
         ch_Jean "Glad you agree." 
 
         $ Jean.change_face("smirk2")
-
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_231
     elif dice_roll == 3:
         $ Jean.change_face("confused1", mouth = "smirk", blush = 1) 
 
@@ -188,8 +173,6 @@ label Jean_flirt_ac:
         ch_Jean "I mean. . . you're not wrong, though." 
 
         $ Jean.change_face("smirk2", blush = 1)
-
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_232
     elif dice_roll == 4:
         $ Jean.change_face("pleased1", blush = 1) 
 
@@ -203,15 +186,13 @@ label Jean_flirt_ac:
 
         ch_Jean "And of course, I can rock just about anything." 
 
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_233
-
     return
 
 label Jean_flirt_ad:
     $ start = 1
     $ finish = 1
 
-    if not approval_check(Jean, threshold = [150, 125]):
+    if not approval_check(Jean, threshold = Jean_thresholds["flirting_ad"]):
         $ start = 3
         $ finish = 4
     
@@ -230,8 +211,6 @@ label Jean_flirt_ad:
         ch_Jean "You think they're. . . big enough?" 
 
         $ Jean.change_face("worried1", blush = 1)
-
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_234
     elif dice_roll == 2:
         $ Jean.change_face("sly", blush = 1) 
 
@@ -242,9 +221,6 @@ label Jean_flirt_ad:
         ch_Jean "I know you're obsessed with them. . ." 
 
         $ Jean.change_face("sexy", blush = 1)
-
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_235
-        call change_Character_stat(Jean, "desire", 0) from _call_change_Character_stat_236
     elif dice_roll == 3:
         $ Jean.change_face("appalled2")
 
@@ -253,9 +229,6 @@ label Jean_flirt_ad:
         $ Jean.change_face("angry1") 
 
         ch_Jean "Stop staring at my chest, jerk." 
-
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_237
-        call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_238
     elif dice_roll == 4:
         $ Jean.change_face("perplexed")
 
@@ -265,16 +238,13 @@ label Jean_flirt_ad:
 
         ch_Jean "What the hell is wrong with you?!" 
 
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_239
-        call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_240
-
     return
 
 label Jean_flirt_ae:
     $ start = 1
     $ finish = 1
 
-    if not approval_check(Jean, threshold = [150, 125]):
+    if not approval_check(Jean, threshold = Jean_thresholds["flirting_ae"]):
         $ start = 3
         $ finish = 4
     elif Jean.status["horny"] or Jean.status["nympho"]:
@@ -292,9 +262,6 @@ label Jean_flirt_ae:
         ch_Jean "It is pretty perfect. . ."
 
         $ Jean.change_face("smirk2", blush = 1)
-
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1187
-        call change_Character_stat(Jean, "desire", 0) from _call_change_Character_stat_1188
     elif dice_roll == 2:
         $ Jean.change_face("sly", blush = 1) 
 
@@ -303,9 +270,6 @@ label Jean_flirt_ae:
         $ Jean.change_face("sexy", blush = 1) 
 
         ch_Jean "I like yours too. . ."
-
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1189
-        call change_Character_stat(Jean, "desire", 0) from _call_change_Character_stat_1190
     elif dice_roll == 3:
         $ Jean.change_face("confused1")
 
@@ -316,9 +280,6 @@ label Jean_flirt_ae:
         ch_Jean "Why would you say something like that?"
 
         $ Jean.change_face("angry1")
-
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1191
-        call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_1192
     elif dice_roll == 4:
         $ Jean.change_face("perplexed") 
 
@@ -329,9 +290,6 @@ label Jean_flirt_ae:
         ch_Jean "Stop staring at my ass, or else."
 
         $ Jean.change_face("angry1")
-
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1193
-        call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_1194
 
     return
 
@@ -350,8 +308,6 @@ label Jean_flirt_af:
         $ Jean.change_face("smirk2", blush = 2)
 
         ch_Jean "Really sweet. . ."
-
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1195 
     elif dice_roll == 2:
         $ Jean.change_face("pleased2")
 
@@ -362,15 +318,13 @@ label Jean_flirt_af:
         ch_Jean "Well, good."
         ch_Jean "You're the one I actually want to mesmerize. . ."
 
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1196
-
     return
 
 label Jean_flirt_ag:
     $ start = 1
     $ finish = 1
 
-    if not approval_check(Jean, threshold = [175, 150]):
+    if not approval_check(Jean, threshold = Jean_thresholds["flirting_ag"]):
         $ start = 3
         $ finish = 4
     elif Player.scholarship == "athletic":
@@ -390,8 +344,6 @@ label Jean_flirt_ag:
         $ Jean.change_face("worried1", eyes = "left", blush = 1) 
 
         ch_Jean "But. . . you think I look good now?"
-
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1197
     elif dice_roll == 2:
         $ Jean.change_face("surprised2")
 
@@ -412,8 +364,6 @@ label Jean_flirt_ag:
         $ Jean.change_face("smirk2", mouth = "lipbite", blush = 1) 
 
         ch_Jean "You're the one who looks like they work out a lot. . ."
-
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1198
     elif dice_roll == 3:
         $ Jean.change_face("perplexed") 
 
@@ -424,18 +374,12 @@ label Jean_flirt_ag:
         ch_Jean "Maybe that's not something you should be worrying about."
 
         $ Jean.change_face("angry1")
-
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1199
-        call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_1200
     elif dice_roll == 4:
         $ Jean.change_face("appalled2") 
 
         ch_Jean "Stop worrying so much about my figure."
 
         $ Jean.change_face("angry1")
-
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1201
-        call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_1202
 
     return
 
@@ -450,8 +394,6 @@ label Jean_flirt_ah:
         $ Jean.change_face("smirk2") 
 
         ch_Jean "I mean, I am pretty dreamy. . ."
-
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1203
     elif dice_roll == 2:
         $ Jean.change_face("surprised2")
 
@@ -464,8 +406,6 @@ label Jean_flirt_ah:
         $ Jean.change_face("smirk2", mouth = "lipbite", blush = 1) 
 
         ch_Jean "I'll let it slide. . ."
-
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1204
 
     return
 
@@ -483,9 +423,6 @@ label Jean_flirt_ai:
         ch_Jean "And I couldn't ask for a better little brother."
 
         $ Jean.change_face("smirk2", mouth = "lipbite", blush = 1)
-
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1205
-        call change_Character_stat(Jean, "desire", 0) from _call_change_Character_stat_1206
     elif dice_roll == 2:
         $ Jean.change_face("sly")
 
@@ -500,9 +437,6 @@ label Jean_flirt_ai:
         ch_Jean "How good I make you feel."
 
         $ Jean.change_face("sly", blush = 1)
-
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1207
-        call change_Character_stat(Jean, "desire", 0) from _call_change_Character_stat_1208
     elif dice_roll == 3:
         $ Jean.change_face("pleased2")
 
@@ -517,9 +451,6 @@ label Jean_flirt_ai:
         ch_Jean "I spoil my little bro'. . ."
 
         $ Jean.change_face("sexy", blush = 1)
-
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1209
-        call change_Character_stat(Jean, "desire", 0) from _call_change_Character_stat_1210
     elif dice_roll == 4:
         $ Jean.change_face("pleased2")
 
@@ -534,9 +465,6 @@ label Jean_flirt_ai:
         ch_Jean "I can't help but spoil you."
 
         $ Jean.change_face("sexy", eyes = "down", blush = 2)
-
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1211
-        call change_Character_stat(Jean, "desire", 0) from _call_change_Character_stat_1212
 
     return
 
@@ -558,8 +486,6 @@ label Jean_flirt_aj:
         $ Jean.change_face("smirk2", mouth = "lipbite", blush = 1)
 
         ch_Jean "You really are the luckiest."
-
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1213 
     elif dice_roll == 2:
         $ Jean.change_face("pleased2")
 
@@ -577,8 +503,6 @@ label Jean_flirt_aj:
         $ Jean.change_face("smirk2", mouth = "lipbite", blush = 1)
 
         ch_Jean "And I like spending time with you. . ."
-
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1214 
     elif dice_roll == 3:
         $ Jean.change_face("surprised2")
 
@@ -600,12 +524,10 @@ label Jean_flirt_aj:
 
         ch_Jean "{i}Nearly{/i} as smart as I am. . ."
 
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1215
-
     return
 
 label Jean_flirt_ak:
-    if not approval_check(Jean, threshold = [150, 125]):
+    if not approval_check(Jean, threshold = Jean_thresholds["flirting_ak"]):
         $ dice_roll = renpy.random.randint(3, 3)
     else:
         $ dice_roll = renpy.random.randint(1, 2)
@@ -620,8 +542,6 @@ label Jean_flirt_ak:
         $ Jean.change_face("smirk2")
 
         ch_Jean "Glad you like it."
-
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_241
     elif dice_roll == 2:
         $ Jean.change_face("pleased2", blush = 1) 
 
@@ -630,8 +550,6 @@ label Jean_flirt_ak:
         $ Jean.change_face("smirk2", mouth = "lipbite", blush = 1) 
 
         ch_Jean "I like the way you smell too. . ."
-
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_242
     elif dice_roll == 3:
         $ Jean.change_face("perplexed") 
 
@@ -640,9 +558,6 @@ label Jean_flirt_ak:
         $ Jean.change_face("confused1")
 
         ch_Jean "Maybe stop standing so close."
-
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_243
-        call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_244
 
     return
 
@@ -658,8 +573,6 @@ label Jean_flirt_al:
     $ Jean.change_face("smirk2", mouth = "lipbite", blush = 1) 
 
     ch_Jean "That's really sweet. . ."
-
-    call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1216 
 
     return
 
@@ -683,8 +596,6 @@ label Jean_flirt_am:
         $ Jean.change_face("smirk2", mouth = "lipbite", blush = 1)
 
         ch_Jean "You're pretty impressive yourself."
-
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1217
     elif dice_roll == 2:
         $ Jean.change_face("surprised2")
 
@@ -698,8 +609,6 @@ label Jean_flirt_am:
 
         ch_Jean "If only they cooperated."
         ch_Jean "I do really appreciate your help with that, by the way."
-
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1218
     elif dice_roll == 3:
         $ Jean.change_face("sly", blush = 1) 
 
@@ -711,8 +620,6 @@ label Jean_flirt_am:
         ch_Jean "You pick things up super quick. . ."
 
         $ Jean.change_face("smirk2", mouth = "lipbite", blush = 2)
-
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1219
 
     return
 
@@ -731,8 +638,6 @@ label Jean_flirt_an:
         $ Jean.change_face("smirk2", eyes = "left", blush = 1) 
 
         ch_Jean "Can't help but smile around you."
-
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1220
     elif dice_roll == 2:
         $ Jean.change_face("pleased2")
 
@@ -746,9 +651,7 @@ label Jean_flirt_an:
 
         ch_Jean "As long as you smile for me too."
 
-        $ Jean.change_face("smirk2", blush = 2) 
-
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1221
+        $ Jean.change_face("smirk2", blush = 2)
     elif dice_roll == 3:
         $ Jean.change_face("surprised2")
 
@@ -765,8 +668,6 @@ label Jean_flirt_an:
         $ Jean.change_face("smirk2", blush = 1) 
 
         ch_Jean "You're lucky I can't help it around you."
-
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1222
 
     return
 
@@ -788,9 +689,6 @@ label Jean_flirt_ao:
         $ Jean.change_face("smirk2", mouth = "lipbite", blush = 1) 
 
         ch_Jean "I do look amazing, don't I. . ."
-
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1223
-        call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_1224
     elif dice_roll == 2:
         $ Jean.change_face("pleased2")
 
@@ -808,9 +706,6 @@ label Jean_flirt_ao:
         $ Jean.change_face("smirk2", mouth = "lipbite", blush = 1) 
 
         ch_Jean "I can barely keep my eyes off of you whenever you're training. . ."
-
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1225
-        call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_1226
 
     return
 
@@ -838,9 +733,6 @@ label Jean_flirt_ap:
 
     $ Jean.change_face("smirk2", mouth = "lipbite", blush = 1)
 
-    call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1227
-    call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_1228
-
     return
 
 label Jean_flirt_aq:
@@ -860,9 +752,6 @@ label Jean_flirt_aq:
 
     ch_Jean "I wish I had more time to spend on my appearance."
     ch_Jean "But I barely have any free time. . ."
-
-    call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1229
-    call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_1230
 
     return
 
@@ -884,9 +773,6 @@ label Jean_flirt_ar:
     ch_Jean "And I do have to try pretty hard."
     ch_Jean "Unlike you, where everything comes so easily."
 
-    call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1231
-    call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_1232
-
     return
 
 label Jean_flirt_b:
@@ -902,8 +788,6 @@ label Jean_flirt_b:
         $ Jean.change_face("smirk2")
 
         ch_Jean "At least it wasn't about my ass or something. . ."
-
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1233
     elif dice_roll == 2:
         ch_Player "Math isn't my best subject, but even I know you're a perfect 10."
 
@@ -914,8 +798,6 @@ label Jean_flirt_b:
         $ Jean.change_face("confused1")
 
         ch_Jean "Well, you're not wrong. . . but seriously?"
-
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1234
     elif dice_roll == 3:
         ch_Player "By the way, are you a model?"
 
@@ -931,8 +813,6 @@ label Jean_flirt_b:
         $ Jean.change_face("confused1", mouth = "smirk")
 
         ch_Jean "Heh, at least it was funny."
-
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1235
     elif dice_roll == 4:
         ch_Player "You don't happen to have a protractor on you, do you?"
 
@@ -950,8 +830,6 @@ label Jean_flirt_b:
         ch_Jean "Ugh, really?"
         ch_Jean "That was so bad I actually kinda liked it. . ."
 
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1236
-
     return
 
 label Jean_flirt_c:
@@ -965,8 +843,6 @@ label Jean_flirt_c:
         $ Jean.change_face("smirk2", mouth = "lipbite", blush = 1) 
 
         ch_Jean "Oh, hey. . ."
-
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1237 
     elif dice_roll == 2:
         $ Jean.change_face("confused1", mouth = "smirk", blush = 1) 
 
@@ -983,8 +859,6 @@ label Jean_flirt_c:
 
         $ Jean.change_face("smirk2", mouth = "lipbite", eyes= "left", blush = 1)
 
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1238
-
     return
 
 label Jean_flirt_d:
@@ -997,24 +871,18 @@ label Jean_flirt_d:
 
         ch_Jean "Heh, I mean. . . sure."
         "You gently grasp her hand."
-
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1239
     elif dice_roll == 2:
         ch_Jean "Of course we can."
 
         $ Jean.change_face("smirk2", mouth = "lipbite", blush = 1)
 
         "She reaches out and takes your hand, interlacing her fingers with yours."
-
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1240
     elif dice_roll == 3:
         ch_Jean "C'mere. . ."
 
         $ Jean.change_face("smirk2", mouth = "lipbite", blush = 1)
 
         "She takes your hand and gives it a light squeeze."
-
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1241
 
     return
 
@@ -1023,8 +891,6 @@ label Jean_flirt_ea:
     ch_Jean "Ask for a real kiss next time."
 
     $ Jean.change_face("smirk2", mouth = "lipbite")
-
-    call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1242
 
     return
 
@@ -1040,9 +906,7 @@ label Jean_flirt_eb:
 
         $ Jean.change_face("smirk2", mouth = "lipbite", blush = 1) 
 
-        ch_Jean "You can bet there will be more later. . ." 
-
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1243
+        ch_Jean "You can bet there will be more later. . ."
     elif Player.location in public_locations:
         $ Jean.change_face("worried1", eyes = "left", mouth = "lipbite", blush = 1) 
 
@@ -1062,8 +926,7 @@ label Jean_flirt_eb:
 
         $ Jean.change_face("smirk2", mouth = "lipbite", blush = 2)
 
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1244
-        call change_Character_stat(Jean, "desire", 0) from _call_change_Character_stat_1245
+        pause 1.0
 
         $ Jean.change_face("kiss2", blush = 2)  
 
@@ -1074,8 +937,6 @@ label Jean_flirt_eb:
         $ Jean.change_face("pleased2", mouth = "lipbite", blush = 1) 
 
         ch_Jean "Want a kiss, huh?"
-
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1246 
 
         $ Jean.change_face("smirk2", mouth = "lipbite", blush = 1)
 
@@ -1100,8 +961,6 @@ label Jean_flirt_f:
         $ Jean.change_face("smirk2", mouth = "lipbite", blush = 1) 
 
         ch_Jean "You give good hugs."
-
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1249
     elif Player.location in public_locations:
         $ Jean.change_face("confused1", eyes = "left") 
 
@@ -1120,8 +979,6 @@ label Jean_flirt_f:
         "She pulls you into a hug, giving you a quick squeeze before letting go."
 
         $ Jean.change_face("smirk2")
-
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1250
     elif approval_check(Jean, threshold = [50, 25]):
         $ Jean.change_face("pleased2", blush = 1) 
 
@@ -1135,8 +992,6 @@ label Jean_flirt_f:
         $ Jean.change_face("smirk2", blush = 1)
 
         ch_Jean "Could you. . . hug me more often?" 
-
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1251
     else:
         $ Jean.change_face("pleased2")
 
@@ -1153,9 +1008,7 @@ label Jean_flirt_f:
 
         $ Jean.change_face("smirk2", mouth = "lipbite", blush = 1)
 
-        ch_Jean "That was nice. . ." 
-
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1252
+        ch_Jean "That was nice. . ."
 
     return
 
@@ -1176,8 +1029,6 @@ label Jean_flirt_g:
 
     ch_Jean "You're pretty good at that."
 
-    call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1253
-
     return
 
 label Jean_flirt_h:
@@ -1194,8 +1045,6 @@ label Jean_flirt_h:
         $ Jean.change_face("worried1", mouth = "lipbite", blush = 1)
 
         ch_Jean "I like when you do that." 
-
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1254
     else:
         $ Jean.change_face("surprised2", blush = 1) 
 
@@ -1208,8 +1057,6 @@ label Jean_flirt_h:
         $ Jean.change_face("worried1", blush = 1)
 
         ch_Jean "That was. . . interesting"
-
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1255
 
     return
 
@@ -1229,8 +1076,6 @@ label Jean_flirt_i:
         "After a moment, she pulls away." 
 
         $ Jean.change_face("smirk2", blush = 1)
-
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1256
     elif Player.location in public_locations:
         $ Jean.change_face("perplexed")
 
@@ -1257,8 +1102,6 @@ label Jean_flirt_i:
 
         "As you wrap an arm around [Jean.name], she turns and kisses you." 
 
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1257
-
         $ Jean.change_face("kiss2", blush = 2)
     else:
         $ Jean.change_face("surprised2")
@@ -1275,8 +1118,6 @@ label Jean_flirt_i:
         "After a moment, she pulls away." 
 
         $ Jean.change_face("smirk2", blush = 1)
-
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1261
 
     return
 
@@ -1326,15 +1167,11 @@ label Jean_flirt_l:
         
         "You give her ass a relatively light smack, and she lets out a small gasp." 
 
-        call change_Character_stat(Jean, "desire", 0) from _call_change_Character_stat_1262
-
         $ Jean.change_face("sexy", blush = 1) 
 
         ch_Jean "Satisfied?" 
 
         $ Jean.change_face("sexy", eyes = "down", blush = 2) 
-
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1263
     elif Player.location in public_locations:
         $ Jean.change_face("perplexed")
 
@@ -1344,8 +1181,6 @@ label Jean_flirt_l:
 
         ch_Jean "Seriously?"
         ch_Jean "Why would I let you do that here of all places?"
-
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1264
     elif Jean.check_traits("quirk"):
         $ Jean.change_face("perplexed")
 
@@ -1366,8 +1201,6 @@ label Jean_flirt_l:
         with small_screenshake
         
         "Without saying anything, she gives your ass a smack, leaving a light stinging sensation." 
-
-        call change_Character_stat(Jean, "desire", 0) from _call_change_Character_stat_1265
 
         $ Jean.change_face("sexy", blush = 1) 
 
@@ -1393,11 +1226,7 @@ label Jean_flirt_l:
 
         $ Jean.change_face("sly", mouth = "lipbite", blush = 1)
 
-        call change_Character_stat(Jean, "desire", 0) from _call_change_Character_stat_1266
-
         ch_Jean "I enjoyed that. . ."
-
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1267
     else:
         $ Jean.change_face("worried2")
 
@@ -1423,17 +1252,13 @@ label Jean_flirt_l:
         
         "You give her ass a proper smack, and she shudders slightly from the impact."
 
-        call change_Character_stat(Jean, "desire", 0) from _call_change_Character_stat_1268
-
         $ Jean.change_face("surprised2", mouth = "lipbite", blush = 2) 
 
         pause 1.0
 
         $ Jean.change_face("worried1", mouth = "lipbite", blush = 1)
 
-        ch_Jean "That was pretty hard. . ." 
-
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1269
+        ch_Jean "That was pretty hard. . ."
 
     return
 
@@ -1466,9 +1291,6 @@ label Jean_flirt_oa:
 
     $ Jean.change_face("pleased2")
 
-    call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1270
-    call change_Character_stat(Jean, "desire", 0) from _call_change_Character_stat_1271
-
     $ Jean.change_face("sly", mouth = "lipbite", blush = 1) 
 
     ch_Jean "That better turn into a real kiss later. . ."
@@ -1479,10 +1301,7 @@ label Jean_flirt_ob:
     "As you walk up to her, she seems to realize your intentions." 
     "Before you can do anything, she grabs you, and pulls you into a deep kiss."
 
-    $ Jean.change_face("kiss2", blush = 1) 
-
-    call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1272
-    call change_Character_stat(Jean, "desire", 0) from _call_change_Character_stat_1273
+    $ Jean.change_face("kiss2", blush = 1)
 
     "She holds you tightly against herself for another moment, before letting go." 
 
@@ -1513,9 +1332,6 @@ label Jean_flirt_pd:
 label Jean_flirt_qa:
     $ Jean.change_face("pleased2", blush = 1)
 
-    call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1274
-    call change_Character_stat(Jean, "desire", 0) from _call_change_Character_stat_1275 
-
     pause 1.0
 
     $ Jean.change_face("worried1", mouth = "lipbite", blush = 1)
@@ -1531,15 +1347,10 @@ label Jean_flirt_qa:
 
     ch_Jean "You're a great little brother too."
 
-    call change_Character_stat(Jean, "desire", 0) from _call_change_Character_stat_1276 
-
     return
 
 label Jean_flirt_qb:
-    $ Jean.change_face("pleased2", blush = 1) 
-
-    call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1277
-    call change_Character_stat(Jean, "desire", 0) from _call_change_Character_stat_1278
+    $ Jean.change_face("pleased2", blush = 1)
 
     pause 1.0
 
@@ -1556,15 +1367,10 @@ label Jean_flirt_qb:
 
     ch_Jean "Doesn't mean I don't like being flattered. . ."
 
-    call change_Character_stat(Jean, "desire", 0) from _call_change_Character_stat_1279
-
     return
 
 label Jean_flirt_qc:
-    $ Jean.change_face("confused2", mouth = "smirk", blush = 1) 
-
-    call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1280
-    call change_Character_stat(Jean, "desire", 0) from _call_change_Character_stat_1281
+    $ Jean.change_face("confused2", mouth = "smirk", blush = 1)
 
     pause 1.0
 
@@ -1585,8 +1391,6 @@ label Jean_flirt_qc:
 
     ch_Jean "But, that doesn't mean you should stop expressing your thanks. . ."
 
-    call change_Character_stat(Jean, "desire", 0) from _call_change_Character_stat_1282
-
     return
 
 label Jean_flirt_r:
@@ -1600,9 +1404,6 @@ label Jean_flirt_r:
         $ Jean.change_face("worried1", mouth = "smirk", blush = 1)
 
         ch_Jean "Aw, I love you too!"
-
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1283
-        call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_1284
     elif dice_roll == 2:
         $ Jean.change_face("worried1", blush = 1)
 
@@ -1613,9 +1414,6 @@ label Jean_flirt_r:
 
         ch_Jean "I mean of course you do."
         ch_Jean "I love you too, [Jean.Player_petname]."
-
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1285
-        call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_1286
     elif dice_roll == 3:
         $ Jean.change_face("happy", blush = 1)
 
@@ -1628,9 +1426,6 @@ label Jean_flirt_r:
         $ Jean.change_face("worried1", mouth = "smirk", blush = 1)
 
         ch_Jean "I know, I love you too, [Jean.Player_petname]."
-
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1287
-        call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_1288
     elif dice_roll == 4:
         $ Jean.change_face("sly", blush = 1)
 
@@ -1647,8 +1442,5 @@ label Jean_flirt_r:
 
         ch_Player "I do."
         ch_Jean "Good."
-
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1289
-        call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_1290
 
     return

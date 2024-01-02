@@ -1597,10 +1597,7 @@ label ch1_Juggernaut_attack:
     menu:
         extend ""
         "I've been better. . . but don't apologize, I wanted to thank you.":
-            $ Ororo.change_face("worried2") 
-            
-            call change_Character_stat(Ororo, "love", 0) from _call_change_Character_stat_858 
-            call change_Character_stat(Ororo, "trust", 0) from _call_change_Character_stat_859
+            $ Ororo.change_face("worried2")
         
             ch_Ororo "I do not deserve your thanks." 
             
@@ -1609,14 +1606,10 @@ label ch1_Juggernaut_attack:
             ch_Ororo "Had we stopped him sooner. . ."
         "I am exhausted, the past few days have really done a number on me. . .":
             $ Ororo.change_face("worried1", eyes = "right") 
-            
-            call change_Character_stat(Ororo, "love", 0) from _call_change_Character_stat_860
         
             ch_Ororo "That is why I am here. . ."
         "I was about to go to bed, this can't wait?":
             $ Ororo.change_face("confused1", eyes = "squint") 
-            
-            call change_Character_stat(Ororo, "love", 0) from _call_change_Character_stat_861
 
             ch_Ororo "It cannot. . ."
 
@@ -1640,15 +1633,11 @@ label ch1_Juggernaut_attack:
     menu:
         extend ""
         "None of this is your fault, but I still really appreciate it.":
-            $ Ororo.change_face("worried1", mouth = "smirk") 
-            
-            call change_Character_stat(Ororo, "love", 0) from _call_change_Character_stat_862 
+            $ Ororo.change_face("worried1", mouth = "smirk")
         "Well, luckily I wasn't too badly injured. . .":
             $ Ororo.change_face("worried1", mouth = "smirk")
         "Yeah. . . I was wondering what the hell took you so long. . .": 
-            $ Ororo.change_face("worried1", eyes = "right") 
-            
-            call change_Character_stat(Ororo, "love", 0) from _call_change_Character_stat_863
+            $ Ororo.change_face("worried1", eyes = "right")
 
     $ Ororo.change_face("worried1")
 
@@ -1821,9 +1810,9 @@ label ch1_Juggernaut_attack_path_1A:
 
     pause 0.2
 
-    $ Laura.left_claws = True
-    $ Laura.right_claws = True
-    $ Laura.unsheathing_claws = True
+    $ Laura.give_trait("left_claw")
+    $ Laura.give_trait("right_claw")
+    $ Laura.give_trait("unsheathing_claws")
 
     show expression "images/effects/snikt.webp" as snikt onlayer effects:
         anchor (0.5, 0.5) pos (0.9, 0.1)
@@ -1835,7 +1824,7 @@ label ch1_Juggernaut_attack_path_1A:
 
     $ renpy.pause(0.1, hard = True)
 
-    $ Laura.unsheathing_claws = False
+    $ Laura.remove_trait("unsheathing_claws")
 
     ch_Laura "What the. . ."
 
@@ -1886,9 +1875,9 @@ label ch1_Juggernaut_attack_path_1A:
     "One chunk hits you, {i}hard{/i}, glancing off of your ribcage."
     "Another, smaller one, hits you in the head."
 
-    $ Laura.left_claws = False
-    $ Laura.right_claws = False
-    $ Laura.sheathing_claws = True
+    $ Laura.remove_trait("left_claw")
+    $ Laura.remove_trait("right_claw")
+    $ Laura.give_trait("sheathing_claws")
 
     show expression "images/effects/snakt.webp" as snakt onlayer effects:
         anchor (0.5, 0.5) pos (0.9, 0.1)
@@ -1900,7 +1889,7 @@ label ch1_Juggernaut_attack_path_1A:
 
     $ renpy.pause(0.51, hard = True)
 
-    $ Laura.sheathing_claws = False
+    $ Laura.remove_trait("sheathing_claws")
 
     pause 0.5
     
@@ -2274,9 +2263,9 @@ label ch1_Juggernaut_attack_path_1B:
 
     pause 0.2
 
-    $ Laura.left_claws = True
-    $ Laura.right_claws = True
-    $ Laura.unsheathing_claws = True
+    $ Laura.give_trait("left_claw")
+    $ Laura.give_trait("right_claw")
+    $ Laura.give_trait("unsheathing_claws")
 
     show expression "images/effects/snikt.webp" as snikt onlayer effects:
         anchor (0.5, 0.5) pos (0.9, 0.1)
@@ -2288,7 +2277,7 @@ label ch1_Juggernaut_attack_path_1B:
 
     $ renpy.pause(0.1, hard = True)
 
-    $ Laura.unsheathing_claws = False
+    $ Laura.remove_trait("unsheathing_claws")
 
     ch_Laura "What the. . ."
 
@@ -2344,9 +2333,9 @@ label ch1_Juggernaut_attack_path_1B:
 
     "[Piotr.name] manages to get a hit in thanks to you, but to very little effect."
 
-    $ Laura.left_claws = False
-    $ Laura.right_claws = False
-    $ Laura.sheathing_claws = True
+    $ Laura.remove_trait("left_claw")
+    $ Laura.remove_trait("right_claw")
+    $ Laura.give_trait("sheathing_claws")
 
     show expression "images/effects/snakt.webp" as snakt onlayer effects:
         anchor (0.5, 0.5) pos (0.9, 0.1)
@@ -2358,7 +2347,7 @@ label ch1_Juggernaut_attack_path_1B:
 
     $ renpy.pause(0.51, hard = True)
 
-    $ Laura.sheathing_claws = False
+    $ Laura.remove_trait("sheathing_claws")
 
     pause 0.5
     

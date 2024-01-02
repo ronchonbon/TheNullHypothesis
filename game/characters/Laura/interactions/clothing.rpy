@@ -114,7 +114,7 @@ label Laura_change_Outfit_accept_with_privacy_before(Outfit_name):
             $ Laura.change_face("sly", blush = 1)
 
             ch_Laura "You just want to see more of me." 
-            ch_Laura "Fine."  
+            ch_Laura "Fine."
         elif dice_roll == 2:
             $ Laura.change_face("confused2", blush = 1)
 

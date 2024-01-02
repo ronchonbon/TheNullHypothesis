@@ -25,8 +25,6 @@ label Rogue_steamy_romance_novel_shopping_accept:
 
     ch_Rogue "Thank you."
 
-    call change_Character_stat(Rogue, "desire", 0) from _call_change_Character_stat_1573
-
     ch_Rogue "Ah'm just gonna. . ."
 
     $ Rogue.change_face("worried2", mouth = "lipbite", blush = 2)
@@ -39,9 +37,6 @@ label Rogue_steamy_romance_novel_shopping_accept:
     ch_Rogue "Go to my room. . ."
 
     call send_Characters(Rogue, Rogue.home, behavior = "masturbating") from _call_send_Characters_300
-
-    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1574
-    call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_1575
 
     return True
 
@@ -84,8 +79,6 @@ label Rogue_steamy_romance_novel_gift_accept:
 
     ch_Rogue "Thank you."
 
-    call change_Character_stat(Rogue, "desire", 0) from _call_change_Character_stat_1576
-
     ch_Rogue "Ah'm just gonna. . ."
 
     $ Rogue.change_face("worried2", mouth = "lipbite", blush = 2)
@@ -98,9 +91,6 @@ label Rogue_steamy_romance_novel_gift_accept:
     ch_Rogue "Go to my room. . ."
 
     call send_Characters(Rogue, Rogue.home, behavior = "masturbating") from _call_send_Characters_301
-
-    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1577
-    call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_1578
 
     return True
 

@@ -19,9 +19,6 @@ label Jean_box_of_chocolates_shopping_accept:
 
     ch_Jean "You're cute, so it gets a pass."
 
-    call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1291
-    call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_1292
-
     return True
 
 label Jean_box_of_chocolates_shopping_reject:
@@ -51,9 +48,6 @@ label Jean_box_of_chocolates_gift_accept:
     $ Jean.change_face("confused1", mouth = "smirk", blush = 1)
 
     ch_Jean "You're cute, so it gets a pass."
-
-    call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1293
-    call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_1294
 
     return True
 

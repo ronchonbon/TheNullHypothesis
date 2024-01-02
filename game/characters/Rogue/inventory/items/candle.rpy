@@ -18,9 +18,6 @@ label Rogue_candle_shopping_accept:
         ch_Rogue "Ah'd love it even if it wasn't."
         ch_Rogue "Ah appreciate everythin' ya get me."
 
-        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1545
-        call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_1546
-
         return True
     else:
         $ Rogue.change_face("worried1", eyes = "down")
@@ -67,9 +64,6 @@ label Rogue_candle_gift_accept:
 
         ch_Rogue "Ah'd love it even if it wasn't."
         ch_Rogue "Ah appreciate everythin' ya get me."
-
-        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1547
-        call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_1548
 
         return True
     else:

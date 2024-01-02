@@ -38,7 +38,7 @@ label Jean_chapter_one_season_four_training_sessions:
 
         call Jean_activate_psychic from _call_Jean_activate_psychic_1
 
-        "You can enable and disable your power with relative ease, but still not nearly as well as [Jean.name]."  
+        "You can enable and disable your power with relative ease, but still not nearly as well as [Jean.name]."
         "Afterwards, she helps you focus and work on controlling just how much of your powers you use at a time."
         "It's not easy and takes a lot of effort, but you're getting better, slowly but surely."
 

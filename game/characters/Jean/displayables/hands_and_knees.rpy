@@ -504,7 +504,7 @@ layeredimage Jean_hands_and_knees_head:
     else:
         "Jean_hands_and_knees_hair_handjob_animation0"
 
-    if Jean.psychic:
+    if Jean.check_traits("psychic"):
         "characters/Jean/images/hands_and_knees/psychic.webp"
 
     anchor (int(2138*sex_sampling), int(1585*sex_sampling))

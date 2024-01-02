@@ -599,7 +599,7 @@ layeredimage Jean_missionary_head:
     else:
         "Jean_missionary_hair_animation0"
 
-    if Jean.psychic:
+    if Jean.check_traits("psychic"):
         "characters/Jean/images/missionary/psychic.webp"
 
     anchor (int(2299*sex_sampling), int(1031*sex_sampling))

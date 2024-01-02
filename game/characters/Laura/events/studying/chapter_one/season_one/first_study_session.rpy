@@ -32,7 +32,7 @@ label Laura_chapter_one_season_one_first_study_session:
 
     $ Laura.change_face("confused1")
 
-    ch_Laura "Why. . . ?"  
+    ch_Laura "Why. . . ?"
     "She just watches you, a bit perplexed, as you try to organize all the books and papers."
 
     $ Laura.change_face("neutral")

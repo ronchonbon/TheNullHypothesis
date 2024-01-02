@@ -5,8 +5,6 @@ label Rogue_plant_shopping_accept:
         ch_Rogue "Aw, more plants for my room?"
 
         $ Rogue.change_face("worried1", mouth = "smirk")
-
-        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1569
     else:
         ch_Rogue "Are these for my room?"
 
@@ -14,8 +12,6 @@ label Rogue_plant_shopping_accept:
 
         ch_Rogue "Ah was thinkin' about gettin' some greenery to liven the place up."
         ch_Rogue "This is a real sweet gift, thank you. . ."
-
-        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1570
 
     return True
 
@@ -35,8 +31,6 @@ label Rogue_plant_gift_accept:
         ch_Rogue "Aw, more plants for my room?"
 
         $ Rogue.change_face("worried1", mouth = "smirk")
-
-        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1571
     else:
         ch_Rogue "Are these for my room?"
 
@@ -44,8 +38,6 @@ label Rogue_plant_gift_accept:
 
         ch_Rogue "Ah was thinkin' about gettin' some greenery to liven the place up."
         ch_Rogue "This is a real sweet gift, thank you. . ."
-
-        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1572
 
     return True
 

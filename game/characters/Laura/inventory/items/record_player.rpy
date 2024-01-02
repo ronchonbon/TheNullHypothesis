@@ -26,9 +26,6 @@ label Laura_record_player_shopping_accept:
 
     ch_Laura "You will join me in listening sometime soon."
 
-    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1477
-    call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_1478
-
     return True
 
 label Laura_record_player_shopping_reject:
@@ -62,9 +59,6 @@ label Laura_record_player_gift_accept:
     $ Laura.change_face("angry1", eyes = "squint", blush = 1)
 
     ch_Laura "You will join me in listening sometime soon."
-
-    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1479
-    call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_1480
 
     return True
 

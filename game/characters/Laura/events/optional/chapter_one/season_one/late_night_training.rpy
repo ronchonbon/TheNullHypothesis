@@ -103,8 +103,8 @@ label Laura_chapter_one_season_one_late_night_training:
 
     $ Laura.change_arms("fight")
     
-    $ Laura.left_claw = True
-    $ Laura.right_claw = True
+    $ Laura.give_trait("left_claw")
+    $ Laura.give_trait("right_claw")
 
     # call try_on(Laura, Laura.Wardrobe.Clothes["messy hair"], instant = True)
     call set_the_scene(location = "bg_danger") from _call_set_the_scene_401

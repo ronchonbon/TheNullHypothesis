@@ -236,7 +236,7 @@ label Jean_busy_mad:
 
     $ Jean.change_face("angry1", eyes = "left")
 
-    ch_Jean "I'm busy, don't talk to me."  
+    ch_Jean "I'm busy, don't talk to me."
 
     return
 

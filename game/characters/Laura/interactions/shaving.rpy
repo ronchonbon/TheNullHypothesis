@@ -21,7 +21,7 @@ label Laura_pubic_hair_discussion:
 
         $ Laura.change_face("confused2", blush = 1)
 
-        if approval_check(Laura, threshold = [325, 375]):
+        if approval_check(Laura, threshold = Laura_thresholds["customize_pubes"]):
             ch_Laura "'Change up'?" 
 
             $ Laura.change_face("confused1", eyes = "down", blush = 1)
@@ -37,7 +37,7 @@ label Laura_pubic_hair_discussion:
             ch_Laura "Might as well try it out. . ."
             ch_Laura "I'll just ask [Rogue.public_name] how to do it."
 
-            $ Laura.give_trait("customizable_body_hair")
+            $ Laura.give_trait("customizable_pubes")
         else:
             ch_Laura "My pubic hair?"
 

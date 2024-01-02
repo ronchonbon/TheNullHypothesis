@@ -23,8 +23,6 @@ label Laura_horror_novel_shopping_accept:
 
         ch_Laura "Thank you. . ."
 
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1459
-
         return True
     else:
         $ Laura.change_face("confused1", eyes = "down")
@@ -72,8 +70,6 @@ label Laura_horror_novel_gift_accept:
         $ Laura.change_face("neutral", eyes = "right", blush = 1)
 
         ch_Laura "Thank you. . ."
-
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1460
 
         return True
     else:

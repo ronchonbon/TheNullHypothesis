@@ -23,9 +23,6 @@ label Laura_combat_manual_shopping_accept:
 
     ch_Laura "I'll have to test them on you."
 
-    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1455
-    call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_1456
-
     return True
 
 label Laura_combat_manual_shopping_reject:
@@ -59,9 +56,6 @@ label Laura_combat_manual_gift_accept:
     $ Laura.change_face("sly")
 
     ch_Laura "I'll have to test them on you."
-
-    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1457
-    call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_1458
 
     return True
 

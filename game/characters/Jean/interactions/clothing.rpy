@@ -30,7 +30,7 @@ label Jean_change_Outfit_accept_before(Outfit_name):
         if dice_roll == 4:
             $ Jean.change_face("confused1", mouth = "smirk")
 
-            ch_Jean "If you say please."  
+            ch_Jean "If you say please."
 
             $ Jean.change_face("sly", blush = 1)
 

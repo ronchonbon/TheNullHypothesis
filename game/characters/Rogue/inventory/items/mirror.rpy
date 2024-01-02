@@ -18,9 +18,6 @@ label Rogue_mirror_shopping_accept:
     ch_Rogue "Ah'll start usin' it right away."
     ch_Rogue "Thank you."
 
-    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1557
-    call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_1558
-
     return True
 
 label Rogue_mirror_shopping_reject:
@@ -46,9 +43,6 @@ label Rogue_mirror_gift_accept:
 
     ch_Rogue "Ah'll start usin' it right away."
     ch_Rogue "Thank you."
-
-    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1559
-    call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_1560
 
     return True
 

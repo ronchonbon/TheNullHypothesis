@@ -19,9 +19,6 @@ label Rogue_mystery_novel_shopping_accept:
 
     ch_Rogue "Thanks, [Rogue.Player_petname], ah really appreciate it."
 
-    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1561
-    call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_1562
-
     return True
 
 label Rogue_mystery_novel_shopping_reject:
@@ -51,9 +48,6 @@ label Rogue_mystery_novel_gift_accept:
     $ Rogue.change_face("worried1", mouth = "smirk", blush = 1)
 
     ch_Rogue "Thanks, [Rogue.Player_petname], ah really appreciate it."
-
-    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1563
-    call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_1564
 
     return True
 

@@ -41,13 +41,15 @@ label Laura_flirt_a:
 
     menu:
         "[first_compliment]":
-            call expression f"Laura_flirt_a{indices[0]}" from _call_expression_18
+            $ flirting_type = "a" + indices[0]
         "[second_compliment]":
-            call expression f"Laura_flirt_a{indices[1]}" from _call_expression_19
+            $ flirting_type = "a" + indices[1]
         "[third_compliment]":
-            call expression f"Laura_flirt_a{indices[2]}" from _call_expression_20
+            $ flirting_type = "a" + indices[2]
         "Back":
             return
+
+    call expression f"Laura_flirt_{flirting_type}"
 
     return
 
@@ -66,8 +68,6 @@ label Laura_flirt_aa:
         
         ch_Laura "I like the way they increase my heart rate."
         ch_Laura "Makes training more interesting."
-
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_469
     elif dice_roll == 2:
         $ Laura.change_face("confused1")
 
@@ -80,8 +80,6 @@ label Laura_flirt_aa:
         $ Laura.change_face("neutral", eyes = "squint", blush = 1)
 
         ch_Laura "You should show me your favorites as well."
-
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_470
     elif dice_roll == 3:
         $ Laura.change_face("confused1", blush = 1)
 
@@ -99,8 +97,6 @@ label Laura_flirt_aa:
         $ Laura.change_face("neutral", eyes = "squint", blush = 1)
 
         ch_Laura "You will."
-
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_471
 
     return
 
@@ -122,8 +118,6 @@ label Laura_flirt_ab:
         $ Laura.change_face("neutral", eyes = "left", blush = 1) 
 
         ch_Laura "I just look deadly. . . in a cool way. . ."
-
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_472
     elif dice_roll == 2:
         $ Laura.change_face("surprised2")
 
@@ -136,8 +130,6 @@ label Laura_flirt_ab:
         $ Laura.change_face("confused1", eyes = "squint")
 
         ch_Laura "At least you're right about the second part. . ."
-
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_473
     elif dice_roll == 3:
         $ Laura.change_face("sexy", eyes = "down")
 
@@ -151,9 +143,6 @@ label Laura_flirt_ab:
         $ Laura.change_face("sly", mouth = "lipbite", blush = 1)
 
         ch_Laura "You look like the prey. . ." 
-
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_474
-        call change_Character_stat(Laura, "desire", 0) from _call_change_Character_stat_475
 
     return
 
@@ -175,8 +164,6 @@ label Laura_flirt_ac:
         $ Laura.change_face("smirk2", blush = 1)
 
         ch_Laura "But. . . thanks."
-
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_476
     elif dice_roll == 2:
         $ Laura.change_face("pleased1", blush = 1)
 
@@ -187,8 +174,6 @@ label Laura_flirt_ac:
         ch_Laura "I like functional stuff. . ." 
 
         $ Laura.change_face("smirk2")
-
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_477
     elif dice_roll == 3:
         $ Laura.change_face("confused1", mouth = "smirk", blush = 1) 
 
@@ -199,8 +184,6 @@ label Laura_flirt_ac:
         ch_Laura "It's your fault I'm wearing it in the first place." 
 
         $ Laura.change_face("smirk2", blush = 1)
-
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_478
     elif dice_roll == 4:
         $ Laura.change_face("pleased1", blush = 1) 
 
@@ -212,9 +195,7 @@ label Laura_flirt_ac:
 
         $ Laura.change_face("smirk2", mouth = "lipbite", blush = 1) 
 
-        ch_Laura "You're lucky I let you." 
-
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_479
+        ch_Laura "You're lucky I let you."
 
     return
 
@@ -222,7 +203,7 @@ label Laura_flirt_ad:
     $ start = 1
     $ finish = 1
 
-    if not approval_check(Laura, threshold = [125, 150]):
+    if not approval_check(Laura, threshold = Laura_thresholds["flirting_ad"]):
         $ start = 3
         $ finish = 4
     elif Laura.status["horny"] or Laura.status["nympho"]:
@@ -240,8 +221,6 @@ label Laura_flirt_ad:
         ch_Laura "Interesting. . ." 
 
         $ Laura.change_face("smirk2", eyes = "squint", blush = 1)
-
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_480
     elif dice_roll == 2:
         $ Laura.change_face("sly", blush = 1) 
 
@@ -252,9 +231,6 @@ label Laura_flirt_ad:
         ch_Laura "You do seem to have a hard time keeping your eyes off of them. . ." 
 
         $ Laura.change_face("sexy", blush = 1)
-
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_481
-        call change_Character_stat(Laura, "desire", 0) from _call_change_Character_stat_482
     elif dice_roll == 3:
         $ Laura.change_face("appalled1")
 
@@ -270,9 +246,6 @@ label Laura_flirt_ad:
         call Laura_sheathes_claws from _call_Laura_sheathes_claws_4
 
         $ Laura.change_arms("neutral")
-
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_483
-        call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_484
     elif dice_roll == 4:
         $ Laura.change_face("perplexed")
 
@@ -287,16 +260,13 @@ label Laura_flirt_ad:
 
         ch_Laura "Or else."
 
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_485
-        call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_486
-
     return
 
 label Laura_flirt_ae:
     $ start = 1
     $ finish = 1
 
-    if not approval_check(Laura, threshold = [125, 150]):
+    if not approval_check(Laura, threshold = Laura_thresholds["flirting_ae"]):
         $ start = 3
         $ finish = 4
     elif Laura.status["horny"] or Laura.status["nympho"]:
@@ -314,9 +284,6 @@ label Laura_flirt_ae:
         ch_Laura "You like them that much?"
 
         $ Laura.change_face("smirk2", blush = 1)
-
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1329
-        call change_Character_stat(Laura, "desire", 0) from _call_change_Character_stat_1330
     elif dice_roll == 2:
         $ Laura.change_face("sly", blush = 1) 
 
@@ -326,9 +293,6 @@ label Laura_flirt_ae:
 
         ch_Laura "You should know that. . . constantly staring at my muscles. . ."
         ch_Laura "I find myself staring at yours a lot too. . ."
-
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1331
-        call change_Character_stat(Laura, "desire", 0) from _call_change_Character_stat_1332
     elif dice_roll == 3:
         $ Laura.change_face("appalled1")
 
@@ -341,9 +305,6 @@ label Laura_flirt_ae:
         $ Laura.change_face("angry1")
 
         ch_Laura "Is something wrong with you?"
-
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1333
-        call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_1334
     elif dice_roll == 4:
         $ Laura.change_face("appalled1") 
 
@@ -352,9 +313,6 @@ label Laura_flirt_ae:
         $ Laura.change_face("angry1")
 
         ch_Laura "Otherwise, you might get kicked."
-
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1335
-        call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_1336
 
     return
 
@@ -373,8 +331,6 @@ label Laura_flirt_af:
         $ Laura.change_face("smirk2", eyes = "squint", blush =2)
 
         ch_Laura "It could if you stare too long. . ."
-
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1337 
     elif dice_roll == 2:
         $ Laura.change_face("confused1")
 
@@ -388,15 +344,13 @@ label Laura_flirt_af:
 
         ch_Laura "Knowing you. . . you probably like that. . ."
 
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1338
-
     return
 
 label Laura_flirt_ag:
     $ start = 1
     $ finish = 1
 
-    if not approval_check(Laura, threshold = [125, 150]):
+    if not approval_check(Laura, threshold = Laura_thresholds["flirting_ag"]):
         $ start = 3
         $ finish = 4
     elif Player.scholarship == "athletic":
@@ -420,8 +374,6 @@ label Laura_flirt_ag:
         $ Laura.change_face("smirk1", blush = 1)
 
         ch_Laura "My metabolism doesn't let me be anything but lean."
-
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1339
     elif dice_roll == 2:
         $ Laura.change_face("surprised2")
 
@@ -443,8 +395,6 @@ label Laura_flirt_ag:
 
         ch_Laura "I like to stare at you as well. . ."
         ch_Laura "You're also very fit."
-
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1340
     elif dice_roll == 3:
         $ Laura.change_face("appalled1") 
 
@@ -455,18 +405,12 @@ label Laura_flirt_ag:
         ch_Laura "Stop worrying about how lean I am."
 
         $ Laura.change_face("suspicious1")
-
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1341
-        call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_1342
     elif dice_roll == 4:
         $ Laura.change_face("appalled2") 
 
         ch_Laura "Eyes off."
 
         $ Laura.change_face("angry1")
-
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1343
-        call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_1344
 
     return
 
@@ -491,8 +435,6 @@ label Laura_flirt_ah:
         $ Laura.change_arms("neutral")
 
         ch_Laura "Good for kicking."
-
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1345
     elif dice_roll == 2:
         $ Laura.change_face("surprised2")
 
@@ -505,8 +447,6 @@ label Laura_flirt_ah:
         $ Laura.change_face("smirk2", eyes = "left", blush = 1) 
 
         ch_Laura "I think they're cool too. . ."
-
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1346
 
     return
 
@@ -526,9 +466,6 @@ label Laura_flirt_ai:
 
         ch_Laura "It's a good thing you enjoy it."
         ch_Laura "I don't plan on stopping any time soon."
-
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1347
-        call change_Character_stat(Laura, "desire", 0) from _call_change_Character_stat_1348
     elif dice_roll == 2:
         $ Laura.change_face("sly")
 
@@ -543,9 +480,6 @@ label Laura_flirt_ai:
         ch_Laura "Good."
 
         $ Laura.change_face("sly", blush = 1)
-
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1349
-        call change_Character_stat(Laura, "desire", 0) from _call_change_Character_stat_1350
     elif dice_roll == 3:
         $ Laura.change_face("pleased2")
 
@@ -560,9 +494,6 @@ label Laura_flirt_ai:
         ch_Laura "It's not my fault you turn me on all the time. . ."
 
         $ Laura.change_face("sexy", blush = 1)
-
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1351
-        call change_Character_stat(Laura, "desire", 0) from _call_change_Character_stat_1352
     elif dice_roll == 4:
         $ Laura.change_face("pleased2")
 
@@ -578,9 +509,6 @@ label Laura_flirt_ai:
         ch_Laura "I can tell."
 
         $ Laura.change_face("sexy", eyes = "down", blush = 2)
-
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1353
-        call change_Character_stat(Laura, "desire", 0) from _call_change_Character_stat_1354
 
     return
 
@@ -602,8 +530,6 @@ label Laura_flirt_aj:
         $ Laura.change_face("neutral", eyes = "left", blush = 1)
 
         ch_Laura "I do appreciate your help."
-
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1355 
     elif dice_roll == 2:
         $ Laura.change_face("pleased1")
 
@@ -621,8 +547,6 @@ label Laura_flirt_aj:
         $ Laura.change_face("smirk2", mouth = "lipbite", blush = 1)
 
         ch_Laura "So. . . we will do it more often, then?"
-
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1356 
     elif dice_roll == 3:
         $ Laura.change_face("surprised2")
 
@@ -645,12 +569,10 @@ label Laura_flirt_aj:
 
         ch_Laura "Nobody enjoys studying. . ."
 
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1357
-
     return
 
 label Laura_flirt_ak:
-    if approval_check(Laura, threshold = [125, 150]) or Laura.History.check("studied_with_Player"):    
+    if approval_check(Laura, threshold = Laura_thresholds["flirting_ak"]) or Laura.History.check("studied_with_Player"):    
         $ dice_roll = renpy.random.randint(1, 2)
     else:
         $ dice_roll = renpy.random.randint(3, 3)
@@ -665,8 +587,6 @@ label Laura_flirt_ak:
         $ Laura.change_face("sly", blush = 1)
 
         ch_Laura "You always smell {i}very{/i} good as well."
-
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_487
     elif dice_roll == 2:
         $ Laura.change_face("pleased1", blush = 1) 
 
@@ -676,8 +596,6 @@ label Laura_flirt_ak:
 
         ch_Laura "I like the way you smell too. . ."
         ch_Laura "I've never met anyone who smells as good as you do."
-
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_488
     elif dice_roll == 3:
         $ Laura.change_face("confused3") 
 
@@ -690,9 +608,6 @@ label Laura_flirt_ak:
         $ Laura.change_face("suspicious1")
 
         ch_Laura "You should stop standing so close."
-
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_489
-        call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_490
 
     return
 
@@ -708,8 +623,6 @@ label Laura_flirt_al:
     $ Laura.change_face("smirk2", blush = 1) 
 
     ch_Laura "Thanks. . ."
-
-    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1358 
 
     return
 
@@ -733,8 +646,6 @@ label Laura_flirt_am:
 
         ch_Laura "I've been watching you as well."
         ch_Laura "You're still clumsy, but you look good."
-
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1359
     elif dice_roll == 2:
         $ Laura.change_face("surprised2")
 
@@ -748,8 +659,6 @@ label Laura_flirt_am:
 
         ch_Laura "I am deadly."
         ch_Laura "You're lucky I'm the one teaching you how to fight."
-
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1360
     elif dice_roll == 3:
         $ Laura.change_face("confused1", blush = 1)
 
@@ -763,8 +672,6 @@ label Laura_flirt_am:
         $ Laura.change_face("smirk2", mouth = "lipbite", blush = 2)
 
         ch_Laura "At least you're catching on relatively quickly."
-
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1361
 
     return
 
@@ -783,8 +690,6 @@ label Laura_flirt_an:
         $ Laura.change_face("confused1", blush = 1) 
 
         ch_Laura "You like mine?"
-
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1362
     elif dice_roll == 2:
         $ Laura.change_face("pleased1")
 
@@ -797,8 +702,6 @@ label Laura_flirt_an:
         $ Laura.change_face("neutral", eyes = "left", blush = 1) 
 
         ch_Laura "It just doesn't feel. . . natural."
-
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1363
     elif dice_roll == 3:
         $ Laura.change_face("surprised2")
 
@@ -812,8 +715,6 @@ label Laura_flirt_an:
 
         ch_Laura "There's just something about you."
         ch_Laura "It's suspicious. . ."
-
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1364
 
     return
 
@@ -835,9 +736,6 @@ label Laura_flirt_ao:
         $ Laura.change_face("sly", blush = 1) 
 
         ch_Laura ". . . you're not wrong."
-
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1365
-        call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_1366
     elif dice_roll == 2:
         $ Laura.change_face("pleased2")
 
@@ -856,9 +754,6 @@ label Laura_flirt_ao:
 
         ch_Laura "For a few minutes. . ."
         ch_Laura "You're in surprisingly good shape, all things considered."
-
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1367
-        call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_1368
 
     return
 
@@ -889,9 +784,6 @@ label Laura_flirt_ap:
 
     $ Laura.change_face("smirk2", mouth = "lipbite", blush = 1)
 
-    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1369
-    call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_1370
-
     return
 
 label Laura_flirt_aq:
@@ -911,9 +803,6 @@ label Laura_flirt_aq:
 
     ch_Laura "A fight could break out at any time."
     ch_Laura "Wearing clothes that would get in the way is just idiotic. . ."
-
-    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1371
-    call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_1372
 
     return
 
@@ -935,9 +824,6 @@ label Laura_flirt_ar:
     ch_Laura "It's just easier to. . . relax around you."
     ch_Laura "I only catch on so fast thanks to you."
 
-    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1373
-    call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_1374
-
     return
 
 label Laura_flirt_b:
@@ -953,8 +839,6 @@ label Laura_flirt_b:
         $ Laura.change_face("suspicious1")
 
         ch_Laura "Did you hit your head again. . . ?"
-
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1375
     elif dice_roll == 2:
         ch_Player "I'm gonna have to ask you to leave. You're making everyone else look bad in comparison."
 
@@ -965,8 +849,6 @@ label Laura_flirt_b:
         $ Laura.change_face("confused1", mouth = "smirk")
 
         ch_Laura "I thought you were being serious for a moment. . ."
-
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1376
     elif dice_roll == 3:
         ch_Player "Just looking at you is like a workout. . ."
 
@@ -981,8 +863,6 @@ label Laura_flirt_b:
         $ Laura.change_face("sly", blush = 1)
 
         ch_Laura "I can tell you're not lying."
-
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1377
     elif dice_roll == 4:
         ch_Player "I know you have super sharp claws, but your other hidden weapon is even deadlier."
 
@@ -1001,8 +881,6 @@ label Laura_flirt_b:
         ch_Laura "I think the claws in my feet are still deadlier."
         ch_Player "Probably. . ."
 
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1378
-
     return
 
 label Laura_flirt_c:
@@ -1016,8 +894,6 @@ label Laura_flirt_c:
         $ Laura.change_face("confused1", mouth = "lipbite", blush = 1) 
 
         ch_Laura "What are you doing. . . ?"
-
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1379 
     elif dice_roll == 2:
         $ Laura.change_face("confused1", blush = 1) 
 
@@ -1031,8 +907,6 @@ label Laura_flirt_c:
         $ Laura.change_face("smirk2", mouth = "lipbite", blush = 1)
 
         ch_Laura "Oh. . ."
-
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1380
 
     return
 
@@ -1048,8 +922,6 @@ label Laura_flirt_d:
 
         ch_Laura ". . ."
         "She grabs your hand and squeezes. . . a bit too hard."
-
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1381
     elif dice_roll == 2:
         ch_Laura "I still don't get it. . ."
         ch_Laura "Fine."
@@ -1057,14 +929,10 @@ label Laura_flirt_d:
         $ Laura.change_face("smirk2", mouth = "lipbite", blush = 1)
 
         "She reaches out and takes your hand, interlacing her fingers with yours."
-
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1382
     elif dice_roll == 3:
         $ Laura.change_face("smirk2", eyes = "left", blush = 1)
 
         "She doesn't say anything and just grabs your hand."
-
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1383
 
     return
 
@@ -1073,8 +941,6 @@ label Laura_flirt_ea:
     ch_Laura "I don't know why you wanted that over a real kiss. . ."
 
     $ Laura.change_face("confused1", mouth = "lipbite")
-
-    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1384
 
     return
 
@@ -1091,8 +957,6 @@ label Laura_flirt_eb:
         $ Laura.change_face("smirk2", mouth = "lipbite", blush = 1) 
 
         ch_Laura "I'm going to need more than that later. . ." 
-
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1385
     elif Player.location in public_locations:
         $ Laura.change_face("confused1", eyes = "right", mouth = "lipbite", blush = 1) 
 
@@ -1112,8 +976,7 @@ label Laura_flirt_eb:
 
         $ Laura.change_face("sexy", eyes = "down", blush = 2)
 
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1386
-        call change_Character_stat(Laura, "desire", 0) from _call_change_Character_stat_1387
+        pause 1.0
 
         $ Laura.change_face("kiss2", blush = 2)  
 
@@ -1126,8 +989,6 @@ label Laura_flirt_eb:
         $ Laura.change_face("sly", mouth = "lipbite", blush = 1) 
 
         ch_Laura "Get over here."
-
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1390 
 
         $ Laura.change_face("smirk2", mouth = "lipbite", blush = 1)
 
@@ -1162,8 +1023,6 @@ label Laura_flirt_f:
         $ Laura.change_face("angry1", mouth = "lipbite", blush = 1) 
 
         ch_Player "I thought you didn't do hugs. . ."
-
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1393
     elif Player.location in public_locations:
         $ Laura.change_face("confused1") 
 
@@ -1176,8 +1035,6 @@ label Laura_flirt_f:
         $ Laura.change_face("angry1", eyes = "left")
 
         ch_Laura "Especially not with an audience."
-
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1394
     elif approval_check(Laura, threshold = [125, 150]):
         $ Laura.change_face("pleased1", blush = 1) 
 
@@ -1191,8 +1048,6 @@ label Laura_flirt_f:
         $ Laura.change_face("smirk2", blush = 1)
 
         ch_Laura "I. . . think I understand why people do it now."
-
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1395
     else:
         $ Laura.change_face("confused2")
 
@@ -1206,8 +1061,6 @@ label Laura_flirt_f:
         $ Laura.change_face("neutral", eyes = "right", blush = 1) 
 
         ch_Laura "No." 
-
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1396
 
     return
 
@@ -1225,8 +1078,6 @@ label Laura_flirt_g:
 
     ch_Laura "Do that more often."
 
-    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1397
-
     return
 
 label Laura_flirt_h:
@@ -1243,8 +1094,6 @@ label Laura_flirt_h:
         $ Laura.change_face("confused1", mouth = "lipbite", blush = 1)
 
         ch_Laura "I. . . didn't hate that. . ." 
-
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1398
     else:
         $ Laura.change_face("angry1", blush = 1) 
 
@@ -1253,8 +1102,6 @@ label Laura_flirt_h:
         $ Laura.change_face("suspicious1", blush = 1)
 
         ch_Laura "What are you trying to do?"
-
-        call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_1399
 
     return
 
@@ -1277,8 +1124,6 @@ label Laura_flirt_i:
         $ Laura.change_face("neutral", blush = 1)
 
         ch_Laura "Especially in front of other people."
-
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1400
     elif Player.location in public_locations:
         $ Laura.change_face("appalled1")
 
@@ -1297,8 +1142,6 @@ label Laura_flirt_i:
 
         "As you wrap an arm around [Laura.name], she puts a hand on your ass." 
 
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1401
-
         $ Laura.change_face("kiss2", blush = 2) 
 
         "She turns and doesn't hesitate to stick her tongue in your mouth." 
@@ -1312,8 +1155,6 @@ label Laura_flirt_i:
         "As you try to wrap your arm around [Laura.name], she steps out of reach." 
 
         ch_Laura "Don't get so close. . ."
-
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1405
 
     return
 
@@ -1363,13 +1204,9 @@ label Laura_flirt_l:
         
         "You give her ass a proper smack, and she doesn't make a sound." 
 
-        call change_Character_stat(Laura, "desire", 0) from _call_change_Character_stat_1406
-
         $ Laura.change_face("sexy", blush = 1) 
 
         ch_Laura "I enjoyed that. . ." 
-
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1407
     elif Player.location in public_locations:
         $ Laura.change_face("confused2")
 
@@ -1379,8 +1216,6 @@ label Laura_flirt_l:
 
         ch_Laura "Why would I let you hit me?"
         ch_Laura "In front of other people no less."
-
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1408
     elif Laura.check_traits("quirk"):
         $ Laura.change_face("confused1")
 
@@ -1401,8 +1236,6 @@ label Laura_flirt_l:
         with small_screenshake
         
         "Without saying anything, she gives your ass a hard smack, leaving a stinging sensation." 
-
-        call change_Character_stat(Laura, "desire", 0) from _call_change_Character_stat_1409
 
         $ Laura.change_face("sexy", blush = 1) 
 
@@ -1428,11 +1261,7 @@ label Laura_flirt_l:
 
         $ Laura.change_face("sly", mouth = "lipbite", blush = 1)
 
-        call change_Character_stat(Laura, "desire", 0) from _call_change_Character_stat_1410
-
         ch_Laura "Almost hard enough. . ."
-
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1411
     else:
         $ Laura.change_face("confused1")
 
@@ -1456,17 +1285,13 @@ label Laura_flirt_l:
         
         "You give her ass a proper smack, and she shudders slightly from the impact."
 
-        call change_Character_stat(Laura, "desire", 0) from _call_change_Character_stat_1412
-
         $ Laura.change_face("surprised2", mouth = "lipbite", blush = 2) 
 
         pause 1.0
 
         $ Laura.change_face("sly", mouth = "lipbite", blush = 1)
 
-        ch_Laura "Harder next time. . ." 
-
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1413
+        ch_Laura "Harder next time. . ."
 
     return
 
@@ -1499,8 +1324,7 @@ label Laura_flirt_oa:
 
     $ Laura.change_face("confused2")
 
-    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1414
-    call change_Character_stat(Laura, "desire", 0) from _call_change_Character_stat_1415
+    pause 1.0
 
     $ Laura.change_face("smirk2", blush = 1) 
 
@@ -1512,9 +1336,6 @@ label Laura_flirt_ob:
     "As you get close, she does all the work for you, and pulls you into a deep kiss." 
 
     $ Laura.change_face("kiss2", blush = 1) 
-
-    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1416
-    call change_Character_stat(Laura, "desire", 0) from _call_change_Character_stat_1417
 
     "She keeps kissing you another moment, before letting go." 
 
@@ -1543,9 +1364,6 @@ label Laura_flirt_pd:
 label Laura_flirt_qa:
     $ Laura.change_face("pleased2", blush = 1)
 
-    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1418
-    call change_Character_stat(Laura, "desire", 0) from _call_change_Character_stat_1419 
-
     pause 1.0
 
     $ Laura.change_face("sly", mouth = "lipbite", blush = 1)
@@ -1559,15 +1377,10 @@ label Laura_flirt_qa:
     ch_Laura "Yes. . ." 
     ch_Laura "It makes me want to use you even more. . ."
 
-    call change_Character_stat(Laura, "desire", 0) from _call_change_Character_stat_1420 
-
     return
 
 label Laura_flirt_qb:
     $ Laura.change_face("appalled2", blush = 1) 
-
-    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1421
-    call change_Character_stat(Laura, "desire", 0) from _call_change_Character_stat_1422
 
     pause 1.0
 
@@ -1584,15 +1397,10 @@ label Laura_flirt_qb:
 
     ch_Laura "So it isn't an issue."
 
-    call change_Character_stat(Laura, "desire", 0) from _call_change_Character_stat_1423
-
     return
 
 label Laura_flirt_qc:
     $ Laura.change_face("pleased2", blush = 1) 
-
-    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1424
-    call change_Character_stat(Laura, "desire", 0) from _call_change_Character_stat_1425
 
     pause 1.0
 
@@ -1613,8 +1421,6 @@ label Laura_flirt_qc:
 
     ch_Laura "It just makes me want to do it even more. . ."
 
-    call change_Character_stat(Laura, "desire", 0) from _call_change_Character_stat_1426 
-
     return
 
 label Laura_flirt_r:
@@ -1633,9 +1439,6 @@ label Laura_flirt_r:
         $ Laura.change_face("smirk2", blush = 1)
 
         ch_Laura "I love you too."
-
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1427
-        call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_1428
     elif dice_roll == 2:
         $ Laura.change_face("worried2", blush = 1)
 
@@ -1648,9 +1451,6 @@ label Laura_flirt_r:
         $ Laura.change_face("smirk2", blush = 1)
 
         ch_Laura "I love you too."
-
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1429
-        call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_1430
     elif dice_roll == 3:
         $ Laura.change_face("worried2", blush = 1)
 
@@ -1661,9 +1461,6 @@ label Laura_flirt_r:
 
         ch_Player "I am, as always."
         ch_Laura "I love you as well. . ."
-
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1431
-        call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_1432
     elif dice_roll == 4:
         $ Laura.change_face("suspicious1", blush = 1)
 
@@ -1674,8 +1471,5 @@ label Laura_flirt_r:
 
         ch_Player "I was about to say the same thing."
         ch_Laura "Good. . ."
-
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1433
-        call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_1434
 
     return

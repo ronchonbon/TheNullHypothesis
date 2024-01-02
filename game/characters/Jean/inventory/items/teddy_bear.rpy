@@ -11,9 +11,6 @@ label Jean_teddy_bear_shopping_accept:
 
     ch_Jean "This little guy's going right on my bed. . ."
 
-    call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1321
-    call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_1322
-
     return True
 
 label Jean_teddy_bear_shopping_reject:
@@ -37,9 +34,6 @@ label Jean_teddy_bear_gift_accept:
     $ Jean.change_face("worried1", mouth = "smirk", eyes = "down", blush = 1)
 
     ch_Jean "This little guy's going right on my bed. . ."
-
-    call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1323
-    call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_1324
 
     return True
 

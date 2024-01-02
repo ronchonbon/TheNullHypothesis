@@ -1029,10 +1029,7 @@ label ch1_Sentinel_attack:
             
             $ Jean.change_face("worried1", mouth = "smirk", blush = 1) 
             
-            ch_Jean "Because I really like being your 'big sis''." 
-            
-            call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_864 
-            call change_Character_stat(Jean, "desire", 0) from _call_change_Character_stat_865
+            ch_Jean "Because I really like being your 'big sis''."
 
             $ Jean.petname = "big sis'"
 
@@ -1203,9 +1200,7 @@ label ch1_Sentinel_attack:
             ch_Player "Then there's nothing to worry about." 
             ch_Player "You'll always be at my side." 
             
-            $ Rogue.change_face("worried1", mouth = "lipbite", blush = 1) 
-            
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_866
+            $ Rogue.change_face("worried1", mouth = "lipbite", blush = 1)
 
             $ Rogue.History.update("quirk_encouraged")
         "Hurt? Nothing hurts now that you're here. (discourage_quirk)":
@@ -1225,10 +1220,7 @@ label ch1_Sentinel_attack:
             $ Rogue.change_face("worried1", mouth = "smirk") 
             
             ch_Rogue "Of course." 
-            ch_Rogue "Ah just hope next time ah can actually help ya not get injured in the first place. . ." 
-            
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_867 
-            call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_868
+            ch_Rogue "Ah just hope next time ah can actually help ya not get injured in the first place. . ."
 
             $ Rogue.History.update("quirk_discouraged")
 
@@ -1258,8 +1250,6 @@ label ch1_Sentinel_attack:
             ch_Player "Yes, you can go." 
             
             $ Rogue.change_face("worried1", mouth = "lipbite", blush = 2)
-
-            call change_Character_stat(Rogue, "desire", 0) from _call_change_Character_stat_869
 
             ch_Rogue "Thanks. . ."
 
@@ -1440,10 +1430,7 @@ label ch1_Sentinel_attack:
             
             $ Laura.change_face("sly", blush = 1)
             
-            ch_Laura "I also. . . like the feeling it gives me. . ." 
-            
-            call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_870 
-            call change_Character_stat(Laura, "desire", 0) from _call_change_Character_stat_871
+            ch_Laura "I also. . . like the feeling it gives me. . ."
 
             $ Laura.History.update("quirk_encouraged")
         "Discourage her protectiveness (discourage_quirk)":
