@@ -22,7 +22,7 @@ init -1:
     default blah_yadjustment = ui.adjustment()
 
     default daily_bungle_ad = 1
-    default daily_bungle_article = None
+    default daily_bungle_Article = None
     default daily_bungle_yadjustment = ui.adjustment()
 
     default current_vibrator_index = 0
@@ -694,7 +694,7 @@ screen call_screen():
 
         color "#ffffff"
 
-    add At(f"images/interface/phone/photos/{current_phone_Character.tag}.webp", call_photo) anchor (0.5, 0.5) pos (0.496, 0.33)
+    add At(f"images/interface/photos/{current_phone_Character.tag}.webp", call_photo) anchor (0.5, 0.5) pos (0.496, 0.33)
 
     if waiting == 3:
         text f"Calling {current_phone_Character.name}. . ." anchor (0.0, 0.5) pos (0.40, 0.575):
@@ -1192,7 +1192,7 @@ screen humhum_screen():
 
     add At("images/interface/phone/humhum_profile_background.webp", interface)
 
-    add At(f"images/interface/phone/photos/{current_phone_Character.tag}.webp", humhum_photo) anchor (0.5, 0.5) pos (0.426, 0.311)
+    add At(f"images/interface/photos/{current_phone_Character.tag}.webp", humhum_photo) anchor (0.5, 0.5) pos (0.426, 0.311)
 
     if current_phone_Character.status["miffed"] or current_phone_Character.status["mad"]:
         add At("images/interface/phone/humhum_status_angry.webp", interface)
@@ -1295,16 +1295,45 @@ screen news_screen():
 
     add At("images/interface/phone/daily_bungle_ad[daily_bungle_ad].webp", interface)
 
-    if daily_bungle_article is not None:
+    if daily_bungle_Article is not None:
         add At("images/interface/phone/daily_bungle_article.webp", interface) anchor (0.5, 0.0) pos (0.49, 0.41)
 
-        vpgrid id "news_screen_viewport" anchor (0.5, 0.0) pos (0.49, 0.41) xysize (int(887*interface_adjustment), int(990*interface_adjustment)):
-            cols 1
+        frame anchor (0.5, 0.5) pos (0.49, 0.456) ysize 0.075:
+            text daily_bungle_Article.headline xalign 0.0:
+                font "agency_fb_bold.ttf"
 
-            spacing 15
+                size 36
 
+                color "#000000"
+
+                text_align 0.0
+
+        viewport id "news_screen_viewport" anchor (0.5, 0.0) pos (0.49, 0.51) xysize (0.222, 0.3):
             draggable True
             mousewheel True
+
+            frame:
+                text daily_bungle_Article.body xalign 0.0:
+                    font "agency_fb_bold.ttf"
+
+                    size 26
+
+                    color "#403f3f"
+
+                    text_align 0.0
+
+        button anchor (0.5, 1.0) pos (0.49, 0.857) xysize (int(520*interface_adjustment), int(89*interface_adjustment)):
+            idle_background At("images/interface/phone/daily_bungle_button_idle.webp", interface)
+            hover_background At("images/interface/phone/daily_bungle_button.webp", interface)
+
+            text "CLOSE ARTICLE":
+                size 28
+
+                color "#403f3f"
+
+                text_align 0.5
+            
+            action SetVariable("daily_bungle_Article", None)
     else:
         vpgrid id "news_screen_viewport" anchor (0.5, 0.0) pos (0.49, 0.41) xysize (int(887*interface_adjustment), int(990*interface_adjustment)):
             cols 1
@@ -1314,25 +1343,71 @@ screen news_screen():
             draggable True
             mousewheel True
 
-            fixed xysize (1.0, int(495*interface_adjustment)):
-                add At("images/interface/phone/daily_bungle_article_panel.webp", interface)
+            for article_name in NewsPool.Articles.keys():
+                fixed xysize (1.0, int(495*interface_adjustment)):
+                    add "images/interface/phone/daily_bungle_article_panel.webp" zoom interface_adjustment
 
-            fixed xysize (1.0, int(495*interface_adjustment)):
-                add At("images/interface/phone/daily_bungle_article_panel.webp", interface)
+                    frame anchor (0.0, 0.0) pos (0.04, 0.06) xysize (int(520*interface_adjustment), 0.33):
+                        text NewsPool.Articles[article_name].headline xalign 0.0:
+                            font "agency_fb_bold.ttf"
 
-            fixed xysize (1.0, int(495*interface_adjustment)):
-                add At("images/interface/phone/daily_bungle_article_panel.webp", interface)
+                            size 36
 
-            fixed xysize (1.0, int(495*interface_adjustment)):
-                add At("images/interface/phone/daily_bungle_article_panel.webp", interface)
+                            color "#000000"
 
-    vbar value YScrollValue("news_screen_viewport") anchor (0.0, 0.0) pos (0.614, 0.41) xysize (int(32*interface_adjustment), int(990*interface_adjustment)):
+                            text_align 0.0
+
+                    frame anchor (0.0, 0.5) pos (0.04, 0.57) xysize (int(520*interface_adjustment), 0.33):
+                        text NewsPool.Articles[article_name].subheadline xalign 0.0:
+                            font "agency_fb_bold.ttf"
+
+                            size 26
+
+                            color "#403f3f"
+
+                            text_align 0.0
+
+                    add f"images/interface/phone/daily_bungle_{NewsPool.Articles[article_name].photo}.webp" anchor (0.5, 0.5) pos (0.835, 0.3) zoom interface_adjustment
+
+                    text "BY" anchor (0.5, 0.5) pos (0.835, 0.65):
+                        font "agency_fb_bold.ttf"
+
+                        size 26
+
+                        color "#000000"
+
+                        text_align 0.5
+
+                    frame anchor (0.5, 0.5) pos (0.835, 0.85) xsize 0.35:
+                        text NewsPool.Articles[article_name].author xalign 0.5:
+                            font "agency_fb_bold.ttf"
+
+                            size 26
+
+                            color "#403f3f"
+
+                            text_align 0.5
+
+                    button anchor (0.0, 1.0) pos (0.04, 0.94) xysize (int(520*interface_adjustment), int(89*interface_adjustment)):
+                        idle_background At("images/interface/phone/daily_bungle_button_idle.webp", interface)
+                        hover_background At("images/interface/phone/daily_bungle_button.webp", interface)
+
+                        text "READ ARTICLE":
+                            size 28
+
+                            color "#403f3f"
+
+                            text_align 0.5
+                        
+                        action SetVariable("daily_bungle_Article", NewsPool.Articles[article_name])
+
+    vbar value YScrollValue("news_screen_viewport") anchor (0.0, 0.0) pos (0.608, 0.41) xysize (int(32*interface_adjustment), int(990*interface_adjustment)):
         base_bar At("images/interface/phone/daily_bungle_scrollbar.webp", interface)
 
         thumb At("images/interface/phone/daily_bungle_scrollbar_thumb.webp", interface)
         thumb_offset int(72*interface_adjustment/2/3)
 
-        unscrollable "hide"
+        # unscrollable "hide"
 
 screen remote_screen():
     style_prefix "phone"

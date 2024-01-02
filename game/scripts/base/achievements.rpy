@@ -14,6 +14,4 @@ init -2:
             "condition": "Player.cash",
             "goal": 100,
             "points": 5,
-            "secret": False}
-            
-            }
+            "secret": False}}

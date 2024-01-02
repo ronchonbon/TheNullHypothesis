@@ -1,17 +1,17 @@
 image menu_background:
-    # "images/interface/main_menu/Ororo.webp" with Dissolve(0.5)
-    # pause 5.0
     "images/interface/main_menu/Rogue.webp" with Dissolve(0.5)
     pause 5.0
     # "images/interface/main_menu/Laura.webp" with Dissolve(0.5)
     # pause 5.0
-    "images/interface/main_menu/Charles.webp" with Dissolve(0.5)
-    pause 5.0
     "images/interface/main_menu/Jean.webp" with Dissolve(0.5)
+    pause 5.0
+    "images/interface/main_menu/Ororo.webp" with Dissolve(0.5)
+    pause 5.0
+    "images/interface/main_menu/Charles.webp" with Dissolve(0.5)
     pause 5.0
     # "images/interface/main_menu/Kurt.webp" with Dissolve(0.5)
     # pause 5.0
-    # repeat
+    repeat
 
 image menu_comic:
     "images/interface/main_menu/comic.webp"

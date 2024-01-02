@@ -11,6 +11,15 @@ label start_chapter_one_season_one:
 
     $ available_ringtones.append(0)
     $ available_ringtones.append(1)
+
+    $ NewsPool.update(
+        ArticleClass(
+            name = "template",
+            photo = "spiderman",
+            author = "J. Jonah Jameson",
+            headline = "All sorts of shit headline",
+            subheadline = "All sorts of shit subheadline",
+            body = "All sorts of shit all sorts of shit all sorts of shit all sorts of shit all sorts of shit all sorts of shit all sorts of shit all sorts of shit all sorts of shit all sorts of shit all sorts of shit all sorts of shit all sorts of shit all sorts of shit all sorts of shit all sorts of shit all sorts of shit all sorts of shit all sorts of shit all sorts of shit all sorts of shit all sorts of shit All sorts of shit all sorts of shit all sorts of shit all sorts of shit all sorts of shit all sorts of shit all sorts of shit all sorts of shit all sorts of shit all sorts of shit all sorts of shit all sorts of shit all sorts of shit all sorts of shit all sorts of shit all sorts of shit all sorts of shit all sorts of shit all sorts of shit all sorts of shit all sorts of shit all sorts of shit"))
     
     $ HumHumPool.update(
         HumHumThreadClass(

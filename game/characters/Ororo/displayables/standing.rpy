@@ -271,7 +271,13 @@ layeredimage Ororo_standing_body:
     else:
         "characters/Ororo/images/standing/bodysuit_[Ororo.Clothes[bodysuit].string]_[Ororo.Clothes[bodysuit].state].webp"
 
-    if Ororo.Clothes["top"].string:
+    if not Ororo.Clothes["top"].string:
+        Null()
+    elif Ororo.Clothes["top"].string in ["white_top"] and Ororo.Clothes["top"].state == 1:
+        "characters/Ororo/images/standing/top_[Ororo.Clothes[top].string]_[Ororo.Clothes[top].state].webp"
+    elif Ororo.left_arm == "crossed" and Ororo.right_arm == "crossed":
+        "characters/Ororo/images/standing/top_[Ororo.Clothes[top].string]_[Ororo.Clothes[top].state]_crossed.webp"
+    else:
         "characters/Ororo/images/standing/top_[Ororo.Clothes[top].string]_[Ororo.Clothes[top].state].webp"
 
     if not Ororo.Clothes["cloak"].string:
