@@ -84,15 +84,15 @@ screen Action_screen(automatic = False):
                 add At(At(At("images/interface/Action_menu/[Action_hover_type].webp", change_anchor(0.5, 0.5)), change_pos(0.825, 0.283)), zoom_sprite(0.5))
 
         if Player.desire >= 90:
-            add At("images/interface/Action_menu/lightning_male.webp", pulse(intensity = 1.0)) zoom interface_adjustment
+            add At("images/interface/Action_menu/lightning_male.webp", pulse(intensity = 1.0)) anchor (0.5, 0.5) pos (0.94, 0.0478) zoom interface_adjustment
         elif Player.desire >= 80:
-            add At("images/interface/Action_menu/lightning_male.webp", pulse(intensity = 0.8)) zoom interface_adjustment
+            add At("images/interface/Action_menu/lightning_male.webp", pulse(intensity = 0.8)) anchor (0.5, 0.5) pos (0.94, 0.0478) zoom interface_adjustment
         elif Player.desire >= 70:
-            add At("images/interface/Action_menu/lightning_male.webp", pulse(intensity = 0.6)) zoom interface_adjustment
+            add At("images/interface/Action_menu/lightning_male.webp", pulse(intensity = 0.6)) anchor (0.5, 0.5) pos (0.94, 0.0478) zoom interface_adjustment
         elif Player.desire >= 60:
-            add At("images/interface/Action_menu/lightning_male.webp", pulse(intensity = 0.4)) zoom interface_adjustment
+            add At("images/interface/Action_menu/lightning_male.webp", pulse(intensity = 0.4)) anchor (0.5, 0.5) pos (0.94, 0.0478) zoom interface_adjustment
         elif Player.desire >= 50:
-            add At("images/interface/Action_menu/lightning_male.webp", pulse(intensity = 0.2)) zoom interface_adjustment
+            add At("images/interface/Action_menu/lightning_male.webp", pulse(intensity = 0.2)) anchor (0.5, 0.5) pos (0.94, 0.0478) zoom interface_adjustment
 
         bar value Player.desire range 100 anchor (0.5, 0.5) pos (0.94, 0.0478) xysize (int(291*interface_adjustment), int(37*interface_adjustment)):
             left_bar At("images/interface/Action_menu/climax_full_male.webp", interface)
@@ -104,26 +104,26 @@ screen Action_screen(automatic = False):
             tooltip f"{Player.first_name}'s Desire"
 
         if Player.desire >= 90:
-            add At("images/interface/Action_menu/glow_male.webp", pulse(intensity = 1.0)) zoom interface_adjustment
+            add At("images/interface/Action_menu/glow_male.webp", pulse(intensity = 1.0)) anchor (0.5, 0.5) pos (0.94, 0.0478) zoom interface_adjustment
         elif Player.desire >= 80:
-            add At("images/interface/Action_menu/glow_male.webp", pulse(intensity = 0.8)) zoom interface_adjustment
+            add At("images/interface/Action_menu/glow_male.webp", pulse(intensity = 0.8)) anchor (0.5, 0.5) pos (0.94, 0.0478) zoom interface_adjustment
         elif Player.desire >= 70:
-            add At("images/interface/Action_menu/glow_male.webp", pulse(intensity = 0.6)) zoom interface_adjustment
+            add At("images/interface/Action_menu/glow_male.webp", pulse(intensity = 0.6)) anchor (0.5, 0.5) pos (0.94, 0.0478) zoom interface_adjustment
         elif Player.desire >= 60:
-            add At("images/interface/Action_menu/glow_male.webp", pulse(intensity = 0.4)) zoom interface_adjustment
+            add At("images/interface/Action_menu/glow_male.webp", pulse(intensity = 0.4)) anchor (0.5, 0.5) pos (0.94, 0.0478) zoom interface_adjustment
         elif Player.desire >= 50:
-            add At("images/interface/Action_menu/glow_male.webp", pulse(intensity = 0.2)) zoom interface_adjustment
+            add At("images/interface/Action_menu/glow_male.webp", pulse(intensity = 0.2)) anchor (0.5, 0.5) pos (0.94, 0.0478) zoom interface_adjustment
 
         if focused_Character.desire >= 90:
-            add At("images/interface/Action_menu/lightning_female.webp", pulse(intensity = 1.0)) zoom interface_adjustment
+            add At("images/interface/Action_menu/lightning_female.webp", pulse(intensity = 1.0)) anchor (0.5, 0.5) pos (0.94, 0.0851) zoom interface_adjustment
         elif focused_Character.desire >= 80:
-            add At("images/interface/Action_menu/lightning_female.webp", pulse(intensity = 0.8)) zoom interface_adjustment
+            add At("images/interface/Action_menu/lightning_female.webp", pulse(intensity = 0.8)) anchor (0.5, 0.5) pos (0.94, 0.0851) zoom interface_adjustment
         elif focused_Character.desire >= 70:
-            add At("images/interface/Action_menu/lightning_female.webp", pulse(intensity = 0.6)) zoom interface_adjustment
+            add At("images/interface/Action_menu/lightning_female.webp", pulse(intensity = 0.6)) anchor (0.5, 0.5) pos (0.94, 0.0851) zoom interface_adjustment
         elif focused_Character.desire >= 60:
-            add At("images/interface/Action_menu/lightning_female.webp", pulse(intensity = 0.4)) zoom interface_adjustment
+            add At("images/interface/Action_menu/lightning_female.webp", pulse(intensity = 0.4)) anchor (0.5, 0.5) pos (0.94, 0.0851) zoom interface_adjustment
         elif focused_Character.desire >= 50:
-            add At("images/interface/Action_menu/lightning_female.webp", pulse(intensity = 0.2)) zoom interface_adjustment
+            add At("images/interface/Action_menu/lightning_female.webp", pulse(intensity = 0.2)) anchor (0.5, 0.5) pos (0.94, 0.0851) zoom interface_adjustment
 
         bar value focused_Character.desire range 100 anchor (0.5, 0.5) pos (0.94, 0.0851) xysize (int(291*interface_adjustment), int(37*interface_adjustment)):
             left_bar At("images/interface/Action_menu/climax_full_female.webp", interface)
@@ -135,15 +135,15 @@ screen Action_screen(automatic = False):
             tooltip f"{focused_Character.name}'s Desire"
 
         if focused_Character.desire >= 90:
-            add At("images/interface/Action_menu/glow_female.webp", pulse(intensity = 1.0)) zoom interface_adjustment
+            add At("images/interface/Action_menu/glow_female.webp", pulse(intensity = 1.0)) anchor (0.5, 0.5) pos (0.94, 0.0851) zoom interface_adjustment
         elif focused_Character.desire >= 80:
-            add At("images/interface/Action_menu/glow_female.webp", pulse(intensity = 0.8)) zoom interface_adjustment
+            add At("images/interface/Action_menu/glow_female.webp", pulse(intensity = 0.8)) anchor (0.5, 0.5) pos (0.94, 0.0851) zoom interface_adjustment
         elif focused_Character.desire >= 70:
-            add At("images/interface/Action_menu/glow_female.webp", pulse(intensity = 0.6)) zoom interface_adjustment
+            add At("images/interface/Action_menu/glow_female.webp", pulse(intensity = 0.6)) anchor (0.5, 0.5) pos (0.94, 0.0851) zoom interface_adjustment
         elif focused_Character.desire >= 60:
-            add At("images/interface/Action_menu/glow_female.webp", pulse(intensity = 0.4)) zoom interface_adjustment
+            add At("images/interface/Action_menu/glow_female.webp", pulse(intensity = 0.4)) anchor (0.5, 0.5) pos (0.94, 0.0851) zoom interface_adjustment
         elif focused_Character.desire >= 50:
-            add At("images/interface/Action_menu/glow_female.webp", pulse(intensity = 0.2)) zoom interface_adjustment
+            add At("images/interface/Action_menu/glow_female.webp", pulse(intensity = 0.2)) anchor (0.5, 0.5) pos (0.94, 0.0851) zoom interface_adjustment
 
         if has_progression_control:
             if has_position_control:

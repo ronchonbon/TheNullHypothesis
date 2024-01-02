@@ -155,7 +155,7 @@ label set_Character_Outfits(Characters = None, instant = True):
     while temp_Characters:
         if temp_Characters[0] in all_Companions:
             if temp_Characters[0].location != Player.location:
-                $ temp_Characters[0].give_trait("wet")
+                $ temp_Characters[0].remove_trait("wet")
                 
             if temp_Characters[0].behavior == "on_date":
                 $ Outfit = temp_Characters[0].Wardrobe.date_Outfit

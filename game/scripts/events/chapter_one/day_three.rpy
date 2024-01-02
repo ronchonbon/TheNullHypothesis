@@ -469,6 +469,8 @@ label day_three_combat_lesson:
 
     call Laura_unsheathes_claws from _call_Laura_unsheathes_claws_6
 
+    pause 0.5
+
     $ Laura.change_arms("fight")
 
     "She reflexively unsheathes her claws and gets into a fighting stance."

@@ -72,7 +72,8 @@ label day_one_intro:
             "Get out of bed":
                 $ sleeping = False
             "Go back to sleep":
-                $ fade_to_black(0.4)
+                if first_counter == 0:
+                    $ fade_to_black(0.4)
 
                 if first_counter < 3:
                     if first_counter == 0:
@@ -259,6 +260,13 @@ label day_one_intro:
             $ Charles.change_face("neutral", mouth = "frown")
 
             ch_Charles "I am afraid you might only put them in harm's way by going back home."
+
+            $ Charles.change_face("neutral")
+        "This is. . . a lot to take in.":
+            $ Charles.change_face("neutral", mouth = "frown")
+
+            ch_Charles "I imagine that this must be incredibly difficult for you, [Player.first_name]."
+            ch_Charles "It will take time to process everything that has happened."
 
             $ Charles.change_face("neutral")
         "I could get used to living in a mansion. . .":
@@ -654,7 +662,7 @@ label meet_Rogue:
     $ Rogue.change_face("smirk2", blush = False)
     $ Rogue.change_arms("neutral")
 
-    $ Ororo.change_face("smirk2")
+    $ Ororo.change_face("smirk2", eyes = "left")
     $ Ororo.change_arms("neutral", left_arm = "storm2")
 
     ch_Ororo "Alright, thank you, [Rogue.name], you are dismissed."
