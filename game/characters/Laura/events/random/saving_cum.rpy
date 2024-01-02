@@ -6,7 +6,7 @@ init python:
         conditions = [
             "renpy.random.random() > 0.9",
 
-            "Laura.quirk",
+            "Laura.check_traits('quirk')",
 
             "not Laura.timed_text_options",
 
@@ -101,7 +101,7 @@ label Laura_saving_cum:
         "[Laura.name] stares at you intently."
         "Her nostrils flare."  
 
-    if Player.grool or Player.dirty_cock:
+    if Player.check_traits("grool") or Player.check_traits("dirty_cock"):
         $ Laura.change_face("angry1", blush = 2)
 
         ch_Laura "You didn't do as I said."

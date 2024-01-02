@@ -103,31 +103,25 @@ init -3 python:
             for Clothing_type in all_Clothing_types:
                 self.Clothes[Clothing_type] = null_Clothing
 
-            self.naked = False
+            self.traits = []
 
-            self.breasts_supported = False
+        def give_trait(self, trait):
+            if trait not in self.traits:
+                self.traits.append(trait)
 
-            self.bra_covered = False
-            self.breasts_covered = False
-            self.back_covered = False
-            self.belly_covered = False
-            self.thighs_covered = False
-            self.underwear_covered = False
-            self.ass_covered = False
-            self.pussy_covered = False
-            self.anus_covered = False
-            self.feet_covered = False
+            return
 
-            self.bra_hidden = False
-            self.breasts_hidden = False
-            self.back_hidden = False
-            self.belly_hidden = False
-            self.thighs_hidden = False
-            self.underwear_hidden = False
-            self.ass_hidden = False
-            self.pussy_hidden = False
-            self.anus_hidden = False
-            self.feet_hidden = False
+        def remove_trait(self, trait):
+            if trait in self.traits:
+                self.traits.remove(trait)
+
+            return
+
+        def check_traits(self, trait):
+            if trait in self.traits:
+                return True
+        
+            return False
 
     class WardrobeClass(object):
         def __init__(self):

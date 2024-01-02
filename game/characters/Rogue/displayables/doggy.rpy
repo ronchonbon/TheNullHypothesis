@@ -232,38 +232,38 @@ layeredimage Rogue_doggy:
 layeredimage Rogue_doggy_ass:
     if Player.orgasming and focused_Character == Rogue:
         "Rogue_doggy_left_leg_animation0"
-    elif Player.cock_Actions and Rogue in Player.cock_Actions[0].Targets and Rogue.orgasming:
+    elif Player.cock_Actions and Rogue in Player.cock_Actions[0].Targets and Rogue.check_traits("orgasming"):
         At("Rogue_doggy_left_leg_animation[Player.cock_Actions[0].mode]", tremble(20))
     elif Player.cock_Actions and Rogue in Player.cock_Actions[0].Targets:
         "Rogue_doggy_left_leg_animation[Player.cock_Actions[0].mode]"
-    elif Rogue.orgasming:
+    elif Rogue.check_traits("orgasming"):
         At("Rogue_doggy_left_leg_animation0", tremble(20))
     else:
         "Rogue_doggy_left_leg_animation0"
 
     if Player.orgasming and focused_Character == Rogue:
         "Rogue_doggy_right_leg_animation0"
-    elif Player.cock_Actions and Rogue in Player.cock_Actions[0].Targets and Rogue.orgasming:
+    elif Player.cock_Actions and Rogue in Player.cock_Actions[0].Targets and Rogue.check_traits("orgasming"):
         At("Rogue_doggy_right_leg_animation[Player.cock_Actions[0].mode]", tremble(20))
     elif Player.cock_Actions and Rogue in Player.cock_Actions[0].Targets:
         "Rogue_doggy_right_leg_animation[Player.cock_Actions[0].mode]"
-    elif Rogue.orgasming:
+    elif Rogue.check_traits("orgasming"):
         At("Rogue_doggy_right_leg_animation0", tremble(20))
     else:
         "Rogue_doggy_right_leg_animation0"
         
     if Player.orgasming and focused_Character == Rogue:
         "Rogue_doggy_torso_animation0"
-    elif Player.cock_Actions and Rogue in Player.cock_Actions[0].Targets and Rogue.orgasming:
+    elif Player.cock_Actions and Rogue in Player.cock_Actions[0].Targets and Rogue.check_traits("orgasming"):
         At("Rogue_doggy_torso_animation[Player.cock_Actions[0].mode]", tremble(20))
     elif Player.cock_Actions and Rogue in Player.cock_Actions[0].Targets:
         "Rogue_doggy_torso_animation[Player.cock_Actions[0].mode]"
-    elif Rogue.orgasming:
+    elif Rogue.check_traits("orgasming"):
         At("Rogue_doggy_torso_animation0", tremble(20))
     else:
         "Rogue_doggy_torso_animation0"
         
-    if not Player.body_visible:
+    if not Player.check_traits("body_visible"):
         Null()
     elif Player.orgasming and focused_Character == Rogue:
         "Rogue_doggy_male_body_[Player.orgasming]_animation"
@@ -416,7 +416,7 @@ layeredimage Rogue_doggy_ass:
     elif Rogue.right_hand_Actions and Rogue.right_hand_Actions[0].animation_type == "self_finger_ass":
         "Rogue_doggy_right_forearm_self_finger_ass_animation[Rogue.right_hand_Actions[0].mode]"
 
-    if not Player.body_visible:
+    if not Player.check_traits("body_visible"):
         Null()
     elif Player.left_hand_Actions and Rogue in Player.left_hand_Actions[0].Targets and Player.left_hand_Actions[0].animation_type == "grab_ass":
         "Rogue_doggy_male_left_arm_animation0"
@@ -427,7 +427,7 @@ layeredimage Rogue_doggy_ass:
     elif Player.cock_Actions and Rogue in Player.cock_Actions[0].Targets:
         "Rogue_doggy_male_left_arm_animation[Player.cock_Actions[0].mode]"
 
-    if not Player.body_visible:
+    if not Player.check_traits("body_visible"):
         Null()
     elif Player.right_hand_Actions and Rogue in Player.right_hand_Actions[0].Targets and Player.right_hand_Actions[0].animation_type == "grab_ass":
         "Rogue_doggy_male_right_arm_animation0"
@@ -588,14 +588,14 @@ image Rogue_doggy_left_arm:
     offset (int(1474*sex_sampling), int(1200*sex_sampling))
 
 layeredimage Rogue_doggy_hair:
-    if Rogue.wet or Rogue.Clothes["hair"].string == "wet":
+    if Rogue.check_traits("wet") or Rogue.Clothes["hair"].string == "wet":
         "characters/Rogue/images/doggy/hair_shadow_wet.webp"
     elif Rogue.Clothes["hair"].string in ["messy", "ponytail"]:
         "characters/Rogue/images/doggy/hair_shadow_asymmetric.webp"
     else:
         "characters/Rogue/images/doggy/hair_shadow_[Rogue.Clothes[hair].string].webp"
 
-    if Rogue.wet or Rogue.Clothes["hair"].string == "wet":
+    if Rogue.check_traits("wet") or Rogue.Clothes["hair"].string == "wet":
         "characters/Rogue/images/doggy/hair_wet.webp"
     elif Rogue.Clothes["hair"].string in ["messy", "ponytail"]:
         "characters/Rogue/images/doggy/hair_asymmetric.webp"
@@ -618,8 +618,8 @@ layeredimage Rogue_doggy_pussy_closed:
     always:
         "characters/Rogue/images/doggy/pussy_closed.webp"
 
-    if Rogue.body_hair["pubic"] == "hairy":
-        "characters/Rogue/images/doggy/pubes_top_hairy_closed.webp"
+    # if Rogue.body_hair["pubic"] == "hairy":
+    #     "characters/Rogue/images/doggy/pubes_top_hairy_closed.webp"
 
     anchor (int(2106*sex_sampling), int(3186*sex_sampling))
     offset (int(2106*sex_sampling), int(3186*sex_sampling))
@@ -628,8 +628,8 @@ layeredimage Rogue_doggy_pussy_open:
     always:
         "characters/Rogue/images/doggy/pussy_open.webp"
 
-    if Rogue.body_hair["pubic"] == "hairy":
-        "characters/Rogue/images/doggy/pubes_top_hairy_open.webp"
+    # if Rogue.body_hair["pubic"] == "hairy":
+    #     "characters/Rogue/images/doggy/pubes_top_hairy_open.webp"
 
     anchor (int(2106*sex_sampling), int(3186*sex_sampling))
     offset (int(2106*sex_sampling), int(3186*sex_sampling))
@@ -643,8 +643,8 @@ layeredimage Rogue_doggy_pussy_agape:
     always:
         "characters/Rogue/images/doggy/pussy_agape.webp"
 
-    if Rogue.body_hair["pubic"] == "hairy":
-        "characters/Rogue/images/doggy/pubes_top_hairy_agape.webp"
+    # if Rogue.body_hair["pubic"] == "hairy":
+    #     "characters/Rogue/images/doggy/pubes_top_hairy_agape.webp"
 
     anchor (int(2102*sex_sampling), int(3144*sex_sampling))
     offset (int(2102*sex_sampling), int(3144*sex_sampling))
@@ -746,7 +746,7 @@ layeredimage Rogue_doggy_mask_anus:
     offset (int(2113*sex_sampling), int(2850*sex_sampling))
 
 layeredimage Rogue_doggy_male_head:
-    if Player.body_visible:
+    if Player.check_traits("body_visible"):
         "Player_head"
 
     if Player.mouth_Actions and Rogue in Player.mouth_Actions[0].Targets and Player.mouth_Actions[0].animation_type in ["suck_nipples", "eat_pussy", "eat_ass"]:
@@ -1396,7 +1396,7 @@ layeredimage Rogue_doggy_cock_animations:
     else:
         "Rogue_doggy_cock_[Player.cock_Actions[0].animation_type]_animation[Player.cock_Actions[0].mode]"
 
-    if not Player.spunk and not Player.orgasming:
+    if not Player.check_traits("spunk") and not Player.orgasming:
         Null()
     elif Player.orgasming and focused_Character == Rogue:
         "Rogue_doggy_spunk_tip_[Player.orgasming]_animation"

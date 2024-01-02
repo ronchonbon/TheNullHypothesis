@@ -20,9 +20,9 @@ label study:
                 call wait_around from _call_wait_around_27
                 
         menu(menu_location = "bg_study"):
-            "Try to contact [Charles.name]" if Charles.gives_work and clock > 0 and time_index < 3 and Charles.location != Player.location and not Charles.History.check("Player_contacted_telepathically"):
+            "Try to contact [Charles.name]" if Charles.check_traits("gives_work") and clock > 0 and time_index < 3 and Charles.location != Player.location and not Charles.History.check("Player_contacted_telepathically"):
                 call work(Charles) from _call_work
-            "Contact [Charles.name]" if Charles.gives_work and clock > 0 and time_index < 3 and Charles.location != Player.location and Charles.History.check("Player_contacted_telepathically"):
+            "Contact [Charles.name]" if Charles.check_traits("gives_work") and clock > 0 and time_index < 3 and Charles.location != Player.location and Charles.History.check("Player_contacted_telepathically"):
                 call work(Charles) from _call_work_1
             "Classroom":
                 call travel("bg_classroom") from _call_travel_33

@@ -47,7 +47,7 @@ label Laura_accepts_choke_second_time:
     return
 
 label Laura_accepts_choke:
-    if Laura.quirk:
+    if Laura.check_traits("quirk"):
         $ dice_roll = renpy.random.randint(1, 3)
     else:
         $ dice_roll = renpy.random.randint(1, 2)

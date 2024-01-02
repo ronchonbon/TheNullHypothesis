@@ -28,7 +28,7 @@ layeredimage bg_Laura:
     if "mirror" in Laura.inventory.keys():
         "characters/Laura/images/bedroom/bg_Laura_mirror.webp"
 
-    if Laura.messy_bed:
+    if Laura.check_traits("messy_bed"):
         "characters/Laura/images/bedroom/bg_Laura_messy_bed.webp"
     else:
         "characters/Laura/images/bedroom/bg_Laura_bed.webp"
@@ -36,7 +36,7 @@ layeredimage bg_Laura:
     if "record_player" in Laura.inventory.keys():
         "characters/Laura/images/bedroom/bg_Laura_record_player.webp"
 
-    if Laura.clothes_on_floor:
+    if Laura.check_traits("clothes_on_floor"):
         "characters/Laura/images/bedroom/bg_Laura_clothes.webp"
 
     if "MMA_gloves" in Laura.inventory.keys():

@@ -90,7 +90,7 @@ label Laura_arrives_relationship(arriving_Characters):
     return
 
 label Laura_arrives_love(arriving_Characters):
-    if Laura.quirk:
+    if Laura.check_traits("quirk"):
         $ dice_roll = renpy.random.randint(1, 5)
     else:
         $ dice_roll = renpy.random.randint(1, 4)
@@ -276,7 +276,7 @@ label Laura_arrives_horny(arriving_Characters):
     return
 
 label Laura_arrives_nympho(arriving_Characters):
-    if Laura.quirk:
+    if Laura.check_traits("quirk"):
         $ dice_roll = renpy.random.randint(1, 2)
     else:
         $ dice_roll = renpy.random.randint(1, 1)
@@ -319,7 +319,7 @@ label Laura_leaves(leaving_Characters, also_leaving = False):
     return
 
 label Laura_leaves_relationship(leaving_Characters, also_leaving = False):
-    if Laura.quirk:
+    if Laura.check_traits("quirk"):
         $ dice_roll = renpy.random.randint(1, 3)
     else:
         $ dice_roll = renpy.random.randint(1, 2)
@@ -340,7 +340,7 @@ label Laura_leaves_relationship(leaving_Characters, also_leaving = False):
     return
 
 label Laura_leaves_love(leaving_Characters, also_leaving = False):
-    if Laura.quirk:
+    if Laura.check_traits("quirk"):
         $ dice_roll = renpy.random.randint(1, 3)
     else:
         $ dice_roll = renpy.random.randint(1, 2)
@@ -419,7 +419,7 @@ label Laura_leaves_horny(leaving_Characters, also_leaving = False):
     return
 
 label Laura_leaves_nympho(leaving_Characters, also_leaving = False):
-    if Laura.quirk:
+    if Laura.check_traits("quirk"):
         $ dice_roll = renpy.random.randint(1, 2)
     else:
         $ dice_roll = renpy.random.randint(1, 1)

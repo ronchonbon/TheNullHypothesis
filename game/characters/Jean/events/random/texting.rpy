@@ -244,7 +244,7 @@ init python:
         conditions = [
             "renpy.random.random() > 0.9",
 
-            "Jean.quirk",
+            "Jean.check_traits('quirk')",
 
             "not Jean.timed_text_options",
             

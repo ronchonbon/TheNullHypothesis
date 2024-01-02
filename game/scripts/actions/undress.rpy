@@ -287,7 +287,7 @@ label ask_to_undress(Character):
             "Put on your [Outfit[socks].short_name]?" if not Clothes["socks"].string and Outfit["socks"].string and Character.position in Outfit["socks"].poses:
                 $ verb = "try_on"
                 $ Item_type = "socks"
-            "Take off everything?" if not Character.naked:
+            "Take off everything?" if not Character.check_traits("naked"):
                 $ removed_Items = []
 
                 python:
@@ -316,12 +316,12 @@ label ask_to_undress(Character):
 
         if _return and verb == "take_off":
             if Player.location == Player.home:
-                $ Player.clothes_on_floor = True
+                $ Player.give_trait("clothes_on_floor")
             elif Player.location in bedrooms:
                 python:
                     for C in active_Companions:
                         if Player.location == C.home:
-                            C.clothes_on_floor = True
+                            C.give_trait("clothes_on_floor")
 
         $ check_for_clothed_Actions(Character)
 

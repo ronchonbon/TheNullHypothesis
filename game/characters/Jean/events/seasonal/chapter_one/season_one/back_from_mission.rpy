@@ -24,11 +24,11 @@ label Jean_back_from_mission:
 
     "As you exit the dorms, a voice pops into your head."
 
-    $ Charles.telepathic = True
+    $ Charles.give_trait("telepathic")
 
     ch_Charles "[Player.first_name], could you please meet come to my study."
 
-    $ Charles.telepathic = False
+    $ Charles.remove_trait("telepathic")
 
     "You turn around and head back."
 
@@ -142,7 +142,7 @@ label Jean_back_from_mission:
         
         $ Jean.change_face("sad")
         
-        if Player.has_family:
+        if Player.check_traits("has_family"):
             ch_Player "I'm just worried about my family. . ."
     
         ch_Jean "Yeah. . . I get it. Trust me, we've all been there."

@@ -20,8 +20,6 @@ init -2 python:
 
         Charles.database_type = "ally"
 
-        Charles.gives_quests = True
-
         Charles.psychic = False
         Charles.activating_psychic = False
         Charles.deactivating_psychic = False

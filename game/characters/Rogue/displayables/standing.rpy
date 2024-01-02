@@ -64,7 +64,7 @@ image Rogue_sprite standing:
 layeredimage Rogue_standing_temp:
     if Rogue.hovered:
         "Rogue_standing" at hover
-    elif Rogue.orgasming:
+    elif Rogue.check_traits("orgasming"):
         "Rogue_standing" at tremble(20)
     else:
         "Rogue_standing"
@@ -80,7 +80,7 @@ layeredimage Rogue_standing:
     elif Player.right_hand_Actions[0].animation_type == "grab_ass":
         "Rogue_standing_male_right_arm_grab_ass_animation[Player.right_hand_Actions[0].mode]" at change_offset(Rogue_standing_ass_position[0], Rogue_standing_ass_position[1])
 
-    if Rogue.ground_shadow:
+    if Rogue.check_traits("ground_shadow"):
         "characters/Rogue/images/standing/ground_shadow.webp" at Transform(blend = "multiply")
 
     if renpy.get_screen("Wardrobe_screen"):
@@ -355,7 +355,7 @@ layeredimage Rogue_standing:
         "Rogue_standing_male_head_suck_right_nipple_animation[Player.mouth_Actions[0].mode]" at change_offset(Rogue_standing_right_nipple_position[0], Rogue_standing_right_nipple_position[1])
 
 layeredimage Rogue_standing_hair_back: 
-    if Rogue.wet or Rogue.Clothes["hair"].string == "wet":
+    if Rogue.check_traits("wet") or Rogue.Clothes["hair"].string == "wet":
         "characters/Rogue/images/standing/hair_back_wet.webp"
     else:
         "characters/Rogue/images/standing/hair_back_[Rogue.Clothes[hair].string].webp"
@@ -534,14 +534,14 @@ layeredimage Rogue_standing_body:
 
     if Rogue.left_arm == "crossed" and Rogue.right_arm == "crossed":
         "characters/Rogue/images/standing/breasts_crossed_shadow.webp" at Transform(blend = "multiply")
-    elif Rogue.breasts_supported:
+    elif Rogue.check_traits("breasts_supported"):
         "characters/Rogue/images/standing/breasts_supported_shadow.webp" at Transform(blend = "multiply")
     else:
         "characters/Rogue/images/standing/breasts_shadow.webp" at Transform(blend = "multiply")
 
     if Rogue.left_arm == "crossed" and Rogue.right_arm == "crossed":
         "characters/Rogue/images/standing/breasts_crossed.webp"
-    elif Rogue.breasts_supported:
+    elif Rogue.check_traits("breasts_supported"):
         "characters/Rogue/images/standing/breasts_supported.webp"
     else:
         "characters/Rogue/images/standing/breasts.webp"
@@ -553,7 +553,7 @@ layeredimage Rogue_standing_body:
         Null()
     elif Rogue.left_arm == "crossed" and Rogue.right_arm == "crossed":
         "characters/Rogue/images/standing/nipple_piercings_barbell_crossed.webp"
-    elif Rogue.breasts_supported:
+    elif Rogue.check_traits("breasts_supported"):
         "characters/Rogue/images/standing/nipple_piercings_barbell_supported.webp"
     elif Rogue.left_arm == "grope":
         "characters/Rogue/images/standing/nipple_piercings_barbell_grope.webp"
@@ -564,7 +564,7 @@ layeredimage Rogue_standing_body:
         Null()
     elif Rogue.left_arm == "crossed" and Rogue.right_arm == "crossed":
         "characters/Rogue/images/standing/nipple_piercings_ring_crossed.webp"
-    elif Rogue.breasts_supported:
+    elif Rogue.check_traits("breasts_supported"):
         "characters/Rogue/images/standing/nipple_piercings_ring_supported.webp"
     elif Rogue.left_arm == "grope":
         "characters/Rogue/images/standing/nipple_piercings_ring_grope.webp"
@@ -599,9 +599,9 @@ layeredimage Rogue_standing_body:
         Null()
     elif Rogue.left_arm == "crossed" and Rogue.right_arm == "crossed":
         "characters/Rogue/images/standing/top_[Rogue.Clothes[top].string]_[Rogue.Clothes[top].state]_crossed.webp"
-    elif Rogue.left_arm == "grope" and Rogue.Clothes["top"].state == 1 and not Rogue.breasts_supported:
+    elif Rogue.left_arm == "grope" and Rogue.Clothes["top"].state == 1 and not Rogue.check_traits("breasts_supported"):
         "characters/Rogue/images/standing/top_[Rogue.Clothes[top].string]_1_grope.webp"
-    elif Rogue.breasts_supported:
+    elif Rogue.check_traits("breasts_supported"):
         "characters/Rogue/images/standing/top_[Rogue.Clothes[top].string]_[Rogue.Clothes[top].state]_supported.webp"
     else:
         "characters/Rogue/images/standing/top_[Rogue.Clothes[top].string]_[Rogue.Clothes[top].state].webp"
@@ -719,12 +719,12 @@ layeredimage Rogue_standing_head:
     if Rogue.spunk["face"] == 2:
         "characters/Rogue/images/standing/spunk_face2.webp"
 
-    if Rogue.wet or Rogue.Clothes["hair"].string == "wet":
+    if Rogue.check_traits("wet") or Rogue.Clothes["hair"].string == "wet":
         "characters/Rogue/images/standing/hair_wet_shadow.webp" at Transform(blend = "multiply")
     else:
         "characters/Rogue/images/standing/hair_[Rogue.Clothes[hair].string]_shadow.webp" at Transform(blend = "multiply")
 
-    if Rogue.wet or Rogue.Clothes["hair"].string == "wet":
+    if Rogue.check_traits("wet") or Rogue.Clothes["hair"].string == "wet":
         "characters/Rogue/images/standing/hair_wet.webp"
     else:
         "characters/Rogue/images/standing/hair_[Rogue.Clothes[hair].string].webp"
@@ -771,7 +771,7 @@ layeredimage Rogue_standing_male_right_arm:
         "Player_right_arm_pinch"
 
 layeredimage Rogue_standing_male_head:
-    if Player.body_visible:
+    if Player.check_traits("body_visible"):
         "Player_head"
 
     if Player.mouth_Actions and Rogue in Player.mouth_Actions[0].Targets and Player.mouth_Actions[0].animation_type in ["suck_nipples", "eat_pussy", "eat_ass"]:

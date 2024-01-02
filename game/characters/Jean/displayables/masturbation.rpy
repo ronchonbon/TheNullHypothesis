@@ -358,13 +358,13 @@ layeredimage Jean_masturbation_head:
     offset (int(2787*sex_sampling), int(1333*sex_sampling))
     
 layeredimage Jean_masturbation_hair:
-    # if Jean.wet or Jean.Clothes["hair"].string == "wet":
+    # if Jean.check_traits("wet") or Jean.Clothes["hair"].string == "wet":
     #     "characters/Jean/images/masturbation/hair_shadow_wet.webp"
     # else:
     always:
         "characters/Jean/images/masturbation/hair_shadow_[Jean.Clothes[hair].string].webp"
 
-    # if Jean.wet or Jean.Clothes["hair"].string == "wet":
+    # if Jean.check_traits("wet") or Jean.Clothes["hair"].string == "wet":
     #     "characters/Jean/images/masturbation/hair_wet.webp"
     # else:
     always:
@@ -383,15 +383,15 @@ image Jean_masturbation_right_forearm:
     offset (int(2091*sex_sampling), int(2343*sex_sampling))
     
 layeredimage Jean_masturbation_thighs:
-    if Jean.vagina_Actions and Jean.orgasming:
+    if Jean.vagina_Actions and Jean.check_traits("orgasming"):
         At("Jean_masturbation_torso_animation[Jean.vagina_Actions[0].mode]", tremble(20))
     if Jean.vagina_Actions:
         "Jean_masturbation_torso_animation[Jean.vagina_Actions[0].mode]"
-    elif Jean.anus_Actions and Jean.orgasming:
+    elif Jean.anus_Actions and Jean.check_traits("orgasming"):
         At("Jean_masturbation_torso_animation[Jean.anus_Actions[0].mode]", tremble(20))
     elif Jean.anus_Actions:
         "Jean_masturbation_torso_animation[Jean.anus_Actions[0].mode]"
-    elif Jean.orgasming:
+    elif Jean.check_traits("orgasming"):
         At("Jean_masturbation_torso_animation0", tremble(20))
     else:
         "Jean_masturbation_torso_animation0"
@@ -462,28 +462,28 @@ layeredimage Jean_masturbation_thighs:
     if Jean.right_hand_Actions and Jean.right_hand_Actions[0].animation_type == "self_touch_pussy":
         "Jean_masturbation_right_hand_animation[Jean.right_hand_Actions[0].mode]"
 
-    if Jean.vagina_Actions and Jean.orgasming:
+    if Jean.vagina_Actions and Jean.check_traits("orgasming"):
         At("Jean_masturbation_left_leg_animation[Jean.vagina_Actions[0].mode]", tremble(20))
     elif Jean.vagina_Actions:
         "Jean_masturbation_left_leg_animation[Jean.vagina_Actions[0].mode]"
-    elif Jean.anus_Actions and Jean.orgasming:
+    elif Jean.anus_Actions and Jean.check_traits("orgasming"):
         At("Jean_masturbation_left_leg_animation[Jean.anus_Actions[0].mode]", tremble(20))
     elif Jean.anus_Actions:
         "Jean_masturbation_left_leg_animation[Jean.anus_Actions[0].mode]"
-    elif Jean.orgasming:
+    elif Jean.check_traits("orgasming"):
         At("Jean_masturbation_left_leg_animation0", tremble(20))
     else:
         "Jean_masturbation_left_leg_animation0"
 
-    if Jean.vagina_Actions and Jean.orgasming:
+    if Jean.vagina_Actions and Jean.check_traits("orgasming"):
         At("Jean_masturbation_right_leg_animation[Jean.vagina_Actions[0].mode]", tremble(20))
     elif Jean.vagina_Actions:
         "Jean_masturbation_right_leg_animation[Jean.vagina_Actions[0].mode]"
-    elif Jean.anus_Actions and Jean.orgasming:
+    elif Jean.anus_Actions and Jean.check_traits("orgasming"):
         At("Jean_masturbation_right_leg_animation[Jean.anus_Actions[0].mode]", tremble(20))
     elif Jean.anus_Actions:
         "Jean_masturbation_right_leg_animation[Jean.anus_Actions[0].mode]"
-    elif Jean.orgasming:
+    elif Jean.check_traits("orgasming"):
         At("Jean_masturbation_right_leg_animation0", tremble(20))
     else:
         "Jean_masturbation_right_leg_animation0"
@@ -728,7 +728,7 @@ layeredimage Jean_masturbation_male_right_arm_fondle:
         "Player_right_arm_pinch"
 
 layeredimage Jean_masturbation_male_head:
-    if Player.body_visible:
+    if Player.check_traits("body_visible"):
         "Player_head"
 
     if Player.mouth_Actions and Jean in Player.mouth_Actions[0].Targets and Player.mouth_Actions[0].animation_type in ["suck_nipples", "eat_pussy", "eat_ass"]:

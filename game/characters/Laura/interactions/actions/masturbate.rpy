@@ -31,7 +31,7 @@ label Laura_accepts_self_touch_pussy_second_time:
     return
 
 label Laura_accepts_self_touch_pussy:
-    if Laura.quirk:
+    if Laura.check_traits("quirk"):
         $ dice_roll = renpy.random.randint(1, 2)
     else:
         $ dice_roll = renpy.random.randint(1, 1)
@@ -90,7 +90,7 @@ label Laura_accepts_self_finger_ass_second_time:
     return
 
 label Laura_accepts_self_finger_ass:
-    if Laura.quirk:
+    if Laura.check_traits("quirk"):
         $ dice_roll = renpy.random.randint(1, 2)
     else:
         $ dice_roll = renpy.random.randint(1, 1)
@@ -136,7 +136,7 @@ label Laura_accepts_self_vibrator_second_time:
     return
 
 label Laura_accepts_self_vibrator:
-    if Laura.quirk:
+    if Laura.check_traits("quirk"):
         $ dice_roll = renpy.random.randint(1, 2)
     else:
         $ dice_roll = renpy.random.randint(1, 1)
@@ -182,7 +182,7 @@ label Laura_accepts_self_dildo_pussy_second_time:
     return
 
 label Laura_accepts_self_dildo_pussy:
-    if Laura.quirk:
+    if Laura.check_traits("quirk"):
         $ dice_roll = renpy.random.randint(1, 2)
     else:
         $ dice_roll = renpy.random.randint(1, 1)
@@ -228,7 +228,7 @@ label Laura_accepts_self_dildo_ass_second_time:
     return
 
 label Laura_accepts_self_dildo_ass:
-    if Laura.quirk:
+    if Laura.check_traits("quirk"):
         $ dice_roll = renpy.random.randint(1, 2)
     else:
         $ dice_roll = renpy.random.randint(1, 1)

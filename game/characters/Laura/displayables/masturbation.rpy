@@ -356,14 +356,14 @@ layeredimage Laura_masturbation_head:
     offset (int(2787*sex_sampling), int(1333*sex_sampling))
     
 layeredimage Laura_masturbation_hair:
-    if Laura.wet or Laura.Clothes["hair"].string == "wet":
+    if Laura.check_traits("wet") or Laura.Clothes["hair"].string == "wet":
         "characters/Laura/images/masturbation/hair_shadow_wet.webp"
     elif Laura.Clothes["hair"].string in ["bun", "tucked"]:
         "characters/Laura/images/masturbation/hair_shadow_straight.webp"
     else:
         "characters/Laura/images/masturbation/hair_shadow_[Laura.Clothes[hair].string].webp"
 
-    if Laura.wet or Laura.Clothes["hair"].string == "wet":
+    if Laura.check_traits("wet") or Laura.Clothes["hair"].string == "wet":
         "characters/Laura/images/masturbation/hair_wet.webp"
     elif Laura.Clothes["hair"].string in ["bun", "tucked"]:
         "characters/Laura/images/masturbation/hair_straight.webp"
@@ -383,15 +383,15 @@ image Laura_masturbation_right_forearm:
     offset (int(2091*sex_sampling), int(2343*sex_sampling))
     
 layeredimage Laura_masturbation_thighs:
-    if Laura.vagina_Actions and Laura.orgasming:
+    if Laura.vagina_Actions and Rogue.check_traits("orgasming"):
         At("Laura_masturbation_torso_animation[Laura.vagina_Actions[0].mode]", tremble(20))
     if Laura.vagina_Actions:
         "Laura_masturbation_torso_animation[Laura.vagina_Actions[0].mode]"
-    elif Laura.anus_Actions and Laura.orgasming:
+    elif Laura.anus_Actions and Rogue.check_traits("orgasming"):
         At("Laura_masturbation_torso_animation[Laura.anus_Actions[0].mode]", tremble(20))
     elif Laura.anus_Actions:
         "Laura_masturbation_torso_animation[Laura.anus_Actions[0].mode]"
-    elif Laura.orgasming:
+    elif Rogue.check_traits("orgasming"):
         At("Laura_masturbation_torso_animation0", tremble(20))
     else:
         "Laura_masturbation_torso_animation0"
@@ -462,28 +462,28 @@ layeredimage Laura_masturbation_thighs:
     if Laura.right_hand_Actions and Laura.right_hand_Actions[0].animation_type == "self_touch_pussy":
         "Laura_masturbation_right_hand_animation[Laura.right_hand_Actions[0].mode]"
 
-    if Laura.vagina_Actions and Laura.orgasming:
+    if Laura.vagina_Actions and Rogue.check_traits("orgasming"):
         At("Laura_masturbation_left_leg_animation[Laura.vagina_Actions[0].mode]", tremble(20))
     elif Laura.vagina_Actions:
         "Laura_masturbation_left_leg_animation[Laura.vagina_Actions[0].mode]"
-    elif Laura.anus_Actions and Laura.orgasming:
+    elif Laura.anus_Actions and Rogue.check_traits("orgasming"):
         At("Laura_masturbation_left_leg_animation[Laura.anus_Actions[0].mode]", tremble(20))
     elif Laura.anus_Actions:
         "Laura_masturbation_left_leg_animation[Laura.anus_Actions[0].mode]"
-    elif Laura.orgasming:
+    elif Rogue.check_traits("orgasming"):
         At("Laura_masturbation_left_leg_animation0", tremble(20))
     else:
         "Laura_masturbation_left_leg_animation0"
 
-    if Laura.vagina_Actions and Laura.orgasming:
+    if Laura.vagina_Actions and Rogue.check_traits("orgasming"):
         At("Laura_masturbation_right_leg_animation[Laura.vagina_Actions[0].mode]", tremble(20))
     elif Laura.vagina_Actions:
         "Laura_masturbation_right_leg_animation[Laura.vagina_Actions[0].mode]"
-    elif Laura.anus_Actions and Laura.orgasming:
+    elif Laura.anus_Actions and Rogue.check_traits("orgasming"):
         At("Laura_masturbation_right_leg_animation[Laura.anus_Actions[0].mode]", tremble(20))
     elif Laura.anus_Actions:
         "Laura_masturbation_right_leg_animation[Laura.anus_Actions[0].mode]"
-    elif Laura.orgasming:
+    elif Rogue.check_traits("orgasming"):
         At("Laura_masturbation_right_leg_animation0", tremble(20))
     else:
         "Laura_masturbation_right_leg_animation0"
@@ -728,7 +728,7 @@ layeredimage Laura_masturbation_male_right_arm_fondle:
         "Player_right_arm_pinch"
 
 layeredimage Laura_masturbation_male_head:
-    if Player.body_visible:
+    if Player.check_traits("body_visible"):
         "Player_head"
 
     if Player.mouth_Actions and Laura in Player.mouth_Actions[0].Targets and Player.mouth_Actions[0].animation_type in ["suck_nipples", "eat_pussy", "eat_ass"]:

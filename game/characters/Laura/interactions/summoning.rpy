@@ -1,5 +1,5 @@
 label Laura_summon_in_love:
-    if Laura.quirk:
+    if Laura.check_traits("quirk"):
         call receive_text(Laura, "I know where you are") from _call_receive_text_297
         call receive_text(Laura, "Don't move") from _call_receive_text_298
     else:

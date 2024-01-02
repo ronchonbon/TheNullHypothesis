@@ -847,7 +847,7 @@ label Jean_date_dinner_sex:
             $ sex_acts.append("eat_pussy")
 
         if sex_acts:
-            if Jean.quirk:
+            if Jean.check_traits("quirk"):
                 ch_Jean "Just try and relax." 
                 ch_Jean "Your big sister is gonna make you feel {i}really{/i} good."
 
@@ -1808,7 +1808,7 @@ label Jean_date_movie_sex:
             $ sex_acts.append("blowjob")
 
         if sex_acts:
-            if Jean.quirk:
+            if Jean.check_traits("quirk"):
                 ch_Jean "Just try and relax." 
                 ch_Jean "Your big sister is gonna make you feel {i}really{/i} good."
 

@@ -135,7 +135,7 @@ label Laura_accepts_show_bra_before_love:
         $ Laura.change_face("sly", mouth = "lipbite", blush = 1)
 
         ch_Laura "I bet you just want to look at my nipples poking through."
-    elif Laura.quirk:
+    elif Laura.check_traits("quirk"):
         if Laura.Clothes["bra"].gift:
             $ dice_roll = renpy.random.randint(1, 5)
         else:
@@ -323,7 +323,7 @@ label Laura_accepts_show_underwear_before:
     return
 
 label Laura_accepts_show_underwear_before_love:
-    if Laura.quirk:
+    if Laura.check_traits("quirk"):
         if Laura.Clothes["underwear"].gift:
             if Laura.status["horny"] or Laura.status["nympho"]:
                 $ dice_roll = renpy.random.randint(1, 6)
@@ -546,7 +546,7 @@ label Laura_accepts_show_breasts_before_love:
 
         ch_Laura "Here." 
         ch_Laura "I think you can tell they want your attention."
-    elif Laura.quirk:
+    elif Laura.check_traits("quirk"):
         $ dice_roll = renpy.random.randint(1, 4)
 
         if dice_roll == 1:
@@ -773,7 +773,7 @@ label Laura_accepts_show_pussy_before_love:
         $ Laura.change_face("confused1", mouth = "lipbite", blush = 1)
 
         ch_Laura "Does that make you hard?"
-    elif Laura.quirk:
+    elif Laura.check_traits("quirk"):
         $ dice_roll = renpy.random.randint(1, 4)
 
         if dice_roll == 1:

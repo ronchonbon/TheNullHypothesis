@@ -5,7 +5,7 @@ label day_three_intro:
 
     call refresh_season_content from _call_refresh_season_content_6
 
-    $ Player.messy_bed = True
+    $ Player.give_trait("messy_bed")
 
     call set_the_scene(location = Player.home) from _call_set_the_scene_252
 
@@ -17,7 +17,7 @@ label day_three_intro:
 
     "Your phone buzzes as a reminder pops up about your combat lesson with [Laura.name] in the evening."
 
-    $ Player.messy_bed = False
+    $ Player.remove_trait("messy_bed")
 
     "You head out with plenty of time to spare{w} - just one quick stop before class."
 
@@ -622,7 +622,7 @@ label day_three_combat_lesson:
     $ Laura.change_face("confused1", mouth = "frown")
     $ Laura.change_arms("crossed")
 
-    if Player.has_family:
+    if Player.check_traits("has_family"):
         ch_Player "I mean for fuck's sake! I grew up in a normal home, had a loving family, and had normal friends."
         ch_Player "Never once did I worry about getting killed. . . until these past few days. . ."
     else:

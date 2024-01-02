@@ -29,7 +29,7 @@ label Jean_accepts_choke_second_time:
     return
 
 label Jean_accepts_choke:
-    if Jean.quirk:
+    if Jean.check_traits("quirk"):
         $ dice_roll = renpy.random.randint(1, 2)
     else:
         $ dice_roll = renpy.random.randint(1, 1)

@@ -304,22 +304,22 @@ init -1:
         "flirting_jd": ["Jean in Partners"],
         "flirting_ka": ["Jean in Partners"],
         "flirting_kb": ["Jean in Partners"],
-        "flirting_l": ["Jean.quirk"],
-        "flirting_na": ["Jean.quirk"],
-        "flirting_nb": ["Jean.quirk"],
-        "flirting_nc": ["Jean.quirk"],
+        "flirting_l": ["Jean.check_traits('quirk')"],
+        "flirting_na": ["Jean.check_traits('quirk')"],
+        "flirting_nb": ["Jean.check_traits('quirk')"],
+        "flirting_nc": ["Jean.check_traits('quirk')"],
         "flirting_ma": ["Jean in Partners"],
         "flirting_mb": ["Jean in Partners"],
         "flirting_mc": ["Jean in Partners"],
         "flirting_oa": ["Jean.History.check('kiss')"],
         "flirting_ob": ["Jean.History.check('kiss')"],
-        "flirting_pa": ["Jean.quirk"],
-        "flirting_pb": ["Jean.quirk"],
-        "flirting_pc": ["Jean.quirk"],
-        "flirting_pd": ["Jean.quirk"],
-        "flirting_qa": ["Jean.quirk"],
-        "flirting_qb": ["Jean.quirk"],
-        "flirting_qc": ["Jean.quirk"],
+        "flirting_pa": ["Jean.check_traits('quirk')"],
+        "flirting_pb": ["Jean.check_traits('quirk')"],
+        "flirting_pc": ["Jean.check_traits('quirk')"],
+        "flirting_pd": ["Jean.check_traits('quirk')"],
+        "flirting_qa": ["Jean.check_traits('quirk')"],
+        "flirting_qb": ["Jean.check_traits('quirk')"],
+        "flirting_qc": ["Jean.check_traits('quirk')"],
         "flirting_r": ["Jean in Partners", "EventScheduler.Events['Jean_I_love_you'].completed"],
         
         "sexy_gifts": ["Jean in Partners"],
@@ -481,8 +481,8 @@ init -2 python:
 
         Jean.whiteboard = "chemistry"
 
-        Jean.virgin = True
-
+        Jean.give_trait("virgin")
+        
         Cast.append(Jean.tag)
         Sprites.append(Jean)
 
@@ -718,10 +718,10 @@ init -2 python:
 
         if day > 3:
             if (Jean in Partners or Jean.status["nympho"] or approval_check(Jean, threshold = "love")) and renpy.random.random() > 0.85:
-                if (Player.location not in bedrooms or Player.location == Player.home) and (Player.location != "bg_shower_Player" or Jean.has_keys_to_Players_room):
+                if (Player.location not in bedrooms or Player.location == Player.home) and (Player.location != "bg_shower_Player" or Jean.check_traits("has_keys_to_Players_room")):
                     possible_locations.append(Player.location)
 
-                if Jean.has_keys_to_Players_room:
+                if Jean.check_traits("has_keys_to_Players_room"):
                     possible_locations.append(Player.home)
 
         return possible_locations

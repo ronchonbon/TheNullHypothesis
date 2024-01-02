@@ -270,7 +270,7 @@ label Jean_first_sex_part_one:
     ch_Player "Right now?!"
     ch_Jean "I mean, I'm on the pill. . . no reason to wait. . ."
 
-    $ Jean.birth_control = True
+    $ Jean.give_trait("birth_control")
 
     menu:
         extend ""
@@ -559,7 +559,7 @@ label Jean_first_sex_part_two:
 
     "She continues masturbating and finally orgasms herself, shuddering in ecstasy as you cum all over her stomach." with orgasm_shake
 
-    $ Player.orgasming = False
+    $ Player.orgasming = None
 
     $ stop_Actions(Jean, organ = "right_hand")
 

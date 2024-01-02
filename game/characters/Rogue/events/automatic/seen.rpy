@@ -68,7 +68,7 @@ label Rogue_seen_pussy:
     if "pubic" in Rogue.desired_body_hair.keys() and Rogue.body_hair["pubic"] != Rogue.desired_body_hair["pubic"]:
         if (Rogue.body_hair["pubic"] == "hairy") or (Rogue.body_hair["pubic"] == "bush" and (not Rogue.desired_body_hair["pubic"] or Rogue.desired_body_hair["pubic"] in ["growing", "null", "strip", "triangle"])) or (Rogue.body_hair["pubic"] == "triangle" and (not Rogue.desired_body_hair["pubic"] or Rogue.desired_body_hair["pubic"] in ["growing", "null", "strip"])) or (Rogue.body_hair["pubic"] in ["growing", "null", "strip"] and not Rogue.desired_body_hair["pubic"]):
             if Rogue.body_hair_growing["pubic"] or day - EventScheduler.Events["Rogue_seen_pussy"].completed_when >= 4:
-                if Rogue.quirk:
+                if Rogue.check_traits("quirk"):
                     $ Rogue.change_face("worried1", mouth = "lipbite", blush = 1)
 
                     ch_Rogue "Ah've been a good girl, right [Rogue.Player_petname]?"

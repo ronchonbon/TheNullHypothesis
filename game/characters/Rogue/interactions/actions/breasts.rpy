@@ -25,7 +25,7 @@ label Rogue_accepts_touch_breasts_over_clothes_second_time:
     return
 
 label Rogue_accepts_touch_breasts_over_clothes:
-    if Rogue.quirk:
+    if Rogue.check_traits("quirk"):
         $ dice_roll = renpy.random.randint(1, 2)
     else:
         $ dice_roll = renpy.random.randint(1, 1)
@@ -80,7 +80,7 @@ label Rogue_accepts_touch_breasts_second_time:
     return
 
 label Rogue_accepts_touch_breasts:
-    if Rogue.quirk:
+    if Rogue.check_traits("quirk"):
         $ dice_roll = renpy.random.randint(1, 2)
     else:
         $ dice_roll = renpy.random.randint(1, 1)
@@ -136,7 +136,7 @@ label Rogue_accepts_pinch_nipples_second_time:
     return
 
 label Rogue_accepts_pinch_nipples:
-    if Rogue.quirk:
+    if Rogue.check_traits("quirk"):
         $ dice_roll = renpy.random.randint(1, 2)
     else:
         $ dice_roll = renpy.random.randint(1, 1)
@@ -184,7 +184,7 @@ label Rogue_accepts_suck_nipples_second_time:
     return
 
 label Rogue_accepts_suck_nipples:
-    if Rogue.quirk:
+    if Rogue.check_traits("quirk"):
         $ dice_roll = renpy.random.randint(1, 2)
     else:
         $ dice_roll = renpy.random.randint(1, 1)

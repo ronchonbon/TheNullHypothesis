@@ -87,7 +87,7 @@ layeredimage Kurt_standing_temp:
         "Kurt_standing"
 
 layeredimage Kurt_standing:
-    if Kurt.teleporting_out or Kurt.smoke or not Kurt.ground_shadow:
+    if Kurt.teleporting_out or Kurt.smoke or not Kurt.check_traits("ground_shadow"):
         Null()
     else:
         "characters/Kurt/images/ground_shadow.webp" at Transform(blend = "multiply")

@@ -89,7 +89,7 @@ screen belt_screen():
 
                 tooltip "Sweaty"
 
-        if Player.attendance_bonus:
+        if Player.check_traits("attendance_bonus"):
             imagebutton:
                 idle At("images/interface/belt/attendance.webp", interface) 
                 hover At("images/interface/belt/attendance.webp", interface)

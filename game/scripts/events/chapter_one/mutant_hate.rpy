@@ -272,7 +272,7 @@ label ch1_mutant_hate:
 
     $ Kurt.change_face("sad")
 
-    if Player.visible_mutation:
+    if Player.check_traits("visible_mutation"):
         ch_Kurt "Put yours up too, mein Bruder."
         ch_Kurt "Zee harassment has only been getting worse lately. . ."
 
@@ -401,7 +401,7 @@ label ch1_mutant_hate:
     "*WOOOOSH*"
     "The wind picks up."
 
-    if Player.visible_mutation:
+    if Player.check_traits("visible_mutation"):
         "You hold on to your hood so it doesn't get blown off."
 
     $ Kurt.outfit = "casual"
@@ -514,7 +514,7 @@ label ch1_mutant_hate:
 
     with dissolve
 
-    if Player.visible_mutation:
+    if Player.check_traits("visible_mutation"):
         "Your hood doesn't do you any good this close."
         ch_protester "Hey, this guy's a fuckin' mutie too."
     else:
@@ -882,13 +882,13 @@ label ch1_mutant_hate:
     ch_Player "Fuck. . ."
     "You feel a presence in your mind and hear [Charles.name]'s voice."
 
-    $ Charles.telepathic = True
+    $ Charles.give_trait("telepathic")
 
     ch_Charles "[Player.first_name], please meet me in my study."
     ch_Charles "Kurt told me what happened."
     ch_Player "I'll be right there."
 
-    $ Charles.telepathic = False
+    $ Charles.remove_trait("telepathic")
     
     "The presence disappears."
     "You leave the infirmary and head to [Charles.name]'s study."

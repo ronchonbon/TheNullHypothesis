@@ -104,7 +104,7 @@ screen say(who, what, two_window = False, hide_after = None):
                         background Frame("images/interface/text_boxes/white.webp")
                     elif C == Player:
                         background Frame("images/interface/text_boxes/red.webp")
-                    elif C.electronic or C.telepathic:
+                    elif C.check_traits("electronic") or C.check_traits("telepathic"):
                         background Frame("images/interface/text_boxes/blue.webp")
                     else:
                         background Frame("images/interface/text_boxes/white.webp")
@@ -117,7 +117,7 @@ screen say(who, what, two_window = False, hide_after = None):
 
                             text_align 0.5
 
-                            if C != Player and (C.electronic or C.telepathic):
+                            if C != Player and (C.check_traits("electronic") or C.check_traits("telepathic")):
                                 color "#000000"
                             else:
                                 color eval(f"{C.tag}_color")
@@ -149,7 +149,7 @@ screen say(who, what, two_window = False, hide_after = None):
                     background Frame("images/interface/text_boxes/white.webp")
                 elif C == Player:
                     background Frame("images/interface/text_boxes/red.webp")
-                elif C.electronic or C.telepathic:
+                elif C.check_traits("electronic") or C.check_traits("telepathic"):
                     background Frame("images/interface/text_boxes/blue.webp")
                 else:
                     background Frame("images/interface/text_boxes/white.webp")
@@ -165,7 +165,7 @@ screen say(who, what, two_window = False, hide_after = None):
                     text_align 0.5
                     
                     if C == Player or who in Cast or who in Cameos:
-                        if C != Player and (C.electronic or C.telepathic):
+                        if C != Player and (C.check_traits("electronic") or C.check_traits("telepathic")):
                             color "#000000"
 
                             italic True
@@ -174,7 +174,7 @@ screen say(who, what, two_window = False, hide_after = None):
                     else:
                         color "#000000"
 
-                    if who and C in all_Characters and C.telepathic:
+                    if who and C in all_Characters and (C.check_traits("electronic") or C.check_traits("telepathic")):
                         italic True
 
     use quick_menu
@@ -325,7 +325,7 @@ screen choice(items, menu_location = None):
 
                                     action action
 
-            vbar value YScrollValue("choice_viewport") anchor (0.0, 0.0) pos (1.0, 0.0) xsize 25:
+            vbar value YScrollValue("choice_viewport") anchor (0.0, 0.0) pos (1.0, 0.0) xsize 18:
                 base_bar Frame("images/interface/red_scrollbar.webp")
 
                 thumb "images/interface/red_scrollbar_thumb.webp"

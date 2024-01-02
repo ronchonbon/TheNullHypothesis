@@ -19,7 +19,7 @@ label Charles_offers_work:
     
     $ renpy.dynamic(temp_destination = Player.destination)
 
-    $ Charles.telepathic = True
+    $ Charles.give_trait("telepathic")
 
     ch_Charles "Please come to my study, [Player.first_name]."
     ch_Charles "There is a matter I have not gotten the chance to bring to your attention yet."
@@ -30,7 +30,7 @@ label Charles_offers_work:
     "Was that chuckling you felt from him?"
     "You turn around and head to Xavier's study."
 
-    $ Charles.telepathic = False
+    $ Charles.remove_trait("telepathic")
 
     call send_Characters(Charles, "bg_study") from _call_send_Characters_302
     call set_the_scene(location = "bg_study") from _call_set_the_scene
@@ -93,8 +93,8 @@ label Charles_offers_work:
     if Player.location != temp_destination:
         "You leave the study and continue on your way."
 
-    $ Charles.gives_work = True
-    $ Charles.has_jobs = True
+    $ Charles.give_trait("gives_work")
+    $ Charles.give_trait("has_jobs")
 
     if Player.location != temp_destination:
         call move_location(temp_destination) from _call_move_location

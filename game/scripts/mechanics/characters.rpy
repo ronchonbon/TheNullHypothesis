@@ -126,7 +126,7 @@ label set_the_scene(location = None, show_Characters = True, show_Party = True, 
         python:
             for C in Present:
                 if C.location in ["bg_campus", "bg_pool"] and weather == "rain":
-                    C.wet = True
+                    C.give_trait("wet")
 
         $ color_transform = get_color_transform(location = Player.location)
 

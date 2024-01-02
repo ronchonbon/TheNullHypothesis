@@ -28,7 +28,7 @@ label Jean_pubic_hair_discussion:
             ch_Jean "Naughty little. . ." 
             ch_Jean "Fine, maybe I could."
 
-            $ Jean.customizable_body_hair = True
+            $ Jean.give_trait("customizable_body_hair")
         else:
             ch_Jean "Why would I. . ."
 

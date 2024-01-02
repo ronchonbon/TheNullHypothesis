@@ -232,38 +232,38 @@ layeredimage Laura_doggy:
 layeredimage Laura_doggy_ass:
     if Player.orgasming and focused_Character == Laura:
         "Laura_doggy_left_leg_animation0"
-    elif Player.cock_Actions and Laura in Player.cock_Actions[0].Targets and Laura.orgasming:
+    elif Player.cock_Actions and Laura in Player.cock_Actions[0].Targets and Rogue.check_traits("orgasming"):
         At("Laura_doggy_left_leg_animation[Player.cock_Actions[0].mode]", tremble(20))
     elif Player.cock_Actions and Laura in Player.cock_Actions[0].Targets:
         "Laura_doggy_left_leg_animation[Player.cock_Actions[0].mode]"
-    elif Laura.orgasming:
+    elif Rogue.check_traits("orgasming"):
         At("Laura_doggy_left_leg_animation0", tremble(20))
     else:
         "Laura_doggy_left_leg_animation0"
 
     if Player.orgasming and focused_Character == Laura:
         "Laura_doggy_right_leg_animation0"
-    elif Player.cock_Actions and Laura in Player.cock_Actions[0].Targets and Laura.orgasming:
+    elif Player.cock_Actions and Laura in Player.cock_Actions[0].Targets and Rogue.check_traits("orgasming"):
         At("Laura_doggy_right_leg_animation[Player.cock_Actions[0].mode]", tremble(20))
     elif Player.cock_Actions and Laura in Player.cock_Actions[0].Targets:
         "Laura_doggy_right_leg_animation[Player.cock_Actions[0].mode]"
-    elif Laura.orgasming:
+    elif Rogue.check_traits("orgasming"):
         At("Laura_doggy_right_leg_animation0", tremble(20))
     else:
         "Laura_doggy_right_leg_animation0"
         
     if Player.orgasming and focused_Character == Laura:
         "Laura_doggy_torso_animation0"
-    elif Player.cock_Actions and Laura in Player.cock_Actions[0].Targets and Laura.orgasming:
+    elif Player.cock_Actions and Laura in Player.cock_Actions[0].Targets and Rogue.check_traits("orgasming"):
         At("Laura_doggy_torso_animation[Player.cock_Actions[0].mode]", tremble(20))
     elif Player.cock_Actions and Laura in Player.cock_Actions[0].Targets:
         "Laura_doggy_torso_animation[Player.cock_Actions[0].mode]"
-    elif Laura.orgasming:
+    elif Rogue.check_traits("orgasming"):
         At("Laura_doggy_torso_animation0", tremble(20))
     else:
         "Laura_doggy_torso_animation0"
         
-    if not Player.body_visible:
+    if not Player.check_traits("body_visible"):
         Null()
     elif Player.orgasming and focused_Character == Laura:
         "Laura_doggy_male_body_[Player.orgasming]_animation"
@@ -367,7 +367,7 @@ layeredimage Laura_doggy_ass:
     elif Laura.buttplug.string == "round_anal_plug":
         "characters/Laura/images/doggy/buttplug_round.webp"
 
-    if not Player.body_visible or Player.right_hand_Actions:
+    if not Player.check_traits("body_visible") or Player.right_hand_Actions:
         Null()
     elif Player.orgasming and focused_Character == Laura:
         "characters/Laura/images/doggy/male_right_arm_shadow.webp"
@@ -423,7 +423,7 @@ layeredimage Laura_doggy_ass:
     elif Laura.right_hand_Actions and Laura.right_hand_Actions[0].animation_type == "self_finger_ass":
         "Laura_doggy_right_forearm_self_finger_ass_animation[Laura.right_hand_Actions[0].mode]"
 
-    if not Player.body_visible:
+    if not Player.check_traits("body_visible"):
         Null()
     elif Player.left_hand_Actions and Laura in Player.left_hand_Actions[0].Targets and Player.left_hand_Actions[0].animation_type == "grab_ass":
         "Laura_doggy_male_left_arm_animation0"
@@ -434,7 +434,7 @@ layeredimage Laura_doggy_ass:
     elif Player.cock_Actions and Laura in Player.cock_Actions[0].Targets:
         "Laura_doggy_male_left_arm_animation[Player.cock_Actions[0].mode]"
 
-    if not Player.body_visible:
+    if not Player.check_traits("body_visible"):
         Null()
     elif Player.right_hand_Actions and Laura in Player.right_hand_Actions[0].Targets and Player.right_hand_Actions[0].animation_type == "grab_ass":
         "Laura_doggy_male_right_arm_animation0"
@@ -595,14 +595,14 @@ image Laura_doggy_left_arm:
     offset (int(1474*sex_sampling), int(1200*sex_sampling))
 
 layeredimage Laura_doggy_hair:
-    if Laura.wet or Laura.Clothes["hair"].string == "wet":
+    if Laura.check_traits("wet") or Laura.Clothes["hair"].string == "wet":
         "characters/Laura/images/doggy/hair_shadow_wet.webp"
     elif Laura.Clothes["hair"].string in ["bun", "tucked"]:
         "characters/Laura/images/doggy/hair_shadow_straight.webp"
     else:
         "characters/Laura/images/doggy/hair_shadow_[Laura.Clothes[hair].string].webp"
 
-    if Laura.wet or Laura.Clothes["hair"].string == "wet":
+    if Laura.check_traits("wet") or Laura.Clothes["hair"].string == "wet":
         "characters/Laura/images/doggy/hair_wet.webp"
     elif Laura.Clothes["hair"].string in ["bun", "tucked"]:
         "characters/Laura/images/doggy/hair_straight.webp"
@@ -625,8 +625,8 @@ layeredimage Laura_doggy_pussy_closed:
     always:
         "characters/Laura/images/doggy/pussy_closed.webp"
 
-    if Laura.body_hair["pubic"] == "hairy":
-        "characters/Laura/images/doggy/pubes_top_hairy_closed.webp"
+    # if Laura.body_hair["pubic"] == "hairy":
+    #     "characters/Laura/images/doggy/pubes_top_hairy_closed.webp"
 
     anchor (int(2106*sex_sampling), int(3186*sex_sampling))
     offset (int(2106*sex_sampling), int(3186*sex_sampling))
@@ -635,8 +635,8 @@ layeredimage Laura_doggy_pussy_open:
     always:
         "characters/Laura/images/doggy/pussy_open.webp"
 
-    if Laura.body_hair["pubic"] == "hairy":
-        "characters/Laura/images/doggy/pubes_top_hairy_open.webp"
+    # if Laura.body_hair["pubic"] == "hairy":
+    #     "characters/Laura/images/doggy/pubes_top_hairy_open.webp"
 
     anchor (int(2106*sex_sampling), int(3186*sex_sampling))
     offset (int(2106*sex_sampling), int(3186*sex_sampling))
@@ -650,8 +650,8 @@ layeredimage Laura_doggy_pussy_agape:
     always:
         "characters/Laura/images/doggy/pussy_agape.webp"
 
-    if Laura.body_hair["pubic"] == "hairy":
-        "characters/Laura/images/doggy/pubes_top_hairy_agape.webp"
+    # if Laura.body_hair["pubic"] == "hairy":
+    #     "characters/Laura/images/doggy/pubes_top_hairy_agape.webp"
 
     anchor (int(2102*sex_sampling), int(3144*sex_sampling))
     offset (int(2102*sex_sampling), int(3144*sex_sampling))
@@ -749,7 +749,7 @@ layeredimage Laura_doggy_mask_anus:
     offset (int(2113*sex_sampling), int(2850*sex_sampling))
 
 layeredimage Laura_doggy_male_head:
-    if Player.body_visible:
+    if Player.check_traits("body_visible"):
         "Player_head"
 
     if Player.mouth_Actions and Laura in Player.mouth_Actions[0].Targets and Player.mouth_Actions[0].animation_type in ["suck_nipples", "eat_pussy", "eat_ass"]:
@@ -1399,7 +1399,7 @@ layeredimage Laura_doggy_cock_animations:
     else:
         "Laura_doggy_cock_[Player.cock_Actions[0].animation_type]_animation[Player.cock_Actions[0].mode]"
 
-    if not Player.spunk and not Player.orgasming:
+    if not Player.check_traits("spunk") and not Player.orgasming:
         Null()
     elif Player.orgasming and focused_Character == Laura:
         "Laura_doggy_spunk_tip_[Player.orgasming]_animation"

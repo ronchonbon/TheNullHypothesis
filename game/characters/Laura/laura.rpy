@@ -304,22 +304,22 @@ init -1:
         "flirting_jd": ["Laura in Partners"],
         "flirting_ka": ["Laura in Partners"],
         "flirting_kb": ["Laura in Partners"],
-        "flirting_l": ["Laura.quirk"],
-        "flirting_na": ["Laura.quirk"],
-        "flirting_nb": ["Laura.quirk"],
-        "flirting_nc": ["Laura.quirk"],
+        "flirting_l": ["Laura.check_traits('quirk')"],
+        "flirting_na": ["Laura.check_traits('quirk')"],
+        "flirting_nb": ["Laura.check_traits('quirk')"],
+        "flirting_nc": ["Laura.check_traits('quirk')"],
         "flirting_ma": ["Laura in Partners"],
         "flirting_mb": ["Laura in Partners"],
         "flirting_mc": ["Laura in Partners"],
         "flirting_oa": ["Laura.History.check('kiss')"],
         "flirting_ob": ["Laura.History.check('kiss')"],
-        "flirting_pa": ["Laura.quirk"],
-        "flirting_pb": ["Laura.quirk"],
-        "flirting_pc": ["Laura.quirk"],
-        "flirting_pd": ["Laura.quirk"],
-        "flirting_qa": ["Laura.quirk"],
-        "flirting_qb": ["Laura.quirk"],
-        "flirting_qc": ["Laura.quirk"],
+        "flirting_pa": ["Laura.check_traits('quirk')"],
+        "flirting_pb": ["Laura.check_traits('quirk')"],
+        "flirting_pc": ["Laura.check_traits('quirk')"],
+        "flirting_pd": ["Laura.check_traits('quirk')"],
+        "flirting_qa": ["Laura.check_traits('quirk')"],
+        "flirting_qb": ["Laura.check_traits('quirk')"],
+        "flirting_qc": ["Laura.check_traits('quirk')"],
         "flirting_r": ["Laura in Partners", "EventScheduler.Events['Laura_I_love_you'].completed"],
         
         "sexy_gifts": ["Laura in Partners"],
@@ -479,7 +479,7 @@ init -2 python:
         Laura.unsheathing_claws = False
         Laura.sheathing_claws = False
 
-        Laura.virgin = True
+        Laura.give_trait("virgin")
 
         Cast.append(Laura.tag)
         Sprites.append(Laura)
@@ -720,10 +720,10 @@ init -2 python:
 
         if day > 3:
             if (Laura in Partners or Laura.status["nympho"] or approval_check(Laura, threshold = "love")) and renpy.random.random() > 0.85:
-                if (Player.location not in bedrooms or Player.location == Player.home) and (Player.location != "bg_shower_Player" or Laura.has_keys_to_Players_room):
+                if (Player.location not in bedrooms or Player.location == Player.home) and (Player.location != "bg_shower_Player" or Laura.check_traits("has_keys_to_Players_room")):
                     possible_locations.append(Player.location)
 
-                if Laura.has_keys_to_Players_room:
+                if Laura.check_traits("has_keys_to_Players_room"):
                     possible_locations.append(Player.home)
 
         return possible_locations

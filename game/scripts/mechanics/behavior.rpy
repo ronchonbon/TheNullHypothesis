@@ -155,8 +155,8 @@ label set_Character_Outfits(Characters = None, instant = True):
     while temp_Characters:
         if temp_Characters[0] in all_Companions:
             if temp_Characters[0].location != Player.location:
-                $ temp_Characters[0].wet = False
-            
+                $ temp_Characters[0].give_trait("wet")
+                
             if temp_Characters[0].behavior == "on_date":
                 $ Outfit = temp_Characters[0].Wardrobe.date_Outfit
             elif (temp_Characters[0].behavior == "sleeping" or temp_Characters[0].behavior == "getting_ready_for_bed") and (Player.location != temp_Characters[0].destination or approval_check(temp_Characters[0], threshold = "sleepover")):
@@ -221,7 +221,7 @@ label set_Character_Outfits(Characters = None, instant = True):
                 if temp_Characters[0].behavior == "showering" and Player.location not in [temp_Characters[0].location, temp_Characters[0].destination]:
                     if renpy.random.random() > 0.5:
                         $ temp_Characters[0].behavior = None
-                        $ temp_Characters[0].wet = True
+                        $ temp_Characters[0].give_trait("wet")
         elif temp_Characters[0] in all_NPCs:
             if temp_Characters[0] == Kurt:
                 if temp_Characters[0].behavior == "training":

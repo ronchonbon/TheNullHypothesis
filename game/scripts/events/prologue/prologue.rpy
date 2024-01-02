@@ -163,7 +163,7 @@ label prologue:
 
     $ Player.check_if_mutation_is_visible()
             
-    if Player.visible_mutation:
+    if Player.check_traits("visible_mutation"):
         if Player.skin_color in ["blue", "green", "red"]:
             "As you look on, your skin begins to ripple and. . . change color. . ."
         
@@ -247,7 +247,7 @@ label prologue:
         align (0.5, 0.5)
         zoom cinematic_adjustment
 
-    $ Amahl.telepathic = True
+    $ Amahl.give_trait("telepathic")
 
     if flashing_lights:
         ch_Amahl "Mr. [Player.last_name]." with rumble
@@ -284,7 +284,7 @@ label prologue:
     "An immense weight presses down on you."
     "You are an insect being crushed under a boot."
 
-    $ Amahl.telepathic = False
+    $ Amahl.remove_trait("telepathic")
 
     pause 2.0
 
@@ -324,11 +324,11 @@ label prologue:
     "A human voice."
 
     $ Charles.name = "???"
-    $ Charles.telepathic = True
+    $ Charles.give_trait("telepathic")
 
     ch_Charles "It is alright, [Player.first_name]. . . You are safe. . . You are among friends now. . ."
 
-    $ Charles.telepathic = False
+    $ Charles.remove_trait("telepathic")
 
     hide new_game_background 
     hide new_game_foreground

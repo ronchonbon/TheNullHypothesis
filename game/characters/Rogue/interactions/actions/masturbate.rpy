@@ -26,7 +26,7 @@ label Rogue_accepts_self_touch_pussy_second_time:
     return
 
 label Rogue_accepts_self_touch_pussy:
-    if Rogue.quirk:
+    if Rogue.check_traits("quirk"):
         $ dice_roll = renpy.random.randint(1, 2)
     else:
         $ dice_roll = renpy.random.randint(1, 1)
@@ -79,7 +79,7 @@ label Rogue_accepts_self_finger_ass_second_time:
     return
 
 label Rogue_accepts_self_finger_ass:
-    if Rogue.quirk:
+    if Rogue.check_traits("quirk"):
         $ dice_roll = renpy.random.randint(1, 2)
     else:
         $ dice_roll = renpy.random.randint(1, 1)
@@ -132,7 +132,7 @@ label Rogue_accepts_self_vibrator_second_time:
     return
 
 label Rogue_accepts_self_vibrator:
-    if Rogue.quirk:
+    if Rogue.check_traits("quirk"):
         $ dice_roll = renpy.random.randint(1, 2)
     else:
         $ dice_roll = renpy.random.randint(1, 1)
@@ -185,7 +185,7 @@ label Rogue_accepts_self_dildo_pussy_second_time:
     return
 
 label Rogue_accepts_self_dildo_pussy:
-    if Rogue.quirk:
+    if Rogue.check_traits("quirk"):
         $ dice_roll = renpy.random.randint(1, 2)
     else:
         $ dice_roll = renpy.random.randint(1, 1)
@@ -238,7 +238,7 @@ label Rogue_accepts_self_dildo_ass_second_time:
     return
 
 label Rogue_accepts_self_dildo_ass:
-    if Rogue.quirk:
+    if Rogue.check_traits("quirk"):
         $ dice_roll = renpy.random.randint(1, 2)
     else:
         $ dice_roll = renpy.random.randint(1, 1)

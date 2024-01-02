@@ -168,7 +168,7 @@ label Jean_chatting_date:
         $ Jean.change_face("sly", mouth = "lipbite", blush = 1)
 
         ch_Jean "Let's make a date out of it."
-    elif Jean.quirk and renpy.random.random() > 0.5:
+    elif Jean.check_traits("quirk") and renpy.random.random() > 0.5:
         $ Jean.change_face("sexy")
 
         pause 1.0

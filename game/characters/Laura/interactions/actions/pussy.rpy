@@ -101,7 +101,7 @@ label Laura_rejects_finger_pussy:
 label Laura_accepts_finger_pussy_first_time:
     $ Laura.change_face("surprised2", blush = 1)
 
-    if Laura.virgin:
+    if Laura.check_traits("virgin"):
         ch_Laura "Nothings ever been up there. . ."
     else:
         pause 1.0
@@ -153,7 +153,7 @@ label Laura_accepts_eat_pussy_second_time:
     return
 
 label Laura_accepts_eat_pussy:
-    if Laura.quirk:
+    if Laura.check_traits("quirk"):
         $ dice_roll = renpy.random.randint(1, 2)
     else:
         $ dice_roll = renpy.random.randint(1, 1)

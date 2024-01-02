@@ -253,7 +253,7 @@ label Rogue_I_love_you:
     ch_Rogue "Our relationship makes me so darn happy, and ah want nothin' more than to spend every wakin' moment with you."
 
     if Rogue.History.check("started_love_encouraged"):
-        $ Rogue.quirk = True
+        $ Rogue.give_trait("quirk")
 
         $ Rogue.change_face("worried1", mouth = "lipbite", blush = 1)
 
@@ -325,7 +325,7 @@ label Rogue_I_love_you:
         ch_Rogue "Ah want to make love with you."
         ch_Rogue "Ah'm on the pill 'n everythin', so it ain't a problem."
 
-        $ Rogue.birth_control = True
+        $ Rogue.give_trait("birth_control")
 
         $ Rogue.change_face("worried1", eyes = "down", mouth = "lipbite", blush = 1)
 
@@ -340,7 +340,7 @@ label Rogue_I_love_you:
 
         ch_Player "Sure, that can be arranged."
     else:
-        $ Rogue.quirk = False
+        $ Rogue.remove_trait("quirk")
 
         $ Rogue.change_face("worried1", mouth = "smirk", blush = 1)
 
@@ -407,7 +407,7 @@ label Rogue_I_love_you:
         ch_Rogue "Ah think ah'm ready to make love with you."
         ch_Rogue "Ah'm on the pill 'n everythin', so it ain't a problem."
 
-        $ Rogue.birth_control = True
+        $ Rogue.give_trait("birth_control")
 
         $ Rogue.change_face("worried1")
 

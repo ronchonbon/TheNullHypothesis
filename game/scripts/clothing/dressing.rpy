@@ -96,46 +96,39 @@ label does_Character_want_privacy(Character, Items_to_add = None, Items_to_remov
 
     call set_Outfit_flags(Character, hypothetical_Outfit, hypothetical = True) from _call_set_Outfit_flags
 
-    if not approval_check(Character, threshold = "exhibitionism") or not Character.exhibitionist:
+    if not approval_check(Character, threshold = "exhibitionism") or not Character.check_traits("exhibitionist"):
         if Character.location in public_locations:
             return True
         else:
-            if Character.bra_hidden and not hypothetical_Outfit.bra_hidden:
-                if not Character.History.check("seen_bra") or not approval_check(Character, threshold = "see_bra"):
-                    return True
+            $ renpy.dynamic(temp_body_parts = ["bra", "underwear", "breasts", "pussy"])
 
-            if Character.underwear_hidden and not hypothetical_Outfit.underwear_hidden:
-                if not Character.History.check("seen_underwear") or not approval_check(Character, threshold = "see_underwear"):
-                    return True
+            while temp_body_parts:
+                if Character.check_traits(f"{temp_body_parts[0]}_hidden") and not hypothetical_Outfit.check_traits("f{temp_body_parts[0]}_hidden"):
+                    if not Character.History.check(f"seen_{temp_body_parts[0]}") or not approval_check(Character, threshold = f"see_{temp_body_parts[0]}"):
+                        return True
 
-            if Character.breasts_hidden and not hypothetical_Outfit.breasts_hidden:
-                if not Character.History.check("seen_breasts") or not approval_check(Character, threshold = "see_breasts"):
-                    return True
-
-            if Character.pussy_hidden and not hypothetical_Outfit.pussy_hidden:
-                if not Character.History.check("seen_pussy") or not approval_check(Character, threshold = "see_pussy"):
-                    return True
+                $ temp_body_parts.remove(temp_body_parts[0])
 
     return False
 
 label set_Outfit_flags(Character, Outfit = None, hypothetical = False):
     if not Outfit:
-        $ Character.naked = True
+        $ Character.give_trait("naked")
 
         python:
             for C_type in removable_Clothing_types:
                 if Character.Clothes[C_type].string:
-                    Character.naked = False
+                    Character.remove_trait("naked")
 
                     break
 
-        $ Character.breasts_supported = False
+        $ Character.remove_trait("breasts_supported")
 
         python:
             for C_type in all_Clothing_types:
                 if Character.Clothes[C_type].string:
                     if Character.Clothes[C_type].supports_breasts and Character.Clothes[C_type].state == 0:
-                        Character.breasts_supported = True
+                        Character.give_trait("breasts_supported")
 
                         break
 
@@ -164,8 +157,8 @@ label set_Outfit_flags(Character, Outfit = None, hypothetical = False):
 
         while temp_body_parts:
             if temp_body_parts[0] not in ["bra", "underwear"] or Character.Clothes[temp_body_parts[0]].string:
-                $ exec(f"Character.{temp_body_parts[0]}_covered = False")
-                $ exec(f"Character.{temp_body_parts[0]}_hidden = False")
+                $ Character.remove_trait(f"{temp_body_parts[0]}_covered")
+                $ Character.remove_trait(f"{temp_body_parts[0]}_hidden")
 
                 $ covered = False
                 $ hidden = False
@@ -175,13 +168,13 @@ label set_Outfit_flags(Character, Outfit = None, hypothetical = False):
                         if Character.Clothes[C_type].string:
                             if Character.position in Character.Clothes[C_type].covers.keys():
                                 if temp_body_parts[0] in Character.Clothes[C_type].covers[Character.position].keys() and Character.Clothes[C_type].state in Character.Clothes[C_type].covers[Character.position][temp_body_parts[0]]:
-                                    exec(f"Character.{temp_body_parts[0]}_covered = True")
+                                    Character.give_trait(f"{temp_body_parts[0]}_covered")
 
                                     covered = True
 
                             if Character.position in Character.Clothes[C_type].hides.keys():
                                 if temp_body_parts[0] in Character.Clothes[C_type].hides[Character.position].keys() and Character.Clothes[C_type].state in Character.Clothes[C_type].hides[Character.position][temp_body_parts[0]]:
-                                    exec(f"Character.{temp_body_parts[0]}_hidden = True")
+                                    Character.give_trait(f"{temp_body_parts[0]}_hidden")
 
                                     hidden = True
                 
@@ -225,8 +218,8 @@ label set_Outfit_flags(Character, Outfit = None, hypothetical = False):
 
         while temp_body_parts:
             if temp_body_parts[0] not in ["bra", "underwear"] or Outfit.Clothes[temp_body_parts[0]].string:
-                $ exec(f"Outfit.{temp_body_parts[0]}_covered = False")
-                $ exec(f"Outfit.{temp_body_parts[0]}_hidden = False")
+                $ Outfit.remove_trait(f"{temp_body_parts[0]}_covered")
+                $ Outfit.remove_trait(f"{temp_body_parts[0]}_hidden")
 
                 $ covered = False
                 $ hidden = False
@@ -236,13 +229,13 @@ label set_Outfit_flags(Character, Outfit = None, hypothetical = False):
                         if Outfit.Clothes[C_type].string:
                             if Character.position in Outfit.Clothes[C_type].covers.keys():
                                 if temp_body_parts[0] in Outfit.Clothes[C_type].covers[Character.position].keys() and Outfit.Clothes[C_type].state in Outfit.Clothes[C_type].covers[Character.position][temp_body_parts[0]]:
-                                    exec(f"Outfit.{temp_body_parts[0]}_covered = True")
+                                    Outfit.give_trait(f"{temp_body_parts[0]}_covered")
 
                                     covered = True
 
                             if Character.position in Outfit.Clothes[C_type].hides.keys():
                                 if temp_body_parts[0] in Outfit.Clothes[C_type].hides[Character.position].keys() and Outfit.Clothes[C_type].state in Outfit.Clothes[C_type].hides[Character.position][temp_body_parts[0]]:
-                                    exec(f"Outfit.{temp_body_parts[0]}_hidden = True")
+                                    Outfit.give_trait(f"{temp_body_parts[0]}_hidden")
 
                                     hidden = True
                 

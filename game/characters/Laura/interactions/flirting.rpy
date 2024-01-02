@@ -18,7 +18,7 @@ label Laura_flirt_a:
     if EventScheduler.Events["Laura_first_friend_part_three"].completed:
         $ lines.update({"a": "I've noticed you listening to some pretty interesting music, I like your taste."})
 
-    if Laura.quirk:
+    if Laura.check_traits("quirk"):
         $ lines.update({"i": "I love whenever you use me to. . . satisfy yourself."})
 
     if Laura.History.check("studied_with_Player"):
@@ -1100,7 +1100,7 @@ label Laura_flirt_eb:
         ch_Laura "But not when other people are looking." 
 
         $ Laura.change_face("neutral", blush = 1)
-    elif Laura.quirk:
+    elif Laura.check_traits("quirk"):
         $ Laura.change_face("sly", mouth = "lipbite", blush = 1) 
 
         ch_Laura "How'd you know I was thinking about doing just that?"
@@ -1381,7 +1381,7 @@ label Laura_flirt_l:
         ch_Laura "In front of other people no less."
 
         call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1408
-    elif Laura.quirk:
+    elif Laura.check_traits("quirk"):
         $ Laura.change_face("confused1")
 
         pause 1.0

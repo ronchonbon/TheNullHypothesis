@@ -86,7 +86,7 @@ label actually_swim(swimming_Characters):
 
         python:
             for C in swimming_Characters:
-                C.wet = True
+                C.give_trait("wet")
 
         pause 2.0
 

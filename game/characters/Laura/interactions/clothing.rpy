@@ -412,8 +412,8 @@ label Laura_reject_public_Outfit(Outfit):
             $ Laura.change_face("neutral", blush = 1)
 
             ch_Laura "What? No. . ."
-    elif not Laura.pussy_covered:
-        if not Laura.breasts_covered:
+    elif not Laura.check_traits("pussy_covered"):
+        if not Laura.check_traits("breasts_covered"):
             $ Laura.change_face("appalled3", blush = 1)
 
             ch_Laura "The hell?" 
@@ -425,7 +425,7 @@ label Laura_reject_public_Outfit(Outfit):
             $ Laura.change_face("suspicious2", blush = 1)
 
             ch_Laura "Why would I walk around with. . . that exposed?"
-    elif not Laura.breasts_covered:
+    elif not Laura.check_traits("breasts_covered"):
         $ Laura.change_face("suspicious2", blush = 1)
 
         ch_Laura "What would makes you think I'd walk around exposed like this?"

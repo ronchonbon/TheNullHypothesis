@@ -25,7 +25,7 @@ label Jean_accepts_touch_breasts_over_clothes_second_time:
     return
 
 label Jean_accepts_touch_breasts_over_clothes:
-    if Jean.quirk:
+    if Jean.check_traits("quirk"):
         $ dice_roll = renpy.random.randint(1, 2)
     else:
         $ dice_roll = renpy.random.randint(1, 1)
@@ -78,7 +78,7 @@ label Jean_accepts_touch_breasts_second_time:
     return
 
 label Jean_accepts_touch_breasts:
-    if Jean.quirk:
+    if Jean.check_traits("quirk"):
         $ dice_roll = renpy.random.randint(1, 2)
     else:
         $ dice_roll = renpy.random.randint(1, 1)
@@ -131,7 +131,7 @@ label Jean_accepts_pinch_nipples_second_time:
     return
 
 label Jean_accepts_pinch_nipples:
-    if Jean.quirk:
+    if Jean.check_traits("quirk"):
         $ dice_roll = renpy.random.randint(1, 2)
     else:
         $ dice_roll = renpy.random.randint(1, 1)
@@ -185,7 +185,7 @@ label Jean_accepts_suck_nipples_second_time:
     return
 
 label Jean_accepts_suck_nipples:
-    if Jean.quirk:
+    if Jean.check_traits("quirk"):
         $ dice_roll = renpy.random.randint(1, 2)
     else:
         $ dice_roll = renpy.random.randint(1, 1)

@@ -269,17 +269,13 @@ label does_Character_agree_to_change_Clothes(Character, added_Items = None, remo
 
     $ shown_body_parts = []
 
-    if Character.pussy_hidden and not hypothetical_Outfit.pussy_hidden:
-        $ shown_body_parts.append("pussy")
+    python:
+        for body_part in ["pussy", "breasts", "underwear", "bra"]:
+            if body_part in ["underwear", "bra"] and not hypothetical_Outfit.Clothes[body_part].string:
+                continue
 
-    if Character.breasts_hidden and not hypothetical_Outfit.breasts_hidden:
-        $ shown_body_parts.append("breasts")
-
-    if hypothetical_Outfit.Clothes["underwear"].string and Character.underwear_hidden and not hypothetical_Outfit.underwear_hidden:
-        $ shown_body_parts.append("underwear")
-
-    if hypothetical_Outfit.Clothes["bra"].string and Character.bra_hidden and not hypothetical_Outfit.bra_hidden:
-        $ shown_body_parts.append("bra")
+            if Character.check_traits(f"{body_part}_hidden") and not hypothetical_Outfit.check_traits(f"{body_part}_hidden"):
+                shown_body_parts.append(body_part)
 
     $ agrees_to_remove = True
 

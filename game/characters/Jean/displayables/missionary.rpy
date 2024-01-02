@@ -232,11 +232,11 @@ layeredimage Jean_missionary:
 layeredimage Jean_missionary_thighs:
     if Player.orgasming and focused_Character == Jean:
         "Jean_missionary_torso_animation0"
-    elif Player.cock_Actions and Jean in Player.cock_Actions[0].Targets and Jean.orgasming:
+    elif Player.cock_Actions and Jean in Player.cock_Actions[0].Targets and Jean.check_traits("orgasming"):
         At("Jean_missionary_torso_animation[Player.cock_Actions[0].mode]", tremble(20))
     elif Player.cock_Actions and Jean in Player.cock_Actions[0].Targets:
         "Jean_missionary_torso_animation[Player.cock_Actions[0].mode]"
-    elif Jean.orgasming:
+    elif Jean.check_traits("orgasming"):
         At("Jean_missionary_torso_animation0", tremble(20))
     else:
         "Jean_missionary_torso_animation0"
@@ -301,7 +301,7 @@ layeredimage Jean_missionary_thighs:
     if Jean.anus_Actions and Jean.anus_Actions[0].animation_type in ["dildo_ass", "self_dildo_ass"]:
         AlphaMask("Jean_missionary_dildo_ass_animations", "Jean_missionary_mask_anus_animations")
 
-    if not Player.body_visible:
+    if not Player.check_traits("body_visible"):
         Null()
     elif Player.orgasming and focused_Character == Jean:
         "Jean_missionary_male_body_[Player.orgasming]_animation"
@@ -380,22 +380,22 @@ layeredimage Jean_missionary_thighs:
 
     if Player.orgasming and focused_Character == Jean:
         "Jean_missionary_left_leg_animation0"
-    elif Player.cock_Actions and Jean in Player.cock_Actions[0].Targets and Jean.orgasming:
+    elif Player.cock_Actions and Jean in Player.cock_Actions[0].Targets and Jean.check_traits("orgasming"):
         At("Jean_missionary_left_leg_animation[Player.cock_Actions[0].mode]", tremble(20))
     elif Player.cock_Actions and Jean in Player.cock_Actions[0].Targets:
         "Jean_missionary_left_leg_animation[Player.cock_Actions[0].mode]"
-    elif Jean.orgasming:
+    elif Jean.check_traits("orgasming"):
         At("Jean_missionary_left_leg_animation0", tremble(20))
     else:
         "Jean_missionary_left_leg_animation0"
 
     if Player.orgasming and focused_Character == Jean:
         "Jean_missionary_right_leg_animation0"
-    elif Player.cock_Actions and Jean in Player.cock_Actions[0].Targets and Jean.orgasming:
+    elif Player.cock_Actions and Jean in Player.cock_Actions[0].Targets and Jean.check_traits("orgasming"):
         At("Jean_missionary_right_leg_animation[Player.cock_Actions[0].mode]", tremble(20))
     elif Player.cock_Actions and Jean in Player.cock_Actions[0].Targets:
         "Jean_missionary_right_leg_animation[Player.cock_Actions[0].mode]"
-    elif Jean.orgasming:
+    elif Jean.check_traits("orgasming"):
         At("Jean_missionary_right_leg_animation0", tremble(20))
     else:
         "Jean_missionary_right_leg_animation0"
@@ -411,7 +411,7 @@ layeredimage Jean_missionary_thighs:
     if Player.orgasming == "cumshot" and focused_Character == Jean:
         "Jean_missionary_cumshot"
 
-    if not Player.body_visible:
+    if not Player.check_traits("body_visible"):
         Null()
     elif Player.orgasming and focused_Character == Jean:
         "Jean_missionary_male_knees_[Player.orgasming]_animation"
@@ -606,13 +606,13 @@ layeredimage Jean_missionary_head:
     offset (int(2299*sex_sampling), int(1031*sex_sampling))
     
 layeredimage Jean_missionary_hair:
-    # if Jean.wet or Jean.Clothes["hair"].string == "wet":
+    # if Jean.check_traits("wet") or Jean.Clothes["hair"].string == "wet":
     #     "characters/Jean/images/missionary/hair_shadow_wet.webp"
     # else:
     always:
         "characters/Jean/images/missionary/hair_shadow_[Jean.Clothes[hair].string].webp"
 
-    # if Jean.wet or Jean.Clothes["hair"].string == "wet":
+    # if Jean.check_traits("wet") or Jean.Clothes["hair"].string == "wet":
     #     "characters/Jean/images/missionary/hair_wet.webp"
     # else:
     always:
@@ -785,7 +785,7 @@ layeredimage Jean_missionary_male_right_arm_fondle:
         "Player_right_arm_pinch"
 
 layeredimage Jean_missionary_male_head:
-    if Player.body_visible:
+    if Player.check_traits("body_visible"):
         "Player_head"
 
     if Player.mouth_Actions and Jean in Player.mouth_Actions[0].Targets and Player.mouth_Actions[0].animation_type in ["suck_nipples", "eat_pussy", "eat_ass"]:
@@ -1625,7 +1625,7 @@ layeredimage Jean_missionary_cock_animations:
     else:
         "Jean_missionary_cock_[Player.cock_Actions[0].animation_type]_animation[Player.cock_Actions[0].mode]"
 
-    if not Player.spunk and not Player.orgasming:
+    if not Player.check_traits("spunk") and not Player.orgasming:
         Null()
     elif Player.orgasming and focused_Character == Jean:
         "Jean_missionary_spunk_tip_[Player.orgasming]_animation"

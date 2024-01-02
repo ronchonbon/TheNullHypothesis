@@ -108,7 +108,7 @@ label Jean_I_love_you:
     ch_Jean "I know it wasn't real, but it made me realize a couple things."
 
     if Jean.History.check("quirk_encouraged") >= Jean.History.check("quirk_discouraged"):
-        $ Jean.quirk = True
+        $ Jean.give_trait("quirk")
 
         $ Jean.change_face("worried1", mouth = "lipbite")
 
@@ -162,7 +162,7 @@ label Jean_I_love_you:
 
         $ Jean.change_face("worried1", blush = 1)
     else:
-        $ Jean.quirk = False
+        $ Jean.remove_trait("quirk")
 
         ch_Jean "Having you as my boyfriend. . ."
 
@@ -251,7 +251,7 @@ label Jean_I_love_you:
 
     ch_Jean "Good. . ."
 
-    if Jean.quirk:
+    if Jean.check_traits("quirk"):
         $ Jean.change_face("sly", mouth = "lipbite", blush = 1)
 
         ch_Jean "Now come here and give your big sister a kiss."
@@ -275,7 +275,7 @@ label Jean_I_love_you:
 
     $ Jean.History.update("kiss")
     
-    if Jean.quirk:
+    if Jean.check_traits("quirk"):
         $ Jean.change_face("sly", blush = 1)
 
         ch_Jean "From now on, your big sister is gonna smother you with all the affection, and spoil you every single day."

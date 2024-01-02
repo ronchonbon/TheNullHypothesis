@@ -79,7 +79,7 @@ label Rogue_first_sex:
 
     $ Rogue.change_face("worried1", mouth = "lipbite", eyes = "down", blush = 1)
 
-    if Rogue.quirk:
+    if Rogue.check_traits("quirk"):
         ch_Rogue "Take whatever ya want off of me. . ." 
     else:
         ch_Rogue "Let me help ya with that. . ."
@@ -90,7 +90,7 @@ label Rogue_first_sex:
 
     $ Rogue.change_face("worried1", mouth = "lipbite", blush = 1)
 
-    if Rogue.quirk:
+    if Rogue.check_traits("quirk"):
         ch_Rogue "May ah?" 
         
         $ Rogue.change_face("worried1", mouth = "lipbite", eyes = "down", blush = 1) 
@@ -246,7 +246,7 @@ label Rogue_first_sex:
 
     $ Rogue.change_face("sly", mouth = "lipbite", blush = 2)
 
-    if Rogue.quirk:
+    if Rogue.check_traits("quirk"):
         ch_Rogue "Please, use me until yer satisfied. . ."
     else:
         ch_Rogue "Don't stop until yer satisfied. . ."
@@ -283,7 +283,7 @@ label Rogue_first_sex:
 
     "She continues to twitch, as you cum all over her stomach."
 
-    $ Player.orgasming = False
+    $ Player.orgasming = None
 
     $ Rogue.change_face("kiss2", blush = 2)
 

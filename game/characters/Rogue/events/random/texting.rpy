@@ -233,7 +233,7 @@ init python:
         conditions = [
             "renpy.random.random() > 0.9",
 
-            "Rogue.quirk",
+            "Rogue.check_traits('quirk')",
 
             "Rogue.behavior == 'masturbating'",
 

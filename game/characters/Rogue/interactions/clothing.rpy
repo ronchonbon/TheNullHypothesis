@@ -322,8 +322,8 @@ label Rogue_reject_public_Outfit(Outfit):
             $ Rogue.change_face("worried1", blush = 1)
 
             ch_Rogue "Ah would never wear this out. . ."
-    elif not Rogue.pussy_covered:
-        if not Rogue.breasts_covered:
+    elif not Rogue.check_traits("pussy_covered"):
+        if not Rogue.check_traits("breasts_covered"):
             $ Rogue.change_face("appalled3", blush = 3)
 
             ch_Rogue "Ah sure as hell ain't walkin' 'round in my birthday suit. . ."
@@ -335,7 +335,7 @@ label Rogue_reject_public_Outfit(Outfit):
             $ Rogue.change_face("worried2")
 
             ch_Rogue "Ah definitely can't go out like this. . ."
-    elif not Rogue.breasts_covered:
+    elif not Rogue.check_traits("breasts_covered"):
         $ Rogue.change_face("worried3", blush = 2)
 
         ch_Rogue "My breasts aren't even covered!"

@@ -224,16 +224,16 @@ layeredimage Laura_hands_and_knees_controls_temp:
 layeredimage Laura_hands_and_knees:
     if Player.orgasming and focused_Character == Laura:
         "Laura_hands_and_knees_ass_handjob_animation0"
-    elif Player.cock_Actions and Laura in Player.cock_Actions[0].Actors and Laura.orgasming:
+    elif Player.cock_Actions and Laura in Player.cock_Actions[0].Actors and Rogue.check_traits("orgasming"):
         At("Laura_hands_and_knees_ass_[Player.cock_Actions[0].animation_type]_animation[Player.cock_Actions[0].mode]", tremble(20))
     elif Player.cock_Actions and Laura in Player.cock_Actions[0].Actors:
         "Laura_hands_and_knees_ass_[Player.cock_Actions[0].animation_type]_animation[Player.cock_Actions[0].mode]"
-    elif Laura.orgasming:
+    elif Rogue.check_traits("orgasming"):
         At("Laura_hands_and_knees_ass_handjob_animation0", tremble(20))
     else: 
         "Laura_hands_and_knees_ass_handjob_animation0"
 
-    if not Player.body_visible:
+    if not Player.check_traits("body_visible"):
         Null()
     elif Player.orgasming and focused_Character == Laura:
         "Laura_hands_and_knees_male_left_foot_animation0"
@@ -260,7 +260,7 @@ layeredimage Laura_hands_and_knees:
     else: 
         "Laura_hands_and_knees_head_handjob_animation0"
 
-    if not Player.body_visible:
+    if not Player.check_traits("body_visible"):
         Null()
     elif Player.cock_Actions and Laura in Player.cock_Actions[0].Actors:
         "Laura_hands_and_knees_male_body_[Player.cock_Actions[0].animation_type]_animation[Player.cock_Actions[0].mode]"
@@ -391,11 +391,11 @@ layeredimage Laura_hands_and_knees_right_arm:
     offset (int(1484*sex_sampling), int(2004*sex_sampling))
 
 layeredimage Laura_hands_and_knees_breasts:
-    if Laura.breasts_supported and Laura.right_hand_Actions and Laura.right_hand_Actions[0].animation_type == "self_touch_pussy":
+    if Laura.check_traits("breasts_supported") and Laura.right_hand_Actions and Laura.right_hand_Actions[0].animation_type == "self_touch_pussy":
         "characters/Laura/images/hands_and_knees/breasts_supported_finger.webp"
-    elif Laura.breasts_supported and Laura.right_hand_Actions and Laura.right_hand_Actions[0].animation_type == "fondle_balls":
+    elif Laura.check_traits("breasts_supported") and Laura.right_hand_Actions and Laura.right_hand_Actions[0].animation_type == "fondle_balls":
         "characters/Laura/images/hands_and_knees/breasts_supported_fondle.webp"
-    elif Laura.breasts_supported:
+    elif Laura.check_traits("breasts_supported"):
         "characters/Laura/images/hands_and_knees/breasts_supported.webp"
     elif Laura.right_hand_Actions and Laura.right_hand_Actions[0].animation_type == "self_touch_pussy":
         "characters/Laura/images/hands_and_knees/breasts_finger.webp"
@@ -543,13 +543,13 @@ layeredimage Laura_hands_and_knees_tongue:
     offset (int(2175*sex_sampling), int(1849*sex_sampling))
 
 layeredimage Laura_hands_and_knees_hair:
-    if (Laura.wet or Laura.Clothes["hair"].string == "wet") and Player.orgasming == "cum_on_face" and focused_Character == Laura:
+    if (Laura.check_traits("wet") or Laura.Clothes["hair"].string == "wet") and Player.orgasming == "cum_on_face" and focused_Character == Laura:
         "characters/Laura/images/hands_and_knees/hair_wet.webp"
-    elif (Laura.wet or Laura.Clothes["hair"].string == "wet") and Player.orgasming == "cum_down_throat" and focused_Character == Laura:
+    elif (Laura.check_traits("wet") or Laura.Clothes["hair"].string == "wet") and Player.orgasming == "cum_down_throat" and focused_Character == Laura:
         "characters/Laura/images/hands_and_knees/hair_wet_deepthroat.webp"
-    elif (Laura.wet or Laura.Clothes["hair"].string == "wet") and Laura.mouth_Actions and Laura.mouth_Actions[0].animation_type == "deepthroat":
+    elif (Laura.check_traits("wet") or Laura.Clothes["hair"].string == "wet") and Laura.mouth_Actions and Laura.mouth_Actions[0].animation_type == "deepthroat":
         "characters/Laura/images/hands_and_knees/hair_wet_deepthroat.webp"
-    elif Laura.wet or Laura.Clothes["hair"].string == "wet":
+    elif Laura.check_traits("wet") or Laura.Clothes["hair"].string == "wet":
         "characters/Laura/images/hands_and_knees/hair_wet.webp"
     elif Laura.Clothes["hair"].string in ["bun", "tucked"] and Player.orgasming == "cum_on_face" and focused_Character == Laura:
         "characters/Laura/images/hands_and_knees/hair_shadow_straight.webp"
@@ -568,13 +568,13 @@ layeredimage Laura_hands_and_knees_hair:
     else:
         "characters/Laura/images/hands_and_knees/hair_shadow_[Laura.Clothes[hair].string].webp"
 
-    if (Laura.wet or Laura.Clothes["hair"].string == "wet") and Player.orgasming == "cum_on_face" and focused_Character == Laura:
+    if (Laura.check_traits("wet") or Laura.Clothes["hair"].string == "wet") and Player.orgasming == "cum_on_face" and focused_Character == Laura:
         "characters/Laura/images/hands_and_knees/hair_wet.webp"
-    elif (Laura.wet or Laura.Clothes["hair"].string == "wet") and Player.orgasming == "cum_down_throat" and focused_Character == Laura:
+    elif (Laura.check_traits("wet") or Laura.Clothes["hair"].string == "wet") and Player.orgasming == "cum_down_throat" and focused_Character == Laura:
         "characters/Laura/images/hands_and_knees/hair_wet_deepthroat.webp"
-    elif (Laura.wet or Laura.Clothes["hair"].string == "wet") and Laura.mouth_Actions and Laura.mouth_Actions[0].animation_type == "deepthroat":
+    elif (Laura.check_traits("wet") or Laura.Clothes["hair"].string == "wet") and Laura.mouth_Actions and Laura.mouth_Actions[0].animation_type == "deepthroat":
         "characters/Laura/images/hands_and_knees/hair_wet_deepthroat.webp"
-    elif Laura.wet or Laura.Clothes["hair"].string == "wet":
+    elif Laura.check_traits("wet") or Laura.Clothes["hair"].string == "wet":
         "characters/Laura/images/hands_and_knees/hair_wet.webp"
     elif Laura.Clothes["hair"].string in ["bun", "tucked"] and Player.orgasming == "cum_on_face" and focused_Character == Laura:
         "characters/Laura/images/hands_and_knees/hair_straight.webp"
@@ -1419,14 +1419,14 @@ layeredimage Laura_hands_and_knees_cock_animations:
     else:
         "Laura_hands_and_knees_cock_[Player.cock_Actions[0].animation_type]_animation[Player.cock_Actions[0].mode]"
 
-    if not Player.saliva:
+    if not Player.check_traits("saliva"):
         Null()
     elif Player.orgasming and focused_Character == Laura:
         "Laura_hands_and_knees_saliva_[Player.orgasming]_animation"
     else:
         "Laura_hands_and_knees_saliva_[Player.cock_Actions[0].animation_type]_animation[Player.cock_Actions[0].mode]"
 
-    if not Player.spunk and not Player.orgasming:
+    if not Player.check_traits("spunk") and not Player.orgasming:
         Null()
     elif Player.orgasming and focused_Character == Laura:
         "Laura_hands_and_knees_spunk_tip_[Player.orgasming]_animation"

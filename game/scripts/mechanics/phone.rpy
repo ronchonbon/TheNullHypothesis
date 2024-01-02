@@ -6,7 +6,7 @@ label receive_call(Character, dialogue = None):
     if dialogue:
         "[dialogue]"
 
-    $ Character.electronic = True
+    $ Character.give_trait("electronic")
 
     $ current_phone_Character = Character
     $ current_phone_screen = "call"
@@ -18,7 +18,7 @@ label receive_call(Character, dialogue = None):
     return
 
 label make_call(Character):
-    $ Character.electronic = True
+    $ Character.give_trait("electronic")
 
     $ current_phone_Character = Character
     $ current_phone_screen = "call"
@@ -36,7 +36,8 @@ label end_call(Character):
 
     $ phone_disabled = False
 
-    $ Character.electronic = False
+    if "electronic" in Character.traits:
+        $ Character.remove_trait("electronic")
 
     return
 

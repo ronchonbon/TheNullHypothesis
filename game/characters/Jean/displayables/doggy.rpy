@@ -232,38 +232,38 @@ layeredimage Jean_doggy:
 layeredimage Jean_doggy_ass:
     if Player.orgasming and focused_Character == Jean:
         "Jean_doggy_left_leg_animation0"
-    elif Player.cock_Actions and Jean in Player.cock_Actions[0].Targets and Jean.orgasming:
+    elif Player.cock_Actions and Jean in Player.cock_Actions[0].Targets and Jean.check_traits("orgasming"):
         At("Jean_doggy_left_leg_animation[Player.cock_Actions[0].mode]", tremble(20))
     elif Player.cock_Actions and Jean in Player.cock_Actions[0].Targets:
         "Jean_doggy_left_leg_animation[Player.cock_Actions[0].mode]"
-    elif Jean.orgasming:
+    elif Jean.check_traits("orgasming"):
         At("Jean_doggy_left_leg_animation0", tremble(20))
     else:
         "Jean_doggy_left_leg_animation0"
 
     if Player.orgasming and focused_Character == Jean:
         "Jean_doggy_right_leg_animation0"
-    elif Player.cock_Actions and Jean in Player.cock_Actions[0].Targets and Jean.orgasming:
+    elif Player.cock_Actions and Jean in Player.cock_Actions[0].Targets and Jean.check_traits("orgasming"):
         At("Jean_doggy_right_leg_animation[Player.cock_Actions[0].mode]", tremble(20))
     elif Player.cock_Actions and Jean in Player.cock_Actions[0].Targets:
         "Jean_doggy_right_leg_animation[Player.cock_Actions[0].mode]"
-    elif Jean.orgasming:
+    elif Jean.check_traits("orgasming"):
         At("Jean_doggy_right_leg_animation0", tremble(20))
     else:
         "Jean_doggy_right_leg_animation0"
         
     if Player.orgasming and focused_Character == Jean:
         "Jean_doggy_torso_animation0"
-    elif Player.cock_Actions and Jean in Player.cock_Actions[0].Targets and Jean.orgasming:
+    elif Player.cock_Actions and Jean in Player.cock_Actions[0].Targets and Jean.check_traits("orgasming"):
         At("Jean_doggy_torso_animation[Player.cock_Actions[0].mode]", tremble(20))
     elif Player.cock_Actions and Jean in Player.cock_Actions[0].Targets:
         "Jean_doggy_torso_animation[Player.cock_Actions[0].mode]"
-    elif Jean.orgasming:
+    elif Jean.check_traits("orgasming"):
         At("Jean_doggy_torso_animation0", tremble(20))
     else:
         "Jean_doggy_torso_animation0"
         
-    if not Player.body_visible:
+    if not Player.check_traits("body_visible"):
         Null()
     elif Player.orgasming and focused_Character == Jean:
         "Jean_doggy_male_body_[Player.orgasming]_animation"
@@ -410,7 +410,7 @@ layeredimage Jean_doggy_ass:
     elif Jean.right_hand_Actions and Jean.right_hand_Actions[0].animation_type == "self_finger_ass":
         "Jean_doggy_right_forearm_self_finger_ass_animation[Jean.right_hand_Actions[0].mode]"
 
-    if not Player.body_visible:
+    if not Player.check_traits("body_visible"):
         Null()
     elif Player.left_hand_Actions and Jean in Player.left_hand_Actions[0].Targets and Player.left_hand_Actions[0].animation_type == "grab_ass":
         "Jean_doggy_male_left_arm_animation0"
@@ -421,7 +421,7 @@ layeredimage Jean_doggy_ass:
     elif Player.cock_Actions and Jean in Player.cock_Actions[0].Targets:
         "Jean_doggy_male_left_arm_animation[Player.cock_Actions[0].mode]"
 
-    if not Player.body_visible:
+    if not Player.check_traits("body_visible"):
         Null()
     elif Player.right_hand_Actions and Jean in Player.right_hand_Actions[0].Targets and Player.right_hand_Actions[0].animation_type == "grab_ass":
         "Jean_doggy_male_right_arm_animation0"
@@ -551,7 +551,7 @@ layeredimage Jean_doggy_head:
     offset (int(1945*sex_sampling), int(940*sex_sampling))
 
 layeredimage Jean_doggy_hair_front:
-    # if Jean.wet or Jean.Clothes["hair"].string == "wet":
+    # if Jean.check_traits("wet") or Jean.Clothes["hair"].string == "wet":
     #     "characters/Jean/images/doggy/hair_front_wet.webp"
     # else:
     always:
@@ -573,13 +573,13 @@ image Jean_doggy_left_arm:
     offset (int(1474*sex_sampling), int(1200*sex_sampling))
 
 layeredimage Jean_doggy_hair:
-    # if Jean.wet or Jean.Clothes["hair"].string == "wet":
+    # if Jean.check_traits("wet") or Jean.Clothes["hair"].string == "wet":
     #     "characters/Jean/images/doggy/hair_shadow_wet.webp"
     # else:
     always:
         "characters/Jean/images/doggy/hair_shadow_[Jean.Clothes[hair].string].webp"
 
-    # if Jean.wet or Jean.Clothes["hair"].string == "wet":
+    # if Jean.check_traits("wet") or Jean.Clothes["hair"].string == "wet":
     #     "characters/Jean/images/doggy/hair_wet.webp"
     # else:
     always:
@@ -601,8 +601,8 @@ layeredimage Jean_doggy_pussy_closed:
     always:
         "characters/Jean/images/doggy/pussy_closed.webp"
 
-    if Jean.body_hair["pubic"] == "hairy":
-        "characters/Jean/images/doggy/pubes_top_hairy_closed.webp"
+    # if Jean.body_hair["pubic"] == "hairy":
+    #     "characters/Jean/images/doggy/pubes_top_hairy_closed.webp"
 
     anchor (int(2106*sex_sampling), int(3186*sex_sampling))
     offset (int(2106*sex_sampling), int(3186*sex_sampling))
@@ -611,8 +611,8 @@ layeredimage Jean_doggy_pussy_open:
     always:
         "characters/Jean/images/doggy/pussy_open.webp"
 
-    if Jean.body_hair["pubic"] == "hairy":
-        "characters/Jean/images/doggy/pubes_top_hairy_open.webp"
+    # if Jean.body_hair["pubic"] == "hairy":
+    #     "characters/Jean/images/doggy/pubes_top_hairy_open.webp"
 
     anchor (int(2106*sex_sampling), int(3186*sex_sampling))
     offset (int(2106*sex_sampling), int(3186*sex_sampling))
@@ -626,8 +626,8 @@ layeredimage Jean_doggy_pussy_agape:
     always:
         "characters/Jean/images/doggy/pussy_agape.webp"
 
-    if Jean.body_hair["pubic"] == "hairy":
-        "characters/Jean/images/doggy/pubes_top_hairy_agape.webp"
+    # if Jean.body_hair["pubic"] == "hairy":
+    #     "characters/Jean/images/doggy/pubes_top_hairy_agape.webp"
 
     anchor (int(2102*sex_sampling), int(3144*sex_sampling))
     offset (int(2102*sex_sampling), int(3144*sex_sampling))
@@ -725,7 +725,7 @@ layeredimage Jean_doggy_mask_anus:
     offset (int(2113*sex_sampling), int(2850*sex_sampling))
 
 layeredimage Jean_doggy_male_head:
-    if Player.body_visible:
+    if Player.check_traits("body_visible"):
         "Player_head"
 
     if Player.mouth_Actions and Jean in Player.mouth_Actions[0].Targets and Player.mouth_Actions[0].animation_type in ["suck_nipples", "eat_pussy", "eat_ass"]:
@@ -1375,7 +1375,7 @@ layeredimage Jean_doggy_cock_animations:
     else:
         "Jean_doggy_cock_[Player.cock_Actions[0].animation_type]_animation[Player.cock_Actions[0].mode]"
 
-    if not Player.spunk and not Player.orgasming:
+    if not Player.check_traits("spunk") and not Player.orgasming:
         Null()
     elif Player.orgasming and focused_Character == Jean:
         "Jean_doggy_spunk_tip_[Player.orgasming]_animation"

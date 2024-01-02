@@ -139,13 +139,6 @@ label change_Character_stat(Character, flavor, update, alternate_values = None):
             $ stat += update
 
             $ setattr(Character, flavor, stat)
-            
-            if Character.desire >= 75:
-                $ Character.grool = 2
-            elif Character.desire >= 50:
-                $ Character.grool = 1
-            else:
-                $ Character.grool = 0
 
             $ Character.check_statuses()
 

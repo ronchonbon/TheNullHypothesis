@@ -68,7 +68,7 @@ layeredimage Ororo_standing_temp:
         "Ororo_standing"
 
 layeredimage Ororo_standing:
-    if Ororo.ground_shadow:
+    if Ororo.check_traits("ground_shadow"):
         "characters/Ororo/images/standing/ground_shadow.webp" at Transform(blend = "multiply")
 
     if renpy.get_screen("Wardrobe_screen"):
@@ -191,7 +191,7 @@ layeredimage Ororo_standing:
         "characters/Ororo/images/standing/gloves_[Ororo.Clothes[gloves].string]_left_[Ororo.left_arm].webp"
 
 layeredimage Ororo_standing_hair_back:
-    # if not Ororo.wet and "wet" not in Ororo.Clothes["hair"].string:
+    # if not Ororo.check_traits("wet") and "wet" not in Ororo.Clothes["hair"].string:
     always:
         "characters/Ororo/images/standing/hair_back_[Ororo.Clothes[hair].string].webp"
     # elif "mohawk" in Ororo.Clothes["hair"].string:
@@ -352,7 +352,7 @@ layeredimage Ororo_standing_head:
     if Ororo.blush:
         "characters/Ororo/images/standing/blush[Ororo.blush].webp"
 
-    # if not Ororo.wet and "wet" not in Ororo.Clothes["hair"].string:
+    # if not Ororo.check_traits("wet") and "wet" not in Ororo.Clothes["hair"].string:
     always:
         "characters/Ororo/images/standing/hair_[Ororo.Clothes[hair].string]_shadow.webp" at Transform(blend = "multiply")
     # elif "mohawk" in Ororo.Clothes["hair"].string:
@@ -360,7 +360,7 @@ layeredimage Ororo_standing_head:
     # else:
     #     "characters/Ororo/images/standing/hair_wet_shadow.webp" at Transform(blend = "multiply")
 
-    # if not Ororo.wet and "wet" not in Ororo.Clothes["hair"].string:
+    # if not Ororo.check_traits("wet") and "wet" not in Ororo.Clothes["hair"].string:
     always:
         "characters/Ororo/images/standing/hair_[Ororo.Clothes[hair].string].webp"
     # elif "mohawk" in Ororo.Clothes["hair"].string:

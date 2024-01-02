@@ -264,24 +264,24 @@ screen Action_screen(automatic = False):
                             elif focused_Character.possible_Actions and Action_type not in focused_Character.possible_Actions:
                                 $ current_Action_list.remove(Action_type)
                             elif "touch_thighs" in Action_type:
-                                if focused_Character.thighs_covered and "over_clothes" not in Action_type:
+                                if focused_Character.check_traits("thighs_covered") and "over_clothes" not in Action_type:
                                     $ current_Action_list.remove(Action_type)
-                                elif not focused_Character.thighs_covered and "over_clothes" in Action_type:
+                                elif not focused_Character.check_traits("thighs_covered") and "over_clothes" in Action_type:
                                     $ current_Action_list.remove(Action_type)
                             elif "touch_breasts" in Action_type:
-                                if focused_Character.breasts_covered and "over_clothes" not in Action_type:
+                                if focused_Character.check_traits("breasts_covered") and "over_clothes" not in Action_type:
                                     $ current_Action_list.remove(Action_type)
-                                elif not focused_Character.breasts_covered and "over_clothes" in Action_type:
+                                elif not focused_Character.check_traits("breasts_covered") and "over_clothes" in Action_type:
                                     $ current_Action_list.remove(Action_type)
                             elif "grab_ass" in Action_type:
-                                if focused_Character.ass_covered and "over_clothes" not in Action_type:
+                                if focused_Character.check_traits("ass_covered") and "over_clothes" not in Action_type:
                                     $ current_Action_list.remove(Action_type)
-                                elif not focused_Character.ass_covered and "over_clothes" in Action_type:
+                                elif not focused_Character.check_traits("ass_covered") and "over_clothes" in Action_type:
                                     $ current_Action_list.remove(Action_type)
                             elif "touch_pussy" in Action_type and Action_type != "self_touch_pussy":
-                                if focused_Character.pussy_covered and "over_clothes" not in Action_type:
+                                if focused_Character.check_traits("pussy_covered") and "over_clothes" not in Action_type:
                                     $ current_Action_list.remove(Action_type)
-                                elif not focused_Character.pussy_covered and "over_clothes" in Action_type:
+                                elif not focused_Character.check_traits("pussy_covered") and "over_clothes" in Action_type:
                                     $ current_Action_list.remove(Action_type)
 
                     for Action_type in toy_Action_types:

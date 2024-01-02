@@ -793,7 +793,7 @@ screen hair_screen(Character):
 
                         null width int(260*interface_adjustment)
 
-            if Character.customizable_body_hair:
+            if Character.check_traits("customizable_body_hair"):
                 for hair_style in ["bush", "growing", "hairy", "null", "shaven", "strip", "strip_thick", "triangle", "triangle_large"]:
                     hbox:
                         spacing -10

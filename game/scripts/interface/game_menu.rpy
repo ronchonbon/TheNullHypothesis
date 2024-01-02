@@ -352,7 +352,7 @@ screen preferences():
 
                         hover_sound None
                         
-                        selected Player.body_visible
+                        selected Player.check_traits("body_visible")
 
                         text "OFF" anchor (0.5, 0.5) pos (0.2, 0.461):
                             size 25
@@ -360,7 +360,10 @@ screen preferences():
                         text "ON" anchor (0.5, 0.5) pos (0.7, 0.461):
                             size 25
 
-                        action ToggleVariable("Player.body_visible")
+                        if Player.check_traits("body_visible"):
+                            action Function(Player.remove_trait, "body_visible")
+                        else:
+                            action Function(Player.give_trait, "body_visible")
 
                 vbox:
                     text "UI VISIBLE" anchor (0.5, 0.5) pos (0.47, 0.5)

@@ -19,7 +19,7 @@ layeredimage bg_Rogue:
     if "mirror" in Rogue.inventory.keys():
         "characters/Rogue/images/bedroom/bg_Rogue_mirror.webp"
 
-    if Rogue.messy_bed:
+    if Rogue.check_traits("messy_bed"):
         "characters/Rogue/images/bedroom/bg_Rogue_messy_bed.webp"
     else:
         "characters/Rogue/images/bedroom/bg_Rogue_bed.webp"
@@ -27,7 +27,7 @@ layeredimage bg_Rogue:
     if "acoustic_guitar" in Rogue.inventory.keys():
         "characters/Rogue/images/bedroom/bg_Rogue_guitar.webp"
 
-    if Rogue.clothes_on_floor:
+    if Rogue.check_traits("clothes_on_floor"):
         "characters/Rogue/images/bedroom/bg_Rogue_clothes.webp"
 
     if "candle" in Rogue.inventory.keys():

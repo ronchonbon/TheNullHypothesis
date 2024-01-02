@@ -1,5 +1,5 @@
 label Rogue_summon_in_love:
-    if Rogue.quirk:
+    if Rogue.check_traits("quirk"):
         call receive_text(Rogue, "Yes!") from _call_receive_text_502
         call receive_text(Rogue, "I mean, of course I wanna") from _call_receive_text_503
         call receive_text(Rogue, "Be there as fast as I can") from _call_receive_text_504

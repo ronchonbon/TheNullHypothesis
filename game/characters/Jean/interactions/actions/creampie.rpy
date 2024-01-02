@@ -1,5 +1,5 @@
 label Jean_rejects_creampie:
-    if Jean.birth_control:
+    if Jean.check_trait("birth_control"):
         $ Jean.change_face("worried2", mouth = "lipbite", blush = 1)
 
         ch_Jean "I don't want you to finish inside. . ."
@@ -15,7 +15,7 @@ label Jean_rejects_creampie:
     return
 
 label Jean_accepts_creampie_first_time:
-    if Jean.birth_control:
+    if Jean.check_trait("birth_control"):
         $ Jean.change_face("worried1", mouth = "lipbite", blush = 1) 
 
         ch_Jean "I am on the pill. . ." 
@@ -31,7 +31,7 @@ label Jean_accepts_creampie_second_time:
     return
 
 label Jean_accepts_creampie:
-    if Jean.quirk:
+    if Jean.check_traits("quirk"):
         $ Jean.change_face("sly", mouth = "lipbite", blush = 1) 
 
         ch_Jean "Wanna cum inside your big sister?" 

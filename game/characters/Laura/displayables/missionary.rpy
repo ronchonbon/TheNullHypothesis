@@ -232,11 +232,11 @@ layeredimage Laura_missionary:
 layeredimage Laura_missionary_thighs:
     if Player.orgasming and focused_Character == Laura:
         "Laura_missionary_torso_animation0"
-    elif Player.cock_Actions and Laura in Player.cock_Actions[0].Targets and Laura.orgasming:
+    elif Player.cock_Actions and Laura in Player.cock_Actions[0].Targets and Rogue.check_traits("orgasming"):
         At("Laura_missionary_torso_animation[Player.cock_Actions[0].mode]", tremble(20))
     elif Player.cock_Actions and Laura in Player.cock_Actions[0].Targets:
         "Laura_missionary_torso_animation[Player.cock_Actions[0].mode]"
-    elif Laura.orgasming:
+    elif Rogue.check_traits("orgasming"):
         At("Laura_missionary_torso_animation0", tremble(20))
     else:
         "Laura_missionary_torso_animation0"
@@ -301,7 +301,7 @@ layeredimage Laura_missionary_thighs:
     if Laura.anus_Actions and Laura.anus_Actions[0].animation_type in ["dildo_ass", "self_dildo_ass"]:
         AlphaMask("Laura_missionary_dildo_ass_animations", "Laura_missionary_mask_anus_animations")
 
-    if not Player.body_visible:
+    if not Player.check_traits("body_visible"):
         Null()
     elif Player.orgasming and focused_Character == Laura:
         "Laura_missionary_male_body_[Player.orgasming]_animation"
@@ -380,21 +380,21 @@ layeredimage Laura_missionary_thighs:
 
     if Player.orgasming and focused_Character == Laura:
         "Laura_missionary_left_leg_animation0"
-    elif Player.cock_Actions and Laura in Player.cock_Actions[0].Targets and Laura.orgasming:
+    elif Player.cock_Actions and Laura in Player.cock_Actions[0].Targets and Rogue.check_traits("orgasming"):
         At("Laura_missionary_left_leg_animation[Player.cock_Actions[0].mode]", tremble(20))
     elif Player.cock_Actions and Laura in Player.cock_Actions[0].Targets:
         "Laura_missionary_left_leg_animation[Player.cock_Actions[0].mode]"
-    elif Laura.orgasming:
+    elif Rogue.check_traits("orgasming"):
         At("Laura_missionary_left_leg_animation0", tremble(20))
     else:
         "Laura_missionary_left_leg_animation0"
 
-    if Laura.orgasming:
+    if Rogue.check_traits("orgasming"):
         At("Laura_missionary_right_leg_animations", tremble(20))
     else:
         "Laura_missionary_right_leg_animations"
 
-    # if not Player.body_visible:
+    # if not Player.check_traits("body_visible"):
     #     Null()
     # elif Player.orgasming and focused_Character == Laura:
     #     AlphaMask("Laura_missionary_male_shadow_animations", "Laura_missionary_right_leg_animations")
@@ -412,7 +412,7 @@ layeredimage Laura_missionary_thighs:
     if Player.orgasming == "cumshot" and focused_Character == Laura:
         "Laura_missionary_cumshot"
 
-    if not Player.body_visible:
+    if not Player.check_traits("body_visible"):
         Null()
     elif Player.orgasming and focused_Character == Laura:
         "Laura_missionary_male_knees_[Player.orgasming]_animation"
@@ -607,14 +607,14 @@ layeredimage Laura_missionary_head:
     offset (int(2299*sex_sampling), int(1031*sex_sampling))
     
 layeredimage Laura_missionary_hair:
-    if Laura.wet or Laura.Clothes["hair"].string == "wet":
+    if Laura.check_traits("wet") or Laura.Clothes["hair"].string == "wet":
         "characters/Laura/images/missionary/hair_shadow_wet.webp"
     elif Laura.Clothes["hair"].string in ["bun", "tucked"]:
         "characters/Laura/images/missionary/hair_shadow_straight.webp"
     else:
         "characters/Laura/images/missionary/hair_shadow_[Laura.Clothes[hair].string].webp"
 
-    if Laura.wet or Laura.Clothes["hair"].string == "wet":
+    if Laura.check_traits("wet") or Laura.Clothes["hair"].string == "wet":
         "characters/Laura/images/missionary/hair_wet.webp"
     elif Laura.Clothes["hair"].string in ["bun", "tucked"]:
         "characters/Laura/images/missionary/hair_straight.webp"
@@ -791,7 +791,7 @@ layeredimage Laura_missionary_male_right_arm_fondle:
         "Player_right_arm_pinch"
 
 layeredimage Laura_missionary_male_head:
-    if Player.body_visible:
+    if Player.check_traits("body_visible"):
         "Player_head"
 
     if Player.mouth_Actions and Laura in Player.mouth_Actions[0].Targets and Player.mouth_Actions[0].animation_type in ["suck_nipples", "eat_pussy", "eat_ass"]:
@@ -1634,7 +1634,7 @@ layeredimage Laura_missionary_right_leg_animations:
         "Laura_missionary_right_leg_animation0"
 
 # layeredimage Laura_missionary_male_shadow_animations:
-#     if not Player.body_visible:
+#     if not Player.check_traits("body_visible"):
 #         Null()
 #     elif Player.orgasming and focused_Character == Laura:
 #         "Laura_missionary_male_shadow_[Player.orgasming]_animation"
@@ -1647,7 +1647,7 @@ layeredimage Laura_missionary_cock_animations:
     else:
         "Laura_missionary_cock_[Player.cock_Actions[0].animation_type]_animation[Player.cock_Actions[0].mode]"
 
-    if not Player.spunk and not Player.orgasming:
+    if not Player.check_traits("spunk") and not Player.orgasming:
         Null()
     elif Player.orgasming and focused_Character == Laura:
         "Laura_missionary_spunk_tip_[Player.orgasming]_animation"

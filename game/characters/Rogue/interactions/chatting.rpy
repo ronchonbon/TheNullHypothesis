@@ -466,7 +466,7 @@ label Rogue_ask_about_Jean:
 
                     ch_Rogue "Sorry. . ."
                 "If I wanted your advice, I'd ask for it.":
-                    if Rogue.quirk:
+                    if Rogue.check_traits("quirk"):
                         $ Rogue.change_face("worried2", blush = 1) 
 
                         ch_Rogue "Ah'm sorry, [Rogue.Player_petname]." 

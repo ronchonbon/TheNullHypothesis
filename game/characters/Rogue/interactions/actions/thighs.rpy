@@ -29,7 +29,7 @@ label Rogue_accepts_touch_thighs_over_clothes_second_time:
     return
 
 label Rogue_accepts_touch_thighs_over_clothes:
-    if Rogue.quirk:
+    if Rogue.check_traits("quirk"):
         $ dice_roll = renpy.random.randint(1, 2)
     else:
         $ dice_roll = renpy.random.randint(1, 1)
@@ -76,7 +76,7 @@ label Rogue_accepts_touch_thighs_higher_over_clothes_second_time:
     return
 
 label Rogue_accepts_touch_thighs_higher_over_clothes:
-    if Rogue.quirk:
+    if Rogue.check_traits("quirk"):
         $ dice_roll = renpy.random.randint(1, 2)
     else:
         $ dice_roll = renpy.random.randint(1, 1)
@@ -127,7 +127,7 @@ label Rogue_accepts_touch_thighs_second_time:
     return
 
 label Rogue_accepts_touch_thighs:
-    if Rogue.quirk:
+    if Rogue.check_traits("quirk"):
         $ dice_roll = renpy.random.randint(1, 2)
     else:
         $ dice_roll = renpy.random.randint(1, 1)
@@ -174,7 +174,7 @@ label Rogue_accepts_touch_thighs_higher_second_time:
     return
 
 label Rogue_accepts_touch_thighs_higher:
-    if Rogue.quirk:
+    if Rogue.check_traits("quirk"):
         $ dice_roll = renpy.random.randint(1, 2)
     else:
         $ dice_roll = renpy.random.randint(1, 1)

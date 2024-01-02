@@ -217,7 +217,7 @@ label Jean_asked_on_date:
 
                 call remove_Characters(Jean) from _call_remove_Characters_343
 
-                $ Jean.platonic = True
+                $ Jean.give_trait("platonic")
 
                 pause 1.0
                 

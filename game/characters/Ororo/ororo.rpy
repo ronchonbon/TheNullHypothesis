@@ -417,8 +417,6 @@ init -2 python:
         Ororo.white = False
         Ororo.electricity = False
 
-        Ororo.virgin = False
-
         Cast.append(Ororo.tag)
         Sprites.append(Ororo)
         
@@ -652,10 +650,10 @@ init -2 python:
 
         if day > 3:
             if (Ororo in Partners or Ororo.status["nympho"] or approval_check(Ororo, threshold = "love")) and renpy.random.random() > 0.85:
-                if (Player.location not in bedrooms or Player.location == Player.home) and (Player.location != "bg_shower_Player" or Ororo.has_keys_to_Players_room):
+                if (Player.location not in bedrooms or Player.location == Player.home) and (Player.location != "bg_shower_Player" or Ororo.check_traits("has_keys_to_Players_room")):
                     possible_locations.append(Player.location)
 
-                if Ororo.has_keys_to_Players_room:
+                if Ororo.check_traits("has_keys_to_Players_room"):
                     possible_locations.append(Player.home)
 
         return possible_locations

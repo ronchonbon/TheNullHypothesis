@@ -14,7 +14,7 @@ label Rogue_flirt_a:
         "n": "I love your smile - makes me happy whenever I see it.",
         "o": "I've seen you training on your own in the Danger Room. You really are a badass, even without flashy powers."}
 
-    if Rogue.quirk:
+    if Rogue.check_traits("quirk"):
         $ lines.update({"i": "You've been a very good girl lately."})
 
     if not Rogue.History.check("asked_if_hair_dyed"):
@@ -934,7 +934,7 @@ label Rogue_flirt_eb:
         ch_Rogue "Maybe later. . ."
 
         $ Rogue.change_face("worried1", blush = 1)
-    elif Rogue.quirk:
+    elif Rogue.check_traits("quirk"):
         $ Rogue.change_face("worried1", mouth = "lipbite", blush = 1) 
 
         ch_Rogue "Ah wouldn't mind if ya. . . just took it upon yourself some time. . ."

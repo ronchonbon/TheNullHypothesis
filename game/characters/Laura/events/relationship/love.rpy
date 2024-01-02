@@ -243,7 +243,7 @@ label Laura_I_love_you:
 
     $ Laura.change_face("sly", blush = 1)
 
-    if Laura.quirk:
+    if Laura.check_traits("quirk"):
         ch_Laura "So, we are 'in love' now. . ."
 
         $ Laura.change_face("sly", mouth = "lipbite", blush = 1)
@@ -284,7 +284,7 @@ label Laura_I_love_you:
 
     $ Laura.change_face("worried1", mouth = "lipbite", blush = 1)
 
-    if Laura.quirk:
+    if Laura.check_traits("quirk"):
         ch_Laura "I'm. . . very glad I made you my boyfriend. . ."
     else:
         ch_Laura "I'm. . . very glad you're my boyfriend. . ."
@@ -309,7 +309,7 @@ label Laura_I_love_you:
 
     ch_Laura "I believe I'm finally starting to understand why people like this 'romance' thing. . ."
 
-    if Laura.quirk:
+    if Laura.check_traits("quirk"):
         $ Laura.change_face("sly", mouth = "lipbite", blush = 1)
 
         ch_Laura "I am also looking forward to exploring our physical connection."
@@ -391,7 +391,7 @@ label Laura_I_love_you:
     return
 
 label Laura_I_love_you_1A:
-    $ Laura.quirk = True
+    $ Laura.give_trait("quirk")
 
     ch_Rogue "*gasp*"
     "As [Rogue.name] leaves, and you're about to close the door, you hear a gasp."
@@ -480,7 +480,7 @@ label Laura_I_love_you_1A:
     return
 
 label Laura_I_love_you_1B:
-    $ Laura.quirk = False
+    $ Laura.remove_trait("quirk")
 
     call open_texts(Laura) from _call_open_texts_26
 

@@ -56,8 +56,8 @@ label take_a_shower:
         pause 2.0
 
     if "bg_shower" in Player.location:
-        $ Player.naked = True
-        $ Player.cock_out = True
+        $ Player.give_trait("naked")
+        $ Player.give_trait("cock_out")
 
         if showering_Characters:
             $ renpy.dynamic(temp_Characters = showering_Characters[:])
@@ -79,15 +79,15 @@ label take_a_shower:
 
     $ Player.sweat = 0
     $ Player.chlorine = 0
-    $ Player.spunk = False
-    $ Player.saliva = False
-    $ Player.grool = False
-    $ Player.dirty_cock = False
-
+    $ Player.remove_trait("spunk")
+    $ Player.remove_trait("saliva")
+    $ Player.remove_trait("grool")
+    $ Player.remove_trait("dirty_cock")
+    
     if showering_Characters:
         python:
             for G in showering_Characters:
-                G.wet = True
+                G.give_trait("wet")
 
                 for location in G.spunk.keys():
                     G.spunk[location] = 0
@@ -140,8 +140,8 @@ label take_a_shower:
         pause 1.0
 
     $ Player.History.update("showered")
-    $ Player.naked = False
-    $ Player.cock_out = False
+    $ Player.remove_trait("naked")
+    $ Player.remove_trait("cock_out")
 
     if time_index not in [0, 3] or Player.History.check("showered", tracker = "recent") > 1:
         $ clock -= 1

@@ -25,7 +25,7 @@ label Rogue_accepts_choke_second_time:
     return
 
 label Rogue_accepts_choke:
-    if Rogue.quirk:
+    if Rogue.check_traits("quirk"):
         $ dice_roll = renpy.random.randint(1, 3)
     else:
         $ dice_roll = renpy.random.randint(1, 1)

@@ -14,7 +14,7 @@ init python:
 
         for C in all_Characters:
             if C in all_Companions:
-                test = eval(f"CompanionClass('{C.tag}', voice = ch_{C.tag}, love = 0, trust = 0, desire = 0)")
+                test = eval(f"CompanionClass('{C.tag}', voice = ch_{C.tag}, love = 0, trust = 0)")
 
                 for attribute in test.__dict__.keys():
                     if attribute not in C.__dict__.keys():

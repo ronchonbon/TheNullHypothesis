@@ -1,5 +1,5 @@
 label Rogue_rejects_creampie:
-    if Rogue.birth_control:
+    if Rogue.check_trait("birth_control"):
         $ Rogue.change_face("worried2", mouth = "lipbite", blush = 1)
 
         ch_Rogue "Ah don't want you to finish inside. . ."
@@ -15,7 +15,7 @@ label Rogue_rejects_creampie:
     return
 
 label Rogue_accepts_creampie_first_time:
-    if Rogue.birth_control:
+    if Rogue.check_trait("birth_control"):
         $ Rogue.change_face("worried1", mouth = "lipbite", blush = 2) 
 
         ch_Rogue "Ah am on the pill." 

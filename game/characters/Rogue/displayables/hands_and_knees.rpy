@@ -224,16 +224,16 @@ layeredimage Rogue_hands_and_knees_controls_temp:
 layeredimage Rogue_hands_and_knees:
     if Player.orgasming and focused_Character == Rogue:
         "Rogue_hands_and_knees_ass_handjob_animation0"
-    elif Player.cock_Actions and Rogue in Player.cock_Actions[0].Actors and Rogue.orgasming:
+    elif Player.cock_Actions and Rogue in Player.cock_Actions[0].Actors and Rogue.check_traits("orgasming"):
         At("Rogue_hands_and_knees_ass_[Player.cock_Actions[0].animation_type]_animation[Player.cock_Actions[0].mode]", tremble(20))
     elif Player.cock_Actions and Rogue in Player.cock_Actions[0].Actors:
         "Rogue_hands_and_knees_ass_[Player.cock_Actions[0].animation_type]_animation[Player.cock_Actions[0].mode]"
-    elif Rogue.orgasming:
+    elif Rogue.check_traits("orgasming"):
         At("Rogue_hands_and_knees_ass_handjob_animation0", tremble(20))
     else: 
         "Rogue_hands_and_knees_ass_handjob_animation0"
 
-    if not Player.body_visible:
+    if not Player.check_traits("body_visible"):
         Null()
     elif Player.orgasming and focused_Character == Rogue:
         "Rogue_hands_and_knees_male_left_foot_animation0"
@@ -260,7 +260,7 @@ layeredimage Rogue_hands_and_knees:
     else: 
         "Rogue_hands_and_knees_head_handjob_animation0"
 
-    if not Player.body_visible:
+    if not Player.check_traits("body_visible"):
         Null()
     elif Player.cock_Actions and Rogue in Player.cock_Actions[0].Actors:
         "Rogue_hands_and_knees_male_body_[Player.cock_Actions[0].animation_type]_animation[Player.cock_Actions[0].mode]"
@@ -391,11 +391,11 @@ layeredimage Rogue_hands_and_knees_right_arm:
     offset (int(1484*sex_sampling), int(2004*sex_sampling))
 
 layeredimage Rogue_hands_and_knees_breasts:
-    if Rogue.breasts_supported and Rogue.right_hand_Actions and Rogue.right_hand_Actions[0].animation_type == "self_touch_pussy":
+    if Rogue.check_traits("breasts_supported") and Rogue.right_hand_Actions and Rogue.right_hand_Actions[0].animation_type == "self_touch_pussy":
         "characters/Rogue/images/hands_and_knees/breasts_supported_finger.webp"
-    elif Rogue.breasts_supported and Rogue.right_hand_Actions and Rogue.right_hand_Actions[0].animation_type == "fondle_balls":
+    elif Rogue.check_traits("breasts_supported") and Rogue.right_hand_Actions and Rogue.right_hand_Actions[0].animation_type == "fondle_balls":
         "characters/Rogue/images/hands_and_knees/breasts_supported_fondle.webp"
-    elif Rogue.breasts_supported:
+    elif Rogue.check_traits("breasts_supported"):
         "characters/Rogue/images/hands_and_knees/breasts_supported.webp"
     elif Rogue.right_hand_Actions and Rogue.right_hand_Actions[0].animation_type == "self_touch_pussy":
         "characters/Rogue/images/hands_and_knees/breasts_finger.webp"
@@ -543,13 +543,13 @@ layeredimage Rogue_hands_and_knees_tongue:
     offset (int(2175*sex_sampling), int(1849*sex_sampling))
 
 layeredimage Rogue_hands_and_knees_hair:
-    if (Rogue.wet or Rogue.Clothes["hair"].string == "wet") and Player.orgasming == "cum_on_face" and focused_Character == Rogue:
+    if (Rogue.check_traits("wet") or Rogue.Clothes["hair"].string == "wet") and Player.orgasming == "cum_on_face" and focused_Character == Rogue:
         "characters/Rogue/images/hands_and_knees/hair_wet.webp"
-    elif (Rogue.wet or Rogue.Clothes["hair"].string == "wet") and Player.orgasming == "cum_down_throat" and focused_Character == Rogue:
+    elif (Rogue.check_traits("wet") or Rogue.Clothes["hair"].string == "wet") and Player.orgasming == "cum_down_throat" and focused_Character == Rogue:
         "characters/Rogue/images/hands_and_knees/hair_wet_deepthroat.webp"
-    elif (Rogue.wet or Rogue.Clothes["hair"].string == "wet") and Rogue.mouth_Actions and Rogue.mouth_Actions[0].animation_type == "deepthroat":
+    elif (Rogue.check_traits("wet") or Rogue.Clothes["hair"].string == "wet") and Rogue.mouth_Actions and Rogue.mouth_Actions[0].animation_type == "deepthroat":
         "characters/Rogue/images/hands_and_knees/hair_wet_deepthroat.webp"
-    elif Rogue.wet or Rogue.Clothes["hair"].string == "wet":
+    elif Rogue.check_traits("wet") or Rogue.Clothes["hair"].string == "wet":
         "characters/Rogue/images/hands_and_knees/hair_wet.webp"
     elif Rogue.Clothes["hair"].string in ["messy", "ponytail"] and Player.orgasming == "cum_on_face" and focused_Character == Rogue:
         "characters/Rogue/images/hands_and_knees/hair_asymmetric.webp"
@@ -1394,14 +1394,14 @@ layeredimage Rogue_hands_and_knees_cock_animations:
     else:
         "Rogue_hands_and_knees_cock_[Player.cock_Actions[0].animation_type]_animation[Player.cock_Actions[0].mode]"
 
-    if not Player.saliva:
+    if not Player.check_traits("saliva"):
         Null()
     elif Player.orgasming and focused_Character == Rogue:
         "Rogue_hands_and_knees_saliva_[Player.orgasming]_animation"
     else:
         "Rogue_hands_and_knees_saliva_[Player.cock_Actions[0].animation_type]_animation[Player.cock_Actions[0].mode]"
 
-    if not Player.spunk and not Player.orgasming:
+    if not Player.check_traits("spunk") and not Player.orgasming:
         Null()
     elif Player.orgasming and focused_Character == Rogue:
         "Rogue_hands_and_knees_spunk_tip_[Player.orgasming]_animation"

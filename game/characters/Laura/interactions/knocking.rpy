@@ -84,7 +84,7 @@ label Laura_knocks_relationship(arriving_Characters):
 label Laura_knocks_love(arriving_Characters):
     $ choice_disabled = False
 
-    if Laura.quirk:
+    if Laura.check_traits("quirk"):
         "Someone's banging on your door."
         ch_Laura "Open."
         ch_Laura "I know for a fact you're inside."
@@ -377,7 +377,7 @@ label Laura_greets_Player_knocking_relationship(welcoming_Characters):
     return
 
 label Laura_greets_Player_knocking_love(welcoming_Characters):
-    if Laura.quirk:
+    if Laura.check_traits("quirk"):
         $ dice_roll = renpy.random.randint(1, 3)
     else:
         $ dice_roll = renpy.random.randint(1, 2)

@@ -18,7 +18,7 @@ layeredimage bg_Player:
     if "electric_guitar" in Player.inventory.keys() and Player.inventory["electric_guitar"][0].Owner == Player:
         "images/backgrounds/base/bg_Player_guitar.webp"
 
-    if Player.messy_bed:
+    if Player.check_traits("messy_bed"):
         "images/backgrounds/base/bg_Player_messy_bed.webp"
     else:
         "images/backgrounds/base/bg_Player_bed.webp"
@@ -26,7 +26,7 @@ layeredimage bg_Player:
     if "record_player" in Player.inventory.keys() and Player.inventory["record_player"][0].Owner == Player:
         "images/backgrounds/base/bg_Player_record_player.webp"
 
-    if Player.clothes_on_floor:
+    if Player.check_traits("clothes_on_floor"):
         "images/backgrounds/base/bg_Player_clothes.webp"
 
     if lighting == "evening":

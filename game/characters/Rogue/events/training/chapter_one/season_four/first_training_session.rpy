@@ -226,10 +226,10 @@ label Rogue_chapter_one_season_four_first_training_session:
 
     $ Player.sweat = 0
     $ Player.chlorine = 0
-    $ Player.spunk = False
-    $ Player.saliva = False
-    $ Player.grool = False
-    $ Player.dirty_cock = False
+    $ Player.remove_trait("spunk")
+    $ Player.remove_trait("saliva")
+    $ Player.remove_trait("grool")
+    $ Player.remove_trait("dirty_cock")
             
     pause 5.0
 

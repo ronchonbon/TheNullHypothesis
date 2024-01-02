@@ -10,17 +10,14 @@ init -2 python:
             self.public_name = self.name
             self.call_sign = self.name
 
-            self.database = {}
-
             self.voice = properties.get("voice", None)
             
             self.level = 1
             self.XP = 0
             self.XP_goal = 200
-            self.ability_points = 0
+            self.stat_points = 0
 
-            self.electronic = False
-            self.telepathic = False
+            self.ability_points = 0
 
             self.sprite_anchor = [0.5, 0.5]
             self.sprite_position = [stage_center, 0.0]
@@ -39,21 +36,9 @@ init -2 python:
             self.left_arm = "neutral"
             self.right_arm = "neutral"
 
+            self.outfit = None
             self.hair = None
             self.beard = None
-            
-            self.wet = False
-
-            self.ground_shadow = True
-
-            self.home = f"bg_{self.tag}"
-            self.destination = "hold"
-            self.location = "hold"
-
-            self.is_shop = False
-            self.gives_quests = False
-            self.gives_work = False
-            self.has_jobs = False
 
             self.chat_options = []
             self.Event_chat_options = []
@@ -62,20 +47,24 @@ init -2 python:
             self.mandatory_text_options = []
             self.text_history = []
 
-            self.History = HistoryClass()
-
-            self.outfit = None
-            
-            self.inventory = {}
-
+            self.schedule = {}
             self.behavior = None
             self.behavior_Partners = []
 
             self.wants_alone_time = 0
-            
-            self.schedule = {}
 
+            self.inventory = {}
+
+            self.History = HistoryClass()
+
+            self.database = {}
             self.database_type = None
+
+            self.home = f"bg_{self.tag}"
+            self.destination = "hold"
+            self.location = "hold"
+            
+            self.traits = []
             
             self.temp = None
 
@@ -144,6 +133,24 @@ init -2 python:
                 pose = "crossed"
 
             return pose, left_arm, right_arm
+
+        def give_trait(self, trait):
+            if trait not in self.traits:
+                self.traits.append(trait)
+
+            return
+
+        def remove_trait(self, trait):
+            if trait in self.traits:
+                self.traits.remove(trait)
+
+            return
+
+        def check_traits(self, trait):
+            if trait in self.traits:
+                return True
+        
+            return False
 
         def travel(self):
             if self.location != "hold":

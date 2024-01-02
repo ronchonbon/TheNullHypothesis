@@ -42,7 +42,7 @@ label Laura_first_friend_part_one:
 
     ch_Laura "It's been made clear through our combat lessons that my upbringing was very. . . non-standard."
 
-    if Player.has_family:
+    if Player.check_traits("has_family"):
         $ Laura.change_face("confused1")
 
         ch_Laura "You've talked about 'family' and so-called 'friends.'"
@@ -575,7 +575,7 @@ label Laura_first_friend_part_three:
 
                 call remove_Characters(Laura) from _call_remove_Characters_344
 
-                $ Laura.platonic = True
+                $ Laura.give_trait("platonic")
 
                 pause 1.0
                 
@@ -608,14 +608,14 @@ label Laura_first_friend_part_three:
 
     $ Laura.text_options.insert(0, "ready for that date?")
 
-    if not Laura.platonic:
+    if not Laura.check_traits("platonic"):
         ch_Laura "That is all."
         ch_Laura "Goodnight."
 
         call remove_Characters(Laura) from _call_remove_Characters_110
         call get_ready_for_bed from _call_get_ready_for_bed_1
     else:
-        $ Laura.platonic = False
+        $ Laura.remove_trait("platonic")
 
     $ ongoing_Event = False
     

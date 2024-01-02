@@ -84,7 +84,7 @@ label Rogue_accepts_hookup_second_time:
     return
 
 label Rogue_accepts_hookup:
-    if Rogue.quirk:
+    if Rogue.check_traits("quirk"):
         $ dice_roll = renpy.random.randint(1, 2)
     else:
         $ dice_roll = renpy.random.randint(1, 1)

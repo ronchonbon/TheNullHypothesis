@@ -18,8 +18,8 @@ label work(Character):
     $ belt_disabled = True
 
     if Character in [Charles] and Character.location != Player.location:
-        $ Character.telepathic = True
-
+        $ Charles.give_trait("telepathic")
+        
         if Character.History.check("Player_contacted_telepathically"):
             ch_Player "Hey, [Character.name], any jobs for me today?"
         else:
@@ -43,15 +43,18 @@ label work(Character):
         ch_Player "Hey, [Character.name], any jobs for me today?"
 
     if time_index < 3:
-        if Character.has_jobs:
-            $ Character.has_jobs = False
-
+        if Character.check_traits("has_jobs"):
+            $ Character.remove_trait("has_jobs")
+            
             call expression f"{Character.tag}_ask_for_job" from _call_expression_371
 
             $ Character.History.update("gave_job")
 
-            $ Character.electronic = False
-            $ Character.telepathic = False
+            if "electronic" in Character.traits:
+                $ Character.remove_trait("electronic")
+
+            if "telepathic" in Character.traits:
+                $ Character.remove_trait("telepathic")
 
             $ Player.sweat += 1
 
@@ -84,6 +87,12 @@ label work(Character):
             call expression f"{Character.tag}_too_late_to_work" from _call_expression_377
 
         $ Character.History.update("said_too_late_to_work")
+
+    if "electronic" in Character.traits:
+        $ Character.remove_trait("electronic")
+
+    if "telepathic" in Character.traits:
+        $ Character.remove_trait("telepathic")
 
     $ dialogue_hidden = temp_dialogue_hidden
     $ phone_interactable = temp_phone_interactable

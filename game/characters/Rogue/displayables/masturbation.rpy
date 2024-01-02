@@ -356,7 +356,7 @@ layeredimage Rogue_masturbation_head:
     offset (int(2787*sex_sampling), int(1333*sex_sampling))
     
 layeredimage Rogue_masturbation_hair:
-    if Rogue.wet or Rogue.Clothes["hair"].string == "wet":
+    if Rogue.check_traits("wet") or Rogue.Clothes["hair"].string == "wet":
         "characters/Rogue/images/masturbation/hair_wet.webp"
     elif Rogue.Clothes["hair"].string in ["messy", "ponytail"]:
         "characters/Rogue/images/masturbation/hair_asymmetric.webp"
@@ -376,15 +376,15 @@ image Rogue_masturbation_right_forearm:
     offset (int(2091*sex_sampling), int(2343*sex_sampling))
     
 layeredimage Rogue_masturbation_thighs:
-    if Rogue.vagina_Actions and Rogue.orgasming:
+    if Rogue.vagina_Actions and Rogue.check_traits("orgasming"):
         At("Rogue_masturbation_torso_animation[Rogue.vagina_Actions[0].mode]", tremble(20))
     if Rogue.vagina_Actions:
         "Rogue_masturbation_torso_animation[Rogue.vagina_Actions[0].mode]"
-    elif Rogue.anus_Actions and Rogue.orgasming:
+    elif Rogue.anus_Actions and Rogue.check_traits("orgasming"):
         At("Rogue_masturbation_torso_animation[Rogue.anus_Actions[0].mode]", tremble(20))
     elif Rogue.anus_Actions:
         "Rogue_masturbation_torso_animation[Rogue.anus_Actions[0].mode]"
-    elif Rogue.orgasming:
+    elif Rogue.check_traits("orgasming"):
         At("Rogue_masturbation_torso_animation0", tremble(20))
     else:
         "Rogue_masturbation_torso_animation0"
@@ -455,28 +455,28 @@ layeredimage Rogue_masturbation_thighs:
     if Rogue.right_hand_Actions and Rogue.right_hand_Actions[0].animation_type == "self_touch_pussy":
         "Rogue_masturbation_right_hand_animation[Rogue.right_hand_Actions[0].mode]"
 
-    if Rogue.vagina_Actions and Rogue.orgasming:
+    if Rogue.vagina_Actions and Rogue.check_traits("orgasming"):
         At("Rogue_masturbation_left_leg_animation[Rogue.vagina_Actions[0].mode]", tremble(20))
     elif Rogue.vagina_Actions:
         "Rogue_masturbation_left_leg_animation[Rogue.vagina_Actions[0].mode]"
-    elif Rogue.anus_Actions and Rogue.orgasming:
+    elif Rogue.anus_Actions and Rogue.check_traits("orgasming"):
         At("Rogue_masturbation_left_leg_animation[Rogue.anus_Actions[0].mode]", tremble(20))
     elif Rogue.anus_Actions:
         "Rogue_masturbation_left_leg_animation[Rogue.anus_Actions[0].mode]"
-    elif Rogue.orgasming:
+    elif Rogue.check_traits("orgasming"):
         At("Rogue_masturbation_left_leg_animation0", tremble(20))
     else:
         "Rogue_masturbation_left_leg_animation0"
 
-    if Rogue.vagina_Actions and Rogue.orgasming:
+    if Rogue.vagina_Actions and Rogue.check_traits("orgasming"):
         At("Rogue_masturbation_right_leg_animation[Rogue.vagina_Actions[0].mode]", tremble(20))
     elif Rogue.vagina_Actions:
         "Rogue_masturbation_right_leg_animation[Rogue.vagina_Actions[0].mode]"
-    elif Rogue.anus_Actions and Rogue.orgasming:
+    elif Rogue.anus_Actions and Rogue.check_traits("orgasming"):
         At("Rogue_masturbation_right_leg_animation[Rogue.anus_Actions[0].mode]", tremble(20))
     elif Rogue.anus_Actions:
         "Rogue_masturbation_right_leg_animation[Rogue.anus_Actions[0].mode]"
-    elif Rogue.orgasming:
+    elif Rogue.check_traits("orgasming"):
         At("Rogue_masturbation_right_leg_animation0", tremble(20))
     else:
         "Rogue_masturbation_right_leg_animation0"
@@ -721,7 +721,7 @@ layeredimage Rogue_masturbation_male_right_arm_fondle:
         "Player_right_arm_pinch"
 
 layeredimage Rogue_masturbation_male_head:
-    if Player.body_visible:
+    if Player.check_traits("body_visible"):
         "Player_head"
 
     if Player.mouth_Actions and Rogue in Player.mouth_Actions[0].Targets and Player.mouth_Actions[0].animation_type in ["suck_nipples", "eat_pussy", "eat_ass"]:

@@ -86,7 +86,7 @@ label Jean_knocks_relationship(arriving_Characters):
 label Jean_knocks_love(arriving_Characters):
     $ choice_disabled = False
 
-    if Jean.quirk:
+    if Jean.check_traits("quirk"):
         "There's knocking at your door."  
         ch_Jean "Better open up, [Jean.Player_petname]." 
         ch_Jean "Your big sis' needs some attention."
@@ -512,7 +512,7 @@ label Jean_greets_Player_knocking_horny(welcoming_Characters):
     return True
 
 label Jean_greets_Player_knocking_nympho(welcoming_Characters):
-    if Jean.quirk:
+    if Jean.check_traits("quirk"):
         $ temp = Jean.petname.capitalize()
 
         ch_Player "[temp]?" 

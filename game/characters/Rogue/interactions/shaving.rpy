@@ -28,7 +28,7 @@ label Rogue_pubic_hair_discussion:
             ch_Rogue "Well. . . ah guess ah could try. . . if ya wanted."
             ch_Rogue "Just let me know what ya want."
 
-            $ Rogue.customizable_body_hair = True
+            $ Rogue.give_trait("customizable_body_hair")
         else:
             ch_Rogue "Ah don't. . ."
             ch_Rogue "Uhm, ah. . ."

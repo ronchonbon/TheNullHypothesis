@@ -37,7 +37,7 @@ label Laura_pubic_hair_discussion:
             ch_Laura "Might as well try it out. . ."
             ch_Laura "I'll just ask [Rogue.public_name] how to do it."
 
-            $ Laura.customizable_body_hair = True
+            $ Laura.give_trait("customizable_body_hair")
         else:
             ch_Laura "My pubic hair?"
 

@@ -66,7 +66,7 @@ layeredimage Charles_chair_temp:
     xysize (int(2500*character_sampling), int(4000*character_sampling))
 
 layeredimage Charles_chair:
-    if Charles.ground_shadow:
+    if Charles.check_traits("ground_shadow"):
         "characters/Charles/images/ground_shadow.webp" at Transform(blend = "multiply")
 
     always:

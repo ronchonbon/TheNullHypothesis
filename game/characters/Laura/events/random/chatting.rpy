@@ -164,7 +164,7 @@ label Laura_chatting_date:
         $ Laura.change_face("sexy", blush = 1)
 
         ch_Laura "I want to go on a date. . . and spend some time with you tonight. . ."
-    elif Laura.quirk and renpy.random.random() > 0.5:
+    elif Laura.check_traits("quirk") and renpy.random.random() > 0.5:
         $ Laura.change_face("angry1", eyes = "right")
 
         pause 1.0

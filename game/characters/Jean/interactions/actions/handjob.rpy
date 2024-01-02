@@ -30,7 +30,7 @@ label Jean_accepts_handjob_second_time:
     return
 
 label Jean_accepts_handjob:
-    if Jean.quirk:
+    if Jean.check_traits("quirk"):
         $ dice_roll = renpy.random.randint(1, 2)
     else:
         $ dice_roll = renpy.random.randint(1, 1)
@@ -76,7 +76,7 @@ label Jean_accepts_fondle_balls_second_time:
     return
 
 label Jean_accepts_fondle_balls:
-    if Jean.quirk:
+    if Jean.check_traits("quirk"):
         $ dice_roll = renpy.random.randint(1, 2)
     else:
         $ dice_roll = renpy.random.randint(1, 1)

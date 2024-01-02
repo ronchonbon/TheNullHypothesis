@@ -100,7 +100,7 @@ label Rogue_knocks_love(arriving_Characters):
 
     "There's knocking at your door."
 
-    if Rogue.quirk:
+    if Rogue.check_traits("quirk"):
         $ temp = Rogue.Player_petname.capitalize()
         
         ch_Rogue "[temp]?"

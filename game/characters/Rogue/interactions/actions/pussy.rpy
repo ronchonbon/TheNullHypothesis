@@ -27,7 +27,7 @@ label Rogue_accepts_touch_pussy_over_clothes_second_time:
     return
 
 label Rogue_accepts_touch_pussy_over_clothes:
-    if Rogue.quirk:
+    if Rogue.check_traits("quirk"):
         $ dice_roll = renpy.random.randint(1, 2)
     else:
         $ dice_roll = renpy.random.randint(1, 1)
@@ -80,7 +80,7 @@ label Rogue_accepts_touch_pussy_second_time:
     return
 
 label Rogue_accepts_touch_pussy:
-    if Rogue.quirk:
+    if Rogue.check_traits("quirk"):
         $ dice_roll = renpy.random.randint(1, 2)
     else:
         $ dice_roll = renpy.random.randint(1, 1)
@@ -108,7 +108,7 @@ label Rogue_accepts_touch_pussy_love:
 label Rogue_rejects_finger_pussy:
     $ Rogue.change_face("worried1", mouth = "lipbite", blush = 1)
 
-    if Rogue.virgin:
+    if Rogue.check_traits("virgin"):
         ch_Rogue "Ah've never put anything in there before. . ."
 
         $ Rogue.change_face("worried1", eyes = "down", mouth = "lipbite", blush = 1)
@@ -120,7 +120,7 @@ label Rogue_rejects_finger_pussy:
 label Rogue_accepts_finger_pussy_first_time:
     $ Rogue.change_face("worried2", mouth = "lipbite", blush = 1)
 
-    if Rogue.virgin:
+    if Rogue.check_traits("virgin"):
         ch_Rogue "Ah've never put anything in there before. . ."
 
         $ Rogue.change_face("worried1", mouth = "lipbite", blush = 1)

@@ -1092,7 +1092,7 @@ label ch1_Juggernaut_attack:
 
     "[Jean.name] wraps you in another bear hug."
 
-    if Jean.quirk or Jean.quirk is None:
+    if Jean.check_traits("quirk") or not EventScheduler.Events["Jean_I_love_you"].completed:
         ch_Jean "Little bro'!!!"
 
     ch_Jean "Thank god you're alright." 
@@ -1109,7 +1109,7 @@ label ch1_Juggernaut_attack:
     "She lets go."
     ch_Player ". . . I've been called an idiot at least a couple times today already."
 
-    if Jean.quirk is None:
+    if not EventScheduler.Events["Jean_I_love_you"].completed():
         $ Jean.change_face("worried1", eyes = "right", mouth = "lipbite", blush = 1)
         $ Jean.change_arms(left_arm = "rub_neck")
 

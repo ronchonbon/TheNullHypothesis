@@ -1,5 +1,5 @@
 label Laura_rejects_cumshot_belly:
-    if Laura.belly_covered:
+    if Laura.check_traits("belly_covered"):
         $ Laura.change_face("confused1", blush = 1)
 
         ch_Laura "Are you doing my laundry? Thought not."
@@ -15,7 +15,7 @@ label Laura_rejects_cumshot_belly:
     return
 
 label Laura_accepts_cumshot_belly_first_time:
-    if Laura.belly_covered:
+    if Laura.check_traits("belly_covered"):
         $ Laura.change_face("confused1", mouth = "smirk", blush = 1)
 
         ch_Laura "Are you doing my laundry?" 
@@ -39,7 +39,7 @@ label Laura_accepts_cumshot_belly_second_time:
     return
 
 label Laura_accepts_cumshot_belly:
-    if Laura.belly_covered:
+    if Laura.check_traits("belly_covered"):
         $ Laura.change_face("sexy", blush = 1)
 
         ch_Laura "Fine, you'll just wash this top again for me."
@@ -55,7 +55,7 @@ label Laura_accepts_cumshot_belly_love:
     return
 
 label Laura_rejects_cumshot_breasts:
-    if Laura.breasts_covered:
+    if Laura.check_traits("breasts_covered"):
         $ Laura.change_face("angry1", blush = 1)
 
         ch_Laura "I just did laundry." 
@@ -67,7 +67,7 @@ label Laura_rejects_cumshot_breasts:
     return
 
 label Laura_accepts_cumshot_breasts_first_time:
-    if Laura.breasts_covered:
+    if Laura.check_traits("breasts_covered"):
         $ Laura.change_face("confused1", mouth = "smirk", blush = 1)
 
         ch_Laura "You're doing the laundry then." 
@@ -87,7 +87,7 @@ label Laura_accepts_cumshot_breasts_second_time:
     return
 
 label Laura_accepts_cumshot_breasts:
-    if Laura.breasts_covered:
+    if Laura.check_traits("breasts_covered"):
         $ Laura.change_face("sexy", blush = 1)
 
         ch_Laura "Fine, weirdo."
@@ -169,7 +169,7 @@ label Laura_accepts_cumshot_hair_love:
     return
 
 label Laura_rejects_cumshot_back:
-    if Laura.back_covered:
+    if Laura.check_traits("back_covered"):
         $ Laura.change_face("neutral", eyes = "squint", blush = 1)
 
         ch_Laura "No, I just washed this top."
@@ -185,7 +185,7 @@ label Laura_rejects_cumshot_back:
     return
 
 label Laura_accepts_cumshot_back_first_time:
-    if Laura.back_covered:
+    if Laura.check_traits("back_covered"):
         $ Laura.change_face("sexy", blush = 1)
 
         ch_Laura "Fine, I'll just wash this top later."
@@ -201,7 +201,7 @@ label Laura_accepts_cumshot_back_second_time:
     return
 
 label Laura_accepts_cumshot_back:
-    if Laura.back_covered:
+    if Laura.check_traits("back_covered"):
         $ Laura.change_face("smirk2", mouth = "lipbite", blush = 1)
 
         ch_Laura "Whatever." 
@@ -217,7 +217,7 @@ label Laura_accepts_cumshot_back_love:
     return
 
 label Laura_rejects_cumshot_ass:
-    if Laura.ass_covered:
+    if Laura.check_traits("ass_covered"):
         $ Laura.change_face("neutral", eyes = "squint", blush = 1)
 
         ch_Laura "You're not getting stains on these."
@@ -229,7 +229,7 @@ label Laura_rejects_cumshot_ass:
     return
 
 label Laura_accepts_cumshot_ass_first_time:
-    if Laura.ass_covered:
+    if Laura.check_traits("ass_covered"):
         $ Laura.change_face("sexy", blush = 1)
 
         ch_Laura "I guess these aren't too hard to clean. . ."
@@ -249,7 +249,7 @@ label Laura_accepts_cumshot_ass_second_time:
     return
 
 label Laura_accepts_cumshot_ass:
-    if Laura.ass_covered:
+    if Laura.check_traits("ass_covered"):
         $ Laura.change_face("smirk2", mouth = "lipbite", blush = 1)
 
         ch_Laura "Just wash them for me later."
@@ -265,7 +265,7 @@ label Laura_accepts_cumshot_ass_love:
     return
 
 label Laura_rejects_cumshot_feet:
-    if Laura.feet_covered:
+    if Laura.check_traits("feet_covered"):
         $ Laura.change_face("neutral", eyes = "squint", blush = 1)
 
         ch_Laura "No, these are new."
@@ -281,7 +281,7 @@ label Laura_rejects_cumshot_feet:
     return
 
 label Laura_accepts_cumshot_feet_first_time:
-    if Laura.feet_covered:
+    if Laura.check_traits("feet_covered"):
         $ Laura.change_face("confused2", blush = 1)
 
         ch_Laura "Keep my feet covered?" 
@@ -305,7 +305,7 @@ label Laura_accepts_cumshot_feet_second_time:
     return
 
 label Laura_accepts_cumshot_feet:
-    if Laura.feet_covered:
+    if Laura.check_traits("feet_covered"):
         $ Laura.change_face("confused1", mouth = "lipbite", blush = 1)
 
         ch_Laura ". . ." 
@@ -463,7 +463,7 @@ label Laura_decides_cumshot:
     if renpy.random.random() > 0.5:
         $ possible_locations = []
 
-        if Laura.birth_control and Laura.History.check("creampie") and approval_check(Laura, threshold = "creampie"):
+        if Laura.check_trait("birth_control") and Laura.History.check("creampie") and approval_check(Laura, threshold = "creampie"):
             $ possible_locations.append("creampie")
         
         if Laura.History.check("anal_creampie") and approval_check(Laura, threshold = "anal_creampie"):

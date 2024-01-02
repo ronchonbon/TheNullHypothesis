@@ -24,6 +24,6 @@ init python:
 
         criteria = [
             "EventScheduler.Events['Rogue_confession'].completed",
-            "not Rogue.platonic"]
+            "not Rogue.check_traits('platonic')"]
 
         return QuestClass(name, string, Quest_type, chapter, description, objectives, optional_objectives, rewards, criteria)

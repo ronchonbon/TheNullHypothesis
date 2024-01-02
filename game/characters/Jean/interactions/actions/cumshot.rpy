@@ -1,5 +1,5 @@
 label Jean_rejects_cumshot_belly:
-    if Jean.belly_covered:
+    if Jean.check_traits("belly_covered"):
         $ Jean.change_face("confused1", mouth = "smirk", blush = 1)
 
         ch_Jean "Maybe you actually wanna do my laundry?" 
@@ -12,7 +12,7 @@ label Jean_rejects_cumshot_belly:
     return
 
 label Jean_accepts_cumshot_belly_first_time:
-    if Jean.belly_covered:
+    if Jean.check_traits("belly_covered"):
         $ Jean.change_face("confused1", mouth = "smirk", blush = 1)
 
         ch_Jean "Fine, but you'll be doing both our laundry, [Jean.Player_petname]."
@@ -32,7 +32,7 @@ label Jean_accepts_cumshot_belly_second_time:
     return
 
 label Jean_accepts_cumshot_stomach:
-    if Jean.belly_covered:
+    if Jean.check_traits("belly_covered"):
         $ Jean.change_face("sexy", blush = 1)
 
         ch_Jean "Fine."
@@ -49,7 +49,7 @@ label Jean_accepts_cumshot_belly_love:
     return
 
 label Jean_rejects_cumshot_breasts:
-    if Jean.breasts_covered:
+    if Jean.check_traits("breasts_covered"):
         $ Jean.change_face("confused1", blush = 1)
 
         ch_Jean "This top is brand new, aim somewhere else."
@@ -65,7 +65,7 @@ label Jean_rejects_cumshot_breasts:
     return
 
 label Jean_accepts_cumshot_breasts_first_time:
-    if Jean.breasts_covered:
+    if Jean.check_traits("breasts_covered"):
         $ Jean.change_face("confused1", mouth = "smirk", blush = 1)
 
         ch_Jean "Fine, I'll just wash it later."
@@ -85,7 +85,7 @@ label Jean_accepts_cumshot_breasts_second_time:
     return
 
 label Jean_accepts_cumshot_breasts:
-    if Jean.breasts_covered:
+    if Jean.check_traits("breasts_covered"):
         $ Jean.change_face("sexy", blush = 1)
 
         ch_Jean "Go for it."
@@ -171,7 +171,7 @@ label Jean_accepts_cumshot_hair_love:
     return
 
 label Jean_rejects_cumshot_back:
-    if Jean.back_covered:
+    if Jean.check_traits("back_covered"):
         $ Jean.change_face("neutral", eyes = "squint", blush = 1)
 
         ch_Jean "Not there, this is a fresh top."
@@ -183,7 +183,7 @@ label Jean_rejects_cumshot_back:
     return
 
 label Jean_accepts_cumshot_back_first_time:
-    if Jean.back_covered:
+    if Jean.check_traits("back_covered"):
         $ Jean.change_face("worried1", mouth = "lipbite", blush = 1)
 
         ch_Jean "But this is a fresh top. . ." 
@@ -203,7 +203,7 @@ label Jean_accepts_cumshot_back_second_time:
     return
 
 label Jean_accepts_cumshot_back:
-    if Jean.back_covered:
+    if Jean.check_traits("back_covered"):
         $ Jean.change_face("smirk2", mouth = "lipbite", blush = 1)
 
         ch_Jean "Oh whatever, fine."
@@ -220,7 +220,7 @@ label Jean_accepts_cumshot_back_love:
     return
 
 label Jean_rejects_cumshot_ass:
-    if Jean.ass_covered:
+    if Jean.check_traits("ass_covered"):
         $ Jean.change_face("confused1", mouth = "smirk", blush = 1)
 
         ch_Jean "I don't want stains, [Jean.Player_petname]."
@@ -232,7 +232,7 @@ label Jean_rejects_cumshot_ass:
     return
 
 label Jean_accepts_cumshot_ass_first_time:
-    if Jean.ass_covered:
+    if Jean.check_traits("ass_covered"):
         $ Jean.change_face("worried1", mouth = "lipbite", blush = 1)
 
         ch_Jean "It probably won't stain. . ."
@@ -253,7 +253,7 @@ label Jean_accepts_cumshot_ass_second_time:
     return
 
 label Jean_accepts_cumshot_ass:
-    if Jean.ass_covered:
+    if Jean.check_traits("ass_covered"):
         $ Jean.change_face("smirk2", mouth = "lipbite", blush = 1)
 
         ch_Jean "Sure, [Jean.Player_petname]."
@@ -270,7 +270,7 @@ label Jean_accepts_cumshot_ass_love:
     return
 
 label Jean_rejects_cumshot_feet:
-    if Jean.feet_covered:
+    if Jean.check_traits("feet_covered"):
         $ Jean.change_face("neutral", eyes = "squint", blush = 1)
 
         ch_Jean "I really like these, no stains."
@@ -282,7 +282,7 @@ label Jean_rejects_cumshot_feet:
     return
 
 label Jean_accepts_cumshot_feet_first_time:
-    if Jean.feet_covered:
+    if Jean.check_traits("feet_covered"):
         $ Jean.change_face("worried1", mouth = "lipbite", blush = 1)
 
         ch_Jean "But I really like these. . ." 
@@ -306,7 +306,7 @@ label Jean_accepts_cumshot_feet_second_time:
     return
 
 label Jean_accepts_cumshot_feet:
-    if Jean.feet_covered:
+    if Jean.check_traits("feet_covered"):
         $ Jean.change_face("confused1", mouth = "lipbite", blush = 1)
 
         ch_Jean "They weren't that hard to clean last time. . ." 
@@ -462,7 +462,7 @@ label Jean_decides_cumshot:
     if renpy.random.random() > 0.25:
         $ possible_locations = []
 
-        if Jean.birth_control and Jean.History.check("creampie") and approval_check(Jean, threshold = "creampie"):
+        if Jean.check_trait("birth_control") and Jean.History.check("creampie") and approval_check(Jean, threshold = "creampie"):
             $ possible_locations.append("creampie")
         
         if Jean.History.check("anal_creampie") and approval_check(Jean, threshold = "anal_creampie"):

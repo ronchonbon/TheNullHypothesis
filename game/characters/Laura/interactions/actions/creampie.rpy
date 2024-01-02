@@ -1,5 +1,5 @@
 label Laura_rejects_creampie:
-    # if Laura.birth_control:
+    # if Laura.check_trait("birth_control"):
     $ Laura.change_face("angry1", blush = 1)
 
     ch_Laura "Not inside, no."
@@ -16,14 +16,14 @@ label Laura_rejects_creampie:
     return
 
 label Laura_accepts_creampie_first_time:
-    # if Laura.birth_control:
+    # if Laura.check_trait("birth_control"):
     #     $ Laura.change_face("confused1", mouth = "lipbite", blush = 1)
 
     #     ch_Laura "Did you take those pills?" 
 
     $ Laura.change_face("sly", mouth = "lipbite", blush = 2)
 
-    # if Laura.birth_control:
+    # if Laura.check_trait("birth_control"):
     #     ch_Laura "Then fine, I've been wondering what it feels like. . ."
     # else:
     ch_Laura "Fine, I've been wondering what it feels like. . ." 
@@ -35,7 +35,7 @@ label Laura_accepts_creampie_second_time:
     return
 
 label Laura_accepts_creampie:
-    if Laura.quirk:
+    if Laura.check_traits("quirk"):
         $ Laura.change_face("sexy", blush = 1) 
 
         ch_Laura "Inside?" 

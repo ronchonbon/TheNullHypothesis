@@ -855,21 +855,21 @@ init python:
 
     def check_for_clothed_Actions(Character):
         for A in Character.all_Actions:
-            if A.Action_type in ["touch_thighs_over_clothes", "touch_thighs_higher_over_clothes"] and not Character.thighs_covered:
+            if A.Action_type in ["touch_thighs_over_clothes", "touch_thighs_higher_over_clothes"] and not Character.check_traits("thighs_covered"):
                 stop_Action(A)
-            elif A.Action_type == "touch_breasts_over_clothes" and not Character.breasts_covered:
+            elif A.Action_type == "touch_breasts_over_clothes" and not Character.check_traits("breasts_covered"):
                 stop_Action(A)
-            elif A.Action_type == "touch_pussy_over_clothes" and not Character.pussy_covered:
+            elif A.Action_type == "touch_pussy_over_clothes" and not Character.check_traits("pussy_covered"):
                 stop_Action(A)
-            elif A.Action_type == "grab_ass_over_clothes" and not Character.ass_covered:
+            elif A.Action_type == "grab_ass_over_clothes" and not Character.check_traits("ass_covered"):
                 stop_Action(A)
-            elif A.Action_type in ["touch_thighs", "touch_thighs_higher"] and Character.thighs_covered:
+            elif A.Action_type in ["touch_thighs", "touch_thighs_higher"] and Character.check_traits("thighs_covered"):
                 stop_Action(A)
-            elif A.Action_type in ["touch_breasts", "pinch_nipples", "suck_nipples"] and Character.breasts_covered:
+            elif A.Action_type in ["touch_breasts", "pinch_nipples", "suck_nipples"] and Character.check_traits("breasts_covered"):
                 stop_Action(A)
-            elif A.Action_type in ["touch_pussy", "finger_pussy", "eat_pussy", "self_touch_pussy", "self_vibrator", "self_dildo_pussy", "sex", "vibrator", "dildo_pussy"] and Character.pussy_covered:
+            elif A.Action_type in ["touch_pussy", "finger_pussy", "eat_pussy", "self_touch_pussy", "self_vibrator", "self_dildo_pussy", "sex", "vibrator", "dildo_pussy"] and Character.check_traits("pussy_covered"):
                 stop_Action(A)
-            elif A.Action_type in ["finger_ass", "eat_ass", "self_finger_ass", "self_dildo_ass", "anal", "dildo_ass"] and Character.anus_covered:
+            elif A.Action_type in ["finger_ass", "eat_ass", "self_finger_ass", "self_dildo_ass", "anal", "dildo_ass"] and Character.check_traits("anus_covered"):
                 stop_Action(A)
 
         return
@@ -1008,8 +1008,8 @@ label start_Action(Action, initiator = None):
 
     if proceed:
         if Action.Action_type in cock_Action_types:
-            $ Player.naked = True
-            $ Player.cock_out = True
+            $ Player.give_trait("naked")
+            $ Player.give_trait("cock_out")
 
             $ renpy.dynamic(temp_Characters = Present[:])
 
@@ -1307,18 +1307,18 @@ label start_Action(Action, initiator = None):
         $ ongoing_Actions.append(Action)
 
         if Action.Action_type == "deepthroat":
-            $ Player.saliva = True
+            $ Player.give_trait("saliva")
 
         if Action.Action_type == "sex":
-            $ Player.grool = True
+            $ Player.give_trait("grool")
 
         if Action.Action_type == "anal":
-            $ Player.dirty_cock = True
+            $ Player.give_trait("dirty_cock")
 
         if not Player.History.check(Action.Action_type, tracker = "recent"):
             $ Player.History.update(Action.Action_type)
 
-        if Action.Action_type in ["blowjob", "deepthroat"] and Player.dirty_cock:
+        if Action.Action_type in ["blowjob", "deepthroat"] and Player.check_traits("dirty_cock"):
             $ Player.History.update("ass_to_mouth")
 
         $ renpy.dynamic(temp_Characters = list(set(Actors[:] + Targets[:])))
@@ -1536,18 +1536,18 @@ label stop_all_Actions(close_interface = True, automatic = False, summary = Fals
 
             $ temp_Characters.remove(temp_Characters[0])
 
-    $ Player.naked = False
-    $ Player.cock_out = False
+    $ Player.remove_trait("naked")
+    $ Player.remove_trait("cock_out")
 
     python:
         for C in Present:
             if C in all_Companions:
                 if Player.location == C.home:
-                    C.clothes_on_floor = False
+                    C.remove_trait("clothes_on_floor")
 
     if Player.location == Player.home:
-        $ Player.clothes_on_floor = False
-
+        $ Player.remove_trait("clothes_on_floor")
+        
     # if black_screen:
     #     $ fade_in_from_black(0.4)
 

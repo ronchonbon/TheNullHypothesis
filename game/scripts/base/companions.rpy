@@ -12,8 +12,6 @@ init -2 python:
             self.public_name = self.name
             self.call_sign = self.name
 
-            self.database = {}
-
             self.petname = self.name
             self.petnames = [self.name]
             self.Player_petname = None
@@ -26,23 +24,16 @@ init -2 python:
             self.XP_goal = 200
             self.ability_points = 0
 
-            self.platonic = False
+            self.stamina = 2
+            self.max_stamina = 2
 
             self.love = properties.get("love", 0)
             self.trust = properties.get("trust", 0)
 
-            self.desire = properties.get("desire", 0)
-
             self.stat_modifier = 1.0
-
-            self.stamina = 2
-            self.max_stamina = 2
 
             self.status = {
                 "miffed": 0, "mad": 0, "heartbroken": 0, "horny": 0, "nympho": 0}
-
-            self.electronic = False
-            self.telepathic = False
 
             self.sprite_anchor = [0.5, 0.5]
             self.sprite_position = [stage_center, 0.0]
@@ -68,18 +59,12 @@ init -2 python:
             self.body_hair_to_shave = {}
             self.body_hair_to_grow = {}
             self.body_hair_growing = {}
-
-            self.customizable_body_hair = False
-
-            self.wet = False
             
             self.tan_lines = {
                 "full": False, "top": False, "bottom": False}
             
             self.piercings = {
                 "face": False, "nipple": False, "belly": False, "labia": False}
-            
-            self.grool = 0
             
             self.spunk = {
                 "hair": 0, "face": 0, "chin": 0, "mouth": 0, "tongue": 0,
@@ -95,22 +80,6 @@ init -2 python:
 
             self.remote_vibrator = None
 
-            self.ground_shadow = True
-
-            self.home = f"bg_{self.tag}"
-            self.destination = "hold"
-            self.location = "hold"
-            self.original_location = "hold"
-
-            self.chat_options = []
-            self.Event_chat_options = []
-            self.text_options = []
-            self.timed_text_options = {}
-            self.mandatory_text_options = []
-            self.text_history = []
-
-            self.History = HistoryClass()
-
             self.Wardrobe = WardrobeClass()
             self.Outfit = self.Wardrobe.indoor_Outfit
             self.previous_Outfit = self.Outfit.name
@@ -119,8 +88,7 @@ init -2 python:
             for C in self.Outfit.Clothes.keys():
                 self.Clothes[C] = copy.copy(self.Outfit.Clothes[C])
 
-            self.inventory = {}
-            self.has_keys_to_Players_room = False
+            self.desire = 0
 
             self.position = "standing"
             self.Lovers = {}
@@ -168,57 +136,38 @@ init -2 python:
             self.possible_poses = []
             self.available_poses = []
 
-            self.virgin = False
-            self.exhibitionist = False
             self.throat_training = 0
             self.anal_training = 0
-            self.orgasm_control = False
-            self.birth_control = False
-
+            
             self.likes = {}
             self.knows_about = []
 
+            self.chat_options = []
+            self.Event_chat_options = []
+            self.text_options = []
+            self.timed_text_options = {}
+            self.mandatory_text_options = []
+            self.text_history = []
+
+            self.schedule = {}
             self.behavior = None
             self.behavior_Partners = []
             
-            self.orgasming = False
-            
             self.wants_alone_time = 0
-            
-            self.schedule = {}
 
-            self.messy_bed = False
-            self.clothes_on_floor = False
+            self.inventory = {}
 
-            self.quirk = None
+            self.History = HistoryClass()
 
-            self.naked = False
-            
-            self.breasts_supported = False
-
-            self.bra_covered = False
-            self.breasts_covered = False
-            self.back_covered = False
-            self.belly_covered = False
-            self.thighs_covered = False
-            self.underwear_covered = False
-            self.ass_covered = False
-            self.pussy_covered = False
-            self.anus_covered = False
-            self.feet_covered = False
-
-            self.bra_hidden = False
-            self.breasts_hidden = False
-            self.back_hidden = False
-            self.belly_hidden = False
-            self.thighs_hidden = False
-            self.underwear_hidden = False
-            self.ass_hidden = False
-            self.pussy_hidden = False
-            self.anus_hidden = False
-            self.feet_hidden = False
-
+            self.database = {}
             self.database_type = None
+
+            self.home = f"bg_{self.tag}"
+            self.destination = "hold"
+            self.location = "hold"
+            self.original_location = "hold"
+
+            self.traits = []
 
             self.temp = None
 
@@ -365,6 +314,24 @@ init -2 python:
                     pose = "neutral"
 
             return pose, left_arm, right_arm
+
+        def give_trait(self, trait):
+            if trait not in self.traits:
+                self.traits.append(trait)
+
+            return
+
+        def remove_trait(self, trait):
+            if trait in self.traits:
+                self.traits.remove(trait)
+
+            return
+
+        def check_traits(self, trait):
+            if trait in self.traits:
+                return True
+        
+            return False
 
         def travel(self):
             if self.location != "hold":

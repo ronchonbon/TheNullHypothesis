@@ -1,5 +1,5 @@
 label Rogue_rejects_cumshot_belly:
-    if Rogue.belly_covered:
+    if Rogue.check_traits("belly_covered"):
         $ Rogue.change_face("confused1", blush = 1) 
 
         ch_Rogue "You gonna do my laundry then? Thought not."
@@ -11,7 +11,7 @@ label Rogue_rejects_cumshot_belly:
     return
 
 label Rogue_accepts_cumshot_belly_first_time:
-    if Rogue.belly_covered:
+    if Rogue.check_traits("belly_covered"):
         $ Rogue.change_face("worried1", blush = 1) 
 
         ch_Rogue "Ah just did laundry. . ." 
@@ -28,7 +28,7 @@ label Rogue_accepts_cumshot_belly_second_time:
     return
 
 label Rogue_accepts_cumshot_belly:
-    if Rogue.belly_covered:
+    if Rogue.check_traits("belly_covered"):
         $ Rogue.change_face("worried1", mouth = "lipbite", blush = 1) 
 
         ch_Rogue "Sure. . ." 
@@ -45,7 +45,7 @@ label Rogue_accepts_cumshot_belly_love:
     return
 
 label Rogue_rejects_cumshot_breasts:
-    if Rogue.breasts_covered:
+    if Rogue.check_traits("breasts_covered"):
         $ Rogue.change_face("worried1", blush = 1) 
 
         ch_Rogue "Sorry [Rogue.Player_petname], ah just washed this top." 
@@ -57,7 +57,7 @@ label Rogue_rejects_cumshot_breasts:
     return
 
 label Rogue_accepts_cumshot_breasts_first_time:
-    if Rogue.breasts_covered:
+    if Rogue.check_traits("breasts_covered"):
         $ Rogue.change_face("sexy", blush = 1) 
 
         ch_Rogue "Fine [Rogue.Player_petname], ah'll just wash this top later."
@@ -73,7 +73,7 @@ label Rogue_accepts_cumshot_breasts_second_time:
     return
 
 label Rogue_accepts_cumshot_breasts:
-    if Rogue.breasts_covered:
+    if Rogue.check_traits("breasts_covered"):
         $ Rogue.change_face("sexy", blush = 1) 
 
         ch_Rogue "Okay, [Rogue.Player_petname]."
@@ -158,7 +158,7 @@ label Rogue_accepts_cumshot_hair_love:
     return
 
 label Rogue_rejects_cumshot_back:
-    if Rogue.back_covered:
+    if Rogue.check_traits("back_covered"):
         $ Rogue.change_face("worried1", mouth = "lipbite", blush = 1) 
 
         ch_Rogue "Sorry [Rogue.Player_petname], ah just washed this top."
@@ -170,7 +170,7 @@ label Rogue_rejects_cumshot_back:
     return
 
 label Rogue_accepts_cumshot_back_first_time:
-    if Rogue.back_covered:
+    if Rogue.check_traits("back_covered"):
         $ Rogue.change_face("sexy", blush = 1) 
 
         ch_Rogue "Fine, ah'll just wash it later."
@@ -187,7 +187,7 @@ label Rogue_accepts_cumshot_back_second_time:
     return
 
 label Rogue_accepts_cumshot_back:
-    if Rogue.back_covered:
+    if Rogue.check_traits("back_covered"):
         $ Rogue.change_face("sexy", blush = 1) 
 
         ch_Rogue "Sure, ah don't mind cleanin' it later."
@@ -204,7 +204,7 @@ label Rogue_accepts_cumshot_back_love:
     return
 
 label Rogue_rejects_cumshot_ass:
-    if Rogue.ass_covered:
+    if Rogue.check_traits("ass_covered"):
         $ Rogue.change_face("confused1", blush = 1) 
 
         ch_Rogue "Ah don't want stains on these."
@@ -216,7 +216,7 @@ label Rogue_rejects_cumshot_ass:
     return
 
 label Rogue_accepts_cumshot_ass_first_time:
-    if Rogue.ass_covered:
+    if Rogue.check_traits("ass_covered"):
         $ Rogue.change_face("confused1", mouth = "lipbite", blush = 1) 
 
         ch_Rogue "Ya want me to keep this on?" 
@@ -237,7 +237,7 @@ label Rogue_accepts_cumshot_ass_second_time:
     return
 
 label Rogue_accepts_cumshot_ass:
-    if Rogue.ass_covered:
+    if Rogue.check_traits("ass_covered"):
         $ Rogue.change_face("worried1", mouth = "lipbite", blush = 1) 
 
         ch_Rogue "Back there is fine. . ."
@@ -257,7 +257,7 @@ label Rogue_accepts_cumshot_ass_love:
     return
 
 label Rogue_rejects_cumshot_feet:
-    if Rogue.feet_covered:
+    if Rogue.check_traits("feet_covered"):
         $ Rogue.change_face("worried1", mouth = "lipbite", blush = 1)
 
         ch_Rogue "Ah don't want stains on these!"
@@ -269,7 +269,7 @@ label Rogue_rejects_cumshot_feet:
     return
 
 label Rogue_accepts_cumshot_feet_first_time:
-    if Rogue.feet_covered:
+    if Rogue.check_traits("feet_covered"):
         $ Rogue.change_face("confused1", mouth = "lipbite", blush = 1) 
 
         ch_Rogue "With my feet covered. . . ?" 
@@ -290,7 +290,7 @@ label Rogue_accepts_cumshot_feet_second_time:
     return
 
 label Rogue_accepts_cumshot_feet:
-    if Rogue.feet_covered:
+    if Rogue.check_traits("feet_covered"):
         $ Rogue.change_face("worried1", mouth = "lipbite", blush = 1) 
 
         ch_Rogue "All over. . . ?" 
@@ -445,7 +445,7 @@ label Rogue_decides_cumshot:
     if renpy.random.random() > 0.25:
         $ possible_locations = []
 
-        if Rogue.birth_control and Rogue.History.check("creampie") and approval_check(Rogue, threshold = "creampie"):
+        if Rogue.check_trait("birth_control") and Rogue.History.check("creampie") and approval_check(Rogue, threshold = "creampie"):
             $ possible_locations.append("creampie")
         
         if Rogue.History.check("anal_creampie") and approval_check(Rogue, threshold = "anal_creampie"):

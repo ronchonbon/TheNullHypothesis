@@ -372,8 +372,8 @@ label ch1_Sentinel_attack:
     with faster_dissolve
 
     $ Sentinel.name = "???"
-    $ Sentinel.electronic = True
-
+    $ Sentinel.give_trait("electronic")
+    
     ch_Player "Holy shi-"
     ch_Sentinel "Human citizens, do not be alarmed."
 

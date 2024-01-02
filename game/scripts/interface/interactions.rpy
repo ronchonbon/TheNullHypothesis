@@ -152,7 +152,7 @@ screen interactions_screen(Character):
 
                             tooltip "Stop Following"
                 else:
-                    if Character.gives_work:
+                    if Character.check_traits("gives_work"):
                         imagebutton:
                             idle At("images/interface/interactions/work_idle.webp", interface) 
                             hover At("images/interface/interactions/work.webp", interface)

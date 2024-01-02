@@ -1,5 +1,5 @@
 label Jean_summon_in_love:
-    if Jean.quirk:
+    if Jean.check_traits("quirk"):
         call receive_text(Jean, "Missed your big sis?") from _call_receive_text_69
         call receive_text(Jean, "Of course you did") from _call_receive_text_70
         call receive_text(Jean, "I'll be right there <3") from _call_receive_text_71

@@ -79,7 +79,7 @@ label Laura_greets_Player_relationship:
     return
 
 label Laura_greets_Player_love:
-    if Laura.quirk:
+    if Laura.check_traits("quirk"):
         $ dice_roll = renpy.random.randint(1, 5)
     else:
         $ dice_roll = renpy.random.randint(1, 3)
@@ -255,7 +255,7 @@ label Laura_greets_Player_horny:
     return
 
 label Laura_greets_Player_nympho:
-    if Laura.quirk:
+    if Laura.check_traits("quirk"):
         $ dice_roll = renpy.random.randint(1, 2)
     else:
         $ dice_roll = renpy.random.randint(1, 1)

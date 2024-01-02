@@ -20,7 +20,7 @@ label Laura_accepts_handjob_first_time:
 
     $ Laura.change_face("sly", mouth = "lipbite", blush = 2)
     
-    if not Player.cock_out:
+    if not Player.check_traits("cock_out"):
         ch_Laura "Fine, pants off." 
     else:
         ch_Laura "Fine."
@@ -32,7 +32,7 @@ label Laura_accepts_handjob_second_time:
     return
 
 label Laura_accepts_handjob:
-    if Laura.quirk:
+    if Laura.check_traits("quirk"):
         $ dice_roll = renpy.random.randint(1, 2)
     else:
         $ dice_roll = renpy.random.randint(1, 1)
@@ -108,7 +108,7 @@ label Laura_accepts_fondle_balls_second_time:
     return
 
 label Laura_accepts_fondle_balls:
-    if Laura.quirk:
+    if Laura.check_traits("quirk"):
         $ dice_roll = renpy.random.randint(1, 4)
     else:
         $ dice_roll = renpy.random.randint(1, 2)

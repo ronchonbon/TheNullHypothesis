@@ -15,7 +15,7 @@ label Character_orgasms(Character):
     if Character.location == Player.location:
         $ orgasm_faces([Character])
 
-        $ Character.orgasming = True
+        $ Character.give_trait("orgasming")
 
         call Character_orgasm_narrations(Character) from _call_Character_orgasm_narrations
 
@@ -24,8 +24,8 @@ label Character_orgasms(Character):
     if Character.location == Player.location and (Action_screen_showing or Character.remote_vibrator):
         $ Character.History.update("orgasmed_with_Player")
 
-        $ Character.orgasming = False
-
+        $ Character.remove_trait("orgasming")
+        
     $ Character.stamina -= 1 if Character.stamina > 0 else 0
 
     if Character.stamina:
@@ -61,7 +61,7 @@ label Player_orgasms:
 
     $ choice_disabled = False
 
-    if focused_Character in [Laura, Jean] and focused_Character.quirk and not Player.History.check("orgasmed", tracker = "daily"):
+    if focused_Character in [Laura, Jean] and focused_Character.check_traits("quirk") and not Player.History.check("orgasmed", tracker = "daily"):
         $ climax_choice = focused_Character
     else:
         if has_ejaculation_control:

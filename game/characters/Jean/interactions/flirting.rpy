@@ -13,7 +13,7 @@ label Jean_flirt_a:
         "n": "Your smile really brightens my day.",
         "o": "I've seen you training without your powers, and you still look amazing."}
 
-    if Jean.quirk:
+    if Jean.check_traits("quirk"):
         $ lines.update({"i": "I couldn't be luckier. . . you take great care of me."})
 
     if Jean.History.check("studied_with_Player"):
@@ -1050,7 +1050,7 @@ label Jean_flirt_eb:
         ch_Jean "Later, when there aren't so many people around." 
 
         $ Jean.change_face("worried1", blush = 1)
-    elif Jean.quirk:
+    elif Jean.check_traits("quirk"):
         $ Jean.change_face("sly", mouth = "lipbite", blush = 1) 
 
         ch_Jean "Want a kiss from your big sister?"
@@ -1346,7 +1346,7 @@ label Jean_flirt_l:
         ch_Jean "Why would I let you do that here of all places?"
 
         call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1264
-    elif Jean.quirk:
+    elif Jean.check_traits("quirk"):
         $ Jean.change_face("perplexed")
 
         pause 1.0

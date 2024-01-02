@@ -324,8 +324,8 @@ label request_position(Character, new_position, Action = None, automatic = False
             $ hookup_length += 0.25
 
             if new_position == "hands_and_knees":
-                $ Player.naked = True
-                $ Player.cock_out = True
+                $ Player.give_trait("naked")
+                $ Player.give_trait("cock_out")
 
                 $ renpy.dynamic(temp_Characters = Present[:])
 
@@ -372,9 +372,9 @@ label request_position(Character, new_position, Action = None, automatic = False
         $ hookup_length += 0.25
 
         if new_position == "hands_and_knees":
-            $ Player.naked = True
-            $ Player.cock_out = True
-
+            $ Player.give_trait("naked")
+            $ Player.give_trait("cock_out")
+            
             $ renpy.dynamic(temp_Characters = Present[:])
 
             while temp_Characters:

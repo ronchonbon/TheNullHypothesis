@@ -22,7 +22,7 @@ label Jean_Party_change_into_public_Outfit:
 
 label Jean_change_Outfit_accept_before(Outfit_name):
     if Jean.Wardrobe.Outfits[Outfit_name].shame < 500:
-        if Jean.quirk:
+        if Jean.check_traits("quirk"):
             $ dice_roll = renpy.random.randint(1, 4)
         else:
             $ dice_roll = renpy.random.randint(1, 3)
@@ -139,7 +139,7 @@ label Jean_change_Outfit_accept_with_privacy_before(Outfit_name):
 
             ch_Jean "I can throw that on."
     else:
-        if Jean.quirk:
+        if Jean.check_traits("quirk"):
             $ dice_roll = renpy.random.randint(1, 3)
         else:
             $ dice_roll = renpy.random.randint(1, 2)
@@ -196,7 +196,7 @@ label Jean_change_Outfit_accept_with_privacy_after(Outfit_name):
     return
     
 label Jean_change_Outfit_reject:
-    if Jean.quirk:
+    if Jean.check_traits("quirk"):
         $ dice_roll = renpy.random.randint(1, 4)
     else:
         $ dice_roll = renpy.random.randint(1, 3)
@@ -514,8 +514,8 @@ label Jean_reject_public_Outfit(Outfit):
             $ Jean.change_face("confused1", blush = 1)
 
             ch_Jean "Very funny. . ."
-    elif not Jean.pussy_covered:
-        if not Jean.breasts_covered:
+    elif not Jean.check_traits("pussy_covered"):
+        if not Jean.check_traits("breasts_covered"):
             $ Jean.change_face("confused1", blush = 1)
 
             ch_Jean "Ha Ha, very funny." 
@@ -540,7 +540,7 @@ label Jean_reject_public_Outfit(Outfit):
             $ Jean.change_face("confused1", blush = 1)
 
             ch_Jean "I'd never wear something like this in public. . ."
-    elif not Jean.breasts_covered:
+    elif not Jean.check_traits("breasts_covered"):
         $ Jean.change_face("appalled2", blush = 1)
 
         ch_Jean "Do I really seem like the type of girl to walk around with her tits out?!"

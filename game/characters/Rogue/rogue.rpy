@@ -304,22 +304,22 @@ init -1:
         "flirting_jd": ["Rogue in Partners"],
         "flirting_ka": ["Rogue in Partners"],
         "flirting_kb": ["Rogue in Partners"],
-        "flirting_l": ["Rogue.quirk"],
-        "flirting_na": ["Rogue.quirk"],
-        "flirting_nb": ["Rogue.quirk"],
-        "flirting_nc": ["Rogue.quirk"],
+        "flirting_l": ["Rogue.check_traits('quirk')"],
+        "flirting_na": ["Rogue.check_traits('quirk')"],
+        "flirting_nb": ["Rogue.check_traits('quirk')"],
+        "flirting_nc": ["Rogue.check_traits('quirk')"],
         "flirting_ma": ["Rogue in Partners"],
         "flirting_mb": ["Rogue in Partners"],
         "flirting_mc": ["Rogue in Partners"],
         "flirting_oa": ["Rogue.History.check('kiss')"],
         "flirting_ob": ["Rogue.History.check('kiss')"],
-        "flirting_pa": ["Rogue.quirk"],
-        "flirting_pb": ["Rogue.quirk"],
-        "flirting_pc": ["Rogue.quirk"],
-        "flirting_pd": ["Rogue.quirk"],
-        "flirting_qa": ["Rogue.quirk"],
-        "flirting_qb": ["Rogue.quirk"],
-        "flirting_qc": ["Rogue.quirk"],
+        "flirting_pa": ["Rogue.check_traits('quirk')"],
+        "flirting_pb": ["Rogue.check_traits('quirk')"],
+        "flirting_pc": ["Rogue.check_traits('quirk')"],
+        "flirting_pd": ["Rogue.check_traits('quirk')"],
+        "flirting_qa": ["Rogue.check_traits('quirk')"],
+        "flirting_qb": ["Rogue.check_traits('quirk')"],
+        "flirting_qc": ["Rogue.check_traits('quirk')"],
         "flirting_r": ["Rogue in Partners", "EventScheduler.Events['Rogue_I_love_you'].completed"],
         
         "sexy_gifts": ["Rogue in Partners"],
@@ -474,8 +474,8 @@ init -2 python:
         Rogue.body_hair = Rogue.default_body_hair
         Rogue.desired_body_hair = Rogue.default_body_hair
 
-        Rogue.virgin = True
-
+        Rogue.give_trait("virgin")
+        
         Cast.append(Rogue.tag)
         Sprites.append(Rogue)
 
@@ -705,10 +705,10 @@ init -2 python:
 
         if day > 3:
             if (Rogue in Partners or Rogue.status["nympho"] or approval_check(Rogue, threshold = "love")) and renpy.random.random() > 0.85:
-                if (Player.location not in bedrooms or Player.location == Player.home) and (Player.location != "bg_shower_Player" or Rogue.has_keys_to_Players_room):
+                if (Player.location not in bedrooms or Player.location == Player.home) and (Player.location != "bg_shower_Player" or Rogue.check_traits("has_keys_to_Players_room")):
                     possible_locations.append(Player.location)
 
-                if Rogue.has_keys_to_Players_room:
+                if Rogue.check_traits("has_keys_to_Players_room"):
                     possible_locations.append(Player.home)
 
         return possible_locations

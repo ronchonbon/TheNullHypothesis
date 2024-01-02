@@ -32,7 +32,7 @@ label Rogue_accepts_spank:
 
     $ Rogue.change_face("worried1", mouth = "lipbite", blush = 2)
 
-    if Rogue.quirk:
+    if Rogue.check_traits("quirk"):
         ch_Rogue "Harder please."
 
     return

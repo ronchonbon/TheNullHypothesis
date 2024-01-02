@@ -43,7 +43,7 @@ label Characters_arrive(arriving_Characters, invited = False, greetings = True, 
                             "You hear a quick knock at the door."
 
                 if "bg_shower" in Player.location:
-                    if in_Characters_bedroom or grouped_Characters[0].has_keys_to_Players_room:
+                    if in_Characters_bedroom or grouped_Characters[0].check_traits("has_keys_to_Players_room"):
                         "You hear them enter the room."
 
                         python:

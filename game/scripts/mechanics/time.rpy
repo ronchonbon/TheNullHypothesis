@@ -36,17 +36,10 @@ init python:
                                 C.likes[other_C] += 5
                                 other_C.likes[C] += 5
 
-                C.wet = False
-
+                C.remove_trait("wet")
+                
                 C.desire -= 25 if C.desire >= 25 else C.desire
                 C.stamina += 1 if C.stamina < C.max_stamina else 0
-
-                if C.desire >= 75:
-                    C.grool = 2
-                elif C.desire >= 50:
-                    C.grool = 1
-                else:
-                    C.grool = 0
 
                 C.wants_alone_time -= 1 if C.wants_alone_time > 0 else 0
 
@@ -84,8 +77,8 @@ init python:
                 C.choose_Outfits()
 
             if C in all_NPCs:
-                if C.gives_work:
-                    C.has_jobs = True
+                if C.check_traits("gives_work"):
+                    C.give_trait("has_jobs")
                 
         return
 
@@ -128,9 +121,9 @@ label wait_around(fade = True, silent = False, Events = True):
 
         python:
             for C in all_Companions:
-                C.messy_bed = False
+                C.remove_trait("messy_bed")
                 
-        $ Player.messy_bed = False
+        $ Player.remove_trait("messy_bed")
 
         python:
             for C in all_Characters:
@@ -241,9 +234,9 @@ label start_new_day(fast = False):
 
     python:
         for C in all_Companions:
-            C.messy_bed = True
+            C.give_trait("messy_bed")
             
-    $ Player.messy_bed = True
+    $ Player.give_trait("messy_bed")
 
     $ shower_steam = False
 
@@ -272,11 +265,11 @@ label start_new_day(fast = False):
 
     if check_attendance is not None:
         if check_attendance:
-            $ Player.attendance_bonus = True
-
+            $ Player.give_trait("attendance_bonus")
+                
             $ Player.stat_modifier = 1.2
         else:
-            $ Player.attendance_bonus = False
+            $ Player.remove_trait("attendance_bonus")
 
             $ Player.stat_modifier = 1.0
 

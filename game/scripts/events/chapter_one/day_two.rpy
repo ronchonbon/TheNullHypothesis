@@ -16,7 +16,7 @@ label day_two_intro:
 
     "You have a deep, dreamless sleep."
 
-    $ Player.messy_bed = True
+    $ Player.give_trait("messy_bed")
 
     call set_the_scene(location = Player.home) from _call_set_the_scene_263
 
@@ -41,20 +41,20 @@ label day_two_intro:
 
     call set_the_scene(location = "bg_hallway") from _call_set_the_scene_264
 
-    $ Player.messy_bed = False
+    $ Player.remove_trait("messy_bed")
 
     ch_Rogue "Good mornin', [Rogue.Player_petname]. How was your first night at the Institute?"
 
     menu:
         extend ""
-        "Too good, that bed is amazing. I'm just worried about what my family must be thinking right now. I feel a bit guilty." if Player.has_family:
+        "Too good, that bed is amazing. I'm just worried about what my family must be thinking right now. I feel a bit guilty." if Player.check_traits("has_family"):
             call change_Character_stat(Rogue, "trust", medium_stat) from _call_change_Character_stat_904
             
             $ Rogue.change_face("worried1")
             $ Rogue.change_arms("crossed")
           
             ch_Rogue "Ah know how you feel. But trust me, you're doin' them a favor by stayin' away."
-        "Too good, that bed is amazing. Way better than my old one. . . I wonder how my roommates are doing, I feel a bit guilty." if not Player.has_family:
+        "Too good, that bed is amazing. Way better than my old one. . . I wonder how my roommates are doing, I feel a bit guilty." if not Player.check_traits("has_family"):
             call change_Character_stat(Rogue, "trust", medium_stat) from _call_change_Character_stat_1622
             
             $ Rogue.change_face("worried1")
@@ -752,7 +752,7 @@ label meet_Kurt:
     ch_Kurt "You can call me Kurt."
     ch_Player "Nice to meet you, [Kurt.name]."
 
-    if Player.visible_mutation:
+    if Player.check_traits("visible_mutation"):
         $ Kurt.change_arms("neutral", left_arm = "extended")
 
         ch_Kurt "You look a little different yourself."

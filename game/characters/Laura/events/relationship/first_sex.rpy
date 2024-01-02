@@ -144,7 +144,7 @@ label Laura_first_sex_part_one:
     ch_Laura "Not {i}all{/i} birth control methods."
     ch_Laura "She gave me something called an 'IUD', which turned out to be effective."
 
-    $ Laura.birth_control = True
+    $ Laura.give_trait("birth_control")
 
     ch_Player "Ah. . ."
 
@@ -218,8 +218,6 @@ label Laura_first_sex_part_two:
     if not Action_screen_showing:
         show screen Action_screen()
 
-    $ Laura.grool = 2
-
     $ Laura.change_face("sexy", blush = 1)
 
     pause 1.0
@@ -246,7 +244,7 @@ label Laura_first_sex_part_two:
 
     $ Laura.change_face("sexy", eyes = "down", blush = 1)
 
-    if Laura.quirk:
+    if Laura.check_traits("quirk"):
         "[Laura.name] doesn't dally and basically tears your pants off."
     else:
         ch_Laura "Take your pants off. . . please. . ." 
@@ -438,7 +436,7 @@ label Laura_first_sex_part_two:
 
     "You cum all over her stomach, as she violently shudders in ecstasy."
 
-    $ Player.orgasming = False
+    $ Player.orgasming = None
     
     $ Laura.change_face("kiss2", blush = 2)
 

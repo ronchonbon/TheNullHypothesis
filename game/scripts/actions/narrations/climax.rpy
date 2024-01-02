@@ -12,7 +12,7 @@ label Player_orgasm_narrations(Character, location):
         $ renpy.say(None, f"You point your cock at {owner} stomach, ready to cover it.")
     elif "breasts" in location:
         if "clothes" in location:
-            if Character.breasts_covered:
+            if Character.check_traits("breasts_covered"):
                 $ renpy.say(None, f"You aim your cock right at {owner} tits, intent on getting it all over her clothes.")
             else:
                 if Character.Clothes["bra"].string:
@@ -23,7 +23,7 @@ label Player_orgasm_narrations(Character, location):
 
                 $ renpy.say(None, f"You pull {owner} top back down and aim your cock right at her tits.")
         else:
-            if Character.breasts_covered:
+            if Character.check_traits("breasts_covered"):
                 if Character.Clothes["jacket"].string:
                     call undress(Character, "jacket") from _call_undress_13
                     

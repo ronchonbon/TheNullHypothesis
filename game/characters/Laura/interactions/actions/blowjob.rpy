@@ -32,7 +32,7 @@ label Laura_accepts_blowjob_second_time:
     return
 
 label Laura_accepts_blowjob:
-    if Laura.quirk:
+    if Laura.check_traits("quirk"):
         $ dice_roll = renpy.random.randint(1, 2)
     else:
         $ dice_roll = renpy.random.randint(1, 1)

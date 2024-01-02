@@ -4,7 +4,7 @@ layeredimage bg_Jean:
     else:
         "characters/Jean/images/bedroom/bg_Jean_[lighting].webp"
         
-    if Jean.messy_bed:
+    if Jean.check_traits("messy_bed"):
         "characters/Jean/images/bedroom/bg_Jean_messy_bed.webp"
     else:
         "characters/Jean/images/bedroom/bg_Jean_bed.webp"
@@ -18,7 +18,7 @@ layeredimage bg_Jean:
     if "plant1" in Jean.inventory.keys() and "plant2" in Jean.inventory.keys() and "plant3" in Jean.inventory.keys():
         "characters/Jean/images/bedroom/bg_Jean_plants.webp"
 
-    if Jean.clothes_on_floor:
+    if Jean.check_traits("clothes_on_floor"):
         "characters/Jean/images/bedroom/bg_Jean_clothes.webp"
 
     if lighting == "evening":

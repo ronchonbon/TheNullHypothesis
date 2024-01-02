@@ -132,7 +132,7 @@ label Jean_accepts_show_bra_before_love:
         $ Jean.change_face("worried2", mouth = "lipbite", blush = 1)
 
         ch_Jean "Fine, but I'm gonna need some attention later. . ."
-    elif Jean.quirk:
+    elif Jean.check_traits("quirk"):
         if Jean.Clothes["bra"].gift:
             $ dice_roll = renpy.random.randint(1, 5)
         else:
@@ -339,7 +339,7 @@ label Jean_accepts_show_underwear_before:
     return
 
 label Jean_accepts_show_underwear_before_love:
-    if Jean.quirk:
+    if Jean.check_traits("quirk"):
         if Jean.Clothes["underwear"].gift:
             if Jean.status["horny"] or Jean.status["nympho"]:
                 $ dice_roll = renpy.random.randint(1, 6)
@@ -562,7 +562,7 @@ label Jean_accepts_show_breasts_before_love:
         $ Jean.change_face("sly", mouth = "lipbite", blush = 1)
 
         ch_Jean "I {i}will{/i} need you to take care of them later. . ."
-    elif Jean.quirk:
+    elif Jean.check_traits("quirk"):
         $ dice_roll = renpy.random.randint(1, 4)
 
         if dice_roll == 1:
@@ -733,7 +733,7 @@ label Jean_accepts_show_pussy_before_love:
         $ Jean.change_face("sexy", eyes = "down", blush = 1) 
 
         ch_Jean "Wanna see me drip?"
-    elif Jean.quirk:
+    elif Jean.check_traits("quirk"):
         $ dice_roll = renpy.random.randint(1, 4)
 
         if dice_roll == 1:

@@ -98,7 +98,7 @@ image Jean_sprite standing:
 layeredimage Jean_standing_temp:
     if Jean.hovered:
         "Jean_standing" at hover
-    elif Jean.orgasming:
+    elif Jean.check_traits("orgasming"):
         "Jean_standing" at tremble(20)
     else:
         "Jean_standing"
@@ -114,7 +114,7 @@ layeredimage Jean_standing:
     elif Player.right_hand_Actions[0].animation_type == "grab_ass":
         "Jean_standing_male_right_arm_grab_ass_animation[Player.right_hand_Actions[0].mode]" at change_offset(Jean_standing_ass_position[0], Jean_standing_ass_position[1])
 
-    if Jean.ground_shadow:
+    if Jean.check_traits("ground_shadow"):
         "characters/Jean/images/standing/ground_shadow.webp" at Transform(blend = "multiply")
 
     if renpy.get_screen("Wardrobe_screen"):
@@ -339,7 +339,7 @@ layeredimage Jean_standing:
         "Jean_standing_male_head_suck_right_nipple_animation[Player.mouth_Actions[0].mode]" at change_offset(Jean_standing_right_nipple_position[0], Jean_standing_right_nipple_position[1])
 
 layeredimage Jean_standing_hair_back:
-    # if Jean.wet or Jean.Clothes["hair"].string == "wet":
+    # if Jean.check_traits("wet") or Jean.Clothes["hair"].string == "wet":
     #     "characters/Jean/images/standing/hair_back_wet.webp"
     # else:
     always:
@@ -369,13 +369,13 @@ layeredimage Jean_standing_head:
     if Jean.Clothes["face_inner_accessory"].string:
         "characters/Jean/images/standing/face_inner_accessory_[Jean.Clothes[face_inner_accessory].string].webp"
 
-    # if Jean.wet or Jean.Clothes["hair"].string == "wet":
+    # if Jean.check_traits("wet") or Jean.Clothes["hair"].string == "wet":
     #     "characters/Jean/images/standing/hair_wet_shadow.webp" at Transform(blend = "multiply")
     # else:
     always:
         "characters/Jean/images/standing/hair_[Jean.Clothes[hair].string]_shadow.webp" at Transform(blend = "multiply")
 
-    # if Jean.wet or Jean.Clothes["hair"].string == "wet":
+    # if Jean.check_traits("wet") or Jean.Clothes["hair"].string == "wet":
     #     "characters/Jean/images/standing/hair_wet.webp"
     # else:
     always:
@@ -560,7 +560,7 @@ layeredimage Jean_standing_male_right_arm:
         "Player_right_arm_pinch"
 
 layeredimage Jean_standing_male_head:
-    if Player.body_visible:
+    if Player.check_traits("body_visible"):
         "Player_head"
 
     if Player.mouth_Actions and Jean in Player.mouth_Actions[0].Targets and Player.mouth_Actions[0].animation_type in ["suck_nipples", "eat_pussy", "eat_ass"]:

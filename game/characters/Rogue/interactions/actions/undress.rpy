@@ -118,7 +118,7 @@ label Rogue_accepts_show_bra_before_love:
         $ Rogue.change_face("worried1", blush = 1)
 
         ch_Rogue "Could ya. . . maybe do somethin' more with 'em later?"
-    elif Rogue.quirk:
+    elif Rogue.check_traits("quirk"):
         $ Rogue.change_face("worried1", mouth = "lipbite", blush = 1)
 
         if Rogue.Clothes["bra"].gift:
@@ -282,7 +282,7 @@ label Rogue_accepts_show_underwear_before:
     return
 
 label Rogue_accepts_show_underwear_before_love:
-    if Rogue.quirk:
+    if Rogue.check_traits("quirk"):
         if Rogue.Clothes["underwear"].gift:
             if Rogue.status["horny"] or Rogue.status["nympho"]:
                 $ dice_roll = renpy.random.randint(1, 6)
@@ -455,7 +455,7 @@ label Rogue_accepts_show_breasts_before_love:
         $ Rogue.change_face("worried1", mouth = "lipbite", blush = 1)
 
         ch_Rogue "They're beggin' for you to touch 'em. . ."
-    elif Rogue.quirk:
+    elif Rogue.check_traits("quirk"):
         $ dice_roll = renpy.random.randint(1, 4)
 
         if dice_roll == 1:
@@ -624,7 +624,7 @@ label Rogue_accepts_show_pussy_before_love:
 
         ch_Rogue "Ah know ya like to see it drippin'. . ."
         ch_Rogue "It always happens when ah think of you."
-    elif Rogue.quirk:
+    elif Rogue.check_traits("quirk"):
         $ dice_roll = renpy.random.randint(1, 4)
 
         if dice_roll == 1:

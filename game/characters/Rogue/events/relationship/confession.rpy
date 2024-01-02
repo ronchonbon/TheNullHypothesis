@@ -403,7 +403,7 @@ label Rogue_confession:
             call change_Character_stat(Rogue, "love", medium_stat) from _call_change_Character_stat_618
             call change_Character_stat(Rogue, "trust", medium_stat) from _call_change_Character_stat_404
 
-            if Player.has_family:
+            if Player.check_traits("has_family"):
                 ch_Player "I hope my family's doing alright. . ."
         "Sure beats the food I got back home.":
             ch_Player "At least there's a plus side to all of this. . ."
@@ -411,7 +411,7 @@ label Rogue_confession:
             call change_Character_stat(Rogue, "love", medium_stat) from _call_change_Character_stat_421
             call change_Character_stat(Rogue, "trust", medium_stat) from _call_change_Character_stat_422
 
-            if Player.has_family:
+            if Player.check_traits("has_family"):
                 ch_Player "I still miss my mom's cooking sometimes."
 
     $ Rogue.change_face("sad", blush = 0)
@@ -621,7 +621,7 @@ label Rogue_confession:
 
     $ Rogue.text_options.insert(0, "want to go on that date tonight?")
 
-    if not Rogue.platonic:
+    if not Rogue.check_traits("platonic"):
         ch_Rogue "Ah'll see ya later, hon'."
         ch_Player "See ya."
 
@@ -633,7 +633,7 @@ label Rogue_confession:
         
         call wait_around(silent = True) from _call_wait_around_1
     else:
-        $ Rogue.platonic = False
+        $ Rogue.remove_trait("platonic")
 
     $ ongoing_Event = False
 
@@ -839,7 +839,7 @@ label Rogue_confession_2D:
 
     call remove_Characters(Rogue) from _call_remove_Characters_345
 
-    $ Rogue.platonic = True
+    $ Rogue.give_trait("platonic")
 
     pause 1.0
     

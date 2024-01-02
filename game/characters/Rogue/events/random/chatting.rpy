@@ -175,7 +175,7 @@ label Rogue_chatting_date:
         $ Rogue.change_face("sexy", blush = 2)
 
         ch_Rogue "And spend some {i}quality{/i} time together. . ."
-    elif Rogue.quirk and renpy.random.random() > 0.5:
+    elif Rogue.check_traits("quirk") and renpy.random.random() > 0.5:
         $ Rogue.change_face("worried1", mouth = "smirk")
 
         pause 1.0

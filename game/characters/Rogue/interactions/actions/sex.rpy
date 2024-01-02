@@ -22,7 +22,7 @@ label Rogue_accepts_sex_second_time:
     return
 
 label Rogue_accepts_sex:
-    if Rogue.quirk:
+    if Rogue.check_traits("quirk"):
         $ dice_roll = renpy.random.randint(1, 2)
     else:
         $ dice_roll = renpy.random.randint(1, 1)
@@ -89,7 +89,7 @@ label Rogue_accepts_anal_second_time:
     return
 
 label Rogue_accepts_anal:
-    if Rogue.quirk:
+    if Rogue.check_traits("quirk"):
         $ dice_roll = renpy.random.randint(1, 2)
     else:
         $ dice_roll = renpy.random.randint(1, 1)

@@ -716,7 +716,7 @@ label Rogue_date_dinner:
     $ Rogue.change_face("smirk2", eyes = "down", mouth = "lipbite")
     $ Rogue.change_arms("neutral")
 
-    if Rogue.quirk:
+    if Rogue.check_traits("quirk"):
         $ Rogue.change_face("worried1", mouth = "lipbite", blush = 1) 
         $ Rogue.change_arms("angry")
 
@@ -955,7 +955,7 @@ label Rogue_date_dinner_sex:
             $ sex_acts.append("eat_pussy")
 
         if sex_acts:
-            if Rogue.quirk:
+            if Rogue.check_traits("quirk"):
                 $ Rogue.change_face("worried1", mouth = "lipbite", blush = 1) 
                         
                 $ temp = Rogue.Player_petname.capitalize()
@@ -1990,7 +1990,7 @@ label Rogue_date_movie_sex:
             $ sex_acts.append("blowjob")
 
         if sex_acts:
-            if Rogue.quirk:
+            if Rogue.check_traits("quirk"):
                 $ Rogue.change_face("worried1", mouth = "lipbite", blush = 1) 
 
                 $ temp = Rogue.Player_petname.capitalize()

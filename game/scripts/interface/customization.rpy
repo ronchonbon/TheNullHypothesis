@@ -218,7 +218,7 @@ screen Player_customization_screen(scholarship = False):
 
                         action SetVariable("Player.hair", (Player.hair + 1) % 7)
                 
-                if Player.beards_unlocked:
+                if Player.check_traits("beards_unlocked"):
                     null height 0.0333
 
                     fixed xysize (0.195, 0.01):

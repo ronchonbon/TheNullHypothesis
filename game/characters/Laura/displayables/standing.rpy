@@ -92,7 +92,7 @@ image Laura_sprite standing:
 layeredimage Laura_standing_temp:
     if Laura.hovered:
         "Laura_standing" at hover
-    elif Laura.orgasming:
+    elif Rogue.check_traits("orgasming"):
         "Laura_standing" at tremble(20)
     else:
         "Laura_standing"
@@ -108,7 +108,7 @@ layeredimage Laura_standing:
     elif Player.right_hand_Actions[0].animation_type == "grab_ass":
         "Laura_standing_male_right_arm_grab_ass_animation[Player.right_hand_Actions[0].mode]" at Transform(offset = (Laura_standing_ass_position[0], Laura_standing_ass_position[1]))
 
-    if Laura.ground_shadow:
+    if Laura.check_traits("ground_shadow"):
         "characters/Laura/images/standing/ground_shadow.webp" at Transform(blend = "multiply")
 
     if renpy.get_screen("Wardrobe_screen"):
@@ -428,14 +428,14 @@ layeredimage Laura_standing_head:
 
     # if Laura.Clothes["face_outer_accessory"].string:
     #     Null()
-    if Laura.wet or Laura.Clothes["hair"].string == "wet":
+    if Laura.check_traits("wet") or Laura.Clothes["hair"].string == "wet":
         "characters/Laura/images/standing/hair_wet_shadow.webp" at Transform(blend = "multiply")
     else:
         "characters/Laura/images/standing/hair_[Laura.Clothes[hair].string]_shadow.webp" at Transform(blend = "multiply")
 
     # if Laura.Clothes["face_outer_accessory"].string:
     #     Null()
-    if Laura.wet or Laura.Clothes["hair"].string == "wet":
+    if Laura.check_traits("wet") or Laura.Clothes["hair"].string == "wet":
         "characters/Laura/images/standing/hair_wet.webp"
     else:
         "characters/Laura/images/standing/hair_[Laura.Clothes[hair].string].webp"
@@ -482,7 +482,7 @@ layeredimage Laura_standing_male_right_arm:
         "Player_right_arm_pinch"
 
 layeredimage Laura_standing_male_head:
-    if Player.body_visible:
+    if Player.check_traits("body_visible"):
         "Player_head"
 
     if Player.mouth_Actions and Laura in Player.mouth_Actions[0].Targets and Player.mouth_Actions[0].animation_type in ["suck_nipples", "eat_pussy", "eat_ass"]:

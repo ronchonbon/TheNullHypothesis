@@ -101,7 +101,7 @@ label Jean_chapter_one_season_two_second_training_session:
 
         ch_Jean "Definitely." 
 
-    if Player.visible_mutation:
+    if Player.check_traits("visible_mutation"):
         ch_Player "But, I do know my appearance didn't change until I was in the bathroom."
 
     $ Jean.change_face("worried1")

@@ -49,8 +49,8 @@ label day_one_intro:
     ch_Player "Oh, thank god, it was just a nightmare. . ."
     ch_Player ". . . Damn, has my bed always felt this good?"
 
-    $ Player.messy_bed = True
-
+    $ Player.give_trait("messy_bed")
+    
     call set_the_scene(location = Player.home) from _call_set_the_scene_241
 
     "You open your eyes to a strange room. You're wearing fresh clothes you don't recognize."
@@ -58,7 +58,7 @@ label day_one_intro:
     "Next to it is a journal and bag with a note:{p}'Might come in handy.'"
     ch_Player "What the. . . Where. . ."
 
-    if Player.visible_mutation:
+    if Player.check_traits("visible_mutation"):
         ch_Player "Fuck. . . It wasn't a dream. . ."
 
     $ Charles.name = "???"
@@ -84,11 +84,11 @@ label day_one_intro:
 
                     $ first_counter += 1
                 else:
-                    $ Charles.telepathic = True
+                    $ Charles.give_trait("telepathic")
 
                     ch_Charles "Wake up, [Player.first_name]."
 
-                    $ Charles.telepathic = False
+                    $ Charles.remove_trait("telepathic")
 
                     $ sleeping = False
 
@@ -115,11 +115,11 @@ label day_one_intro:
 
                     $ second_counter += 1
                 else:
-                    $ Charles.telepathic = True
+                    $ Charles.give_trait("telepathic")
 
                     ch_Charles "[Player.first_name], please come find me in my study. I will explain everything."
 
-                    $ Charles.telepathic = False
+                    $ Charles.remove_trait("telepathic")
 
                     "You recognize that voice - the one from your dream."
 
@@ -129,7 +129,7 @@ label day_one_intro:
 
     call set_the_scene(location = "bg_hallway") from _call_set_the_scene_242
 
-    $ Player.messy_bed = False
+    $ Player.remove_trait("messy_bed")
 
     "Before you is a beautifully decorated hallway. You look in both directions, but nobody seems to be around."
     "With a shrug, you walk down the corridor."
@@ -198,10 +198,10 @@ label day_one_intro:
             ch_Charles "Fear not, [Player.first_name]."
             ch_Charles "We are keeping a close eye on your family to ensure their safety."
             ch_Charles "We possess the means to protect them if it becomes necessary."
+            
+            $ Player.give_trait("has_family")
         "Never thought I'd say it, but thank god I don't have any family. Who knows what [Amahl.name] would do in order to get to me.":
             ch_Charles "True: it may prove to your benefit in this particular circumstance."
-
-            $ Player.has_family = False
         "Fuck. . .":
             pass
 
@@ -224,25 +224,22 @@ label day_one_intro:
 
                 pause 1.0
                 
-                $ Charles.telepathic = True
+                $ Charles.give_trait("telepathic")
 
                 ch_Charles "I am a telepath, not unlike your old professor. I am a professor as well, in fact. But that is where the similarities end."
 
                 call Charles_deactivate_psychic from _call_Charles_deactivate_psychic
                 
                 $ Charles.change_face("neutral")
+                $ Charles.remove_trait("telepathic")
 
                 $ asked_Charles = True
-            "If we're both mutants, why do you look normal and I look. . . like this?" if asked_mutant and Player.visible_mutation and not asked_appearance:
-                $ Charles.telepathic = False
-
+            "If we're both mutants, why do you look normal and I look. . . like this?" if asked_mutant and Player.check_traits("visible_mutation") and not asked_appearance:
                 ch_Charles "Despite our best efforts, much of mutant physiology remains a mystery."
                 ch_Charles "Upon manifestation of their abilities, the appearance of some mutants changes in. . . unpredictable ways."
 
                 $ asked_appearance = True
             "Well, I'm out of questions.":
-                $ Charles.telepathic = False
-                
                 if not asked_mutant and not asked_Charles:
                     $ Charles.change_face("confused1")
 
@@ -258,7 +255,7 @@ label day_one_intro:
 
     menu:
         extend ""
-        "But what about my family. . . ?" if Player.has_family:
+        "But what about my family. . . ?" if Player.check_traits("has_family"):
             $ Charles.change_face("neutral", mouth = "frown")
 
             ch_Charles "I am afraid you might only put them in harm's way by going back home."
@@ -301,8 +298,8 @@ label day_one_intro:
 
     hide crack onlayer effects
     
-    $ Player.phone_cracked = True
-
+    $ Player.give_trait("phone_cracked")
+    
     $ phone_interactable = False
 
     show screen phone_screen()
@@ -408,7 +405,7 @@ label day_one_intro_1A:
     
     ch_Charles "Yes, you are. Although your powers may not be so flamboyant as those you frequently see in comic books."
 
-    if Player.visible_mutation:
+    if Player.check_traits("visible_mutation"):
         if Player.skin_color in ["blue", "green", "red"]:
             "You look down at your [Player.skin_color] skin."
         elif Player.ears:
@@ -434,18 +431,18 @@ label day_one_intro_1A:
 
             pause 1.0
 
-            $ Charles.telepathic = True
+            $ Charles.give_trait("telepathic")
 
             ch_Charles "I am not."
 
             call Charles_deactivate_psychic from _call_Charles_deactivate_psychic_1
             
             $ Charles.change_face("neutral")
-            $ Charles.telepathic = False
-
+            $ Charles.remove_trait("telepathic")
+            
     ch_Player "So. . . what are my powers?"
 
-    if Player.visible_mutation:
+    if Player.check_traits("visible_mutation"):
         ch_Player "Other than. . . well, you know."
 
     ch_Player "I hope I can at least fly."
@@ -1167,6 +1164,6 @@ label day_one_end:
 
     $ Laura.petname = "X-23"
 
-    $ Player.phone_cracked = True
+    $ Player.give_trait("phone_cracked")
 
     jump day_two_intro

@@ -287,7 +287,7 @@ screen phone_screen():
                 else:
                     action None
 
-        if Player.phone_cracked:
+        if Player.check_traits("phone_cracked"):
             add At("images/interface/phone/cracked.webp", interface) alpha 0.2
 
         add At(f"images/interface/phone/frame_{Player.phone_frame + 1}.webp", interface)
