@@ -22,6 +22,7 @@ label Jean_date:
     $ ongoing_Event = True
 
     $ total_spent = 0
+    $ total_score = 0
 
     hide screen phone_screen
 
@@ -267,6 +268,8 @@ label Jean_date:
 
     call Jean_date_end from _call_Jean_date_end
 
+    call change_Character_stat(Jean, "love", int(total_score*date_bonus))
+
     python:
         for C in Player.date_planned.keys():
             C.History.update("went_on_date_with_Player")
@@ -410,6 +413,8 @@ label Jean_date_dinner:
             $ Jean.change_face("smirk2")
 
             ch_Jean "Sure."
+
+    $ total_score += Jean_date_scores[f"dinner_{cuisine}"]
 
     $ eating_dinner = True
     $ ordered_food = True
@@ -627,11 +632,20 @@ label Jean_date_dinner:
     menu:
         extend ""
         "[first_compliment]":
-            call expression f"Jean_flirt_a{indices[0]}" from _call_expression
+            $ flirting_type = "a" + indices[0]
         "[second_compliment]":
-            call expression f"Jean_flirt_a{indices[1]}" from _call_expression_1
+            $ flirting_type = "a" + indices[1]
         "[third_compliment]":
-            call expression f"Jean_flirt_a{indices[2]}" from _call_expression_2
+            $ flirting_type = "a" + indices[2]
+
+    call expression f"Jean_flirt_a{flirting_type}"
+
+    if approval_check(Jean, threshold = f"flirting_{flirting_type}"):
+        call change_Character_stat(Jean, "love", Jean_flirting_bonuses[flirting_type][0])
+        call change_Character_stat(Jean, "trust", Jean_flirting_bonuses[flirting_type][1])
+    else:
+        call change_Character_stat(Jean, "love", Jean_flirting_penalties[flirting_type][0])
+        call change_Character_stat(Jean, "trust", Jean_flirting_penalties[flirting_type][1])
 
     $ Jean.change_face("smirk2", blush = 1)
 
@@ -660,6 +674,8 @@ label Jean_date_dinner:
     "[Jean.name] digs right in."
 
     if Player_picked_food and chosen_meal[Jean] in ["penne alla vodka", "crab cakes", "jambalaya"]:
+        $ total_score += Jean_date_scores["dinner_favorite_food"]
+        
         $ Jean.change_face("smirk2", mouth = "lipbite", blush = 1)
 
         ch_Jean "This is delicious."
@@ -682,6 +698,8 @@ label Jean_date_dinner:
         menu:
             extend ""
             "Give her a bite":
+                $ total_score += Jean_date_scores["dinner_shared_food"]
+
                 "You cut her a piece, and she eats it directly off of your fork." 
 
                 $ Jean.change_face("neutral", eyes = "down", mouth = "open")
@@ -723,12 +741,16 @@ label Jean_date_dinner:
                 $ Jean.change_face("smirk2", blush = 1)
 
                 if Player.cash >= restaurant_bill[Player] + restaurant_bill[Jean]:
+                    $ total_score += Jean_date_scores["dinner_pay"]
+
                     "You pay the bill and head back into the mall." 
 
                     $ Player.cash -= restaurant_bill[Player] + restaurant_bill[Jean]
 
                     $ total_spent += restaurant_bill[Player] + restaurant_bill[Jean]
                 else:
+                    $ total_score += Jean_date_scores["dinner_pay_not_enough"]
+
                     "You realize you don't have enough money. . ." 
                     
                     $ Jean.change_face("confused1") 
@@ -765,12 +787,16 @@ label Jean_date_dinner:
                 ch_Jean "Oh alright, if you want to that badly."
 
                 if Player.cash >= math.ceil((restaurant_bill[Player] + restaurant_bill[Jean])/2):
+                    $ total_score += Jean_date_scores["dinner_split"]
+                    
                     "You both pay the bill and head back into the mall."
 
                     $ Player.cash -= math.ceil((restaurant_bill[Player] + restaurant_bill[Jean])/2)
                                     
                     $ total_spent += math.ceil((restaurant_bill[Player] + restaurant_bill[Jean])/2)
                 else:
+                    $ total_score += Jean_date_scores["dinner_split_not_enough"]
+
                     "You realize you don't have enough money to pay for half. . ."
                     
                     $ Jean.change_face("confused1") 
@@ -847,6 +873,8 @@ label Jean_date_dinner_sex:
                     ch_Jean "Oh alright."
 
                     return
+
+    $ total_score += Jean_date_scores[f"dinner_{sex_act}"]
 
     call expression f"Jean_date_dinner_sex_{sex_act}" from _call_expression_3
 
@@ -1250,6 +1278,8 @@ label Jean_date_movie:
 
         ch_Jean "Sure, it looks good."
 
+    $ total_score += Jean_date_scores[f"movie_{movie_choice}"]
+
     menu:
         extend ""
         "Offer to pay":
@@ -1267,12 +1297,16 @@ label Jean_date_movie:
                 $ Jean.change_face("smirk2", blush = 1)
 
                 if Player.cash >= 2*ticket_price:
+                    $ total_score += Jean_date_scores["movie_pay"]
+
                     "You pay for the tickets." 
 
                     $ Player.cash -= 2*ticket_price                    
                     
                     $ total_spent += 2*ticket_price  
                 else:
+                    $ total_score += Jean_date_scores["movie_pay_not_enough"]
+
                     "You realize you don't have enough money. . ." 
                     
                     $ Jean.change_face("confused1") 
@@ -1309,12 +1343,16 @@ label Jean_date_movie:
                 ch_Jean "Oh alright, if you want to that badly."
 
                 if Player.cash >= ticket_price:
+                    $ total_score += Jean_date_scores["movie_split"]
+
                     "You both pay for the tickets."
 
                     $ Player.cash -= ticket_price
 
                     $ total_spent += ticket_price
                 else:
+                    $ total_score += Jean_date_scores["movie_split_not_enough"]
+
                     "You realize you don't have enough money to pay for half. . ." 
                     
                     $ Jean.change_face("confused1") 
@@ -1762,6 +1800,8 @@ label Jean_date_movie_sex:
 
                     return
 
+    $ total_score += Jean_date_scores[f"movie_{sex_act}"]
+
     call expression f"Jean_date_movie_sex_{sex_act}" from _call_expression_5
 
     return
@@ -2119,6 +2159,8 @@ label Jean_date_mall:
     return
 
 label Jean_date_mall_wander:
+    $ total_score += Jean_date_scores["wander"]
+
     $ Jean.change_face("smirk1", eyes = "right")
 
     "Without any specific destination in mind, you wander around the mall with [Jean.name]."
@@ -2133,6 +2175,8 @@ label Jean_date_mall_wander:
         menu:
             extend ""
             "Ask [Jean.name] if you can hold hands.":
+                $ total_score += Jean_date_scores["wander_hold_hands"]
+
                 $ Jean.change_face("confused1", mouth = "smirk")
 
                 ch_Jean "I was waiting for you to ask, [Jean.Player_petname]. . ." 
@@ -2141,6 +2185,8 @@ label Jean_date_mall_wander:
 
                 $ holding_hands = True
             "Just grab [Jean.name]'s hand.": 
+                $ total_score += Jean_date_scores["wander_grab_hand"]
+
                 $ Jean.change_face("sly")
 
                 "She doesn't protest and just gives your hand a squeeze in response." 
@@ -2178,6 +2224,8 @@ label Jean_date_mall_wander:
     return
 
 label Jean_date_mall_dessert:
+    $ total_score += Jean_date_scores["dessert"]
+
     $ Jean.change_face("smirk1", eyes = "right")
 
     "Being in a mall provides a number of opportunities and problems, simultaneously."
@@ -2243,7 +2291,7 @@ label Jean_date_end:
 
         if Jean.status["horny"] or Jean.status["nympho"]:
             call Jean_date_end_invite from _call_Jean_date_end_invite_1
-        elif renpy.random.random() > 0.25:
+        elif total_score >= date_threshold:
             call Jean_date_end_invite from _call_Jean_date_end_invite_2
         else:
             call Jean_date_end_goodnight from _call_Jean_date_end_goodnight_1

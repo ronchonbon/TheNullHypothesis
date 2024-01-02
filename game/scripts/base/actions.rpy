@@ -8,8 +8,6 @@ init -2:
     define boredom_penalty = -0.25
     define boredom_threshold = 5
 
-    define orgasm_bonus = 10
-
     default ongoing_Actions = []
 
     define all_poses = [

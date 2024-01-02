@@ -24,6 +24,7 @@ label Rogue_date:
     $ ongoing_Event = True
 
     $ total_spent = 0
+    $ total_score = 0
 
     hide screen phone_screen
 
@@ -292,6 +293,8 @@ label Rogue_date:
     else:
         call Rogue_date_end from _call_Rogue_date_end
 
+    call change_Character_stat(Rogue, "love", int(total_score*date_bonus))
+
     python:
         for C in Player.date_planned.keys():
             C.History.update("went_on_date_with_Player")
@@ -439,6 +442,8 @@ label Rogue_date_dinner:
             $ Rogue.change_face("smirk2")
 
             ch_Rogue "Works for me."
+
+    $ total_score += Rogue_date_scores[f"dinner_{cuisine}"]
 
     $ eating_dinner = True
     $ ordered_food = True
@@ -683,11 +688,20 @@ label Rogue_date_dinner:
     menu:
         extend ""
         "[first_compliment]":
-            call expression f"Rogue_flirt_a{indices[0]}" from _call_expression_27
+            $ flirting_type = "a" + indices[0]
         "[second_compliment]":
-            call expression f"Rogue_flirt_a{indices[1]}" from _call_expression_28
+            $ flirting_type = "a" + indices[1]
         "[third_compliment]":
-            call expression f"Rogue_flirt_a{indices[2]}" from _call_expression_29
+            $ flirting_type = "a" + indices[2]
+
+    call expression f"Rogue_flirt_{flirting_type}"
+
+    if approval_check(Rogue, threshold = f"flirting_{flirting_type}"):
+        call change_Character_stat(Rogue, "love", Rogue_flirting_bonuses[flirting_type][0])
+        call change_Character_stat(Rogue, "trust", Rogue_flirting_bonuses[flirting_type][1])
+    else:
+        call change_Character_stat(Rogue, "love", Rogue_flirting_penalties[flirting_type][0])
+        call change_Character_stat(Rogue, "trust", Rogue_flirting_penalties[flirting_type][1])
 
     $ Rogue.change_face("smirk2", blush = 1)
     $ Rogue.change_arms("crossed")
@@ -746,6 +760,8 @@ label Rogue_date_dinner:
     "[Rogue.name] digs right in."
 
     if Player_picked_food and chosen_meal[Rogue] in ["Chilean sea bass", "crab-stuffed sole", "fried chicken"]:
+        $ total_score += Rogue_date_scores["dinner_favorite_food"]
+        
         $ Rogue.change_face("smirk2", mouth = "lipbite", blush = 1)
 
         ch_Rogue "Thanks for choosin' this for me."
@@ -774,6 +790,8 @@ label Rogue_date_dinner:
         menu:
             extend ""
             "Give her a bite":
+                $ total_score += Rogue_date_scores["dinner_shared_food"]
+                
                 "You cut her a piece, and she eats it directly off of your fork." 
 
                 $ Rogue.change_face("neutral", eyes = "down", mouth = "open")
@@ -823,12 +841,16 @@ label Rogue_date_dinner:
                 $ Rogue.change_face("smirk2", blush = 1)
 
                 if Player.cash >= restaurant_bill[Player] + restaurant_bill[Rogue]:
+                    $ total_score += Rogue_date_scores["dinner_pay"]
+                    
                     "You pay the bill and head back into the mall." 
 
                     $ Player.cash -= restaurant_bill[Player] + restaurant_bill[Rogue]
                 
                     $ total_spent += restaurant_bill[Player] + restaurant_bill[Rogue]
                 else:
+                    $ total_score += Rogue_date_scores["dinner_pay_not_enough"]
+
                     "You realize you don't have enough money. . ." 
                     
                     $ Rogue.change_face("confused1") 
@@ -869,12 +891,16 @@ label Rogue_date_dinner:
                 ch_Rogue "Sure, if ya want."
 
                 if Player.cash >= math.ceil((restaurant_bill[Player] + restaurant_bill[Rogue])/2):
+                    $ total_score += Rogue_date_scores["dinner_split"]
+                    
                     "You both pay the bill and head back into the mall."
 
                     $ Player.cash -= math.ceil((restaurant_bill[Player] + restaurant_bill[Rogue])/2)
                     
                     $ total_spent += math.ceil((restaurant_bill[Player] + restaurant_bill[Rogue])/2)
                 else:
+                    $ total_score += Rogue_date_scores["dinner_split_not_enough"]
+                    
                     "You realize you don't have enough money to pay for half. . ." 
                     
                     $ Rogue.change_face("confused1") 
@@ -963,6 +989,8 @@ label Rogue_date_dinner_sex:
                     ch_Rogue "Alright, sorry. . ."
 
                     return
+
+    $ total_score += Rogue_date_scores[f"dinner_{sex_act}"]
 
     call expression f"Rogue_date_dinner_sex_{sex_act}" from _call_expression_30
 
@@ -1382,6 +1410,8 @@ label Rogue_date_movie:
 
         $ Rogue.change_face("smirk2")
 
+    $ total_score += Rogue_date_scores[f"movie_{movie_choice}"]
+
     menu:
         extend ""
         "Offer to pay":
@@ -1403,12 +1433,16 @@ label Rogue_date_movie:
                 $ Rogue.change_face("smirk2", blush = 1)
 
                 if Player.cash >= 2*ticket_price:
+                    $ total_score += Rogue_date_scores["movie_pay"]
+
                     "You pay for the tickets." 
 
                     $ Player.cash -= 2*ticket_price
 
                     $ total_spent += 2*ticket_price
                 else:
+                    $ total_score += Rogue_date_scores["movie_pay_not_enough"]
+
                     "You realize you don't have enough money. . ." 
                     
                     $ Rogue.change_face("confused1") 
@@ -1448,12 +1482,16 @@ label Rogue_date_movie:
                 ch_Rogue "Sure, if ya want."
 
                 if Player.cash >= ticket_price:
+                    $ total_score += Rogue_date_scores["movie_split"]
+
                     "You both pay for the tickets."
 
                     $ Player.cash -= ticket_price
 
                     $ total_spent += ticket_price
                 else:
+                    $ total_score += Rogue_date_scores["movie_split_not_enough"]
+
                     "You realize you don't have enough money to pay for half. . ." 
                     
                     $ Rogue.change_face("confused1") 
@@ -1951,6 +1989,8 @@ label Rogue_date_movie_sex:
 
                     return
 
+    $ total_score += Rogue_date_scores[f"movie_{sex_act}"]
+
     call expression f"Rogue_date_movie_sex_{sex_act}" from _call_expression_32
 
     return
@@ -2355,6 +2395,8 @@ label Rogue_date_mall:
     return
 
 label Rogue_date_mall_wander:
+    $ total_score += Rogue_date_scores["wander"]
+
     $ Rogue.change_face("smirk1", eyes = "right")
 
     "Without any specific destination in mind, you wander around the mall with [Rogue.name]."
@@ -2369,6 +2411,8 @@ label Rogue_date_mall_wander:
         menu:
             extend ""
             "Hold hands with [Rogue.name]":
+                $ total_score += Rogue_date_scores["wander_hold_hands"]
+
                 $ Rogue.change_face("smirk2", eyes = "right", blush = 1)
                 $ Rogue.change_arms("neutral", right_arm = "fist")
 
@@ -2380,6 +2424,8 @@ label Rogue_date_mall_wander:
             "Do nothing":
                 pass
     elif Rogue in second_event.keys() and Rogue in Partners:
+        $ total_score += Rogue_date_scores["wander_hold_hands"]
+
         $ Rogue.change_face("worried1", eyes = "right", mouth = "lipbite")
 
         pause 1.0
@@ -2412,6 +2458,8 @@ label Rogue_date_mall_wander:
     return
 
 label Rogue_date_mall_dessert:
+    $ total_score += Rogue_date_scores["dessert"]
+
     $ Rogue.change_face("smirk1", eyes = "right")
 
     "Being in a mall provides a number of opportunities and problems, simultaneously."
@@ -2481,7 +2529,7 @@ label Rogue_date_end:
 
         if Rogue.status["horny"] or Rogue.status["nympho"]:
             call Rogue_date_end_invite from _call_Rogue_date_end_invite_1
-        elif renpy.random.random() > 0.25:
+        elif total_score >= date_threshold:
             call Rogue_date_end_invite from _call_Rogue_date_end_invite_2
         else:
             call Rogue_date_end_goodnight from _call_Rogue_date_end_goodnight_1

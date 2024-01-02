@@ -35,8 +35,8 @@ label buy_Character_gift(Character, Item, discounted = False):
         if Item.string not in Character.inventory.keys():
             call expression f"{Character.tag}_{Item_string}_shopping_accept" from _call_expression_234
 
-            call change_Character_stat(Character, "love", eval(f"{Character.tag}_gift_bonuses[Item.string]")[0])
-            call change_Character_stat(Character, "trust", eval(f"{Character.tag}_gift_bonuses[Item.string]")[1])
+            call change_Character_stat(Character, "love", eval(f"{Character.tag}_gift_bonuses[Item.string]")[0]) from _call_change_Character_stat_6
+            call change_Character_stat(Character, "trust", eval(f"{Character.tag}_gift_bonuses[Item.string]")[1]) from _call_change_Character_stat_7
         else:
             $ _return = True
 

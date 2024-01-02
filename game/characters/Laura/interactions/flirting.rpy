@@ -49,7 +49,7 @@ label Laura_flirt_a:
         "Back":
             return
 
-    call expression f"Laura_flirt_{flirting_type}"
+    call expression f"Laura_flirt_{flirting_type}" from _call_expression_7
 
     return
 

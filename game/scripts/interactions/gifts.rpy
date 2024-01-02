@@ -28,8 +28,8 @@ label give_Character_gift(Character, Item):
         if Item.string not in Character.inventory.keys():
             call expression f"{Character.tag}_{Item_string}_gift_accept" from _call_expression_239
 
-            call change_Character_stat(Character, "love", eval(f"{Character.tag}_gift_bonuses[Item.string]")[0])
-            call change_Character_stat(Character, "trust", eval(f"{Character.tag}_gift_bonuses[Item.string]")[1])
+            call change_Character_stat(Character, "love", eval(f"{Character.tag}_gift_bonuses[Item.string]")[0]) from _call_change_Character_stat_4
+            call change_Character_stat(Character, "trust", eval(f"{Character.tag}_gift_bonuses[Item.string]")[1]) from _call_change_Character_stat_5
         else:
             $ _return = True
 

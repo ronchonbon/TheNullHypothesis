@@ -45,7 +45,7 @@ label Rogue_flirt_a:
         "Back":
             return
 
-    call expression f"Rogue_flirt_{flirting_type}"
+    call expression f"Rogue_flirt_{flirting_type}" from _call_expression_8
 
     return
 

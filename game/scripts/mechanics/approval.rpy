@@ -1,10 +1,16 @@
-define massive_stat = 50
-define large_stat = 25
-define medium_stat = 10
-define small_stat = 5
-define tiny_stat = 1
+init -2:
 
-define max_stats = [250, 500, 750, 1000]
+    define massive_stat = 50
+    define large_stat = 25
+    define medium_stat = 10
+    define small_stat = 5
+    define tiny_stat = 1
+    
+    define date_bonus = 2
+
+    define orgasm_bonus = 10
+
+    define max_stats = [250, 500, 750, 1000]
 
 init python:
 

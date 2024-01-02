@@ -47,7 +47,7 @@ label Jean_flirt_a:
         "Back":
             return
 
-    call expression f"Jean_flirt_{flirting_type}"
+    call expression f"Jean_flirt_{flirting_type}" from _call_expression_6
 
     return
 
