@@ -341,10 +341,10 @@ screen database_screen():
 
                 action SetVariable("current_database_page", (current_database_page + 1) % database_length)
         
-        if database_length >= 1:
-            if current_database_section == "personal":
-                if current_database_Entry in all_Characters or current_database_Entry == Player:
-                    frame anchor (0.0, 0.0) pos (0.375, 0.345) xysize (0.543, 0.55):
+        if current_database_section == "personal":
+            if current_database_Entry in all_Characters or current_database_Entry == Player:
+                frame anchor (0.0, 0.0) pos (0.375, 0.345) xysize (0.543, 0.55):
+                    if database_length >= 1:
                         if current_database_page == 0:
                             frame anchor (0.0, 0.0) pos (0.5, 0.01) xsize 0.5:
                                 text current_database_Entry.database["stats"] xalign 0.0:
@@ -386,10 +386,10 @@ screen database_screen():
 
                                     text_align 0.0
 
-                        if current_database_Entry == Player:
-                            add f"images/interface/comics/Null.webp" anchor (0.0, 0.0) pos (0.04, 0.06) zoom interface_adjustment
-                        elif current_database_Entry in [Rogue, Jean, Ororo, Charles]:
-                            add f"images/interface/comics/{current_database_Entry.tag}.webp" anchor (0.0, 0.0) pos (0.04, 0.06) zoom interface_adjustment
+                    if current_database_Entry == Player:
+                        add f"images/interface/comics/Null.webp" anchor (0.0, 0.0) pos (0.04, 0.06) zoom interface_adjustment
+                    elif current_database_Entry in [Rogue, Jean, Ororo, Charles]:
+                        add f"images/interface/comics/{current_database_Entry.tag}.webp" anchor (0.0, 0.0) pos (0.04, 0.06) zoom interface_adjustment
             elif current_database_section == "mutiefan" and "wiki" in current_database_Entry.database.keys():
                 frame anchor (0.0, 0.0) pos (0.375, 0.345) xysize (0.543, 0.55):
                     text current_database_Entry.database["wiki"] align (0.0, 0.0):
