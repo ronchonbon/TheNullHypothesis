@@ -373,4 +373,6 @@ init python:
             if C.remote_vibrator is not None:
                 C.desire += int(2*C.remote_vibrator)
 
+            C.check_statuses()
+
         return

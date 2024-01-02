@@ -51,6 +51,7 @@ label Jean_date:
     call send_Characters(Jean, "bg_hallway", behavior = "on_date") from _call_send_Characters
 
     $ Jean.change_face("happy")
+    $ Jean.change_arms("sass")
 
     ch_Jean "Hey!"
 
@@ -100,6 +101,7 @@ label Jean_date:
                 call Jean_date_movie from _call_Jean_date_movie_1
             "Actually. . . can we just chill, hang out here?":
                 $ Jean.change_face("worried1", mouth = "smirk")
+                $ Jean.change_arms("crossed")
 
                 ch_Jean "Sure, [Jean.Player_petname]." 
                 
@@ -154,10 +156,12 @@ label Jean_date:
         pause 1.0
 
         $ Jean.change_face("smirk2")
+        $ Jean.change_arms("hips", left_arm = "extended")
 
         ch_Jean "You can pick, [Jean.Player_petname]."
 
         $ Jean.change_face("confused1", mouth = "smirk")
+        $ Jean.change_arms("sass")
 
         ch_Jean "What're we doing next?"
 
@@ -169,6 +173,7 @@ label Jean_date:
                 call Jean_date_dinner from _call_Jean_date_dinner_2
             "Let's head to the movie theater." if (Player in first_event.keys() and first_event[Player] == "dinner") or (Jean in first_event.keys() and first_event[Jean] == "dinner"):
                 $ Jean.change_face("happy") 
+                $ Jean.change_arms("neutral")
                 
                 ch_Jean "Yes!" 
                 
@@ -189,6 +194,7 @@ label Jean_date:
                 ch_Jean "Sure." 
                 
                 $ Jean.change_face("sly") 
+                $ Jean.change_arms("crossed")
                 
                 ch_Jean "We can finish the date in private."
 
@@ -203,6 +209,7 @@ label Jean_date:
                 call Jean_date_mall from _call_Jean_date_mall_1
             elif second_event[Jean] == "end":
                 $ Jean.change_face("sexy", eyes = "right") 
+                $ Jean.change_arms("sass", right_arm = "fist")
 
                 pause 1.0
 
@@ -215,21 +222,25 @@ label Jean_date:
                 ch_Player "Why?"
 
                 if Jean.status["horny"] or Jean.status["nympho"]:
-                    $ Jean.change_face("sly", mouth = "lipbite", blush = 1) 
+                    $ Jean.change_face("sly", mouth = "lipbite", blush = 1)
+                    $ Jean.change_arms("neutral", right_arm = "touch_pussy") 
                     
                     ch_Jean "Because, [Jean.Player_petname]." 
                     
                     $ Jean.change_face("sexy", eyes = "down", blush = 1) 
+                    $ Jean.change_arms("neutral", right_arm = "extended")
                     
                     pause 1.0 
                     
                     $ Jean.change_face("sexy", blush = 1) 
+                    $ Jean.change_arms("sass")
                     
                     ch_Jean "We can't finish the date like I planned with so many other people around. . ." 
                     
                     $ Jean.change_face("sexy", eyes = "right")
                 else:
                     $ Jean.change_face("sly") 
+                    $ Jean.change_arms("crossed")
                     
                     ch_Jean "I just wanna finish our date in private. . ."
 
@@ -249,6 +260,7 @@ label Jean_date:
     ch_Jean "C'mon, [Jean.Player_petname], let's go."
 
     $ Jean.change_face("smirk2", eyes = "left")
+    $ Jean.change_arms("neutral", right_arm = "fist")
 
     "She takes your hand and pulls you along."
 
@@ -268,7 +280,7 @@ label Jean_date:
 
     call Jean_date_end from _call_Jean_date_end
 
-    call change_Character_stat(Jean, "love", int(total_score*date_bonus))
+    call change_Character_stat(Jean, "love", int(total_score*date_bonus)) from _call_change_Character_stat_8
 
     python:
         for C in Player.date_planned.keys():
@@ -305,8 +317,12 @@ label Jean_date_dinner:
             pause 1.0
 
             $ Jean.change_face("smirk2", mouth = "lipbite")
+            $ Jean.change_arms("sass", right_arm = "extended")
 
             ch_Jean "Are you hungry?"
+
+            $ Jean.change_arms("sass")
+
             ch_Jean "I'm hungry."
             ch_Player "Yeah, I could go for a bite to eat."
 
@@ -315,6 +331,7 @@ label Jean_date_dinner:
             ch_Jean "C'mon, let's grab some dinner."
 
             $ Jean.change_face("smirk2", eyes = "right")
+            $ Jean.change_arms("neutral", right_arm = "fist")
 
             "She grabs your hand, and you head to the restaurant together."
 
@@ -356,6 +373,7 @@ label Jean_date_dinner:
                     $ cuisine = "southern"
 
             $ Jean.change_face("smirk2") 
+            $ Jean.change_arms("sass")
             
             ch_Jean "Sure." 
             ch_Jean "I am pretty hungry."
@@ -392,10 +410,12 @@ label Jean_date_dinner:
                 $ cuisine = "southern"
         elif Player in first_event.keys():
             $ Jean.change_face("smirk2")
+            $ Jean.change_arms("hips", left_arm = "extended")
 
             ch_Jean "Where did you wanna eat, [Jean.Player_petname]?"
 
             $ Jean.change_face("confused1", mouth = "smirk")
+            $ Jean.change_arms("sass")
 
             ch_Player "Were you in the mood for anything?"
             ch_Jean "Nothing in particular."
@@ -428,6 +448,7 @@ label Jean_date_dinner:
     "You get seated quickly, and the waitress hands out the menus."
 
     $ Jean.change_face("smirk1", eyes = "down")
+    $ Jean.change_arms("crossed")
 
     $ ordered_food = False
 
@@ -437,6 +458,7 @@ label Jean_date_dinner:
         pause 1.0 
 
         $ Jean.change_face("smirk2", eyes = "squint")
+        $ Jean.change_arms("hips")
 
         $ temp = Jean.Player_petname.capitalize()
 
@@ -463,6 +485,7 @@ label Jean_date_dinner:
         call restaurant_menu(Player, cuisine) from _call_restaurant_menu_2
 
     $ Jean.change_face("smirk2")
+    $ Jean.change_arms("sass")
 
     "You have a nice time chatting with [Jean.name], as you wait for the waitress to come back and take your orders."
 
@@ -481,6 +504,9 @@ label Jean_date_dinner:
         "Let her order for you  (encourage_quirk)":
             if Jean.ordered_for_you_last_time:
                 "You hold your tongue and wait for [Jean.name]."
+
+                $ Jean.change_arms("neutral", left_arm = "extended")
+
                 ch_Jean "He's gonna get the [temp]."
             else:
                 "You hold your tongue and wait for [Jean.name]."
@@ -494,6 +520,7 @@ label Jean_date_dinner:
                 pause 1.0
 
                 $ Jean.change_face("smirk2", eyes = "right")
+                $ Jean.change_arms("neutral", left_arm = "extended")
 
                 ch_Jean "He's gonna get the [temp]."
 
@@ -502,20 +529,25 @@ label Jean_date_dinner:
             $ Jean.History.update("quirk_encouraged")
         "Order for yourself  (discourage_quirk)":
             if Jean.ordered_for_you_last_time:
+                $ Jean.change_arms("neutral", left_arm = "extended")
+
                 ch_Jean "He-"
 
                 $ Jean.change_face("confused1")
+                $ Jean.change_arms("neutral")
 
                 "Before she can finish, you speak up."
                 ch_Player "I'll have the [temp]."
 
                 $ Jean.change_face("worried1")
+                $ Jean.change_arms("crossed")
 
                 ch_Jean "Aw, why couldn't I. . ."
 
                 $ Jean.change_face("worried1", eyes = "right")
             else:
                 $ Jean.change_face("confused1", mouth = "smirk")
+                $ Jean.change_arms("crossed")
 
                 ch_Jean "You could just let me. . ."
                 ch_Player "I'll have the [temp]."
@@ -592,11 +624,13 @@ label Jean_date_dinner:
 
     if chosen_meal[Jean] in ["filet mignon", "ribeye"]:
         $ Jean.change_face("worried1", eyes = "right") 
+        $ Jean.change_arms("neutral", left_arm = "rub_neck")
         
         ch_Jean "Could you make it medium?" 
         ch_Jean "Maybe even medium well. . ." 
         
         $ Jean.change_face("worried2") 
+        $ Jean.change_arms("crossed")
         
         ch_Jean "What?!" 
         
@@ -611,6 +645,7 @@ label Jean_date_dinner:
     $ ordered_food = True
 
     $ Jean.change_face("smirk1")
+    $ Jean.change_arms("sass")
 
     "The waitress walks away, leaving the two of you alone again."
 
@@ -638,20 +673,21 @@ label Jean_date_dinner:
         "[third_compliment]":
             $ flirting_type = "a" + indices[2]
 
-    call expression f"Jean_flirt_a{flirting_type}"
+    call expression f"Jean_flirt_a{flirting_type}" from _call_expression
 
     if approval_check(Jean, threshold = f"flirting_{flirting_type}"):
-        call change_Character_stat(Jean, "love", Jean_flirting_bonuses[flirting_type][0])
-        call change_Character_stat(Jean, "trust", Jean_flirting_bonuses[flirting_type][1])
+        call change_Character_stat(Jean, "love", Jean_flirting_bonuses[flirting_type][0]) from _call_change_Character_stat_9
+        call change_Character_stat(Jean, "trust", Jean_flirting_bonuses[flirting_type][1]) from _call_change_Character_stat_10
     else:
-        call change_Character_stat(Jean, "love", Jean_flirting_penalties[flirting_type][0])
-        call change_Character_stat(Jean, "trust", Jean_flirting_penalties[flirting_type][1])
+        call change_Character_stat(Jean, "love", Jean_flirting_penalties[flirting_type][0]) from _call_change_Character_stat_11
+        call change_Character_stat(Jean, "trust", Jean_flirting_penalties[flirting_type][1]) from _call_change_Character_stat_12
 
     $ Jean.change_face("smirk2", blush = 1)
 
     "You continue to have a nice conversation, as you wait for the food to arrive."
 
     $ Jean.change_face("confused1", mouth = "smirk")
+    $ Jean.change_arms("crossed")
 
     "You learn a lot about each other, your lives before the Institute, and your dreams for the future."
                 
@@ -669,6 +705,7 @@ label Jean_date_dinner:
     ch_Jean "Thanks!"
 
     $ Jean.change_face("smirk2", eyes = "down", mouth = "lipbite")
+    $ Jean.change_arms("neutral")
 
     ch_Jean "Mmm, this smells great."
     "[Jean.name] digs right in."
@@ -711,6 +748,7 @@ label Jean_date_dinner:
                 ch_Jean "Tasted as good as it looked."
             "Don't give her a bite":
                 $ Jean.change_face("worried1") 
+                $ Jean.change_arms("crossed")
 
                 "You don't give her any and she starts pouting."
                 ch_Jean "Why not?!" 
@@ -720,6 +758,7 @@ label Jean_date_dinner:
     ##
 
     $ Jean.change_face("smirk1", eyes = "right")
+    $ Jean.change_arms("sass")
 
     "You finish eating, and the waitress comes by with the check."
 
@@ -827,6 +866,7 @@ label Jean_date_dinner:
 
 label Jean_date_dinner_sex:
     $ Jean.change_face("sly", mouth = "lipbite", blush = 1)
+    $ Jean.change_arms("neutral", right_arm = "touch_pussy")
 
     "You notice [Jean.name] looking at you seductively."
 
@@ -869,6 +909,7 @@ label Jean_date_dinner_sex:
                     $ sex_act = renpy.random.choice(sex_acts)
                 "Not right now, [Jean.petname].":
                     $ Jean.change_face("worried1", blush = 1)
+                    $ Jean.change_arms("crossed")
                     
                     ch_Jean "Oh alright."
 
@@ -944,6 +985,7 @@ label Jean_date_dinner_sex_handjob:
     call add_Characters(Jean) from _call_add_Characters_18
 
     $ Jean.change_face("sexy", blush = 2)
+    $ Jean.change_arms("neutral")
 
     if Jean.spunk["chin"]:
         ch_Player "You have a little something. . ."
@@ -1020,6 +1062,7 @@ label Jean_date_dinner_sex_blowjob:
     call add_Characters(Jean) from _call_add_Characters_19
 
     $ Jean.change_face("sexy", blush = 2)
+    $ Jean.change_arms("neutral")
 
     if Jean.spunk["chin"]:
         ch_Player "You have a little something. . ."
@@ -1040,6 +1083,7 @@ label Jean_date_dinner_sex_blowjob:
 
 label Jean_date_dinner_sex_sex:
     $ Jean.change_face("sly", mouth = "lipbite", blush = 1)
+    $ Jean.change_arms("sass")
 
     ch_Jean "C'mon, [Jean.Player_petname]."
     ch_Jean "Let's have some fun. . ."
@@ -1070,6 +1114,7 @@ label Jean_date_dinner_sex_sex:
     call set_the_scene(location = "bg_restaurant") from _call_set_the_scene_8
 
     $ Jean.change_face("sly", blush = 2)
+    $ Jean.change_arms("crossed")
     
     pause 1.0
 
@@ -1077,12 +1122,14 @@ label Jean_date_dinner_sex_sex:
         ch_Player "Your hair's a bit. . ."
 
         $ Jean.change_face("confused1", mouth = "smirk", blush = 1)
+        $ Jean.change_arms("neutral", left_arm = "rub_neck")
 
         "She straightens it out."
 
         call try_on(Jean, Jean.Wardrobe.Clothes["straight hair"]) from _call_try_on_1
 
     $ Jean.change_face("sexy")
+    $ Jean.change_arms("sass")
 
     ch_Jean "That was a {i}lot{/i} of fun. . ."
 
@@ -1093,6 +1140,7 @@ label Jean_date_dinner_sex_sex:
 
 label Jean_date_dinner_sex_eat_pussy:
     $ Jean.change_face("sly", mouth = "lipbite", blush = 1)
+    $ Jean.change_arms("crossed")
 
     ch_Jean "C'mon, [Jean.Player_petname]."
     ch_Jean "Let's have some fun. . ."
@@ -1127,6 +1175,7 @@ label Jean_date_dinner_sex_eat_pussy:
     pause 1.0
 
     $ Jean.change_face("sexy")
+    $ Jean.change_arms("sass")
 
     ch_Jean "That was a {i}lot{/i} of fun. . ."
 
@@ -1152,6 +1201,7 @@ label Jean_date_movie:
             ch_Jean "Then let's go!"
 
             $ Jean.change_face("smirk2", eyes = "right")
+            $ Jean.change_arms("neutral", right_arm = "fist")
 
             "She grabs your hand, and you head to the theater together."
 
@@ -1248,6 +1298,7 @@ label Jean_date_movie:
         pause 1.0
 
         $ Jean.change_face("worried1", eyes = "right")
+        $ Jean.change_arms("crossed")
 
         ch_Jean "I don't know which one to pick. . ."
 
@@ -1275,6 +1326,7 @@ label Jean_date_movie:
         ch_Jean "That one?"
 
         $ Jean.change_face("smirk2")
+        $ Jean.change_arms("neutral")
 
         ch_Jean "Sure, it looks good."
 
@@ -1391,6 +1443,9 @@ label Jean_date_movie:
 
 label Jean_date_movie_ron_bic1:
     "You quickly find your seats, and the movie starts shortly after."
+
+    $ Jean.change_arms("neutral", right_arm = "fist")
+
     "[Jean.name] starts holding your hand as the movie starts."
 
     $ Jean.change_face("surprised1", eyes = "right")
@@ -1405,9 +1460,10 @@ label Jean_date_movie_ron_bic1:
 
     "The movie continues, as Ron kills legions of men in the pursuit of revenge."
     "He has to fight his way through hundreds of evil henchmen in a lighter factory and finally takes out the real bad guy in the end."
-    "There's a plethora of violent and fiery deaths as well as some impressive choreography."
+    "There's a range of violent and fiery deaths as well as some impressive choreography."
 
     $ Jean.change_face("worried1", eyes = "right")
+    $ Jean.change_arms("sass")
 
     ch_Jean "That was violent. . ."
 
@@ -1424,6 +1480,9 @@ label Jean_date_movie_ron_bic2:
 
     ch_Jean "The first one was pretty good. . ."
     "You get seated just in time."
+
+    $ Jean.change_arms("neutral", right_arm = "fist")
+
     "[Jean.name] starts holding your hand as the movie starts."
 
     $ Jean.change_face("smirk2", eyes = "right")
@@ -1452,6 +1511,7 @@ label Jean_date_movie_ron_bic2:
     "In the end, after a crescendo of blood, gore, and fiery death, Ron Bic is able to clear his name. . ."
 
     $ Jean.change_face("angry1", eyes = "right")
+    $ Jean.change_arms("crossed")
 
     "But, did he survive? Does he even know of his own success?"
 
@@ -1469,6 +1529,9 @@ label Jean_date_movie_ron_bic2:
 
 label Jean_date_movie_hamburg_portfolio:
     "The previews are already over by the time you reach your seats."
+
+    $ Jean.change_arms("neutral", right_arm = "fist")
+
     "[Jean.name] starts holding your hand as the movie starts."
 
     $ Jean.change_face("smirk2", eyes = "right")
@@ -1493,6 +1556,7 @@ label Jean_date_movie_hamburg_portfolio:
     "If he wants to save the people he loves, innocent people must die."
 
     $ Jean.change_face("worried2", eyes = "right")
+    $ Jean.change_arms("crossed")
 
     pause 1.0
 
@@ -1517,6 +1581,9 @@ label Jean_date_movie_hamburg_portfolio:
 
 label Jean_date_movie_beautiful_flower:
     "You quickly find your seats."
+
+    $ Jean.change_arms("neutral", right_arm = "fist")
+
     "[Jean.name] starts holding your hand as the movie starts."
 
     $ Jean.change_face("smirk2", eyes = "right")
@@ -1542,12 +1609,15 @@ label Jean_date_movie_beautiful_flower:
     "[Jean.name] seems quite happy about the story's happy ending."
 
     $ Jean.change_face("worried1", mouth = "smirk")
+    $ Jean.change_arms("sass")
 
     ch_Jean "That was really sweet. . ."
 
     return
 
 label Jean_date_movie_fated:
+    $ Jean.change_arms("neutral", right_arm = "fist")
+
     "You get seated and [Jean.name] starts holding your hand as the movie starts."
 
     $ Jean.change_face("confused1", mouth = "smirk", eyes = "right")
@@ -1565,6 +1635,7 @@ label Jean_date_movie_fated:
     "As the movie continues, it quickly takes a turn away from the wholesome, as the two mutually agree not to start a relationship."
 
     $ Jean.change_face("sexy", eyes = "right", blush = 1)
+    $ Jean.change_arms("sass")
 
     pause 1.0
 
@@ -1579,6 +1650,7 @@ label Jean_date_movie_fated:
     "Eventually they do officially get together, and the movie ends."
 
     $ Jean.change_face("sexy", blush = 2)
+    $ Jean.change_arms("crossed")
 
     ch_Jean "I'm glad they officially got together in the end. . ."
 
@@ -1587,6 +1659,8 @@ label Jean_date_movie_fated:
     return
 
 label Jean_date_movie_refilling_empty_glass:
+    $ Jean.change_arms("neutral", right_arm = "fist")
+
     "You get seated and [Jean.name] starts holding your hand as the movie starts."
 
     $ Jean.change_face("smirk1", eyes = "right")
@@ -1615,6 +1689,7 @@ label Jean_date_movie_refilling_empty_glass:
     "The chance meeting turns into a thrilling romance as they rapidly fall in love, and the bartender uses her skills as a former super spy to stop the conspiracy."
 
     $ Jean.change_face("worried1", mouth = "lipbite", eyes = "right", blush = 2)
+    $ Jean.change_arms("crossed")
 
     "Nearly every other minute there's a graphic sex scene as the bartender demonstrates her prowess to her new beau."
 
@@ -1630,6 +1705,8 @@ label Jean_date_movie_refilling_empty_glass:
     return
 
 label Jean_date_movie_stale_air:
+    $ Jean.change_arms("neutral", right_arm = "fist")
+
     "The movie starts only a few minutes after you get seated, and [Jean.name] starts holding your hand."
 
     $ Jean.change_face("smirk1", eyes = "right")
@@ -1659,12 +1736,15 @@ label Jean_date_movie_stale_air:
     "Which is about a disturbed maniac who goes on a murder spree at their new job."
 
     $ Jean.change_face("worried1")
+    $ Jean.change_arms("crossed")
 
     ch_Jean "That was. . . disturbing. . ."
 
     return
 
 label Jean_date_movie_devils_spring_break:
+    $ Jean.change_arms("neutral", right_arm = "fist")
+
     "You take your seats, and [Jean.name] holds your hand as the movie starts."
 
     $ Jean.change_face("confused1", eyes = "right")
@@ -1677,6 +1757,7 @@ label Jean_date_movie_devils_spring_break:
     "The rich kid brings a bunch of his friends down to the house, to spend their spring break getting drunk and partying."
 
     $ Jean.change_face("worried1", eyes = "right")
+    $ Jean.change_arms("hips", right_arm = "fist")
 
     ch_Jean "I can tell where this is going. . ."
     "Despite the rumors, the house isn't actually haunted. . . at least not by ghosts."
@@ -1693,6 +1774,7 @@ label Jean_date_movie_devils_spring_break:
     "During one particularly tense moment, you look over and see [Jean.name] wide-eyed, staring at the screen in suspense."
 
     $ Jean.change_face("worried3", eyes = "right")
+    $ Jean.change_arms("angry")
 
     "Suddenly, there's a jumpscare, and she squeezes your hand, leaning into you for comfort."
 
@@ -1701,6 +1783,7 @@ label Jean_date_movie_devils_spring_break:
     ch_Jean "They were pretty annoying. . ."
 
     $ Jean.change_face("worried1")
+    $ Jean.change_arms("crossed")
 
     ch_Jean "But I still felt kinda bad for them."
 
@@ -1708,6 +1791,9 @@ label Jean_date_movie_devils_spring_break:
 
 label Jean_date_movie_unsanctioned_crusade:
     "You take your seats just as the final preview ends."
+
+    $ Jean.change_arms("neutral", right_arm = "fist")
+
     "[Jean.name] starts holding your hand as the movie starts."
 
     $ Jean.change_face("surprised1", eyes = "right")
@@ -1737,6 +1823,7 @@ label Jean_date_movie_unsanctioned_crusade:
     "The knights are directly confronted by the atrocities they themselves committed and systematically eradicated in cruel and disturbing fashion."
 
     $ Jean.change_face("worried1")
+    $ Jean.change_arms("crossed")
 
     pause 1.0
 
@@ -1748,6 +1835,7 @@ label Jean_date_movie_unsanctioned_crusade:
 
 label Jean_date_movie_sex:
     $ Jean.change_face("sly", mouth = "lipbite", blush = 1)
+    $ Jean.change_arms("neutral", right_arm = "touch_pussy")
 
     "You notice [Jean.name] looking at you seductively."
 
@@ -1795,6 +1883,7 @@ label Jean_date_movie_sex:
                     $ sex_act = renpy.random.choice(sex_acts)
                 "Not right now, [Jean.petname].":
                     $ Jean.change_face("worried1", blush = 1)
+                    $ Jean.change_arms("crossed")
                     
                     ch_Jean "Oh alright."
 
@@ -1816,6 +1905,7 @@ label Jean_date_movie_sex_makeout:
     pause 1.0
 
     $ Jean.change_face("sexy", blush = 1) 
+    $ Jean.change_arms("neutral")
 
     "Once [Jean.name]'s sure there's nobody around, she reaches over and pulls you in."
 
@@ -1831,6 +1921,9 @@ label Jean_date_movie_sex_makeout:
     $ Jean.change_face("sexy", blush = 1)
 
     "Before things go too far, [Jean.name] stops herself and pulls away."
+
+    $ Jean.change_arms("crossed")
+
     ch_Jean "Mmm. . ."
     ch_Jean "I can never get enough of you, [Jean.Player_petname]."
 
@@ -1846,6 +1939,7 @@ label Jean_date_movie_sex_handjob:
     pause 1.0
 
     $ Jean.change_face("sexy", blush = 1) 
+    $ Jean.change_arms("neutral")
 
     "Once [Jean.name]'s sure there's nobody around, she reaches over."
 
@@ -1898,6 +1992,7 @@ label Jean_date_movie_sex_handjob:
         $ Jean.History.update("clean_cum")
 
     $ Jean.change_face("sexy", blush = 1)
+    $ Jean.change_arms("crossed")
 
     "She puts your pants back into position."
 
@@ -1905,6 +2000,7 @@ label Jean_date_movie_sex_handjob:
         $ Jean.spunk["chin"] = 1
 
     $ Jean.change_face("sexy", blush = 2)
+    $ Jean.change_arms("crossed")
 
     if Jean.spunk["chin"]:
         ch_Player "You have a little something. . ."
@@ -1936,6 +2032,8 @@ label Jean_date_movie_sex_touch_pussy:
     "You can instantly feel how wet she is, as you slowly move your hand over her crotch."
 
     $ Jean.change_face("sexy", eyes = "right", blush = 1)
+    $ Jean.change_arms("neutral", left_arm = "grope")
+
     call expose(Jean, "pussy") from _call_expose
 
     "Slipping your hand under her pants, you tease her for a bit, before getting right to work."
@@ -1952,6 +2050,7 @@ label Jean_date_movie_sex_touch_pussy:
     "She also reaches over and starts teasing you as well."
 
     $ Jean.change_face("surprised2", mouth = "lipbite", blush = 3)
+    $ Jean.change_arms("angry", left_arm = "grope")
 
     "You pick up the pace, and [Jean.name] grabs your arm, holding it in place."
     "She's not letting go until you finish the job."
@@ -1966,6 +2065,7 @@ label Jean_date_movie_sex_touch_pussy:
     "You don't stop, and the shuddering continues, her grip on your arm tightening." with small_screenshake
 
     $ Jean.change_face("worried1", mouth = "lipbite", blush = 2)
+    $ Jean.change_arms("crossed")
 
     "Finally, after a minute, she lets go."
     "She's still twitching even as you pull your hand away."
@@ -1992,6 +2092,8 @@ label Jean_date_movie_sex_finger_pussy:
     "You can instantly feel how wet she is, as you slowly move your hand over her crotch."
 
     $ Jean.change_face("sexy", eyes = "right", blush = 1)
+    $ Jean.change_arms("neutral", left_arm = "grope")
+
     call expose(Jean, "pussy") from _call_expose_1
 
     "Slipping your hand under her pants, you tease her for a bit, before sliding your fingers inside."
@@ -2008,6 +2110,7 @@ label Jean_date_movie_sex_finger_pussy:
     "She also reaches over and starts teasing you as well."
 
     $ Jean.change_face("surprised2", mouth = "lipbite", blush = 3)
+    $ Jean.change_arms("angry", left_arm = "grope")
 
     "You pick up the pace, and [Jean.name] grabs your arm, holding it in place."
     "She's not letting go until you finish the job."
@@ -2022,6 +2125,7 @@ label Jean_date_movie_sex_finger_pussy:
     "You don't stop, and the shuddering continues, her grip on your arm tightening." with small_screenshake
 
     $ Jean.change_face("worried1", mouth = "lipbite", blush = 2)
+    $ Jean.change_arms("crossed")
 
     "Finally, after a minute, she lets go."
     "She's still twitching even as you pull your hand away."
@@ -2091,6 +2195,7 @@ label Jean_date_movie_sex_blowjob:
     call add_Characters(Jean) from _call_add_Characters_80
 
     $ Jean.change_face("sexy", blush = 2)
+    $ Jean.change_arms("neutral")
 
     if Jean.spunk["chin"]:
         ch_Player "You have a little something. . ."
@@ -2116,6 +2221,7 @@ label Jean_date_mall:
         pause 1.0
 
         $ Jean.change_face("smirk2")
+        $ Jean.change_arms("sass")
 
         ch_Jean "I kinda just want to hang out around the mall."
 
@@ -2182,12 +2288,14 @@ label Jean_date_mall_wander:
                 ch_Jean "I was waiting for you to ask, [Jean.Player_petname]. . ." 
                 
                 $ Jean.change_face("smirk2", mouth = "lipbite", eyes = "right", blush = 1) 
+                $ Jean.change_arms("neutral", right_arm = "fist")
 
                 $ holding_hands = True
             "Just grab [Jean.name]'s hand.": 
                 $ total_score += Jean_date_scores["wander_grab_hand"]
 
                 $ Jean.change_face("sly")
+                $ Jean.change_arms("neutral", right_arm = "fist")
 
                 "She doesn't protest and just gives your hand a squeeze in response." 
                 
@@ -2197,6 +2305,8 @@ label Jean_date_mall_wander:
             "Do nothing":
                 pass
     elif Jean in second_event.keys() and Jean in Partners:
+        $ total_score += Jean_date_scores["wander_hold_hands"]
+
         $ Jean.change_face("smirk2", eyes = "right", mouth = "lipbite")
 
         pause 1.0
@@ -2208,6 +2318,9 @@ label Jean_date_mall_wander:
         $ Jean.change_face("sly", mouth = "lipbite")
 
         ch_Jean "Gimme your hand, [Jean.Player_petname]."
+
+        $ Jean.change_arms("neutral", right_arm = "fist")
+
         "You put your hand out, and she starts holding it, interlacing your fingers."
 
         $ Jean.change_face("smirk2", eyes = "right", mouth = "lipbite", blush = 1)
@@ -2232,8 +2345,12 @@ label Jean_date_mall_dessert:
     "There are so many different options that it can be difficult to decide what to get." 
 
     $ Jean.change_face("confused1", mouth = "smirk")
+    $ Jean.change_arms("sass", right_arm = "extended")
 
     ch_Jean "You in the mood for anything, [Jean.Player_petname]?"
+
+    $ Jean.change_arms("sass")
+
     ch_Player "How about. . ."
 
     menu:
@@ -2256,6 +2373,7 @@ label Jean_date_mall_dessert:
     $ total_spent += 10
 
     $ Jean.change_face("smirk2", eyes = "right")
+    $ Jean.change_arms("neutral")
 
     "After paying for the dessert, you both wander around the mall while enjoying it."
 
@@ -2314,6 +2432,7 @@ label Jean_date_end_invite:
             ch_Jean "That was nice." 
             
             $ Jean.change_face("sly", blush = 2) 
+            $ Jean.change_arms("neutral", left_arm = "grope")
             
             ch_Jean "But I think it's time for some fun. . ."
         else:
@@ -2367,6 +2486,7 @@ label Jean_date_end_invite:
 
         if approval_check(Jean, threshold = "hookup"):
             $ Jean.change_face("sexy", blush = 1)
+            $ Jean.change_arms("neutral", left_arm = "grope")
 
             ch_Jean "We have unfinished business."
 
@@ -2391,6 +2511,7 @@ label Jean_date_invite_accept:
     ch_Player "What did you have in mind?"
 
     $ Jean.change_face("sly", mouth = "lipbite", blush = 2)
+    $ Jean.change_arms("neutral", left_arm = "grope")
 
     if approval_check(Jean, threshold = "hookup"):
         $ Jean.History.update("hookup")

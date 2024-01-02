@@ -49,6 +49,7 @@ label Jean_first_date:
         call set_the_scene(location = "bg_hallway") from _call_set_the_scene_21
 
         $ Jean.change_face("happy")
+        $ Jean.change_arms("sass")
 
         ch_Jean "There you are, [Jean.Player_petname]."
     elif Jean.location != "bg_hallway":
@@ -56,6 +57,7 @@ label Jean_first_date:
         call send_Characters(Jean, "bg_hallway", behavior = "on_date") from _call_send_Characters_24
 
         $ Jean.change_face("pleased2")
+        $ Jean.change_arms("sass")
 
         ch_Jean "Oh, you're already here."
 
@@ -69,6 +71,7 @@ label Jean_first_date:
         ch_Jean "Wouldn't want to miss our reservation." 
 
     $ Jean.change_face("smirk2")
+    $ Jean.change_arms("neutral")
 
     ch_Jean "C'mon, [Jean.Player_petname], let's go."
 
@@ -83,6 +86,7 @@ label Jean_first_date:
     ch_Player "So, where are we going?"
 
     $ Jean.change_face("confused1", mouth = "smirk")
+    $ Jean.change_arms("hips")
 
     ch_Player "The restaurants get pretty packed right around now."
 
@@ -91,10 +95,12 @@ label Jean_first_date:
     ch_Jean "Don't worry, I have everything all planned out." 
 
     $ Jean.change_face("smirk2")
+    $ Jean.change_arms("hips", right_arm = "extended")
 
     ch_Jean "Made reservations way ahead of time and everything."
 
     $ Jean.change_face("smirk2", eyes = "right")
+    $ Jean.change_arms("sass")
 
     "You head to the mall together."
 
@@ -107,6 +113,7 @@ label Jean_first_date:
     "As you get to the restaurant, it's quickly evident something's wrong."
 
     $ Jean.change_face("angry1", eyes = "right")
+    $ Jean.change_arms("angry")
 
     ch_Jean "What the hell, why's it closed?!"
 
@@ -117,6 +124,7 @@ label Jean_first_date:
     "Dear Customer,\n\nOur kitchen is temporarily closed until further notice. We found a rat in the kitchen trying to be a saucier. The restaurant needs to be fully sanitized. Try again tomorrow!\n\nThanks"
 
     $ Jean.change_face("angry1")
+    $ Jean.change_arms("crossed")
 
     ch_Jean "I just made this reservation earlier today."
 
@@ -142,12 +150,14 @@ label Jean_first_date:
             "There's one a bit further away. . ."
 
             $ Jean.change_face("confused2")
+            $ Jean.change_arms("neutral")
 
             $ temp = Jean.petname.capitalize()
 
             ch_Player "[temp], look!"
 
             $ Jean.change_face("surprised2")
+            $ Jean.change_arms("angry")
 
             ch_Player "There's one over there." 
 
@@ -160,11 +170,13 @@ label Jean_first_date:
             pause 1.0
 
             $ Jean.change_face("happy")
+            $ Jean.change_arms("neutral", left_arm = "extended")
 
             ch_Jean "Quick!"
             ch_Jean "Before anybody takes it!"
 
             $ Jean.change_face("smirk2", mouth = "lipbite", eyes = "left")
+            $ Jean.change_arms("neutral", left_arm = "fist")
 
             "She grabs your hand and you both sprint to the new restaurant."
 
@@ -178,6 +190,7 @@ label Jean_first_date:
             call send_Characters(Jean, "bg_restaurant", behavior = "on_date") from _call_send_Characters_27
 
             $ Jean.change_face("smirk2", mouth = "lipbite")
+            $ Jean.change_arms("neutral")
 
             "You make it just before another couple and get seated fairly quickly."
             ch_Jean "You saved the day, [Jean.Player_petname]."
@@ -193,6 +206,7 @@ label Jean_first_date:
             ch_Player "We might as well-"
 
             $ Jean.change_face("surprised3", eyes = "left")
+            $ Jean.change_arms("neutral", right_arm = "extended")
 
             ch_Jean "Wait! Look over there!"
 
@@ -217,18 +231,24 @@ label Jean_first_date:
             "You make it just before another couple and get seated fairly quickly."
 
             $ Jean.change_face("confused1")
+            $ Jean.change_arms("hips")
 
             ch_Jean "See, maybe you shouldn't have given up so quickly."
 
             call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_50
         "Suggest annother activity":
             $ Jean.change_face("surprised2", eyes = "left")
+            $ Jean.change_arms("neutral")
+
 
             ch_Player "It's okay, we can just do someth-"
 
             $ Jean.change_face("surprised2")
 
             ch_Jean "Wait!"
+
+            $ Jean.change_arms("neutral", right_arm = "extended")
+
             ch_Jean "Look over there!"
 
             $ Jean.change_face("surprised2", eyes = "left")
@@ -252,10 +272,12 @@ label Jean_first_date:
             "You make it just before another couple and get seated fairly quickly."
 
             $ Jean.change_face("sly")
+            $ Jean.change_arms("crossed")
 
             ch_Jean "See, I got it covered."
 
     $ Jean.change_face("smirk2", eyes = "right") 
+    $ Jean.change_arms("sass")
 
     "The waitress comes by and gives you both a menu."
 
@@ -271,6 +293,7 @@ label Jean_first_date:
     "After you decide, you look up to see [Jean.name] looking a bit worried."
 
     $ Jean.change_face("worried2") 
+    $ Jean.change_arms("crossed")
 
     ch_Player "What's wrong, [Jean.petname]?"
 
@@ -279,17 +302,23 @@ label Jean_first_date:
     ch_Jean "I didn't realize this was a seafood place. . ."
 
     $ Jean.change_face("worried1") 
+    $ Jean.change_arms("neutral", left_arm = "rub_neck")
 
     ch_Jean "I've never really tried most of this stuff."
+
+    $ Jean.change_arms(right_arm = "extended", left_arm = "rub_neck")
+
     ch_Jean "What are you getting?" 
 
     $ Jean.change_face("confused1", mouth = "smirk") 
+    $ Jean.change_arms("neutral", left_arm = "rub_neck")
 
     $ temp = chosen_meal[Player].capitalize()
 
     ch_Player "[temp]."
 
     $ Jean.change_face("worried1", eyes = "down") 
+    $ Jean.change_arms("crossed")
 
     ch_Jean "Hmm. . ."
 
@@ -365,22 +394,26 @@ label Jean_first_date:
             $ Jean.History.update("quirk_encouraged")
         "Let her order for you (encourage_quirk)":
             $ Jean.change_face("confused1")
+            $ Jean.change_arms("sass")
 
             "When you don't say anything at first, [Jean.name] just looks at you, confused."
 
             $ Jean.change_face("pleased2")
+            $ Jean.change_arms("neutral")
 
             "Then she realizes."
 
             call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_52
 
             $ Jean.change_face("smirk2", eyes = "right", blush = 1)
+            $ Jean.change_arms("neutral", left_arm = "extended")
 
             $ temp = chosen_meal[Player]
 
             ch_Jean "He'll have the [temp]."
 
             $ Jean.change_face("smirk2")
+            $ Jean.change_arms("sass")
 
             $ temp = chosen_meal[Jean]
 
@@ -411,6 +444,7 @@ label Jean_first_date:
     $ fade_in_from_black(0.4)
 
     $ Jean.change_face("smirk2")
+    $ Jean.change_arms("neutral")
 
     "The food arrives shortly after."
 
@@ -455,6 +489,7 @@ label Jean_first_date:
         ch_Jean "It's pretty good. . . for a salad."
 
     $ Jean.change_face("smirk2")
+    $ Jean.change_arms("crossed")
 
     "You enjoy each other's company as you finish your meals."
     "You figure now's probably a good time to get to know her a bit better."
@@ -468,18 +503,22 @@ label Jean_first_date:
     ch_Player "I know you're basically top of your class."
 
     $ Jean.change_face("worried1")
+    $ Jean.change_arms("neutral")
 
     ch_Player "But, what do you do for fun when you're not studying?"
 
     $ Jean.change_face("worried1", eyes = "right")
+    $ Jean.change_arms("neutral", left_arm = "rub_neck")
 
     ch_Jean "Well, I used to like reading a lot."
 
     $ Jean.change_face("worried1", mouth = "smirk")
+    $ Jean.change_arms("neutral", left_arm = "extended")
 
     ch_Jean "You know, those wholesome romance novels that always get a happy ending."
 
     $ Jean.change_face("worried1")
+    $ Jean.change_arms("crossed")
 
     ch_Jean "When I had more time, I was big on documentaries and movies too. . ."
     ch_Jean "Directors like Edgar Wrong or Quinten Terentano were my favorite."
@@ -489,6 +528,7 @@ label Jean_first_date:
     ch_Jean "But nowadays I'm way too busy studying for any of that." 
 
     $ Jean.change_face("smirk2")
+    $ Jean.change_arms("angry")
 
     ch_Jean "Except for tonight!"
     ch_Jean "I pre-purchased tickets to the perfect movie." 
@@ -499,6 +539,7 @@ label Jean_first_date:
     ch_Jean "Nuh-uh, no spoilers."
 
     $ Jean.change_face("smirk2")
+    $ Jean.change_arms("crossed")
 
     ch_Jean "You'll see when we get there."
 
@@ -507,8 +548,11 @@ label Jean_first_date:
     "The waitress comes and gives you the bill."
 
     $ Jean.change_face("sly")
+    $ Jean.change_arms("neutral", left_arm = "extended")
 
     "[Jean.name] snatches it out of your hand."
+
+    $ Jean.change_arms("neutral")
 
     menu:
         extend ""
@@ -550,6 +594,7 @@ label Jean_first_date:
     call send_Characters(Jean, "bg_mall", behavior = "on_date") from _call_send_Characters_32
 
     $ Jean.change_face("smirk2", eyes = "down")
+    $ Jean.change_arms("neutral", right_arm = "extended")
 
     "As you approach the theater, [Jean.name] takes out the tickets."
 
@@ -575,6 +620,7 @@ label Jean_first_date:
     ch_Jean "I got these for the wrong day."
 
     $ Jean.change_face("worried1", eyes = "right")
+    $ Jean.change_arms("angry")
 
     ch_Jean "Why is everything falling apart today. . ."
 
@@ -584,6 +630,7 @@ label Jean_first_date:
     ch_Jean "Let me take a look at what's playing."
 
     $ Jean.change_face("worried1", eyes = "right")
+    $ Jean.change_arms("crossed")
 
     "She peruses the listings."
 
@@ -608,6 +655,7 @@ label Jean_first_date:
     call send_Characters(Jean, "bg_girls_hallway", behavior = "on_date") from _call_send_Characters_33
 
     $ Jean.change_face("smirk2")
+    $ Jean.change_arms("sass")
 
     ch_Jean "See, the date went great. . ."
 
@@ -617,6 +665,7 @@ label Jean_first_date:
     ch_Player "Thanks for treating me, [Jean.petname]." 
 
     $ Jean.change_face("worried1", mouth = "smirk")
+    $ Jean.change_arms("crossed")
 
     ch_Player "I did have a really good time."
     ch_Jean "Good."
@@ -626,6 +675,7 @@ label Jean_first_date:
     ch_Jean "So did I. . ."
 
     $ Jean.change_face("sly")
+    $ Jean.change_arms("neutral", left_arm = "extended")
 
     ch_Player "Goodni-" 
     "She interrupts by pulling you into her room."
@@ -634,10 +684,13 @@ label Jean_first_date:
     call set_the_scene(location = Jean.home) from _call_set_the_scene_29
     call send_Characters(Jean, Jean.home, behavior = "on_date") from _call_send_Characters_34
 
+    $ Jean.change_arms("neutral")
+
     ch_Jean "You can't leave without giving me a kiss. . ." 
     "She's acting all confident."
 
     $ Jean.change_face("worried1")
+    $ Jean.change_arms("angry")
 
     pause 1.0
 
@@ -654,6 +707,7 @@ label Jean_first_date:
     ch_Jean "Yeah it's just. . ."
 
     $ Jean.change_face("worried1", eyes = "right")
+    $ Jean.change_arms("crossed")
 
     ch_Jean "I haven't kissed anyone since like. . ."
 
@@ -662,10 +716,12 @@ label Jean_first_date:
     ch_Jean ". . . {size=-5}middle school{/size}. . ."
 
     $ Jean.change_face("worried2", blush = 1)
+    $ Jean.change_arms("neutral", right_arm = "extended")
 
     ch_Jean "I've just been focusing on my grades."
 
     $ Jean.change_face("worried1", eyes = "right")
+    $ Jean.change_arms("angry")
 
     ch_Jean "A {i}lot{/i}."
 
@@ -696,6 +752,7 @@ label Jean_first_date:
     "She's a bit clumsy, but makes up for it with enthusiasm."
 
     $ Jean.change_face("kiss1", blush = 2)
+    $ Jean.change_arms("neutral")
 
     "Grabbing the back of your head with both hands, she doesn't let you go for a long moment."
 
@@ -706,6 +763,7 @@ label Jean_first_date:
     $ Jean.History.update("kiss")
 
     $ Jean.change_face("worried1", mouth = "lipbite", blush = 2)
+    $ Jean.change_arms("sass")
 
     ch_Jean "Mmmm. . . I really liked that."
 
@@ -715,12 +773,17 @@ label Jean_first_date:
     ch_Player "That was. . . great. . ."
 
     $ Jean.change_face("happy", brows = "raised", blush = 1)
+    $ Jean.change_arms("neutral")
 
     ch_Jean "Oh, hey!"
 
     $ Jean.change_face("smirk2", blush = 1)
+    $ Jean.change_arms("neutral", right_arm = "extended")
 
     ch_Jean "We already have the movie tickets for our second date."
+
+    $ Jean.change_arms("hips")
+
     ch_Jean "Perfect opportunity for you to earn another kiss from me."
     ch_Player "Wh-"
 
@@ -765,6 +828,7 @@ label Jean_first_date:
 
 label Jean_first_date_path_1A:
     $ Jean.change_face("confused2", mouth = "smirk") 
+    $ Jean.change_arms("sass")
             
     call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_61
 
@@ -794,6 +858,7 @@ label Jean_first_date_path_1A:
     "You both take your seats."
 
     $ Jean.change_face("smirk2", eyes = "right", blush = 1)
+    $ Jean.change_arms("neutral", right_arm = "fist")
 
     "As the movie starts, [Jean.name] just grabs your hand to hold."
     "The movie is about a man who wanted to buy his mom some nice flowers for Mother's day."
@@ -828,6 +893,7 @@ label Jean_first_date_path_1A:
     call send_Characters(Jean, "bg_mall", behavior = "on_date") from _call_send_Characters_36
 
     $ Jean.change_face("smirk2", blush = 1)
+    $ Jean.change_arms("hips", right_arm = "fist")
 
     ch_Jean "That was surprisingly sweet, good choice."
     ch_Jean "I'm more of a fan of wholesome romance anyway."
@@ -847,6 +913,7 @@ label Jean_first_date_path_1A:
 
 label Jean_first_date_path_1B:
     $ Jean.change_face("pleased1")
+    $ Jean.change_arms("sass")
 
     pause 1.0
 
@@ -870,6 +937,7 @@ label Jean_first_date_path_1B:
     "You both take your seats."
 
     $ Jean.change_face("smirk2", eyes = "right", blush = 1)
+    $ Jean.change_arms("neutral", right_arm = "fist")
 
     "As the movie starts, [Jean.name] grabs your hand to hold."
     "The movie starts out as a simple romance between two coworkers."
@@ -921,6 +989,7 @@ label Jean_first_date_path_1B:
     ch_Jean "I could never do that friends with benefits thing though." 
 
     $ Jean.change_face("confused1", mouth = "smirk", eyes = "squint", blush = 1)
+    $ Jean.change_arms("hips", right_arm = "fist")
 
     ch_Jean "I'm an all-in type of girl. . ."
     "She gives you a pointed look."

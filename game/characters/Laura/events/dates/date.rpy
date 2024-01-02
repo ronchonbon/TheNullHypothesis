@@ -46,11 +46,13 @@ label Laura_date:
     call send_Characters(Laura, "bg_hallway", behavior = "on_date") from _call_send_Characters_63
 
     $ Laura.change_face("neutral", eyes = "squint")
+    $ Laura.change_arms("crossed")
 
     ch_Player "Where do you even come from. . . ?"
     "She ignores your question."
 
     $ Laura.change_face("neutral", eyes = "right")
+    $ Laura.change_arms("neutral", left_arm = "extended")
 
     "As usual, she grabs you by the wrist and drags you along."
 
@@ -59,6 +61,7 @@ label Laura_date:
     call send_Characters(Laura, "bg_campus", behavior = "on_date") from _call_send_Characters_64
 
     $ Laura.change_face("smirk2", eyes = "right")
+    $ Laura.change_arms("neutral")
 
     "On the walk to your date, you chat with [Laura.name], telling her about your day."
 
@@ -67,6 +70,7 @@ label Laura_date:
     call send_Characters(Laura, "bg_mall", behavior = "on_date") from _call_send_Characters_65
 
     $ Laura.change_face("neutral")
+    $ Laura.change_arms("crossed")
 
     $ first_event = {}
     $ second_event = {}
@@ -171,6 +175,7 @@ label Laura_date:
                 call Laura_date_mall from _call_Laura_date_mall
             "Want to head back to the Institute?":
                 $ Laura.change_face("sly") 
+                $ Laura.change_arms("hips")
                 
                 ch_Laura "Want to finish the date in private?" 
                 ch_Laura "Fine, let's go."
@@ -186,6 +191,7 @@ label Laura_date:
                 call Laura_date_mall from _call_Laura_date_mall_1
             elif second_event[Laura] == "end":
                 $ Laura.change_face("sexy", eyes = "right") 
+                $ Laura.change_arms("neutral")
 
                 pause 1.0
 
@@ -194,6 +200,7 @@ label Laura_date:
                 ch_Laura "Let's go."
 
                 $ Laura.change_face("sexy", eyes = "right")
+                $ Laura.change_arms("neutral", left_arm = "extended")
 
                 "She grabs your wrist and starts leading you out of the mall."
                 ch_Player "Wh-"
@@ -201,7 +208,8 @@ label Laura_date:
                 if Laura.status["horny"] or Laura.status["nympho"]:
                     if (Player in first_event.keys() and first_event[Player] == "dinner") or (Laura in first_event.keys() and first_event[Laura] == "dinner"):
                         $ Laura.change_face("sly", mouth = "lipbite", blush = 1) 
-                        
+                        $ Laura.change_arms("angry")
+
                         ch_Laura "You're next on the menu." 
                         
                     $ Laura.change_face("sly", eyes = "down", mouth = "lipbite", blush = 1) 
@@ -232,6 +240,7 @@ label Laura_date:
     ch_Laura "Let's go."
 
     $ Laura.change_face("smirk2", eyes = "left")
+    $ Laura.change_arms("neutral", left_arm = "extended")
 
     "She grabs your wrist and pulls you along."
 
@@ -247,11 +256,13 @@ label Laura_date:
     call set_the_scene(location = "bg_campus") from _call_set_the_scene_78
     call send_Characters(Laura, "bg_campus", behavior = "on_date") from _call_send_Characters_68
 
+    $ Laura.change_arms("neutral")
+
     "You continue to chat and enjoy each other's company as you head back into the dorms."
 
     call Laura_date_end from _call_Laura_date_end
 
-    call change_Character_stat(Laura, "love", int(total_score*date_bonus))
+    call change_Character_stat(Laura, "love", int(total_score*date_bonus)) from _call_change_Character_stat_13
 
     python:
         for C in Player.date_planned.keys():
@@ -299,8 +310,13 @@ label Laura_date_dinner:
             $ Laura.change_face("smirk2", eyes = "right")
 
             ch_Player "Wh-"
+
+            $ Laura.change_arms("neutral", left_arm = "extended")
+
             "She just grabs your wrist and drags you to the restaurant."
             
+            $ Laura.change_arms("neutral")
+
             $ dice_roll = renpy.random.randint(1, 3)
 
             if dice_roll == 1:
@@ -360,6 +376,7 @@ label Laura_date_dinner:
             ch_Laura "Where are we eating?"
 
             $ Laura.change_face("neutral", eyes = "squint")
+            $ Laura.change_arms("crossed")
 
             ch_Player "Were you in the mood for anything?"
             ch_Laura "You. Pick."
@@ -387,6 +404,8 @@ label Laura_date_dinner:
     call set_the_scene(location = "bg_restaurant") from _call_set_the_scene_79
     call send_Characters(Laura, "bg_restaurant", behavior = "on_date") from _call_send_Characters_69
 
+    $ Laura.change_arms("crossed")
+
     "You get seated quickly, and the waitress hands out the menus."
 
     $ Laura.change_face("neutral", eyes = "down")
@@ -399,14 +418,18 @@ label Laura_date_dinner:
         pause 1.0 
 
         $ Laura.change_face("neutral")
+        $ Laura.change_arms("neutral")
 
         ch_Laura "I don't know what to get."
         ch_Laura "Pick for me."
 
         $ Laura.change_face("neutral", eyes = "squint")
+        $ Laura.change_arms("angry")
 
         ch_Laura "But, I am {i}not{/i} eating a salad. . ."
         ch_Player "Okay, then why don't you get. . ."
+
+        $ Laura.change_arms("neutral")
 
         $ chosen_meal = {}
         $ restaurant_bill = {}
@@ -427,6 +450,7 @@ label Laura_date_dinner:
         call restaurant_menu(Player, cuisine) from _call_restaurant_menu_6
 
     $ Laura.change_face("smirk1")
+    $ Laura.change_arms("crossed")
 
     "You have a nice time chatting with [Laura.name], as you wait for the waitress to come back and take your orders."
 
@@ -444,7 +468,12 @@ label Laura_date_dinner:
         "Let her order for you (encourage_quirk)":
             if Laura.ordered_for_you_last_time:
                 "You hold your tongue and wait for [Laura.name]."
+
+                $ Laura.change_arms("neutral", left_arm = "extended")
+
                 ch_Laura "He'll have the [temp]."
+
+                $ Laura.change_arms("crossed")
             else:
                 "You hold your tongue and wait for [Laura.name]."
 
@@ -453,17 +482,23 @@ label Laura_date_dinner:
                 "She glances over, and you just nod your head."
 
                 $ Laura.change_face("neutral", eyes = "right")
+                $ Laura.change_arms("neutral", left_arm = "extended")
 
                 ch_Laura "He'll have the [temp]."
+
+                $ Laura.change_arms("crossed")
 
             $ Laura.ordered_for_you_last_time = True
 
             $ Laura.History.update("quirk_encouraged")
         "Order for yourself (discourage_quirk)":
             if Laura.ordered_for_you_last_time:
+                $ Laura.change_arms("neutral", left_arm = "extended")
+
                 ch_Laura "He-"
 
                 $ Laura.change_face("confused1", eyes = "squint")
+                $ Laura.change_arms("crossed")
 
                 "Before she can finish, you speak up."
                 ch_Player "I'll have the [temp]."
@@ -471,6 +506,7 @@ label Laura_date_dinner:
                 $ Laura.change_face("neutral", eyes = "right")
             else:
                 $ Laura.change_face("neutral", eyes = "squint")
+                $ Laura.change_arms("crossed")
 
                 "You notice [Laura.name] staring at you."
 
@@ -577,16 +613,17 @@ label Laura_date_dinner:
         "[third_compliment]":
             $ flirting_type = "a" + indices[2]
             
-    call expression f"Laura_flirt_a{flirting_type}"
+    call expression f"Laura_flirt_a{flirting_type}" from _call_expression_1
 
     if approval_check(Laura, threshold = f"flirting_{flirting_type}"):
-        call change_Character_stat(Laura, "love", Laura_flirting_bonuses[flirting_type][0])
-        call change_Character_stat(Laura, "trust", Laura_flirting_bonuses[flirting_type][1])
+        call change_Character_stat(Laura, "love", Laura_flirting_bonuses[flirting_type][0]) from _call_change_Character_stat_14
+        call change_Character_stat(Laura, "trust", Laura_flirting_bonuses[flirting_type][1]) from _call_change_Character_stat_15
     else:
-        call change_Character_stat(Laura, "love", Laura_flirting_penalties[flirting_type][0])
-        call change_Character_stat(Laura, "trust", Laura_flirting_penalties[flirting_type][1])
+        call change_Character_stat(Laura, "love", Laura_flirting_penalties[flirting_type][0]) from _call_change_Character_stat_16
+        call change_Character_stat(Laura, "trust", Laura_flirting_penalties[flirting_type][1]) from _call_change_Character_stat_17
 
     $ Laura.change_face("smirk2", blush = 1)
+    $ Laura.change_arms("neutral")
 
     "You continue to have a surprisingly nice conversation, as you wait for the food to arrive."
 
@@ -607,9 +644,12 @@ label Laura_date_dinner:
     "The waitress finally comes back with your orders, causing [Laura.name]'s face to light up like nothing else can."
 
     $ Laura.change_face("smirk2", eyes = "down", mouth = "lipbite")
+    $ Laura.change_arms("angry")
 
     "The poor waitress can't help but flinch and scurry away after depositing the food." 
     "[Laura.name] doesn't hesitate, as she immediately begins devouring her meal."
+
+    $ Laura.change_arms("neutral")
 
     if Player_picked_food and chosen_meal[Laura] in ["ribeye", "salmon", "short ribs"]:
         $ total_score += Laura_date_scores["dinner_favorite_food"]
@@ -638,6 +678,7 @@ label Laura_date_dinner:
                 ch_Laura "Thanks."
             "Don't give her a bite":
                 $ Laura.change_face("suspicious1") 
+                $ Laura.change_arms("angry")
 
                 "You don't give her any, and she just glares at you." 
 
@@ -646,6 +687,7 @@ label Laura_date_dinner:
     ##
 
     $ Laura.change_face("angry1", eyes = "right")
+    $ Laura.change_arms("crossed")
 
     "You finish eating, and the waitress comes by with the check."
     "The poor thing looks like she wants to run away, as [Laura.name] continues to glare at her."
@@ -755,6 +797,7 @@ label Laura_date_dinner:
 
 label Laura_date_dinner_sex:
     $ Laura.change_face("sexy", blush = 1)
+    $ Laura.change_arms("neutral", right_arm = "touch_pussy")
 
     "You notice [Laura.name] looking at you lasciviously."
 
@@ -797,6 +840,7 @@ label Laura_date_dinner_sex:
                     pause 1.0
 
                     $ Laura.change_face("angry1")
+                    $ Laura.change_arms("crossed")
 
                     ch_Laura "Fine."
 
@@ -872,6 +916,7 @@ label Laura_date_dinner_sex_handjob:
     call add_Characters(Laura) from _call_add_Characters_81
 
     $ Laura.change_face("sexy", blush = 2)
+    $ Laura.change_arms("neutral")
 
     if Laura.spunk["chin"]:
         ch_Player "You have a little something. . ."
@@ -946,6 +991,7 @@ label Laura_date_dinner_sex_blowjob:
     call add_Characters(Laura) from _call_add_Characters_82
 
     $ Laura.change_face("sexy", blush = 2)
+    $ Laura.change_arms("neutral")
 
     if Laura.spunk["chin"]:
         ch_Player "You have a little something. . ."
@@ -966,6 +1012,7 @@ label Laura_date_dinner_sex_blowjob:
 
 label Laura_date_dinner_sex_sex:
     $ Laura.change_face("sexy", blush = 1)
+    $ Laura.change_arms("hips")
 
     ch_Laura "Follow me."
 
@@ -1008,6 +1055,7 @@ label Laura_date_dinner_sex_sex:
     call set_the_scene(location = "bg_restaurant") from _call_set_the_scene_81
 
     $ Laura.change_face("sly", blush = 2)
+    $ Laura.change_arms("crossed")
     
     pause 1.0
 
@@ -1015,12 +1063,14 @@ label Laura_date_dinner_sex_sex:
         ch_Player "Your hair's a bit. . ."
 
         $ Laura.change_face("confused1", mouth = "smirk", blush = 1)
+        $ Laura.change_arms("neutral", left_arm = "rub_neck")
 
         "She straightens it out."
 
         call try_on(Laura, Laura.Wardrobe.Clothes["straight hair"]) from _call_try_on_6
 
     $ Laura.change_face("sexy")
+    $ Laura.change_arms("crossed")
 
     ch_Laura "I enjoyed that. . . {i}a lot{/i}."
 
@@ -1031,6 +1081,7 @@ label Laura_date_dinner_sex_sex:
 
 label Laura_date_dinner_sex_eat_pussy:
     $ Laura.change_face("sexy", blush = 1)
+    $ Laura.change_arms("hips")
 
     ch_Laura "Follow me."
 
@@ -1060,6 +1111,7 @@ label Laura_date_dinner_sex_eat_pussy:
     call set_the_scene(location = "bg_restaurant") from _call_set_the_scene_83
 
     $ Laura.change_face("sly", blush = 2)
+    $ Laura.change_arms("crossed")
 
     pause 1.0
 
@@ -1088,12 +1140,15 @@ label Laura_date_movie:
             ch_Laura "Let's go."
             ch_Player "Wh-"
             "She just grabs your wrist and drags you to the theater."
+
+            $ Laura.change_arms("neutral", right_arm = "fist")
     
     $ Laura.change_face("neutral", eyes = "right")
 
     "You arrive at the ticket counter, and [Laura.name] looks over all the available movies."
 
     $ Laura.change_face("suspicious1", eyes = "right")
+    $ Laura.change_arms("crossed")
 
     pause 1.0
 
@@ -1154,6 +1209,7 @@ label Laura_date_movie:
     ch_Laura "That one?"
 
     $ Laura.change_face("neutral")
+    $ Laura.change_arms("crossed")
 
     ch_Laura "Fine."
 
@@ -1270,6 +1326,7 @@ label Laura_date_movie_ron_bic1:
     "You quickly find your seats, and the movie starts shortly after."
 
     $ Laura.change_face("pleased1", eyes = "right")
+    $ Laura.change_arms("neutral")
 
     "Once the action starts, you look over to see [Laura.name] entranced by all the killing on screen."
     "Despite already seeing this particular movie before, she doesn't seem to care one bit."
@@ -1277,6 +1334,7 @@ label Laura_date_movie_ron_bic1:
     "Ron quickly realizes a rival lighter company set him up, and he vows to get revenge."
 
     $ Laura.change_face("happy", eyes = "right")
+    $ Laura.change_arms("crossed")
 
     ##
 
@@ -1285,6 +1343,7 @@ label Laura_date_movie_ron_bic1:
     "There's a plethora of violent and fiery deaths as well as some impressive choreography."
 
     $ Laura.change_face("angry1", eyes = "right")
+    $ Laura.change_arms("angry")
 
     ch_Laura "It's over?!"
 
@@ -1299,12 +1358,14 @@ label Laura_date_movie_ron_bic2:
     "You get seated just in time, as the movie is already starting."
 
     $ Laura.change_face("pleased1", eyes = "right")
+    $ Laura.change_arms("neutral")
 
     "After the events of the first movie, things are more dangerous than ever for our hero, Ron Bic."
     "The world's lighter making companies have been reeling from the deaths of so many important executives."
     "And they want to know who's responsible."
 
     $ Laura.change_face("furious", eyes = "right")
+    $ Laura.change_arms("angry")
 
     "Poor Ron can't seem to avoid trouble, as he has to kill dozens of people in an attempt to prevent everyone from learning of his terrible mistake. . ."
     "You look over to see [Laura.name] so thoroughly emotionally invested in the movie that she's seething with rage."
@@ -1312,6 +1373,7 @@ label Laura_date_movie_ron_bic2:
     ##
 
     $ Laura.change_face("confused1", eyes = "right")
+    $ Laura.change_arms("hips")
 
     "The movie continues and, unfortunately, Ron isn't fast enough - the information gets out."
 
@@ -1324,6 +1386,7 @@ label Laura_date_movie_ron_bic2:
     "In the end, after a crescendo of blood, gore, and fiery death, Ron Bic is able to clear his name. . ."
 
     $ Laura.change_face("angry1", eyes = "right")
+    $ Laura.change_arms("angry")
 
     "But, did he survive? Does he even know of his own success?"
 
@@ -1336,6 +1399,7 @@ label Laura_date_movie_ron_bic2:
     ch_Laura "Is this what you call a 'cliffhanger'?"
 
     $ Laura.change_face("angry1", eyes = "right")
+    $ Laura.change_arms("crossed")
 
     ch_Laura "I do not like 'cliffhangers.'"
 
@@ -1347,10 +1411,12 @@ label Laura_date_movie_hamburg_portfolio:
     "The previews are already over, but you get seated just in time for the movie to start."
 
     $ Laura.change_face("confused1", eyes = "right")
+    $ Laura.change_arms("neutral")
 
     "The movie is set in modern day Philadelphia, only. . . magic is real."
 
     $ Laura.change_face("surprised1", eyes = "right")
+    $ Laura.change_arms("crossed")
 
     "The main character is a wizard, but the world doesn't know about all things supernatural, so he has to lay low."
     "He tries to be a good person and help people with his gift, but it's never that easy."
@@ -1365,11 +1431,13 @@ label Laura_date_movie_hamburg_portfolio:
     ##
 
     $ Laura.change_face("confused1", eyes = "right")
+    $ Laura.change_arms("neutral")
 
     "As the movie continues, the main character is forced to confront his morality."
     "If he wants to save the people he loves, innocent people must die."
 
     $ Laura.change_face("angry1", eyes = "right")
+    $ Laura.change_arms("angry")
 
     pause 1.0
 
@@ -1383,6 +1451,7 @@ label Laura_date_movie_hamburg_portfolio:
     "In the end, he isn't able to put aside his morals, and his inaction causes everyone to suffer."
 
     $ Laura.change_face("furious", eyes = "right")
+    $ Laura.change_arms("crossed")
 
     "At least he survives and gets revenge. . . however hollow it is. . ."
 
@@ -1407,6 +1476,7 @@ label Laura_date_movie_beautiful_flower:
     "He does this every year, but this time all the local florists are sold out."
 
     $ Laura.change_face("suspicious1", eyes = "right")
+    $ Laura.change_arms("hips")
 
     "He's running around frantically trying to find flowers to buy because his mother is very ill."
     "This might be his last chance, ever, to give her flowers."
@@ -1419,6 +1489,7 @@ label Laura_date_movie_beautiful_flower:
     "The shop's name is 'Beautiful Flower.'"
 
     $ Laura.change_face("surprised1", eyes = "right")
+    $ Laura.change_arms("angry")
 
     "[Laura.name] still seems a bit bothered, which is odd, considering the wholesome story about a budding romance between a guy and his florist."
 
@@ -1452,14 +1523,17 @@ label Laura_date_movie_fated:
     ##
 
     $ Laura.change_face("confused1", eyes = "right")
+    $ Laura.change_arms("neutral")
 
     "As the movie continues, it quickly takes a turn away from the wholesome, as the two mutually agree not to start a relationship."
 
     $ Laura.change_face("surprised1", eyes = "right", blush = 1)
+    $ Laura.change_arms("angry")
 
     "Instead the two become friends with benefits, ending the night with a very graphic sex scene."
 
     $ Laura.change_face("surprised1", eyes = "right", blush = 2)
+    $ Laura.change_arms("crossed")
 
     pause 1.0
 
@@ -1486,6 +1560,7 @@ label Laura_date_movie_refilling_empty_glass:
     "It begins following a bartender at a popular spot in the city."
 
     $ Laura.change_face("confused1", eyes = "right") 
+    $ Laura.change_arms("hips")
 
     "The bartender is good at her job - and beautiful - so plenty of male customers try flirting with her to no avail."
 
@@ -1499,6 +1574,7 @@ label Laura_date_movie_refilling_empty_glass:
     "The movie continues, and the bartender becomes interested in the despondent man, since he looks similar to her late husband."
 
     $ Laura.change_face("surprised1", eyes = "right") 
+    $ Laura.change_arms("neutral")
 
     "He tells her about his plight, how a former business partner started a conspiracy against him and it's ruining his life."
 
@@ -1507,6 +1583,7 @@ label Laura_date_movie_refilling_empty_glass:
     "The chance meeting turns into a thrilling romance as they rapidly fall in love, and the bartender uses her skills as a former super spy to stop the conspiracy."
 
     $ Laura.change_face("sexy", eyes = "right", blush = 2)
+    $ Laura.change_arms("crossed")
 
     "Nearly every other minute there's a graphic sex scene as the bartender demonstrates her prowess to her new beau."
 
@@ -1529,6 +1606,7 @@ label Laura_date_movie_stale_air:
     "The writer's monotonous life goes on as normal until he starts finding messages and sticky notes appearing out of nowhere around his apartment."
 
     $ Laura.change_face("surprised1", eyes = "right")
+    $ Laura.change_arms("neutral")
 
     "He has no idea where they're coming from, but they all have great ideas which he uses to jumpstart his writing."
 
@@ -1542,6 +1620,7 @@ label Laura_date_movie_stale_air:
     "His imaginative writing lands him a new job, but the gas also starts causing him to become delusional."
 
     $ Laura.change_face("pleased1", eyes = "right")
+    $ Laura.change_arms("crossed")
 
     "The movie climaxes as the writer unknowingly acts out his latest story. . ."
     "Which is about a disturbed maniac who goes on a murder spree at their new job."
@@ -1556,10 +1635,12 @@ label Laura_date_movie_devils_spring_break:
     "You take your seats, and the movie starts shortly after."
 
     $ Laura.change_face("confused1", eyes = "right")
+    $ Laura.change_arms("hips")
 
     "The movie seems to follow a generic horror movie formula, with reckless college kids and everything."
 
     $ Laura.change_face("angry1", eyes = "right")
+    $ Laura.change_arms("angry")
 
     "One of the college students has a rich family, and they just bought a new summer home, one that of course is rumored to be haunted."
     "The rich kid brings a bunch of his friends down to the house, to spend their spring break getting drunk and partying."
@@ -1572,6 +1653,7 @@ label Laura_date_movie_devils_spring_break:
     ##
 
     $ Laura.change_face("surprised1", eyes = "right")
+    $ Laura.change_arms("crossed")
 
     "As the movie continues, the college students are slowly and gruesomely killed by a demon, their souls stolen in the process."
     "[Laura.name] seems quite satisfied as the reckless students are taken out one by one."
@@ -1582,10 +1664,12 @@ label Laura_date_movie_devils_spring_break:
     "During one particularly tense moment, you look over and see [Laura.name] wide-eyed, staring at the screen in suspense."
 
     $ Laura.change_face("angry1", eyes = "right")
+    $ Laura.change_arms("claws")
 
     "Suddenly, there's a jumpscare, but instead of freaking out, she actually puts an arm in front of you, as if in protection."
 
     $ Laura.change_face("appalled1")
+    $ Laura.change_arms("crossed")
 
     "She quickly pulls her arm back, pretending like nothing happened."
 
@@ -1612,6 +1696,7 @@ label Laura_date_movie_unsanctioned_crusade:
     "Although, despite being bloody, the massacre is rather mundane, as it was perpetrated by an order of deeply religious knights."
 
     $ Laura.change_face("confused1", eyes = "right") 
+    $ Laura.change_arms("neutral")
 
     "The knights are on their own form of crusade, driven by deep seated religious beliefs."
     "They do terrible things in a misguided attempt at worship."
@@ -1625,6 +1710,7 @@ label Laura_date_movie_unsanctioned_crusade:
     "It starts slowly at first, suspense building, as the knights are mercilessly terrorized."
 
     $ Laura.change_face("confused1", eyes = "right")
+    $ Laura.change_arms("angry")
 
     "You notice [Laura.name] get increasingly tense, a look of anger or confusion on her face."
 
@@ -1637,6 +1723,7 @@ label Laura_date_movie_unsanctioned_crusade:
     pause 1.0
 
     $ Laura.change_face("worried1", eyes = "right")
+    $ Laura.change_arms("crossed")
 
     pause 1.0
 
@@ -1656,6 +1743,7 @@ label Laura_date_movie_unsanctioned_crusade:
 
 label Laura_date_movie_sex:
     $ Laura.change_face("sexy", blush = 1)
+    $ Laura.change_arms("neutral", right_arm = "touch_pussy")
 
     "You notice [Laura.name] looking at you lasciviously."
 
@@ -1703,6 +1791,7 @@ label Laura_date_movie_sex:
                     pause 1.0
 
                     $ Laura.change_face("angry1")
+                    $ Laura.change_arms("crossed")
 
                     ch_Laura "Fine."
 
@@ -1726,6 +1815,7 @@ label Laura_date_movie_sex_makeout:
     pause 1.0
 
     $ Laura.change_face("sexy", blush = 1)
+    $ Laura.change_arms("neutral")
 
     "Once [Laura.name]'s sure there's nobody around, she reaches over and pulls you in."
 
@@ -1738,6 +1828,7 @@ label Laura_date_movie_sex_makeout:
     "With one hand firmly around your neck, preventing you from going anywhere, the other one starts wandering across your body."
 
     $ Laura.change_face("sexy", blush = 1)
+    $ Laura.change_arms("crossed")
 
     "Before things go too far, [Laura.name] stops herself and pulls away."
     ch_Laura "Mmm. . ."
@@ -1755,6 +1846,7 @@ label Laura_date_movie_sex_handjob:
     pause 1.0
 
     $ Laura.change_face("sexy", blush = 1)
+    $ Laura.change_arms("neutral")
 
     "Once [Laura.name]'s sure there's nobody around, she reaches over."
 
@@ -1766,6 +1858,7 @@ label Laura_date_movie_sex_handjob:
     "After a bit of teasing, she pulls your cock out."
 
     $ Laura.change_face("sexy", eyes = "right", blush = 1)
+    $ Laura.change_arms("angry")
 
     "[Laura.name] gets right to work, wrapping her fingers around you."
     "You try to continue watching the movie, but [Laura.name] keeps speeding up."
@@ -1808,6 +1901,7 @@ label Laura_date_movie_sex_handjob:
         $ Laura.History.update("clean_cum")
 
     $ Laura.change_face("sexy", blush = 1)
+    $ Laura.change_arms("crossed")
 
     "She puts your pants back into position."
 
@@ -1815,6 +1909,7 @@ label Laura_date_movie_sex_handjob:
         $ Laura.spunk["chin"] = 1
 
     $ Laura.change_face("sexy", blush = 2)
+    $ Laura.change_arms("crossed")
 
     if Laura.spunk["chin"]:
         ch_Player "You have a little something. . ."
@@ -1848,6 +1943,8 @@ label Laura_date_movie_sex_touch_pussy:
     "You can instantly feel how wet she is, as you slowly move your hand over her crotch."
 
     $ Laura.change_face("sexy", eyes = "right", blush = 1)
+    $ Laura.change_arms("neutral", left_arm = "grope")
+
     call expose(Laura, "pussy") from _call_expose_3
 
     "Slipping your hand under her pants, you tease her for a bit, before getting right to work."
@@ -1859,6 +1956,7 @@ label Laura_date_movie_sex_touch_pussy:
     "You make sure to give every part of her pussy ample attention."
 
     $ Laura.change_face("angry1", eyes = "right", mouth = "lipbite", blush = 3)
+    $ Laura.change_arms("angry", left_arm = "grope")
 
     "Whatever you're doing seems to be working as she starts squirming and grinding against your hand."
 
@@ -1877,6 +1975,7 @@ label Laura_date_movie_sex_touch_pussy:
     "You don't stop, and the shuddering continues, her death grip on your arm only tightening." with small_screenshake
 
     $ Laura.change_face("sexy", blush = 2)
+    $ Laura.change_arms("crossed")
 
     "Finally, after a minute, she lets go."
     "She's still twitching even as you pull your hand away."
@@ -1902,6 +2001,8 @@ label Laura_date_movie_sex_finger_pussy:
     "You can instantly feel how wet she is, as you slowly move your hand over her crotch."
 
     $ Laura.change_face("sexy", eyes = "right", blush = 1)
+    $ Laura.change_arms("neutral", left_arm = "grope")
+
     call expose(Laura, "pussy") from _call_expose_4
 
     "Slipping your hand under her pants, you tease her for a bit, before sliding your fingers inside."
@@ -1917,6 +2018,7 @@ label Laura_date_movie_sex_finger_pussy:
     "Whatever you're doing seems to be working as she starts squirming and grinding against your hand."
 
     $ Laura.change_face("angry1", mouth = "lipbite", blush = 3)
+    $ Laura.change_arms("angry", left_arm = "grope")
 
     "You pick up the pace, and [Laura.name] grabs your arm, anchoring it in place."
     "She's not letting go until you finish the job."
@@ -1931,6 +2033,7 @@ label Laura_date_movie_sex_finger_pussy:
     "You don't stop, and the shuddering continues, her death grip on your arm only tightening." with small_screenshake
 
     $ Laura.change_face("sexy", blush = 2)
+    $ Laura.change_arms("crossed")
 
     "Finally, after a minute, she lets go."
     "She's still twitching even as you pull your hand away."
@@ -1997,6 +2100,7 @@ label Laura_date_movie_sex_blowjob:
     call add_Characters(Laura) from _call_add_Characters_84
 
     $ Laura.change_face("sexy", blush = 2)
+    $ Laura.change_arms("crossed")
 
     if Laura.spunk["chin"]:
         ch_Player "You have a little something. . ."
@@ -2022,6 +2126,7 @@ label Laura_date_mall:
         pause 1.0
 
         $ Laura.change_face("smirk2")
+        $ Laura.change_arms("neutral")
 
         ch_Laura "Let's go."
 
@@ -2081,12 +2186,14 @@ label Laura_date_mall_wander:
                 ch_Laura "Fine. . ." 
                 
                 $ Laura.change_face("smirk2", mouth = "lipbite", eyes = "right", blush = 1) 
+                $ Laura.change_arms("neutral", right_arm = "fist")
 
                 $ holding_hands = True
             "Just grab [Laura.name]'s hand.": 
                 $ total_score += Laura_date_scores["wander_grab_hand"]
 
                 $ Laura.change_face("angry1", mouth = "smirk")
+                $ Laura.change_arms("neutral", right_arm = "fist")
 
                 "She doesn't protest, but gives your hand a firm squeeze in response. . ." 
                 "You can almost hear your bones creak."
@@ -2097,6 +2204,8 @@ label Laura_date_mall_wander:
             "Do nothing":
                 pass
     elif Laura in second_event.keys() and Laura in Partners and renpy.random.random() > 0.25:
+        $ total_score += Laura_date_scores["wander_hold_hands"]
+        
         $ Laura.change_face("smirk2", eyes = "right", mouth = "lipbite")
 
         pause 1.0
@@ -2106,6 +2215,7 @@ label Laura_date_mall_wander:
         pause 1.0
 
         $ Laura.change_face("smirk2", eyes = "right", mouth = "lipbite")
+        $ Laura.change_arms("neutral", right_arm = "fist")
 
         "[Laura.name] suddenly reaches out, grabbing your hand."
 
@@ -2131,6 +2241,7 @@ label Laura_date_mall_dessert:
     "There are so many different options that it can be difficult to decide what to get."
 
     $ Laura.change_face("confused1", mouth = "smirk")
+    $ Laura.change_arms("crossed")
 
     ch_Laura "You know I've never had basically anything here."
 
@@ -2166,6 +2277,7 @@ label Laura_date_mall_dessert:
     $ total_spent += 10
 
     $ Laura.change_face("smirk2", eyes = "right")
+    $ Laura.change_arms("neutral")
 
     "After paying for the dessert, you both wander around the mall while enjoying it."
 
@@ -2224,6 +2336,7 @@ label Laura_date_end_invite:
             ch_Laura "That was fun." 
             
             $ Laura.change_face("sexy", blush = 2) 
+            $ Laura.change_arms("neutral", left_arm = "grope")
             
             ch_Laura "Are we having more fun?"
         else:
@@ -2271,6 +2384,7 @@ label Laura_date_end_invite:
 
         if approval_check(Laura, threshold = "hookup"):
             $ Laura.change_face("sexy", blush = 1)
+            $ Laura.change_arms("neutral", left_arm = "grope")
 
             ch_Laura "I'm not done with you yet."
 
@@ -2295,6 +2409,7 @@ label Laura_date_invite_accept:
     ch_Player "What did you have in mind?"
 
     $ Laura.change_face("sly", mouth = "lipbite", blush = 2)
+    $ Laura.change_arms("neutral", left_arm = "grope")
 
     if approval_check(Laura, threshold = "hookup"):
         $ Laura.History.update("hookup")

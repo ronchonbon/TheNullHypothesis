@@ -10,7 +10,7 @@ label climax_screen_result:
         if temp_Characters[0].location != "hold":
             if temp_Characters[0].remote_vibrator is not None:
                 if temp_Characters[0].stamina:
-                    $ temp_Characters[0].desire += int(5.0*temp_Characters[0].remote_vibrator)
+                    call change_Character_stat(temp_Characters[0], "desire", int(5.0*temp_Characters[0].remote_vibrator)) from _call_change_Character_stat_24
 
                     if temp_Characters[0].desire >= 100:
                         $ EventScheduler.Events[f"{temp_Characters[0].tag}_remote_vibrator_orgasm"].start()
@@ -26,7 +26,7 @@ label climax_screen_result:
             if temp_Characters[0].behavior == "masturbating":
                 if temp_Characters[0].stamina and (not temp_Characters[0].History.check("orgasmed", tracker = "recent") or temp_Characters[0].status["nympho"]):
                     if temp_Characters[0].location == Player.location:
-                        $ temp_Characters[0].desire += 5
+                        call change_Character_stat(temp_Characters[0], "desire", 5) from _call_change_Character_stat_25
 
                     if temp_Characters[0].desire >= 100:
                         $ EventScheduler.Events[f"{temp_Characters[0].tag}_masturbating_orgasm"].start()

@@ -41,6 +41,7 @@ label Laura_first_date:
         "You wait around for a bit."
 
     $ Laura.change_face("neutral")
+    $ Laura.change_arms("crossed")
 
     call send_Characters(Laura, "bg_hallway", behavior = "on_date") from _call_send_Characters_86
 
@@ -48,6 +49,7 @@ label Laura_first_date:
     ch_Laura "Let's go."
 
     $ Laura.change_face("neutral", eyes = "right")
+    $ Laura.change_arms("neutral", left_arm = "extended")
 
     "She grabs you by the wrist and starts dragging you along."
     ch_Player "Jesus, where the hell did you come from??"
@@ -63,6 +65,7 @@ label Laura_first_date:
     ch_Player "Where are we going???"
 
     $ Laura.change_face("confused1")
+    $ Laura.change_arms("hips")
 
     "She lets go of your wrist and faces you."
     ch_Laura ". . . On a date."
@@ -73,6 +76,7 @@ label Laura_first_date:
     ch_Player "I know that. . . but {i}where{/i} are we going on this date?"
 
     $ Laura.change_face("smirk2")
+    $ Laura.change_arms("neutral")
 
     ch_Laura "I have done research, we are going to a restaurant." 
     ch_Player "Okay, which restaurant?"
@@ -82,6 +86,7 @@ label Laura_first_date:
     ch_Laura "It's in the mall, I just picked the one with the most steak options." 
 
     $ Laura.change_face("smirk1", eyes = "right")
+    $ Laura.change_arms("angry", right_arm = "neutral")
 
     "She grabs your wrist again, and you both head to the mall."
 
@@ -90,6 +95,7 @@ label Laura_first_date:
     call send_Characters(Laura, "bg_mall", behavior = "on_date") from _call_send_Characters_88
 
     $ Laura.change_face("confused2", eyes = "right")
+    $ Laura.change_arms("crossed")
 
     "You arrive outside the restaurant, but apparently [Laura.name] didn't know reservations were a thing. . ."
     "Luckily it's not too busy, and you get seated quickly."
@@ -117,6 +123,7 @@ label Laura_first_date:
     call restaurant_menu(Player, "steakhouse") from _call_restaurant_menu_7
 
     $ Laura.change_face("furious", eyes = "down") 
+    $ Laura.change_arms("angry")
 
     "After deciding, you look up to see [Laura.name] staring intensely at her menu."
     ch_Player "Is everything okay?"
@@ -126,6 +133,7 @@ label Laura_first_date:
     pause 1.0
 
     $ Laura.change_face("neutral")
+    $ Laura.change_arms("neutral")
 
     ch_Player "You're gonna burn a hole through that poor menu with such an intense stare." 
     ch_Laura "What are you getting?"
@@ -138,14 +146,17 @@ label Laura_first_date:
         ch_Player "[temp]."
         
     $ Laura.change_face("furious", eyes = "down") 
+    $ Laura.change_arms("hips")
 
     ch_Laura "I thought more steak options was a good thing. . ."
 
     $ Laura.change_face("angry1", blush = 1) 
+    $ Laura.change_arms("hips", right_arm = "extended")
 
     ch_Laura "What is the difference between a 'ribeye' and a 'filet mignon'?!"
 
     $ Laura.change_face("confused1") 
+    $ Laura.change_arms("crossed")
 
     "You explain the different cuts of meat."
     ch_Laura "Which is better?" 
@@ -206,14 +217,20 @@ label Laura_first_date:
 
     $ temp = chosen_meal[Laura]
 
+    $ Laura.change_arms("hips", right_arm = "extended")
+
     ch_Laura "Give me the [temp]."
 
     $ Laura.change_face("neutral")
 
     $ temp = chosen_meal[Player]
 
+    $ Laura.change_arms("hips", left_arm = "extended")
+
     ch_Laura "He'll have the [temp]."
     ch_Player ". . ."
+
+    $ Laura.change_arms("crossed")
 
     $ Laura.ordered_for_you_last_time = True
 
@@ -228,6 +245,7 @@ label Laura_first_date:
     $ fade_in_from_black(0.4)
 
     $ Laura.change_face("neutral", eyes = "down", mouth = "lipbite")
+    $ Laura.change_arms("angry")
 
     "The food arrives, and you can tell she's restraining her desire to devour the meal like an animal."
     "[Laura.name] does her best impression of table manners."
@@ -277,6 +295,7 @@ label Laura_first_date:
             ch_Laura "Good."
 
     $ Laura.change_face("neutral", eyes = "down")
+    $ Laura.change_arms("crossed")
 
     "Despite restraining her appetite, [Laura.name] finishes her food well before you."
     "You decide now is probably a good time to find out more about her."
@@ -288,26 +307,31 @@ label Laura_first_date:
     ch_Player "Yeah, in your free time."
 
     $ Laura.change_face("confused3")
+    $ Laura.change_arms("neutral")
 
     ch_Laura "Free time?"
     ch_Player "Something you enjoy doing when you're not busy." 
 
     $ Laura.change_face("confused1")
+    $ Laura.change_arms("neutral", right_arm = "extended")
 
     ch_Laura "I 'enjoy' training."
 
     $ Laura.change_face("confused2")
+    $ Laura.change_arms("neutral")
 
     ch_Player "Okay, but after you finish training for the day."
     ch_Laura "Why would I have free time after training?"
 
     $ Laura.change_face("neutral")
+    $ Laura.change_arms("crossed")
 
     ch_Laura "That would only mean I didn't train for long enough."
     ch_Player "Exactly how long do you train?"
     ch_Laura "Depends if I'm required to attend class or not." 
 
     $ Laura.change_face("angry1", eyes = "right")
+    $ Laura.change_arms("angry")
 
     ch_Laura "Such a waste of time. . ."
 
@@ -316,12 +340,14 @@ label Laura_first_date:
     ch_Laura "Usually six to eight hours per day." 
 
     $ Laura.change_face("confused1")
+    $ Laura.change_arms("neutral")
 
     ch_Player "Jesus. . ."
     ch_Player "Okay, but let's say you're satisfied with how much you've trained one day."
     ch_Player "And you still have time left before bed."
 
     $ Laura.change_face("confused2")
+    $ Laura.change_arms("crossed")
 
     ch_Player "What would you want to do?"
 
@@ -335,6 +361,7 @@ label Laura_first_date:
     ch_Laura "Fun. . ." 
 
     $ Laura.change_face("neutral")
+    $ Laura.change_arms("hips")
 
     ch_Laura "[Ororo.public_name] did show me one of those television shows. . ."
 
@@ -343,12 +370,14 @@ label Laura_first_date:
     ch_Laura "Where people fought each other inside a cage."
 
     $ Laura.change_face("confused1")
+    $ Laura.change_arms("hips", left_arm = "rub_neck")
 
     ch_Laura "I. . . think I had 'fun' watching that."
 
     ch_Player "Okay, so you like combat sports."
 
     $ Laura.change_face("neutral")
+    $ Laura.change_arms("crossed")
 
     ch_Player "Boxing, MMA, martial arts, and stuff?"
     ch_Laura "Yes."
@@ -363,6 +392,7 @@ label Laura_first_date:
     ch_Player "You don't know what a movie is?" 
 
     $ Laura.change_face("angry1", eyes = "right")
+    $ Laura.change_arms("angry")
 
     ch_Laura "No. . ."
 
@@ -372,6 +402,7 @@ label Laura_first_date:
     ch_Player "There's a theater right here in the mall." 
 
     $ Laura.change_face("neutral") 
+    $ Laura.change_arms("neutral")
 
     ch_Laura "Fine, my research mentioned this as a common dating event."
 
@@ -380,8 +411,11 @@ label Laura_first_date:
     "The waitress comes and gives you the bill."
 
     $ Laura.change_face("neutral")
+    $ Laura.change_arms("neutral", left_arm = "extended")
 
     ch_Laura "Also, the man is apparently expected to pay for the date."
+
+    $ Laura.change_arms("crossed")
 
     menu:
         extend ""
@@ -421,6 +455,7 @@ label Laura_first_date:
     call send_Characters(Laura, "bg_mall", behavior = "on_date") from _call_send_Characters_90
 
     $ Laura.change_face("angry1", eyes = "right")
+    $ Laura.change_arms("angry")
 
     "You arrive at the ticket counter."
 
@@ -433,6 +468,7 @@ label Laura_first_date:
     ch_Laura "None of these names mean anything to me." 
 
     $ Laura.change_face("neutral")
+    $ Laura.change_arms("crossed")
 
     ch_Laura "You pick."
     "After a moment of consideration. . ."
@@ -448,12 +484,14 @@ label Laura_first_date:
     call send_Characters(Laura, "bg_movies", behavior = "on_date") from _call_send_Characters_91
 
     $ Laura.change_face("surprised1", eyes = "right")
+    $ Laura.change_arms("neutral")
 
     "Once the movie gets going, and the action starts, you look over to see [Laura.name] entranced by all the killing on screen."
     "Ron Bic is in a sticky situation after he's unwittingly sent to kill the CEO of his favorite lighter company."
     "Ron quickly realizes a rival lighter company set him up, and he vows to get revenge."
 
     $ Laura.change_face("surprised1", mouth = "smirk", eyes = "right")
+    $ Laura.change_arms("angry")
 
     "He has to fight his way through hundreds of evil henchmen in a lighter factory finally takes out the real bad guy in the end."
     "There's a plethora of violent and fiery deaths as well as some impressive choreography."
@@ -463,6 +501,7 @@ label Laura_first_date:
     ch_Laura "It's over?!"
 
     $ Laura.change_face("angry1")
+    $ Laura.change_arms("crossed")
 
     ch_Laura "I want to know what happens next."
     "With the movie over, you leave the theater." 
@@ -476,16 +515,19 @@ label Laura_first_date:
     call send_Characters(Laura, "bg_mall", behavior = "on_date") from _call_send_Characters_92
 
     $ Laura.change_face("confused1")
+    $ Laura.change_arms("hips", right_arm = "extended")
 
     ch_Laura "Where do they get all the people to kill in the movie?"
     ch_Laura "Do they use death row prisoners?"
 
     $ Laura.change_face("confused2")
+    $ Laura.change_arms("hips")
 
     ch_Player "You realize that was all fake. . . right?"
     ch_Laura "Those were fake people?"
 
     $ Laura.change_face("neutral", eyes = "squint")
+    $ Laura.change_arms("crossed")
 
     ch_Player "They were real people, but they used special effects to make it look convincing."
     "You continue to explain during the walk back."
@@ -495,6 +537,7 @@ label Laura_first_date:
     call send_Characters(Laura, "bg_campus", behavior = "on_date") from _call_send_Characters_93
 
     $ Laura.change_face("neutral")
+    $ Laura.change_arms("neutral")
 
     "[Laura.name] leads you to her room."
 
@@ -511,6 +554,7 @@ label Laura_first_date:
     call send_Characters(Laura, Laura.home, behavior = "on_date") from _call_send_Characters_95
 
     $ Laura.change_face("neutral", eyes = "right", blush = 1)
+    $ Laura.change_arms("crossed")
 
     ch_Laura "My research also indicated people usually. . . kiss after a date."
 
@@ -533,6 +577,7 @@ label Laura_first_date:
             call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_335
 
     $ Laura.change_face("neutral", eyes = "right", mouth = "lipbite", blush = 1)
+    $ Laura.change_arms("angry")
 
     "You can tell she's still a bit apprehensive."
 
@@ -543,10 +588,12 @@ label Laura_first_date:
     "[Laura.name] doesn't let you finish and just pulls you in for a kiss."
 
     $ Laura.change_face("kiss1", blush = 2)
+    $ Laura.change_arms("neutral")
 
     "She shudders as your lips connect and pulls away after a couple seconds."
 
     $ Laura.change_face("sexy", blush = 3)
+    $ Laura.change_arms("angry")
 
     ch_Player "That w-"
 
@@ -561,6 +608,7 @@ label Laura_first_date:
     ch_Player "{i}Ahem{/i}. . . I guess you liked it."
 
     $ Laura.change_face("angry1", eyes = "right", mouth = "lipbite", blush = 1)
+    $ Laura.change_arms("crossed")
 
     ch_Laura "My instincts were screaming at me. . ."
 
@@ -612,6 +660,7 @@ label Laura_first_date:
     "You finish brushing your teeth and unlock the door."
 
     $ Laura.change_face("angry1", blush = 1)
+    $ Laura.change_arms("angry")
 
     call send_Characters(Laura, Player.home, behavior = False) from _call_send_Characters_96
 
@@ -665,6 +714,7 @@ label Laura_first_date:
     "Her lips are clumsy, and it's clear she doesn't know what she's doing. . ."
 
     $ Laura.change_face("kiss1", brows = "furrowed", blush = 2)
+    $ Laura.change_arms("neutral")
 
     "She makes up for lacking experience with intensity and enthusiasm."
 
@@ -675,6 +725,8 @@ label Laura_first_date:
     $ Laura.change_face("angry1", mouth = "lipbite", blush = 3)
 
     "Finally, after a long moment, she lets go."
+
+    $ Laura.change_arms("crossed")
 
     $ Laura.History.update("kiss")
 

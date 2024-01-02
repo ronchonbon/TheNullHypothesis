@@ -13,7 +13,7 @@ label spank(Character):
         if Character.stamina:
             $ base = eval(f"{Character.tag}_base_Action_desire")*eval(f"{Character.tag}_Action_desires['spank'][{int(Character.desire/20 % 5)}]")
 
-            $ Character.desire += base
+            call change_Character_stat(Character, "desire", base) from _call_change_Character_stat_23
 
         call spank_narrations(Character) from _call_spank_narrations
 

@@ -293,7 +293,7 @@ label Rogue_date:
     else:
         call Rogue_date_end from _call_Rogue_date_end
 
-    call change_Character_stat(Rogue, "love", int(total_score*date_bonus))
+    call change_Character_stat(Rogue, "love", int(total_score*date_bonus)) from _call_change_Character_stat_18
 
     python:
         for C in Player.date_planned.keys():
@@ -694,14 +694,14 @@ label Rogue_date_dinner:
         "[third_compliment]":
             $ flirting_type = "a" + indices[2]
 
-    call expression f"Rogue_flirt_{flirting_type}"
+    call expression f"Rogue_flirt_{flirting_type}" from _call_expression_2
 
     if approval_check(Rogue, threshold = f"flirting_{flirting_type}"):
-        call change_Character_stat(Rogue, "love", Rogue_flirting_bonuses[flirting_type][0])
-        call change_Character_stat(Rogue, "trust", Rogue_flirting_bonuses[flirting_type][1])
+        call change_Character_stat(Rogue, "love", Rogue_flirting_bonuses[flirting_type][0]) from _call_change_Character_stat_19
+        call change_Character_stat(Rogue, "trust", Rogue_flirting_bonuses[flirting_type][1]) from _call_change_Character_stat_20
     else:
-        call change_Character_stat(Rogue, "love", Rogue_flirting_penalties[flirting_type][0])
-        call change_Character_stat(Rogue, "trust", Rogue_flirting_penalties[flirting_type][1])
+        call change_Character_stat(Rogue, "love", Rogue_flirting_penalties[flirting_type][0]) from _call_change_Character_stat_21
+        call change_Character_stat(Rogue, "trust", Rogue_flirting_penalties[flirting_type][1]) from _call_change_Character_stat_22
 
     $ Rogue.change_face("smirk2", blush = 1)
     $ Rogue.change_arms("crossed")
@@ -2641,6 +2641,7 @@ label Rogue_date_invite_accept:
     ch_Player "What did you have in mind?"
 
     $ Rogue.change_face("sly", mouth = "lipbite", blush = 2)
+    $ Rogue.change_arms("neutral", left_arm = "grope")
 
     if approval_check(Rogue, threshold = "hookup"):
         $ Rogue.History.update("hookup")
