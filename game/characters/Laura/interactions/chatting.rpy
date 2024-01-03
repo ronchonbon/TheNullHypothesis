@@ -118,11 +118,11 @@ label Laura_busy:
             menu:
                 extend ""
                 "Is it really so bizarre to you that someone might actually care about your well-being?":
+                    call change_Character_stat(Laura, "love", -tiny_stat) from _call_change_Character_stat_463
+
                     $ Laura.change_face("suspicious1", blush = 1) 
                     
                     ch_Laura "Yes, it is." 
-                    
-                    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_463
                 "Just wondering. . . you didn't look very happy.":
                     $ Laura.change_face("angry1") 
                     
@@ -130,6 +130,7 @@ label Laura_busy:
                     
                     $ Laura.change_face("angry1", eyes = "squint")
                 "Whatever, I guess I'll stop caring then.":
+                    call change_Character_stat(Laura, "love", -tiny_stat) from _call_change_Character_stat_464
                     
                     $ Laura.change_face("furious") 
 
@@ -138,8 +139,6 @@ label Laura_busy:
                     $ Laura.change_face("angry1") 
                     
                     ch_Laura "I never asked you to start." 
-
-                    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_464
 
     return
 
@@ -417,13 +416,13 @@ label Laura_ask_about_Rogue:
             menu:
                 extend ""
                 "Well. . . I like it when you boss me around. . . she likes it when I do it to her.":
+                    call change_Character_stat(Laura, "love", tiny_stat) from _call_change_Character_stat_465
+
                     $ Laura.change_face("confused2", blush = 1) 
                     
                     ch_Laura "I see. . ."
                     
                     $ Laura.change_face("sexy", blush = 1) 
-                    
-                    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_465
                 "She is, but I don't capitalize on it like you're thinking.":
                     $ Laura.change_face("confused1") 
                     
@@ -435,13 +434,13 @@ label Laura_ask_about_Rogue:
                     
                     $ Laura.change_face("angry1", eyes = "right") 
                 "Yeah, but I'm not a weirdo who likes bossing people around. . .":
+                    call change_Character_stat(Laura, "love", -tiny_stat) from _call_change_Character_stat_466
+
                     $ Laura.change_face("appalled2") 
                     
                     ch_Laura "Trying to piss me off?"
                     
                     $ Laura.change_face("angry1") 
-                    
-                    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_466
         else:
             $ Laura.change_face("confused1")
 
@@ -566,6 +565,8 @@ label Laura_ask_about_Jean:
             menu:
                 extend ""
                 "You also act like you own me. . . which I like. . . and I also like the way she treats me. . .":
+                    call change_Character_stat(Laura, "love", tiny_stat) from _call_change_Character_stat_467
+
                     $ Laura.change_face("surprised2") 
 
                     pause 1.0
@@ -575,18 +576,16 @@ label Laura_ask_about_Jean:
                     ch_Laura "I. . . see. . ."
                     
                     $ Laura.change_face("smirk2", blush = 1) 
-                    
-                    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_467
                 "That's just how she is, she likes to take care of me. That's as far as it goes.":
                     $ Laura.change_face("suspicious1") 
                     
                     ch_Laura "Hmmm."
                 "I'm not {i}all{/i} hers, nor am I {i}all{/i} yours either.":
+                    call change_Character_stat(Laura, "love", -tiny_stat) from _call_change_Character_stat_468
+
                     $ Laura.change_face("angry1") 
                     
                     ch_Laura "{i}Grrrrrr{/i}."
-                    
-                    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_468
 
         else:
             $ Laura.change_face("confused1") 

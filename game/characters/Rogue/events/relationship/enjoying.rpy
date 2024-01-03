@@ -134,7 +134,9 @@ label Rogue_enjoying_being_girlfriend:
 
     menu:
         extend ""
-        "If something was bothering me, you need to trust that I would let you know about it, okay? You're {i}my{/i} girlfriend - tell me whenever something's worrying you instead of bottling it up. (encourage_quirk)":
+        "If something was bothering me, you need to trust that I would let you know about it, okay? You're {i}my{/i} girlfriend - tell me whenever something's worrying you. (encourage_quirk)":
+            call change_Character_stat(Rogue, "trust", medium_stat) from _call_change_Character_stat_234
+
             $ Rogue.change_face("worried2", mouth = "lipbite", blush = 1)
 
             ch_Rogue "Ah'm sorry. . ." 
@@ -143,9 +145,10 @@ label Rogue_enjoying_being_girlfriend:
             $ Rogue.change_face("worried1", blush = 1) 
             
             ch_Rogue "In the future, ah will make sure you know sooner." 
-            
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1144
-        "[Rogue.name], if something's bothering you, don't bottle it up because you're afraid it might upset me. We're in this together, and how you feel matters just as much. (discourage_quirk)": 
+        "Hey, don't bottle stuff up because you're afraid it might upset me. We're in this together. (discourage_quirk)": 
+            call change_Character_stat(Rogue, "love", medium_stat) from _call_change_Character_stat_235
+            call change_Character_stat(Rogue, "trust", small_stat) from _call_change_Character_stat_236
+
             $ Rogue.change_face("worried2")
 
             ch_Rogue "Ah know, ah'm sorry. . ." 
@@ -154,8 +157,6 @@ label Rogue_enjoying_being_girlfriend:
             
             ch_Rogue "Yer right." 
             
-            call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_1145 
-
     $ Rogue.change_face("worried1")
 
     ch_Player "And, secondly, that's what you were so worried about?"

@@ -21,12 +21,12 @@ label request_hookup(Character):
 
     if Character.status["miffed"] or Character.status["mad"]:
         if Character.History.check("rejected_hookup", tracker = "recent") >= 2:
-            call change_Character_stat(Character, "love", -5) from _call_change_Character_stat_810
-            call change_Character_stat(Character, "trust", -5) from _call_change_Character_stat_811
+            call change_Character_stat(Character, "love", -small_stat) from _call_change_Character_stat_810
+            call change_Character_stat(Character, "trust", -small_stat) from _call_change_Character_stat_811
 
             call expression f"{Character.tag}_rejects_Action_asked_twice" from _call_expression_56
         elif Character.History.check("rejected_hookup", tracker = "recent") == 1:
-            call change_Character_stat(Character, "love", -2) from _call_change_Character_stat_812
+            call change_Character_stat(Character, "love", -tiny_stat) from _call_change_Character_stat_812
 
             call expression f"{Character.tag}_rejects_Action_asked_once" from _call_expression_57
         else:
@@ -40,12 +40,12 @@ label request_hookup(Character):
         return
     elif Player.location not in bedrooms:
         if Character.History.check("rejected_hookup", tracker = "recent") >= 2:
-            call change_Character_stat(Character, "love", -5) from _call_change_Character_stat_813
-            call change_Character_stat(Character, "trust", -5) from _call_change_Character_stat_814
+            call change_Character_stat(Character, "love", -small_stat) from _call_change_Character_stat_813
+            call change_Character_stat(Character, "trust", -small_stat) from _call_change_Character_stat_814
 
             call expression f"{Character.tag}_rejects_Action_asked_twice" from _call_expression_59
         elif Character.History.check("rejected_hookup", tracker = "recent") == 1:
-            call change_Character_stat(Character, "love", -2) from _call_change_Character_stat_815
+            call change_Character_stat(Character, "love", -tiny_stat) from _call_change_Character_stat_815
             
             call expression f"{Character.tag}_rejects_Action_asked_once" from _call_expression_60
         else:
@@ -59,12 +59,12 @@ label request_hookup(Character):
         return
     elif len(Present) > 1:
         if Character.History.check("rejected_hookup", tracker = "recent") >= 2:
-            call change_Character_stat(Character, "love", -5) from _call_change_Character_stat_816
-            call change_Character_stat(Character, "trust", -5) from _call_change_Character_stat_817
+            call change_Character_stat(Character, "love", -small_stat) from _call_change_Character_stat_816
+            call change_Character_stat(Character, "trust", -small_stat) from _call_change_Character_stat_817
 
             call expression f"{Character.tag}_rejects_Action_asked_twice" from _call_expression_62
         elif Character.History.check("rejected_hookup", tracker = "recent") == 1:
-            call change_Character_stat(Character, "love", -2) from _call_change_Character_stat_818
+            call change_Character_stat(Character, "love", -tiny_stat) from _call_change_Character_stat_818
 
             call expression f"{Character.tag}_rejects_Action_asked_once" from _call_expression_63
         else:
@@ -106,12 +106,12 @@ label request_hookup(Character):
                 call expression f"{temp_Characters[0].tag}_weekly_summary" pass(average_score = average_score) from _call_expression_78
         else:
             if temp_Characters[0].History.check("rejected_hookup", tracker = "recent") >= 2:
-                call change_Character_stat(temp_Characters[0], "love", -5) from _call_change_Character_stat_819
-                call change_Character_stat(temp_Characters[0], "trust", -5) from _call_change_Character_stat_820
+                call change_Character_stat(temp_Characters[0], "love", -small_stat) from _call_change_Character_stat_819
+                call change_Character_stat(temp_Characters[0], "trust", -small_stat) from _call_change_Character_stat_820
 
                 call expression f"{temp_Characters[0].tag}_rejects_Action_asked_twice" from _call_expression_69
             elif temp_Characters[0].History.check("rejected_hookup", tracker = "recent") == 1:
-                call change_Character_stat(temp_Characters[0], "love", -2) from _call_change_Character_stat_821
+                call change_Character_stat(temp_Characters[0], "love", -tiny_stat) from _call_change_Character_stat_821
 
                 call expression f"{temp_Characters[0].tag}_rejects_Action_asked_once" from _call_expression_70
             elif not Player.stamina and not temp_Characters[0].stamina:
@@ -200,12 +200,12 @@ label request_Action(Action_type, Actors, Targets):
             $ focused_Character.History.update(f"rejected_double_penetrate")
     else:
         if focused_Character.History.check(f"rejected_{Action_type}", tracker = "recent") >= 2:
-            call change_Character_stat(focused_Character, "love", -5) from _call_change_Character_stat_822
-            call change_Character_stat(focused_Character, "trust", -5) from _call_change_Character_stat_823
+            call change_Character_stat(focused_Character, "love", -small_stat) from _call_change_Character_stat_822
+            call change_Character_stat(focused_Character, "trust", -small_stat) from _call_change_Character_stat_823
 
             call expression f"{focused_Character.tag}_rejects_Action_asked_twice" from _call_expression_75
         elif focused_Character.History.check(f"rejected_{Action_type}", tracker = "recent") == 1:
-            call change_Character_stat(focused_Character, "love", -2) from _call_change_Character_stat_824
+            call change_Character_stat(focused_Character, "love", -tiny_stat) from _call_change_Character_stat_824
 
             call expression f"{focused_Character.tag}_rejects_Action_asked_once" from _call_expression_76
         else:
@@ -340,12 +340,12 @@ label request_position(Character, new_position, Action = None, automatic = False
             return True
         else:
             if Character.History.check(f"rejected_{new_position}", tracker = "recent") >= 2:
-                call change_Character_stat(Character, "love", -5) from _call_change_Character_stat_825
-                call change_Character_stat(Character, "trust", -5) from _call_change_Character_stat_826
+                call change_Character_stat(Character, "love", -small_stat) from _call_change_Character_stat_825
+                call change_Character_stat(Character, "trust", -small_stat) from _call_change_Character_stat_826
                 
                 call expression f"{Character.tag}_rejects_Action_asked_twice" from _call_expression_82
             elif Character.History.check(f"rejected_{new_position}", tracker = "recent") == 1:
-                call change_Character_stat(Character, "love", -2) from _call_change_Character_stat_827
+                call change_Character_stat(Character, "love", -tiny_stat) from _call_change_Character_stat_827
 
                 call expression f"{Character.tag}_rejects_Action_asked_once" from _call_expression_83
             else:
@@ -430,12 +430,12 @@ label check_double_penetration(Character, Action_type):
     #             call expression f"{Character.tag}_accepts_Action_again" from _call_expression_87
     #     else:
     #         if Character.History.check(f"rejected_{Action_type}", tracker = "recent") >= 2:
-    #             call change_Character_stat(Character, "love", -5) from _call_change_Character_stat_828
-    #             call change_Character_stat(Character, "trust", -5) from _call_change_Character_stat_829
+    #             call change_Character_stat(Character, "love", -small_stat) from _call_change_Character_stat_828
+    #             call change_Character_stat(Character, "trust", -small_stat) from _call_change_Character_stat_829
                 
     #             call expression f"{Character.tag}_rejects_Action_asked_twice" from _call_expression_88
     #         elif Character.History.check(f"rejected_{Action_type}", tracker = "recent") == 1:
-    #             call change_Character_stat(Character, "love", -2) from _call_change_Character_stat_830
+    #             call change_Character_stat(Character, "love", -tiny_stat) from _call_change_Character_stat_830
                 
     #             call expression f"{Character.tag}_rejects_Action_asked_once" from _call_expression_89
     #         else:

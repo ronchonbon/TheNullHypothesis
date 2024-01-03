@@ -84,8 +84,6 @@ label Rogue_chapter_one_season_one_second_study_session:
             
             ch_Rogue "Ah'm sorry for starin'. . ." 
             ch_Rogue "But you don't mind if ah touch?" 
-            
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1073
         "Really? You're staring at my hands again?":
             call change_Character_stat(Rogue, "love", -medium_stat) from _call_change_Character_stat_633
             call change_Character_stat(Rogue, "trust", -small_stat) from _call_change_Character_stat_634

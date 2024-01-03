@@ -69,24 +69,25 @@ label Rogue_chapter_one_season_four_first_study_session:
     menu:
         extend ""
         "I. . . don't know. But, you can't think of it that way, [Rogue.name]. What brought this on?":
+            call change_Character_stat(Rogue, "trust", small_stat) from _call_change_Character_stat_291
+            
             $ Rogue.change_face("angry1", eyes = "right")
 
             ch_Rogue "It's hard not to. . ." 
-            
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1066
-        "I'm. . . not sure anymore. But you're making me worried, is something going on?":
+        "I'm. . . not sure anymore. Why, what's going on?":
+            call change_Character_stat(Rogue, "trust", medium_stat) from _call_change_Character_stat_292
+
             $ Rogue.change_face("worried1", eyes = "right")
 
             ch_Rogue "Don't worry, nothin' new. . ." 
-            
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1067
         "Yeah, I think I do. . . but where's this coming from?":
+            call change_Character_stat(Rogue, "love", small_stat) from _call_change_Character_stat_293
+            call change_Character_stat(Rogue, "trust", medium_stat) from _call_change_Character_stat_294
+            
             $ Rogue.change_face("worried2")
 
             ch_Rogue "You do?" 
             
-            call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_1068
-
     $ Rogue.change_face("worried1")
     $ Rogue.change_arms("hips")
 
@@ -118,14 +119,21 @@ label Rogue_chapter_one_season_four_first_study_session:
     menu:
         extend ""
         "But, I can tell you for a fact, all this studying hasn't been a waste.":
+            call change_Character_stat(Rogue, "love", medium_stat) from _call_change_Character_stat_295
+            call change_Character_stat(Rogue, "trust", large_stat) from _call_change_Character_stat_296
+            
             $ Rogue.change_face("worried1")
         "But all the studying we've done together hasn't been a waste at all.":
+            call change_Character_stat(Rogue, "love", medium_stat) from _call_change_Character_stat_297
+            call change_Character_stat(Rogue, "trust", large_stat) from _call_change_Character_stat_298
+
             $ Rogue.change_face("worried1")
         "But, seriously, all the studying hasn't been a waste. I know you don't actually believe that.":
+            call change_Character_stat(Rogue, "love", medium_stat) from _call_change_Character_stat_299
+            call change_Character_stat(Rogue, "trust", large_stat) from _call_change_Character_stat_300
+            
             $ Rogue.change_face("angry1", eyes = "right") 
             
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1069
-
     $ Rogue.change_face("confused1")
 
     ch_Rogue "How do ya mean?"

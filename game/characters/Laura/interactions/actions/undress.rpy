@@ -618,12 +618,14 @@ label Laura_accepts_show_breasts_after_first_time:
     menu:
         extend ""
         "Very. . . happy.":
+            call change_Character_stat(Laura, "love", tiny_stat) from _call_change_Character_stat_37
+
             $ Laura.change_face("sexy", eyes = "down", blush = 1) 
-            
-            call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1063
         "They're pretty nice.":
             $ Laura.change_face("sexy", eyes = "down", blush = 1)
         "They're. . . fine.":
+            call change_Character_stat(Laura, "love", -tiny_stat) from _call_change_Character_stat_1063
+
             $ Laura.change_face("confused1", eyes = "down", blush = 1) 
 
     return
@@ -856,21 +858,21 @@ label Laura_accepts_show_pussy_after_first_time:
     menu:
         extend ""
         "Can't help it. . . your. . . is perfect.":
+            call change_Character_stat(Laura, "love", tiny_stat) from _call_change_Character_stat_38
+            
             $ Laura.change_face("confused2", mouth = "lipbite", blush = 1) 
             
-            ch_Laura "It is?" 
-            
-            call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1064
+            ch_Laura "It is?"
         "Well yeah. . . it's great.":
             $ Laura.change_face("confused1", mouth = "lipbite", blush = 1) 
             
             ch_Laura "Really?"
         "Yeah. . . it's not bad. . .":
+            call change_Character_stat(Laura, "love", -tiny_stat) from _call_change_Character_stat_1065 
+
             $ Laura.change_face("confused1", blush = 1) 
             
             ch_Laura "What does that mean?" 
-            
-            call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1065 
 
     return
 

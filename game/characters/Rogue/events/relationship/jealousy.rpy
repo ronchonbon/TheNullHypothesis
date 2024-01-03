@@ -152,7 +152,7 @@ label Rogue_jealousy_went_on_date:
 
     $ Rogue.give_status("mad")
 
-    call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_1149 
+    call change_Character_stat(Rogue, "trust", -large_stat) from _call_change_Character_stat_1149 
 
     ch_Player "Fuck. . ."
     "You've never heard [Rogue.name] raise her voice like that before. . ."
@@ -288,7 +288,7 @@ label Rogue_jealousy_flirted:
 
     $ Rogue.give_status("mad")
 
-    call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_1150 
+    call change_Character_stat(Rogue, "trust", -large_stat) from _call_change_Character_stat_1150 
 
     ch_Player "Fuck. . ."
     "You've never heard [Rogue.name] raise her voice like that before. . ."
@@ -585,8 +585,6 @@ label Rogue_jealousy_went_on_date_anyways:
 
     $ Rogue.change_face("worried1", eyes = "right")
 
-    call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_1151
-
     ch_Rogue "It ain't hard."
     ch_Rogue "Why couldn't you just. . ."
 
@@ -597,7 +595,7 @@ label Rogue_jealousy_went_on_date_anyways:
     "She leaves without another word."
     ch_Player "Goddamnit. . ."
 
-    call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_1152 
+    call change_Character_stat(Rogue, "trust", -large_stat) from _call_change_Character_stat_1152 
 
     $ Rogue.give_status("mad")
 
@@ -671,8 +669,6 @@ label Rogue_jealousy_flirted_anyways:
 
     $ Rogue.change_face("worried1", eyes = "right")
 
-    call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_1153
-
     ch_Rogue "It ain't hard."
     ch_Rogue "Why couldn't you just. . ."
 
@@ -683,7 +679,7 @@ label Rogue_jealousy_flirted_anyways:
     "She leaves without another word."
     ch_Player "Goddamnit. . ."
 
-    call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_1154 
+    call change_Character_stat(Rogue, "trust", -large_stat) from _call_change_Character_stat_1154 
 
     $ Rogue.give_status("mad")
 

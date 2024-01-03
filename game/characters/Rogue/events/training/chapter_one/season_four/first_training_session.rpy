@@ -61,17 +61,17 @@ label Rogue_chapter_one_season_four_first_training_session:
 
     menu:
         extend ""
-        "[temp], spending time with you is worth so much to me. I'm not here out of pity.":
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_644 
-            call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_645
+        "[temp], spending time with you is the best. I'm not here out of pity.":
+            call change_Character_stat(Rogue, "love", large_stat) from _call_change_Character_stat_311
+            call change_Character_stat(Rogue, "trust", large_stat) from _call_change_Character_stat_312
         "I'm not here because I pity you. Did you really think that was the only reason?":
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_646
+            call change_Character_stat(Rogue, "trust", medium_stat) from _call_change_Character_stat_313
         "Could you even imagine, for just one second, that maybe I actually have a good reason to be here? This isn't a pity party.":
+            call change_Character_stat(Rogue, "love", -small_stat) from _call_change_Character_stat_314
+            call change_Character_stat(Rogue, "trust", medium_stat) from _call_change_Character_stat_315
+            
             $ Rogue.change_face("angry1", eyes = "right") 
             
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_647 
-            call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_648
-
     $ Rogue.change_face("worried1")
 
     ch_Player "You give me something none of the other girls can."
@@ -351,10 +351,13 @@ label Rogue_chapter_one_season_four_first_training_session:
 
     menu:
         extend ""
-        "Thank you, [Rogue.name], It does help. I really appreciate you opening up to try and help me like this.":
+        "Thank you, [Rogue.name], it does help. I really appreciate you opening up to try and help me like this.":
             $ Rogue.change_face("worried1", mouth = "smirk")
             
             if Player.History.check("told_Rogue_did_what_had_to_do_during_mutant_hate"):
+                call change_Character_stat(Rogue, "love", large_stat) from _call_change_Character_stat_316
+                call change_Character_stat(Rogue, "trust", large_stat) from _call_change_Character_stat_317
+
                 ch_Rogue "Ah don't know how yer always so level-headed about it. . ." 
                 ch_Rogue "Ah hope you don't feel sorry for those people that attacked you." 
                 
@@ -362,23 +365,23 @@ label Rogue_chapter_one_season_four_first_training_session:
                 $ Rogue.change_arms("angry")
                 
                 ch_Rogue "You gave 'em what they deserved." 
-                
-                call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_649 
-                call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_650
             else:
+                call change_Character_stat(Rogue, "love", medium_stat) from _call_change_Character_stat_318
+                call change_Character_stat(Rogue, "trust", medium_stat) from _call_change_Character_stat_319
+                
                 ch_Rogue "That doesn't mean you should feel sorry for 'em, though." 
                 
                 $ Rogue.change_face("angry1") 
                 $ Rogue.change_arms("angry")          
                 
                 ch_Rogue "In your situation, with them tryin' to kill you and all, they got what they deserved." 
-                
-                call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_651 
-                call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_652
         "I. . . thank you, it does help. It's just so scary how dangerous our powers can be when we don't know what we're doing. . .":
             $ Rogue.change_face("worried1", mouth = "smirk")
             
             if Player.History.check("told_Rogue_was_scared_during_mutant_hate"):
+                call change_Character_stat(Rogue, "love", large_stat) from _call_change_Character_stat_320
+                call change_Character_stat(Rogue, "trust", large_stat) from _call_change_Character_stat_321
+
                 ch_Rogue "You been alright, [Rogue.Player_petname]?" 
                 ch_Rogue "And please don't feel bad for those people. . . they tried to kill you." 
                 
@@ -386,21 +389,23 @@ label Rogue_chapter_one_season_four_first_training_session:
                 $ Rogue.change_arms("angry")             
                 
                 ch_Rogue "They got what they deserved."
-                
-                call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_653
             else:
+                call change_Character_stat(Rogue, "love", medium_stat) from _call_change_Character_stat_322
+                call change_Character_stat(Rogue, "trust", medium_stat) from _call_change_Character_stat_323
+
                 ch_Rogue "I know, hon', trust me. . ." 
                 
                 $ Rogue.change_face("angry1") 
                 $ Rogue.change_arms("angry")             
                 
                 ch_Rogue "But yer situation ain't the same as mine. . . those people got what they deserved." 
-                
-                call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_654
-        "I appreciate you trying to help, and I'm sorry you had to go through something like that, but I know it's not my fault. They made a choice, and I'm comfortable with how I responded.":
+        "I know this wasn't not my fault. They made a choice, and I'm comfortable with how I responded.":
             $ Rogue.change_face("worried1")
             
             if Player.History.check("told_Rogue_protesters_had_it_coming_during_mutant_hate"):
+                call change_Character_stat(Rogue, "love", small_stat) from _call_change_Character_stat_324
+                call change_Character_stat(Rogue, "trust", small_stat) from _call_change_Character_stat_325
+                
                 ch_Rogue "Good. . ." 
                 ch_Rogue "Ah don't want you to feel sorry for them or nothin'." 
                 
@@ -408,9 +413,10 @@ label Rogue_chapter_one_season_four_first_training_session:
                 $ Rogue.change_arms("angry")             
                 
                 ch_Rogue "They got what they deserved for hurtin' you." 
-                
-                call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_655
             else:
+                call change_Character_stat(Rogue, "love", small_stat) from _call_change_Character_stat_336
+                call change_Character_stat(Rogue, "trust", -small_stat) from _call_change_Character_stat_337
+                
                 ch_Rogue "Ah'm glad yer startin' to agree. . ." 
                 ch_Rogue "You shouldn't feel sorry for those people." 
                 
@@ -419,8 +425,6 @@ label Rogue_chapter_one_season_four_first_training_session:
                 
                 ch_Rogue "They got what was comin' for tryin' to hurt you." 
                 
-                call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_656 
-
     $ Rogue.change_face("worried1")
     $ Rogue.change_arms("sheepish", right_arm = "neutral")
 

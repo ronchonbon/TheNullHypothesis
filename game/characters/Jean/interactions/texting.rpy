@@ -34,6 +34,9 @@ label Jean_texting(message):
             else:
                 $ status = Jean.get_status()
 
+                if status not in ["heartbroken", "mad"]:
+                    call change_Character_stat(Jean, "love", tiny_stat) from _call_change_Character_stat_29
+
                 if status:
                     call expression f"Jean_text_how_are_you_{status}" from _call_expression_9
                 elif approval_check(Jean, threshold = "love"):
@@ -48,6 +51,9 @@ label Jean_texting(message):
     if "good morning" in message:
         $ status = Jean.get_status()
 
+        if status not in ["heartbroken", "mad"]:
+            call change_Character_stat(Jean, "love", tiny_stat) from _call_change_Character_stat_30
+
         if status:
             call expression f"Jean_text_good_morning_{status}" from _call_expression_10
         elif approval_check(Jean, threshold = "love"):
@@ -61,6 +67,9 @@ label Jean_texting(message):
 
     if "goodnight" in message:
         $ status = Jean.get_status()
+
+        if status not in ["heartbroken", "mad"]:
+            call change_Character_stat(Jean, "love", tiny_stat) from _call_change_Character_stat_31
 
         if status:
             call expression f"Jean_text_goodnight_{status}" from _call_expression_11
@@ -84,8 +93,6 @@ label Jean_texting(message):
 label Jean_text_how_are_you:
     call receive_text(Jean, "Pretty good <3") from _call_receive_text_100
     call receive_text(Jean, "So much studying. . .") from _call_receive_text_101
-    
-    call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_255
 
     return
 
@@ -93,8 +100,6 @@ label Jean_text_how_are_you_late_accept:
     call receive_text(Jean, "Not bad") from _call_receive_text_102
     call receive_text(Jean, "Was planning on studying a bit more") from _call_receive_text_103
     call receive_text(Jean, "I guess I could just do it tomorrow if you wanted to talk <3") from _call_receive_text_104
-
-    call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_256
 
     return
 
@@ -120,8 +125,6 @@ label Jean_text_how_are_you_relationship:
     call receive_text(Jean, "Way too busy") from _call_receive_text_111
     call receive_text(Jean, "Ughhh, I just want to hang out with you") from _call_receive_text_112
 
-    call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_257
-
     return
 
 label Jean_text_how_are_you_love:
@@ -137,13 +140,13 @@ label Jean_text_how_are_you_love:
     if Jean.text_history[-1][1] == temp[0]:
         call receive_text(Jean, "I might just skip studying and come find you") from _call_receive_text_115
     elif Jean.text_history[-1][1] == temp[1]:
+        call change_Character_stat(Jean, "love", tiny_stat) from _call_change_Character_stat_258
+
         call receive_text(Jean, "You better come by later <3") from _call_receive_text_116
-
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_258
     elif Jean.text_history[-1][1] == temp[2]:
-        call receive_text(Jean, "Don't have to be an ass") from _call_receive_text_117
+        call change_Character_stat(Jean, "love", -tiny_stat) from _call_change_Character_stat_259
 
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_259
+        call receive_text(Jean, "Don't have to be an ass") from _call_receive_text_117
 
     return
 
@@ -165,8 +168,6 @@ label Jean_text_how_are_you_horny:
     call receive_text(Jean, "I can't keep my mind off you") from _call_receive_text_124
     call receive_text(Jean, "Stop messing with my head!") from _call_receive_text_125
     call receive_text(Jean, "<3") from _call_receive_text_126
-    
-    call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_260
 
     return
 
@@ -175,8 +176,6 @@ label Jean_text_how_are_you_nympho:
     call receive_text(Jean, "I'm all") from _call_receive_text_128
     call receive_text(Jean, "You know") from _call_receive_text_129
     call receive_text(Jean, "I need some attention") from _call_receive_text_130
-
-    call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_261
 
     return
 
@@ -191,14 +190,10 @@ label Jean_text_good_morning:
         call receive_text(Jean, "Hey! <3") from _call_receive_text_133
         call receive_text(Jean, "It is a good morning, I slept great") from _call_receive_text_134
 
-    call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_262
-
     return
 
 label Jean_text_good_morning_relationship:
     call receive_text(Jean, "Morning [Jean.Player_petname]! <3") from _call_receive_text_135
-
-    call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_263
 
     return
 
@@ -208,8 +203,6 @@ label Jean_text_good_morning_love:
     if dice_roll == 1:
         call receive_text(Jean, "Morning [Jean.Player_petname] <3") from _call_receive_text_136
         call receive_text(Jean, "I love you so much") from _call_receive_text_137
-
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_264
     elif dice_roll == 2:
         call receive_text(Jean, "Morning") from _call_receive_text_138
         call receive_text(Jean, "I had a dream where you. . .") from _call_receive_text_139
@@ -225,13 +218,13 @@ label Jean_text_good_morning_love:
         if Jean.text_history[-1][1] == temp[0]:
             call receive_text(Jean, "Good <3") from _call_receive_text_142
         elif Jean.text_history[-1][1] == temp[1]:
+            call change_Character_stat(Jean, "love", tiny_stat) from _call_change_Character_stat_265
+
             call receive_text(Jean, "Just bad dreams") from _call_receive_text_143
-
-            call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_265
         elif Jean.text_history[-1][1] == temp[2]:
-            call receive_text(Jean, "Whatever, never mind") from _call_receive_text_144
+            call change_Character_stat(Jean, "love", tiny_stat) from _call_change_Character_stat_266
 
-            call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_266
+            call receive_text(Jean, "Whatever, never mind") from _call_receive_text_144
 
     return
 
@@ -251,15 +244,11 @@ label Jean_text_good_morning_horny:
     call receive_text(Jean, "You reading my mind or something?") from _call_receive_text_149
     call receive_text(Jean, "Was just thinking about you ;)<3") from _call_receive_text_150
 
-    call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_267
-
     return
 
 label Jean_text_good_morning_nympho:
     call receive_text(Jean, "Ugh why aren't you in bed with me rn") from _call_receive_text_151
     call receive_text(Jean, "Then it would be a great morning ;)") from _call_receive_text_152
-
-    call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_268
 
     return
 
@@ -278,15 +267,11 @@ label Jean_text_goodnight:
         call receive_text(Jean, "You're going to bed?") from _call_receive_text_156
         call receive_text(Jean, "I still have so much studying to do. . .") from _call_receive_text_157
 
-    call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_269
-
     return
 
 label Jean_text_goodnight_relationship:
     call receive_text(Jean, "Aw") from _call_receive_text_158
     call receive_text(Jean, "Goodnight!") from _call_receive_text_159
-
-    call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_270
 
     return
 
@@ -296,8 +281,6 @@ label Jean_text_goodnight_love:
     if dice_roll == 1:
         call receive_text(Jean, "Goodnight [Jean.Player_petname]") from _call_receive_text_160
         call receive_text(Jean, "I love you <3") from _call_receive_text_161
-
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_271
     elif dice_roll == 2:
         call receive_text(Jean, "You're going to sleep?") from _call_receive_text_162
         call receive_text(Jean, "You should be in MY bed") from _call_receive_text_163
@@ -311,16 +294,16 @@ label Jean_text_goodnight_love:
         if Jean.text_history[-1][1] == temp[0]:
             pass
         elif Jean.text_history[-1][1] == temp[1]:
+            call change_Character_stat(Jean, "love", tiny_stat) from _call_change_Character_stat_272
+
             call receive_text(Jean, "We'll see") from _call_receive_text_164
             call receive_text(Jean, "If you're good") from _call_receive_text_165
             call receive_text(Jean, "Don't worry, I still love you <3") from _call_receive_text_166
-
-            call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_272
         elif Jean.text_history[-1][1] == temp[2]:
+            call change_Character_stat(Jean, "love", -tiny_stat) from _call_change_Character_stat_273
+
             call receive_text(Jean, "Ugh") from _call_receive_text_167
             call receive_text(Jean, "Whatever") from _call_receive_text_168
-
-            call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_273
 
     return
 
@@ -342,8 +325,6 @@ label Jean_text_goodnight_horny:
     call receive_text(Jean, "Maybe tomorrow ;)") from _call_receive_text_175
     call receive_text(Jean, "Goodnight!") from _call_receive_text_176
 
-    call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_274
-
     return
 
 label Jean_text_goodnight_nympho:
@@ -352,14 +333,12 @@ label Jean_text_goodnight_nympho:
     call receive_text(Jean, "Was hoping to spend some. . . time with you") from _call_receive_text_179
     call receive_text(Jean, "Better at least find me tomorrow <3") from _call_receive_text_180
 
-    call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_275
-
     return
 
 label Jean_text_ignored:
-    call receive_text(Jean, "Cool. . .") from _call_receive_text_181
+    call change_Character_stat(Jean, "love", -tiny_stat) from _call_change_Character_stat_276
 
-    call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_276
+    call receive_text(Jean, "Cool. . .") from _call_receive_text_181
 
     return
 
@@ -411,7 +390,7 @@ label Jean_text_ask_on_date:
                     pause
 
                 if Jean.text_history[-1][1] == temp[0]:
-                    call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_277
+                    call change_Character_stat(Jean, "love", tiny_stat) from _call_change_Character_stat_277
         else:
             call receive_text(Jean, "Meet me outside your room later <3") from _call_receive_text_189
             call receive_text(Jean, "I'm excited!") from _call_receive_text_190
@@ -423,7 +402,7 @@ label Jean_text_ask_on_date:
                 pause
 
             if Jean.text_history[-1][1] == temp[0]:
-                call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_278
+                call change_Character_stat(Jean, "love", tiny_stat) from _call_change_Character_stat_278
             
         if time_index == 2:
             $ ongoing_Event = True

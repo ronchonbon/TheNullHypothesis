@@ -243,13 +243,14 @@ label Rogue_boyfriend:
     menu:
         extend ""
         "It's true, [Rogue.name], I really do like you. And I care about you very much.":
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_611 
-            call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_612
+            call change_Character_stat(Rogue, "love", medium_stat) from _call_change_Character_stat_226
+            call change_Character_stat(Rogue, "trust", medium_stat) from _call_change_Character_stat_227
         "Of course I like you, [Rogue.name]. How couldn't I?":
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_613
+            call change_Character_stat(Rogue, "love", medium_stat) from _call_change_Character_stat_228
+            call change_Character_stat(Rogue, "trust", small_stat) from _call_change_Character_stat_229
         "You really need to relax. Why would I continuously go on dates with you if I didn't like you?":
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_614 
-            call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_615
+            call change_Character_stat(Rogue, "love", -medium_stat) from _call_change_Character_stat_230
+            call change_Character_stat(Rogue, "trust", small_stat) from _call_change_Character_stat_231
 
     $ Rogue.change_face("worried3", blush  = 1)
 
@@ -414,6 +415,8 @@ label Rogue_boyfriend:
                 ch_Player "Of course."
 
                 $ Rogue.History.update("told_wants_multiple_partners")
+
+                call change_Character_stat(Rogue, "trust", large_stat) from _call_change_Character_stat_232
             "Don't say anything":
                 pass
         
@@ -430,17 +433,15 @@ label Rogue_boyfriend:
     menu:
         extend ""
         "If you say please. (encourage_quirk)":
+            call change_Character_stat(Rogue, "love", small_stat) from _call_change_Character_stat_233
+
             $ Rogue.change_face("worried1", mouth = "lipbite", blush = 1) 
             
-            call change_Character_stat(Rogue, "desire", 0) from _call_change_Character_stat_616
-
             ch_Rogue "Ah promise ah will, from now on." 
 
             $ Rogue.change_face("worried1", mouth = "lipbite", blush = 2)
 
             ch_Rogue "Can ah have a kiss, please?" 
-
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_617
 
             $ Rogue.change_face("kiss1", blush = 1)
 

@@ -15,6 +15,8 @@ init python:
 
             "chapter == 1 and season == 1",
 
+            "Rogue.History.check('trained_with_Player', tracker = 'season')",
+
             "time_index < 3",
             "weather != 'rain'",    
 
@@ -41,6 +43,8 @@ init python:
 
             "chapter == 1 and season == 1",
 
+            "Rogue.History.check('trained_with_Player', tracker = 'season')",
+
             "time_index < 3",
             "weather != 'rain'",    
 
@@ -56,6 +60,8 @@ init python:
                 "Player.location != 'bg_campus'",
 
                 "chapter == 1 and season == 1",
+
+                "Rogue.History.check('trained_with_Player', tracker = 'season')",
 
                 "time_index < 3",
                 "weather != 'rain'",    
@@ -222,7 +228,7 @@ label Rogue_chapter_one_season_one_people_watching:
         extend ""
         "I don't know if I exactly get it, but if it helps you, it can't be all bad, right?":
             call change_Character_stat(Rogue, "love", medium_stat) from _call_change_Character_stat_160
-            call change_Character_stat(Rogue, "trust", medium_stat) from _call_change_Character_stat_180
+            call change_Character_stat(Rogue, "trust", large_stat) from _call_change_Character_stat_180
 
             $ Rogue.change_face("worried2")
             $ Rogue.change_arms("sheepish", right_arm = "neutral")

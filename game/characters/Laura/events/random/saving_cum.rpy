@@ -49,8 +49,6 @@ label Laura_texting_save_cum_response:
     if Laura.text_history[-1][1] == temp[0]:
         call receive_text(Laura, "Fine") from _call_receive_text_263
         call receive_text(Laura, "I'll just get off by myself") from _call_receive_text_264
-
-        call change_Character_stat(Laura, "desire", 0) from _call_change_Character_stat_347
     elif Laura.text_history[-1][1] == temp[1]:
         call receive_text(Laura, "Good") from _call_receive_text_265
         

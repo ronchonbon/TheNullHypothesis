@@ -34,6 +34,9 @@ label Laura_texting(message):
             else:
                 $ status = Laura.get_status()
 
+                if status not in ["heartbroken", "mad"]:
+                    call change_Character_stat(Laura, "love", tiny_stat) from _call_change_Character_stat_39
+
                 if status:
                     call expression f"Laura_text_how_are_you_{status}" from _call_expression_21
                 elif approval_check(Laura, threshold = "love"):
@@ -48,6 +51,9 @@ label Laura_texting(message):
     if "good morning" in message:
         $ status = Laura.get_status()
 
+        if status not in ["heartbroken", "mad"]:
+            call change_Character_stat(Laura, "love", tiny_stat) from _call_change_Character_stat_40
+
         if status:
             call expression f"Laura_text_good_morning_{status}" from _call_expression_22
         elif approval_check(Laura, threshold = "love"):
@@ -61,6 +67,9 @@ label Laura_texting(message):
 
     if "goodnight" in message:
         $ status = Laura.get_status()
+
+        if status not in ["heartbroken", "mad"]:
+            call change_Character_stat(Laura, "love", tiny_stat) from _call_change_Character_stat_41
 
         if status:
             call expression f"Laura_text_goodnight_{status}" from _call_expression_23
@@ -84,8 +93,6 @@ label Laura_texting(message):
 label Laura_text_how_are_you:
     call receive_text(Laura, "I'm fine") from _call_receive_text_319
     call receive_text(Laura, "Thanks") from _call_receive_text_320
-    
-    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_503
 
     return
 
@@ -95,8 +102,6 @@ label Laura_text_how_are_you_late_accept:
     call receive_text(Laura, "Done training for the night, so") from _call_receive_text_323
     call receive_text(Laura, "I don't have to go to bed yet") from _call_receive_text_324
     call receive_text(Laura, "If you wanted to hang out") from _call_receive_text_325
-
-    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_504
 
     return
 
@@ -123,8 +128,6 @@ label Laura_text_how_are_you_relationship:
     call receive_text(Laura, "Bored") from _call_receive_text_334
     call receive_text(Laura, "Want to hang out with you") from _call_receive_text_335
 
-    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_505
-
     return
 
 label Laura_text_how_are_you_love:
@@ -143,14 +146,14 @@ label Laura_text_how_are_you_love:
         call receive_text(Laura, "It's hard") from _call_receive_text_340
         call receive_text(Laura, "Whenever I don't have my eyes on you") from _call_receive_text_341
     elif Laura.text_history[-1][1] == temp[1]:
+        call change_Character_stat(Laura, "love", tiny_stat) from _call_change_Character_stat_506
+
         call receive_text(Laura, "Thank you") from _call_receive_text_342
         call receive_text(Laura, "But stop making me worry so much") from _call_receive_text_343
-
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_506
     elif Laura.text_history[-1][1] == temp[2]:
-        call receive_text(Laura, "Asshole") from _call_receive_text_344
+        call change_Character_stat(Laura, "love", -tiny_stat) from _call_change_Character_stat_507
 
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_507
+        call receive_text(Laura, "Asshole") from _call_receive_text_344
 
     return
 
@@ -169,8 +172,6 @@ label Laura_text_how_are_you_hearbroken:
 label Laura_text_how_are_you_horny:
     call receive_text(Laura, "I'm fine") from _call_receive_text_349
     call receive_text(Laura, "Woudl be better if I could see you") from _call_receive_text_350
-    
-    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_508
 
     return
 
@@ -178,8 +179,6 @@ label Laura_text_how_are_you_nympho:
     call receive_text(Laura, "Unsatisfied") from _call_receive_text_351
     call receive_text(Laura, "You are coming over some time soon") from _call_receive_text_352
     call receive_text(Laura, "Very soon") from _call_receive_text_353
-
-    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_509
 
     return
 
@@ -196,16 +195,12 @@ label Laura_text_good_morning:
         call receive_text(Laura, "We'll see") from _call_receive_text_357
         call receive_text(Laura, "I've had worse nights of sleep") from _call_receive_text_358
 
-    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_510
-
     return
 
 label Laura_text_good_morning_relationship:
     call receive_text(Laura, "Good morning [Laura.Player_petname]") from _call_receive_text_359
     call receive_text(Laura, "I") from _call_receive_text_360
     call receive_text(Laura, "Hope you slept well") from _call_receive_text_361
-
-    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_511
 
     return
 
@@ -217,8 +212,6 @@ label Laura_text_good_morning_love:
         call receive_text(Laura, "I") from _call_receive_text_363
         call receive_text(Laura, "You were in my dreams last night") from _call_receive_text_364
         call receive_text(Laura, "It was nice for once") from _call_receive_text_365
-
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_512
     elif dice_roll == 2:
         call receive_text(Laura, "Morning") from _call_receive_text_366
         call receive_text(Laura, "How did you sleep?") from _call_receive_text_367
@@ -234,11 +227,11 @@ label Laura_text_good_morning_love:
         if Laura.text_history[-1][1] == temp[0]:
             call receive_text(Laura, "Good") from _call_receive_text_370
         elif Laura.text_history[-1][1] == temp[1]:
+            call change_Character_stat(Laura, "love", tiny_stat) from _call_change_Character_stat_513
+
             call send_text(Laura, "don't worry :)") from _call_send_text_27
             call receive_text(Laura, "Good") from _call_receive_text_371
             call receive_text(Laura, "I'll stop worrying when you stop giving me reasons to") from _call_receive_text_372
-
-            call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_513
         elif Laura.text_history[-1][1] == temp[2]:
             call receive_text(Laura, "So you're fine then?") from _call_receive_text_373
 
@@ -260,8 +253,6 @@ label Laura_text_good_morning_horny:
     call receive_text(Laura, "Stop being so. . .") from _call_receive_text_378
     call receive_text(Laura, "Never mind") from _call_receive_text_379
 
-    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_514
-
     return
 
 label Laura_text_good_morning_nympho:
@@ -270,8 +261,6 @@ label Laura_text_good_morning_nympho:
     call receive_text(Laura, "Now I need to do it on my own. . .") from _call_receive_text_382
 
     $ Laura.behavior = "masturbating"
-
-    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_515
 
     return
 
@@ -292,16 +281,12 @@ label Laura_text_goodnight:
         call receive_text(Laura, "You're going to sleep or something?") from _call_receive_text_388
         call receive_text(Laura, "I'm not done training yet") from _call_receive_text_389
 
-    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_516
-
     return
 
 label Laura_text_goodnight_relationship:
     call receive_text(Laura, "Goodnight") from _call_receive_text_390
     call receive_text(Laura, "Sleep well") from _call_receive_text_391
     call receive_text(Laura, "Or else") from _call_receive_text_392
-
-    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_517
 
     return
 
@@ -312,8 +297,6 @@ label Laura_text_goodnight_love:
         call receive_text(Laura, "Goodnight [Laura.Player_petname]") from _call_receive_text_393
         call receive_text(Laura, "I") from _call_receive_text_394
         call receive_text(Laura, "Love you") from _call_receive_text_395
-
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_518
     elif dice_roll == 2:
         call receive_text(Laura, "Sleep already?") from _call_receive_text_396
         call receive_text(Laura, "Why aren't you in my bed?") from _call_receive_text_397
@@ -327,15 +310,15 @@ label Laura_text_goodnight_love:
         if Laura.text_history[-1][1] == temp[0]:
             pass
         elif Laura.text_history[-1][1] == temp[1]:
+            call change_Character_stat(Laura, "love", tiny_stat) from _call_change_Character_stat_519
+
             call receive_text(Laura, "If I had it my way") from _call_receive_text_398
             call receive_text(Laura, "It would be every night") from _call_receive_text_399
-
-            call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_519
         elif Laura.text_history[-1][1] == temp[2]:
+            call change_Character_stat(Laura, "love", -tiny_stat) from _call_change_Character_stat_520
+
             call receive_text(Laura, "I can't help it") from _call_receive_text_400
             call receive_text(Laura, "Nightmares") from _call_receive_text_401
-
-            call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_520
 
     return
 
@@ -358,8 +341,6 @@ label Laura_text_goodnight_horny:
 
     $ Laura.behavior = "masturbating"
 
-    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_521
-
     return
 
 label Laura_text_goodnight_nympho:
@@ -369,14 +350,12 @@ label Laura_text_goodnight_nympho:
     call receive_text(Laura, "Attention") from _call_receive_text_412
     call receive_text(Laura, "You better at least find me tomorrow") from _call_receive_text_413
 
-    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_522
-
     return
 
 label Laura_text_ignored:
-    call receive_text(Laura, "Don't ignore me") from _call_receive_text_414
+    call change_Character_stat(Laura, "love", -tiny_stat) from _call_change_Character_stat_523
 
-    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_523
+    call receive_text(Laura, "Don't ignore me") from _call_receive_text_414
 
     return
 

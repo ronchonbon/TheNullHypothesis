@@ -53,12 +53,12 @@ label give_Character_gift(Character, Item):
             $ Character.History.update(f"said_no_to_{Item_string}")
     else:
         if Character.History.check(f"said_no_to_{Item_string}", tracker = "recent") >= 2:
-            call change_Character_stat(Character, "love", -5) from _call_change_Character_stat_979
-            call change_Character_stat(Character, "trust", -5) from _call_change_Character_stat_980
+            call change_Character_stat(Character, "love", -small_stat) from _call_change_Character_stat_979
+            call change_Character_stat(Character, "trust", -small_stat) from _call_change_Character_stat_980
 
             call expression f"{Character.tag}_rejected_gift_twice" from _call_expression_241
         elif Character.History.check(f"said_no_to_{Item_string}", tracker = "recent") == 1:
-            call change_Character_stat(Character, "love", -2) from _call_change_Character_stat_981
+            call change_Character_stat(Character, "love", -tiny_stat) from _call_change_Character_stat_981
 
             call expression f"{Character.tag}_rejected_gift_once" from _call_expression_242
         else:

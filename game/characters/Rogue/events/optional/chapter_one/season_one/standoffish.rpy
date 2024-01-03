@@ -16,7 +16,7 @@ init python:
 
             "chapter == 1 and season == 1",
 
-            "day > 6",
+            "EventScheduler.Events['Rogue_chapter_one_season_one_people_watching'].completed",
 
             "Rogue.is_in_normal_mood()"]
 
@@ -42,7 +42,7 @@ init python:
 
             "chapter == 1 and season == 1",
 
-            "day > 6",
+            "EventScheduler.Events['Rogue_chapter_one_season_one_people_watching'].completed",
 
             "Rogue.location == 'bg_girls_hallway' and Kurt.location == 'bg_girls_hallway'",
             "len(get_Present(location = 'bg_girls_hallway')[0]) == 2",
@@ -57,7 +57,7 @@ init python:
 
                 "chapter == 1 and season == 1",
 
-                "day > 6",
+                "EventScheduler.Events['Rogue_chapter_one_season_one_people_watching'].completed",
 
                 "Rogue.location == 'bg_girls_hallway' and Kurt.location == 'bg_girls_hallway'",
                 "len(get_Present(location = 'bg_girls_hallway')[0]) == 2",

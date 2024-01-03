@@ -616,11 +616,11 @@ layeredimage Jean_standing_head:
     if Jean.spunk["hair"] == 2:
         "characters/Jean/images/standing/spunk_hair2_[Jean.Clothes[hair].string].webp"
 
-    if Jean.check_traits("psychic") and Jean.activating_psychic:
+    if Jean.check_traits("psychic") and Jean.check_traits("activating_psychic"):
         "Jean_standing_psychic" at Jean_standing_activating_psychic_animation
     elif Jean.check_traits("psychic"):
         "Jean_standing_psychic" at Jean_standing_psychic_animation
-    elif Jean.deactivating_psychic:
+    elif Jean.check_traits("deactivating_psychic"):
         "Jean_standing_psychic" at Jean_standing_deactivating_psychic_animation
 
     anchor (int(1315*character_sampling), int(1360*character_sampling))

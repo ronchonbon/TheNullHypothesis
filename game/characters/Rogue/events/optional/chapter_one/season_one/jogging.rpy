@@ -7,7 +7,7 @@ init python:
             "Rogue.location not in ['hold', Player.location, Player.destination]",
             "'bg_lockers' not in [Player.location, Player.destination]",
 
-            "renpy.random.random() > 0.75",
+            "renpy.random.random() > 0.5",
 
             "not EventScheduler.Events['Rogue_chapter_one_season_one_jogging'].completed",
 
@@ -15,7 +15,10 @@ init python:
 
             "chapter == 1 and season == 1",
 
-            "time_index == 2",
+            "Rogue.History.check('studied_with_Player', tracker = 'season') >= 2",
+            "not Rogue.History.check('trained_with_Player', tracker = 'recent') or not Rogue.History.check('trained_with_Player', tracker = 'last')",
+
+            "time_index < 3",
             "weather != 'rain'",    
 
             "Rogue.is_in_normal_mood()"]
@@ -40,7 +43,10 @@ init python:
 
             "chapter == 1 and season == 1",
 
-            "time_index == 2",
+            "Rogue.History.check('studied_with_Player', tracker = 'season') >= 2",
+            "not Rogue.History.check('trained_with_Player', tracker = 'recent') or not Rogue.History.check('trained_with_Player', tracker = 'last')",
+
+            "time_index < 3",
             "weather != 'rain'",    
             
             "Rogue.location == 'bg_lockers'",
@@ -56,7 +62,10 @@ init python:
 
                 "chapter == 1 and season == 1",
 
-                "time_index == 2",
+                "Rogue.History.check('studied_with_Player', tracker = 'season') >= 2",
+                "not Rogue.History.check('trained_with_Player', tracker = 'recent') or not Rogue.History.check('trained_with_Player', tracker = 'last')",
+
+                "time_index < 3",
                 "weather != 'rain'",    
                 
                 "Rogue.location == 'bg_lockers'",
@@ -152,7 +161,7 @@ label Rogue_chapter_one_season_one_jogging:
     $ Rogue.change_face("worried2")
     $ Rogue.change_arms("neutral")
 
-    ch_Player "Well, I just finished a training session myself, but if you want a running buddy, I wouldn't mind helping out. "
+    ch_Player "Well, if you ever want a running buddy, I wouldn't mind helping out. "
 
     $ Rogue.change_face("worried1", mouth = "smirk")
 
@@ -189,7 +198,7 @@ label Rogue_chapter_one_season_one_jogging:
     $ Rogue.change_face("smirk2")
     $ Rogue.change_arms("neutral")
 
-    "You talk to [Rogue.name] for a little longer and make more formal plans to go running."
+    "You talk to [Rogue.name] for a little longer and make more formal plans to go running together."
     "With that done, [Rogue.name] heads off, looking a little more upbeat than she did before."
 
     call remove_Characters(Rogue) from _call_remove_Characters_326

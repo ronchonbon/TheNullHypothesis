@@ -46,14 +46,14 @@ label Laura_chatting_study:
 
             call actually_study(Laura) from _call_actually_study_6
         "Not in the mood, [Laura.name]. . .":
+            call change_Character_stat(Laura, "love", -tiny_stat) from _call_change_Character_stat_339
+
             $ Laura.change_face("angry1")
 
             if Jean.location != Player.location:
                 ch_Laura "{i}Grrrr{/i}, where's the redhead when you need her."
             else:
                 ch_Laura "{i}Grrrr{/i}."
-
-            call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_339
 
             $ Laura.History.update("Player_rejected_studying")
 
@@ -112,8 +112,6 @@ label Laura_chatting_training:
             $ Laura.change_face("angry1", eyes = "squint")
 
             ch_Laura "Wimp. . ."  
-
-            call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_340
 
             $ Laura.History.update("Player_rejected_training")
 

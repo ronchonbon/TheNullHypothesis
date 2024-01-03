@@ -62,10 +62,10 @@ label Jean_texting_study_response:
 
         call actually_study(Jean) from _call_actually_study_1
     elif Jean.text_history[-1][1] == temp[2]:
+        call change_Character_stat(Jean, "love", -tiny_stat) from _call_change_Character_stat_71
+
         call receive_text(Jean, "It does not") from _call_receive_text_8
         call receive_text(Jean, "Whatever, your loss") from _call_receive_text_9
-        
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_71
 
         $ Jean.History.update("Player_rejected_studying")
 
@@ -128,9 +128,9 @@ label Jean_texting_training_response:
         $ Jean.History.update("Player_rejected_training")
     elif Jean.text_history[-1][1] == temp[1]:
         if time_index > 2:
-            call receive_text(Jean, "Too late!") from _call_receive_text_822
+            call change_Character_stat(Jean, "love", -tiny_stat) from _call_change_Character_stat_1604
 
-            call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1604
+            call receive_text(Jean, "Too late!") from _call_receive_text_822
         else:
             call receive_text(Jean, "Awesome") from _call_receive_text_15
             call receive_text(Jean, "I'll wait for you before warming up <3") from _call_receive_text_16
@@ -142,11 +142,11 @@ label Jean_texting_training_response:
 
             call actually_train(Jean) from _call_actually_train_1
     elif Jean.text_history[-1][1] == temp[2]:
+        call change_Character_stat(Jean, "love", -tiny_stat) from _call_change_Character_stat_72
+
         call receive_text(Jean, "The hell?") from _call_receive_text_17
         call receive_text(Jean, "Why are you such an ass today?") from _call_receive_text_18
         call receive_text(Jean, "Whatever, I'll just practice something else") from _call_receive_text_19
-        
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_72
 
         $ Jean.History.update("Player_rejected_training")
 
@@ -213,24 +213,22 @@ label Jean_texting_date_response:
         $ Jean.History.update("Player_rejected_date")
     elif Jean.text_history[-1][1] == temp[1]:
         if time_index > 2:
-            call receive_text(Jean, "Well, it's too late now. . .") from _call_receive_text_329
+            call change_Character_stat(Jean, "love", -tiny_stat) from _call_change_Character_stat_1599
 
-            call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1599
+            call receive_text(Jean, "Well, it's too late now. . .") from _call_receive_text_329
         else:
             call receive_text(Jean, "Perfect") from _call_receive_text_26
             call receive_text(Jean, "See you later! <3") from _call_receive_text_27
-
-            call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_73
 
             $ Player.date_planned[Jean] = "Character_initiated_primary"
 
             if time_index == 2:
                 $ EventScheduler.Events["Jean_date"].start()
     elif Jean.text_history[-1][1] == temp[2]:
+        call change_Character_stat(Jean, "love", -tiny_stat) from _call_change_Character_stat_74
+
         call receive_text(Jean, "What? Why???") from _call_receive_text_28
         call receive_text(Jean, "Whatever, some other night") from _call_receive_text_29
-        
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_74
 
         $ Jean.History.update("Player_rejected_date")
 
@@ -288,13 +286,11 @@ label Jean_texting_summon_horny_response:
         call receive_text(Jean, "Ugh, no fun") from _call_receive_text_36
         call receive_text(Jean, "Fine, then I'll just play with myself") from _call_receive_text_37
         call receive_text(Jean, "And you're not allowed to watch ;P") from _call_receive_text_38
-
-        call change_Character_stat(Jean, "desire", 0) from _call_change_Character_stat_75
     elif Jean.text_history[-1][1] == temp[1]:
+        call change_Character_stat(Jean, "love", tiny_stat) from _call_change_Character_stat_76
+
         call receive_text(Jean, "Good") from _call_receive_text_39
         call receive_text(Jean, "I can't wait <3") from _call_receive_text_40
-        
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_76
         
         hide screen phone_screen
 
@@ -305,9 +301,9 @@ label Jean_texting_summon_horny_response:
         
         $ choice_disabled = False
     elif Jean.text_history[-1][1] == temp[2]:
+        call change_Character_stat(Jean, "love", -tiny_stat) from _call_change_Character_stat_77
+
         call receive_text(Jean, "Ugh, don't have to be an ass about it") from _call_receive_text_41
         call receive_text(Jean, "Whatever, fine") from _call_receive_text_42
-
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_77
 
     return

@@ -511,12 +511,14 @@ label Rogue_accepts_show_breasts_after_first_time:
     menu:
         extend ""
         "Any good? They're perfect.":
+            call change_Character_stat(Laura, "love", tiny_stat) from _call_change_Character_stat_476
+
             $ Rogue.change_face("worried1", mouth = "smirk", blush = 1) 
-            
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1088
         "They are more than good.":
             $ Rogue.change_face("worried1", mouth = "smirk", blush = 1)
         "They're. . . okay. . .":
+            call change_Character_stat(Rogue, "love", -tiny_stat) from _call_change_Character_stat_477
+
             $ Rogue.change_face("worried1", eyes = "down", blush = 1)
 
     return
@@ -671,15 +673,15 @@ label Rogue_accepts_show_pussy_after_first_time:
     menu:
         extend ""
         ". . . I love it.":
-            $ Rogue.change_face("worried1", mouth = "smirk", blush = 1) 
+            call change_Character_stat(Laura, "love", tiny_stat) from _call_change_Character_stat_478
             
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1089
+            $ Rogue.change_face("worried1", mouth = "smirk", blush = 1) 
         "I do, it's beautiful.":
             $ Rogue.change_face("worried1", mouth = "smirk", blush = 1)
         "It's. . . okay. . .":
+            call change_Character_stat(Rogue, "love", -tiny_stat) from _call_change_Character_stat_479
+
             $ Rogue.change_face("worried1", eyes = "down", blush = 1) 
-            
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1090
 
     return
 

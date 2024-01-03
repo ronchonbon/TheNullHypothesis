@@ -28,9 +28,9 @@ label Rogue_knocks(arriving_Characters):
                 ch_Rogue "Oh, alright."
                 ch_Rogue "Sorry to bother ya."
             "Nah.":
-                ch_Rogue "Oh. . . okay."
+                call change_Character_stat(Rogue, "love", -tiny_stat) from _call_change_Character_stat_773
 
-                call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_773
+                ch_Rogue "Oh. . . okay."
     elif dice_roll == 2:
         "You hear knocking at your door."
         ch_Player "Who is it?"
@@ -59,7 +59,7 @@ label Rogue_knocks(arriving_Characters):
                 else:
                     ch_Rogue "It's alright, maybe ah'll see ya later."
             "I'm busy.":
-                call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_774
+                call change_Character_stat(Rogue, "love", -tiny_stat) from _call_change_Character_stat_774
 
     return
 
@@ -87,11 +87,11 @@ label Rogue_knocks_relationship(arriving_Characters):
             ch_Rogue "Okay, sorry."
             ch_Rogue "Ah'll try again later."
         "Not in the mood, [Rogue.name].":
+            call change_Character_stat(Rogue, "love", -tiny_stat) from _call_change_Character_stat_775
+
             ch_Rogue "Sorry. . ."
             ch_Rogue "Maybe ah'll see you later?"
             ch_Player "Maybe."
-
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_775
 
     return
 
@@ -138,9 +138,9 @@ label Rogue_knocks_love(arriving_Characters):
 
                 call send_Characters(Rogue, Rogue.home) from _call_send_Characters_166
             "I'm busy.":
-                ch_Rogue "Sorry to bother ya. . ."
+                call change_Character_stat(Rogue, "love", -tiny_stat) from _call_change_Character_stat_776
 
-                call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_776
+                ch_Rogue "Sorry to bother ya. . ."
     else:
         $ temp = Rogue.Player_petname.capitalize()
         
@@ -169,9 +169,9 @@ label Rogue_knocks_love(arriving_Characters):
                 ch_Rogue "Oh, alright."
                 ch_Rogue "Ah'll see ya later, maybe."
             "Kinda in the middle of something.":
-                ch_Rogue "Didn't mean to bother ya. . ."
+                call change_Character_stat(Rogue, "love", -tiny_stat) from _call_change_Character_stat_777
 
-                call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_777
+                ch_Rogue "Didn't mean to bother ya. . ."
 
     return
 
@@ -218,9 +218,9 @@ label Rogue_knocks_heartbroken(arriving_Characters):
         "I am, sorry but I'm kinda busy.":
             ch_Rogue "Okay. . . sorry."
         "Stay silent":
-            ch_Rogue ". . . sorry."
+            call change_Character_stat(Rogue, "love", -tiny_stat) from _call_change_Character_stat_778
 
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_778
+            ch_Rogue ". . . sorry."
 
     return
 

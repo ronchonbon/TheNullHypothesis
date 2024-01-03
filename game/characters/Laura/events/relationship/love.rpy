@@ -38,12 +38,14 @@ label Laura_I_love_you:
         pause
 
     if Rogue.text_history[-1][1] == temp[0]:
+        call change_Character_stat(Rogue, "love", small_stat) from _call_change_Character_stat_32
+                
         call receive_text(Rogue, "Aint you sweet :)") from _call_receive_text_711
-
-        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1040
     elif Rogue.text_history[-1][1] == temp[1]:
         call receive_text(Rogue, "Glad it wasnt too bad") from _call_receive_text_712
     elif Rogue.text_history[-1][1] == temp[2]:
+        call change_Character_stat(Rogue, "love", -tiny_stat) from _call_change_Character_stat_33
+                
         call receive_text(Rogue, "Real sorry to hear that :(") from _call_receive_text_713
 
     call receive_text(Rogue, "Just textin ya cuz I thought you should know") from _call_receive_text_714
@@ -150,22 +152,22 @@ label Laura_I_love_you:
 
     menu:
         extend ""
-        "No, thank you for letting me know. I know what you mean, and this is important, to all of us.":
+        "No, thank you for letting me know. This is important, to all of us.":            
+            call change_Character_stat(Rogue, "love", small_stat) from _call_change_Character_stat_34
+            call change_Character_stat(Rogue, "trust", medium_stat) from _call_change_Character_stat_35
+            
             $ Rogue.change_face("worried1", mouth = "smirk")
 
             ch_Rogue "Thanks, ah also think it's important." 
             ch_Rogue "Ah reckon this was inevitable with her." 
-            
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1041 
-            call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_1042
         "I. . . just never expected. . . No, thank you for letting me know, this is important.":
             $ Rogue.change_face("confused1", mouth = "smirk")
 
             ch_Rogue "Ah'm sorry, [Rogue.Player_petname], but how could ya not expect this?" 
             ch_Rogue "Ah reckon this was inevitable with her." 
+        "No, it really isn't your place to be giving me advice about my relationship. . . but thanks for letting me know.":
+            call change_Character_stat(Rogue, "love", -medium_stat) from _call_change_Character_stat_36
             
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1043
-        "No, it really isn't your place to be giving me advice about my relationship, but regardless, thanks for letting me know.":
             $ Rogue.change_face("worried1", eyes = "down")
 
             ch_Rogue "Ah'm sorry, [Rogue.Player_petname], ah won't do it again. . ." 
@@ -174,8 +176,6 @@ label Laura_I_love_you:
             
             ch_Rogue "But, ah reckon this was inevitable with her." 
             
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1044
-
     $ Rogue.change_face("worried1", mouth = "smirk")
 
     ch_Player "Yeah, you're probably right. . ."

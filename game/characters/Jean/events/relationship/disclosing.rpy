@@ -84,8 +84,6 @@ label Jean_disclosing_wants_to_date_others:
     ch_Jean "And they better not hog all of your attention."
     ch_Jean "Thanks for letting me know. . ."
 
-    call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_949
-
     $ Jean.History.update("told_wants_multiple_partners")
 
     $ ongoing_Event = False
@@ -132,9 +130,7 @@ label Jean_disclosing_wants_to_date_Rogue:
     $ Jean.change_face("worried1", mouth = "smirk")
 
     ch_Jean "Nope." 
-    ch_Jean "And. . . thanks for asking." 
-
-    call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_950
+    ch_Jean "And. . . thanks for asking."
 
     $ Jean.knows_about.append(Rogue)
 
@@ -196,8 +192,6 @@ label Jean_disclosing_wants_to_date_Laura:
     $ Jean.change_face("worried1", mouth = "smirk")
 
     ch_Jean "And. . . thanks for asking first." 
-
-    call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_951
 
     $ Jean.knows_about.append(Laura)
     

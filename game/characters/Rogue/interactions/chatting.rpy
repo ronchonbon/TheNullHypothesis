@@ -72,7 +72,7 @@ label Rogue_busy:
                 "Nah, I'm good.":
                     $ Rogue.History.update("Player_rejected_studying")
     else:
-        $ dice_roll = renpy.random.randint(1, 4)
+        $ dice_roll = renpy.random.randint(1, 3)
 
         if dice_roll == 1:
             ch_Rogue "Ah'm alright, thanks for askin'." 
@@ -86,26 +86,6 @@ label Rogue_busy:
             ch_Rogue "Better now that yer here." 
 
             $ Rogue.change_face("smirk2", blush = 1)
-        elif dice_roll == 4:
-            ch_Rogue "Ah'm good."
-            ch_Rogue "How 'bout you?" 
-
-            $ Rogue.change_face("smirk2")
-
-            menu:
-                extend ""
-                "Great, now that I'm with you.":
-                    $ Rogue.change_face("pleased1", blush = 1) 
-                    
-                    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_686
-                "I'm okay.":
-                    $ Rogue.change_face("neutral")
-                "Really? Never mind. . .":
-                    $ Rogue.change_face("worried1") 
-                    
-                    ch_Rogue "Sorry. . ." 
-                    
-                    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_687
 
     return
 
@@ -473,11 +453,11 @@ label Rogue_ask_about_Jean:
 
                         $ Rogue.change_face("worried1")
                     else:
+                        call change_Character_stat(Rogue, "love", -tiny_stat) from _call_change_Character_stat_688
+
                         $ Rogue.change_face("confused1") 
 
                         ch_Rogue "Ah'm just lookin' out for ya. . ." 
-
-                        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_688
         else:
             $ Rogue.change_face("confused2")  
 

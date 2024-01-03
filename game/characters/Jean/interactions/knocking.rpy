@@ -24,9 +24,9 @@ label Jean_knocks(arriving_Characters):
                 
                 ch_Jean "Fine, I'll be back later."
             "No, not right now.":
+                call change_Character_stat(Jean, "love", -tiny_stat) from _call_change_Character_stat_245
+
                 ch_Jean "Ugh. . . fine." 
-                
-                call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_245
     elif dice_roll == 2:
         "You hear knocking at your door."
         ch_Player "Who is it?" 
@@ -46,9 +46,9 @@ label Jean_knocks(arriving_Characters):
 
                 call send_Characters(Jean, Jean.home, behavior = "studying") from _call_send_Characters_60
             "I'm busy.":
+                call change_Character_stat(Jean, "love", -tiny_stat) from _call_change_Character_stat_246
+
                 ch_Jean "Ugh. . . fine." 
-                
-                call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_246
 
     return
 
@@ -74,12 +74,12 @@ label Jean_knocks_relationship(arriving_Characters):
             ch_Jean "Really?" 
             ch_Jean "Fine, but you better let me in later."
         "Not in the mood right now.":
+            call change_Character_stat(Jean, "love", -tiny_stat) from _call_change_Character_stat_247
+
             ch_Jean "Not in the mood?" 
             ch_Jean "Ugh, fine." 
             ch_Jean "What about later?" 
             ch_Player "Maybe." 
-            
-            call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_247
 
     return
 
@@ -128,10 +128,10 @@ label Jean_knocks_love(arriving_Characters):
                 ch_Jean "Fine." 
                 ch_Jean "But now you owe me."
             "I'm busy.":
+                call change_Character_stat(Jean, "love", -tiny_stat) from _call_change_Character_stat_248
+
                 ch_Jean "Oh really?" 
                 ch_Jean "You're making me mad, [Jean.Player_petname]." 
-                
-                call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_248
     else:
         $ temp = Jean.Player_petname.capitalize()
 
@@ -162,9 +162,9 @@ label Jean_knocks_love(arriving_Characters):
                 ch_Jean "Oh. . . okay." 
                 ch_Jean "At least come see me later."
             "Kinda in the middle of something.":
+                call change_Character_stat(Jean, "love", -tiny_stat) from _call_change_Character_stat_249
+
                 ch_Jean "Don't have to be rude about it. . ." 
-                
-                call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_249
 
     return
 
@@ -217,9 +217,9 @@ label Jean_knocks_heartbroken(arriving_Characters):
         "Yeah. . . sorry but I'm kinda busy.":
             ch_Jean "Oh. . . Okay. . ."
         "Stay silent":
+            call change_Character_stat(Jean, "love", -tiny_stat) from _call_change_Character_stat_250
+
             ch_Jean ". . . really?" 
-            
-            call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_250
 
     return
 

@@ -59,9 +59,6 @@ label Rogue_rejects_hookup_threesome:
 
     ch_Rogue "Ah know yer aware we're not alone. . ."
 
-    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_684
-    call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_685
-
     $ Rogue.change_face("suspicious1")
 
     ch_Rogue "Ah reckon you should reconsider what you were just fixin' to try."

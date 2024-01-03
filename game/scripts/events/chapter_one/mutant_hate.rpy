@@ -1100,16 +1100,22 @@ label ch1_mutant_hate:
     menu:
         extend ""
         "I did what I had to do. . . but I don't feel good about it. (determined)":
+            call change_Character_stat(Rogue, "trust", large_stat) from _call_change_Character_stat_487
+
             $ Rogue.change_face("worried1", eyes = "right")
 
             $ Player.History.update("told_Rogue_did_what_had_to_do_during_mutant_hate")
             $ Player.History.update("Determined")
         "To be honest, it was scarier than when those Sentinels attacked. . . (reluctant)":
+            call change_Character_stat(Rogue, "trust", large_stat) from _call_change_Character_stat_488
+            
             $ Rogue.change_face("worried1")
 
             $ Player.History.update("told_Rogue_was_scared_during_mutant_hate")
             $ Player.History.update("Reluctant")
         "They had it coming. Imagine if I didn't have my power. . . (bitter)":
+            call change_Character_stat(Rogue, "trust", -small_stat) from _call_change_Character_stat_489
+
             $ Rogue.change_face("appalled1", eyes = "right")
 
             $ Player.History.update("told_Rogue_protesters_had_it_coming_during_mutant_hate")

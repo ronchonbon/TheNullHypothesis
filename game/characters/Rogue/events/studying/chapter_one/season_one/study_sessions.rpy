@@ -58,6 +58,8 @@ label Rogue_chapter_one_season_one_study_sessions:
         menu:
             extend ""
             "Say please.":
+                call change_Character_stat(Rogue, "love", medium_stat) from _call_change_Character_stat_301
+
                 $ Rogue.change_face("worried2", mouth = "lipbite", blush = 2) 
                 
                 pause 1.0
@@ -65,9 +67,9 @@ label Rogue_chapter_one_season_one_study_sessions:
                 $ Rogue.change_face("pleased2", mouth = "lipbite", blush = 1) 
                 
                 ch_Rogue ". . . Please." 
-                
-                call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1077
             "Be my guest.":
+                call change_Character_stat(Rogue, "love", small_stat) from _call_change_Character_stat_302
+
                 $ Rogue.change_face("pleased2", mouth = "lipbite", blush = 1)
 
         $ Rogue.change_face("worried1", mouth = "lipbite", blush = 1)

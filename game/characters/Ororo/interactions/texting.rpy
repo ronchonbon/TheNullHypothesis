@@ -6,7 +6,7 @@ label Ororo_texting(message):
                     renpy.call(f"{E}_response")
 
     if Ororo.timed_text_options:
-        call change_Character_stat(Ororo, "love", 0) from _call_change_Character_stat_524
+        call Ororo_text_ignored from _call_Ororo_text_ignored
 
         $ Ororo.timed_text_options = {}
 
@@ -34,6 +34,9 @@ label Ororo_texting(message):
             else:
                 $ status = Ororo.get_status()
 
+                if status not in ["heartbroken", "mad"]:
+                    call change_Character_stat(Ororo, "love", tiny_stat) from _call_change_Character_stat_42
+
                 if status:
                     call expression f"Ororo_text_how_are_you_{status}" from _call_expression_24
                 elif approval_check(Ororo, threshold = "love"):
@@ -48,6 +51,9 @@ label Ororo_texting(message):
     if "good morning" in message:
         $ status = Ororo.get_status()
 
+        if status not in ["heartbroken", "mad"]:
+            call change_Character_stat(Ororo, "love", tiny_stat) from _call_change_Character_stat_43
+
         if status:
             call expression f"Ororo_text_good_morning_{status}" from _call_expression_25
         elif approval_check(Ororo, threshold = "love"):
@@ -61,6 +67,9 @@ label Ororo_texting(message):
 
     if "goodnight" in message:
         $ status = Ororo.get_status()
+
+        if status not in ["heartbroken", "mad"]:
+            call change_Character_stat(Ororo, "love", tiny_stat) from _call_change_Character_stat_44
 
         if status:
             call expression f"Ororo_text_goodnight_{status}" from _call_expression_26
@@ -175,5 +184,9 @@ label Ororo_text_goodnight_horny:
     return
 
 label Ororo_text_goodnight_nympho:
+
+    return
+
+label Ororo_text_ignored:
 
     return

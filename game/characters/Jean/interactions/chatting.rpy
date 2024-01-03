@@ -86,7 +86,7 @@ label Jean_busy:
 
                     $ Jean.History.update("Player_rejected_studying")
     else:
-        $ dice_roll = renpy.random.randint(1, 4)
+        $ dice_roll = renpy.random.randint(1, 3)
 
         if dice_roll == 1:
             $ Jean.change_face("happy")
@@ -108,29 +108,7 @@ label Jean_busy:
             $ Jean.change_face("worried1")
 
             ch_Jean "Hope I studied enough. . ."
-        elif dice_roll == 4:
-            $ Jean.change_face("smirk2") 
-
-            ch_Jean "Pretty great." 
-            ch_Jean "What about you?"
-
-            menu:
-                extend ""
-                "I'm also great now that you're here.":
-                    $ Jean.change_face("pleased2", blush = 1)  
-
-                    call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_217 
-                "Could be worse.":
-                    $ Jean.change_face("confused1")
-                "That's it? Whatever, never mind. . .":
-                    $ Jean.change_face("worried1") 
-
-                    $ Jean.change_face("confused1") 
-
-                    ch_Jean "Okay. . ."
-
-                    call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_218
-
+            
     return
 
 label Jean_busy_love:
@@ -419,11 +397,11 @@ label Jean_ask_about_Rogue:
             menu:
                 extend ""
                 "I like telling her what to do. . . and you telling {i}me{/i} what to do. . .":
+                    call change_Character_stat(Jean, "love", tiny_stat) from _call_change_Character_stat_219
+
                     $ Jean.change_face("sexy") 
                     
                     ch_Jean "Good." 
-                    
-                    call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_219
                 "I like telling her what to do. . . but I'm not a huge fan of you doing it to me. . .":
                     $ Jean.change_face("worried1") 
                     
@@ -433,11 +411,11 @@ label Jean_ask_about_Rogue:
                     
                     ch_Jean "I do enjoy it. . ."
                 "I'm not a weirdo like you. . .":
+                    call change_Character_stat(Jean, "love", -tiny_stat) from _call_change_Character_stat_220
+
                     $ Jean.change_face("angry1") 
                     
                     ch_Jean "The hell?" 
-                    
-                    call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_220
         else:
             $ Jean.change_face("confused1") 
 
@@ -570,25 +548,25 @@ label Jean_ask_about_Laura:
             menu:
                 extend ""
                 "I mean. . . I like when you boss me around. . . I like when she does it too.":
+                    call change_Character_stat(Jean, "love", tiny_stat) from _call_change_Character_stat_221
+
                     $ Jean.change_face("pleased2") 
 
                     $ Jean.change_face("neutral", mouth = "lipbite", blush = 1) 
 
                     ch_Jean "I'm glad you like it. . ." 
-
-                    call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_221
                 "I like when {i}you{/i} boss me around. . . but I'm trying to help her be. . . more normal.":
                     $ Jean.change_face("worried1") 
 
                     ch_Jean "Yeah. . . maybe I should cut her some slack."
                 "I don't like {i}either{/i} of you trying to boss me around.":
+                    call change_Character_stat(Jean, "love", -tiny_stat) from _call_change_Character_stat_222
+
                     $ Jean.change_face("angry1") 
 
                     ch_Jean "Whatever." 
 
                     $ Jean.change_face("angry1", eyes = "left") 
-
-                    call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_222
         else:
             $ Jean.change_face("confused1") 
 

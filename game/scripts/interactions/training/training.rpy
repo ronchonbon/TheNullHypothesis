@@ -76,12 +76,12 @@ label ask_to_train(Character):
             call expression f"{Character.tag}_accept_train" from _call_expression_346
         else:
             if Character.History.check("said_no_to_training", tracker = "recent") >= 2:
-                call change_Character_stat(Character, "love", -5) from _call_change_Character_stat_1029
-                call change_Character_stat(Character, "trust", -5) from _call_change_Character_stat_1030
+                call change_Character_stat(Character, "love", -small_stat) from _call_change_Character_stat_1029
+                call change_Character_stat(Character, "trust", -small_stat) from _call_change_Character_stat_1030
 
                 call expression f"{Character.tag}_reject_train_asked_twice" from _call_expression_347
             elif Character.History.check("said_no_to_training", tracker = "recent") == 1:
-                call change_Character_stat(Character, "love", -2) from _call_change_Character_stat_1031
+                call change_Character_stat(Character, "love", -tiny_stat) from _call_change_Character_stat_1031
                 
                 call expression f"{Character.tag}_reject_train_asked_once" from _call_expression_348
             else:
@@ -98,12 +98,12 @@ label ask_to_train(Character):
 
         if time_index == 3:
             if Character.History.check("said_too_late_to_text", tracker = "recent") >= 2:
-                call change_Character_stat(Character, "love", -5) from _call_change_Character_stat_1032
-                call change_Character_stat(Character, "trust", -5) from _call_change_Character_stat_1033
+                call change_Character_stat(Character, "love", -small_stat) from _call_change_Character_stat_1032
+                call change_Character_stat(Character, "trust", -small_stat) from _call_change_Character_stat_1033
 
                 call expression f"{Character.tag}_summon_reject_asked_twice" from _call_expression_351
             elif Character.History.check("said_too_late_to_text", tracker = "recent") == 1:
-                call change_Character_stat(Character, "love", -2) from _call_change_Character_stat_1034
+                call change_Character_stat(Character, "love", -tiny_stat) from _call_change_Character_stat_1034
 
                 call expression f"{Character.tag}_summon_reject_asked_once" from _call_expression_352
             else:
@@ -119,12 +119,12 @@ label ask_to_train(Character):
                 call expression f"{Character.tag}_accept_train_text" from _call_expression_354
             else:
                 if Character.History.check("said_no_to_training", tracker = "recent") >= 2:
-                    call change_Character_stat(Character, "love", -5) from _call_change_Character_stat_1035
-                    call change_Character_stat(Character, "trust", -5) from _call_change_Character_stat_1036
+                    call change_Character_stat(Character, "love", -small_stat) from _call_change_Character_stat_1035
+                    call change_Character_stat(Character, "trust", -small_stat) from _call_change_Character_stat_1036
 
                     call expression f"{Character.tag}_reject_train_asked_twice_text" from _call_expression_355
                 elif Character.History.check("said_no_to_training", tracker = "recent") == 1:
-                    call change_Character_stat(Character, "love", -2) from _call_change_Character_stat_1037
+                    call change_Character_stat(Character, "love", -tiny_stat) from _call_change_Character_stat_1037
 
                     call expression f"{Character.tag}_reject_train_asked_once_text" from _call_expression_356
                 else:

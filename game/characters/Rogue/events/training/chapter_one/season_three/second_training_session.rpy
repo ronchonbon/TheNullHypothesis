@@ -44,19 +44,20 @@ label Rogue_chapter_one_season_three_second_training_session:
     menu:
         extend ""
         "Of course I'm not mad.":
+            call change_Character_stat(Rogue, "love", medium_stat) from _call_change_Character_stat_370
+            call change_Character_stat(Rogue, "trust", small_stat) from _call_change_Character_stat_373
+            
             $ Rogue.change_face("worried2") 
-            
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_671 
-            call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_672
         "Definitely not mad. Worried about you, if anything.": 
-            $ Rogue.change_face("worried1", eyes = "down") 
-            
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_673
-        "Just don't lie again and I'll be fine.":
-            $ Rogue.change_face("worried1", eyes = "right")
+            call change_Character_stat(Rogue, "love", small_stat) from _call_change_Character_stat_462
+            call change_Character_stat(Rogue, "trust", medium_stat) from _call_change_Character_stat_469
 
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_674 
-            call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_675
+            $ Rogue.change_face("worried1", eyes = "down") 
+        "Just don't lie again and I'll be fine.":
+            call change_Character_stat(Rogue, "love", -small_stat) from _call_change_Character_stat_470
+            call change_Character_stat(Rogue, "trust", small_stat) from _call_change_Character_stat_471
+
+            $ Rogue.change_face("worried1", eyes = "right")
 
     $ Rogue.change_face("worried1")
     $ Rogue.change_arms("crossed")

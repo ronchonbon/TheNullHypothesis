@@ -277,8 +277,6 @@ label Laura_first_friend_part_two:
 
     $ Laura.change_face("angry1", blush = 2)
 
-    call change_Character_stat(Laura, "desire", 0) from _call_change_Character_stat_368
-
     ch_Laura "I stopped it when the female started removing her clothes."
 
     $ Laura.change_face("suspicious2", blush = 1)
@@ -327,9 +325,6 @@ label Laura_first_friend_part_two:
     ch_Player "Heh, sorry about that."
     ch_Player "She had some questions about stuff that I thought might be better discussed with another girl. . ."
     ch_Player "She can be a bit rough around the edges, but she means well."
-
-    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_370
-
     ch_Rogue ". . . Well ain't that sweet. Don't worry, ah'll help her out."
     ch_Player "Thanks, [Rogue.name]."
     ch_Rogue "Night hon'."
@@ -375,8 +370,7 @@ label Laura_first_friend_part_two_1A:
 
     call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_371
     call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_372
-    call change_Character_stat(Laura, "desire", 0) from _call_change_Character_stat_373
-
+    
     ch_Player "{i}Ahem{/i}. . ."
 
     return

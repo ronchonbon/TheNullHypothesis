@@ -13,12 +13,12 @@ label give_Character_Clothing(Character, Clothing):
         $ del Player.inventory[Clothing.string]
     else:
         if Character.History.check(f"said_no_to_{Clothing.string}", tracker = "recent") > 1:
-            call change_Character_stat(Character, "love", -5) from _call_change_Character_stat_946
-            call change_Character_stat(Character, "trust", -5) from _call_change_Character_stat_947
+            call change_Character_stat(Character, "love", -small_stat) from _call_change_Character_stat_946
+            call change_Character_stat(Character, "trust", -small_stat) from _call_change_Character_stat_947
 
             call expression f"{Character.tag}_rejected_Clothing_twice" from _call_expression_156
         elif Character.History.check(f"said_no_to_{Clothing.string}", tracker = "recent") == 1:
-            call change_Character_stat(Character, "love", -2) from _call_change_Character_stat_948
+            call change_Character_stat(Character, "love", -tiny_stat) from _call_change_Character_stat_948
 
             call expression f"{Character.tag}_rejected_Clothing_once" from _call_expression_157
         else:
@@ -57,12 +57,12 @@ label ask_Character_to_change_Outfit(Character, Outfit_name, instant = False):
             call expression f"{Character.tag}_change_Outfit_accept_after" pass (Outfit_name = Outfit_name) from _call_expression_161
     else:
         if Character.History.check("refused_to_change_Outfit", tracker = "recent") >= 2:
-            call change_Character_stat(Character, "love", -5) from _call_change_Character_stat_952
-            call change_Character_stat(Character, "trust", -5) from _call_change_Character_stat_953
+            call change_Character_stat(Character, "love", -small_stat) from _call_change_Character_stat_952
+            call change_Character_stat(Character, "trust", -small_stat) from _call_change_Character_stat_953
             
             call expression f"{Character.tag}_change_Outfit_reject_asked_twice" from _call_expression_169
         elif Character.History.check("refused_to_change_Outfit", tracker = "recent") == 1:
-            call change_Character_stat(Character, "love", -2) from _call_change_Character_stat_954
+            call change_Character_stat(Character, "love", -tiny_stat) from _call_change_Character_stat_954
             
             call expression f"{Character.tag}_change_Outfit_reject_asked_once" from _call_expression_170
         else:
@@ -131,12 +131,12 @@ label ask_Character_to_try_on(Clothing, instant = False):
             return True
     else:
         if Character.History.check(f"said_no_to_{Clothing.string}", tracker = "recent") >= 2:
-            call change_Character_stat(Character, "love", -5) from _call_change_Character_stat_955
-            call change_Character_stat(Character, "trust", -5) from _call_change_Character_stat_956
+            call change_Character_stat(Character, "love", -small_stat) from _call_change_Character_stat_955
+            call change_Character_stat(Character, "trust", -small_stat) from _call_change_Character_stat_956
             
             call expression f"{Character.tag}_rejected_Clothing_twice" from _call_expression_182
         elif Character.History.check(f"said_no_to_{Clothing.string}", tracker = "recent") == 1:
-            call change_Character_stat(Character, "love", -2) from _call_change_Character_stat_957
+            call change_Character_stat(Character, "love", -tiny_stat) from _call_change_Character_stat_957
 
             call expression f"{Character.tag}_rejected_Clothing_once" from _call_expression_183
         else:
@@ -165,12 +165,12 @@ label ask_Character_to_take_off(Clothing, instant = False):
             return True
     else:
         if Character.History.check("refused_to_change_Outfit", tracker = "recent") >= 2:
-            call change_Character_stat(Character, "love", -5) from _call_change_Character_stat_958
-            call change_Character_stat(Character, "trust", -5) from _call_change_Character_stat_959
+            call change_Character_stat(Character, "love", -small_stat) from _call_change_Character_stat_958
+            call change_Character_stat(Character, "trust", -small_stat) from _call_change_Character_stat_959
             
             call expression f"{Character.tag}_change_Outfit_reject_asked_twice" from _call_expression_188
         elif Character.History.check("refused_to_change_Outfit", tracker = "recent") == 1:
-            call change_Character_stat(Character, "love", -2) from _call_change_Character_stat_960
+            call change_Character_stat(Character, "love", -tiny_stat) from _call_change_Character_stat_960
             
             call expression f"{Character.tag}_change_Outfit_reject_asked_once" from _call_expression_189
         else:
@@ -197,12 +197,12 @@ label ask_Character_to_undress(Clothing, state = None, instant = False):
             return True
     else:
         if Character.History.check("refused_to_change_Outfit", tracker = "recent") >= 2:
-            call change_Character_stat(Character, "love", -5) from _call_change_Character_stat_961
-            call change_Character_stat(Character, "trust", -5) from _call_change_Character_stat_962
+            call change_Character_stat(Character, "love", -small_stat) from _call_change_Character_stat_961
+            call change_Character_stat(Character, "trust", -small_stat) from _call_change_Character_stat_962
 
             call expression f"{Character.tag}_change_Outfit_reject_asked_twice" from _call_expression_193
         elif Character.History.check("refused_to_change_Outfit", tracker = "recent") == 1:
-            call change_Character_stat(Character, "love", -2) from _call_change_Character_stat_963
+            call change_Character_stat(Character, "love", -tiny_stat) from _call_change_Character_stat_963
 
             call expression f"{Character.tag}_change_Outfit_reject_asked_once" from _call_expression_194
         else:
@@ -235,12 +235,12 @@ label ask_Character_to_redress(Clothing, state = 0, instant = False):
         return True
     else:
         if Character.History.check("refused_to_change_Outfit", tracker = "recent") >= 2:
-            call change_Character_stat(Character, "love", -5) from _call_change_Character_stat_964
-            call change_Character_stat(Character, "trust", -5) from _call_change_Character_stat_965
+            call change_Character_stat(Character, "love", -small_stat) from _call_change_Character_stat_964
+            call change_Character_stat(Character, "trust", -small_stat) from _call_change_Character_stat_965
 
             call expression f"{Character.tag}_change_Outfit_reject_asked_twice" from _call_expression_198
         elif Character.History.check("refused_to_change_Outfit", tracker = "recent") == 1:
-            call change_Character_stat(Character, "love", -2) from _call_change_Character_stat_966
+            call change_Character_stat(Character, "love", -tiny_stat) from _call_change_Character_stat_966
 
             call expression f"{Character.tag}_change_Outfit_reject_asked_once" from _call_expression_199
         else:
@@ -298,12 +298,12 @@ label does_Character_agree_to_change_Clothes(Character, added_Items = None, remo
                         $ temp_body_parts = []
                 else:
                     if Character.History.check(f"refused_to_show_{temp_body_parts[0]}", tracker = "recent") >= 2:
-                        call change_Character_stat(Character, "love", -5) from _call_change_Character_stat_967
-                        call change_Character_stat(Character, "trust", -5) from _call_change_Character_stat_968
+                        call change_Character_stat(Character, "love", -small_stat) from _call_change_Character_stat_967
+                        call change_Character_stat(Character, "trust", -small_stat) from _call_change_Character_stat_968
 
                         call expression f"{Character.tag}_rejects_show_{temp_body_parts[0]}_asked_twice" from _call_expression_206
                     elif Character.History.check(f"refused_to_show_{temp_body_parts[0]}", tracker = "recent") == 1:
-                        call change_Character_stat(Character, "love", -2) from _call_change_Character_stat_969
+                        call change_Character_stat(Character, "love", -tiny_stat) from _call_change_Character_stat_969
 
                         call expression f"{Character.tag}_rejects_show_{temp_body_parts[0]}_asked_once" from _call_expression_207
                     else:

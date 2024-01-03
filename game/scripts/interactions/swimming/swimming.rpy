@@ -41,12 +41,12 @@ label ask_to_swim(Character):
         call expression f"{Character.tag}_accept_swim" from _call_expression_330
     else:
         if Character.History.check("said_no_to_swimming", tracker = "recent") >= 2:
-            call change_Character_stat(Character, "love", -5) from _call_change_Character_stat_1018
-            call change_Character_stat(Character, "trust", -5) from _call_change_Character_stat_1019
+            call change_Character_stat(Character, "love", -small_stat) from _call_change_Character_stat_1018
+            call change_Character_stat(Character, "trust", -small_stat) from _call_change_Character_stat_1019
 
             call expression f"{Character.tag}_reject_swim_asked_twice" from _call_expression_331
         elif Character.History.check("said_no_to_swimming", tracker = "recent") == 1:
-            call change_Character_stat(Character, "love", -2) from _call_change_Character_stat_1020
+            call change_Character_stat(Character, "love", -tiny_stat) from _call_change_Character_stat_1020
 
             call expression f"{Character.tag}_reject_swim_asked_once" from _call_expression_332
         else:
@@ -65,16 +65,6 @@ label actually_swim(swimming_Characters):
                 C.behavior = "swimming"
 
         call set_Character_Outfits(swimming_Characters, instant = False) from _call_set_Character_Outfits_18
-
-    $ renpy.dynamic(temp_Characters = swimming_Characters[:])
-
-    while temp_Characters:
-        if temp_Characters[0].desire <= 50:
-            call change_Character_stat(temp_Characters[0], "desire", 5) from _call_change_Character_stat_1021
-        else:
-            call change_Character_stat(temp_Characters[0], "desire", 60 - temp_Characters[0].desire) from _call_change_Character_stat_1022
-
-        $ temp_Characters.remove(temp_Characters[0])
 
     if black_screen:
         $ fade_in_from_black(0.4)

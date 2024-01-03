@@ -273,12 +273,12 @@ label ask_Character_for_cumshot(Character, orgasm_type):
         return orgasm_type
     else:
         if Character.History.check(f"rejected_{orgasm_type}", tracker = "recent") >= 2:
-            call change_Character_stat(Character, "love", -5) from _call_change_Character_stat_804
-            call change_Character_stat(Character, "trust", -5) from _call_change_Character_stat_805
+            call change_Character_stat(Character, "love", -small_stat) from _call_change_Character_stat_804
+            call change_Character_stat(Character, "trust", -small_stat) from _call_change_Character_stat_805
 
             call expression f"{Character.tag}_rejects_Action_asked_twice" from _call_expression_44
         elif Character.History.check(f"rejected_{orgasm_type}", tracker = "recent") == 1:
-            call change_Character_stat(Character, "love", -2) from _call_change_Character_stat_806
+            call change_Character_stat(Character, "love", -tiny_stat) from _call_change_Character_stat_806
 
             call expression f"{Character.tag}_rejects_Action_asked_once" from _call_expression_45
         else:
@@ -304,12 +304,12 @@ label ask_Character_for_clean_up(Character, clean_up_type):
         return True
     else:
         if Character.History.check(f"rejected_{clean_up_type}", tracker = "recent") >= 2:
-            call change_Character_stat(Character, "love", -5) from _call_change_Character_stat_807
-            call change_Character_stat(Character, "trust", -5) from _call_change_Character_stat_808
+            call change_Character_stat(Character, "love", -small_stat) from _call_change_Character_stat_807
+            call change_Character_stat(Character, "trust", -small_stat) from _call_change_Character_stat_808
 
             call expression f"{Character.tag}_rejects_Action_asked_twice" from _call_expression_51
         elif Character.History.check(f"rejected_{clean_up_type}", tracker = "recent") == 1:
-            call change_Character_stat(Character, "love", -2) from _call_change_Character_stat_809
+            call change_Character_stat(Character, "love", -tiny_stat) from _call_change_Character_stat_809
             
             call expression f"{Character.tag}_rejects_Action_asked_once" from _call_expression_52
         else:

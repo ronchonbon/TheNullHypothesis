@@ -81,6 +81,8 @@ init -3 python:
             self.recent = {}
 
             if time_index == 0:
+                self.last = {}
+
                 self.daily = {}
 
                 for Item in self.weekly.keys():

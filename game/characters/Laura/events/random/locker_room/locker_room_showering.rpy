@@ -35,8 +35,6 @@ label Laura_locker_room_showering:
 
         $ Laura.change_face("sexy", blush = 1)
 
-        call change_Character_stat(Laura, "desire", 0) from _call_change_Character_stat_345
-
         "Based on her lust filled gaze, it almost seems like she was seeking you out."
 
         $ Laura.change_face("sexy", eyes = "down", blush = 1)
@@ -57,8 +55,6 @@ label Laura_locker_room_showering:
         "As you're finishing up, [Laura.name] walks in."
 
         $ Laura.change_face("suspicious1", blush = 1)
-
-        call change_Character_stat(Laura, "desire", 0) from _call_change_Character_stat_346
 
         "She doesn't look the least bit surprised to see you."
 

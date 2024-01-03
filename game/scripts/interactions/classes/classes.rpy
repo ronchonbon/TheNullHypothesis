@@ -176,7 +176,7 @@ label find_a_seat:
     else:
         call set_the_scene(location = "bg_classroom", fade = False) from _call_set_the_scene_383
 
-    $ renpy.dynamic(temp_Characters = Present[:])
+    $ renpy.dynamic(temp_Characters = [left_Slot, middle_Slot, right_Slot])
 
     while temp_Characters:
         if temp_Characters[0] in all_Companions:

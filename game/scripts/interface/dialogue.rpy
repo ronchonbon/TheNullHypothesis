@@ -57,7 +57,7 @@ screen say(who, what, two_window = False, hide_after = None):
         $ dialogue_position = [0.12, 0.15]
     else:
         $ dialogue_anchor = [0.5, 0.0]
-        $ dialogue_position = [0.12, 0.12]
+        $ dialogue_position = [0.12, 0.11]
 
     if who == "Player":
         $ C = Player

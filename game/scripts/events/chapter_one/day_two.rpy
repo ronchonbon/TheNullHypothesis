@@ -674,11 +674,10 @@ label day_two_after_tutoring:
 
             ch_Rogue "Do you feel alright?"
             
+            call change_Character_stat(Rogue, "love", large_stat) from _call_change_Character_stat_915
             call change_Character_stat(Rogue, "trust", medium_stat) from _call_change_Character_stat_682
 
             ch_Player "I feel great. I'm holding hands with a beautiful girl, after all."
-
-            call change_Character_stat(Rogue, "love", large_stat) from _call_change_Character_stat_915
 
             $ Rogue.change_face("surprised2", blush = 1)
             $ Rogue.change_arms("sheepish", right_arm = "neutral")

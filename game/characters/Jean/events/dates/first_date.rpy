@@ -957,8 +957,6 @@ label Jean_first_date_path_1B:
 
     $ Jean.change_face("surprised1", eyes = "right", mouth = "lipbite", blush = 1)
 
-    call change_Character_stat(Jean, "desire", 0) from _call_change_Character_stat_62
-
     "There are many very graphic sex scenes, as the two continue denying their romantic feelings for each other."
 
     $ Jean.change_face("worried1", mouth = "smirk", eyes = "right", blush = 1)

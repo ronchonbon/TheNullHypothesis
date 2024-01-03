@@ -780,7 +780,7 @@ label Rogue_confession_2B:
 
             $ Rogue.change_face("pleased2", blush = 2)
         "Oh. . . uh, yeah, that could be cool.":
-            call change_Character_stat(Rogue, "love", small_stat) from _call_change_Character_stat_626
+            call change_Character_stat(Rogue, "love", -small_stat) from _call_change_Character_stat_626
             
             $ Rogue.change_face("perplexed")
 
@@ -803,7 +803,6 @@ label Rogue_confession_2C:
         extend ""
         "So you're saying I can't kiss you right now?":
             call change_Character_stat(Rogue, "love", medium_stat) from _call_change_Character_stat_627
-            call change_Character_stat(Rogue, "desire", small_stat) from _call_change_Character_stat_628
 
             $ Rogue.change_face("pleased2", mouth = "lipbite", blush = 2)
 

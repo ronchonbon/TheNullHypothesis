@@ -35,8 +35,6 @@ label Jean_locker_room_showering:
 
         $ Jean.change_face("pleased2", blush = 1)
 
-        call change_Character_stat(Jean, "desire", 0) from _call_change_Character_stat_69
-
         "You're topless in nothing but a bathing suit, and she seems to take notice."
         ch_Jean "Jesus, you look. . . {i}hot{/i}. . ."
 
@@ -57,8 +55,6 @@ label Jean_locker_room_showering:
         "As you're finishing up, [Jean.name] walks in."
 
         $ Jean.change_face("surprised2", blush = 1)
-
-        call change_Character_stat(Jean, "desire", 0) from _call_change_Character_stat_70
 
         ch_Jean "*gasp*"
 

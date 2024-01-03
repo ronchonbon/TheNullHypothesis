@@ -23,7 +23,7 @@ label Jean_chapter_one_season_two_study_sessions:
 
         ch_Jean "So. . ." 
 
-        if Player.History.check("studied", tracker = "season") >= 5: 
+        if Player.History.check("studied") >= 5: 
             $ Jean.change_face("smirk2") 
             $ Jean.change_arms("hips")
             

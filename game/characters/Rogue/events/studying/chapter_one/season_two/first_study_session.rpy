@@ -68,6 +68,9 @@ label Rogue_chapter_one_season_two_first_study_session:
     menu:
         extend ""
         "Hey, I can tell something's off. Talk to me.":
+            call change_Character_stat(Rogue, "love", small_stat) from _call_change_Character_stat_303
+            call change_Character_stat(Rogue, "trust", medium_stat) from _call_change_Character_stat_304
+            
             $ Rogue.change_face("worried2") 
             
             pause 1.0 
@@ -75,10 +78,10 @@ label Rogue_chapter_one_season_two_first_study_session:
             $ Rogue.change_face("worried1", eyes = "right")
 
             ch_Rogue "Ah'm sorry for bein' like this, [Rogue.Player_petname]." 
-            
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1081 
-            call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_1082
         "[temp], are you really okay? If something's going on, you can tell me.":
+            call change_Character_stat(Rogue, "love", medium_stat) from _call_change_Character_stat_305
+            call change_Character_stat(Rogue, "trust", small_stat) from _call_change_Character_stat_306
+            
             $ Rogue.change_face("worried1", eyes = "right")
 
             ch_Rogue "Ah'm fine, really."
@@ -86,9 +89,10 @@ label Rogue_chapter_one_season_two_first_study_session:
             $ Rogue.change_face("worried1") 
             
             ch_Rogue "And ah'm sorry, but. . ." 
-            
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1083
         "Okay, seriously, what the hell is going on with you?":
+            call change_Character_stat(Rogue, "love", -medium_stat) from _call_change_Character_stat_307
+            call change_Character_stat(Rogue, "trust", small_stat) from _call_change_Character_stat_308
+
             $ Rogue.change_face("worried2") 
             
             pause 1.0 
@@ -98,9 +102,6 @@ label Rogue_chapter_one_season_two_first_study_session:
             ch_Rogue "Nothin's goin' on!" 
             ch_Rogue "It ain't about me." 
             
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1084
-            call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_1085
-
     $ Rogue.change_face("worried2")
     $ Rogue.change_arms("crossed")
 
@@ -132,8 +133,12 @@ label Rogue_chapter_one_season_two_first_study_session:
         "I appreciate the thought, but that's not what I want from you.":
             $ Rogue.change_face("worried1", eyes = "down")
         "That's really sweet. . . but please don't worry so much about me.":
+            call change_Character_stat(Rogue, "love", medium_stat) from _call_change_Character_stat_309
+
             $ Rogue.change_face("worried1")
         "I don't know why you thought that's what I want from you.":
+            call change_Character_stat(Rogue, "love", -small_stat) from _call_change_Character_stat_310
+
             $ Rogue.change_face("confused1")
 
     $ Rogue.change_face("worried2")

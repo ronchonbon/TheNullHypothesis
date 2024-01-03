@@ -69,12 +69,12 @@ label ask_to_study(Character):
             call expression f"{Character.tag}_accept_study" from _call_expression_287
         else:
             if Character.History.check("said_no_to_studying", tracker = "recent") >= 2:
-                call change_Character_stat(Character, "love", -5) from _call_change_Character_stat_995
-                call change_Character_stat(Character, "trust", -5) from _call_change_Character_stat_996
+                call change_Character_stat(Character, "love", -small_stat) from _call_change_Character_stat_995
+                call change_Character_stat(Character, "trust", -small_stat) from _call_change_Character_stat_996
                 
                 call expression f"{Character.tag}_reject_study_asked_twice" from _call_expression_288
             elif Character.History.check("said_no_to_studying", tracker = "recent") == 1:
-                call change_Character_stat(Character, "love", -2) from _call_change_Character_stat_997
+                call change_Character_stat(Character, "love", -tiny_stat) from _call_change_Character_stat_997
 
                 call expression f"{Character.tag}_reject_study_asked_once" from _call_expression_289
             else:
@@ -92,12 +92,12 @@ label ask_to_study(Character):
                 call expression f"{Character.tag}_accept_study_text" from _call_expression_291
             else:
                 if Character.History.check("said_too_late_to_text", tracker = "recent") >= 2:
-                    call change_Character_stat(Character, "love", -5) from _call_change_Character_stat_998
-                    call change_Character_stat(Character, "trust", -5) from _call_change_Character_stat_999
+                    call change_Character_stat(Character, "love", -small_stat) from _call_change_Character_stat_998
+                    call change_Character_stat(Character, "trust", -small_stat) from _call_change_Character_stat_999
 
                     call expression f"{Character.tag}_summon_reject_asked_twice" from _call_expression_293
                 elif Character.History.check("said_too_late_to_text", tracker = "recent") == 1:
-                    call change_Character_stat(Character, "love", -2) from _call_change_Character_stat_1000
+                    call change_Character_stat(Character, "love", -tiny_stat) from _call_change_Character_stat_1000
 
                     call expression f"{Character.tag}_summon_reject_asked_once" from _call_expression_294
                 else:
@@ -113,12 +113,12 @@ label ask_to_study(Character):
                 call expression f"{Character.tag}_accept_study_text" from _call_expression_296
             else:
                 if Character.History.check("said_no_to_studying", tracker = "recent") >= 2:
-                    call change_Character_stat(Character, "love", -5) from _call_change_Character_stat_1002
-                    call change_Character_stat(Character, "trust", -5) from _call_change_Character_stat_1003
+                    call change_Character_stat(Character, "love", -small_stat) from _call_change_Character_stat_1002
+                    call change_Character_stat(Character, "trust", -small_stat) from _call_change_Character_stat_1003
 
                     call expression f"{Character.tag}_reject_study_asked_twice_text" from _call_expression_298
                 elif Character.History.check("said_no_to_studying", tracker = "recent") == 1:
-                    call change_Character_stat(Character, "love", -2) from _call_change_Character_stat_1001
+                    call change_Character_stat(Character, "love", -tiny_stat) from _call_change_Character_stat_1001
                     
                     call expression f"{Character.tag}_reject_study_asked_once_text" from _call_expression_297
                 else:

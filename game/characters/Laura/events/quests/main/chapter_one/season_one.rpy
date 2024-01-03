@@ -17,7 +17,7 @@ init python:
         
         objectives.update({"Study together to help her with her coursework": ["Laura.History.check('studied_with_Player', tracker = 'season')", 1]})
 
-        if Laura.History.check("trained_with_Player", tracker = "season") >= 4:
+        if Laura.History.check("trained_with_Player") >= 4:
             if QuestPool.Quests['Laura_friendship_Quest'].completed:
                 objectives.update({"Become her first friend": ["EventScheduler.Events['Laura_first_friend_part_one'].completed", None]})
             else:

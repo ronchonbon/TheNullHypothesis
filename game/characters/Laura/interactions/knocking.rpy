@@ -19,9 +19,9 @@ label Laura_knocks(arriving_Characters):
                 ch_Laura "Fine."
                 ch_Laura "Later."
             "I'd rather not. . .":
-                ch_Laura "Fine."
+                call change_Character_stat(Laura, "love", -tiny_stat) from _call_change_Character_stat_491
 
-                call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_491
+                ch_Laura "Fine."
     elif dice_roll == 2:
         "You hear knocking at your door."
         ch_Player "Who is it?"
@@ -46,7 +46,7 @@ label Laura_knocks(arriving_Characters):
                 else:
                     ch_Laura "Fine, I'll be back later."
             "No, I'm busy.":
-                call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_492
+                call change_Character_stat(Laura, "love", -tiny_stat) from _call_change_Character_stat_492
 
     return
 
@@ -74,10 +74,10 @@ label Laura_knocks_relationship(arriving_Characters):
         "Not right now, maybe come back later?":
             ch_Laura "{i}Grrrrr{/i}. . . fine."
         "Not in the mood, [Laura.name].":
+            call change_Character_stat(Laura, "love", -tiny_stat) from _call_change_Character_stat_493
+
             ch_Laura "Fine. . ."
             ch_Laura "I'll be back later."
-
-            call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_493
 
     return
 
@@ -119,9 +119,9 @@ label Laura_knocks_love(arriving_Characters):
                 ch_Laura "{i}Grrrrr{/i}"
                 ch_Laura "You're gonna pay for this."
             "I'm busy.":
+                call change_Character_stat(Laura, "love", -tiny_stat) from _call_change_Character_stat_494
+                
                 ch_Laura "Bad excuse. . ."
-
-                call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_494
     else:
         if len(arriving_Characters) == 2:
             ch_Laura "It's me and [arriving_Characters[1].name]."
@@ -160,9 +160,9 @@ label Laura_knocks_love(arriving_Characters):
             "Sorry, I'm kinda busy right now.":
                 ch_Laura "Fine, just come find me later."
             "Kinda in the middle of something.":
-                ch_Laura "Yeah, right."
+                call change_Character_stat(Laura, "love", -tiny_stat) from _call_change_Character_stat_495
 
-                call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_495
+                ch_Laura "Yeah, right."
 
     return
 
@@ -218,9 +218,9 @@ label Laura_knocks_heartbroken(arriving_Characters):
         "Sorry. . . but I'm kinda busy.":
             ch_Laura ". . . sorry."
         "Stay silent":
-            ch_Laura ". . . I know you're ignoring me."
+            call change_Character_stat(Laura, "love", -tiny_stat) from _call_change_Character_stat_496
 
-            call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_496
+            ch_Laura ". . . I know you're ignoring me."
 
     return
 

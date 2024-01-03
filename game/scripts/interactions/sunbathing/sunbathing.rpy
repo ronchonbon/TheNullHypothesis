@@ -41,12 +41,12 @@ label ask_to_sunbathe(Character):
         call expression f"{Character.tag}_accept_sunbathe" from _call_expression_325
     else:
         if Character.History.check("said_no_to_sunbathing", tracker = "recent") >= 2:
-            call change_Character_stat(Character, "love", -5) from _call_change_Character_stat_1013
-            call change_Character_stat(Character, "trust", -5) from _call_change_Character_stat_1014
+            call change_Character_stat(Character, "love", -small_stat) from _call_change_Character_stat_1013
+            call change_Character_stat(Character, "trust", -small_stat) from _call_change_Character_stat_1014
 
             call expression f"{Character.tag}_reject_sunbathe_asked_twice" from _call_expression_326
         elif Character.History.check("said_no_to_sunbathing", tracker = "recent") == 1:
-            call change_Character_stat(Character, "love", -2) from _call_change_Character_stat_1015
+            call change_Character_stat(Character, "love", -tiny_stat) from _call_change_Character_stat_1015
 
             call expression f"{Character.tag}_reject_sunbathe_asked_once" from _call_expression_327
         else:

@@ -101,8 +101,6 @@ label Jean_penultimate_quirk:
 
         $ Jean.change_face("kiss2", blush = 1)
 
-        call change_Character_stat(Jean, "desire", 0) from _call_change_Character_stat_1134
-
         "One hand cups your face, while her other wanders its way across your body before settling on your ass."
 
         $ Jean.change_face("sexy", blush = 1)
@@ -169,8 +167,6 @@ label Jean_penultimate_quirk:
         "She drags you into her embrace and plants her lips on yours."
 
         $ Jean.change_face("kiss2", blush = 1)
-
-        call change_Character_stat(Jean, "desire", 0) from _call_change_Character_stat_1136
 
         "One hand cups your face, while her other wanders its way across your body before settling on your ass."
 

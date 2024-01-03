@@ -89,6 +89,8 @@ label Rogue_first_date:
 
             ch_Player "Heh, yeah, I decided to get here a bit early."
 
+            call change_Character_stat(Rogue, "love", small_stat) from _call_change_Character_stat_45
+
             $ Rogue.change_face("smirk2", mouth = "lipbite", blush = 2)
 
             pause 1.0
@@ -96,8 +98,6 @@ label Rogue_first_date:
             $ Rogue.change_face("worried1", mouth = "lipbite", blush = 1)
 
             ch_Player "Looks like we had the same idea." 
-
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_573
 
             $ Rogue.change_face("worried1", mouth = "smirk")
 
@@ -250,6 +250,8 @@ label Rogue_first_date:
             $ chosen_meal[Rogue] = "fried chicken"
             $ restaurant_bill[Rogue] = 25
         "Jambalaya is a Mississippi thing, right?":
+            call change_Character_stat(Rogue, "trust", -small_stat) from _call_change_Character_stat_46
+
             $ Rogue.change_face("confused1") 
             
             ch_Player "You should get that."
@@ -270,12 +272,12 @@ label Rogue_first_date:
             $ chosen_meal[Rogue] = "short ribs"
             $ restaurant_bill[Rogue] = 45
         "I dunno, just get a salad or something if you're that indecisive. . .":
+            call change_Character_stat(Rogue, "love", -medium_stat) from _call_change_Character_stat_47
+
             $ Rogue.change_face("worried1")
 
             ch_Rogue "Ah'll just pick on my own then. . ." 
             
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_574
-
             $ chosen_meal[Rogue] = "fried chicken"
             $ restaurant_bill[Rogue] = 25
 
@@ -288,6 +290,8 @@ label Rogue_first_date:
     menu:
         extend ""
         "Order for [Rogue.name] (encourage_quirk)":
+            call change_Character_stat(Rogue, "trust", small_stat) from _call_change_Character_stat_48
+
             $ Rogue.change_face("surprised2", blush = 1)
 
             $ temp = chosen_meal[Rogue]
@@ -309,11 +313,8 @@ label Rogue_first_date:
             ch_Rogue "Ah don't mind ya orderin' for me."
 
             $ Rogue.change_face("smirk2", mouth = "lipbite", blush = 1)
-
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_575
-
+            
             $ Rogue.ordered_for_last_time = True
-
             $ Rogue.History.update("quirk_encouraged")
         "Let [Rogue.name] order for herself (discourage_quirk)":
             $ temp = chosen_meal[Rogue]
@@ -328,8 +329,6 @@ label Rogue_first_date:
                 ch_Player "And I'll also have the [temp]."
             else:
                 ch_Player "And I'll have the [temp]."
-
-            call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_576
 
             $ Rogue.ordered_for_last_time = False
 
@@ -359,6 +358,8 @@ label Rogue_first_date:
     ch_Player "Did I pick restaurants well?"
 
     if chosen_meal[Player] == "fried chicken" and chosen_meal[Rogue] == "fried chicken" and not suggested_salad:
+        call change_Character_stat(Rogue, "love", medium_stat) from _call_change_Character_stat_62
+
         $ Rogue.change_face("smirk2", mouth = "lipbite")
         $ Rogue.change_arms("sheepish", right_arm = "neutral")
 
@@ -374,18 +375,21 @@ label Rogue_first_date:
 
         menu:
             "If you say please, maybe I'll let you have an extra wing. (encourage_quirk)":
+                call change_Character_stat(Rogue, "love", small_stat) from _call_change_Character_stat_65
+
                 $ Rogue.change_face("worried2", mouth = "lipbite", blush = 2)
+
+                pause 1.0
 
                 $ Rogue.change_face("worried1", mouth = "lipbite", blush = 3) 
                 
-                ch_Rogue ". . . please." 
-                
-                call change_Character_stat(Rogue, "desire", 0) from _call_change_Character_stat_578 
-                
+                ch_Rogue ". . . please."
                 ch_Player "Here."
 
                 $ Rogue.History.update("quirk_encouraged")
             "Here, you can have an extra wing. (discourage_quirk)": 
+                call change_Character_stat(Rogue, "love", medium_stat) from _call_change_Character_stat_66
+
                 $ Rogue.change_face("pleased2")
                 $ Rogue.change_arms("neutral", left_arm = "extended")
 
@@ -397,8 +401,6 @@ label Rogue_first_date:
                 ch_Rogue "Thanks, [Rogue.Player_petname]."
 
                 $ Rogue.History.update("quirk_discouraged")
-
-        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_577 
     elif chosen_meal[Rogue] == "fried chicken" and not suggested_salad:
         ch_Rogue "For New York?"
 
@@ -407,8 +409,6 @@ label Rogue_first_date:
 
         ch_Rogue "Amazin'."
         ch_Rogue "Great choice, [Rogue.Player_petname]." 
-
-        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_579
     elif not suggested_salad:
         ch_Rogue "Real good."
 
@@ -497,6 +497,9 @@ label Rogue_first_date:
     menu:
         extend ""
         "Pay it all yourself":
+            call change_Character_stat(Rogue, "love", medium_stat) from _call_change_Character_stat_67
+            call change_Character_stat(Rogue, "trust", small_stat) from _call_change_Character_stat_68
+
             $ Rogue.change_arms("neutral", left_arm = "extended")
 
             "[Rogue.name] tries to grab the bill, but you hold it out of reach." 
@@ -509,11 +512,11 @@ label Rogue_first_date:
             ch_Player "Yep." 
             ch_Rogue "Thanks, ah really appreciate it." 
             
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_581
-            call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_582
-
             $ Player.cash -= restaurant_bill[Player] + restaurant_bill[Rogue]
         "Split the bill":
+            call change_Character_stat(Rogue, "love", small_stat) from _call_change_Character_stat_69
+            call change_Character_stat(Rogue, "trust", small_stat) from _call_change_Character_stat_70
+
             $ Rogue.change_arms("neutral", left_arm = "extended")
 
             "[Rogue.name] tries to grab the bill, but you hold it out of reach." 
@@ -524,10 +527,10 @@ label Rogue_first_date:
             ch_Player "Why don't we split it." 
             ch_Rogue "Oh alright." 
             
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_583
-
             $ Player.cash -= math.ceil((restaurant_bill[Player] + restaurant_bill[Rogue])/2)
         "Let [Rogue.name] pay":
+            call change_Character_stat(Rogue, "love", -small_stat) from _call_change_Character_stat_73
+
             $ Rogue.change_arms("neutral", left_arm = "extended")
 
             "[Rogue.name] reaches over to grab the bill, and you let her." 
@@ -565,21 +568,17 @@ label Rogue_first_date:
         "Pick a movie":
             menu:
                 extend ""
-                "Steamy romance":
-                    $ movie_choice = "steamy_romance"
-
-                    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_584
                 "Dramatic thriller":
                     $ movie_choice = "dramatic_thriller"
-
-                    call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_585
+                "Steamy romance":
+                    $ movie_choice = "steamy_romance"
         "Let [Rogue.name] pick":
+            call change_Character_stat(Rogue, "trust", small_stat) from _call_change_Character_stat_75
+
             $ movie_choice = "dramatic_thriller"
 
             ch_Rogue "Thanks." 
-            
-            call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_586 
-            
+                        
             "She picks a dramatic thriller."
 
     "You pay for the tickets since this was your idea and go inside to find your seats."
@@ -634,18 +633,19 @@ label Rogue_first_date:
     menu:
         extend ""
         "We don't have to if you're not ready.":
-            $ Rogue.change_face("worried1", mouth = "smirk", blush = 1) 
+            call change_Character_stat(Rogue, "love", small_stat) from _call_change_Character_stat_86
+            call change_Character_stat(Rogue, "trust", medium_stat) from _call_change_Character_stat_90
 
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_587 
-            call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_588
+            $ Rogue.change_face("worried1", mouth = "smirk", blush = 1) 
         "I'd really like to. . .":
+            call change_Character_stat(Rogue, "love", small_stat) from _call_change_Character_stat_93
+
             $ Rogue.change_face("worried1", mouth = "smirk", blush = 1) 
-
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_589
         "C'mon, it'll be fine.":
-            $ Rogue.change_face("confused1", eyes = "right", blush = 1)
+            call change_Character_stat(Rogue, "love", small_stat) from _call_change_Character_stat_98
+            call change_Character_stat(Rogue, "trust", -medium_stat) from _call_change_Character_stat_101
 
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_590
+            $ Rogue.change_face("confused1", eyes = "right", blush = 1)
 
     pause 1.0
 
@@ -685,6 +685,8 @@ label Rogue_first_date:
 
     menu:
         "Pull her into a kiss":
+            call change_Character_stat(Rogue, "love", large_stat) from _call_change_Character_stat_105
+
             $ Rogue.change_face("surprised2", mouth = "kiss", blush = 2) 
             $ Rogue.change_arms("angry")
 
@@ -692,17 +694,15 @@ label Rogue_first_date:
             
             $ Rogue.change_face("kiss1", blush = 2) 
             $ Rogue.change_arms("neutral")
-            
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_591
         "Let her go at her own pace":
+            call change_Character_stat(Rogue, "love", medium_stat) from _call_change_Character_stat_139
+            call change_Character_stat(Rogue, "trust", medium_stat) from _call_change_Character_stat_217
+
             $ Rogue.change_face("kiss1", blush = 2) 
             $ Rogue.change_arms("angry")
             
             "She hesitates for a moment before tentatively pressing her lips against yours." 
             
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_592 
-            call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_593
-
     "You enjoy the feeling of each other's lips for a long moment. . ."
 
     $ Rogue.change_face("kiss1", blush = 3)
@@ -813,6 +813,8 @@ label Rogue_first_date_path_1A:
     menu:
         extend ""
         "Hold [Rogue.name]'s hand":
+            call change_Character_stat(Rogue, "love", medium_stat) from _call_change_Character_stat_218
+
             $ Rogue.change_arms("neutral", right_arm = "fist")
 
             "You grab [Rogue.name]'s hand and give it a gentle squeeze, before interlacing your fingers with hers." 
@@ -822,8 +824,6 @@ label Rogue_first_date_path_1A:
             pause 1.0 
             
             $ Rogue.change_face("sexy", eyes = "right", blush = 1) 
-            
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_594
         "Don't make a move":
             $ Rogue.change_face("worried1", eyes = "right", mouth = "lipbite", blush = 1) 
             
@@ -883,6 +883,8 @@ label Rogue_first_date_path_1A:
     $ Rogue.change_face("smirk2")
     $ Rogue.change_arms("hips", right_arm = "neutral")
 
+    call change_Character_stat(Rogue, "love", small_stat) from _call_change_Character_stat_223
+
     ch_Player "It had an interesting premise though. . ."
 
     return
@@ -895,6 +897,8 @@ label Rogue_first_date_path_1B:
     menu:
         extend ""
         "Hold [Rogue.name]'s hand":
+            call change_Character_stat(Rogue, "love", medium_stat) from _call_change_Character_stat_224
+
             $ Rogue.change_arms("neutral", right_arm = "fist")
 
             "You grab [Rogue.name]'s hand and give it a gentle squeeze, before interlacing your fingers with hers." 
@@ -904,8 +908,6 @@ label Rogue_first_date_path_1B:
             pause 1.0 
             
             $ Rogue.change_face("sexy", eyes = "right", blush = 1) 
-            
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_595
         "Don't make a move":
             $ Rogue.change_face("worried1", eyes = "right", mouth = "lipbite", blush = 1) 
             
@@ -966,6 +968,8 @@ label Rogue_first_date_path_1B:
 
     $ Rogue.change_face("worried1", mouth = "lipbite", eyes = "right", blush = 1)
     $ Rogue.change_arms("hips", right_arm = "neutral")
+
+    call change_Character_stat(Rogue, "love", medium_stat) from _call_change_Character_stat_225
     
     ch_Rogue "Yeah. . . ah really enjoyed it."
 

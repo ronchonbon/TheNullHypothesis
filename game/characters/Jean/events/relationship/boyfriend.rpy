@@ -240,7 +240,6 @@ label Jean_boyfriend:
                 ch_Jean "Good. . ."
                 
                 call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_89 
-                call change_Character_stat(Jean, "desire", 0) from _call_change_Character_stat_90
             "I do. . .":
                 $ Jean.change_face("confused1", eyes = "squint", mouth = "smirk", blush = 1)
 
@@ -264,7 +263,6 @@ label Jean_boyfriend:
                 ch_Jean "I can tell. . ."
                 
                 call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_92
-                call change_Character_stat(Jean, "desire", 0) from _call_change_Character_stat_93
             "You are drop dead gorgeous.":
                 $ Jean.change_face("worried2", mouth = "smirk", blush = 2)
 
@@ -394,7 +392,6 @@ label Jean_boyfriend:
                 ch_Jean "Good. . . I enjoy it too. . ."
                 
                 call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_97 
-                call change_Character_stat(Jean, "desire", 0) from _call_change_Character_stat_98
             "It's not the worst time. . .":
                 $ Jean.change_face("confused1", blush = 1) 
 
@@ -418,7 +415,6 @@ label Jean_boyfriend:
                 $ Jean.change_face("worried1", eyes = "right", mouth = "lipbite", blush = 1) 
                 
                 call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_100 
-                call change_Character_stat(Jean, "desire", 0) from _call_change_Character_stat_101
             "Pretty well. . . I guess. . .":
                 $ Jean.change_face("worried1", eyes = "right", blush = 1) 
                 
@@ -446,7 +442,6 @@ label Jean_boyfriend:
                 ch_Jean "Well. . . I, uh. . . thanks. . ."
                 
                 call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_104 
-                call change_Character_stat(Jean, "desire", 0) from _call_change_Character_stat_105
             "Yeah, not too bad. . .":
                 $ Jean.change_face("confused2", blush = 2)
 

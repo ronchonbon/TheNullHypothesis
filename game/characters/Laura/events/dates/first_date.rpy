@@ -717,9 +717,6 @@ label Laura_first_date:
     $ Laura.change_arms("neutral")
 
     "She makes up for lacking experience with intensity and enthusiasm."
-
-    call change_Character_stat(Laura, "desire", 0) from _call_change_Character_stat_336
-
     "Fingers dig into your flesh, nostrils flaring, and her breath turns ragged."
 
     $ Laura.change_face("angry1", mouth = "lipbite", blush = 3)
@@ -753,8 +750,6 @@ label Laura_first_date:
                 pause 1.0 
                 
                 $ Laura.change_face("sly", blush = 1) 
-                
-                call change_Character_stat(Laura, "desire", 0) from _call_change_Character_stat_337 
                 
                 ch_Laura "Good." 
                 ch_Laura "I. . . enjoyed that as well." 

@@ -4,7 +4,7 @@ init python:
         label = "Jean_leaving_for_mission"
 
         conditions = [
-            "day > 4",
+            "Player.History.check('attended_class', tracker = 'season') >= 2",
             
             "((Player.location in bedrooms or Player.location in ['bg_girls_hallway', 'bg_hallway', 'bg_mall']) and Player.destination in ['bg_campus', 'bg_classroom', 'bg_danger', 'bg_pool', 'bg_lockers']) or ((Player.destination in bedrooms or Player.destination in ['bg_girls_hallway', 'bg_hallway', 'bg_mall']) and Player.location in ['bg_campus', 'bg_classroom', 'bg_danger', 'bg_pool', 'bg_lockers'])",
             

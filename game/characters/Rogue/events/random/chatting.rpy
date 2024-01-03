@@ -48,12 +48,12 @@ label Rogue_chatting_study:
 
             call actually_study(Rogue) from _call_actually_study_9
         "Why would I ever want to do that?":
+            call change_Character_stat(Rogue, "love", -tiny_stat) from _call_change_Character_stat_596
+
             $ Rogue.change_face("apalled1")
 
             ch_Rogue "Ah just. . ."
             ch_Rogue "Never mind. . ."
-
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_596
 
             $ Rogue.History.update("Player_rejected_studying")
 
@@ -109,12 +109,12 @@ label Rogue_chatting_training:
 
             call actually_train(Rogue) from _call_actually_train_6
         "With you? Nah.":
+            call change_Character_stat(Rogue, "love", -tiny_stat) from _call_change_Character_stat_597
+
             $ Rogue.change_face("worried3")
 
             ch_Rogue "Wh- Oh. . ."
             ch_Rogue "Sorry. . ."
-
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_597
 
             $ Rogue.History.update("Player_rejected_training")
 

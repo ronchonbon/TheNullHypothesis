@@ -62,12 +62,12 @@ label buy_Character_gift(Character, Item, discounted = False):
             $ Character.History.update(f"said_no_to_{Item_string}")
     else:
         if Character.History.check(f"said_no_to_{Item_string}", tracker = "recent") >= 2:
-            call change_Character_stat(Character, "love", -5) from _call_change_Character_stat_976
-            call change_Character_stat(Character, "trust", -5) from _call_change_Character_stat_977
+            call change_Character_stat(Character, "love", -small_stat) from _call_change_Character_stat_976
+            call change_Character_stat(Character, "trust", -small_stat) from _call_change_Character_stat_977
 
             call expression f"{Character.tag}_rejected_gift_twice" from _call_expression_236
         elif Character.History.check(f"said_no_to_{Item_string}", tracker = "recent") == 1:
-            call change_Character_stat(Character, "love", -2) from _call_change_Character_stat_978
+            call change_Character_stat(Character, "love", -tiny_stat) from _call_change_Character_stat_978
 
             call expression f"{Character.tag}_rejected_gift_once" from _call_expression_237
         else:
@@ -99,12 +99,12 @@ label buy_Character_Clothing(Clothing, discounted = False):
             $ del unrestricted_shop_inventory[Clothing.shop_type][Clothing.string]
     else:
         if Character.History.check(f"said_no_to_{Clothing.string}", tracker = "recent") >= 2:
-            call change_Character_stat(Character, "love", -5) from _call_change_Character_stat_943
-            call change_Character_stat(Character, "trust", -5) from _call_change_Character_stat_944
+            call change_Character_stat(Character, "love", -small_stat) from _call_change_Character_stat_943
+            call change_Character_stat(Character, "trust", -small_stat) from _call_change_Character_stat_944
 
             call expression f"{Character.tag}_rejected_Clothing_twice" from _call_expression_151
         elif Character.History.check(f"said_no_to_{Clothing.string}", tracker = "recent") == 1:
-            call change_Character_stat(Character, "love", -2) from _call_change_Character_stat_945
+            call change_Character_stat(Character, "love", -tiny_stat) from _call_change_Character_stat_945
 
             call expression f"{Character.tag}_rejected_Clothing_once" from _call_expression_152
         else:

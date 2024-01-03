@@ -1183,6 +1183,8 @@ label ch1_Sentinel_attack:
     menu:
         extend ""
         "You trust me, right? (encourage_quirk)":
+            call change_Character_stat(Rogue, "trust", medium_stat) from _call_change_Character_stat_483
+
             $ Rogue.change_face("worried2")
 
             pause 1.0
@@ -1202,6 +1204,8 @@ label ch1_Sentinel_attack:
 
             $ Rogue.History.update("quirk_encouraged")
         "Hurt? Nothing hurts now that you're here. (discourage_quirk)":
+            call change_Character_stat(Rogue, "love", medium_stat) from _call_change_Character_stat_484
+
             $ Rogue.change_face("surprised2")
 
             pause 1.0
@@ -1241,6 +1245,8 @@ label ch1_Sentinel_attack:
     menu:
         extend ""
         "Encourage this behavior (encourage_quirk)":
+            call change_Character_stat(Rogue, "love", small_stat) from _call_change_Character_stat_485
+
             ch_Player "Heh, you don't have to be so formal about it." 
             
             $ Rogue.change_face("worried2", mouth = "lipbite", blush = 2) 
@@ -1276,6 +1282,8 @@ label ch1_Sentinel_attack:
 
             $ Rogue.History.update("quirk_encouraged")
         "Discourage this behavior (discourage_quirk)":
+            call change_Character_stat(Rogue, "trust", small_stat) from _call_change_Character_stat_486
+
             $ Rogue.change_face("worried2", blush = 1) 
 
             $ temp = Rogue.petname.capitalize()

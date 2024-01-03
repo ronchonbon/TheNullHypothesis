@@ -55,8 +55,6 @@ label Laura_disclosing_wants_to_date_others:
 
     ch_Player "You're welcome."
 
-    call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_642
-
     $ Laura.History.update("told_wants_multiple_partners")
 
     $ ongoing_Event = False
@@ -87,8 +85,6 @@ label Laura_disclosing_wants_to_date_Rogue:
     ch_Laura "Yes."
 
     $ Laura.change_face("smirk2", eyes = "right", blush = 1)
-
-    call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_643
 
     ch_Laura "Thank you for asking. . ." 
 
@@ -143,8 +139,6 @@ label Laura_disclosing_wants_to_date_Jean:
     ch_Laura "Fine."
 
     $ Laura.change_face("smirk2", eyes = "right", blush = 1)
-
-    call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_931
 
     ch_Laura "Thank you for asking. . ." 
 

@@ -48,13 +48,13 @@ label Jean_chatting_study:
 
             call actually_study(Jean) from _call_actually_study
         "I'm good. . .":
+            call change_Character_stat(Jean, "love", -tiny_stat) from _call_change_Character_stat_63
+
             $ Jean.change_face("worried1")
 
             ch_Player "Studying sucks."
             ch_Jean "Aw. . ."
             ch_Jean "Fine, your loss."
-
-            call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_63
 
             $ Jean.History.update("Player_rejected_studying")
 
@@ -108,12 +108,12 @@ label Jean_chatting_training:
 
             call actually_train(Jean) from _call_actually_train
         "Trying to show off again? No thanks.":
+            call change_Character_stat(Jean, "love", -tiny_stat) from _call_change_Character_stat_64
+
             $ Jean.change_face("angry1")
 
             ch_Jean "What the hell?"
             ch_Jean "Ass. . ."
-
-            call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_64
 
             $ Jean.History.update("Player_rejected_training")
 

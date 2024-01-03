@@ -159,7 +159,6 @@ label Jean_enjoying_being_girlfriend:
             $ Jean.change_face("sly", mouth = "lipbite", blush = 1) 
             
             call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_1095 
-            call change_Character_stat(Jean, "desire", 0) from _call_change_Character_stat_1096
 
             ch_Jean "Of course you wouldn't." 
             ch_Jean "You should be super thankful."

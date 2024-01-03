@@ -277,18 +277,18 @@ label Rogue_dismiss_accept:
         "Hey, you can leave if you want.":
             ch_Rogue "Alright, ah'll see you 'round then."
         "I think you should leave.":
+            call change_Character_stat(Rogue, "love", -tiny_stat) from _call_change_Character_stat_779
+            
             $ Rogue.change_face("worried1")
 
             ch_Rogue "But. . ."
             ch_Rogue "Okay, ah'll see you 'round. . ."
-
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_779
         "Leave, give us some privacy." if len(Present) > 1:
+            call change_Character_stat(Rogue, "love", -tiny_stat) from _call_change_Character_stat_780
+
             $ Rogue.change_face("worried1")
 
             ch_Rogue "Okay. . . sorry."
-
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_780
         "Back":
             return False
 
@@ -305,17 +305,17 @@ label Rogue_dismiss_reject:
 
             ch_Rogue "But ah think ah'll stick 'round."
         "I think you should leave.":
+            call change_Character_stat(Rogue, "love", -tiny_stat) from _call_change_Character_stat_781
+
             $ Rogue.change_face("confused1")
 
             ch_Rogue "Ah'm good."
-
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_781
         "Leave, give us some privacy." if len(Present) > 1:
+            call change_Character_stat(Rogue, "love", -tiny_stat) from _call_change_Character_stat_782
+
             $ Rogue.change_face("angry1")
 
             ch_Rogue "Maybe if you asked polite-like."
-
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_782
         "Back":
             return False
 

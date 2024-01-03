@@ -71,8 +71,6 @@ label Rogue_first_sex:
 
     $ Rogue.History.update("kiss")
 
-    call change_Character_stat(Rogue, "desire", 0) from _call_change_Character_stat_1146
-
     "She trembles slightly, as a mixture of anticipation and trepidation runs through her veins."
 
     call take_off_everything_but(Rogue, ["bra", "skirt", "pants", "hose", "underwear", "socks"]) from _call_take_off_everything_but_17
@@ -325,11 +323,12 @@ label Rogue_first_sex:
     menu:
         extend ""
         "That really was amazing. I'm glad it lived up to your expectations.":
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1147
+            call change_Character_stat(Rogue, "love", large_stat) from _call_change_Character_stat_237
         "Yeah, that wasn't too bad. You'll get better the more we do it together.":
+            call change_Character_stat(Rogue, "love", -medium_stat) from _call_change_Character_stat_238
+            call change_Character_stat(Rogue, "trust", -medium_stat) from _call_change_Character_stat_239
+                        
             $ Rogue.change_face("worried1", blush = 1)
-
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1148
 
     $ Rogue.change_face("worried1", mouth = "lipbite", blush = 1)
 

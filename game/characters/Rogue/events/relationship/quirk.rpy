@@ -59,7 +59,9 @@ label Rogue_penultimate_penultimate_quirk:
 
         menu:
             extend ""
-            "I really appreciate that, how considerate you are, but we've talked about this before. You need to tell me if you want to talk first, and I'll be the one to decide, okay? (encourage_quirk)":
+            "I really appreciate that, but we've talked about this before. You need to tell me if you want to talk first, and I'll be the one to decide. (encourage_quirk)":
+                call change_Character_stat(Rogue, "love", medium_stat) from _call_change_Character_stat_261
+
                 $ Rogue.change_face("worried1")
 
                 ch_Rogue "Ah'm sorry." 
@@ -68,16 +70,14 @@ label Rogue_penultimate_penultimate_quirk:
                 
                 ch_Rogue "Ah promise ah will, from now on." 
                 ch_Player "Good, then there's nothing to worry about." 
-                
-                call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1164
             "You don't need to do that. If there's something you want to talk about, don't worry about interrupting me. (discourage_quirk)":
+                call change_Character_stat(Rogue, "trust", medium_stat) from _call_change_Character_stat_262
+
                 $ Rogue.change_face("worried1", mouth = "smirk")
                 
                 ch_Rogue "Oh, alright, if you say so. . ." 
                 ch_Player "Really, there's nothing to worry about." 
                 
-                call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_1165
-
         $ Rogue.change_face("worried1")
 
         ch_Player "But, you wanted to go talk in private?"
@@ -104,6 +104,8 @@ label Rogue_penultimate_penultimate_quirk:
         menu:
             extend ""
             "I'm glad you let me know something is bothering you, but I'm kind of in the middle of something. . . (encourage_quirk)":
+                call change_Character_stat(Rogue, "love", -medium_stat) from _call_change_Character_stat_263
+
                 $ Rogue.change_face("worried2")
 
                 ch_Rogue "Ah'm sorry. . ." 
@@ -111,15 +113,13 @@ label Rogue_penultimate_penultimate_quirk:
                 $ Rogue.change_face("worried1", eyes = "down") 
                 
                 ch_Rogue "Ah promise ah won't interrupt ya next time." 
-                
-                call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1166
             "Of course we can talk. (discourage_quirk)":
+                call change_Character_stat(Rogue, "trust", medium_stat) from _call_change_Character_stat_264
+
                 $ Rogue.change_face("smirk2")
                 
                 ch_Rogue "Nothin's botherin' me, per se. . ." 
-                
-                call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_1167
-
+            
         $ Rogue.change_face("worried1", mouth = "smirk")
 
         ch_Rogue "What ah wanna talk to ya about is a good thing."
@@ -173,6 +173,8 @@ label Rogue_penultimate_penultimate_quirk:
     menu:
         extend ""
         "It really, {i}really{/i} has. You're such a beacon of light.":
+            call change_Character_stat(Rogue, "love", large_stat) from _call_change_Character_stat_267
+
             $ Rogue.change_face("worried2")
 
             pause 1.0
@@ -184,10 +186,9 @@ label Rogue_penultimate_penultimate_quirk:
             $ Rogue.change_face("worried1", mouth = "smirk") 
             
             ch_Rogue "It means a whole lot." 
-            
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1168 
-            call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_1169
         "You have no idea how happy it's made me, especially with everything else going on. . .":
+            call change_Character_stat(Rogue, "love", medium_stat) from _call_change_Character_stat_268
+
             $ Rogue.change_face("worried2")
 
             pause 1.0
@@ -196,9 +197,9 @@ label Rogue_penultimate_penultimate_quirk:
             
             ch_Rogue "Ah'm glad. . ."
             ch_Rogue "You've been goin' through a lot, and it's the least ah could do." 
-            
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1170
         "Well, yeah, I guess you could say that. Definitely hasn't been the worst thing I've been through since coming here.":
+            call change_Character_stat(Rogue, "love", -small_stat) from _call_change_Character_stat_269
+
             $ Rogue.change_face("worried2")
 
             pause 1.0
@@ -208,9 +209,6 @@ label Rogue_penultimate_penultimate_quirk:
             ch_Rogue "Ah'm glad. . ." 
             ch_Rogue "Ah know it hasn't been easy for you." 
             
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1171 
-            call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_1172
-
     $ Rogue.change_face("worried1")
 
     pause 1.0
@@ -296,18 +294,19 @@ label Rogue_penultimate_quirk_encouraged:
         pause
 
     if Rogue.text_history[-1][1] == temp[0]:
+        call change_Character_stat(Rogue, "trust", small_stat) from _call_change_Character_stat_270
+            
         call receive_text(Rogue, "Thank you") from _call_receive_text_815
         call receive_text(Rogue, "I'll go slow to give ya extra time") from _call_receive_text_816
-
-        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1173
     elif Rogue.text_history[-1][1] == temp[1]:
+        call change_Character_stat(Rogue, "love", -medium_stat) from _call_change_Character_stat_271
+        call change_Character_stat(Rogue, "trust", -medium_stat) from _call_change_Character_stat_274
+
         call receive_text(Rogue, "Im sorry") from _call_receive_text_817
         call receive_text(Rogue, "I can wait") from _call_receive_text_818
         call send_text(Rogue, "no, it's fine") from _call_send_text_105
         call receive_text(Rogue, "I'll go slow to give ya extra time") from _call_receive_text_819
         call send_text(Rogue, "thanks") from _call_send_text_106
-
-        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1174
 
     call send_text(Rogue, "see you soon") from _call_send_text_107
 
@@ -336,22 +335,25 @@ label Rogue_penultimate_quirk_encouraged:
     menu:
         extend ""
         "Really, it's okay. If something's bothering you that much, then it's a good thing you didn't wait.":
+            call change_Character_stat(Rogue, "love", medium_stat) from _call_change_Character_stat_275
+            call change_Character_stat(Rogue, "trust", medium_stat) from _call_change_Character_stat_279
+            
             ch_Rogue "Thank you. . ." 
             
             $ Rogue.change_face("worried1") 
             
             ch_Rogue "Ah still feel bad 'bout it, though." 
-            
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1175 
-            call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_1176
         "Don't worry about it. I know how it feels to have something nagging at you, and waiting never helps. . .":
+            call change_Character_stat(Rogue, "love", medium_stat) from _call_change_Character_stat_280
+            call change_Character_stat(Rogue, "trust", medium_stat) from _call_change_Character_stat_281
+            
             $ Rogue.change_face("worried1")
 
             ch_Rogue "Ah appreciate how considerate ya are. . ." 
             ch_Rogue "But ah still feel bad." 
-            
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1177
         "Better to get this out of the way as soon as possible. Don't want you waking me up like this every morning. . .":
+            call change_Character_stat(Rogue, "trust", medium_stat) from _call_change_Character_stat_282
+            
             $ Rogue.change_face("worried1")
 
             ch_Rogue "Ah promise ah won't make this a regular thing. . ." 
@@ -360,8 +362,6 @@ label Rogue_penultimate_quirk_encouraged:
             
             ch_Rogue "It was just really botherin' me." 
             
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1178
-
     $ Rogue.History.update("started_penultimate_quirk_encouraged")
 
     $ EventScheduler.Events["Rogue_penultimate_quirk"].start()
@@ -425,20 +425,21 @@ label Rogue_penultimate_quirk_discouraged:
     menu:
         extend ""
         "Of course we can. Follow me.":
+            call change_Character_stat(Rogue, "trust", medium_stat) from _call_change_Character_stat_283
+            
             $ Rogue.change_face("smirk2")
 
             ch_Rogue "Thanks, [Rogue.Player_petname]." 
             ch_Rogue "Ah really appreciate it." 
-            
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1179
         "Really, it has to be right now? Fine, let's get this over with.":
+            call change_Character_stat(Rogue, "love", -medium_stat) from _call_change_Character_stat_284
+            call change_Character_stat(Rogue, "trust", -medium_stat) from _call_change_Character_stat_285
+            
             $ Rogue.change_face("worried1", eyes = "down")
 
             ch_Rogue "Ah'm sorry. . ." 
             ch_Rogue "Somethin's just been botherin' me lately. . ." 
             
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1180
-
     $ fade_to_black(0.4)
 
     "You lead [Rogue.name] to your room."
@@ -455,30 +456,31 @@ label Rogue_penultimate_quirk_discouraged:
     menu:
         extend ""
         "Really, it's okay. If something's bothering you that much, then it's a good thing you didn't wait.":
+            call change_Character_stat(Rogue, "love", medium_stat) from _call_change_Character_stat_286
+            call change_Character_stat(Rogue, "trust", medium_stat) from _call_change_Character_stat_287
+            
             ch_Rogue "Thank you. . ." 
             
             $ Rogue.change_face("smirk2") 
             
             ch_Rogue "Yer always so considerate." 
             ch_Rogue "It's why ah like ya." 
-            
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1181 
-            call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_1182
         "Don't worry about it. I know how it feels to have something nagging at you, and waiting never helps. . .":
+            call change_Character_stat(Rogue, "love", medium_stat) from _call_change_Character_stat_288
+            call change_Character_stat(Rogue, "trust", medium_stat) from _call_change_Character_stat_289
+            
             ch_Rogue "Ah really appreciate how considerate ya are. . ." 
             
             $ Rogue.change_face("smirk2") 
             
             ch_Rogue "It's why ah like ya." 
-            
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1183
         "Better to get this stuff out of the way as soon as possible. Don't want you dragging me away all the time. . .":
+            call change_Character_stat(Rogue, "trust", medium_stat) from _call_change_Character_stat_290
+            
             $ Rogue.change_face("worried1") 
             
             ch_Rogue "This won't be a regular thing. . ." 
             
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1184
-
     $ EventScheduler.Events["Rogue_penultimate_quirk"].start()
 
     $ ongoing_Event = False
@@ -545,8 +547,6 @@ label Rogue_penultimate_quirk:
         menu:
             extend ""
             "I will admit. . . I do enjoy wearing the pants in this relationship. . . (encourage_quirk)":
-                call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1185
-
                 $ Rogue.change_face("worried2", mouth = "lipbite", blush = 2) 
                 
                 ch_Rogue "Good." 
@@ -562,8 +562,6 @@ label Rogue_penultimate_quirk:
                     extend ""
                     "I like it too. . . but let's not jump into this blindly. (encourage_quirk)":
                         $ Rogue.change_face("worried1", blush = 1)
-
-                        call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_1186
 
                         while Rogue.History.check("quirk_encouraged") < Rogue.History.check("quirk_discouraged"):
                             $ Rogue.History.update("quirk_encouraged")

@@ -619,9 +619,9 @@ label Jean_accepts_show_breasts_after_first_time:
     menu:
         extend ""
         "Absolutely perfect. . .":
-            $ Jean.change_face("worried1", mouth = "lipbite", blush = 1) 
-            
-            call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_139
+            call change_Character_stat(Jean, "love", tiny_stat) from _call_change_Character_stat_27
+
+            $ Jean.change_face("worried1", mouth = "lipbite", blush = 1)
         "They are pretty great.":
             $ Jean.change_face("smirk2")
 
@@ -629,9 +629,9 @@ label Jean_accepts_show_breasts_after_first_time:
             
             $ Jean.change_face("worried1", mouth = "lipbite", blush = 1)
         "They're. . . not bad. . .":
+            call change_Character_stat(Jean, "love", -tiny_stat) from _call_change_Character_stat_381
+
             $ Jean.change_face("worried2", blush = 1) 
-            
-            call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_381
 
     return
 
@@ -800,16 +800,18 @@ label Jean_accepts_show_pussy_after_first_time:
     menu:
         extend ""
         "It's beautiful.":
+            call change_Character_stat(Jean, "love", tiny_stat) from _call_change_Character_stat_28
+            
             $ Jean.change_face("sexy", blush = 1) 
             
             ch_Jean "I knew you would." 
-            
-            call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_382
         "Yeah, it's great. . .":
             $ Jean.change_face("worried1", mouth = "smirk", blush = 1) 
             
             ch_Jean "I knew it."
         "It's. . . fine.":
+            call change_Character_stat(Jean, "love", -tiny_stat) from _call_change_Character_stat_382
+
             $ Jean.change_face("worried2", mouth = "lipbite", blush = 1) 
             
             ch_Jean "Fine?"

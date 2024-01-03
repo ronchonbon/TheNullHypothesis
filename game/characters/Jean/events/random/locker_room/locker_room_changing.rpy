@@ -56,8 +56,6 @@ label Jean_locker_room_changing:
             $ Jean.change_face("sly", eyes = "down", mouth = "lipbite", blush = 2)
 
             "After making sure nobody else is around, [Jean.name] gets right back to changing."
-
-            call change_Character_stat(Jean, "desire", 0) from _call_change_Character_stat_65
         
             call take_off_everything_but(Jean, ["bra", "underwear"]) from _call_take_off_everything_but
 
@@ -111,8 +109,6 @@ label Jean_locker_room_changing:
             $ Jean.change_face("worried1", eyes = "down", mouth = "lipbite", blush = 2)
 
             "After making sure nobody else is around, [Jean.name] gets right back to changing."
-
-            call change_Character_stat(Jean, "desire", 0) from _call_change_Character_stat_66
         
             call take_off_everything_but(Jean, ["bra", "underwear"]) from _call_take_off_everything_but_1
 
@@ -159,8 +155,6 @@ label Jean_locker_room_changing:
         $ Jean.change_face("worried1", eyes = "down", mouth = "lipbite", blush = 2)
 
         "After making sure nobody else is around, [Jean.name] gets right back to changing."
-
-        call change_Character_stat(Jean, "desire", 0) from _call_change_Character_stat_67
         
         call take_off_everything_but(Jean, ["bra", "underwear"]) from _call_take_off_everything_but_2
 
@@ -201,8 +195,6 @@ label Jean_locker_room_changing:
         "She throws a towel over herself with lightning speed."
         ch_Jean "Heh, woops. . ."
         ch_Jean "I'm just gonna. . ."
-
-        call change_Character_stat(Jean, "desire", 0) from _call_change_Character_stat_68
 
         $ Jean.change_face("worried1", eyes = "right", mouth = "lipbite", blush = 3)
 

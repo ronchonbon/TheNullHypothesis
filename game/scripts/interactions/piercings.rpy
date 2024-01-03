@@ -88,12 +88,12 @@ label give_Character_piercing(Character, Piercing, mall = False, discounted = Fa
         $ Character.History.update(f"put_in_{Piercing.string}")
     else:
         if Character.History.check(f"said_no_to_{Piercing.string}", tracker = "recent") >= 1:
-            call change_Character_stat(Character, "love", -5) from _call_change_Character_stat_990
-            call change_Character_stat(Character, "trust", -5) from _call_change_Character_stat_991
+            call change_Character_stat(Character, "love", -small_stat) from _call_change_Character_stat_990
+            call change_Character_stat(Character, "trust", -small_stat) from _call_change_Character_stat_991
 
             call expression f"{Character.tag}_rejected_piercing_twice" from _call_expression_264
         elif Character.History.check(f"said_no_to_{Piercing.string}", tracker = "recent") == 1:
-            call change_Character_stat(Character, "love", -2) from _call_change_Character_stat_992
+            call change_Character_stat(Character, "love", -tiny_stat) from _call_change_Character_stat_992
 
             call expression f"{Character.tag}_rejected_piercing_once" from _call_expression_265
         else:

@@ -209,7 +209,7 @@ label Jean_jealousy_went_on_date:
 
     $ Jean.give_status("mad")
 
-    call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_1108 
+    call change_Character_stat(Jean, "trust", -large_stat) from _call_change_Character_stat_1108 
 
     ch_Player "Shit. . ."
 
@@ -371,7 +371,7 @@ label Jean_jealousy_flirted:
     "*SLAM*"
     ". . . and slams the door behind you."
 
-    call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_1109
+    call change_Character_stat(Jean, "trust", -large_stat) from _call_change_Character_stat_1109
 
     ch_Player "Shit. . ."
 
@@ -688,7 +688,7 @@ label Jean_jealousy_went_on_date_anyways:
     "She leaves without another word."
     ch_Player "Goddamnit. . ."
 
-    call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_1110 
+    call change_Character_stat(Jean, "trust", -large_stat) from _call_change_Character_stat_1110 
 
     $ Jean.give_status("mad")
 
@@ -785,7 +785,7 @@ label Jean_jealousy_flirted_anyways:
     "She leaves without another word."
     ch_Player "Goddamnit. . ."
 
-    call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_1111 
+    call change_Character_stat(Jean, "trust", -large_stat) from _call_change_Character_stat_1111 
 
     $ Jean.give_status("mad")
 

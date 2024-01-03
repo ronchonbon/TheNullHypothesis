@@ -302,7 +302,6 @@ label Jean_asked_on_date_1B:
 
             call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_84
             call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_85
-            call change_Character_stat(Jean, "desire", 0) from _call_change_Character_stat_86
 
             ch_Jean "Good."
         "Isn't that a bit weird. . .":

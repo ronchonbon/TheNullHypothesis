@@ -99,11 +99,11 @@ layeredimage Charles_chair_head:
     if Charles.blush:
         "characters/Charles/images/standing/blush[Charles.blush].webp"
 
-    if Charles.check_traits("psychic") and Charles.activating_psychic:
+    if Charles.check_traits("psychic") and Charles.check_traits("activating_psychic"):
         "Charles_chair_psychic" at Charles_chair_activating_psychic_animation
     elif Charles.check_traits("psychic"):
         "Charles_chair_psychic" at Charles_chair_psychic_animation
-    elif Charles.deactivating_psychic:
+    elif Charles.check_traits("deactivating_psychic"):
         "Charles_chair_psychic" at Charles_chair_deactivating_psychic_animation
 
     anchor (int(1200*character_sampling), int(1770*character_sampling))

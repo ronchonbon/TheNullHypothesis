@@ -30,12 +30,12 @@ label spank(Character):
         call spank_narrations(Character) from _call_spank_narrations_1
 
         if Character.History.check("rejected_spank", tracker = "recent") >= 2:
-            call change_Character_stat(Character, "love", -5) from _call_change_Character_stat_831
-            call change_Character_stat(Character, "trust", -5) from _call_change_Character_stat_832
+            call change_Character_stat(Character, "love", -small_stat) from _call_change_Character_stat_831
+            call change_Character_stat(Character, "trust", -small_stat) from _call_change_Character_stat_832
             
             call expression f"{Character.tag}_rejects_Action_asked_twice" from _call_expression_95
         elif Character.History.check("rejected_spank", tracker = "recent") == 1:
-            call change_Character_stat(Character, "love", -2) from _call_change_Character_stat_833
+            call change_Character_stat(Character, "love", -tiny_stat) from _call_change_Character_stat_833
             
             call expression f"{Character.tag}_rejects_Action_asked_once" from _call_expression_96
         else:

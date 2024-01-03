@@ -57,16 +57,18 @@ label Rogue_chapter_one_season_two_first_training_session:
     menu:
         extend ""
         "Mentally, I've been better, but that doesn't mean I regret what I did.": 
+            call change_Character_stat(Rogue, "love", small_stat) from _call_change_Character_stat_472
+            call change_Character_stat(Rogue, "trust", medium_stat) from _call_change_Character_stat_473
+            
             $ Rogue.change_face("worried2")
             $ Rogue.change_arms("crossed")
 
             ch_Rogue "Ah'm just sorry. . . ya had to get hurt for me. . ." 
             
             $ Rogue.change_face("worried1", eyes = "down") 
-            
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_678 
-            call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_679
         "Not. . . great. It honestly shook me up pretty bad. Just trying not to think about it.": 
+            call change_Character_stat(Rogue, "trust", small_stat) from _call_change_Character_stat_474
+
             $ Rogue.change_face("worried1", eyes = "down")
             $ Rogue.change_arms("crossed")
 
@@ -75,9 +77,9 @@ label Rogue_chapter_one_season_two_first_training_session:
             $ Rogue.change_face("worried1", eyes = "right") 
             
             ch_Rogue "Ah was useless." 
-            
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_680
         "I'm fine. Angry, if anything, that I was so useless.":
+            call change_Character_stat(Rogue, "trust", medium_stat) from _call_change_Character_stat_475
+            
             $ Rogue.change_face("worried2")
             $ Rogue.change_arms("angry")
 
@@ -88,8 +90,6 @@ label Rogue_chapter_one_season_two_first_training_session:
             
             ch_Rogue "Ah might be dead. . . if not for you." 
             
-            call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_681
-
     $ Rogue.change_face("worried1", eyes = "right")
     $ Rogue.change_arms("angry")
 

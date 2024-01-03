@@ -58,17 +58,15 @@ label Rogue_chapter_one_season_three_first_training_session:
         extend ""
         "What's this all about? I don't know what you're so afraid of.":
             $ Rogue.change_face("worried2") 
-            
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_661 
-            call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_662
         "What are you so scared of?! You're freaking me out. . .":
+            call change_Character_stat(Rogue, "love", -small_stat) from _call_change_Character_stat_340
+
             $ Rogue.change_face("worried1", eyes = "down") 
-            
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_663
         "Either tell me what you're so afraid of or cut it out.":
+            call change_Character_stat(Rogue, "love", -medium_stat) from _call_change_Character_stat_341
+            call change_Character_stat(Rogue, "trust", -small_stat) from _call_change_Character_stat_342
+
             $ Rogue.change_face("appalled1") 
-            
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_664 
 
     $ Rogue.change_arms("angry")
 
@@ -184,7 +182,10 @@ label Rogue_chapter_one_season_three_first_training_session:
 
     menu:
         extend ""
-        "I completely understand if you're not ready to talk about it, and I just want you to know I'll be here if you ever are.":
+        "I understand if you're not ready to talk about it. I just want you to know I'll be here if you ever are.":
+            call change_Character_stat(Rogue, "love", medium_stat) from _call_change_Character_stat_343
+            call change_Character_stat(Rogue, "trust", large_stat) from _call_change_Character_stat_344
+
             $ Rogue.change_face("worried2") 
             
             pause 1.0 
@@ -192,20 +193,23 @@ label Rogue_chapter_one_season_three_first_training_session:
             $ Rogue.change_face("worried1", mouth = "smirk")
 
             ch_Rogue "Thanks. . . ah really do appreciate yer understanding." 
+        "Whatever you went through, I can tell it wasn't easy for you. If you ever do want to talk. . .":
+            call change_Character_stat(Rogue, "love", medium_stat) from _call_change_Character_stat_345
+            call change_Character_stat(Rogue, "trust", medium_stat) from _call_change_Character_stat_346
             
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_665 
-            call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_666
-        "Whatever you went through, I can tell it wasn't easy for you. I know what that's like now, and if you ever do want to talk. . .":
             $ Rogue.change_face("worried1", eyes = "down")
+
+            pause 1.0
 
             $ Rogue.change_face("worried1") 
             
-            ch_Rogue "Ah don't know if ya really do. . . but ah still appreciate it." 
+            ch_Rogue "Ah don't know if ya really understand. . . but ah still appreciate it." 
             
             $ Rogue.change_face("worried1", mouth = "smirk") 
-            
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_667
         "I don't know what you've been through, but I've been through some shit myself after all of this. Just don't lie to me and pretend like everything's fine.":
+            call change_Character_stat(Rogue, "love", -small_stat) from _call_change_Character_stat_347
+            call change_Character_stat(Rogue, "trust", medium_stat) from _call_change_Character_stat_368
+                        
             ch_Player "When you do want to talk, I'll be here." 
             
             $ Rogue.change_face("confused2") 
@@ -218,9 +222,6 @@ label Rogue_chapter_one_season_three_first_training_session:
             ch_Rogue "It's hard for me." 
             
             $ Rogue.change_face("worried1") 
-            
-            call change_Character_stat(Rogue, "love", 0) from _call_change_Character_stat_668 
-            call change_Character_stat(Rogue, "trust", 0) from _call_change_Character_stat_669
 
     $ Rogue.change_face("worried1")
 

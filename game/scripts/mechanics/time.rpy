@@ -248,7 +248,7 @@ label start_new_day(fast = False):
         if temp_Characters[0].timed_text_options:
             $ temp_Characters[0].timed_text_options = {}
 
-            call change_Character_stat(temp_Characters[0], "love", -5) from _call_change_Character_stat_1038
+            call change_Character_stat(temp_Characters[0], "love", -tiny_stat) from _call_change_Character_stat_1038
 
         $ temp_Characters.remove(temp_Characters[0])
 
