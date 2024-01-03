@@ -28,9 +28,10 @@ init python:
         if EventScheduler.Events["Jean_back_from_mission"].completed:
             optional_objectives.update({"Check in on her late night study session": ["EventScheduler.Events['Jean_chapter_one_season_one_study_time'].completed", None]})
 
-            optional_objectives.update({"Help her unwind after her exam": ["EventScheduler.Events['Jean_chapter_one_season_one_exam_freakout'].completed", None]})
-
             optional_objectives.update({"Talk to her about her friends": ["EventScheduler.Events['Jean_chapter_one_season_one_friendless'].completed", None]})
+        
+            if EventScheduler.Events["Jean_chapter_one_season_one_study_time"].completed and EventScheduler.Events["Jean_chapter_one_season_one_friendless"].completed:
+                optional_objectives.update({"Help her unwind after her exam": ["EventScheduler.Events['Jean_chapter_one_season_one_exam_freakout'].completed", None]})
 
         rewards = {}
         criteria = [

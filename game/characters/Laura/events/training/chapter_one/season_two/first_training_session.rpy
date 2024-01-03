@@ -45,7 +45,6 @@ label Laura_chapter_one_season_two_first_training_session:
     $ Laura.change_face("angry1")
     $ Laura.change_arms("hips")
 
-
     ch_Laura "Are you fully healed?"
     ch_Player "Yeah."
     ch_Player "Not sure how, but I feel perfectly fine."
@@ -168,18 +167,20 @@ label Laura_chapter_one_season_two_first_training_session:
     menu:
         extend ""
         "Holy shit. . . that was exhilarating.":
+            call change_Character_stat(Laura, "love", medium_stat) from _call_change_Character_stat_535
+            call change_Character_stat(Laura, "trust", medium_stat) from _call_change_Character_stat_536
+
             $ Laura.change_face("confused2") 
-            
-            call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_447
-        "Maybe a fucking warning next time ?!":
+        "Maybe a fucking warning next time?!":
+            call change_Character_stat(Laura, "love", -medium_stat) from _call_change_Character_stat_537
+            call change_Character_stat(Laura, "trust", -medium_stat) from _call_change_Character_stat_538
+
             $ Laura.change_face("appalled1") 
-            
-            call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_448
         "What if I didn't duck in time. . . ?":
+            call change_Character_stat(Laura, "love", -small_stat) from _call_change_Character_stat_539
+
             $ Laura.change_face("angry1") 
             
-            call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_449
-
     pause 1.0
 
     $ Laura.change_face("neutral")

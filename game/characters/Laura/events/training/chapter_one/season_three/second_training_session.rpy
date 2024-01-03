@@ -26,25 +26,25 @@ label Laura_chapter_one_season_three_second_training_session:
     menu:
         extend ""
         "Were you worried about me? That's sweet.":
+            call change_Character_stat(Laura, "love", medium_stat) from _call_change_Character_stat_533
+
             $ Laura.change_face("suspicious1")
 
             ch_Laura "Shut up." 
             ch_Laura "Answer the question." 
-            
-            call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_443
         "Not bad at all.":
             $ Laura.change_face("neutral") 
 
             ch_Laura "Explain."
         "I'm fine now, but what about you?":
+            call change_Character_stat(Laura, "trust", small_stat) from _call_change_Character_stat_534
+
             $ Laura.change_face("confused1")
 
             ch_Laura "Answer my question first." 
             
             $ Laura.change_face("angry1") 
             
-            call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_444
-
     ch_Player "Okay, well, I was pretty exhausted for a while afterwards."
 
     $ Laura.change_face("neutral")

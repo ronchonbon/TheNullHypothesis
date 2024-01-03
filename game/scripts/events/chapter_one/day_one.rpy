@@ -350,11 +350,16 @@ label day_one_intro:
     menu:
         extend ""
         "Wow. . . I uhh. . .":
+            call change_Character_stat(Ororo, "love", small_stat) from _call_change_Character_stat_560
+
             $ Ororo.change_face("worried1")
             $ Ororo.change_arms("hips", right_arm = "neutral")
 
             ch_Ororo "Charles, are you sure he's okay?"
         "It's great to meet you, [Ororo.name]. I can't believe I'm talking to one of the X-Men.":
+            call change_Character_stat(Ororo, "love", small_stat) from _call_change_Character_stat_561
+            call change_Character_stat(Ororo, "trust", small_stat) from _call_change_Character_stat_562
+
             $ Ororo.change_face("happy", blush = 1)
         "Nice to meet you, too.":
             pass
@@ -373,6 +378,9 @@ label day_one_intro:
     menu:
         extend ""
         "Wow. . . I am forever in your debt, [Charles.name].":
+            call change_Character_stat(Ororo, "love", small_stat) from _call_change_Character_stat_563
+            call change_Character_stat(Ororo, "trust", -tiny_stat) from _call_change_Character_stat_564
+            
             $ Ororo.change_face("confused1", mouth = "smirk")
             $ Ororo.change_arms("angry")
 
@@ -381,6 +389,8 @@ label day_one_intro:
             call send_Characters(Charles, location = "hold") from _call_send_Characters_181
             call swap_Slots(Ororo, "middle") from _call_swap_Slots
         "Thank you, [Charles.name]. I might be dead if not for you.":
+            call change_Character_stat(Ororo, "trust", medium_stat) from _call_change_Character_stat_565
+            
             $ Ororo.change_face("smirk1")
             $ Ororo.change_arms("hips", right_arm = "neutral")
 
@@ -524,11 +534,15 @@ label meet_Rogue:
 
             ch_Ororo "Mutant Physiology, World Politics, a few other electives as well."
         "Damn, and here I thought I could get away from freshman psychology.":
+            call change_Character_stat(Ororo, "love", -small_stat) from _call_change_Character_stat_566
+            
             $ Ororo.change_face("neutral", eyes = "squint")
             $ Ororo.change_arms("crossed")
 
             ch_Ororo "I'm afraid not, [Player.first_name]."
         "How would you compare the difficulty of the curriculum to a normal university's? (academic)" if Player.scholarship == "academic":
+            call change_Character_stat(Ororo, "love", small_stat) from _call_change_Character_stat_567
+            
             $ Ororo.change_face("pleased1")
             $ Ororo.change_arms("hips")
 
@@ -642,6 +656,8 @@ label meet_Rogue:
             $ Rogue.History.update("Player_looked_at_glove")
         "We are. Thank you very much, [Ororo.name], I'll make sure to study hard.":
             call change_Character_stat(Rogue, "trust", small_stat) from _call_change_Character_stat_639
+                        
+            call change_Character_stat(Ororo, "trust", small_stat) from _call_change_Character_stat_568
             
             $ Rogue.change_face("pleased1", blush = 1)
 
@@ -875,6 +891,8 @@ label meet_Laura:
 
                 $ asked_name = True
             "You must be pretty good at fighting to be a combat instructor." if not asked_fighting:
+                call change_Character_stat(Laura, "love", small_stat) from _call_change_Character_stat_882
+                
                 $ Laura.change_face("smirk1")
 
                 ch_Laura "I am. I have a lot of experience. It's why I was made."
@@ -914,7 +932,7 @@ label meet_Laura:
 
                 $ Laura.change_face("neutral")
 
-                call change_Character_stat(Laura, "trust", medium_stat) from _call_change_Character_stat_882
+                call change_Character_stat(Laura, "trust", medium_stat) from _call_change_Character_stat_569
 
                 $ Laura.History.update("was_warned_about_Player_power")
 
@@ -1052,6 +1070,8 @@ label day_one_tour_farewell:
     menu:
         extend ""
         "It really was a pleasure.":
+            call change_Character_stat(Ororo, "trust", -small_stat) from _call_change_Character_stat_570
+            
             $ Ororo.change_face("surprised2", blush = 1)
             $ Ororo.change_arms(right_arm = "fist", left_arm = "extended")
 
@@ -1061,6 +1081,8 @@ label day_one_tour_farewell:
 
             ch_Ororo "{i}Ahem{/i}. . . Well, goodbye, [Player.first_name]. I have a mission to attend to."
         "Are you sure?":
+            call change_Character_stat(Ororo, "trust", medium_stat) from _call_change_Character_stat_571
+            
             $ Ororo.change_face("smirk1")
 
             ch_Ororo "I am. I'd like to see firsthand what all the fuss is about."

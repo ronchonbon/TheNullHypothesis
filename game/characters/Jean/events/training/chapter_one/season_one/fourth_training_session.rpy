@@ -30,7 +30,7 @@ label Jean_chapter_one_season_one_fourth_training_session:
         extend ""
         "But you have been making progress, that's all that matters.":
             call change_Character_stat(Jean, "love", medium_stat) from _call_change_Character_stat_846
-            call change_Character_stat(Jean, "trust", small_stat) from _call_change_Character_stat_847
+            call change_Character_stat(Jean, "trust", medium_stat) from _call_change_Character_stat_847
 
             $ Jean.change_face("worried1") 
             

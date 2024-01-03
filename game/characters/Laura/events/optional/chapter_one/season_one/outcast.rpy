@@ -15,6 +15,8 @@ init python:
 
             "chapter == 1 and season == 1",
 
+            "Laura.History.check('trained_with_Player', tracker = 'season') >= 2",
+
             "weekday < 5 and time_index < 2",
             "clock == Player.max_stamina",
 
@@ -40,6 +42,8 @@ init python:
             
             "chapter == 1 and season == 1",
 
+            "Laura.History.check('trained_with_Player', tracker = 'season') >= 2",
+
             "weekday < 5 and time_index < 2",
             "clock == Player.max_stamina",
             
@@ -55,6 +59,8 @@ init python:
                 "Player.location != 'bg_classroom'",
 
                 "chapter == 1 and season == 1",
+
+                "Laura.History.check('trained_with_Player', tracker = 'season') >= 2",
 
                 "weekday < 5 and time_index < 2",
                 "clock == Player.max_stamina",

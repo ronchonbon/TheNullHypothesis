@@ -15,6 +15,9 @@ init python:
 
             "chapter == 1 and season == 1",
 
+            "EventScheduler.Events['Jean_chapter_one_season_one_study_time'].completed",
+            "EventScheduler.Events['Jean_chapter_one_season_one_friendless'].completed",
+
             "weekday < 5 and time_index < 2",
             "weather != 'rain'",    
             "clock == Player.max_stamina",
@@ -41,6 +44,9 @@ init python:
             
             "chapter == 1 and season == 1",
 
+            "EventScheduler.Events['Jean_chapter_one_season_one_study_time'].completed",
+            "EventScheduler.Events['Jean_chapter_one_season_one_friendless'].completed",
+
             "weekday < 5 and time_index < 2",
             "weather != 'rain'",    
             "clock == Player.max_stamina",
@@ -57,6 +63,9 @@ init python:
                 "Player.location != 'bg_classroom'",
                 
                 "chapter == 1 and season == 1",
+
+                "EventScheduler.Events['Jean_chapter_one_season_one_study_time'].completed",
+                "EventScheduler.Events['Jean_chapter_one_season_one_friendless'].completed",
 
                 "weekday < 5 and time_index < 2",
                 "weather != 'rain'",    
@@ -228,7 +237,7 @@ label Jean_chapter_one_season_one_exam_freakout:
     menu:
         extend ""
         "I care much more about taking your mind off things than some lecture.":
-            call change_Character_stat(Jean, "love", medium_stat) from _call_change_Character_stat_112
+            call change_Character_stat(Jean, "love", large_stat) from _call_change_Character_stat_112
             call change_Character_stat(Jean, "trust", medium_stat) from _call_change_Character_stat_113
             
             $ Jean.change_face("worried3")

@@ -16,6 +16,8 @@ init python:
             "time_index not in Jean.schedule.keys()",
 
             "chapter == 1 and season == 1",
+
+            "Jean.History.check('trained_with_Player', tracker = 'season') >= 2",
             
             "time_index < 3",
 
@@ -41,6 +43,8 @@ init python:
 
             "chapter == 1 and season == 1",
 
+            "Jean.History.check('trained_with_Player', tracker = 'season') >= 2",
+            
             "time_index < 3",
             
             "Jean.location == 'bg_danger'",
@@ -57,6 +61,8 @@ init python:
 
                 "chapter == 1 and season == 1",
 
+                "Jean.History.check('trained_with_Player', tracker = 'season') >= 2",
+                
                 "time_index < 3",
                 
                 "Jean.location == 'bg_danger'",

@@ -15,6 +15,8 @@ init python:
 
             "chapter == 1 and season == 1",
 
+            "Laura.History.check('trained_with_Player', tracker = 'season') >= 4",
+
             "time_index >= 3",
 
             "Laura.is_in_normal_mood()"]
@@ -39,6 +41,8 @@ init python:
 
             "chapter == 1 and season == 1",
 
+            "Laura.History.check('trained_with_Player', tracker = 'season') >= 4",
+
             "time_index >= 3",
             
             "Laura.location == 'bg_danger'",
@@ -54,6 +58,8 @@ init python:
                 "Player.location != 'bg_danger'",
 
                 "chapter == 1 and season == 1",
+
+                "Laura.History.check('trained_with_Player', tracker = 'season') >= 4",
 
                 "time_index >= 3",
                 

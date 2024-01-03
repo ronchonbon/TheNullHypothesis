@@ -1021,6 +1021,8 @@ label ch1_Sentinel_attack:
             $ Jean.change_face("surprised2") 
             
             ch_Player "Can I call you that from now on?" 
+
+            call change_Character_stat(Jean, "love", large_stat) from _call_change_Character_stat_556
             
             $ Jean.change_face("pleased2") 
             
@@ -1039,6 +1041,8 @@ label ch1_Sentinel_attack:
             $ Jean.change_face("worried2") 
             
             ch_Player "But I like using your name." 
+            
+            call change_Character_stat(Jean, "trust", small_stat) from _call_change_Character_stat_557
             
             $ Jean.change_face("worried1", mouth = "smirk") 
             
@@ -1433,6 +1437,8 @@ label ch1_Sentinel_attack:
             ch_Player "It does make me feel better. . . whenever you're there to back me up." 
             ch_Player "It's not usually how friendships work. . ." 
             ch_Player "But I like the idea of you telling me what to do. . ." 
+
+            call change_Character_stat(Laura, "love", large_stat) from _call_change_Character_stat_558
             
             $ Laura.change_face("sly", blush = 1)
             
@@ -1448,6 +1454,9 @@ label ch1_Sentinel_attack:
             $ Laura.change_face("angry2") 
             
             ch_Player "That's how friends usually do it. . ." 
+
+            call change_Character_stat(Laura, "trust", small_stat) from _call_change_Character_stat_559
+
             ch_Laura "Very well. . . then you will be {i}strongly{/i} encouraged."
             
             $ Laura.History.update("quirk_discouraged")

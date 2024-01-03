@@ -221,9 +221,10 @@ label ch1_Juggernaut_attack:
             call change_Character_stat(Jean, "trust", medium_stat) from _call_change_Character_stat_838
         "[temp], are you sure. . . ? What if you lose control again?":
             call change_Character_stat(Jean, "love", -small_stat) from _call_change_Character_stat_839
+            call change_Character_stat(Jean, "trust", small_stat) from _call_change_Character_stat_549
         "Don't act all confident, you need to face reality. You and I both know you're not stable enough for that.":
             call change_Character_stat(Jean, "love", -medium_stat) from _call_change_Character_stat_840  
-            call change_Character_stat(Jean, "trust", small_stat) from _call_change_Character_stat_841
+            call change_Character_stat(Jean, "trust", medium_stat) from _call_change_Character_stat_841
 
     $ Jean.change_face("angry1") 
     $ Jean.change_arms("angry")
@@ -1596,6 +1597,9 @@ label ch1_Juggernaut_attack:
     menu:
         extend ""
         "I've been better. . . but don't apologize, I wanted to thank you.":
+            call change_Character_stat(Ororo, "love", medium_stat) from _call_change_Character_stat_550
+            call change_Character_stat(Ororo, "trust", medium_stat) from _call_change_Character_stat_551
+
             $ Ororo.change_face("worried2")
         
             ch_Ororo "I do not deserve your thanks." 
@@ -1608,6 +1612,8 @@ label ch1_Juggernaut_attack:
         
             ch_Ororo "That is why I am here. . ."
         "I was about to go to bed, this can't wait?":
+            call change_Character_stat(Ororo, "love", -medium_stat) from _call_change_Character_stat_552
+            
             $ Ororo.change_face("confused1", eyes = "squint") 
 
             ch_Ororo "It cannot. . ."
@@ -1632,10 +1638,15 @@ label ch1_Juggernaut_attack:
     menu:
         extend ""
         "None of this is your fault, but I still really appreciate it.":
+            call change_Character_stat(Ororo, "love", medium_stat) from _call_change_Character_stat_553
+            call change_Character_stat(Ororo, "trust", medium_stat) from _call_change_Character_stat_554
+            
             $ Ororo.change_face("worried1", mouth = "smirk")
         "Well, luckily I wasn't too badly injured. . .":
             $ Ororo.change_face("worried1", mouth = "smirk")
         "Yeah. . . I was wondering what the hell took you so long. . .": 
+            call change_Character_stat(Ororo, "love", -small_stat) from _call_change_Character_stat_555
+
             $ Ororo.change_face("worried1", eyes = "right")
 
     $ Ororo.change_face("worried1")

@@ -31,6 +31,9 @@ label Laura_chapter_one_season_two_second_training_session:
     menu:
         extend ""
         "I feel great, thanks.":
+            call change_Character_stat(Laura, "love", medium_stat) from _call_change_Character_stat_540
+            call change_Character_stat(Laura, "trust", small_stat) from _call_change_Character_stat_541
+
             ch_Player "How are you?" 
             
             $ Laura.change_face("surprised2")
@@ -40,26 +43,24 @@ label Laura_chapter_one_season_two_second_training_session:
             $ Laura.change_face("confused1") 
             
             ch_Laura "I feel. . . fine." 
-            
-            call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_451 
-            call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_452
         "Uh. . . am I dreaming?":
+            call change_Character_stat(Laura, "love", large_stat) from _call_change_Character_stat_542
+
             ch_Player "So you do actually care."
 
             $ Laura.change_face("neutral", eyes = "squint") 
             $ Laura.change_arms("angry")
             
             ch_Laura "Shut up. . ." 
-            
-            call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_453
         "Like shit, because I know how much this is gonna suck.":
+            call change_Character_stat(Laura, "love", -small_stat) from _call_change_Character_stat_543
+            call change_Character_stat(Laura, "trust", -small_stat) from _call_change_Character_stat_544
+
             $ Laura.change_face("furious") 
             $ Laura.change_arms("angry")
             
             ch_Laura "Suck it up." 
             
-            call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_454
-
     $ Laura.change_face("suspicious1")
     $ Laura.change_arms("hips")
 
@@ -123,15 +124,17 @@ label Laura_chapter_one_season_two_second_training_session:
     menu:
         extend ""
         "I'm sorry, I really don't mean to stress you out.":
+            call change_Character_stat(Laura, "love", medium_stat) from _call_change_Character_stat_545
+
             ch_Player "But I trust you to help me learn how to fend for myself."
         
             $ Laura.change_face("angry1") 
             
             ch_Laura "Good." 
             ch_Laura "Then you will trust that the amount of pain I'm going to put you through is justified." 
-            
-            call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_455
-        "I hate being a burden to you too. I refuse to be one for much longer.":
+        "I don't like being a burden either. I refuse to be one for much longer.":
+            call change_Character_stat(Laura, "trust", medium_stat) from _call_change_Character_stat_546
+
             $ Laura.change_face("surprised1") 
             
             ch_Player "You know my own limitations better than me. . . help me break through them."
@@ -140,19 +143,16 @@ label Laura_chapter_one_season_two_second_training_session:
             
             ch_Laura "Trust in the fact that I will." 
             ch_Laura "And it will be {i}very{/i} painful." 
-            
-            call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_456 
-            call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_457
         "How much anxiety do you think {i}I{/i} feel, having so many near-death experiences?!":
+            call change_Character_stat(Laura, "love", -small_stat) from _call_change_Character_stat_547
+            call change_Character_stat(Laura, "trust", -small_stat) from _call_change_Character_stat_548
+
             $ Laura.change_face("furious") 
             
             ch_Player "You know I need your help to stop being so goddamn vulnerable."
             ch_Laura "Then don't complain when I put you through more pain than you've ever felt in your life." 
             ch_Laura "Trust that it's for your own good." 
             
-            call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_458 
-            call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_459
-
     $ Laura.change_face("angry1", blush = 1)
     $ Laura.change_arms("crossed")
 

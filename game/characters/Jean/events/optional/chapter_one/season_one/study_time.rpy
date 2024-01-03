@@ -15,6 +15,8 @@ init python:
 
             "chapter == 1 and season == 1",
 
+            "Jean.History.check('studied_with_Player')",
+
             "time_index >= 3",
 
             "Jean.is_in_normal_mood()"]
@@ -40,6 +42,8 @@ init python:
             
             "chapter == 1 and season == 1",
 
+            "Jean.History.check('studied_with_Player')",
+
             "time_index >= 3",
             
             "Jean.location == 'bg_classroom'",
@@ -55,6 +59,8 @@ init python:
                 "Player.location != 'bg_classroom'",
 
                 "chapter == 1 and season == 1",
+
+                "Jean.History.check('studied_with_Player')",
 
                 "time_index >= 3",
                 
@@ -217,14 +223,14 @@ label Jean_chapter_one_season_one_study_time:
         extend ""
         "Well, as long as you're not pushing yourself harder than you can take.":
             call change_Character_stat(Jean, "love", medium_stat) from _call_change_Character_stat_164
-            call change_Character_stat(Jean, "trust", small_stat) from _call_change_Character_stat_165
+            call change_Character_stat(Jean, "trust", medium_stat) from _call_change_Character_stat_165
             
             $ Jean.change_face("worried1", mouth = "smirk", eyes = "right")
             $ Jean.change_arms("crossed")           
 
             ch_Jean "I mean, I probably am, but I can catch up on sleep when all this is over, right?"
         "That's crazy, you do this all the time?":
-            call change_Character_stat(Jean, "love", small_stat) from _call_change_Character_stat_166
+            call change_Character_stat(Jean, "love", -small_stat) from _call_change_Character_stat_166
             
             $ Jean.change_face("worried1", mouth = "smirk")
             $ Jean.change_arms("crossed")       
@@ -232,7 +238,7 @@ label Jean_chapter_one_season_one_study_time:
             ch_Jean "It's the sacrifice we have to pay for the top grade."
         "I think you're the only person I've ever met who willingly spends time in class when they don't have to.":
             call change_Character_stat(Jean, "love", small_stat) from _call_change_Character_stat_167
-            call change_Character_stat(Jean, "trust", small_stat) from _call_change_Character_stat_168
+            call change_Character_stat(Jean, "trust", -small_stat) from _call_change_Character_stat_168
             
             $ Jean.change_face("confused1", mouth = "smirk")
             $ Jean.change_arms("crossed")        

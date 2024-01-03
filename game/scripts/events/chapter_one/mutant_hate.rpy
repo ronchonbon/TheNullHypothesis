@@ -757,6 +757,9 @@ label ch1_mutant_hate:
             $ Laura.change_face("angry1", blush = 1)
 
             ch_Laura "I will make sure of that myself."
+
+            call change_Character_stat(Laura, "love", small_stat) from _call_change_Character_stat_574
+
             "You do as she says and take your shirt off."
 
             $ Laura.change_face("angry1", eyes = "down", blush = 1)
@@ -777,6 +780,9 @@ label ch1_mutant_hate:
 
             $ Laura.History.update("quirk_encouraged")
         "[Laura.name], that's a bit too far. (discourage_quirk)":
+            call change_Character_stat(Laura, "love", -small_stat) from _call_change_Character_stat_575
+            call change_Character_stat(Laura, "trust", small_stat) from _call_change_Character_stat_576
+
             ch_Player "The doctor said I was okay." 
             
             $ Laura.change_face("angry1")
@@ -798,7 +804,10 @@ label ch1_mutant_hate:
 
     menu:
         extend ""
-        "I did what I had to do, just wish they didn't force my hand like that. . . (determined)":
+        "I did what I had to do, I just wish they hadn't force my hand like that. . . (determined)":
+            call change_Character_stat(Laura, "love", medium_stat) from _call_change_Character_stat_577
+            call change_Character_stat(Laura, "trust", large_stat) from _call_change_Character_stat_578
+
             ch_Laura "Don't feel pity for degenerates like that." 
             
             $ Laura.change_face("neutral", eyes = "right") 
@@ -807,6 +816,9 @@ label ch1_mutant_hate:
 
             $ Player.History.update("Determined")
         "I was scared shitless. . . would probably be dead without your training. . . (reluctant)":
+            call change_Character_stat(Laura, "love", small_stat) from _call_change_Character_stat_579
+            call change_Character_stat(Laura, "trust", small_stat) from _call_change_Character_stat_581
+
             ch_Laura "This is exactly why you need more training."
             
             $ Laura.change_face("suspicious2") 
@@ -816,6 +828,9 @@ label ch1_mutant_hate:
 
             $ Player.History.update("Reluctant")
         "You're right, they tried to fucking kill me afterall. (bitter)":
+            call change_Character_stat(Laura, "love", large_stat) from _call_change_Character_stat_582
+            call change_Character_stat(Laura, "trust", small_stat) from _call_change_Character_stat_583
+
             ch_Player "But. . . I still feel like shit about it."
             ch_Laura "Because you are a better person than them." 
             
@@ -902,6 +917,7 @@ label ch1_mutant_hate:
         ch_Jean "Come here."
 
         $ Jean.change_face("worried1", eyes = "closed", blush = 1)
+        $ Jean.change_arms("crossed")
 
         "She wraps her arms around you in a tight hug."
         ch_Jean "Word's been spreading about what happened."
@@ -910,6 +926,8 @@ label ch1_mutant_hate:
         menu:
             extend ""
             "Lean into her for comfort":
+                call change_Character_stat(Jean, "love", large_stat) from _call_change_Character_stat_584
+                
                 "You squeeze her back, tightly, realizing she's right."
                 "Regardless of how you reacted at the time, you were terrified deep down."
                 "An angry mob of normal people just tried to murder you."
@@ -919,16 +937,20 @@ label ch1_mutant_hate:
                 "She finally lets go."
             "You're okay":
                 "You squeeze her back, before letting go."
+                
+        $ Jean.change_arms("neutral")
     else:
         $ Jean.change_face("worried1")
 
         ch_Jean "Come here."
 
         $ Jean.change_face("worried1", eyes = "closed", blush = 1)
+        $ Jean.change_arms("crossed")
 
         "She hugs you tightly for a moment before letting go."
 
         $ Jean.change_face("worried1")
+        $ Jean.change_arms("neutral")
 
         ch_Jean "You're okay, right?"
         ch_Player "Physically I am. . ."
@@ -954,6 +976,8 @@ label ch1_mutant_hate:
     menu:
         extend ""
         "I just don't get it, they were willing to go so far. . . (determined)":
+            call change_Character_stat(Jean, "love", medium_stat) from _call_change_Character_stat_585
+
             $ Jean.change_face("worried1")
 
             ch_Jean "Not everybody is good, like we are. . ." 
@@ -964,6 +988,8 @@ label ch1_mutant_hate:
 
             $ Player.History.update("Determined")
         "I really was terrified. . . they didn't even hesitate to try and kill me. . . (reluctant)":
+            call change_Character_stat(Jean, "love", medium_stat) from _call_change_Character_stat_586
+
             $ Jean.change_face("worried1")
 
             ch_Jean "Some people just like to find any excuse for violence. . ." 
@@ -975,6 +1001,8 @@ label ch1_mutant_hate:
             $ Player.History.update("told_Jean_was_scared_during_mutant_hate")
             $ Player.History.update("Reluctant")
         "In retrospect, I'm more pissed off than scared. (bitter)":
+            call change_Character_stat(Jean, "love", small_stat) from _call_change_Character_stat_587
+
             $ Jean.change_face("worried1")
 
             ch_Jean "I know it's frustrating, but you can't let them make you angry." 

@@ -37,25 +37,25 @@ label Jean_chapter_one_season_two_second_training_session:
 
     menu:
         extend ""
-        "I don't mind at all. If anything, it'd be good to tell someone about the details.":
+        "I don't mind at all. It'd be good to tell someone about the details.":
+            call change_Character_stat(Jean, "love", small_stat) from _call_change_Character_stat_374
+            call change_Character_stat(Jean, "trust", small_stat) from _call_change_Character_stat_375
+            
             $ Jean.change_face("smirk1") 
             
-            call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_210 
-            call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_211
-
             $ choice = "A"
         "I. . . I'll try. Not like I can ever forget how it felt. . .":
+            call change_Character_stat(Jean, "love", medium_stat) from _call_change_Character_stat_376
+            call change_Character_stat(Jean, "trust", medium_stat) from _call_change_Character_stat_377
+
             $ Jean.change_face("worried2") 
             
-            call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_212
-
             $ choice = "B"
         "I guess I can. . . really didn't want to relive those memories, but fine.":
+            call change_Character_stat(Jean, "trust", small_stat) from _call_change_Character_stat_378
+
             $ Jean.change_face("worried1", eyes = "left") 
             
-            call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_213 
-            call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_214
-
             $ choice = "C"
 
     "You tell her about that day, mentioning all the details you can remember."

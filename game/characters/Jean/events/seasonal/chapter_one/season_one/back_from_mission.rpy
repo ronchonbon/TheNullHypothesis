@@ -227,7 +227,7 @@ label Jean_back_from_mission:
         extend ""
         "I really appreciate that.":
             call change_Character_stat(Jean, "love", small_stat) from _call_change_Character_stat_385
-            call change_Character_stat(Jean, "trust", medium_stat) from _call_change_Character_stat_386
+            call change_Character_stat(Jean, "trust", small_stat) from _call_change_Character_stat_386
 
             $ Jean.blush = 1
 

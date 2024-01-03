@@ -165,7 +165,7 @@ label Jean_boyfriend_alternate_trigger:
         "Postpone relationship talk":
             $ Jean.change_face("surprised2", blush = 3)
 
-            ch_Player "Uh. . . this is actually a pretty bad time, [Jean.name]."
+            ch_Player "Uh. . . this actually isn't a great time, [Jean.name]."
 
             $ Jean.change_face("worried1", eyes = "right", blush = 1)
 

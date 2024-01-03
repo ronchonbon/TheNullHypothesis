@@ -67,7 +67,7 @@ label Laura_chapter_one_season_two_first_study_session:
 
     menu:
         extend ""
-        "I know your situation before coming here was different, but you must have had some kind of prior schooling, no?":
+        "I know your situation before coming here was different, but you must have had some kind of prior schooling?":
             $ Laura.change_face("angry1", eyes = "right")
             $ Laura.change_arms("angry")
 
@@ -76,9 +76,6 @@ label Laura_chapter_one_season_two_first_study_session:
             $ Laura.change_face("angry1") 
             
             ch_Laura "The vast majority of which were focused on how to most effectively kill someone." 
-            
-            call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_398 
-            call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_399
         "Did you really never have any experience with school before this? They must've taught you some stuff. . . before coming here.":
             $ Laura.change_face("angry1")
             $ Laura.change_arms("angry")
@@ -87,9 +84,9 @@ label Laura_chapter_one_season_two_first_study_session:
             ch_Laura "No."
             ch_Laura "How to kill effectively?" 
             ch_Laura "Yes." 
-            
-            call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_400
         "Oh come on, there's no way you've never heard of this school stuff. You're pretty smart, all things considered. . .":
+            call change_Character_stat(Laura, "love", -medium_stat) from _call_change_Character_stat_452
+            
             ch_Player "Somebody must've taught you at some point." 
             
             $ Laura.change_face("appalled1")
@@ -97,9 +94,6 @@ label Laura_chapter_one_season_two_first_study_session:
 
             ch_Laura "Why would someone like me need to learn anything but how to most effectively kill a human being?" 
             
-            call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_401 
-            call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_402
-
     $ Laura.change_face("angry1", eyes = "right")
     $ Laura.change_arms("crossed")
 
@@ -177,14 +171,22 @@ label Laura_chapter_one_season_two_first_study_session:
     menu:
         extend ""
         "I know you don't enjoy this stuff, but you've been doing really well lately.":
+            call change_Character_stat(Laura, "love", medium_stat) from _call_change_Character_stat_453
+            call change_Character_stat(Laura, "trust", small_stat) from _call_change_Character_stat_454
+
             $ Laura.change_face("smirk2", eyes = "right")
 
             ch_Laura "It's been. . . easier to digest lately. . ."
         "You've been crushing the exams recently, great job.":
+            call change_Character_stat(Laura, "love", medium_stat) from _call_change_Character_stat_455
+            call change_Character_stat(Laura, "trust", small_stat) from _call_change_Character_stat_456
+
             $ Laura.change_face("smirk2", eyes = "right")
 
             ch_Laura "I. . . thanks. . ."
         "Maybe whatever training you went through as a kid was a good thing. Can't deny the results, you've been crushing the recent exams.":
+            call change_Character_stat(Laura, "trust", -large_stat) from _call_change_Character_stat_457
+
             $ Laura.change_face("angry1", eyes = "right")
 
             ch_Laura "Thanks. . . I guess. . ."

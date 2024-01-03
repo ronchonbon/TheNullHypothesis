@@ -94,19 +94,22 @@ label Jean_chapter_one_season_four_first_study_session:
     menu:
         extend ""
         "You zoned out again. . . tell me what's bothering you so much. Are you really okay?":
+            call change_Character_stat(Jean, "love", -small_stat) from _call_change_Character_stat_150
+            call change_Character_stat(Jean, "trust", medium_stat) from _call_change_Character_stat_151
+            
             $ Jean.change_face("confused2")
 
             ch_Jean "I. . . am {i}really{/i} not okay. . ." 
-            
-            call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_117 
-            call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_118
         "[temp]? Is everything really okay? You're getting distracted again. . .":
+            call change_Character_stat(Jean, "love", small_stat) from _call_change_Character_stat_152
+            call change_Character_stat(Jean, "trust", small_stat) from _call_change_Character_stat_153
+
             $ Jean.change_face("worried2")
 
             ch_Jean "No, [Jean.Player_petname], I am {i}really{/i} not okay." 
-            
-            call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_119
         "Really? What the hell's gotten into you? At this rate, studying with [Laura.name] would be more productive. . .":
+            call change_Character_stat(Jean, "love", -medium_stat) from _call_change_Character_stat_154
+
             $ Jean.change_face("appalled1")
 
             ch_Jean "Oh please, like studying with that feral animal would be productive at all. . ." 
@@ -114,10 +117,7 @@ label Jean_chapter_one_season_four_first_study_session:
             $ Jean.change_face("worried1", eyes = "right") 
             
             ch_Jean "Sorry. . . that was mean. . ." 
-            
-            call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_120 
-            call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_121
-
+    
     $ Jean.change_face("appalled2")
     $ Jean.change_arms("angry")
 
@@ -204,6 +204,8 @@ label Jean_chapter_one_season_four_first_study_session:
     menu:
         extend ""
         "[Jean.name], you can't think about it that way.":
+            call change_Character_stat(Jean, "trust", small_stat) from _call_change_Character_stat_155
+
             $ Jean.change_face("worried3")
 
             ch_Jean "What other way is there to think about it?" 
@@ -211,10 +213,10 @@ label Jean_chapter_one_season_four_first_study_session:
             $ Jean.change_face("angry1", eyes = "right") 
             
             ch_Jean "It doesn't matter in the end." 
-            
-            call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_122 
-            call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_123
         "I. . . give a shit. And you can't think like that.":
+            call change_Character_stat(Jean, "love", small_stat) from _call_change_Character_stat_156
+            call change_Character_stat(Jean, "trust", small_stat) from _call_change_Character_stat_157
+
             $ Jean.change_face("worried3")
 
             ch_Jean "How can I not?!" 
@@ -222,16 +224,14 @@ label Jean_chapter_one_season_four_first_study_session:
             $ Jean.change_face("angry1", eyes = "right") 
             
             ch_Jean "Even deep down, I know you think it's probably a waste." 
-            
-            call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_124
         "Oh please, stop lying to yourself.":
+            call change_Character_stat(Jean, "love", -small_stat) from _call_change_Character_stat_158
+            call change_Character_stat(Jean, "trust", small_stat) from _call_change_Character_stat_184
+
             $ Jean.change_face("appalled1")
 
             ch_Jean "What the hell?" 
             
-            call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_125 
-            call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_126
-
     $ Jean.change_face("confused2")
     $ Jean.change_arms("crossed")
 

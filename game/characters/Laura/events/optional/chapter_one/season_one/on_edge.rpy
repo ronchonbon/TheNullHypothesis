@@ -15,6 +15,9 @@ init python:
 
             "chapter == 1 and season == 1",
 
+            "Laura.History.check('studied_with_Player', tracker = 'season')",
+            "EventScheduler.Events['Laura_chapter_one_season_one_outcast'].completed",
+
             "time_index < 3",
             "weather != 'rain'",
 
@@ -41,6 +44,9 @@ init python:
 
             "chapter == 1 and season == 1",
 
+            "Laura.History.check('studied_with_Player', tracker = 'season')",
+            "EventScheduler.Events['Laura_chapter_one_season_one_outcast'].completed",
+
             "time_index < 3",
             "weather != 'rain'",
             
@@ -57,6 +63,9 @@ init python:
 
                 "chapter == 1 and season == 1",
 
+                "Laura.History.check('studied_with_Player', tracker = 'season')",
+                "EventScheduler.Events['Laura_chapter_one_season_one_outcast'].completed",
+                
                 "time_index < 3",
                 "weather != 'rain'",
             
@@ -165,7 +174,6 @@ label Laura_chapter_one_season_one_on_edge:
             ch_Laura "I do not believe it was. I. . . overreacted."
         "Do you. . . do you recognise every little noise you hear out here?":
             call change_Character_stat(Laura, "love", small_stat) from _call_change_Character_stat_898
-            call change_Character_stat(Laura, "trust", -small_stat) from _call_change_Character_stat_902
 
             $ Laura.change_face("confused1", eyes = "squint") 
 
@@ -258,11 +266,14 @@ label Laura_chapter_one_season_one_on_edge:
 
             "You stand and talk to [Laura.name] for a bit. After a while, she seems to feel more like herself and heads back to her room.."
 
-            call change_Character_stat(Laura, "trust", medium_stat) from _call_change_Character_stat_903
+            call change_Character_stat(Laura, "trust", large_stat) from _call_change_Character_stat_903
 
             call remove_Characters(Laura) from _call_remove_Characters_339
         "Head on your way":
             "[Laura.name] seems less on edge. You tell yourself she'll be fine on her own. . ."
+            
+            call change_Character_stat(Laura, "trust", -medium_stat) from _call_change_Character_stat_415
+
             ch_Player "Listen, I need to head back to my room, but. . . is there anything I can do for you?"
 
             $ Laura.change_face("suspicious1")

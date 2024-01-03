@@ -194,11 +194,11 @@ label Laura_first_date:
 
                 $ chosen_meal[Laura] = "ribeye"
             "I don't really eat steak. . .":
+                call change_Character_stat(Laura, "love", -medium_stat) from _call_change_Character_stat_379
+                
                 $ Laura.change_face("suspicious1") 
                 
                 ch_Player "I hear the filet is good?" 
-
-                call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_326
 
                 ch_Laura "Fine, I will try that one." 
                 
@@ -277,7 +277,8 @@ label Laura_first_date:
 
             ch_Laura "You were right, ribeye is better." 
 
-            call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_327
+            call change_Character_stat(Laura, "love", small_stat) from _call_change_Character_stat_380
+            call change_Character_stat(Laura, "trust", small_stat) from _call_change_Character_stat_398
         else:
             $ Laura.change_face("neutral")
 
@@ -289,8 +290,9 @@ label Laura_first_date:
 
         if chosen_meal[Laura] == "ribeye":
             ch_Laura "Great."
-            
-            call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_328
+
+            call change_Character_stat(Laura, "love", small_stat) from _call_change_Character_stat_399
+            call change_Character_stat(Laura, "trust", small_stat) from _call_change_Character_stat_400
         else:
             ch_Laura "Good."
 
@@ -420,24 +422,27 @@ label Laura_first_date:
     menu:
         extend ""
         "Don't argue and pay" if Player.cash >= restaurant_bill[Player] + restaurant_bill[Laura]:
+            call change_Character_stat(Laura, "love", medium_stat) from _call_change_Character_stat_401
+
             $ Laura.change_face("smirk2")
 
             ch_Player "Fine, I've got it." 
             
-            call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_329
-
             $ Player.cash -= restaurant_bill[Player] + restaurant_bill[Laura]
         "Explain why you should split the bill" if Player.cash >= math.ceil((restaurant_bill[Player] + restaurant_bill[Laura])/2):
+            call change_Character_stat(Laura, "love", small_stat) from _call_change_Character_stat_402
+            call change_Character_stat(Laura, "trust", medium_stat) from _call_change_Character_stat_405
+
             ch_Player "It's become more common recently for people to split the bill while on a date." 
             
             $ Laura.change_face("confused1") 
             
             ch_Laura "That seems fair." 
             
-            call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_330
-
             $ Player.cash -= math.ceil((restaurant_bill[Player] + restaurant_bill[Laura])/2)
         "Have her pay":
+            call change_Character_stat(Laura, "love", -medium_stat) from _call_change_Character_stat_406
+
             ch_Player "The person who asked for the date in the first place is usually expected to pay. . ." 
             
             $ Laura.change_face("neutral", eyes = "squint") 
@@ -445,8 +450,6 @@ label Laura_first_date:
             ch_Laura "Fine." 
             ch_Laura "Then you will pay for the movie since that was your idea." 
             
-            call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_331
-
     "The bill is paid."
     "You both head over to the movie theater."
 
@@ -561,20 +564,21 @@ label Laura_first_date:
     menu:
         extend ""
         "If you're not ready, that's totally fine.":
+            call change_Character_stat(Laura, "trust", medium_stat) from _call_change_Character_stat_407
+
             ch_Player "There's no pressure." 
             
             $ Laura.change_face("smirk2", eyes = "right", blush = 2) 
-            
-            call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_332 
-            call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_333
         "That's usually the case, yeah.":
-            $ Laura.change_face("confused1", mouth = "smirk", eyes = "squint", blush = 2) 
-            
-            call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_334
-        ". . . Well?":
-            $ Laura.change_face("angry1", eyes = "right", blush = 1)
+            call change_Character_stat(Laura, "love", small_stat) from _call_change_Character_stat_408
+            call change_Character_stat(Laura, "trust", -small_stat) from _call_change_Character_stat_409
 
-            call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_335
+            $ Laura.change_face("confused1", mouth = "smirk", eyes = "squint", blush = 2) 
+        ". . . Well?":
+            call change_Character_stat(Laura, "love", -medium_stat) from _call_change_Character_stat_410
+            call change_Character_stat(Laura, "trust", -medium_stat) from _call_change_Character_stat_411
+
+            $ Laura.change_face("angry1", eyes = "right", blush = 1)
 
     $ Laura.change_face("neutral", eyes = "right", mouth = "lipbite", blush = 1)
     $ Laura.change_arms("angry")
@@ -691,6 +695,8 @@ label Laura_first_date:
             ch_Laura "You wanted to do this last night." 
             ch_Player "Right, but just because someone agreed to something once, doesn't mean they're always willing to in the future." 
             
+            call change_Character_stat(Laura, "trust", medium_stat) from _call_change_Character_stat_412
+
             $ Laura.change_face("angry1", blush = 1) 
             
             ch_Laura "Fine." 
@@ -744,6 +750,8 @@ label Laura_first_date:
             "Encourage this behavior (encourage_quirk)":
                 ch_Player "I. . . {i}really{/i} liked that." 
                 ch_Player "I wouldn't mind if you just. . . kissed me whenever you want. . ." 
+                    
+                call change_Character_stat(Laura, "love", large_stat) from _call_change_Character_stat_413
                 
                 $ Laura.change_face("surprised2", blush = 1) 
                 
@@ -755,13 +763,13 @@ label Laura_first_date:
                 ch_Laura "I. . . enjoyed that as well." 
                 ch_Laura "Expect it to happen again." 
                 
-                call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_338
-
                 $ Laura.History.update("quirk_encouraged")
             "Discourage this behavior (discourage_quirk)":
                 ch_Player "I. . . really liked that." 
                 ch_Player "But could you ask first next time?" 
-                
+                    
+                call change_Character_stat(Laura, "trust", medium_stat) from _call_change_Character_stat_414
+                    
                 $ Laura.change_face("confused1", blush = 1) 
                 
                 pause 1.0 

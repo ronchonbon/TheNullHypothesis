@@ -30,29 +30,30 @@ label Jean_chapter_one_season_three_second_training_session:
     menu:
         extend ""
         "Not at all. I feel bad about all the stress you're going through.":
+            call change_Character_stat(Jean, "love", small_stat) from _call_change_Character_stat_327
+            call change_Character_stat(Jean, "trust", medium_stat) from _call_change_Character_stat_328
+
             $ Jean.change_face("worried1", mouth = "smirk")
             $ Jean.change_arms("crossed")
 
             ch_Jean "Thanks for being so understanding. . ." 
-            
-            call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_191
-            call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_192
         "It made me a little sad to have you upset at me. . . But don't worry, I understand.":
+            call change_Character_stat(Jean, "love", medium_stat) from _call_change_Character_stat_329
+            call change_Character_stat(Jean, "trust", small_stat) from _call_change_Character_stat_330
+
             $ Jean.change_face("worried2")
             $ Jean.change_arms("crossed")
 
             ch_Jean "I don't like it when you're sad, [Jean.Player_petname]." 
-            
-            call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_193
         "A little bit to be honest. . . it was pretty uncalled for. But it's fine, I'd be frustrated too if I were in your shoes.":
+            call change_Character_stat(Jean, "love", -small_stat) from _call_change_Character_stat_331
+            call change_Character_stat(Jean, "trust", medium_stat) from _call_change_Character_stat_332
+
             $ Jean.change_face("confused2")
             $ Jean.change_arms("crossed")
 
             ch_Jean "At least you get it. . . I guess." 
-            
-            call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_194
-            call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_195
-
+        
     $ Jean.change_face("worried1")
 
     ch_Jean "I am sorry, though."

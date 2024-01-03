@@ -232,8 +232,9 @@ label Jean_chapter_one_season_one_first_training_session:
         "However, all the beatdowns from training with [Laura.name] weren't for nothing."
         "You have a long way to go, but you're a quick learner and it's obvious you've been training."
 
-        call change_Character_stat(Jean, "love", small_stat) from _call_change_Character_stat_425
-        
+        call change_Character_stat(Jean, "love", medium_stat) from _call_change_Character_stat_204
+        call change_Character_stat(Jean, "trust", medium_stat) from _call_change_Character_stat_205
+
         $ Jean.change_face("pleased2")
         $ Jean.change_arms("hips")
 
@@ -399,7 +400,7 @@ label Jean_chapter_one_season_one_first_training_session:
     menu:
         extend ""
         "I'm glad you're not hurt.":
-            call change_Character_stat(Jean, "love", small_stat) from _call_change_Character_stat_426
+            call change_Character_stat(Jean, "love", medium_stat) from _call_change_Character_stat_426
                         
             $ Jean.change_face("neutral", blush = 1)
 
@@ -476,10 +477,10 @@ label Jean_chapter_one_season_one_first_training_session_1A:
     menu:
         extend ""
         "I want to help however I can.":
-            ch_Player "I know I'm new to all this, but I don't care."
-
             call change_Character_stat(Jean, "love", medium_stat) from _call_change_Character_stat_828
             call change_Character_stat(Jean, "trust", small_stat) from _call_change_Character_stat_829
+
+            ch_Player "I know I'm new to all this, but I don't care."
 
             $ Jean.change_face("pleased1", blush = 1)
             $ Jean.change_arms("crossed")
@@ -495,7 +496,7 @@ label Jean_chapter_one_season_one_first_training_session_1A:
 
             ch_Jean "It's for your own good."
         "I don't know if I can be of much help.":
-            call change_Character_stat(Jean, "love", small_stat) from _call_change_Character_stat_830
+            call change_Character_stat(Jean, "love", -small_stat) from _call_change_Character_stat_830
             call change_Character_stat(Jean, "trust", -small_stat) from _call_change_Character_stat_842
             
             $ Jean.change_face("sad")
@@ -520,7 +521,7 @@ label Jean_chapter_one_season_one_first_training_session_1B:
     menu:
         extend ""
         "Uh, I guess. . .":
-            call change_Character_stat(Jean, "love", -medium_stat) from _call_change_Character_stat_843
+            call change_Character_stat(Jean, "love", -small_stat) from _call_change_Character_stat_843
             
             $ Jean.change_face("worried1")
 

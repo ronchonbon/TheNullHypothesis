@@ -78,9 +78,11 @@ label Jean_asked_on_date:
 
         $ Jean.change_face("smirk1")
 
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_78
-
         ch_Jean ". . . just for my sake."
+
+        call change_Character_stat(Jean, "love", small_stat) from _call_change_Character_stat_118
+        call change_Character_stat(Jean, "trust", medium_stat) from _call_change_Character_stat_119
+
         ch_Player "You're welcome."
 
         $ Jean.change_face("smirk2")
@@ -94,8 +96,6 @@ label Jean_asked_on_date:
         $ Jean.change_face("smirk1", blush = 1)
 
         ch_Jean "But I really appreciate it."
-
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_79
     else:
         ch_Jean "I just wanted to say thanks. . ."
         ch_Player "About what?"
@@ -117,16 +117,14 @@ label Jean_asked_on_date:
 
         ch_Jean "But I can tell you've also been working really hard to help me figure out my problem."
 
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_80
-
+        call change_Character_stat(Jean, "love", medium_stat) from _call_change_Character_stat_120
+        call change_Character_stat(Jean, "trust", small_stat) from _call_change_Character_stat_121
+        
         ch_Player "Of course, you're welcome."
         ch_Player "I was eager to learn about my own abilities. . ."
 
         $ Jean.change_face("pleased1", blush = 1)
         
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_81
-        call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_82
-
         ch_Player ". . . but there's no way I'd give up a chance to help you."
 
     $ Jean.change_face("happy")
@@ -162,10 +160,14 @@ label Jean_asked_on_date:
         menu:
             extend ""
             "You're single?" if not asked_single:
+                call change_Character_stat(Jean, "love", -small_stat) from _call_change_Character_stat_122
+                
                 call Jean_asked_on_date_1A from _call_Jean_asked_on_date_1A
 
                 $ asked_single = True
             "You want to date me??" if not asked_date:
+                call change_Character_stat(Jean, "love", small_stat) from _call_change_Character_stat_123
+                
                 $ Jean.change_face("worried1", blush = 1)
 
                 ch_Jean "Well, yeah. . ."
@@ -179,18 +181,23 @@ label Jean_asked_on_date:
 
                 ch_Jean "You've been helping me without expecting anything."
 
-                call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_83
-
                 $ asked_date = True
             "Date? But you're my 'big sib.'" if not asked_big_sis and Jean.petname == "big sis'":
+                call change_Character_stat(Jean, "love", -small_stat) from _call_change_Character_stat_124
+                call change_Character_stat(Jean, "trust", small_stat) from _call_change_Character_stat_125
+                
                 call Jean_asked_on_date_1B from _call_Jean_asked_on_date_1B
 
                 $ asked_big_sis = True
             "I'd love to go on a date with you." if asked_single:
+                call change_Character_stat(Jean, "love", medium_stat) from _call_change_Character_stat_126
+                
                 call Jean_asked_on_date_1C from _call_Jean_asked_on_date_1C
 
                 $ chatting = False
             "Sure, let's go on a date." if asked_single:
+                call change_Character_stat(Jean, "love", -small_stat) from _call_change_Character_stat_142
+                
                 call Jean_asked_on_date_1D from _call_Jean_asked_on_date_1D
 
                 $ chatting = False
@@ -297,19 +304,22 @@ label Jean_asked_on_date_1B:
 
     menu:
         extend ""
-        "I agree. . .":
+        "I agree. . . (encourage_quirk)":
+            call change_Character_stat(Jean, "love", medium_stat) from _call_change_Character_stat_143
+
             $ Jean.change_face("smirk2", blush = 2)
 
-            call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_84
-            call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_85
-
             ch_Jean "Good."
-        "Isn't that a bit weird. . .":
+
+            $ Jean.History.update("quirk_encouraged")
+        "Isn't that a bit weird. . . (discourage_quirk)":
+            call change_Character_stat(Jean, "love", -medium_stat) from _call_change_Character_stat_144
+
             $ Jean.change_face("angry1")
 
-            call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_87
-
             ch_Jean "No. . ."
+
+            $ Jean.History.update("quirk_discouraged")
 
     return
 
@@ -322,12 +332,15 @@ label Jean_asked_on_date_1C:
     menu:
         extend ""
         "Please? I really want to go on that date.":
-            $ Jean.change_face("smirk2", blush = 2)
+            call change_Character_stat(Jean, "love", small_stat) from _call_change_Character_stat_145
 
-            call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_88
+            $ Jean.change_face("smirk2", blush = 2)
 
             ch_Jean "How can I say no to that. . ."
         "Come on, you know I didn't mean it like that. I'd really like to go on that date.":
+            call change_Character_stat(Jean, "love", small_stat) from _call_change_Character_stat_146
+            call change_Character_stat(Jean, "trust", small_stat) from _call_change_Character_stat_147
+
             $ Jean.change_face("smirk2")
 
             ch_Jean "Fiiine."
@@ -343,11 +356,15 @@ label Jean_asked_on_date_1D:
     menu:
         extend ""
         "I am thankful!":
+            call change_Character_stat(Jean, "love", small_stat) from _call_change_Character_stat_148
+
             $ Jean.change_face("smirk2", blush = 1)
 
             ch_Player "Please?"
             ch_Jean "Okay, fiiine."
         "I really am flattered, [Jean.name].":
+            call change_Character_stat(Jean, "love", small_stat) from _call_change_Character_stat_149
+
             $ Jean.change_face("neutral")
 
             ch_Player "I swear."

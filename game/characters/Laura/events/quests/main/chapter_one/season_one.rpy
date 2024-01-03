@@ -28,11 +28,12 @@ init python:
 
         optional_objectives = {}
 
-        optional_objectives.update({"Ask her why she looks on edge": ["EventScheduler.Events['Laura_chapter_one_season_one_on_edge'].completed", None]})
+        optional_objectives.update({"Sit next to her in class": ["EventScheduler.Events['Laura_chapter_one_season_one_outcast'].completed", None]})
 
         optional_objectives.update({"Run into her training late at night": ["EventScheduler.Events['Laura_chapter_one_season_one_late_night_training'].completed", None]})
 
-        optional_objectives.update({"Sit next to her in class": ["EventScheduler.Events['Laura_chapter_one_season_one_outcast'].completed", None]})
+        if EventScheduler.Events["Laura_chapter_one_season_one_outcast"].completed:
+            optional_objectives.update({"Ask her why she looks on edge": ["EventScheduler.Events['Laura_chapter_one_season_one_on_edge'].completed", None]})
 
         rewards = {}
         criteria = [

@@ -16,9 +16,13 @@ init python:
 
 label Laura_chapter_one_season_one_fourth_training_session:
     $ ongoing_Event = True
+        
+    ch_Player "Ready to warm up?" 
 
     $ Laura.change_face("neutral", eyes = "squint") 
     $ Laura.change_arms("crossed")
+
+    pause 1.0
 
     ch_Player "Right. . . don't know why I asked. . ."
 
@@ -103,7 +107,7 @@ label Laura_chapter_one_season_one_fourth_training_session:
             ch_Laura "Took your brain long enough." 
         "Maybe things would go faster if you just went easier on me. . .":
             call change_Character_stat(Laura, "love", -medium_stat) from _call_change_Character_stat_1078
-            call change_Character_stat(Laura, "trust", small_stat) from _call_change_Character_stat_1079
+            call change_Character_stat(Laura, "trust", -small_stat) from _call_change_Character_stat_1079
 
             $ Laura.change_face("angry1")
 

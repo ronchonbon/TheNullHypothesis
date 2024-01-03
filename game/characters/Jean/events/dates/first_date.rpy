@@ -195,7 +195,8 @@ label Jean_first_date:
             "You make it just before another couple and get seated fairly quickly."
             ch_Jean "You saved the day, [Jean.Player_petname]."
 
-            call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_49
+            call change_Character_stat(Jean, "love", medium_stat) from _call_change_Character_stat_49
+            call change_Character_stat(Jean, "trust", medium_stat) from _call_change_Character_stat_50
         "It's pointless":
             $ Jean.change_face("perplexed")
 
@@ -235,11 +236,14 @@ label Jean_first_date:
 
             ch_Jean "See, maybe you shouldn't have given up so quickly."
 
-            call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_50
-        "Suggest annother activity":
+            call change_Character_stat(Jean, "love", -medium_stat) from _call_change_Character_stat_51
+            call change_Character_stat(Jean, "trust", -small_stat) from _call_change_Character_stat_52
+        "Suggest another activity":
             $ Jean.change_face("surprised2", eyes = "left")
             $ Jean.change_arms("neutral")
 
+            call change_Character_stat(Jean, "love", small_stat) from _call_change_Character_stat_53
+            call change_Character_stat(Jean, "trust", small_stat) from _call_change_Character_stat_54
 
             ch_Player "It's okay, we can just do someth-"
 
@@ -344,12 +348,12 @@ label Jean_first_date:
             $ chosen_meal[Jean] = "crab cakes"
             $ restaurant_bill[Jean] = 30
         "You probably have expensive taste, just try the lobster.": 
+            call change_Character_stat(Jean, "love", -medium_stat) from _call_change_Character_stat_55
+
             $ Jean.change_face("angry1")
 
             ch_Jean "I don't really appreciate that. . ." 
             
-            call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_51
-
             $ chosen_meal[Jean] = "lobster tails"
             $ restaurant_bill[Jean] = 45
         "Salmon is a pretty safe bet.":
@@ -360,6 +364,8 @@ label Jean_first_date:
             $ chosen_meal[Jean] = "salmon"
             $ restaurant_bill[Jean] = 25
         "If you're that worried, just get a salad.": 
+            call change_Character_stat(Jean, "love", -small_stat) from _call_change_Character_stat_56
+
             $ Jean.change_face("worried1")
 
             ch_Jean "I guess so. . ."
@@ -403,8 +409,6 @@ label Jean_first_date:
 
             "Then she realizes."
 
-            call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_52
-
             $ Jean.change_face("smirk2", eyes = "right", blush = 1)
             $ Jean.change_arms("neutral", left_arm = "extended")
 
@@ -425,6 +429,9 @@ label Jean_first_date:
             $ Jean.change_face("smirk2", blush = 1)
 
             "The waitress leaves."
+
+            call change_Character_stat(Jean, "love", medium_stat) from _call_change_Character_stat_57
+
             ch_Player "Thanks, [Jean.petname]." 
 
             $ Jean.change_face("smirk2", mouth = "lipbite", blush = 1)
@@ -459,8 +466,6 @@ label Jean_first_date:
 
         ch_Jean "It's delicious!"
 
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_53
-
         $ Jean.change_face("smirk2")
 
         ch_Jean "Thanks for the recommendation."
@@ -470,14 +475,15 @@ label Jean_first_date:
         ch_Jean "Seems like you have pretty good taste." 
 
         $ Jean.change_face("smirk2")
+
+        call change_Character_stat(Jean, "trust", small_stat) from _call_change_Character_stat_58
     elif chosen_meal[Jean] == "crab cakes":
         $ Jean.change_face("smirk2")
 
         ch_Jean "It's delicious!" 
-
-        call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_54
-
         ch_Jean "Good recommendation."
+
+        call change_Character_stat(Jean, "trust", small_stat) from _call_change_Character_stat_59
     elif chosen_meal[Jean] != "garden salad":
         $ Jean.change_face("smirk2")
 
@@ -557,30 +563,30 @@ label Jean_first_date:
     menu:
         extend ""
         "Offer to pay" if Player.cash >= restaurant_bill[Player] + restaurant_bill[Jean]:
+            call change_Character_stat(Jean, "love", medium_stat) from _call_change_Character_stat_60
+            call change_Character_stat(Jean, "trust", medium_stat) from _call_change_Character_stat_61
+            
             $ Jean.change_face("smirk2")
 
             ch_Player "Come on, [Jean.petname]." 
             ch_Player "I can pay." 
-            
-            call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_55 
-            call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_56 
-            
             ch_Jean "Nope!" 
             ch_Jean "This is my treat, [Jean.Player_petname]."
         "At least pay half" if Player.cash >= math.ceil((restaurant_bill[Player] + restaurant_bill[Jean])/2):
+            call change_Character_stat(Jean, "love", medium_stat) from _call_change_Character_stat_76
+            call change_Character_stat(Jean, "trust", medium_stat) from _call_change_Character_stat_78
+
             $ Jean.change_face("smirk2")
 
             ch_Player "At least let me pick up my half of the bill." 
-            
-            call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_57 
-            
             ch_Jean "Nope!"
             ch_Jean "This is my treat, [Jean.Player_petname]."
         "Don't offer to pay":
+            call change_Character_stat(Jean, "love", -small_stat) from _call_change_Character_stat_79
+
             $ Jean.change_face("smirk2")
 
             ch_Player "Thanks." 
-            
             ch_Jean "You're welcome, [Jean.Player_petname]."
 
     $ Jean.change_face("smirk2", eyes = "right")
@@ -643,10 +649,17 @@ label Jean_first_date:
     menu:
         extend ""
         "Entering Her Beautiful Flower":
+            call change_Character_stat(Jean, "love", small_stat) from _call_change_Character_stat_80
+
             call Jean_first_date_path_1A from _call_Jean_first_date_path_1A
 
+            call change_Character_stat(Jean, "love", large_stat) from _call_change_Character_stat_81
         "Fated to Be Together":
+            call change_Character_stat(Jean, "love", medium_stat) from _call_change_Character_stat_82
+
             call Jean_first_date_path_1B from _call_Jean_first_date_path_1B
+
+            call change_Character_stat(Jean, "love", small_stat) from _call_change_Character_stat_83
 
     "She leads you to her room."
 
@@ -728,19 +741,22 @@ label Jean_first_date:
     menu:
         extend ""
         "There's no pressure.":
+            call change_Character_stat(Jean, "love", small_stat) from _call_change_Character_stat_84
+            call change_Character_stat(Jean, "trust", medium_stat) from _call_change_Character_stat_85
+
             $ Jean.change_face("worried1", mouth = "lipbite", blush = 1) 
             
             ch_Player "We don't ha-" 
-            
-            call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_58 
-            call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_59
         "That doesn't matter to me.":
+            call change_Character_stat(Jean, "love", small_stat) from _call_change_Character_stat_87
+            call change_Character_stat(Jean, "trust", small_stat) from _call_change_Character_stat_88
+
             $ Jean.change_face("worried1", mouth = "lipbite", blush = 1) 
             
             ch_Player "If yo-" 
-            
-            call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_60
         "So?":
+            call change_Character_stat(Jean, "trust", -small_stat) from _call_change_Character_stat_117
+
             $ Jean.change_face("confused1", mouth = "lipbite", blush = 1) 
             
             ch_Player "I don-"
@@ -830,7 +846,7 @@ label Jean_first_date_path_1A:
     $ Jean.change_face("confused2", mouth = "smirk") 
     $ Jean.change_arms("sass")
             
-    call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_61
+    pause 1.0
 
     $ Jean.change_face("confused1", mouth = "smirk")
 

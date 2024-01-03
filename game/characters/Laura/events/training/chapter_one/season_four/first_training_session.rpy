@@ -55,44 +55,43 @@ label Laura_chapter_one_season_four_first_training_session:
             $ Laura.change_face("furious")
             
             if Player.History.check("told_Laura_protesters_got_what_they_deserved_during_mutant_hate"):
+                call change_Character_stat(Laura, "love", -medium_stat) from _call_change_Character_stat_458
+                call change_Character_stat(Laura, "trust", -medium_stat) from _call_change_Character_stat_459
+                
                 ch_Laura "So now you're suddenly all self righteous?" 
-                
-                call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_405 
-                call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_406
             else:
-                ch_Laura "So people who kill are lesser, in your opinion?" 
+                call change_Character_stat(Laura, "love", -small_stat) from _call_change_Character_stat_502
+                call change_Character_stat(Laura, "trust", medium_stat) from _call_change_Character_stat_503
                 
-                call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_407 
-                call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_408
+                ch_Laura "So people who kill are lesser, in your opinion?" 
         "I can't just kill people! The fact that it would've been so easy terrifies me.":
             $ Laura.change_face("angry1")
             
             if Player.History.check("told_Laura_protesters_got_what_they_deserved_during_mutant_hate"):
+                call change_Character_stat(Laura, "love", -medium_stat) from _call_change_Character_stat_504
+                call change_Character_stat(Laura, "trust", -medium_stat) from _call_change_Character_stat_505
+                
                 ch_Laura "Where'd your spine go?" 
                 ch_Laura "Killing is necessary at times." 
-                
-                call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_409
-                call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_410
             else:
+                call change_Character_stat(Laura, "love", -small_stat) from _call_change_Character_stat_508
+                call change_Character_stat(Laura, "trust", small_stat) from _call_change_Character_stat_509
+
                 ch_Laura "This is reality, you need to get over it." 
-                
-                call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_411 
-                call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_412
         "I know. You're right, maybe they didn't deserve mercy.":
             $ Laura.change_face("angry1", eyes = "left")
 
             if Player.History.check("told_Laura_protesters_got_what_they_deserved_during_mutant_hate"):
+                call change_Character_stat(Laura, "love", medium_stat) from _call_change_Character_stat_510
+                call change_Character_stat(Laura, "trust", small_stat) from _call_change_Character_stat_511
+
                 ch_Laura "Everyone at this goddamn school thinks otherwise. . ." 
-                
-                call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_413 
-                call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_414
             else:
+                call change_Character_stat(Laura, "trust", -medium_stat) from _call_change_Character_stat_512
+
                 ch_Laura "Changed your mind so easily?" 
                 ch_Laura "Everyone at this goddamn school thinks otherwise. . ." 
                 
-                call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_415 
-                call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_416
-
     ch_Player "I just-"
 
     $ Laura.change_face("furious", eyes = "left")
@@ -114,29 +113,35 @@ label Laura_chapter_one_season_four_first_training_session:
     menu:
         extend ""
         "You were just a child, that's on the people who controlled you.":
+            call change_Character_stat(Laura, "trust", medium_stat) from _call_change_Character_stat_514
+            
             $ Laura.change_face("furious", eyes = "left")
 
             ch_Laura "I was still the one who did the killing." 
             ch_Laura "But apparently, now I can make my own decisions on who to kill." 
-            
-            call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_418
         "Fuck. . . I'm sorry you had to go through that.":
+            call change_Character_stat(Laura, "trust", small_stat) from _call_change_Character_stat_515
+
             $ Laura.change_face("angry1", eyes = "left")
 
             ch_Laura "Now that I'm in control. . ." 
             ch_Laura "Anyone who tries to harm you will. . ." 
-            
-            call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_417
-            call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_419
         ". . .":
+            call change_Character_stat(Laura, "trust", -small_stat) from _call_change_Character_stat_516
+
             $ Laura.change_face("furious")
+            $ Laura.change_arms("angry", left_arm = "fight")
 
             "She punches you in the shoulder, hard." with small_screenshake
+
+            $ Laura.change_arms("angry")
+
             ch_Player "Ow! The hell was that for?" 
             ch_Laura "Aren't you going to say anything?" 
             ch_Laura "Call me a monster like everyone else?" 
             
             $ Laura.change_face("confused1") 
+            $ Laura.change_arms("neutral")
             
             ch_Player "Of course not." 
             ch_Player "How are you to blame, when you were a child?"
@@ -144,8 +149,6 @@ label Laura_chapter_one_season_four_first_training_session:
             
             $ Laura.change_face("angry1", eyes = "left") 
             
-            call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_420
-
     $ Laura.change_face("angry1", eyes = "right")
 
     ch_Laura "Let's talk about something else."

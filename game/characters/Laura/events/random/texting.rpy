@@ -62,11 +62,11 @@ label Laura_texting_study_response:
 
         call actually_study(Laura) from _call_actually_study_7
     elif Laura.text_history[-1][1] == temp[2]:
+        call change_Character_stat(Laura, "love", -tiny_stat) from _call_change_Character_stat_351
+
         call receive_text(Laura, "Goddamnit") from _call_receive_text_275
         call receive_text(Laura, "Now I have to find the redhead") from _call_receive_text_276
         
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_351
-
         $ Laura.History.update("Player_rejected_studying")
 
     return
@@ -124,9 +124,9 @@ label Laura_texting_training_response:
         $ Laura.History.update("Player_rejected_training")
     elif Laura.text_history[-1][1] == temp[1]:
         if time_index > 2:
+            call change_Character_stat(Laura, "love", -tiny_stat) from _call_change_Character_stat_1605
+
             call receive_text(Laura, "Too late.") from _call_receive_text_823
-            
-            call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1605
         else:
             call receive_text(Laura, "Good") from _call_receive_text_282
             call receive_text(Laura, "Don't think you'll get out of the warmup by taking your time") from _call_receive_text_283
@@ -138,10 +138,10 @@ label Laura_texting_training_response:
 
             call actually_train(Laura) from _call_actually_train_4
     elif Laura.text_history[-1][1] == temp[2]:
+        call change_Character_stat(Laura, "love", -tiny_stat) from _call_change_Character_stat_352
+
         call receive_text(Laura, "Stop being such a goddamn wimp") from _call_receive_text_284
         
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_352
-
         $ Laura.History.update("Player_rejected_training")
 
     return
@@ -201,24 +201,22 @@ label Laura_texting_date_response:
 
         $ Laura.History.update("Player_rejected_date")
     elif Laura.text_history[-1][1] == temp[1]:
-        if time_index > 2:
+        if time_index > 2:            
+            call change_Character_stat(Laura, "love", -tiny_stat) from _call_change_Character_stat_1600
+
             call receive_text(Laura, "Too late.") from _call_receive_text_820
-            
-            call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_1600
         else:
             call receive_text(Laura, "Good") from _call_receive_text_289
-
-            call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_353
 
             $ Player.date_planned[Laura] = "Character_initiated_primary"
 
             if time_index == 2:
                 $ EventScheduler.Events["Laura_date"].start()
     elif Laura.text_history[-1][1] == temp[2]:
+        call change_Character_stat(Laura, "love", -tiny_stat) from _call_change_Character_stat_354
+
         call receive_text(Laura, "What?!") from _call_receive_text_290
         
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_354
-
         $ Laura.History.update("Player_rejected_date")
 
     return

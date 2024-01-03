@@ -38,25 +38,27 @@ label Jean_chapter_one_season_two_first_training_session:
     menu:
         extend ""
         "I am, really. I appreciate your concern.":
+            call change_Character_stat(Jean, "love", small_stat) from _call_change_Character_stat_333
+            call change_Character_stat(Jean, "trust", small_stat) from _call_change_Character_stat_334
+
             $ Jean.change_face("confused1", mouth = "smirk")
 
             ch_Jean "How could I not be concerned?" 
-            
-            call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_198
-            call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_199
         "Not really. . . but thanks for caring.":
+            call change_Character_stat(Jean, "love", small_stat) from _call_change_Character_stat_335
+            call change_Character_stat(Jean, "trust", medium_stat) from _call_change_Character_stat_338
+
             $ Jean.change_face("worried2")
 
             ch_Jean "Of course I care!" 
-            
-            call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_200
         "I'm not dead so, yeah. . . mostly just pissed that I was so useless.":
+            call change_Character_stat(Jean, "love", small_stat) from _call_change_Character_stat_349
+            call change_Character_stat(Jean, "trust", small_stat) from _call_change_Character_stat_353
+
             $ Jean.change_face("angry1")
 
             ch_Jean "You weren't useless!" 
             
-            call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_201
-
     $ Jean.change_face("worried1")
     $ Jean.change_arms("hips", left_arm = "extended")
 
@@ -206,29 +208,29 @@ label Jean_chapter_one_season_two_first_training_session:
 
     $ Jean.change_face("worried1", eyes = "right")
 
-    $ temp = Jean.petname.capitalize()
-
     menu:
         extend ""
-        "[temp], I've just been stumbling through this, getting lucky. You're still far more impressive than I've ever been.":
+        "I've just been stumbling through this, getting lucky. You're still far more impressive.":
+            call change_Character_stat(Jean, "love", medium_stat) from _call_change_Character_stat_360
+            
             $ Jean.change_face("worried2")
 
             ch_Jean "You really think I'm impressive. . . ?" 
-            
-            call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_202 
-        "Okay, but it's not like I'll be catching up to you any time soon.":
+        "It's not like I'll be catching up to you any time soon.":
+            call change_Character_stat(Jean, "love", small_stat) from _call_change_Character_stat_361
+            call change_Character_stat(Jean, "trust", small_stat) from _call_change_Character_stat_362
+
             $ Jean.change_face("worried1")
 
             ch_Jean "I know, I know. . ." 
-            
-            call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_203
-        "Oh please, you're probably the most powerful person I've ever met. So what if things aren't going fast enough for you.":
+        "Oh please, you're probably the most powerful person I've ever met. So what if things aren't going fast enough for you?":
+            call change_Character_stat(Jean, "love", -small_stat) from _call_change_Character_stat_363
+            call change_Character_stat(Jean, "trust", small_stat) from _call_change_Character_stat_364
+
             $ Jean.change_face("angry1", eyes = "right")
 
             ch_Jean "You wouldn't get it. . ." 
             
-            call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_204
-
     $ Jean.change_face("worried1", eyes = "right")
     $ Jean.change_arms("neutral", left_arm = "rub_neck")
 
@@ -251,6 +253,9 @@ label Jean_chapter_one_season_two_first_training_session:
     menu:
         extend ""
         "You shouldn't bottle your feelings up just for my sake. I'm here for you as well. . .":
+            call change_Character_stat(Jean, "love", small_stat) from _call_change_Character_stat_365
+            call change_Character_stat(Jean, "trust", medium_stat) from _call_change_Character_stat_366
+
             $ Jean.change_face("worried2")
 
             ch_Jean "But, I'm the one who's supposed to take care of you. . ." 
@@ -258,22 +263,21 @@ label Jean_chapter_one_season_two_first_training_session:
             $ Jean.change_face("worried1", mouth = "smirk") 
             
             ch_Jean "Thanks, [Jean.Player_petname]." 
-            
-            call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_205 
-            call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_206
         "I appreciate it. Might have to take you up on that. . . everything has been so stressful lately.":
+            call change_Character_stat(Jean, "love", small_stat) from _call_change_Character_stat_367
+            call change_Character_stat(Jean, "trust", medium_stat) from _call_change_Character_stat_369
+
             $ Jean.change_face("worried1", mouth = "smirk")
 
             ch_Jean "Any time, [Jean.Player_petname]. . ." 
-            
-            call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_207
         "Thanks, I guess. . . I'll be fine.":
+            call change_Character_stat(Jean, "love", -small_stat) from _call_change_Character_stat_371
+            call change_Character_stat(Jean, "trust", -small_stat) from _call_change_Character_stat_372
+
             $ Jean.change_face("angry1", eyes = "right")
 
             ch_Jean "Whatever. . ." 
             
-            call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_208
-
     $ Jean.change_face("smirk1")
     $ Jean.change_arms("sass")
 

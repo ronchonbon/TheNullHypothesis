@@ -424,6 +424,7 @@ label day_three_combat_lesson:
         $ Laura.change_arms("angry")
 
         call change_Character_stat(Laura, "love", large_stat) from _call_change_Character_stat_892
+        call change_Character_stat(Laura, "trust", medium_stat) from _call_change_Character_stat_572
 
         ch_Laura "If you've developed any bad habits, I {i}will{/i} beat them out of you."
 
@@ -481,8 +482,7 @@ label day_three_combat_lesson:
 
         ch_Player "Are you okay? I did say it would feel a bit weird."
 
-        call change_Character_stat(Laura, "love", small_stat) from _call_change_Character_stat_895
-        call change_Character_stat(Laura, "trust", small_stat) from _call_change_Character_stat_896
+        call change_Character_stat(Laura, "trust", medium_stat) from _call_change_Character_stat_896
 
         ch_Laura "That felt. . . {size=-5}dangerous{/size}."
     else:
@@ -768,7 +768,8 @@ label day_three_meet_Jean:
         extend ""
         "Yeah, I'm okay. . . it is a lot to be honest.":
             call change_Character_stat(Jean, "love", medium_stat) from _call_change_Character_stat_1607
-
+            call change_Character_stat(Jean, "trust", small_stat) from _call_change_Character_stat_573
+            
             $ Jean.change_face("sad")
         "Nah, I'm not really okay. . . but I'll live.":
             call change_Character_stat(Jean, "trust", small_stat) from _call_change_Character_stat_1608

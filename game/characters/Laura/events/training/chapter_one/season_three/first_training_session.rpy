@@ -80,6 +80,9 @@ label Laura_chapter_one_season_three_first_training_session:
     menu:
         extend ""
         "Absolutely not, it's terrifying.":
+            call change_Character_stat(Laura, "love", -small_stat) from _call_change_Character_stat_517
+            call change_Character_stat(Laura, "trust", -small_stat) from _call_change_Character_stat_518
+
             ch_Player "How it makes me feel. . . it scares me. . ." 
             
             $ Laura.change_face("furious")
@@ -87,28 +90,24 @@ label Laura_chapter_one_season_three_first_training_session:
             ch_Laura "Get over it." 
             ch_Laura "You have to get stronger." 
             ch_Laura "You will learn how to use it properly." 
-            
-            call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_432 
-            call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_433
         "No, but I sure as hell want to try them out.":
+            call change_Character_stat(Laura, "love", small_stat) from _call_change_Character_stat_521
+            call change_Character_stat(Laura, "trust", -small_stat) from _call_change_Character_stat_522
+
             ch_Player "It feels exhilarating." 
             
             $ Laura.change_face("suspicious1")
 
             ch_Laura "Do not let it cloud your judgment." 
             ch_Laura "You're not well trained enough to trust your instincts yet." 
-            
-            call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_434 
-            call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_435
         "Not yet, but I am kinda eager to figure them out.":
+            call change_Character_stat(Laura, "trust", medium_stat) from _call_change_Character_stat_524
+
             $ Laura.change_face("angry1")
 
             ch_Laura "If you do what I say, you will." 
             ch_Laura "I won't let you stay this weak forever." 
             
-            call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_436 
-            call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_437
-
     if Jean.History.check("trained_with_Player", tracker = "season"):
         ch_Laura "You didn't try while training with [Jean.name]?" 
         ch_Player "How did you know I. . . never mind." 
@@ -144,7 +143,10 @@ label Laura_chapter_one_season_three_first_training_session:
 
     menu:
         extend ""
-        "Dangerous. . . to you in particular? I do appreciate how much you're trusting me.":
+        "Dangerous. . . even to you? I appreciate how much you're trusting me.":
+            call change_Character_stat(Laura, "love", small_stat) from _call_change_Character_stat_525
+            call change_Character_stat(Laura, "trust", medium_stat) from _call_change_Character_stat_526
+
             $ Laura.change_face("neutral", eyes = "left")
 
             ch_Laura "Yes. . ." 
@@ -152,15 +154,14 @@ label Laura_chapter_one_season_three_first_training_session:
             $ Laura.change_face("angry1") 
             
             ch_Laura "You should be grateful." 
-            
-            call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_438
         "You think so? Sweet.":
+            call change_Character_stat(Laura, "love", small_stat) from _call_change_Character_stat_527
+            call change_Character_stat(Laura, "trust", -small_stat) from _call_change_Character_stat_528
+
             $ Laura.change_face("suspicious1")
 
             ch_Laura ". . ." 
             
-            call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_439
-
     $ Laura.change_face("angry1")
     $ Laura.change_arms("crossed")
 
@@ -189,21 +190,22 @@ label Laura_chapter_one_season_three_first_training_session:
     menu:
         extend ""
         "Are you sure about this?":
+            call change_Character_stat(Laura, "trust", medium_stat) from _call_change_Character_stat_529
+
             $ Laura.change_face("angry1")
 
             ch_Laura "I am." 
             ch_Laura "Stop stalling." 
-
-            call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_440
         "Brace yourself.":
-            pass
+            call change_Character_stat(Laura, "love", medium_stat) from _call_change_Character_stat_530
         "I'm the one who should be focused on survival?":
+            call change_Character_stat(Laura, "love", -small_stat) from _call_change_Character_stat_531
+            call change_Character_stat(Laura, "trust", -small_stat) from _call_change_Character_stat_532
+
             $ Laura.change_face("furious")
 
             "She just glares at you." 
             
-            call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_441
-
     "As you try releasing your power, you realize how much of a death grip you've had on it."
     "Whether out of fear or ineptitude, your will has been clamping down on it with full force."
     "It takes an immense mental effort to try and release your hold."

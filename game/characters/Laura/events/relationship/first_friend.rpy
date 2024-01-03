@@ -76,7 +76,9 @@ label Laura_first_friend_part_one:
                 call Laura_first_friend_part_one_1B from _call_Laura_first_friend_part_one_1B
 
                 $ asked_about_Ororo = True
-            "Why me?" if not asked_why_me:
+            "Why me?" if not asked_why_me:                
+                call change_Character_stat(Laura, "trust", small_stat) from _call_change_Character_stat_416
+
                 $ Laura.change_face("neutral", blush = 1)
 
                 ch_Laura "Other than [Ororo.public_name], I've interacted with you the most."
@@ -88,7 +90,7 @@ label Laura_first_friend_part_one:
 
                 $ Laura.eyes = "neutral"
 
-                call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_360
+                pause 1.0
 
                 $ Laura.change_face("smirk1", blush = 0)
 
@@ -107,12 +109,12 @@ label Laura_first_friend_part_one:
 
                 $ Laura.change_face("perplexed")
 
-                call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_361
-
                 ch_Laura "I. . . don't fully understand, but I will try to {i}care{/i}."
 
                 $ asked_meaning = True
-            "Sure, I can be your friend.":
+            "Sure, I can be your friend.":                
+                call change_Character_stat(Laura, "love", medium_stat) from _call_change_Character_stat_417
+                
                 $ Laura.change_face("pleased2")
                 
                 pause 1.0
@@ -164,15 +166,16 @@ label Laura_first_friend_part_one_1A:
     menu:
         extend ""
         "I'm sorry, that must've been tough. . .":
+            call change_Character_stat(Laura, "trust", medium_stat) from _call_change_Character_stat_418
+            
             $ Laura.change_face("confused1")
-
-            call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_362
 
             ch_Laura "Why are you sorry?"
         "Makes sense, why you're. . .":
-            $ Laura.change_face("confused1")
+            call change_Character_stat(Laura, "love", -medium_stat) from _call_change_Character_stat_419
+            call change_Character_stat(Laura, "trust", -medium_stat) from _call_change_Character_stat_420
 
-            call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_363
+            $ Laura.change_face("confused1")
 
             ch_Laura "Why I'm what?"
             ch_Player "Nothing. . ."
@@ -202,17 +205,17 @@ label Laura_first_friend_part_one_1B:
     menu:
         extend ""
         "I can try to help you learn.":
-            $ Laura.change_face("surprised2")
+            call change_Character_stat(Laura, "love", small_stat) from _call_change_Character_stat_425
+            call change_Character_stat(Laura, "trust", small_stat) from _call_change_Character_stat_432
 
-            call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_364
-            call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_365
+            $ Laura.change_face("surprised2")
 
             ch_Laura "So you are my friend now?"
         "Are you even capable of that?":
-            $ Laura.change_face("angry1")
+            call change_Character_stat(Laura, "love", -large_stat) from _call_change_Character_stat_433
+            call change_Character_stat(Laura, "trust", -medium_stat) from _call_change_Character_stat_434
 
-            call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_366
-            call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_367
+            $ Laura.change_face("angry1")
 
             ch_Laura "I. . . don't know."
 
@@ -290,15 +293,18 @@ label Laura_first_friend_part_two:
         menu:
             extend ""
             "Explain the difference between platonic friends and relationships" if not explained_platonic:
+                call change_Character_stat(Laura, "love", medium_stat) from _call_change_Character_stat_435
+                call change_Character_stat(Laura, "trust", medium_stat) from _call_change_Character_stat_436
+
                 call Laura_first_friend_part_two_1A from _call_Laura_first_friend_part_two_1A
 
                 $ explained_platonic = True
             "Recommend she talk to [Rogue.name] about it":
+                call change_Character_stat(Laura, "trust", medium_stat) from _call_change_Character_stat_437
+                
                 ch_Player "I think it would probably be better for you to talk to another girl about this. . ."
 
                 $ Laura.change_face("confused1")
-
-                call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_369
 
                 ch_Player "You should go see [Rogue.name], she's very nice, and I'm sure she wouldn't mind answering some questions."
 
@@ -368,9 +374,6 @@ label Laura_first_friend_part_two_1A:
 
     ch_Laura "Everyone else smells terrible in comparison. . ."
 
-    call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_371
-    call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_372
-    
     ch_Player "{i}Ahem{/i}. . ."
 
     return
@@ -468,15 +471,15 @@ label Laura_first_friend_part_three:
     ch_Laura "Or what the term 'crush' means."
 
     if approval_check(Rogue, "love", threshold = Rogue_thresholds["dating"][0]):
+        call change_Character_stat(Laura, "love", medium_stat) from _call_change_Character_stat_438
+        call change_Character_stat(Laura, "trust", medium_stat) from _call_change_Character_stat_439      
+
         $ Laura.change_face("confused1", blush = 1)
 
         ch_Laura "She also had a lot to say about you."
         ch_Player "Good things, I hope."
 
         $ Laura.change_face("suspicious2", blush = 0)
-
-        call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_374
-        call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_375
 
         ch_Laura "Very good things. . ."
         "[Laura.name] stares at you skeptically."
@@ -505,6 +508,8 @@ label Laura_first_friend_part_three:
         menu:
             extend ""
             "That doesn't make me your boyfriend. . ." if not denied_boyfriend:
+                call change_Character_stat(Laura, "love", -small_stat) from _call_change_Character_stat_440
+                
                 call Laura_first_friend_part_three_1A from _call_Laura_first_friend_part_three_1A
 
                 $ denied_boyfriend = True
@@ -534,6 +539,8 @@ label Laura_first_friend_part_three:
 
                 $ asked_crush = True
             "I have a 'crush' on you too." if asked_crush:
+                call change_Character_stat(Laura, "love", medium_stat) from _call_change_Character_stat_441
+                
                 $ Laura.change_face("perplexed", blush = 1)
 
                 ch_Laura "And this still doesn't mean you're my boyfriend?"
@@ -619,9 +626,9 @@ label Laura_first_friend_part_three_1A:
     menu:
         extend ""
         ". . . {i}{size=-5}yet{/size}{/i}.":
-            $ Laura.change_face("suspicious2")
+            call change_Character_stat(Laura, "love", medium_stat) from _call_change_Character_stat_443
 
-            call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_376
+            $ Laura.change_face("suspicious2")
         ". . .":
             pass
 
@@ -666,9 +673,10 @@ label Laura_first_friend_part_three_1B:
     menu:
         extend ""
         "I appreciate it. . . but no, that's not how friends normally do it. (discourage_quirk)":
-            $ Laura.change_face("surprised1", blush = 1)
+            call change_Character_stat(Laura, "love", small_stat) from _call_change_Character_stat_444
+            call change_Character_stat(Laura, "trust", medium_stat) from _call_change_Character_stat_447
 
-            call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_377
+            $ Laura.change_face("surprised1", blush = 1)
 
             ch_Laura "You want me to stop?"
             ch_Player "You don't have to {i}constantly{/i} watch over me."
@@ -679,9 +687,10 @@ label Laura_first_friend_part_three_1B:
             
             $ Laura.History.update("quirk_discouraged")
         "Uhh. . . no. That's kind of weird. (discourage_quirk)":
-            $ Laura.change_face("angry1")
+            call change_Character_stat(Laura, "love", -medium_stat) from _call_change_Character_stat_448
+            call change_Character_stat(Laura, "trust", -small_stat) from _call_change_Character_stat_449
 
-            call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_378
+            $ Laura.change_face("angry1")
 
             ch_Laura "Fine, then I will stop."
             ch_Player "Friends still help and protect each other."
@@ -691,12 +700,11 @@ label Laura_first_friend_part_three_1B:
             
             $ Laura.History.update("quirk_discouraged")
         "Not normally in that way. . . but I like it. (encourage_quirk)":
+            call change_Character_stat(Laura, "love", large_stat) from _call_change_Character_stat_451
+
             ch_Player "Knowing someone as capable as you is watching my back. . ."
 
             $ Laura.change_face("pleased1", blush = 1)
-
-            call change_Character_stat(Laura, "love", 0) from _call_change_Character_stat_379
-            call change_Character_stat(Laura, "trust", 0) from _call_change_Character_stat_380
 
             ch_Laura "Good."
 

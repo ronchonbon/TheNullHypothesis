@@ -31,6 +31,8 @@ label Jean_chapter_one_season_three_first_training_session:
     menu:
         extend ""
         "I'm not thrilled about it either. . . but if anything, I'm stronger for it now.":
+            call change_Character_stat(Jean, "love", medium_stat) from _call_change_Character_stat_206
+
             $ Jean.change_face("worried1")
 
             ch_Jean "If that's what it takes for you to get stronger. . ." 
@@ -39,10 +41,9 @@ label Jean_chapter_one_season_three_first_training_session:
             $ Jean.change_arms("angry")
             
             ch_Jean "Just let me be strong enough for the both of us. . ." 
-            
-            call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_184
-            call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_185
         "How do you think I feel?! This time was much worse too. . .":
+            call change_Character_stat(Jean, "love", -small_stat) from _call_change_Character_stat_207
+
             $ Jean.change_face("worried2")
 
             ch_Jean "I'm just glad you're okay. . . and maybe with this new ability of yours, next time won't be so bad. . ." 
@@ -51,9 +52,9 @@ label Jean_chapter_one_season_three_first_training_session:
             $ Jean.change_arms("angry")
             
             ch_Jean "I hope there isn't a next time." 
-            
-            call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_186
         "If I can get over it, so can you. Plus, it only made me stronger in the end.":
+            call change_Character_stat(Jean, "love", -small_stat) from _call_change_Character_stat_208
+
             $ Jean.change_face("angry1", eyes = "right")
 
             ch_Jean "Ugh, at least you're making it easier to not feel bad for you." 
@@ -63,9 +64,6 @@ label Jean_chapter_one_season_three_first_training_session:
             
             ch_Jean "Not by much. . ." 
             
-            call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_187 
-            call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_188
-
     $ Jean.change_face("confused1")
     $ Jean.change_arms("hips", left_arm = "extended")
 
@@ -112,20 +110,27 @@ label Jean_chapter_one_season_three_first_training_session:
     menu:
         extend ""
         "It has to do with who my friends are.":
+            call change_Character_stat(Jean, "love", medium_stat) from _call_change_Character_stat_210
+            call change_Character_stat(Jean, "trust", large_stat) from _call_change_Character_stat_211
+
             $ Jean.change_face("confused2")
 
             ch_Player "Well, the fact that they're all mutants." 
             
             $ Jean.change_face("confused1") 
-            
-            call change_Character_stat(Jean, "trust", 0) from _call_change_Character_stat_189
         "It has to do with me being scared shitless.":
+            call change_Character_stat(Jean, "love", small_stat) from _call_change_Character_stat_212
+            call change_Character_stat(Jean, "trust", small_stat) from _call_change_Character_stat_213
+
             $ Jean.change_face("worried2")
 
             ch_Player "Well. . . actually not really. . ." 
             
             $ Jean.change_face("confused1")
         "It has to do with women.":
+            call change_Character_stat(Jean, "love", medium_stat) from _call_change_Character_stat_214
+            call change_Character_stat(Jean, "trust", -small_stat) from _call_change_Character_stat_326
+
             $ Jean.change_face("perplexed")
 
             ch_Player "I mean. . . in a way. . ." 
