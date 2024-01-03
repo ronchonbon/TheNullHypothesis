@@ -235,20 +235,20 @@ screen database_screen():
         color "#000000"
 
     # if blinking:
-    text "CEREBRO DATABASE" + "{alpha=0.0}_{/alpha}" anchor (0.0, 0.5) pos (0.065, 0.335):
+    text "CEREBRO DATABASE" + "{alpha=0.0}_{/alpha}" anchor (0.0, 0.5) pos (0.065, 0.3365):
         size 35
     # else:
-    #     text "CEREBRO DATABASE" + "_" anchor (0.0, 0.5) pos (0.065, 0.335):
+    #     text "CEREBRO DATABASE" + "_" anchor (0.0, 0.5) pos (0.065, 0.3365):
     #         size 35
 
-    viewport id "database_viewport" anchor (0.5, 0.0) pos (0.176, 0.405) xysize (int(911*interface_adjustment), int(1114*interface_adjustment)):
+    viewport id "database_viewport" anchor (0.5, 0.0) pos (0.18, 0.405) xysize (int(911*game_resolution), int(1114*game_resolution)):
         draggable True
         mousewheel True
 
         vbox:
             for D in database_Entries:
                 if hasattr(D, "database_type") and D.database_type and D.database_type and (not current_database_filter or D.database_type == current_database_filter):
-                    button xysize (int(911*interface_adjustment), int(191*interface_adjustment)):
+                    button xysize (int(911*game_resolution), int(191*game_resolution)):
                         idle_background At(f"images/interface/Player_menu/database_{D.database_type}_idle.webp", interface)
                         hover_background At(f"images/interface/Player_menu/database_{D.database_type}.webp", interface)
                         selected_idle_background At(f"images/interface/Player_menu/database_{D.database_type}.webp", interface)
@@ -267,11 +267,11 @@ screen database_screen():
                             SetVariable("current_database_page", 0),
                             SetVariable("current_database_Entry", D)]
 
-    vbar value YScrollValue("database_viewport") anchor (0.5, 0.0) pos (0.315, 0.405) xysize (int(40*interface_adjustment), int(1114*interface_adjustment)):
+    vbar value YScrollValue("database_viewport") anchor (0.5, 0.0) pos (0.315, 0.405) xysize (int(40*game_resolution), int(1114*game_resolution)):
         base_bar At("images/interface/Player_menu/database_scrollbar.webp", interface)
 
         thumb At("images/interface/Player_menu/database_scrollbar_thumb.webp", interface)
-        thumb_offset int(276*interface_adjustment/2/10)
+        thumb_offset int(276*game_resolution/2/10)
 
         unscrollable "hide"
 
@@ -387,9 +387,9 @@ screen database_screen():
                                     text_align 0.0
 
                     if current_database_Entry == Player:
-                        add f"images/interface/comics/Null.webp" anchor (0.0, 0.0) pos (0.04, 0.06) zoom interface_adjustment
+                        add f"images/interface/comics/Null.webp" anchor (0.0, 0.0) pos (0.04, 0.06) zoom 0.5
                     elif current_database_Entry in [Rogue, Jean, Ororo, Charles]:
-                        add f"images/interface/comics/{current_database_Entry.tag}.webp" anchor (0.0, 0.0) pos (0.04, 0.06) zoom interface_adjustment
+                        add f"images/interface/comics/{current_database_Entry.tag}.webp" anchor (0.0, 0.0) pos (0.04, 0.06) zoom 0.5
             elif current_database_section == "mutiefan" and "wiki" in current_database_Entry.database.keys():
                 frame anchor (0.0, 0.0) pos (0.375, 0.345) xysize (0.543, 0.55):
                     text current_database_Entry.database["wiki"] align (0.0, 0.0):
@@ -431,7 +431,7 @@ screen skills_screen():
         text "X-EVOLUTION" + "_" anchor (0.0, 0.5) pos (0.066, 0.238):
             size 35
 
-    add At("Player_portrait", customization_portrait) pos (0.738, 0.459)
+    add "Player_portrait" anchor (0.5, 0.5) pos (0.738, 0.459) zoom 0.5
 
     add f"images/interface/Player_menu/skills_{Player.scholarship}.webp" zoom interface_adjustment
 
@@ -471,7 +471,7 @@ screen skills_screen():
         
         size 30
 
-    bar value Player.XP range Player.XP_goal anchor (0.5, 0.5) pos (0.878, 0.465) xysize (int(277*interface_adjustment), int(24*interface_adjustment)):
+    bar value Player.XP range Player.XP_goal anchor (0.5, 0.5) pos (0.878, 0.465) xysize (int(277*game_resolution), int(24*game_resolution)):
         left_bar At("images/interface/Player_menu/skills_xp.webp", interface)
         right_bar At("images/interface/Player_menu/skills_xp_empty.webp", interface)
 
@@ -530,7 +530,7 @@ screen skills_screen():
             $ x = 0.188
             $ y = 0.4
 
-        button anchor (0.5, 0.5) pos (x, y) xysize (int(209*interface_adjustment), int(193*interface_adjustment)):
+        button anchor (0.5, 0.5) pos (x, y) xysize (int(209*game_resolution), int(193*game_resolution)):
             if ability in Player.mutant_abilities:
                 idle_background At("images/interface/Player_menu/skills_node_purchased.webp", interface)
                 hover_background At("images/interface/Player_menu/skills_node_selected.webp", interface)
@@ -690,7 +690,7 @@ screen inventory_screen():
                 if giving_gift and Item.Owner == Player:
                     continue
                     
-                button xysize (int(355*interface_adjustment), int(355*interface_adjustment)):
+                button xysize (int(355*game_resolution), int(355*game_resolution)):
                     if current_inventory_Item == Item_string:
                         background At("images/interface/Player_menu/inventory_selector.webp", interface)
                     else:
@@ -715,7 +715,7 @@ screen inventory_screen():
             else:
                 $ Clothing = Player.inventory[Item_string]
                 
-                button xysize (int(355*interface_adjustment), int(355*interface_adjustment)):
+                button xysize (int(355*game_resolution), int(355*game_resolution)):
                     if current_inventory_Item == Clothing:
                         background At("images/interface/Player_menu/inventory_selector.webp", interface)
                     else:
@@ -756,16 +756,16 @@ screen inventory_screen():
         size 35
 
     # if blinking:
-    text "ITEM NAME" + "{alpha=0.0}_{/alpha}" anchor (0.0, 0.5) pos (0.674, 0.335):
+    text "ITEM NAME" + "{alpha=0.0}_{/alpha}" anchor (0.0, 0.5) pos (0.674, 0.3365):
         size 35
     # else:
-    #     text "ITEM NAME" + "_" anchor (0.0, 0.5) pos (0.674, 0.335):
+    #     text "ITEM NAME" + "_" anchor (0.0, 0.5) pos (0.674, 0.3365):
     #         size 35
 
     if isinstance(current_inventory_Item, str):
         $ Item = eval(f"{current_inventory_Item}(None)")
 
-        text f"{Item.name.upper()}" anchor (1.0, 0.5) pos (0.93, 0.335):
+        text f"{Item.name.upper()}" anchor (1.0, 0.5) pos (0.93, 0.3365):
             if len(Item.name) > 20:
                 size 25
             elif len(Item.name) > 15:
@@ -776,7 +776,7 @@ screen inventory_screen():
         text f"{Item.description}" anchor (0.5, 0.5) pos (0.8, 0.608) xysize (0.25, 0.44):
             size 40
     elif current_inventory_Item:
-        text f"{current_inventory_Item.name.upper()}" anchor (1.0, 0.5) pos (0.93, 0.335):
+        text f"{current_inventory_Item.name.upper()}" anchor (1.0, 0.5) pos (0.93, 0.3365):
             if len(current_inventory_Item.name) > 20:
                 size 25
             elif len(current_inventory_Item.name) > 15:
@@ -885,44 +885,58 @@ screen journal_screen():
         size 35
 
     # if blinking:
-    text "QUEST LIST" + "{alpha=0.0}_{/alpha}" anchor (0.0, 0.5) pos (0.065, 0.335):
+    text "QUEST LIST" + "{alpha=0.0}_{/alpha}" anchor (0.0, 0.5) pos (0.065, 0.3365):
         size 35
     # else:
-    #     text "QUEST LIST" + "_" anchor (0.0, 0.5) pos (0.065, 0.335):
+    #     text "QUEST LIST" + "_" anchor (0.0, 0.5) pos (0.065, 0.3365):
     #         size 35
 
-    viewport id "journal_viewport" anchor (0.5, 0.0) pos (0.176, 0.405) xysize (int(911*interface_adjustment), int(1114*interface_adjustment)):
+    imagebutton:
+        idle At("images/interface/Player_menu/journal_checkbox_off.webp", interface)
+        hover At("images/interface/Player_menu/journal_checkbox_on.webp", interface)
+        selected_idle At("images/interface/Player_menu/journal_checkbox_on.webp", interface)
+
+        selected not show_completed_Quests
+
+        action ToggleVariable("show_completed_Quests")
+
+    text "Hide Completed" + "{alpha=0.0}_{/alpha}" anchor (0.0, 0.5) pos (0.25, 0.3365):
+        font "agency_fb.ttf"
+
+        size 25
+
+    viewport id "journal_viewport" anchor (0.5, 0.0) pos (0.18, 0.405) xysize (int(911*game_resolution), int(1114*game_resolution)):
         draggable True
         mousewheel True
 
         vbox:
             for Q in reversed(QuestPool.Quests.values()):
                 if Q.unlocked and (not current_journal_filter or Q.Quest_type == current_journal_filter) and (not current_journal_chapter or Q.chapter == current_journal_chapter):
-                    # if show_completed_Quests or not Q.completed:
-                    button xysize (int(911*interface_adjustment), int(191*interface_adjustment)):
-                        idle_background At(f"images/interface/Player_menu/journal_button_{Q.Quest_type}_idle.webp", interface)
-                        hover_background At(f"images/interface/Player_menu/journal_button_{Q.Quest_type}.webp", interface)
-                        selected_idle_background At(f"images/interface/Player_menu/journal_button_{Q.Quest_type}.webp", interface)
-                        
-                        selected current_journal_Quest == Q
+                    if show_completed_Quests or not Q.completed:
+                        button xysize (int(911*game_resolution), int(191*game_resolution)):
+                            idle_background At(f"images/interface/Player_menu/journal_button_{Q.Quest_type}_idle.webp", interface)
+                            hover_background At(f"images/interface/Player_menu/journal_button_{Q.Quest_type}.webp", interface)
+                            selected_idle_background At(f"images/interface/Player_menu/journal_button_{Q.Quest_type}.webp", interface)
+                            
+                            selected current_journal_Quest == Q
 
-                        text Q.name anchor (0.0, 0.5) pos (0.1, 0.5):
-                            font "agency_fb.ttf"
+                            text Q.name anchor (0.0, 0.5) pos (0.1, 0.5):
+                                font "agency_fb.ttf"
 
-                            size 36
+                                size 36
 
-                            color "#000000"
+                                color "#000000"
 
-                        if Q.completed:
-                            add At("images/interface/Player_menu/journal_clear.webp", interface) anchor (0.5, 0.5) pos (0.51, 0.47)
+                            if Q.completed:
+                                add At("images/interface/Player_menu/journal_clear.webp", interface) anchor (0.5, 0.5) pos (0.51, 0.47)
 
-                        action SetVariable("current_journal_Quest", Q)
+                            action SetVariable("current_journal_Quest", Q)
 
-    vbar value YScrollValue("journal_viewport") anchor (0.5, 0.0) pos (0.315, 0.405) xysize (int(40*interface_adjustment), int(1114*interface_adjustment)):
+    vbar value YScrollValue("journal_viewport") anchor (0.5, 0.0) pos (0.315, 0.405) xysize (int(40*game_resolution), int(1114*game_resolution)):
         base_bar At("images/interface/Player_menu/journal_scrollbar.webp", interface)
 
         thumb At("images/interface/Player_menu/journal_scrollbar_thumb.webp", interface)
-        thumb_offset int(276*interface_adjustment/2/10)
+        thumb_offset int(276*game_resolution/2/10)
 
         unscrollable "hide"
 
@@ -935,10 +949,10 @@ screen journal_screen():
             add At("images/interface/Player_menu/journal_pending.webp", interface)
 
         if blinking:
-            text "SUMMARY" + "{alpha=0.0}_{/alpha}" anchor (0.0, 0.5) pos (0.364, 0.335):
+            text "SUMMARY" + "{alpha=0.0}_{/alpha}" anchor (0.0, 0.5) pos (0.364, 0.3365):
                 size 35
         else:
-            text "SUMMARY" + "_" anchor (0.0, 0.5) pos (0.364, 0.335):
+            text "SUMMARY" + "_" anchor (0.0, 0.5) pos (0.364, 0.3365):
                 size 35
 
         text current_journal_Quest.description anchor (0.5, 0.0) pos (0.635, 0.402):
@@ -1026,12 +1040,12 @@ screen journal_screen():
                             size 32
 
         if current_journal_Quest.rewards:
-            hbox anchor (0.0, 0.5) pos (0.436, 0.885) xysize (0.41, int(248*interface_adjustment)):
+            hbox anchor (0.0, 0.5) pos (0.436, 0.885) xysize (0.41, int(248*game_resolution)):
                 spacing 0
 
                 for reward_type in current_journal_Quest.rewards.keys():
                     for reward in current_journal_Quest.rewards[reward_type]:
-                        fixed xysize (int(249*interface_adjustment), int(249*interface_adjustment)):
+                        fixed xysize (int(249*game_resolution), int(249*game_resolution)):
                             add At(f"images/interface/Player_menu/journal_{reward_type}.webp", interface)
 
                             text reward.upper() anchor (0.5, 0.5) pos (0.5, 0.81):
@@ -1332,7 +1346,7 @@ screen map_screen():
 
                                 text_align 0.0
 
-                            fixed xysize(1.0, int(88*interface_adjustment)):
+                            fixed xysize(1.0, int(88*game_resolution)):
                                 hbox xalign 0.0:
                                     spacing 5
 

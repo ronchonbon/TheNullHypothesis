@@ -87,9 +87,9 @@ screen interactions_screen(Character):
             $ frame_anchor = [0.0, 0.0]
             $ frame_position = [Character.sprite_position[0] + 0.05, Character.sprite_position[1] - 0.1]
 
-        vbox anchor (frame_anchor[0], frame_anchor[1]) pos (frame_position[0], frame_position[1]) xysize (int(450*interface_adjustment), int(1100*interface_adjustment)):
+        vbox anchor (frame_anchor[0], frame_anchor[1]) pos (frame_position[0], frame_position[1]) xysize (int(450*game_resolution), int(1100*game_resolution)):
             if Character in all_Companions:
-                button xysize (int(409*interface_adjustment), int(130*interface_adjustment)):
+                button xysize (int(409*game_resolution), int(130*game_resolution)):
                     if Character.sprite_position[0] > stage_far_far_left:
                         idle_background At("images/interface/interactions/love_left.webp", interface)
                         hover_background At("images/interface/interactions/love_left.webp", interface)
@@ -112,7 +112,7 @@ screen interactions_screen(Character):
 
                     tooltip "Love"
 
-                button xysize (int(409*interface_adjustment), int(130*interface_adjustment)):
+                button xysize (int(409*game_resolution), int(130*game_resolution)):
                     if Character.sprite_position[0] > stage_far_far_left:
                         idle_background At("images/interface/interactions/trust_left.webp", interface) 
                         hover_background At("images/interface/interactions/trust_left.webp", interface)
@@ -161,7 +161,7 @@ screen interactions_screen(Character):
 
                             tooltip "Ask for Work"
                     else:
-                        null width int(236*interface_adjustment) height int(238*interface_adjustment)
+                        null width int(236*game_resolution) height int(238*game_resolution)
 
                 imagebutton:
                     idle At("images/interface/interactions/chat_idle.webp", interface) 
@@ -218,11 +218,11 @@ screen interactions_screen(Character):
 
                             action NullAction()
                 else:
-                    null width int(236*interface_adjustment) height int(238*interface_adjustment)
+                    null width int(236*game_resolution) height int(238*game_resolution)
 
-                    null width int(236*interface_adjustment) height int(238*interface_adjustment)
+                    null width int(236*game_resolution) height int(238*game_resolution)
 
-                    null width int(236*interface_adjustment) height int(238*interface_adjustment)
+                    null width int(236*game_resolution) height int(238*game_resolution)
 
                 imagebutton:
                     idle At("images/interface/interactions/close_idle.webp", interface) 

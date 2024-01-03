@@ -77,13 +77,13 @@ image sky:
 
 image steam1:
     contains:
-        At("images/effects/steam1.webp", move_to_left(30.0, int(config.screen_width/background_adjustment)))
+        At("images/backgrounds/base/steam1.webp", move_to_left(30.0, int(config.screen_width/background_adjustment)))
 
     xysize (int(3840*background_sampling), int(2160*background_sampling))
 
 image steam2:
     contains:
-        At("images/effects/steam2.webp", move_to_right(45.0, int(config.screen_width/background_adjustment)))
+        At("images/backgrounds/base/steam2.webp", move_to_right(45.0, int(config.screen_width/background_adjustment)))
 
     xysize (int(3840*background_sampling), int(2160*background_sampling))
 

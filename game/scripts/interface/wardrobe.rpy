@@ -135,7 +135,7 @@ screen Wardrobe_screen(Character):
 
         for i in range(7*current_Wardrobe_Outfit_page, 7*current_Wardrobe_Outfit_page + 7):
             if i <= len(Outfit_list) - 1:
-                button xysize (int(147*interface_adjustment), int(131*interface_adjustment)):
+                button xysize (int(147*game_resolution), int(131*game_resolution)):
                     background At(f"images/interface/wardrobe/{Outfit_list[i].color}.webp", interface)
 
                     hover_foreground At("images/interface/wardrobe/outfit_selector.webp", interface)
@@ -161,7 +161,7 @@ screen Wardrobe_screen(Character):
                     else:
                         action NullAction()
             else:
-                null width int(147*interface_adjustment)
+                null width int(147*game_resolution)
 
     if blinking:
         text Character.Outfit.name.upper() + "{alpha=0.0}_{/alpha}" anchor (0.0, 0.5) pos (0.242, 0.063):
@@ -177,7 +177,7 @@ screen Wardrobe_screen(Character):
     #     text "FILTERS" + "_" anchor (0.0, 0.5) pos (0.242, 0.129):
     #         size 28
 
-    vpgrid id "Wardrobe_filter_viewport" anchor (0.5, 0.0) pos (0.4, 0.109) xysize (0.22, int(180*interface_adjustment)):
+    vpgrid id "Wardrobe_filter_viewport" anchor (0.5, 0.0) pos (0.4, 0.109) xysize (0.22, int(180*game_resolution)):
         cols 4
 
         draggable True
@@ -194,7 +194,7 @@ screen Wardrobe_screen(Character):
                 $ color = "pink"
 
             if filter != "empty":
-                button xysize (int(240*interface_adjustment), int(115*interface_adjustment)):
+                button xysize (int(240*game_resolution), int(115*game_resolution)):
                     idle_background At(f"images/interface/wardrobe/tag_{color}.webp", interface)
                     hover_background At(f"images/interface/wardrobe/tag_{color}.webp", interface)
 
@@ -212,13 +212,13 @@ screen Wardrobe_screen(Character):
                             SetVariable("current_Wardrobe_Outfit_page", 0),
                             AddToSet(current_Wardrobe_filter, filter)]
             else:
-                null width int(240*interface_adjustment) height int(115*interface_adjustment)
+                null width int(240*game_resolution) height int(115*game_resolution)
 
-    vbar value YScrollValue("Wardrobe_filter_viewport") anchor (0.5, 0.0) pos (0.52, 0.109) xysize (int(29*interface_adjustment), int(180*interface_adjustment)):
+    vbar value YScrollValue("Wardrobe_filter_viewport") anchor (0.5, 0.0) pos (0.52, 0.109) xysize (int(29*game_resolution), int(180*game_resolution)):
         base_bar At("images/interface/wardrobe/tag_scrollbar.webp", interface)
 
         thumb At("images/interface/wardrobe/tag_scrollbar_thumb.webp", interface)
-        thumb_offset int(74*interface_adjustment/2/3)
+        thumb_offset int(74*game_resolution/2/3)
 
         unscrollable "hide"
 
@@ -412,7 +412,7 @@ screen Wardrobe_screen(Character):
 screen accessory_screen(Character):
     style_prefix "Wardrobe"
 
-    viewport id "accessory_screen_viewport" anchor (1.0, 0.0) pos (0.984, 0.172) xysize (0.425, int(1249*interface_adjustment)):
+    viewport id "accessory_screen_viewport" anchor (1.0, 0.0) pos (0.984, 0.172) xysize (0.425, int(1249*game_resolution)):
         draggable True
         mousewheel True
 
@@ -427,7 +427,7 @@ screen accessory_screen(Character):
                         spacing -10
                         
                         if Character.Clothes[I.Clothing_type].string == I.string and Character.Clothes[I.Clothing_type].covered or (("swimsuit" in I.name or "bikini" in I.name) and Character.location == "bg_pool"):
-                            frame xysize (int(0.0344*config.screen_width), int(240*interface_adjustment)):
+                            frame xysize (int(0.0344*config.screen_width), int(240*game_resolution)):
                                 text f"{I.shame[0]}":
                                     size 36
 
@@ -441,7 +441,7 @@ screen accessory_screen(Character):
 
                             null width int(0.0171*config.screen_width)
 
-                            frame xysize (int(0.0344*config.screen_width), int(240*interface_adjustment)):
+                            frame xysize (int(0.0344*config.screen_width), int(240*game_resolution)):
                                 text f"{I.shame[1]}":
                                     size 36
 
@@ -449,7 +449,7 @@ screen accessory_screen(Character):
 
                         null width int(0.0145*config.screen_width)
 
-                        button xysize (int(1062*interface_adjustment), int(240*interface_adjustment)):
+                        button xysize (int(1062*game_resolution), int(240*game_resolution)):
                             idle_background At("images/interface/wardrobe/clothing_idle.webp", interface)
                             hover_background At("images/interface/wardrobe/clothing.webp", interface)
                             selected_background At("images/interface/wardrobe/clothing.webp", interface)
@@ -479,7 +479,7 @@ screen accessory_screen(Character):
                                 else:
                                     action Call("ask_Character_to_redress", I, instant = True, from_current = True)
                         else:
-                            null width int(260*interface_adjustment)
+                            null width int(260*game_resolution)
 
             for body_part in ["nipple", "labia"]:
                 for piercing_type in ["barbell", "ring"]:
@@ -495,7 +495,7 @@ screen accessory_screen(Character):
 
                             null width int(0.0145*config.screen_width)
 
-                            button xysize (int(1062*interface_adjustment), int(240*interface_adjustment)):
+                            button xysize (int(1062*game_resolution), int(240*game_resolution)):
                                 idle_background At("images/interface/wardrobe/clothing_idle.webp", interface)
                                 hover_background At("images/interface/wardrobe/clothing.webp", interface)
                                 selected_background At("images/interface/wardrobe/clothing.webp", interface)
@@ -517,7 +517,7 @@ screen accessory_screen(Character):
                                 else:
                                     action Call("give_Character_piercing", Character, Character.inventory[f"{piercing_type}_{body_part}_piercings"], from_current = True)
                                 
-                            null width int(260*interface_adjustment)
+                            null width int(260*game_resolution)
 
             if "belly_piercing" in Character.inventory.keys() or "belly_piercing" in Player.inventory.keys():
                 hbox:
@@ -531,7 +531,7 @@ screen accessory_screen(Character):
 
                     null width int(0.0145*config.screen_width)
 
-                    button xysize (int(1062*interface_adjustment), int(240*interface_adjustment)):
+                    button xysize (int(1062*game_resolution), int(240*game_resolution)):
                         idle_background At("images/interface/wardrobe/clothing_idle.webp", interface)
                         hover_background At("images/interface/wardrobe/clothing.webp", interface)
                         selected_background At("images/interface/wardrobe/clothing.webp", interface)
@@ -548,7 +548,7 @@ screen accessory_screen(Character):
                         else:
                             action Call("give_Character_piercing", Character, Character.inventory["belly_piercing"], from_current = True)
 
-                    null width int(260*interface_adjustment)
+                    null width int(260*game_resolution)
 
             if "remote_vibrator" in Character.inventory.keys():
                 hbox:
@@ -562,7 +562,7 @@ screen accessory_screen(Character):
 
                     null width int(0.0145*config.screen_width)
 
-                    button xysize (int(1062*interface_adjustment), int(240*interface_adjustment)):
+                    button xysize (int(1062*game_resolution), int(240*game_resolution)):
                         idle_background At("images/interface/wardrobe/clothing_idle.webp", interface)
                         hover_background At("images/interface/wardrobe/clothing.webp", interface)
                         selected_background At("images/interface/wardrobe/clothing.webp", interface)
@@ -579,7 +579,7 @@ screen accessory_screen(Character):
                         else:
                             action Call("ask_Character_to_use_Toy", Character, Character.inventory["remote_vibrator"][0], from_current = True)
 
-                    null width int(260*interface_adjustment)
+                    null width int(260*game_resolution)
 
             for buttplug in ["heart_anal_plug", "round_anal_plug"]:
                 if buttplug in Character.inventory.keys():
@@ -597,7 +597,7 @@ screen accessory_screen(Character):
 
                             null width int(0.0145*config.screen_width)
 
-                            button xysize (int(1062*interface_adjustment), int(240*interface_adjustment)):
+                            button xysize (int(1062*game_resolution), int(240*game_resolution)):
                                 idle_background At("images/interface/wardrobe/clothing_idle.webp", interface)
                                 hover_background At("images/interface/wardrobe/clothing.webp", interface)
                                 selected_background At("images/interface/wardrobe/clothing.webp", interface)
@@ -644,7 +644,7 @@ screen accessory_screen(Character):
                                     else:
                                         action Call("ask_Character_to_use_Toy", Character, Character.inventory[buttplug][0], 3, from_current = True)
 
-                            null width int(260*interface_adjustment)
+                            null width int(260*game_resolution)
 
             if True:
                 if Character in [Rogue]:
@@ -672,7 +672,7 @@ screen accessory_screen(Character):
 
                         null width int(0.0145*config.screen_width)
 
-                        button xysize (int(1062*interface_adjustment), int(240*interface_adjustment)):
+                        button xysize (int(1062*game_resolution), int(240*game_resolution)):
                             idle_background At("images/interface/wardrobe/clothing_idle.webp", interface)
                             hover_background At("images/interface/wardrobe/clothing.webp", interface)
 
@@ -692,7 +692,7 @@ screen accessory_screen(Character):
                             else:
                                 action SetField(Character, "left_arm", left_arm)
 
-                        null width int(260*interface_adjustment)
+                        null width int(260*game_resolution)
 
                 if Character in [Rogue]:
                     $ right_arms = [
@@ -719,7 +719,7 @@ screen accessory_screen(Character):
 
                         null width int(0.0145*config.screen_width)
 
-                        button xysize (int(1062*interface_adjustment), int(240*interface_adjustment)):
+                        button xysize (int(1062*game_resolution), int(240*game_resolution)):
                             idle_background At("images/interface/wardrobe/clothing_idle.webp", interface)
                             hover_background At("images/interface/wardrobe/clothing.webp", interface)
 
@@ -739,20 +739,20 @@ screen accessory_screen(Character):
                             else:
                                 action SetField(Character, "right_arm", right_arm)
 
-                        null width int(260*interface_adjustment)
+                        null width int(260*game_resolution)
 
-    vbar value YScrollValue("accessory_screen_viewport") anchor (0.5, 0.0) pos (0.982, 0.172) xysize (int(29*interface_adjustment), int(1249*interface_adjustment)):
+    vbar value YScrollValue("accessory_screen_viewport") anchor (0.5, 0.0) pos (0.982, 0.172) xysize (int(29*game_resolution), int(1249*game_resolution)):
         base_bar At("images/interface/wardrobe/clothing_scrollbar.webp", interface)
 
         thumb At("images/interface/wardrobe/clothing_scrollbar_thumb.webp", interface)
-        thumb_offset int(212*interface_adjustment/2/10)
+        thumb_offset int(212*game_resolution/2/10)
 
         unscrollable "hide"
 
 screen hair_screen(Character):
     style_prefix "Wardrobe"
 
-    viewport id "hair_screen_viewport" anchor (1.0, 0.0) pos (0.984, 0.172) xysize (0.425, int(1249*interface_adjustment)):
+    viewport id "hair_screen_viewport" anchor (1.0, 0.0) pos (0.984, 0.172) xysize (0.425, int(1249*game_resolution)):
         draggable True
         mousewheel True
 
@@ -774,7 +774,7 @@ screen hair_screen(Character):
 
                         null width int(0.0145*config.screen_width)
 
-                        button xysize (int(1062*interface_adjustment), int(240*interface_adjustment)):
+                        button xysize (int(1062*game_resolution), int(240*game_resolution)):
                             idle_background At("images/interface/wardrobe/clothing_idle.webp", interface)
                             hover_background At("images/interface/wardrobe/clothing.webp", interface)
                             selected_background At("images/interface/wardrobe/clothing.webp", interface)
@@ -791,7 +791,7 @@ screen hair_screen(Character):
                             else:
                                 action NullAction()
 
-                        null width int(260*interface_adjustment)
+                        null width int(260*game_resolution)
 
             if Character.check_traits("customizable_pubes"):
                 for hair_style in ["bush", "growing", "hairy", "null", "shaven", "strip", "strip_thick", "triangle", "triangle_large"]:
@@ -806,7 +806,7 @@ screen hair_screen(Character):
 
                         null width int(0.0145*config.screen_width)
 
-                        button xysize (int(1062*interface_adjustment), int(240*interface_adjustment)):
+                        button xysize (int(1062*game_resolution), int(240*game_resolution)):
                             idle_background At("images/interface/wardrobe/clothing_idle.webp", interface)
                             hover_background At("images/interface/wardrobe/clothing.webp", interface)
                             selected_background At("images/interface/wardrobe/clothing.webp", interface)
@@ -846,7 +846,7 @@ screen hair_screen(Character):
                                 #     SetVariable("changed_body_hair", True),
                                 #     Call("ask_Character_to_shave", Character, hair_style, from_current = True)]
 
-                        null width int(260*interface_adjustment)
+                        null width int(260*game_resolution)
                         
             if False:
                 $ brows = [
@@ -864,7 +864,7 @@ screen hair_screen(Character):
 
                         null width int(0.0145*config.screen_width)
 
-                        button xysize (int(1062*interface_adjustment), int(240*interface_adjustment)):
+                        button xysize (int(1062*game_resolution), int(240*game_resolution)):
                             idle_background At("images/interface/wardrobe/clothing_idle.webp", interface)
                             hover_background At("images/interface/wardrobe/clothing.webp", interface)
 
@@ -875,7 +875,7 @@ screen hair_screen(Character):
                             
                                 size 36
 
-                        null width int(260*interface_adjustment)
+                        null width int(260*game_resolution)
 
                 $ eyes = [
                     "neutral", "blink1", "blink2", "closed", "down", "left", "right", "sexy", "squint", "up", "wide", "wink"]
@@ -892,7 +892,7 @@ screen hair_screen(Character):
 
                         null width int(0.0145*config.screen_width)
 
-                        button xysize (int(1062*interface_adjustment), int(240*interface_adjustment)):
+                        button xysize (int(1062*game_resolution), int(240*game_resolution)):
                             idle_background At("images/interface/wardrobe/clothing_idle.webp", interface)
                             hover_background At("images/interface/wardrobe/clothing.webp", interface)
 
@@ -903,7 +903,7 @@ screen hair_screen(Character):
 
                                 size 36
 
-                        null width int(260*interface_adjustment)
+                        null width int(260*game_resolution)
 
                 if Character in [Laura]:
                     $ mouths = [
@@ -924,7 +924,7 @@ screen hair_screen(Character):
 
                         null width int(0.0145*config.screen_width)
 
-                        button xysize (int(1062*interface_adjustment), int(240*interface_adjustment)):
+                        button xysize (int(1062*game_resolution), int(240*game_resolution)):
                             idle_background At("images/interface/wardrobe/clothing_idle.webp", interface)
                             hover_background At("images/interface/wardrobe/clothing.webp", interface)
 
@@ -935,7 +935,7 @@ screen hair_screen(Character):
 
                                 size 36
 
-                        null width int(260*interface_adjustment)
+                        null width int(260*game_resolution)
 
                 if Character in [Laura]:
                     $ faces = [
@@ -966,7 +966,7 @@ screen hair_screen(Character):
 
                         null width int(0.0145*config.screen_width)
 
-                        button xysize (int(1062*interface_adjustment), int(240*interface_adjustment)):
+                        button xysize (int(1062*game_resolution), int(240*game_resolution)):
                             idle_background At("images/interface/wardrobe/clothing_idle.webp", interface)
                             hover_background At("images/interface/wardrobe/clothing.webp", interface)
 
@@ -977,20 +977,20 @@ screen hair_screen(Character):
                                 
                                 size 36
 
-                        null width int(260*interface_adjustment)
+                        null width int(260*game_resolution)
 
-    vbar value YScrollValue("hair_screen_viewport") anchor (0.5, 0.0) pos (0.982, 0.172) xysize (int(29*interface_adjustment), int(1249*interface_adjustment)):
+    vbar value YScrollValue("hair_screen_viewport") anchor (0.5, 0.0) pos (0.982, 0.172) xysize (int(29*game_resolution), int(1249*game_resolution)):
         base_bar At("images/interface/wardrobe/clothing_scrollbar.webp", interface)
 
         thumb At("images/interface/wardrobe/clothing_scrollbar_thumb.webp", interface)
-        thumb_offset int(212*interface_adjustment/2/10)
+        thumb_offset int(212*game_resolution/2/10)
 
         unscrollable "hide"
 
 screen upper_screen(Character):
     style_prefix "Wardrobe"
 
-    viewport id "upper_screen_viewport" anchor (1.0, 0.0) pos (0.984, 0.172) xysize (0.425, int(1249*interface_adjustment)):
+    viewport id "upper_screen_viewport" anchor (1.0, 0.0) pos (0.984, 0.172) xysize (0.425, int(1249*game_resolution)):
         draggable True
         mousewheel True
 
@@ -1005,7 +1005,7 @@ screen upper_screen(Character):
                         spacing -10
                         
                         if Character.Clothes[I.Clothing_type].string == I.string and Character.Clothes[I.Clothing_type].covered or (("swimsuit" in I.name or "bikini" in I.name) and Character.location == "bg_pool"):
-                            frame xysize (int(0.0344*config.screen_width), int(240*interface_adjustment)):
+                            frame xysize (int(0.0344*config.screen_width), int(240*game_resolution)):
                                 text f"{I.shame[0]}":
                                     size 36
 
@@ -1019,7 +1019,7 @@ screen upper_screen(Character):
 
                             null width int(0.0171*config.screen_width)
 
-                            frame xysize (int(0.0344*config.screen_width), int(240*interface_adjustment)):
+                            frame xysize (int(0.0344*config.screen_width), int(240*game_resolution)):
                                 text f"{I.shame[1]}":
                                     size 36
 
@@ -1027,7 +1027,7 @@ screen upper_screen(Character):
 
                         null width int(0.0145*config.screen_width)
 
-                        button xysize (int(1062*interface_adjustment), int(240*interface_adjustment)):
+                        button xysize (int(1062*game_resolution), int(240*game_resolution)):
                             idle_background At("images/interface/wardrobe/clothing_idle.webp", interface)
                             hover_background At("images/interface/wardrobe/clothing.webp", interface)
                             selected_background At("images/interface/wardrobe/clothing.webp", interface)
@@ -1057,20 +1057,20 @@ screen upper_screen(Character):
                                 else:
                                     action Call("ask_Character_to_redress", I, instant = True, from_current = True)
                         else:
-                            null width int(260*interface_adjustment)
+                            null width int(260*game_resolution)
 
-    vbar value YScrollValue("upper_screen_viewport") anchor (0.5, 0.0) pos (0.982, 0.172) xysize (int(29*interface_adjustment), int(1249*interface_adjustment)):
+    vbar value YScrollValue("upper_screen_viewport") anchor (0.5, 0.0) pos (0.982, 0.172) xysize (int(29*game_resolution), int(1249*game_resolution)):
         base_bar At("images/interface/wardrobe/clothing_scrollbar.webp", interface)
 
         thumb At("images/interface/wardrobe/clothing_scrollbar_thumb.webp", interface)
-        thumb_offset int(212*interface_adjustment/2/10)
+        thumb_offset int(212*game_resolution/2/10)
 
         unscrollable "hide"
 
 screen lower_screen(Character):
     style_prefix "Wardrobe"
     
-    viewport id "lower_screen_viewport" anchor (1.0, 0.0) pos (0.984, 0.172) xysize (0.425, int(1249*interface_adjustment)):
+    viewport id "lower_screen_viewport" anchor (1.0, 0.0) pos (0.984, 0.172) xysize (0.425, int(1249*game_resolution)):
         draggable True
         mousewheel True
 
@@ -1085,7 +1085,7 @@ screen lower_screen(Character):
                         spacing -10
                         
                         if Character.Clothes[I.Clothing_type].string == I.string and Character.Clothes[I.Clothing_type].covered or (("swimsuit" in I.name or "bikini" in I.name) and Character.location == "bg_pool"):
-                            frame xysize (int(0.0344*config.screen_width), int(240*interface_adjustment)):
+                            frame xysize (int(0.0344*config.screen_width), int(240*game_resolution)):
                                 text f"{I.shame[0]}":
                                     size 36
 
@@ -1099,7 +1099,7 @@ screen lower_screen(Character):
 
                             null width int(0.0171*config.screen_width)
 
-                            frame xysize (int(0.0344*config.screen_width), int(240*interface_adjustment)):
+                            frame xysize (int(0.0344*config.screen_width), int(240*game_resolution)):
                                 text f"{I.shame[1]}":
                                     size 36
 
@@ -1107,7 +1107,7 @@ screen lower_screen(Character):
 
                         null width int(0.0145*config.screen_width)
 
-                        button xysize (int(1062*interface_adjustment), int(240*interface_adjustment)):
+                        button xysize (int(1062*game_resolution), int(240*game_resolution)):
                             idle_background At("images/interface/wardrobe/clothing_idle.webp", interface)
                             hover_background At("images/interface/wardrobe/clothing.webp", interface)
                             selected_background At("images/interface/wardrobe/clothing.webp", interface)
@@ -1137,13 +1137,13 @@ screen lower_screen(Character):
                                 else:
                                     action Call("ask_Character_to_redress", I, instant = True, from_current = True)
                         else:
-                            null width int(260*interface_adjustment)
+                            null width int(260*game_resolution)
 
-    vbar value YScrollValue("lower_screen_viewport") anchor (0.5, 0.0) pos (0.982, 0.172) xysize (int(29*interface_adjustment), int(1249*interface_adjustment)):
+    vbar value YScrollValue("lower_screen_viewport") anchor (0.5, 0.0) pos (0.982, 0.172) xysize (int(29*game_resolution), int(1249*game_resolution)):
         base_bar At("images/interface/wardrobe/clothing_scrollbar.webp", interface)
 
         thumb At("images/interface/wardrobe/clothing_scrollbar_thumb.webp", interface)
-        thumb_offset int(212*interface_adjustment/2/10)
+        thumb_offset int(212*game_resolution/2/10)
 
         unscrollable "hide"
 
@@ -1188,7 +1188,7 @@ screen save_Outfit_screen(Character):
     #     text "OUTFIT COLOR" + "_" anchor (0.0, 0.5) pos (0.242, 0.344):
     #         size 28
 
-    hbox anchor (0.5, 0.5) pos (0.374, 0.4) ysize int(114*interface_adjustment):
+    hbox anchor (0.5, 0.5) pos (0.374, 0.4) ysize int(114*game_resolution):
         spacing 15
 
         for Outfit_color in ["blue", "green", "pink", "purple", "red"]:
@@ -1209,7 +1209,7 @@ screen save_Outfit_screen(Character):
     #     text "OUTFIT FLAGS" + "_" anchor (0.0, 0.5) pos (0.242, 0.42):
     #         size 28
 
-    vpgrid id "Wardrobe_save_flags_viewport" anchor (0.5, 0.0) pos (0.374, 0.475) xysize (0.22, int(646*interface_adjustment)):
+    vpgrid id "Wardrobe_save_flags_viewport" anchor (0.5, 0.0) pos (0.374, 0.475) xysize (0.22, int(646*game_resolution)):
         cols 4
 
         draggable True
@@ -1226,7 +1226,7 @@ screen save_Outfit_screen(Character):
                 $ color = "pink"
 
             if flag != "empty":
-                button xysize (int(240*interface_adjustment), int(115*interface_adjustment)):
+                button xysize (int(240*game_resolution), int(115*game_resolution)):
                     idle_background At(f"images/interface/wardrobe/tag_{color}.webp", interface)
                     hover_background At(f"images/interface/wardrobe/tag_{color}.webp", interface)
 
@@ -1242,13 +1242,13 @@ screen save_Outfit_screen(Character):
                     else:
                         action AddToSet(current_flags, flag)
             else:
-                null width int(240*interface_adjustment) height int(115*interface_adjustment)
+                null width int(240*game_resolution) height int(115*game_resolution)
 
-    vbar value YScrollValue("Wardrobe_save_flags_viewport") anchor (0.5, 0.0) pos (0.52, 0.475) xysize (int(29*interface_adjustment), int(646*interface_adjustment)):
+    vbar value YScrollValue("Wardrobe_save_flags_viewport") anchor (0.5, 0.0) pos (0.52, 0.475) xysize (int(29*game_resolution), int(646*game_resolution)):
         base_bar At("images/interface/wardrobe/popup_scrollbar.webp", interface)
 
         thumb At("images/interface/wardrobe/popup_scrollbar_thumb.webp", interface)
-        thumb_offset int(212*interface_adjustment/2/10)
+        thumb_offset int(212*game_resolution/2/10)
 
         unscrollable "hide"
 
@@ -1325,7 +1325,7 @@ screen edit_Outfit_screen(Character):
     #     text "OUTFIT COLOR" + "_" anchor (0.0, 0.5) pos (0.242, 0.344):
     #         size 28
 
-    hbox anchor (0.5, 0.5) pos (0.374, 0.4) ysize int(114*interface_adjustment):
+    hbox anchor (0.5, 0.5) pos (0.374, 0.4) ysize int(114*game_resolution):
         spacing 15
 
         for Outfit_color in ["blue", "green", "pink", "purple", "red"]:
@@ -1346,7 +1346,7 @@ screen edit_Outfit_screen(Character):
     #     text "OUTFIT FLAGS" + "_" anchor (0.0, 0.5) pos (0.242, 0.42):
     #         size 28
 
-    vpgrid id "Wardrobe_edit_flags_viewport" anchor (0.5, 0.0) pos (0.374, 0.475) xysize (0.22, int(646*interface_adjustment)):
+    vpgrid id "Wardrobe_edit_flags_viewport" anchor (0.5, 0.0) pos (0.374, 0.475) xysize (0.22, int(646*game_resolution)):
         cols 4
 
         draggable True
@@ -1363,7 +1363,7 @@ screen edit_Outfit_screen(Character):
                 $ color = "pink"
 
             if flag != "empty":
-                button xysize (int(240*interface_adjustment), int(115*interface_adjustment)):
+                button xysize (int(240*game_resolution), int(115*game_resolution)):
                     idle_background At(f"images/interface/wardrobe/tag_{color}.webp", interface)
                     hover_background At(f"images/interface/wardrobe/tag_{color}.webp", interface)
 
@@ -1379,13 +1379,13 @@ screen edit_Outfit_screen(Character):
                     else:
                         action AddToSet(current_flags, flag)
             else:
-                null width int(240*interface_adjustment) height int(115*interface_adjustment)
+                null width int(240*game_resolution) height int(115*game_resolution)
 
-    vbar value YScrollValue("Wardrobe_edit_flags_viewport") anchor (0.5, 0.0) pos (0.52, 0.475) xysize (int(29*interface_adjustment), int(646*interface_adjustment)):
+    vbar value YScrollValue("Wardrobe_edit_flags_viewport") anchor (0.5, 0.0) pos (0.52, 0.475) xysize (int(29*game_resolution), int(646*game_resolution)):
         base_bar At("images/interface/wardrobe/popup_scrollbar.webp", interface)
 
         thumb At("images/interface/wardrobe/popup_scrollbar_thumb.webp", interface)
-        thumb_offset int(212*interface_adjustment/2/10)
+        thumb_offset int(212*game_resolution/2/10)
 
         unscrollable "hide"
                     

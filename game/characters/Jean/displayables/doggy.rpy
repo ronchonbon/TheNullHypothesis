@@ -551,10 +551,9 @@ layeredimage Jean_doggy_head:
     offset (int(1945*sex_sampling), int(940*sex_sampling))
 
 layeredimage Jean_doggy_hair_front:
-    # if Jean.check_traits("wet") or Jean.Clothes["hair"].string == "wet":
-    #     "characters/Jean/images/doggy/hair_front_wet.webp"
-    # else:
-    always:
+    if Jean.check_traits("wet") or Jean.Clothes["hair"].string == "wet":
+        "characters/Jean/images/doggy/hair_front_wet.webp"
+    else:
         "characters/Jean/images/doggy/hair_front_[Jean.Clothes[hair].string].webp"
 
     anchor (int(1945*sex_sampling), int(940*sex_sampling))

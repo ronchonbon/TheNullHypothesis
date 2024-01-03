@@ -120,8 +120,8 @@ screen shop_screen(shop_type, discount = False, restricted = True):
                         $ quantity += 1
                         $ removable_Item = I_temp
 
-                fixed xysize (1.0, int(177*interface_adjustment)):
-                    button anchor (0.0, 0.5) pos (0.0, 0.5) xysize (int(925*interface_adjustment), int(177*interface_adjustment)):
+                fixed xysize (1.0, int(177*game_resolution)):
+                    button anchor (0.0, 0.5) pos (0.0, 0.5) xysize (int(925*game_resolution), int(177*game_resolution)):
                         idle_background At("images/interface/shop/item_idle.webp", interface)
                         hover_background At("images/interface/shop/item.webp", interface) 
                         selected_idle_background At("images/interface/shop/item.webp", interface)

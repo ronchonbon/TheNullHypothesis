@@ -235,13 +235,13 @@ screen preferences():
         text preferences_label + "_" anchor (0.0, 0.5) pos (0.065, 0.336)
 
     if preferences_tab == "graphics":
-        hbox anchor (0.5, 0.5) pos (0.431, 0.675) xysize (int(2800*interface_adjustment), int(1150*interface_adjustment)):
+        hbox anchor (0.5, 0.5) pos (0.431, 0.675) xysize (int(2800*game_resolution), int(1150*game_resolution)):
             spacing 50
 
             vbox:
                 text "FULLSCREEN" anchor (0.5, 0.5) pos (0.47, 0.5)
 
-                button xysize (int(321*interface_adjustment), int(190*interface_adjustment)):
+                button xysize (int(321*game_resolution), int(190*game_resolution)):
                     idle_background At("images/interface/preferences/off.webp", interface) 
                     hover_background At("images/interface/preferences/off.webp", interface) 
                     selected_idle_background At("images/interface/preferences/on.webp", interface) 
@@ -268,7 +268,7 @@ screen preferences():
                 vbox:
                     text "IMAGE FILTER" anchor (0.5, 0.5) pos (0.5, 0.5)
 
-                    fixed xysize (int(700*interface_adjustment), int(190*interface_adjustment)):
+                    fixed xysize (int(700*game_resolution), int(190*game_resolution)):
                         imagebutton anchor (0.0, 0.5) pos (0.0, 0.5):
                             idle At("images/interface/Player_customization/left_idle.webp", interface)
                             hover At("images/interface/Player_customization/left.webp", interface)
@@ -299,7 +299,7 @@ screen preferences():
                 vbox:
                     text "CINEMATIC BARS" anchor (0.5, 0.5) pos (0.47, 0.5)
 
-                    button xysize (int(321*interface_adjustment), int(190*interface_adjustment)):
+                    button xysize (int(321*game_resolution), int(190*game_resolution)):
                         idle_background At("images/interface/preferences/off.webp", interface) 
                         hover_background At("images/interface/preferences/off.webp", interface) 
                         selected_idle_background At("images/interface/preferences/on.webp", interface) 
@@ -320,7 +320,7 @@ screen preferences():
             vbox:
                 text "FLASHING LIGHTS" anchor (0.5, 0.5) pos (0.47, 0.5)
 
-                button xysize (int(321*interface_adjustment), int(190*interface_adjustment)):
+                button xysize (int(321*game_resolution), int(190*game_resolution)):
                     idle_background At("images/interface/preferences/off.webp", interface) 
                     hover_background At("images/interface/preferences/off.webp", interface) 
                     selected_idle_background At("images/interface/preferences/on.webp", interface) 
@@ -344,7 +344,7 @@ screen preferences():
                 vbox:
                     text "PLAYER BODY VISIBLE" anchor (0.5, 0.5) pos (0.47, 0.5)
 
-                    button xysize (int(321*interface_adjustment), int(190*interface_adjustment)):
+                    button xysize (int(321*game_resolution), int(190*game_resolution)):
                         idle_background At("images/interface/preferences/off.webp", interface) 
                         hover_background At("images/interface/preferences/off.webp", interface) 
                         selected_idle_background At("images/interface/preferences/on.webp", interface) 
@@ -368,7 +368,7 @@ screen preferences():
                 vbox:
                     text "UI VISIBLE" anchor (0.5, 0.5) pos (0.47, 0.5)
 
-                    button xysize (int(321*interface_adjustment), int(190*interface_adjustment)):
+                    button xysize (int(321*game_resolution), int(190*game_resolution)):
                         idle_background At("images/interface/preferences/off.webp", interface) 
                         hover_background At("images/interface/preferences/off.webp", interface) 
                         selected_idle_background At("images/interface/preferences/on.webp", interface) 
@@ -392,7 +392,7 @@ screen preferences():
                 # vbox:
                 #     text "WARDROBE MAGAZINE" anchor (0.5, 0.5) pos (0.47, 0.5)
 
-                #     button xysize (int(321*interface_adjustment), int(190*interface_adjustment)):
+                #     button xysize (int(321*game_resolution), int(190*game_resolution)):
                 #         idle_background At("images/interface/preferences/off.webp", interface) 
                 #         hover_background At("images/interface/preferences/off.webp", interface) 
                 #         selected_idle_background At("images/interface/preferences/on.webp", interface) 
@@ -410,7 +410,7 @@ screen preferences():
 
                 #         action ToggleVariable("Wardrobe_magazine")
     elif preferences_tab == "audio":
-        hbox anchor (0.5, 0.5) pos (0.431, 0.643) xysize (int(2800*interface_adjustment), int(1150*interface_adjustment)):
+        hbox anchor (0.5, 0.5) pos (0.431, 0.643) xysize (int(2800*game_resolution), int(1150*game_resolution)):
             spacing 50
 
             vbox:
@@ -418,7 +418,7 @@ screen preferences():
 
                 text "INTERFACE VOLUME"
 
-                bar value Preference("sound volume") xysize (int(1114*interface_adjustment), int(40*interface_adjustment)):
+                bar value Preference("sound volume") xysize (int(1114*game_resolution), int(40*game_resolution)):
                     base_bar At("images/interface/preferences/scrollbar.webp", interface)
 
                     thumb At("images/interface/preferences/scrollbar_thumb.webp", interface)
@@ -428,7 +428,7 @@ screen preferences():
 
                 text "MUSIC VOLUME"
 
-                bar value Preference("music volume") xysize (int(1114*interface_adjustment), int(40*interface_adjustment)):
+                bar value Preference("music volume") xysize (int(1114*game_resolution), int(40*game_resolution)):
                     base_bar At("images/interface/preferences/scrollbar.webp", interface)
 
                     thumb At("images/interface/preferences/scrollbar_thumb.webp", interface)
@@ -439,7 +439,7 @@ screen preferences():
             vbox:
                 text "MUTE" anchor (0.5, 0.5) pos (0.47, 0.5)
 
-                button xysize (int(321*interface_adjustment), int(190*interface_adjustment)):
+                button xysize (int(321*game_resolution), int(190*game_resolution)):
                     idle_background At("images/interface/preferences/off.webp", interface) 
                     hover_background At("images/interface/preferences/off.webp", interface) 
                     selected_idle_background At("images/interface/preferences/on.webp", interface) 
@@ -464,12 +464,12 @@ screen preferences():
                             SetVariable("volume_muted", True),
                             SetMute(["sound", "music"], True)]
     elif preferences_tab == "hotkeys":
-        hbox anchor (0.5, 0.5) pos (0.431, 0.7) xysize (int(2800*interface_adjustment), int(1150*interface_adjustment)):
+        hbox anchor (0.5, 0.5) pos (0.431, 0.7) xysize (int(2800*game_resolution), int(1150*game_resolution)):
             spacing 10
 
             vbox yalign 0.0:
                 hbox xalign 0.0:
-                    fixed xysize (int(158*interface_adjustment), int(150*interface_adjustment)):
+                    fixed xysize (int(158*game_resolution), int(150*game_resolution)):
                         add At("images/interface/preferences/hotkey.webp", interface)
 
                         text "I":
@@ -480,7 +480,7 @@ screen preferences():
                     text "INVENTORY" align (0.0, 0.5)
 
                 hbox xalign 0.0:
-                    fixed xysize (int(158*interface_adjustment), int(150*interface_adjustment)):
+                    fixed xysize (int(158*game_resolution), int(150*game_resolution)):
                         add At("images/interface/preferences/hotkey.webp", interface)
 
                         text "J":
@@ -491,7 +491,7 @@ screen preferences():
                     text "JOURNAL" align (0.0, 0.5)
 
                 hbox xalign 0.0:
-                    fixed xysize (int(158*interface_adjustment), int(150*interface_adjustment)):
+                    fixed xysize (int(158*game_resolution), int(150*game_resolution)):
                         add At("images/interface/preferences/hotkey.webp", interface)
 
                         text "M":
@@ -502,7 +502,7 @@ screen preferences():
                     text "MAP" align (0.0, 0.5)
 
                 hbox xalign 0.0:
-                    fixed xysize (int(158*interface_adjustment), int(150*interface_adjustment)):
+                    fixed xysize (int(158*game_resolution), int(150*game_resolution)):
                         add At("images/interface/preferences/hotkey.webp", interface)
 
                         text "P":
@@ -514,7 +514,7 @@ screen preferences():
 
             vbox yalign 0.0:
                 hbox xalign 0.0:
-                    fixed xysize (int(158*interface_adjustment), int(150*interface_adjustment)):
+                    fixed xysize (int(158*game_resolution), int(150*game_resolution)):
                         add At("images/interface/preferences/hotkey.webp", interface)
 
                         text "R":
@@ -525,7 +525,7 @@ screen preferences():
                     text "PLAYER ROOM" align (0.0, 0.5)
 
                 hbox xalign 0.0:
-                    fixed xysize (int(158*interface_adjustment), int(150*interface_adjustment)):
+                    fixed xysize (int(158*game_resolution), int(150*game_resolution)):
                         add At("images/interface/preferences/hotkey.webp", interface)
 
                         text "C":
@@ -536,7 +536,7 @@ screen preferences():
                     text "CLASSROOM" align (0.0, 0.5)
                         
                 hbox xalign 0.0:
-                    fixed xysize (int(158*interface_adjustment), int(150*interface_adjustment)):
+                    fixed xysize (int(158*game_resolution), int(150*game_resolution)):
                         add At("images/interface/preferences/hotkey.webp", interface)
 
                         text "G":
@@ -547,7 +547,7 @@ screen preferences():
                     text "DANGER ROOM" align (0.0, 0.5)
                         
                 hbox xalign 0.0:
-                    fixed xysize (int(158*interface_adjustment), int(150*interface_adjustment)):
+                    fixed xysize (int(158*game_resolution), int(150*game_resolution)):
                         add At("images/interface/preferences/hotkey.webp", interface)
 
                         text "1":
@@ -558,7 +558,7 @@ screen preferences():
                     text "QUIKLOC 1" align (0.0, 0.5)
                         
                 hbox xalign 0.0:
-                    fixed xysize (int(158*interface_adjustment), int(150*interface_adjustment)):
+                    fixed xysize (int(158*game_resolution), int(150*game_resolution)):
                         add At("images/interface/preferences/hotkey.webp", interface)
 
                         text "2":
@@ -569,7 +569,7 @@ screen preferences():
                     text "QUIKLOC 2" align (0.0, 0.5)
                         
                 hbox xalign 0.0:
-                    fixed xysize (int(158*interface_adjustment), int(150*interface_adjustment)):
+                    fixed xysize (int(158*game_resolution), int(150*game_resolution)):
                         add At("images/interface/preferences/hotkey.webp", interface)
 
                         text "3":
@@ -581,7 +581,7 @@ screen preferences():
 
             vbox yalign 0.0:
                 hbox xalign 0.0:
-                    fixed xysize (int(158*interface_adjustment), int(150*interface_adjustment)):
+                    fixed xysize (int(158*game_resolution), int(150*game_resolution)):
                         add At("images/interface/preferences/hotkey.webp", interface)
 
                         text "Q":
@@ -592,7 +592,7 @@ screen preferences():
                     text "SKIP DAY" align (0.0, 0.5)
 
                 hbox xalign 0.0:
-                    fixed xysize (int(158*interface_adjustment), int(150*interface_adjustment)):
+                    fixed xysize (int(158*game_resolution), int(150*game_resolution)):
                         add At("images/interface/preferences/hotkey.webp", interface)
 
                         text "-":
@@ -602,12 +602,12 @@ screen preferences():
 
                     text "TOGGLE MUTE" align (0.0, 0.5)
     elif preferences_tab == "gameplay":
-        hbox anchor (0.5, 0.5) pos (0.431, 0.643) xysize (int(2800*interface_adjustment), int(1150*interface_adjustment)):
+        hbox anchor (0.5, 0.5) pos (0.431, 0.643) xysize (int(2800*game_resolution), int(1150*game_resolution)):
             if config.rollback_enabled:
                 vbox:
                     text "SCROLLING ROLLBACK" anchor (0.5, 0.5) pos (0.47, 0.5)
 
-                    button xysize (int(321*interface_adjustment), int(190*interface_adjustment)):
+                    button xysize (int(321*game_resolution), int(190*game_resolution)):
                         idle_background At("images/interface/preferences/off.webp", interface) 
                         hover_background At("images/interface/preferences/off.webp", interface) 
                         selected_idle_background At("images/interface/preferences/on.webp", interface) 
@@ -637,7 +637,7 @@ screen preferences():
             vbox:
                 text "TOOLTIPS" anchor (0.5, 0.5) pos (0.47, 0.5)
 
-                button xysize (int(321*interface_adjustment), int(190*interface_adjustment)):
+                button xysize (int(321*game_resolution), int(190*game_resolution)):
                     idle_background At("images/interface/preferences/off.webp", interface) 
                     hover_background At("images/interface/preferences/off.webp", interface) 
                     selected_idle_background At("images/interface/preferences/on.webp", interface) 

@@ -31,7 +31,7 @@ screen achievements_screen():
             Play("sound", "sounds/interface/achievement.ogg")]
 
     if achievement_message:
-        fixed align (0.0, 1.0) xysize (int(766*interface_adjustment), int(277*interface_adjustment)):
+        fixed align (0.0, 1.0) xysize (int(766*game_resolution), int(277*game_resolution)):
             if achievements[achievement_message]["points"] == 5:
                 add "images/interface/belt/achievement_bronze.webp" zoom interface_adjustment
             elif achievements[achievement_message]["points"] == 10:

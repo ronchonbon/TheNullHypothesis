@@ -22,7 +22,7 @@ image menu_comic:
     anchor (2257, 1045)
     offset (2172, 398)
 
-    zoom interface_adjustment
+    zoom 0.5
 
 style main_menu is default
 

@@ -80,7 +80,7 @@ screen Player_customization_screen(scholarship = False):
             text "PREVIEW" + "_" anchor (0.0, 0.5) pos (0.367, 0.337):
                 size 35
 
-        add At("Player_portrait", customization_portrait) pos (0.431, 0.635)
+        add "Player_portrait" anchor (0.5, 0.5) pos (0.431, 0.635) zoom 0.5
             
         if Player.scholarship == "athletic":
             add "images/interface/Player_customization/athletics_selected.webp" zoom interface_adjustment
@@ -281,7 +281,7 @@ screen Player_customization_screen(scholarship = False):
                             SetVariable("Player.Outfit_index", (Player.Outfit_index - 1) % list_size),
                             SetVariable("Player.Outfit", Player.Outfits[(Player.Outfit_index - 1) % list_size])]
 
-                    text Player.Outfits[Player.Outfit_index].name.upper() xmaximum int(360*interface_adjustment):
+                    text Player.Outfits[Player.Outfit_index].name.upper() xmaximum int(360*game_resolution):
                         size 32
 
                     imagebutton anchor (1.0, 0.5) pos (1.0, 0.5):
