@@ -30,6 +30,7 @@ label Kurt_leveling_tutorial:
     
     call Kurt_teleports_in from _call_Kurt_teleports_in_1
 
+    $ Kurt.change_arms("neutral")
     $ Kurt.change_face("happy")
 
     ch_Player "Gah!"
@@ -38,10 +39,16 @@ label Kurt_leveling_tutorial:
     $ Kurt.change_face("confused1")
 
     ch_Player "Bro, where the hel-"
+
+    $ Kurt.change_arms("neutral", left_arm = "extended")
+
     ch_Kurt "It seems mein Bruder has recently leveled up."
+    
+    $ Kurt.change_arms("crossed")
+
     ch_Player "'Leveled up'?"
 
-    $ Kurt.change_face("neutral")
+    $ Kurt.change_face("confused1", mouth = "smirk")
 
     ch_Kurt "Zee professor takes pride in his students and knows ven you've made good personal progress."
 
@@ -50,11 +57,16 @@ label Kurt_leveling_tutorial:
     ch_Player "He does???"
 
     $ Kurt.change_face("neutral")
+    $ Kurt.change_arms("shrug")
 
     ch_Kurt "Improving yourself is a benefit to everyone, afterall."
+    
+    $ Kurt.change_arms("neutral", left_arm = "extended")
+
     ch_Kurt "Not only do you become more capable, gaining increased stamina to perform more activities per period. . ."
 
     $ Kurt.change_face("confused1", eyes = "squint", mouth = "smile")
+    $ Kurt.change_arms("crossed")
 
     ch_Kurt "But zee monetary incentive is quite generous as well."
 
@@ -63,7 +75,7 @@ label Kurt_leveling_tutorial:
     ch_Kurt "You vill gain a boost to zee allowance by leveling."
     ch_Player "Well, that is nice. . ."
 
-    $ Kurt.change_face("neutral")
+    $ Kurt.change_face("smirk2")
 
     ch_Kurt "I don't think it is too complicated."
     ch_Kurt "Level up by attending class, studying, or training. Is simple."

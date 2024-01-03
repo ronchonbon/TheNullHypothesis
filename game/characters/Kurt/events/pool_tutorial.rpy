@@ -31,21 +31,33 @@ label Kurt_pool_tutorial:
 
     call Kurt_teleports_in from _call_Kurt_teleports_in_2
 
+    $ Kurt.change_arms("crossed")
+    $ Kurt.change_face("happy")
+
     ch_Player "Gah!"
     ch_Player "Where the hell-"
     ch_Kurt "Hallo, Bruder."
-    ch_Kurt "Vant to go swimming, ja?"
 
+    $ Kurt.change_arms("shrug")
     $ Kurt.change_face("confused1")
 
+    ch_Kurt "Vant to go swimming, ja?"
+
+    $ Kurt.change_face("confused1", mouth = "smirk")
+
     ch_Player "I was just. . ."
+
+    $ Kurt.change_arms("shrug", left_arm = "neutral")
+
     ch_Kurt "The pool here is quite nice."
 
-    $ Kurt.change_face("neutral")
+    $ Kurt.change_face("smirk2")
+    $ Kurt.change_arms("neutral")
 
     ch_Kurt "Good place for some low impact exercise."
 
-    $ Kurt.change_face("neutral", eyes = "squint", mouth = "smile")
+    $ Kurt.change_face("neutral", eyes = "squint", mouth = "smirk")
+    $ Kurt.change_arms("crossed")
 
     ch_Kurt "And, I think you must be aware of zee effect you have on women here, no?"
     ch_Player "'Effect'?"
@@ -61,8 +73,12 @@ label Kurt_pool_tutorial:
     ch_Player "It is?"
 
     $ Kurt.change_face("happy")
+    $ Kurt.change_arms("neutral")
 
     ch_Kurt "Ja."
+    
+    $ Kurt.change_arms("neutral", right_arm = "extended")
+
     ch_Kurt "And I'm sure zee fair skinned might tan quite quickly while out here, keep zat in mind."
     ch_Kurt "Auf Wiedersehen!"
 
