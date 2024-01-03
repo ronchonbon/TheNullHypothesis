@@ -12,11 +12,8 @@ init python:
 
             "not Jean.History.check('said_no_to_study', tracker = 'recent')",
             
-            "not Jean.History.check('Player_rejected_studying', tracker = 'daily') and not Jean.History.check('Player_rejected_training', tracker = 'daily')",
+            "not Player.History.check('received_invite', tracker = 'daily')",
             
-            "not EventScheduler.Events['Jean_chatting_study'].completed or day - EventScheduler.Events['Jean_chatting_study'].completed_when >= 5",
-            "not EventScheduler.Events['Jean_texting_study'].completed or day - EventScheduler.Events['Jean_texting_study'].completed_when >= 5",
-                 
             "Player.location not in ['hold', Jean.location, Jean.destination]",
             "Player.destination not in [Jean.location, Jean.destination]",
                    
@@ -38,6 +35,8 @@ label Jean_texting_study:
     call receive_text(Jean, "You should come over and join me <3", buzz = False) from _call_receive_text_4
 
     $ Jean.timed_text_options.update({"Jean_texting_study": ["sorry, not right now", "count me in", "yeah, I'm good. studying sucks"]})
+
+    $ Player.History.update("received_invite")
 
     return
 
@@ -85,11 +84,8 @@ init python:
 
             "not Jean.History.check('said_no_to_training', tracker = 'recent')",
             
-            "not Jean.History.check('Player_rejected_studying', tracker = 'daily') and not Jean.History.check('Player_rejected_training', tracker = 'daily')",
-            
-            "not EventScheduler.Events['Jean_chatting_training'].completed or day - EventScheduler.Events['Jean_chatting_training'].completed_when >= 5",
-            "not EventScheduler.Events['Jean_texting_training'].completed or day - EventScheduler.Events['Jean_texting_training'].completed_when >= 5",
-            
+            "not Player.History.check('received_invite', tracker = 'daily')",
+
             "Player.location not in ['hold', Jean.location, Jean.destination]",
             "Player.destination not in [Jean.location, Jean.destination]",
             
@@ -113,6 +109,8 @@ label Jean_texting_training:
     call receive_text(Jean, "Come on over", buzz = False) from _call_receive_text_12
 
     $ Jean.timed_text_options.update({"Jean_texting_training": ["I'm a bit busy, sorry", "sure, I'll be right there", "you just want an excuse to show off. I'm good"]})
+
+    $ Player.History.update("received_invite")
 
     return
 
@@ -168,10 +166,7 @@ init python:
             
             "not Jean.History.check('said_no_to_date', tracker = 'recent')",
             
-            "not Jean.History.check('Player_rejected_studying', tracker = 'daily') and not Jean.History.check('Player_rejected_training', tracker = 'daily') and not Jean.History.check('Player_rejected_date', tracker = 'weekly')",
-            
-            "not EventScheduler.Events['Jean_chatting_date'].completed or day - EventScheduler.Events['Jean_chatting_date'].completed_when >= 5",
-            "not EventScheduler.Events['Jean_texting_date'].completed or day - EventScheduler.Events['Jean_texting_date'].completed_when >= 5",
+            "not Player.History.check('received_invite', tracker = 'daily')",
             
             "Player.location not in ['hold', Jean.location, Jean.destination]",
             "Player.destination not in [Jean.location, Jean.destination]",
@@ -197,6 +192,8 @@ label Jean_texting_date:
     call receive_text(Jean, "I wanna take you out on a date <3", buzz = False) from _call_receive_text_22
 
     $ Jean.timed_text_options.update({"Jean_texting_date": ["sorry, I'm busy tonight", "sounds great! see you tonight", "I'd rather not"]})
+
+    $ Player.History.update("received_invite")
 
     return
 
@@ -240,7 +237,7 @@ init python:
         label = "Jean_texting_summon_horny"
 
         conditions = [
-            "renpy.random.random() > 0.9",
+            "renpy.random.random() > 0.5",
 
             "Jean.check_traits('quirk')",
 
@@ -248,6 +245,8 @@ init python:
             
             "not Jean.History.check('rejected_knock_on_door', tracker = 'recent')",
             
+            "not Player.History.check('received_invite', tracker = 'daily')",
+
             "Jean.location in [Jean.home, Player.home]",
 
             "Player.location not in ['hold', Jean.location, Jean.destination]",
@@ -275,6 +274,8 @@ label Jean_texting_summon_horny:
 
     $ Jean.timed_text_options.update({"Jean_texting_summon_horny": ["I'm sorry, I can't. too busy right now", "I'll be there as fast as I can", "you can't just deal with that yourself? I'm busy"]})
 
+    $ Player.History.update("received_invite")
+
     return
 
 label Jean_texting_summon_horny_response:
@@ -287,8 +288,6 @@ label Jean_texting_summon_horny_response:
         call receive_text(Jean, "Fine, then I'll just play with myself") from _call_receive_text_37
         call receive_text(Jean, "And you're not allowed to watch ;P") from _call_receive_text_38
     elif Jean.text_history[-1][1] == temp[1]:
-        call change_Character_stat(Jean, "love", tiny_stat) from _call_change_Character_stat_76
-
         call receive_text(Jean, "Good") from _call_receive_text_39
         call receive_text(Jean, "I can't wait <3") from _call_receive_text_40
         

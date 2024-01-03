@@ -8,10 +8,7 @@ init python:
             
             "not Rogue.History.check('said_no_to_study', tracker = 'recent')",
             
-            "not Rogue.History.check('Player_rejected_studying', tracker = 'daily') and not Rogue.History.check('Player_rejected_training', tracker = 'daily')",
-            
-            "not EventScheduler.Events['Rogue_chatting_study'].completed or day - EventScheduler.Events['Rogue_chatting_study'].completed_when >= 3",
-            "not EventScheduler.Events['Rogue_texting_study'].completed or day - EventScheduler.Events['Rogue_texting_study'].completed_when >= 3",
+            "not Player.History.check('received_invite', tracker = 'daily')",
 
             "Player.location == Rogue.location and Player.location in [Player.home, Rogue.home]",
 
@@ -32,6 +29,8 @@ label Rogue_chatting_study:
     $ Rogue.change_face("pleased1")
 
     ch_Rogue "Hey, [Rogue.Player_petname], think we should study?"
+
+    $ Player.History.update("received_invite")
 
     menu:
         extend ""
@@ -65,15 +64,12 @@ init python:
         label = "Rogue_chatting_training"
 
         conditions = [
-            "renpy.random.random() > 0.9",
+            "renpy.random.random() > 0.75",
 
             "not Rogue.History.check('said_no_to_training', tracker = 'recent')",
             
-            "not Rogue.History.check('Player_rejected_studying', tracker = 'daily') and not Rogue.History.check('Player_rejected_training', tracker = 'daily')",
-            
-            "not EventScheduler.Events['Rogue_chatting_training'].completed or day - EventScheduler.Events['Rogue_chatting_training'].completed_when >= 5",
-            "not EventScheduler.Events['Rogue_texting_training'].completed or day - EventScheduler.Events['Rogue_texting_training'].completed_when >= 5",
-            
+            "not Player.History.check('received_invite', tracker = 'daily')",
+
             "Player.location == Rogue.location and Player.location == 'bg_danger'",
 
             "Rogue.History.check('trained_with_Player') and not Rogue.History.check('trained_with_Player', tracker = 'weekly')",
@@ -93,6 +89,8 @@ label Rogue_chatting_training:
     $ Rogue.change_face("smirk2")
 
     ch_Rogue "Should we train, [Rogue.Player_petname]?"
+
+    $ Player.History.update("received_invite")
 
     menu:
         extend ""
@@ -126,7 +124,7 @@ init python:
         label = "Rogue_chatting_date"
 
         conditions = [
-            "renpy.random.random() > 0.9"
+            "renpy.random.random() > 0.75"
             
             "2 not in Rogue.schedule.keys() and 3 not in Rogue.schedule.keys()",
             "2 not in Player.schedule.keys() and 3 not in Player.schedule.keys()",
@@ -135,11 +133,8 @@ init python:
 
             "not Rogue.History.check('said_no_to_date', tracker = 'recent')",
             
-            "not Rogue.History.check('Player_rejected_studying', tracker = 'daily') and not Rogue.History.check('Player_rejected_training', tracker = 'daily') and not Rogue.History.check('Player_rejected_date', tracker = 'weekly')",
-            
-            "not EventScheduler.Events['Rogue_chatting_date'].completed or day - EventScheduler.Events['Rogue_chatting_date'].completed_when >= 5",
-            "not EventScheduler.Events['Rogue_texting_date'].completed or day - EventScheduler.Events['Rogue_texting_date'].completed_when >= 5",
-            
+            "not Player.History.check('received_invite', tracker = 'daily')",
+
             "Player.location == Rogue.location",
 
             "day - EventScheduler.Events['Rogue_first_date'].completed_when >= 5",
@@ -195,6 +190,8 @@ label Rogue_chatting_date:
 
         ch_Rogue "Ah'm free tonight."
         ch_Rogue "Would you wanna go on a date?"
+
+    $ Player.History.update("received_invite")
 
     menu:
         extend ""

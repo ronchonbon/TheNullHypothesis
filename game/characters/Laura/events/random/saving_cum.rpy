@@ -4,7 +4,7 @@ init python:
         label = "Laura_texting_save_cum"
 
         conditions = [
-            "renpy.random.random() > 0.9",
+            "renpy.random.random() > 0.5",
 
             "Laura.check_traits('quirk')",
 
@@ -12,6 +12,8 @@ init python:
 
             "time_index < 2",
             "not Player.History.check('orgasmed', tracker = 'daily')",
+            
+            "not Player.History.check('received_invite', tracker = 'daily')",
 
             "Player.location not in ['hold', Laura.location, Laura.destination]",
             "Player.destination not in [Laura.location, Laura.destination]",
@@ -38,6 +40,8 @@ label Laura_texting_save_cum:
     call receive_text(Laura, "I'll be able to tell", buzz = False) from _call_receive_text_261
 
     $ Laura.timed_text_options.update({"Laura_texting_save_cum": ["but I had. . . other plans today", "okay, I'll be there. and I'll save everything for you", "I'll come over tonight, but no promises about the other thing. . ."]})
+
+    $ Player.History.update("received_invite")
 
     return
 

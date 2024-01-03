@@ -8,10 +8,7 @@ init python:
             
             "not Laura.History.check('said_no_to_study', tracker = 'recent')",
             
-            "not Laura.History.check('Player_rejected_studying', tracker = 'daily') and not Laura.History.check('Player_rejected_training', tracker = 'daily')",
-            
-            "not EventScheduler.Events['Laura_chatting_study'].completed or day - EventScheduler.Events['Laura_chatting_study'].completed_when >= 3",
-            "not EventScheduler.Events['Laura_texting_study'].completed or day - EventScheduler.Events['Laura_texting_study'].completed_when >= 3",
+            "not Player.History.check('received_invite', tracker = 'daily')",
 
             "Player.location == Laura.location and Player.location in [Player.home, Laura.home]",
 
@@ -32,6 +29,8 @@ label Laura_chatting_study:
     $ Laura.change_face("neutral")
 
     ch_Laura "We should study."
+
+    $ Player.History.update("received_invite")
 
     menu:
         extend ""
@@ -65,15 +64,12 @@ init python:
         label = "Laura_chatting_training"
 
         conditions = [
-            "renpy.random.random() > 0.9",
+            "renpy.random.random() > 0.75",
 
             "not Laura.History.check('said_no_to_training', tracker = 'recent')",
             
-            "not Laura.History.check('Player_rejected_studying', tracker = 'daily') and not Laura.History.check('Player_rejected_training', tracker = 'daily')",
-            
-            "not EventScheduler.Events['Laura_chatting_training'].completed or day - EventScheduler.Events['Laura_chatting_training'].completed_when >= 5",
-            "not EventScheduler.Events['Laura_texting_training'].completed or day - EventScheduler.Events['Laura_texting_training'].completed_when >= 5",
-            
+            "not Player.History.check('received_invite', tracker = 'daily')",
+
             "Player.location == Laura.location and Player.location == 'bg_danger'",
 
             "Laura.History.check('trained_with_Player') and not Laura.History.check('trained_with_Player', tracker = 'weekly')",
@@ -93,6 +89,8 @@ label Laura_chatting_training:
     $ Laura.change_face("confused1")
 
     ch_Laura "Why aren't we training already?"
+
+    $ Player.History.update("received_invite")
 
     menu:
         extend ""
@@ -123,7 +121,7 @@ init python:
         label = "Laura_chatting_date"
 
         conditions = [
-            "renpy.random.random() > 0.9"
+            "renpy.random.random() > 0.75"
             
             "2 not in Laura.schedule.keys() and 3 not in Laura.schedule.keys()",
             "2 not in Player.schedule.keys() and 3 not in Player.schedule.keys()",
@@ -132,11 +130,8 @@ init python:
 
             "not Laura.History.check('said_no_to_date', tracker = 'recent')",
             
-            "not Laura.History.check('Player_rejected_studying', tracker = 'daily') and not Laura.History.check('Player_rejected_training', tracker = 'daily') and not Laura.History.check('Player_rejected_date', tracker = 'weekly')",
-            
-            "not EventScheduler.Events['Laura_chatting_date'].completed or day - EventScheduler.Events['Laura_chatting_date'].completed_when >= 5",
-            "not EventScheduler.Events['Laura_texting_date'].completed or day - EventScheduler.Events['Laura_texting_date'].completed_when >= 5",
-            
+            "not Player.History.check('received_invite', tracker = 'daily')",
+
             "Player.location == Laura.location",
 
             "day - EventScheduler.Events['Laura_first_date'].completed_when >= 5",
@@ -174,6 +169,8 @@ label Laura_chatting_date:
         $ Laura.change_face("sly")
 
         ch_Laura "We're going on a date tonight."
+
+    $ Player.History.update("received_invite")
 
     menu:
         extend ""

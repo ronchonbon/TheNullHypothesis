@@ -8,10 +8,7 @@ init python:
             
             "not Jean.History.check('said_no_to_study', tracker = 'recent')",
             
-            "not Jean.History.check('Player_rejected_studying', tracker = 'daily') and not Jean.History.check('Player_rejected_training', tracker = 'daily')",
-            
-            "not EventScheduler.Events['Jean_chatting_study'].completed or day - EventScheduler.Events['Jean_chatting_study'].completed_when >= 3",
-            "not EventScheduler.Events['Jean_texting_study'].completed or day - EventScheduler.Events['Jean_texting_study'].completed_when >= 3",
+            "not Player.History.check('received_invite', tracker = 'daily')",
 
             "Player.location == Jean.location and Player.location in [Player.home, Jean.home]",
 
@@ -32,6 +29,8 @@ label Jean_chatting_study:
     $ Jean.change_face("smirk2")
 
     ch_Jean "What do you think, should we squeeze in some study time?"
+
+    $ Player.History.update("received_invite")
 
     menu:
         extend ""
@@ -66,15 +65,12 @@ init python:
         label = "Jean_chatting_training"
 
         conditions = [
-            "renpy.random.random() > 0.9",
+            "renpy.random.random() > 0.75",
 
             "not Jean.History.check('said_no_to_training', tracker = 'recent')",
             
-            "not Jean.History.check('Player_rejected_studying', tracker = 'daily') and not Jean.History.check('Player_rejected_training', tracker = 'daily')",
-            
-            "not EventScheduler.Events['Jean_chatting_training'].completed or day - EventScheduler.Events['Jean_chatting_training'].completed_when >= 5",
-            "not EventScheduler.Events['Jean_texting_training'].completed or day - EventScheduler.Events['Jean_texting_training'].completed_when >= 5",
-            
+            "not Player.History.check('received_invite', tracker = 'daily')",
+
             "Player.location == Jean.location and Player.location == 'bg_danger'",
 
             "Jean.History.check('trained_with_Player') and not Jean.History.check('trained_with_Player', tracker = 'weekly')",
@@ -92,6 +88,8 @@ init python:
 
 label Jean_chatting_training:
     ch_Jean "We should probably train, right?"
+
+    $ Player.History.update("received_invite")
 
     menu:
         extend ""
@@ -125,7 +123,7 @@ init python:
         label = "Jean_chatting_date"
 
         conditions = [
-            "renpy.random.random() > 0.9"
+            "renpy.random.random() > 0.75"
             
             "2 not in Jean.schedule.keys() and 3 not in Jean.schedule.keys()",
             "2 not in Player.schedule.keys() and 3 not in Player.schedule.keys()",
@@ -134,11 +132,8 @@ init python:
 
             "not Jean.History.check('said_no_to_date', tracker = 'recent')",
             
-            "not Jean.History.check('Player_rejected_studying', tracker = 'daily') and not Jean.History.check('Player_rejected_training', tracker = 'daily') and not Jean.History.check('Player_rejected_date', tracker = 'weekly')",
-            
-            "not EventScheduler.Events['Jean_chatting_date'].completed or day - EventScheduler.Events['Jean_chatting_date'].completed_when >= 5",
-            "not EventScheduler.Events['Jean_texting_date'].completed or day - EventScheduler.Events['Jean_texting_date'].completed_when >= 5",
-            
+            "not Player.History.check('received_invite', tracker = 'daily')",
+
             "Player.location == Jean.location",
 
             "day - EventScheduler.Events['Jean_first_date'].completed_when >= 5",
@@ -186,6 +181,8 @@ label Jean_chatting_date:
 
         ch_Jean "I'll be free later."
         ch_Jean "We should totally go on a date tonight."
+
+    $ Player.History.update("received_invite")
 
     menu:
         extend ""

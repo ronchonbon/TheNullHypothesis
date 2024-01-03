@@ -12,11 +12,8 @@ init python:
 
             "not Laura.History.check('said_no_to_study', tracker = 'recent')",
             
-            "not Laura.History.check('Player_rejected_studying', tracker = 'daily') and not Laura.History.check('Player_rejected_training', tracker = 'daily')",
-            
-            "not EventScheduler.Events['Laura_chatting_study'].completed or day - EventScheduler.Events['Laura_chatting_study'].completed_when >= 5",
-            "not EventScheduler.Events['Laura_texting_study'].completed or day - EventScheduler.Events['Laura_texting_study'].completed_when >= 5",
-                 
+            "not Player.History.check('received_invite', tracker = 'daily')",
+
             "Player.location not in ['hold', Laura.location, Laura.destination]",
             "Player.destination not in [Laura.location, Laura.destination]",
                    
@@ -39,6 +36,8 @@ label Laura_texting_study:
     call receive_text(Laura, "Come over and help", buzz = False) from _call_receive_text_270
 
     $ Laura.timed_text_options.update({"Laura_texting_study": ["sorry, not right now", "sure, I'll be right over", "I'm not in the mood to just teach you everything right now"]})
+
+    $ Player.History.update("received_invite")
 
     return
 
@@ -86,11 +85,8 @@ init python:
 
             "not Laura.History.check('said_no_to_training', tracker = 'recent')",
             
-            "not Laura.History.check('Player_rejected_studying', tracker = 'daily') and not Laura.History.check('Player_rejected_training', tracker = 'daily')",
-            
-            "not EventScheduler.Events['Laura_chatting_training'].completed or day - EventScheduler.Events['Laura_chatting_training'].completed_when >= 5",
-            "not EventScheduler.Events['Laura_texting_training'].completed or day - EventScheduler.Events['Laura_texting_training'].completed_when >= 5",
-            
+            "not Player.History.check('received_invite', tracker = 'daily')",
+
             "Player.location not in ['hold', Laura.location, Laura.destination]",
             "Player.destination not in [Laura.location, Laura.destination]",
             
@@ -112,6 +108,8 @@ label Laura_texting_training:
     call receive_text(Laura, "You need to train with me", buzz = False) from _call_receive_text_280
 
     $ Laura.timed_text_options.update({"Laura_texting_training": ["maybe some other time, sorry", "you're not wrong. . . I'll be right there", "I'd rather be weak than have you beat the shit out of me"]})
+
+    $ Player.History.update("received_invite")
 
     return
 
@@ -164,11 +162,8 @@ init python:
             
             "not Laura.History.check('said_no_to_date', tracker = 'recent')",
             
-            "not Laura.History.check('Player_rejected_studying', tracker = 'daily') and not Laura.History.check('Player_rejected_training', tracker = 'daily') and not Laura.History.check('Player_rejected_date', tracker = 'weekly')",
-            
-            "not EventScheduler.Events['Laura_chatting_date'].completed or day - EventScheduler.Events['Laura_chatting_date'].completed_when >= 5",
-            "not EventScheduler.Events['Laura_texting_date'].completed or day - EventScheduler.Events['Laura_texting_date'].completed_when >= 5",
-            
+            "not Player.History.check('received_invite', tracker = 'daily')",
+
             "Player.location not in ['hold', Laura.location, Laura.destination]",
             "Player.destination not in [Laura.location, Laura.destination]",
             
@@ -191,6 +186,8 @@ label Laura_texting_date:
     call receive_text(Laura, "Are you free tonight?", buzz = False) from _call_receive_text_287
 
     $ Laura.timed_text_options.update({"Laura_texting_date": ["sorry, I have other plans tonight", "I am free, see you tonight", "no, I'm good. . ."]})
+
+    $ Player.History.update("received_invite")
 
     return
 
