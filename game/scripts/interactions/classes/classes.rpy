@@ -180,7 +180,7 @@ label find_a_seat:
 
     while temp_Characters:
         if temp_Characters[0] in all_Companions:
-            call change_Character_stat(temp_Characters[0], "trust", tiny_stat)
+            call change_Character_stat(temp_Characters[0], "trust", tiny_stat) from _call_change_Character_stat_26
 
         $ temp_Characters.remove(temp_Characters[0])
 

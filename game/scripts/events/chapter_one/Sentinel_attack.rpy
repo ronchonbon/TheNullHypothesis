@@ -1324,7 +1324,7 @@ label ch1_Sentinel_attack:
     "The door is violently swung open, and a fuming [Laura.name] appears."
 
     # call change_Outfit(Laura, Laura.Wardrobe.Outfits["Casual 1"], instant = True)
-    call try_on(Laura, Laura.Wardrobe.Clothes["messy hair"])
+    call try_on(Laura, Laura.Wardrobe.Clothes["messy hair"]) from _call_try_on_3
 
     call show_Character(Laura, x = stage_far_right, sprite_zoom = 1.4*Laura_standing_zoom) from _call_show_Character_9
 

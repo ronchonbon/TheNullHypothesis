@@ -106,7 +106,7 @@ label Laura_chapter_one_season_one_late_night_training:
     $ Laura.give_trait("left_claw")
     $ Laura.give_trait("right_claw")
 
-    call try_on(Laura, Laura.Wardrobe.Clothes["bun"], instant = True)
+    call try_on(Laura, Laura.Wardrobe.Clothes["bun"], instant = True) from _call_try_on_2
     call set_the_scene(location = "bg_danger") from _call_set_the_scene_401
 
     "You see [Laura.name] beating the hell out of a swarm of combat dummies."
