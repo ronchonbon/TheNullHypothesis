@@ -23,7 +23,7 @@ init python:
         optional_objectives = {}
 
         rewards = {
-            "unlock": ["actions", "shop"]}
+            "unlock": ["love", "trust", "actions", "shop"]}
             
         criteria = [
             "chapter == 1 and season == 1"]
@@ -431,7 +431,6 @@ label ch1_Juggernaut_attack:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom cinematic_adjustment
 
     show expression "images/backgrounds/ch1/bg_ch1_danger_Rogue1.webp" as Rogue onlayer master zorder 12:
         transform_anchor True
@@ -1109,7 +1108,7 @@ label ch1_Juggernaut_attack:
     "She lets go."
     ch_Player ". . . I've been called an idiot at least a couple times today already."
 
-    if not EventScheduler.Events["Jean_I_love_you"].completed():
+    if not EventScheduler.Events["Jean_I_love_you"].completed:
         $ Jean.change_face("worried1", eyes = "right", mouth = "lipbite", blush = 1)
         $ Jean.change_arms(left_arm = "rub_neck")
 
@@ -1571,7 +1570,7 @@ label ch1_Juggernaut_attack:
     "As you're getting ready to finally go to bed, someone knocks on your door."
     "Too tired to even see who it is, you let them in."
 
-    # call change_Outfit(Ororo, Ororo.Wardrobe.Outfits["Hero (Chapter I)"], instant = True) from _call_change_Outfit_28
+    call change_Outfit(Ororo, Ororo.Wardrobe.Outfits["Hero (Chapter I)"], instant = True) from _call_change_Outfit_28
     call add_Characters(Ororo) from _call_add_Characters_49
 
     $ Ororo.change_face("worried1")

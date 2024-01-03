@@ -1032,8 +1032,8 @@ label Laura_date_dinner_sex_sex:
         
     ##
         
-    # if renpy.random.random() > 0.5:
-    #     call try_on(Laura, Laura.Wardrobe.Clothes["messy hair"]) from _call_try_on_5
+    if renpy.random.random() > 0.5:
+        call try_on(Laura, Laura.Wardrobe.Clothes["messy hair"])
 
     call change_Outfit(Laura, Laura.Wardrobe.Outfits[Laura.Outfit.name]) from _call_change_Outfit_52
     

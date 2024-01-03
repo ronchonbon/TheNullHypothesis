@@ -4,6 +4,8 @@ init -1 python:
         name = "barbell nipple piercings"
         string = "barbell_nipple_piercings"
 
+        criteria = []
+
         shop_type = "sex"
         filter_type = "gifts"
 
@@ -15,6 +17,7 @@ init -1 python:
         return ItemClass(
             Owner, 
             name, string,
+            criteria,
             shop_type, 
             filter_type,
             description,

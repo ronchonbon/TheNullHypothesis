@@ -606,16 +606,18 @@ layeredimage Jean_missionary_head:
     offset (int(2299*sex_sampling), int(1031*sex_sampling))
     
 layeredimage Jean_missionary_hair:
-    # if Jean.check_traits("wet") or Jean.Clothes["hair"].string == "wet":
-    #     "characters/Jean/images/missionary/hair_shadow_wet.webp"
-    # else:
-    always:
+    if Jean.check_traits("wet") or Jean.Clothes["hair"].string == "wet":
+        "characters/Jean/images/missionary/hair_shadow_wet.webp"
+    elif Jean.Clothes["hair"].string in ["ponytail", "sideswept"]:
+        "characters/Jean/images/missionary/hair_shadow_straight.webp"
+    else:
         "characters/Jean/images/missionary/hair_shadow_[Jean.Clothes[hair].string].webp"
 
-    # if Jean.check_traits("wet") or Jean.Clothes["hair"].string == "wet":
-    #     "characters/Jean/images/missionary/hair_wet.webp"
-    # else:
-    always:
+    if Jean.check_traits("wet") or Jean.Clothes["hair"].string == "wet":
+        "characters/Jean/images/missionary/hair_wet.webp"
+    elif Jean.Clothes["hair"].string in ["ponytail", "sideswept"]:
+        "characters/Jean/images/missionary/hair_straight.webp"
+    else:
         "characters/Jean/images/missionary/hair_[Jean.Clothes[hair].string].webp"
 
     if Jean.spunk["hair"]:

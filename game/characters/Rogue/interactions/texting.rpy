@@ -407,8 +407,6 @@ label Rogue_text_ask_on_date:
             call send_text(Rogue, "does that work?") from _call_send_text_46
             call receive_text(Rogue, "Sure does") from _call_receive_text_619
             call receive_text(Rogue, "See ya later :)))") from _call_receive_text_620
-
-        $ phone_interactable = True
             
         if time_index == 2:
             $ ongoing_Event = True
@@ -454,6 +452,8 @@ label Rogue_text_ask_on_date:
 
                 $ Rogue.change_face("worried1", mouth = "smirk")
 
+            $ phone_interactable = True
+
             $ EventScheduler.Events["Rogue_first_date"].start()
     else:
         if Player.cash < 40:
@@ -463,9 +463,9 @@ label Rogue_text_ask_on_date:
 
             $ Rogue.History.update("said_no_to_date")
 
-            return
+            $ phone_interactable = True
 
-        $ phone_interactable = False
+            return
     
         if Rogue.status["mad"] or Rogue.status["heartbroken"]:
             call receive_text(Rogue, "I cant tonight") from _call_receive_text_622
@@ -530,6 +530,6 @@ label Rogue_text_ask_on_date:
                 
                 $ Rogue.History.update("said_no_to_date")
 
-        $ phone_interactable = True
+    $ phone_interactable = True
 
     return

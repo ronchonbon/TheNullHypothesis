@@ -128,7 +128,7 @@ label Rogue_confession_afternoon:
 label Rogue_confession_afternoon_class_sat_next_to:
     $ Rogue.change_face("pleased2")
 
-    # call change_Outfit(Rogue, Rogue.Wardrobe.Outfits["Casual 1"], instant = True) from _call_change_Outfit_18
+    call change_Outfit(Rogue, Rogue.Wardrobe.Outfits["Casual 1"], instant = True) from _call_change_Outfit_18
     call add_Characters(Rogue) from _call_add_Characters
 
     ch_Rogue "Howdy, [Player.first_name]!"
@@ -232,7 +232,7 @@ label Rogue_confession_afternoon_class_sat_random:
 
     $ Rogue.change_face("surprised1", blush = 1)
 
-    # call change_Outfit(Rogue, Rogue.Wardrobe.Outfits["Casual 1"], instant = True) from _call_change_Outfit_17
+    call change_Outfit(Rogue, Rogue.Wardrobe.Outfits["Casual 1"], instant = True) from _call_change_Outfit_17
     call add_Characters(Rogue) from _call_add_Characters_34
 
     ch_Rogue "Oh! Hey hon'. . ."
@@ -282,7 +282,7 @@ label Rogue_confession_afternoon_wander:
 
     $ Rogue.change_face("surprised1")
 
-    # call change_Outfit(Rogue, Rogue.Wardrobe.Outfits["Casual 1"], instant = True) from _call_change_Outfit_21
+    call change_Outfit(Rogue, Rogue.Wardrobe.Outfits["Casual 1"], instant = True) from _call_change_Outfit_21
     call add_Characters(Rogue) from _call_add_Characters_1
 
     ch_Rogue "Howdy, [Player.first_name]!"
@@ -362,8 +362,8 @@ label Rogue_confession:
 
     "You get up and let [Rogue.name] in."
 
-    # call change_Outfit(Rogue, Rogue.Wardrobe.Outfits["Casual 2"], instant = True) from _call_change_Outfit_19
-
+    call change_Outfit(Rogue, Rogue.Wardrobe.Outfits["Casual 1"], instant = True) from _call_change_Outfit_19
+    # call change_Outfit(Rogue, Rogue.Wardrobe.Outfits["Casual 2"], instant = True)
     call add_Characters(Rogue) from _call_add_Characters_36
 
     "The scent of perfume follows her into the room."

@@ -4,6 +4,8 @@ init -1 python:
         name = "electric guitar"
         string = "electric_guitar"
 
+        criteria = []
+
         shop_type = None
         filter_type = "key_gifts"
 
@@ -14,6 +16,7 @@ init -1 python:
         return ItemClass(
             Owner, 
             name, string,
+            criteria,
             shop_type, 
             filter_type,
             description,

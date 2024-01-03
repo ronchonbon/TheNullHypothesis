@@ -3,11 +3,11 @@ init python:
     def get_color_transform(location):
         if location in ["bg_campus", "bg_pool"] and weather in ["rain", "snow"] and time_index < 2:
             color_transform = raining
-        elif (location in bedrooms or location in ["bg_campus", "bg_classroom", "bg_mall", "bg_pool"]) and time_index == 0:
+        elif location in ["bg_campus", "bg_classroom", "bg_mall", "bg_pool"] and time_index == 0:
             color_transform = morning
         elif (location in bedrooms or location in ["bg_girls_hallway", "bg_hallway", "bg_study", "bg_campus", "bg_classroom", "bg_mall", "bg_pool"]) and time_index == 1:
             color_transform = daylight
-        elif (location in bedrooms or location in ["bg_girls_hallway", "bg_hallway", "bg_study", "bg_campus", "bg_classroom", "bg_mall", "bg_pool"]) and time_index == 2:
+        elif location in ["bg_girls_hallway", "bg_hallway", "bg_study", "bg_campus", "bg_classroom", "bg_mall", "bg_pool"] and time_index == 2:
             color_transform = sunset
         elif location in ["bg_study", "bg_campus", "bg_classroom", "bg_mall", "bg_pool"] and time_index > 2:
             color_transform = moonlight
@@ -162,6 +162,9 @@ label show_Character(Character, t = None, sprite_anchor = None, x = None, y = No
 
         if fade:
             with Dissolve(fade)
+
+        if not Character.History.check("seen_Player", tracker = "recent"):
+            $ Character.History.update("seen_Player")
 
     return
 

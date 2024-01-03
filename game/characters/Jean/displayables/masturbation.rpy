@@ -358,16 +358,18 @@ layeredimage Jean_masturbation_head:
     offset (int(2787*sex_sampling), int(1333*sex_sampling))
     
 layeredimage Jean_masturbation_hair:
-    # if Jean.check_traits("wet") or Jean.Clothes["hair"].string == "wet":
-    #     "characters/Jean/images/masturbation/hair_shadow_wet.webp"
-    # else:
-    always:
+    if Jean.check_traits("wet") or Jean.Clothes["hair"].string == "wet":
+        "characters/Jean/images/masturbation/hair_shadow_wet.webp"
+    elif Jean.Clothes["hair"].string in ["ponytail", "sideswept"]:
+        "characters/Jean/images/masturbation/hair_shadow_straight.webp"
+    else:
         "characters/Jean/images/masturbation/hair_shadow_[Jean.Clothes[hair].string].webp"
 
-    # if Jean.check_traits("wet") or Jean.Clothes["hair"].string == "wet":
-    #     "characters/Jean/images/masturbation/hair_wet.webp"
-    # else:
-    always:
+    if Jean.check_traits("wet") or Jean.Clothes["hair"].string == "wet":
+        "characters/Jean/images/masturbation/hair_wet.webp"
+    elif Jean.Clothes["hair"].string in ["ponytail", "sideswept"]:
+        "characters/Jean/images/masturbation/hair_straight.webp"
+    else:
         "characters/Jean/images/masturbation/hair_[Jean.Clothes[hair].string].webp"
 
     if Jean.spunk["hair"]:

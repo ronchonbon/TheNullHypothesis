@@ -287,12 +287,6 @@ layeredimage Laura_standing_body:
     if Laura.piercings["labia"] in ["ring", "both"]:
         "characters/Laura/images/standing/labia_piercings_ring.webp"
 
-    if "pubic" in Laura.body_hair_growing.keys():
-        "characters/Laura/images/standing/pubes_growing.webp"
-
-    if Laura.body_hair["pubic"]:
-        "characters/Laura/images/standing/pubes_[Laura.body_hair[pubic]].webp"
-
     if Laura.desire >= 75 or Laura.History.check("orgasmed", tracker = "recent"):
         "characters/Laura/images/standing/grool.webp"
     elif Laura.desire >= 50:
@@ -305,6 +299,12 @@ layeredimage Laura_standing_body:
 
     if Laura.creampie["pussy"] == 2:
         "characters/Laura/images/standing/creampie2.webp"
+
+    if "pubic" in Laura.body_hair_growing.keys():
+        "characters/Laura/images/standing/pubes_growing.webp"
+
+    if Laura.body_hair["pubic"]:
+        "characters/Laura/images/standing/pubes_[Laura.body_hair[pubic]].webp"
 
     if Laura.remote_vibrator is None:
         Null()

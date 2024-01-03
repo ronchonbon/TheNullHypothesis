@@ -15,7 +15,7 @@ layeredimage bg_restaurant_table:
         "images/backgrounds/base/bg_restaurant_bottle.webp"
 
     if food_arrived:
-        "images/backgrounds/base/bg_restaurant_Character_plate.webp"
+        "images/backgrounds/base/bg_restaurant_Girl_plate.webp"
 
     always:
         "images/backgrounds/base/bg_restaurant_shakers.webp"

@@ -249,7 +249,7 @@ screen Wardrobe_screen(Character):
         action [
             SetVariable("current_Wardrobe_screen", "hair"),
             SetVariable("Wardrobe_animation_time", 1.0),
-            SetVariable("Wardrobe_position", [0.5, 2.8]),
+            SetVariable("Wardrobe_position", [0.5, 2.65]),
             SetVariable("Wardrobe_zoom", 1.0/eval(f"{Character.tag}_standing_zoom"))]
 
     imagebutton:

@@ -32,8 +32,7 @@ init python:
 
             optional_objectives.update({"Talk to her about her friends": ["EventScheduler.Events['Jean_chapter_one_season_one_friendless'].completed", None]})
 
-        rewards = {
-            "unlock": ["love", "trust"]}
+        rewards = {}
         criteria = [
             "chapter == 1 and season == 1"]
 

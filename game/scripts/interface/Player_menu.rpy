@@ -898,25 +898,25 @@ screen journal_screen():
         vbox:
             for Q in reversed(QuestPool.Quests.values()):
                 if Q.unlocked and (not current_journal_filter or Q.Quest_type == current_journal_filter) and (not current_journal_chapter or Q.chapter == current_journal_chapter):
-                    if show_completed_Quests or not Q.completed:
-                        button xysize (int(911*interface_adjustment), int(191*interface_adjustment)):
-                            idle_background At(f"images/interface/Player_menu/journal_button_{Q.Quest_type}_idle.webp", interface)
-                            hover_background At(f"images/interface/Player_menu/journal_button_{Q.Quest_type}.webp", interface)
-                            selected_idle_background At(f"images/interface/Player_menu/journal_button_{Q.Quest_type}.webp", interface)
-                            
-                            selected current_journal_Quest == Q
+                    # if show_completed_Quests or not Q.completed:
+                    button xysize (int(911*interface_adjustment), int(191*interface_adjustment)):
+                        idle_background At(f"images/interface/Player_menu/journal_button_{Q.Quest_type}_idle.webp", interface)
+                        hover_background At(f"images/interface/Player_menu/journal_button_{Q.Quest_type}.webp", interface)
+                        selected_idle_background At(f"images/interface/Player_menu/journal_button_{Q.Quest_type}.webp", interface)
+                        
+                        selected current_journal_Quest == Q
 
-                            text Q.name anchor (0.0, 0.5) pos (0.1, 0.5):
-                                font "agency_fb.ttf"
+                        text Q.name anchor (0.0, 0.5) pos (0.1, 0.5):
+                            font "agency_fb.ttf"
 
-                                size 36
+                            size 36
 
-                                color "#000000"
+                            color "#000000"
 
-                            if Q.completed:
-                                add At("images/interface/Player_menu/journal_clear.webp", interface) anchor (0.5, 0.5) pos (0.5, 0.49)
+                        if Q.completed:
+                            add At("images/interface/Player_menu/journal_clear.webp", interface) anchor (0.5, 0.5) pos (0.51, 0.47)
 
-                            action SetVariable("current_journal_Quest", Q)
+                        action SetVariable("current_journal_Quest", Q)
 
     vbar value YScrollValue("journal_viewport") anchor (0.5, 0.0) pos (0.315, 0.405) xysize (int(40*interface_adjustment), int(1114*interface_adjustment)):
         base_bar At("images/interface/Player_menu/journal_scrollbar.webp", interface)
@@ -1315,7 +1315,7 @@ screen map_screen():
     vpgrid anchor (0.5, 0.0) pos (0.828, 0.294) xysize (0.19, 0.63):
         cols 1
 
-        spacing 15
+        spacing 10
 
         draggable True
         mousewheel True
@@ -1335,6 +1335,7 @@ screen map_screen():
                             fixed xysize(1.0, int(88*interface_adjustment)):
                                 hbox xalign 0.0:
                                     spacing 5
+
                                     if marked_locations[possible_location]:
                                         add At("images/interface/Player_menu/event_alert.webp", phone_icon)
 

@@ -424,8 +424,6 @@ label Laura_text_ask_on_date:
             call send_text(Laura, "where should we meet?") from _call_send_text_30
             call receive_text(Laura, "Outside your room this evening") from _call_receive_text_419
             call send_text(Laura, "got it") from _call_send_text_31
-
-        $ phone_interactable = True
             
         if time_index == 2:
             $ ongoing_Event = True
@@ -434,6 +432,8 @@ label Laura_text_ask_on_date:
                 call Characters_leave(Party) from _call_Characters_leave_3
         
             hide screen phone_screen
+
+            $ phone_interactable = True
                 
             $ EventScheduler.Events["Laura_first_date"].start()
     else:
@@ -444,9 +444,9 @@ label Laura_text_ask_on_date:
 
             $ Laura.History.update("said_no_to_date")
 
-            return
+            $ phone_interactable = True
 
-        $ phone_interactable = False
+            return
     
         if Laura.status["mad"] or Laura.status["heartbroken"]:
             call receive_text(Laura, "Ask me again some other day") from _call_receive_text_421
@@ -508,6 +508,6 @@ label Laura_text_ask_on_date:
                 
                 $ Laura.History.update("said_no_to_date")
 
-        $ phone_interactable = True
+    $ phone_interactable = True
 
     return

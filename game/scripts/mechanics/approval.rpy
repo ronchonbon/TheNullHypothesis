@@ -148,19 +148,20 @@ label change_Character_stat(Character, flavor, update, alternate_values = None):
 
             $ Character.check_statuses()
 
-            if flavor == "desire":
-                if not Action_screen_showing:
-                    if Character.desire >= 90:
-                        $ update_messages.append("{color=%s}%s{/color} {color=%s}is really squirming{/color}" % (eval(f"{Character.tag}_color"), Character.name, shade))
-                    elif Character.desire >= 75:
-                        $ update_messages.append("{color=%s}%s{/color} {color=%s}crosses and uncrosses her legs{/color}" % (eval(f"{Character.tag}_color"), Character.name, shade))
-                    elif Character.desire >= 50:
-                        $ update_messages.append("{color=%s}%s{/color} {color=%s}looks at you intensely{/color}" % (eval(f"{Character.tag}_color"), Character.name, shade))
-                    elif Character.desire >= 25:
-                        $ update_messages.append("{color=%s}%s{/color} {color=%s}fidgets a little{/color}" % (eval(f"{Character.tag}_color"), Character.name, shade))
-                    # elif Character.desire >= 10:
-                    #     $ update_messages.append("{color=%s}%s{/color} {color=%s}seems distracted{/color}" % (eval(f"{Character.tag}_color"), Character.name, shade))
-            else:
+            # if flavor == "desire":
+            #     if not Action_screen_showing:
+            #         if Character.desire >= 90:
+            #             $ update_messages.append("{color=%s}%s{/color} {color=%s}is really squirming{/color}" % (eval(f"{Character.tag}_color"), Character.name, shade))
+            #         elif Character.desire >= 75:
+            #             $ update_messages.append("{color=%s}%s{/color} {color=%s}crosses and uncrosses her legs{/color}" % (eval(f"{Character.tag}_color"), Character.name, shade))
+            #         elif Character.desire >= 50:
+            #             $ update_messages.append("{color=%s}%s{/color} {color=%s}looks at you intensely{/color}" % (eval(f"{Character.tag}_color"), Character.name, shade))
+            #         elif Character.desire >= 25:
+            #             $ update_messages.append("{color=%s}%s{/color} {color=%s}fidgets a little{/color}" % (eval(f"{Character.tag}_color"), Character.name, shade))
+            #         elif Character.desire >= 10:
+            #             $ update_messages.append("{color=%s}%s{/color} {color=%s}seems distracted{/color}" % (eval(f"{Character.tag}_color"), Character.name, shade))
+            # else:
+            if flavor != "desire":
                 if update > 0:
                     $ update_messages.append("{color=%s}%s{/color} gained {color=%s}%s %s{/color}" % (eval(f"{Character.tag}_color"), Character.name, shade, update, flavor.capitalize()))
                 elif update < 0:

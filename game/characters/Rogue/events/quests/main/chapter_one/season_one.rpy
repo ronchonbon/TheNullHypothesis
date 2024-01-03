@@ -29,8 +29,7 @@ init python:
         if EventScheduler.Events["Rogue_chapter_one_season_one_standoffish_part_one"].completed:
             optional_objectives.update({"Bump into each other in the classroom": ["EventScheduler.Events['Rogue_chapter_one_season_one_standoffish_part_two'].completed", None]})
 
-        rewards = {
-            "unlock": ["love", "trust"]}
+        rewards = {}
         criteria = [
             "chapter == 1 and season == 1"]
 

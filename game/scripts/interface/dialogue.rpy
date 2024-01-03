@@ -57,7 +57,7 @@ screen say(who, what, two_window = False, hide_after = None):
         $ dialogue_position = [0.12, 0.15]
     else:
         $ dialogue_anchor = [0.5, 0.0]
-        $ dialogue_position = [0.12, 0.08]
+        $ dialogue_position = [0.12, 0.12]
 
     if who == "Player":
         $ C = Player
@@ -109,6 +109,8 @@ screen say(who, what, two_window = False, hide_after = None):
                     else:
                         background Frame("images/interface/text_boxes/white.webp")
 
+                    padding (15, 15, 15, 15)
+
                     if C:
                         text name id "who" align (0.5, 0.5):
                             font "agency_fb_bold.ttf"
@@ -157,6 +159,8 @@ screen say(who, what, two_window = False, hide_after = None):
                     if renpy.showing(f"{C.tag}_sprite"):
                         xmaximum 0.75
 
+                padding (15, 15, 15, 15)
+
                 text what id "what" align (0.5, 0.5):
                     font "agency_fb.ttf"
 
@@ -186,7 +190,7 @@ screen choice(items, menu_location = None):
         on "show" action Call("move_location", Player.location)
 
     if not dialogue_hidden and not choice_disabled and (not current_phone_Character or not current_phone_Character.mandatory_text_options):
-        fixed anchor (0.5, 0.0) pos (0.12, 0.32) xysize (0.2, 0.45):
+        fixed anchor (0.5, 0.0) pos (0.12, 0.36) xysize (0.2, 0.45):
             viewport id "choice_viewport":
                 draggable True
                 mousewheel True

@@ -45,7 +45,7 @@ label enter_cheat_code(code):
 
                 if Character:
                     call change_Character_stat(Character, parsed_code[2], int(parsed_code[3])) from _call_change_Character_stat_834
-    elif parsed_code[0] == "max" and parsed_code[1] == "Character" and parsed_code[2] == "stats":
+    elif parsed_code[0] == "max" and parsed_code[1] == "Companion" and parsed_code[2] == "stats":
         $ renpy.dynamic(temp_Characters = active_Companions[:])
 
         while temp_Characters:

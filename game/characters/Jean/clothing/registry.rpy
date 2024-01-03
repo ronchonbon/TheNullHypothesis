@@ -10,11 +10,15 @@ init python:
             Jean_blue_mask(),
             Jean_blueyellow_classic_suit(),
             Jean_khaki_pants(),
+            Jean_messy_hair(),
             Jean_pink_boyshorts(),
             Jean_pink_bra(),
             Jean_pink_top(),
+            Jean_ponytail(),
             Jean_red_swimsuit(),
-            Jean_straight_hair()]
+            Jean_sideswept_hair(),
+            Jean_straight_hair(),
+            Jean_wet_hair()]
 
         return Clothes
 

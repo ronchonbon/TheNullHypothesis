@@ -176,6 +176,14 @@ label find_a_seat:
     else:
         call set_the_scene(location = "bg_classroom", fade = False) from _call_set_the_scene_383
 
+    $ renpy.dynamic(temp_Characters = Present[:])
+
+    while temp_Characters:
+        if temp_Characters[0] in all_Companions:
+            call change_Character_stat(temp_Characters[0], "trust", tiny_stat)
+
+        $ temp_Characters.remove(temp_Characters[0])
+
     return
 
 label take_class:            

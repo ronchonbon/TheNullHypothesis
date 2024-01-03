@@ -1,4 +1,9 @@
 label Charles_arrives:
+    if Charles.History.check("seen_Player", tracker = "recent") or Charles.History.check("seen_Player", tracker = "last"):
+        $ modifier = " again"
+    else:
+        $ modifier = ""
+
     $ dice_roll = renpy.random.randint(1, 3)
 
     if dice_roll == 1:
@@ -11,11 +16,11 @@ label Charles_arrives:
     $ dice_roll = renpy.random.randint(1, 3)
 
     if dice_roll == 1:
-        ch_Charles "Hello, [Player.first_name]."
+        ch_Charles "Hello[modifier], [Player.first_name]."
     elif dice_roll == 2:
-        ch_Charles "[Player.first_name], good to see you."
+        ch_Charles "[Player.first_name], good to see you[modifier]."
     elif dice_roll == 3:
-        ch_Charles "Ah, hello, [Player.first_name]."
+        ch_Charles "Ah, hello[modifier], [Player.first_name]."
 
     return
     
@@ -32,6 +37,11 @@ label Charles_leaves:
     return
     
 label Charles_greets_Player:
+    if Charles.History.check("seen_Player", tracker = "recent") or Charles.History.check("seen_Player", tracker = "last"):
+        $ modifier = " again"
+    else:
+        $ modifier = ""
+
     $ dice_roll = renpy.random.randint(1, 3)
 
     if dice_roll == 1:
@@ -44,10 +54,10 @@ label Charles_greets_Player:
     $ dice_roll = renpy.random.randint(1, 3)
 
     if dice_roll == 1:
-        ch_Charles "Hello, [Player.first_name]."
+        ch_Charles "Hello[modifier], [Player.first_name]."
     elif dice_roll == 2:
-        ch_Charles "[Player.first_name], good to see you."
+        ch_Charles "[Player.first_name], good to see you[modifier]."
     elif dice_roll == 3:
-        ch_Charles "Ah, hello, [Player.first_name]."
+        ch_Charles "Ah, hello[modifier], [Player.first_name]."
 
     return

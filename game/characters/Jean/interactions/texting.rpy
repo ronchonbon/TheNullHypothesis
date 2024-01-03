@@ -424,8 +424,6 @@ label Jean_text_ask_on_date:
 
             if Jean.text_history[-1][1] == temp[0]:
                 call change_Character_stat(Jean, "love", 0) from _call_change_Character_stat_278
-
-        $ phone_interactable = True
             
         if time_index == 2:
             $ ongoing_Event = True
@@ -472,6 +470,8 @@ label Jean_text_ask_on_date:
 
                 ch_Jean "Finally."
 
+            $ phone_interactable = True
+
             $ EventScheduler.Events["Jean_first_date"].start()
     else:
         if Player.cash < 40:
@@ -481,9 +481,9 @@ label Jean_text_ask_on_date:
 
             $ Jean.History.update("said_no_to_date")
 
-            return
+            $ phone_interactable = True
 
-        $ phone_interactable = False
+            return
     
         if Jean.status["mad"] or Jean.status["heartbroken"]:
             call receive_text(Jean, "Cant") from _call_receive_text_193
@@ -546,6 +546,6 @@ label Jean_text_ask_on_date:
                 
                 $ Jean.History.update("said_no_to_date")
 
-        $ phone_interactable = True
+    $ phone_interactable = True
 
     return

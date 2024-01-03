@@ -1,10 +1,15 @@
 label Rogue_arrives(arriving_Characters):
+    if Rogue.History.check("seen_Player", tracker = "recent") or Rogue.History.check("seen_Player", tracker = "last"):
+        $ modifier = " again"
+    else:
+        $ modifier = ""
+
     $ dice_roll = renpy.random.randint(1, 5)
 
     if dice_roll == 1:
         $ Rogue.change_face("surprised1")
 
-        ch_Rogue "Oh! Howdy."
+        ch_Rogue "Oh! Howdy[modifier]."
 
         $ Rogue.change_face("smirk2")
     elif dice_roll == 2:
@@ -21,21 +26,26 @@ label Rogue_arrives(arriving_Characters):
 
         $ Rogue.change_face("pleased2")
 
-        ch_Rogue "Hey sugar!"
+        ch_Rogue "Hey[modifier] sugar!"
 
         $ Rogue.change_face("smirk2")
     elif dice_roll == 4:
         $ Rogue.change_face("smirk2")
 
-        ch_Rogue "Nice to see ya, hon'."
+        ch_Rogue "Nice to see ya[modifier], hon'."
     elif dice_roll == 5:
         $ Rogue.change_face("pleased1")
 
-        ch_Rogue "Howdy, [Player.first_name]."
+        ch_Rogue "Howdy[modifier], [Player.first_name]."
 
     return
 
 label Rogue_arrives_relationship(arriving_Characters):
+    if Rogue.History.check("seen_Player", tracker = "recent") or Rogue.History.check("seen_Player", tracker = "last"):
+        $ modifier = " again"
+    else:
+        $ modifier = ""
+
     $ dice_roll = renpy.random.randint(1, 5)
 
     if dice_roll == 1:
@@ -54,7 +64,7 @@ label Rogue_arrives_relationship(arriving_Characters):
     elif dice_roll == 2:
         $ Rogue.change_face("pleased2")
 
-        ch_Rogue "Hey sugar."
+        ch_Rogue "Hey[modifier] sugar."
 
         $ Rogue.change_face("smirk2", mouth = "lipbite")
     elif dice_roll == 3:
@@ -74,7 +84,7 @@ label Rogue_arrives_relationship(arriving_Characters):
 
         $ Rogue.change_face("pleased2")
 
-        ch_Rogue "Hey stud-muffin."
+        ch_Rogue "Hey[modifier] stud-muffin."
 
         $ Rogue.change_face("smirk2")
 
@@ -82,7 +92,7 @@ label Rogue_arrives_relationship(arriving_Characters):
     elif dice_roll == 5:
         $ Rogue.change_face("pleased2")
 
-        ch_Rogue "Hey handsome. . ."
+        ch_Rogue "Hey[modifier] handsome. . ."
         ch_Rogue "Glad yer here."
 
         $ Rogue.change_face("smirk2")
@@ -90,6 +100,11 @@ label Rogue_arrives_relationship(arriving_Characters):
     return
 
 label Rogue_arrives_love(arriving_Characters):
+    if Rogue.History.check("seen_Player", tracker = "recent") or Rogue.History.check("seen_Player", tracker = "last"):
+        $ modifier = " again"
+    else:
+        $ modifier = ""
+        
     $ dice_roll = renpy.random.randint(1, 5)
 
     if dice_roll == 1:
@@ -141,6 +156,11 @@ label Rogue_arrives_love(arriving_Characters):
     return
 
 label Rogue_arrives_mad(arriving_Characters):
+    if Rogue.History.check("seen_Player", tracker = "recent") or Rogue.History.check("seen_Player", tracker = "last"):
+        $ modifier = " again"
+    else:
+        $ modifier = ""
+
     $ dice_roll = renpy.random.randint(1, 3)
 
     if dice_roll == 1:
@@ -168,11 +188,16 @@ label Rogue_arrives_mad(arriving_Characters):
 
         $ Rogue.change_face("angry1")
 
-        ch_Rogue "Howdy. . ."
+        ch_Rogue "Howdy[modifier]. . ."
 
     return
 
 label Rogue_arrives_heartbroken(arriving_Characters):
+    if Rogue.History.check("seen_Player", tracker = "recent") or Rogue.History.check("seen_Player", tracker = "last"):
+        $ modifier = " again"
+    else:
+        $ modifier = ""
+
     $ dice_roll = renpy.random.randint(1, 3)
 
     if dice_roll == 1:
@@ -194,7 +219,7 @@ label Rogue_arrives_heartbroken(arriving_Characters):
 
         $ Rogue.change_face("sad")
 
-        ch_Rogue "Hey."
+        ch_Rogue "Hey[modifier]."
 
         $ Rogue.change_face("worried1")
     elif dice_roll == 3:
@@ -213,6 +238,11 @@ label Rogue_arrives_heartbroken(arriving_Characters):
     return
 
 label Rogue_arrives_horny(arriving_Characters):
+    if Rogue.History.check("seen_Player", tracker = "recent") or Rogue.History.check("seen_Player", tracker = "last"):
+        $ modifier = " again"
+    else:
+        $ modifier = ""
+
     $ dice_roll = renpy.random.randint(1, 4)
 
     if dice_roll == 1:
@@ -257,6 +287,11 @@ label Rogue_arrives_horny(arriving_Characters):
     return
 
 label Rogue_arrives_nympho(arriving_Characters):
+    if Rogue.History.check("seen_Player", tracker = "recent") or Rogue.History.check("seen_Player", tracker = "last"):
+        $ modifier = " again"
+    else:
+        $ modifier = ""
+        
     $ dice_roll = renpy.random.randint(1, 2)
 
     if dice_roll == 1:

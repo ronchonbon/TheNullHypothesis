@@ -573,16 +573,18 @@ image Jean_doggy_left_arm:
     offset (int(1474*sex_sampling), int(1200*sex_sampling))
 
 layeredimage Jean_doggy_hair:
-    # if Jean.check_traits("wet") or Jean.Clothes["hair"].string == "wet":
-    #     "characters/Jean/images/doggy/hair_shadow_wet.webp"
-    # else:
-    always:
+    if Jean.check_traits("wet") or Jean.Clothes["hair"].string == "wet":
+        "characters/Jean/images/doggy/hair_shadow_wet.webp"
+    elif Jean.Clothes["hair"].string in ["ponytail", "sideswept"]:
+        "characters/Jean/images/doggy/hair_shadow_straight.webp"
+    else:
         "characters/Jean/images/doggy/hair_shadow_[Jean.Clothes[hair].string].webp"
 
-    # if Jean.check_traits("wet") or Jean.Clothes["hair"].string == "wet":
-    #     "characters/Jean/images/doggy/hair_wet.webp"
-    # else:
-    always:
+    if Jean.check_traits("wet") or Jean.Clothes["hair"].string == "wet":
+        "characters/Jean/images/doggy/hair_wet.webp"
+    elif Jean.Clothes["hair"].string in ["ponytail", "sideswept"]:
+        "characters/Jean/images/doggy/hair_straight.webp"
+    else:
         "characters/Jean/images/doggy/hair_[Jean.Clothes[hair].string].webp"
 
     if Jean.spunk["hair"]:

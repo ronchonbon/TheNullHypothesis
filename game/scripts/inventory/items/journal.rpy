@@ -4,6 +4,8 @@ init -1 python:
         name = "writing journal"
         string = "journal"
 
+        criteria = []
+
         shop_type = "gift"
         filter_type = "gifts"
 
@@ -14,6 +16,7 @@ init -1 python:
         return ItemClass(
             Owner, 
             name, string,
+            criteria,
             shop_type, 
             filter_type,
             description,

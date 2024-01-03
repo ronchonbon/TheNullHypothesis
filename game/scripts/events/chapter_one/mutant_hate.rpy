@@ -27,7 +27,7 @@ init python:
         optional_objectives = {}
 
         rewards = {
-            "unlock": ["actions", "shop"]}
+            "unlock": ["love", "trust", "actions", "shop"]}
             
         criteria = [
             "chapter == 1 and season == 3"]
@@ -258,7 +258,6 @@ label ch1_mutant_hate:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom cinematic_adjustment
 
     call set_the_scene(location = "bg_town") from _call_set_the_scene_281
     call show_Character(Kurt, x = stage_center - 0.1, sprite_layer = 5, fade = True) from _call_show_Character_10

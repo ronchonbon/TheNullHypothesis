@@ -1,10 +1,15 @@
 label Laura_arrives(arriving_Characters):
+    if Laura.History.check("seen_Player", tracker = "recent") or Laura.History.check("seen_Player", tracker = "last"):
+        $ modifier = " again"
+    else:
+        $ modifier = ""
+        
     $ dice_roll = renpy.random.randint(1, 5)
 
     if dice_roll == 1:
         $ Laura.change_face("surprised1")
 
-        ch_Laura "Hello."
+        ch_Laura "Hello[modifier]."
 
         $ Laura.change_face("neutral")
     elif dice_roll == 2:
@@ -18,7 +23,7 @@ label Laura_arrives(arriving_Characters):
 
         $ Laura.change_face("smirk1")
 
-        ch_Laura "Hey."
+        ch_Laura "Hey[modifier]."
 
         $ Laura.change_face("neutral")
     elif dice_roll == 4:
@@ -39,6 +44,11 @@ label Laura_arrives(arriving_Characters):
     return
 
 label Laura_arrives_relationship(arriving_Characters):
+    if Laura.History.check("seen_Player", tracker = "recent") or Laura.History.check("seen_Player", tracker = "last"):
+        $ modifier = " again"
+    else:
+        $ modifier = ""
+
     $ dice_roll = renpy.random.randint(1, 5)
 
     if dice_roll == 1:
@@ -48,13 +58,13 @@ label Laura_arrives_relationship(arriving_Characters):
 
         $ Laura.change_face("angry1")
 
-        ch_Laura "Found you."
+        ch_Laura "Found you[modifier]."
 
         $ Laura.eyes = "squint"
     elif dice_roll == 2:
         $ Laura.change_face("smirk2")
 
-        ch_Laura "Hey."
+        ch_Laura "Hey[modifier]."
 
         $ Laura.eyes = "down"
 
@@ -90,6 +100,11 @@ label Laura_arrives_relationship(arriving_Characters):
     return
 
 label Laura_arrives_love(arriving_Characters):
+    if Laura.History.check("seen_Player", tracker = "recent") or Laura.History.check("seen_Player", tracker = "last"):
+        $ modifier = " again"
+    else:
+        $ modifier = ""
+
     if Laura.check_traits("quirk"):
         $ dice_roll = renpy.random.randint(1, 5)
     else:
@@ -102,7 +117,7 @@ label Laura_arrives_love(arriving_Characters):
 
         $ Laura.eyes = "squint"
 
-        ch_Laura "Hey. . ."
+        ch_Laura "Hey[modifier]. . ."
         ch_Laura "I think. . . I missed you. . ."
 
         $ Laura.change_face("worried1")
@@ -148,6 +163,11 @@ label Laura_arrives_love(arriving_Characters):
     return
 
 label Laura_arrives_mad(arriving_Characters):
+    if Laura.History.check("seen_Player", tracker = "recent") or Laura.History.check("seen_Player", tracker = "last"):
+        $ modifier = " again"
+    else:
+        $ modifier = ""
+
     $ dice_roll = renpy.random.randint(1, 3)
 
     if dice_roll == 1:
@@ -176,6 +196,11 @@ label Laura_arrives_mad(arriving_Characters):
     return
 
 label Laura_arrives_heartbroken(arriving_Characters):
+    if Laura.History.check("seen_Player", tracker = "recent") or Laura.History.check("seen_Player", tracker = "last"):
+        $ modifier = " again"
+    else:
+        $ modifier = ""
+
     $ dice_roll = renpy.random.randint(1, 3)
 
     if dice_roll == 1:
@@ -211,7 +236,7 @@ label Laura_arrives_heartbroken(arriving_Characters):
 
         $ Laura.change_face("appalled1")
 
-        ch_Laura "Oh. . . it's you. . ."
+        ch_Laura "Oh. . . it's you[modifier]. . ."
 
         $ Laura.eyes = "right"
 
@@ -222,6 +247,11 @@ label Laura_arrives_heartbroken(arriving_Characters):
     return
 
 label Laura_arrives_horny(arriving_Characters):
+    if Laura.History.check("seen_Player", tracker = "recent") or Laura.History.check("seen_Player", tracker = "last"):
+        $ modifier = " again"
+    else:
+        $ modifier = ""
+
     if Laura in Partners:
         $ dice_roll = renpy.random.randint(1, 4)
     else:
@@ -276,6 +306,11 @@ label Laura_arrives_horny(arriving_Characters):
     return
 
 label Laura_arrives_nympho(arriving_Characters):
+    if Laura.History.check("seen_Player", tracker = "recent") or Laura.History.check("seen_Player", tracker = "last"):
+        $ modifier = " again"
+    else:
+        $ modifier = ""
+
     if Laura.check_traits("quirk"):
         $ dice_roll = renpy.random.randint(1, 2)
     else:

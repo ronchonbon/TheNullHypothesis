@@ -1,10 +1,15 @@
 label Jean_arrives(arriving_Characters):
+    if Jean.History.check("seen_Player", tracker = "recent") or Jean.History.check("seen_Player", tracker = "last"):
+        $ modifier = " again"
+    else:
+        $ modifier = ""
+
     $ dice_roll = renpy.random.randint(1, 5)
 
     if dice_roll == 1:
         $ Jean.change_face("surprised1")
 
-        ch_Jean "Oh! Hey."
+        ch_Jean "Oh! Hey[modifier]."
 
         $ Jean.change_face("smirk2")
     elif dice_roll == 2:
@@ -18,17 +23,17 @@ label Jean_arrives(arriving_Characters):
 
         $ Jean.change_face("pleased2")
 
-        ch_Jean "Hey, [Player.first_name]!"
+        ch_Jean "Hey[modifier], [Player.first_name]!"
 
         $ Jean.change_face("smirk2")
     elif dice_roll == 4:
         $ Jean.change_face("smirk2")
 
-        ch_Jean "Hey, good to see you."
+        ch_Jean "Hey[modifier], good to see you."
     elif dice_roll == 5:
         $ Jean.change_face("pleased1")
 
-        ch_Jean "Hi!"
+        ch_Jean "Hi[modifier]!"
         ch_Jean "Just let me know if you need anything."
 
         $ Jean.change_face("smirk2")
@@ -36,6 +41,11 @@ label Jean_arrives(arriving_Characters):
     return
 
 label Jean_arrives_relationship(arriving_Characters):
+    if Jean.History.check("seen_Player", tracker = "recent") or Jean.History.check("seen_Player", tracker = "last"):
+        $ modifier = " again"
+    else:
+        $ modifier = ""
+
     $ dice_roll = renpy.random.randint(1, 5)
 
     if dice_roll == 1:
@@ -51,7 +61,7 @@ label Jean_arrives_relationship(arriving_Characters):
     elif dice_roll == 2:
         $ Jean.change_face("pleased2")
 
-        ch_Jean "Hey, [Player.first_name]."
+        ch_Jean "Hey[modifier], [Player.first_name]."
 
         $ Jean.change_face("smirk2", eyes = "down")
 
@@ -76,7 +86,7 @@ label Jean_arrives_relationship(arriving_Characters):
 
         $ Jean.change_face("pleased2")
 
-        ch_Jean "Hey, [Player.first_name]."
+        ch_Jean "Hey[modifier], [Player.first_name]."
 
         $ Jean.change_face("smirk2")
 
@@ -84,7 +94,7 @@ label Jean_arrives_relationship(arriving_Characters):
     elif dice_roll == 5:
         $ Jean.change_face("pleased2")
 
-        ch_Jean "Happy to see me?"
+        ch_Jean "Happy to see me[modifier]?"
         ch_Jean "I'm definitely happy to see you."
 
         $ Jean.change_face("smirk2")
@@ -92,6 +102,11 @@ label Jean_arrives_relationship(arriving_Characters):
     return
 
 label Jean_arrives_love(arriving_Characters):
+    if Jean.History.check("seen_Player", tracker = "recent") or Jean.History.check("seen_Player", tracker = "last"):
+        $ modifier = " again"
+    else:
+        $ modifier = ""
+
     $ dice_roll = renpy.random.randint(1, 5)
 
     if dice_roll == 1:
@@ -154,6 +169,11 @@ label Jean_arrives_love(arriving_Characters):
     return
 
 label Jean_arrives_mad(arriving_Characters):
+    if Jean.History.check("seen_Player", tracker = "recent") or Jean.History.check("seen_Player", tracker = "last"):
+        $ modifier = " again"
+    else:
+        $ modifier = ""
+
     $ dice_roll = renpy.random.randint(1, 3)
 
     if dice_roll == 1:
@@ -185,13 +205,18 @@ label Jean_arrives_mad(arriving_Characters):
 
         $ Jean.change_face("worried1")
         
-        ch_Jean "It's you. . ."
+        ch_Jean "It's you[modifier]. . ."
 
         $ Jean.change_face("furious")
 
     return
 
 label Jean_arrives_heartbroken(arriving_Characters):
+    if Jean.History.check("seen_Player", tracker = "recent") or Jean.History.check("seen_Player", tracker = "last"):
+        $ modifier = " again"
+    else:
+        $ modifier = ""
+
     $ dice_roll = renpy.random.randint(1, 3)
 
     if dice_roll == 1:
@@ -223,7 +248,7 @@ label Jean_arrives_heartbroken(arriving_Characters):
 
         $ Jean.change_face("worried1")
 
-        ch_Jean "Oh. . . you. . ."
+        ch_Jean "Oh. . . you[modifier]. . ."
         
         $ Jean.change_face("angry1", eyes = "right")
 
@@ -236,6 +261,11 @@ label Jean_arrives_heartbroken(arriving_Characters):
     return
 
 label Jean_arrives_horny(arriving_Characters):
+    if Jean.History.check("seen_Player", tracker = "recent") or Jean.History.check("seen_Player", tracker = "last"):
+        $ modifier = " again"
+    else:
+        $ modifier = ""
+
     if Jean in Partners:
         $ dice_roll = renpy.random.randint(1, 4)
     else:
@@ -244,7 +274,7 @@ label Jean_arrives_horny(arriving_Characters):
     if dice_roll == 1:
         $ Jean.change_face("surprised2", blush = 1)
 
-        ch_Jean "Oh! Heh, hey. . ."
+        ch_Jean "Oh! Heh, hey[modifier]. . ."
 
         $ Jean.mouth = "lipbite"
 
@@ -293,6 +323,11 @@ label Jean_arrives_horny(arriving_Characters):
     return
 
 label Jean_arrives_nympho(arriving_Characters):
+    if Jean.History.check("seen_Player", tracker = "recent") or Jean.History.check("seen_Player", tracker = "last"):
+        $ modifier = " again"
+    else:
+        $ modifier = ""
+        
     $ dice_roll = renpy.random.randint(1, 2)
 
     if dice_roll == 1:

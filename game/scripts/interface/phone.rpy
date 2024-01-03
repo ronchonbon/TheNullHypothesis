@@ -1449,7 +1449,7 @@ screen remote_screen():
         hover At("images/interface/phone/hot_control_on.webp", interface)
         selected_idle At("images/interface/phone/hot_control_on.webp", interface)
 
-        selected vibrator_Characters[current_vibrator_index].remote_vibrator > 0.0
+        selected vibrator_Characters and vibrator_Characters[current_vibrator_index].remote_vibrator > 0.0
 
         if vibrator_Characters and phone_interactable and not phone_disabled:
             if vibrator_Characters[current_vibrator_index].remote_vibrator == 0.0:

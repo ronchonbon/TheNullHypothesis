@@ -30,7 +30,7 @@ init python:
         optional_objectives = {}
 
         rewards = {
-            "unlock": ["actions", "shop"]}
+            "unlock": ["love", "trust", "actions", "shop"]}
             
         criteria = [
             "chapter == 1 and season == 2"]
@@ -215,7 +215,6 @@ label ch1_Sentinel_attack:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom cinematic_adjustment
 
     $ fade_in_from_black(0.4)
 
@@ -1092,8 +1091,7 @@ label ch1_Sentinel_attack:
     ch_Rogue "[temp]? Can ah come in?"
     ch_Player "[Rogue.name]? Absolutely."
 
-    # call change_Outfit(Rogue, Rogue.Wardrobe.Outfits["Casual 1"], instant = True) from _call_change_Outfit_32
-
+    call change_Outfit(Rogue, Rogue.Wardrobe.Outfits["Casual 1"], instant = True) from _call_change_Outfit_32
     call show_Character(Rogue, x = stage_far_far_right) from _call_show_Character_7
 
     $ Rogue.change_face("worried1")
@@ -1325,8 +1323,8 @@ label ch1_Sentinel_attack:
 
     "The door is violently swung open, and a fuming [Laura.name] appears."
 
-    # call change_Outfit(Laura, Laura.Wardrobe.Outfits["Casual 1"], instant = True) from _call_change_Outfit_33
-    # call try_on(Laura, Laura.Wardrobe.Clothes["messy hair"]) from _call_try_on_12
+    # call change_Outfit(Laura, Laura.Wardrobe.Outfits["Casual 1"], instant = True)
+    call try_on(Laura, Laura.Wardrobe.Clothes["messy hair"])
 
     call show_Character(Laura, x = stage_far_right, sprite_zoom = 1.4*Laura_standing_zoom) from _call_show_Character_9
 

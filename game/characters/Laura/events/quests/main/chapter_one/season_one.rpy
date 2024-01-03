@@ -34,8 +34,7 @@ init python:
 
         optional_objectives.update({"Sit next to her in class": ["EventScheduler.Events['Laura_chapter_one_season_one_outcast'].completed", None]})
 
-        rewards = {
-            "unlock": ["love", "trust"]}
+        rewards = {}
         criteria = [
             "chapter == 1 and season == 1"]
 

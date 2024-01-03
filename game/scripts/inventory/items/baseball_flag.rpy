@@ -4,6 +4,8 @@ init -1 python:
         name = "Mississipi Braves flag"
         string = "baseball_flag"
 
+        criteria = []
+
         shop_type = "gift"
         filter_type = "key_gifts"
 
@@ -14,6 +16,7 @@ init -1 python:
         return ItemClass(
             Owner, 
             name, string,
+            criteria,
             shop_type, 
             filter_type,
             description,

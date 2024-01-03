@@ -425,12 +425,6 @@ layeredimage Rogue_standing_body:
     if Rogue.piercings["labia"] in ["ring", "both"]:
         "characters/Rogue/images/standing/labia_piercings_ring.webp"
 
-    if "pubic" in Rogue.body_hair_growing.keys():
-        "characters/Rogue/images/standing/pubes_growing.webp"
-
-    if Rogue.body_hair["pubic"]:
-        "characters/Rogue/images/standing/pubes_[Rogue.body_hair[pubic]].webp"
-
     if Rogue.desire >= 75 or Rogue.History.check("orgasmed", tracker = "recent"):
         "characters/Rogue/images/standing/grool.webp"
     elif Rogue.desire >= 50:
@@ -443,6 +437,12 @@ layeredimage Rogue_standing_body:
 
     if Rogue.creampie["pussy"] == 2:
         "characters/Rogue/images/standing/creampie2.webp"
+
+    if "pubic" in Rogue.body_hair_growing.keys():
+        "characters/Rogue/images/standing/pubes_growing.webp"
+
+    if Rogue.body_hair["pubic"]:
+        "characters/Rogue/images/standing/pubes_[Rogue.body_hair[pubic]].webp"
 
     if Rogue.remote_vibrator is None:
         Null()

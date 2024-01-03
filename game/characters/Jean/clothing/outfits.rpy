@@ -8,7 +8,7 @@ init python:
         Outfits[-1].Clothes.update({
             "hair": Jean_straight_hair(),
             "bra": Jean_pink_bra(), "underwear": Jean_pink_boyshorts(),
-            "pants": Jean_khaki_pants(),
+            "pants": Jean_khaki_pants(), "footwear": Jean_black_sandals(),
             "top": Jean_pink_top()})
 
         Outfits.append(OutfitClass("Hero (Chapter I)", flags = ["hero"]))
@@ -17,7 +17,7 @@ init python:
             "face_inner_accessory": Jean_blue_mask(), "hair": Jean_straight_hair(),
             "bra": Jean_pink_bra(), "underwear": Jean_pink_boyshorts(),
             "bodysuit": Jean_blueyellow_classic_suit(),
-            "boots": Jean_blue_boots(),
+            "footwear": Jean_blue_boots(),
             "gloves": Jean_blue_gloves(), "sleeves": Jean_blue_gauntlets()})
 
         Outfits.append(OutfitClass("Swimsuit (One-Piece)", flags = ["swim"]))

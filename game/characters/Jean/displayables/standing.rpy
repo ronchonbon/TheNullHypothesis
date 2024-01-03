@@ -279,6 +279,12 @@ layeredimage Jean_standing:
     elif Jean.right_arm in ["extended", "fight", "psychic1"]:
         "characters/Jean/images/standing/sleeves_[Jean.Clothes[sleeves].string]_right_[Jean.right_arm].webp"
 
+    if Rogue.spunk["hand"] and Rogue.right_arm in ["extended"]:
+        "characters/Rogue/images/standing/spunk_hand1.webp"
+
+    if Rogue.spunk["hand"] == 2 and Rogue.right_arm in ["extended"]:
+        "characters/Rogue/images/standing/spunk_hand2.webp"
+
     if Jean.left_arm in ["fight", "psychic1", "psychic2"]:
         "characters/Jean/images/standing/left_forearm_[Jean.left_arm].webp"
 
@@ -338,64 +344,14 @@ layeredimage Jean_standing:
     elif Player.mouth_Actions[0].animation_type in ["suck_nipples"] and Jean.right_nipple_Actions and Player.mouth_Actions[0].animation_type == Jean.right_nipple_Actions[0].animation_type:
         "Jean_standing_male_head_suck_right_nipple_animation[Player.mouth_Actions[0].mode]" at change_offset(Jean_standing_right_nipple_position[0], Jean_standing_right_nipple_position[1])
 
-layeredimage Jean_standing_hair_back:
-    # if Jean.check_traits("wet") or Jean.Clothes["hair"].string == "wet":
-    #     "characters/Jean/images/standing/hair_back_wet.webp"
-    # else:
-    always:
-        "characters/Jean/images/standing/hair_back.webp"
-
-    anchor (int(1315*character_sampling), int(1360*character_sampling))
-    offset (int(1315*character_sampling), int(1360*character_sampling))
-
-layeredimage Jean_standing_head:
-    always:
-        "characters/Jean/images/standing/head.webp"
-
-    always:
-        "characters/Jean/images/standing/mouth_[Jean.mouth].webp"
-
-    if Jean.eyes in ["closed", "down", "left", "right", "squint", "up", "wink"]:
-        "characters/Jean/images/standing/eyes_[Jean.eyes].webp"
+layeredimage Jean_standing_hair_back: 
+    if Jean.check_traits("wet") or Jean.Clothes["hair"].string == "wet":
+        "characters/Jean/images/standing/hair_back_wet.webp"
     else:
-        "Jean_standing_blinking"
-
-    always:
-        "characters/Jean/images/standing/brows_[Jean.brows].webp"
-
-    if Jean.blush:
-        "characters/Jean/images/standing/blush[Jean.blush].webp"
-
-    if Jean.Clothes["face_inner_accessory"].string:
-        "characters/Jean/images/standing/face_inner_accessory_[Jean.Clothes[face_inner_accessory].string].webp"
-
-    # if Jean.check_traits("wet") or Jean.Clothes["hair"].string == "wet":
-    #     "characters/Jean/images/standing/hair_wet_shadow.webp" at Transform(blend = "multiply")
-    # else:
-    always:
-        "characters/Jean/images/standing/hair_[Jean.Clothes[hair].string]_shadow.webp" at Transform(blend = "multiply")
-
-    # if Jean.check_traits("wet") or Jean.Clothes["hair"].string == "wet":
-    #     "characters/Jean/images/standing/hair_wet.webp"
-    # else:
-    always:
-        "characters/Jean/images/standing/hair_[Jean.Clothes[hair].string].webp"
-
-    if Jean.check_traits("psychic") and Jean.activating_psychic:
-        "Jean_standing_psychic" at Jean_standing_activating_psychic_animation
-    elif Jean.check_traits("psychic"):
-        "Jean_standing_psychic" at Jean_standing_psychic_animation
-    elif Jean.deactivating_psychic:
-        "Jean_standing_psychic" at Jean_standing_deactivating_psychic_animation
+        "characters/Jean/images/standing/hair_back_[Jean.Clothes[hair].string].webp"
 
     anchor (int(1315*character_sampling), int(1360*character_sampling))
     offset (int(1315*character_sampling), int(1360*character_sampling))
-
-image Jean_standing_psychic:
-    "characters/Jean/images/standing/psychic.webp"
-
-    anchor (int(1220*character_sampling), int(1110*character_sampling))
-    offset (int(1220*character_sampling), int(1110*character_sampling))
 
 layeredimage Jean_standing_right_arm:
     always:
@@ -440,6 +396,47 @@ layeredimage Jean_standing_body:
     always:
         "characters/Jean/images/standing/left_foot.webp"
 
+    if Jean.piercings["labia"] in ["barbell", "both"]:
+        "characters/Jean/images/standing/labia_piercings_barbell.webp"
+
+    if Jean.piercings["labia"] in ["ring", "both"]:
+        "characters/Jean/images/standing/labia_piercings_ring.webp"
+
+    if Jean.desire >= 75 or Jean.History.check("orgasmed", tracker = "recent"):
+        "characters/Jean/images/standing/grool.webp"
+    elif Jean.desire >= 50:
+        "characters/Jean/images/standing/grool.webp" at Transform(alpha = 0.5)
+    elif Jean.desire >= 25:
+        "characters/Jean/images/standing/grool.webp" at Transform(alpha = 0.1)
+
+    if Jean.creampie["pussy"]:
+        "characters/Jean/images/standing/creampie1.webp"
+
+    if Jean.creampie["pussy"] == 2:
+        "characters/Jean/images/standing/creampie2.webp"
+
+    if "pubic" in Jean.body_hair_growing.keys():
+        "characters/Jean/images/standing/pubes_growing.webp"
+
+    if Jean.body_hair["pubic"]:
+        "characters/Jean/images/standing/pubes_[Jean.body_hair[pubic]].webp"
+
+    if Jean.remote_vibrator is None:
+        Null()
+    elif Jean.remote_vibrator > 0.0:
+        "characters/Jean/images/standing/remote_vibrator.webp" at vibrating
+    else:
+        "characters/Jean/images/standing/remote_vibrator.webp"
+
+    if Jean.piercings["belly"]:
+        "characters/Jean/images/standing/belly_piercing.webp"
+
+    if Jean.spunk["belly"]:
+        "characters/Jean/images/standing/spunk_belly1.webp"
+
+    if Jean.spunk["belly"] == 2:
+        "characters/Jean/images/standing/spunk_belly2.webp"
+
     if Jean.Clothes["underwear"].string:
         "characters/Jean/images/standing/underwear_[Jean.Clothes[underwear].string]_[Jean.Clothes[underwear].state].webp"
 
@@ -467,6 +464,26 @@ layeredimage Jean_standing_body:
         "characters/Jean/images/standing/breasts_crossed.webp"
     else:
         "characters/Jean/images/standing/breasts.webp"
+
+    if Jean.piercings["nipple"] not in ["barbell", "both"]:
+        Null()
+    elif Jean.left_arm == "crossed" and Jean.right_arm == "crossed":
+        "characters/Jean/images/standing/nipple_piercings_barbell_crossed.webp"
+    else:
+        "characters/Jean/images/standing/nipple_piercings_barbell.webp"
+
+    if Jean.piercings["nipple"] not in ["ring", "both"]:
+        Null()
+    elif Jean.left_arm == "crossed" and Jean.right_arm == "crossed":
+        "characters/Jean/images/standing/nipple_piercings_ring_crossed.webp"
+    else:
+        "characters/Jean/images/standing/nipple_piercings_ring.webp"
+
+    if Jean.spunk["breasts"]:
+        "characters/Jean/images/standing/spunk_breasts1.webp"
+
+    if Jean.spunk["breasts"] == 2:
+        "characters/Jean/images/standing/spunk_breasts2.webp"
 
     if Jean.left_arm == "grope":
         "characters/Jean/images/standing/left_forearm_grope_shadow.webp" at Transform(blend = "multiply")
@@ -526,6 +543,94 @@ layeredimage Jean_standing_left_sleeve:
 
     anchor (int(1600*character_sampling), int(1550*character_sampling))
     offset (int(1600*character_sampling), int(1550*character_sampling))
+
+layeredimage Jean_standing_head:
+    always:
+        "characters/Jean/images/standing/head.webp"
+
+    always:
+        "characters/Jean/images/standing/mouth_[Jean.mouth].webp"
+
+    if Jean.eyes in ["closed", "down", "left", "right", "squint", "up", "wink"]:
+        "characters/Jean/images/standing/eyes_[Jean.eyes].webp"
+    else:
+        "Jean_standing_blinking"
+
+    always:
+        "characters/Jean/images/standing/brows_[Jean.brows].webp"
+
+    if Jean.blush:
+        "characters/Jean/images/standing/blush[Jean.blush].webp"
+
+    if not Jean.check_traits("wet") and Jean.Clothes["hair"].string in ["sideswept"]:
+        "characters/Jean/images/standing/hair_[Jean.Clothes[hair].string]_mid.webp"
+
+    if Jean.Clothes["face_inner_accessory"].string:
+        "characters/Jean/images/standing/face_inner_accessory_[Jean.Clothes[face_inner_accessory].string].webp"
+
+    if Jean.spunk["mouth"] and Jean.mouth in ["agape", "open"]:
+        "characters/Jean/images/standing/spunk_mouth1_agape.webp"
+
+    if Jean.spunk["mouth"] == 2 and Jean.mouth in ["agape", "open"]:
+        "characters/Jean/images/standing/spunk_mouth2_agape.webp"
+
+    if Jean.spunk["mouth"] and Jean.mouth in ["tongue"]:
+        "characters/Jean/images/standing/spunk_mouth1_tongue.webp"
+
+    if Jean.spunk["mouth"] == 2 and Jean.mouth in ["tongue"]:
+        "characters/Jean/images/standing/spunk_mouth2_tongue.webp"
+
+    if not Jean.spunk["chin"]:
+        Null()
+    elif Jean.mouth in ["agape", "open", "tongue"]:
+        "characters/Jean/images/standing/spunk_chin1_open.webp"
+    else:
+        "characters/Jean/images/standing/spunk_chin1.webp"
+
+    if Jean.spunk["chin"] != 2:
+        Null()
+    elif Jean.mouth in ["agape", "open", "tongue"]:
+        "characters/Jean/images/standing/spunk_chin2_open.webp"
+    else:
+        "characters/Jean/images/standing/spunk_chin2.webp"
+
+    if Jean.spunk["face"]:
+        "characters/Jean/images/standing/spunk_face1.webp"
+
+    if Jean.spunk["face"] == 2:
+        "characters/Jean/images/standing/spunk_face2.webp"
+
+    if Jean.check_traits("wet") or Jean.Clothes["hair"].string == "wet":
+        "characters/Jean/images/standing/hair_wet_shadow.webp" at Transform(blend = "multiply")
+    else:
+        "characters/Jean/images/standing/hair_[Jean.Clothes[hair].string]_shadow.webp" at Transform(blend = "multiply")
+
+    if Jean.check_traits("wet") or Jean.Clothes["hair"].string == "wet":
+        "characters/Jean/images/standing/hair_wet.webp"
+    else:
+        "characters/Jean/images/standing/hair_[Jean.Clothes[hair].string].webp"
+
+    if Jean.spunk["hair"]:
+        "characters/Jean/images/standing/spunk_hair1_[Jean.Clothes[hair].string].webp"
+
+    if Jean.spunk["hair"] == 2:
+        "characters/Jean/images/standing/spunk_hair2_[Jean.Clothes[hair].string].webp"
+
+    if Jean.check_traits("psychic") and Jean.activating_psychic:
+        "Jean_standing_psychic" at Jean_standing_activating_psychic_animation
+    elif Jean.check_traits("psychic"):
+        "Jean_standing_psychic" at Jean_standing_psychic_animation
+    elif Jean.deactivating_psychic:
+        "Jean_standing_psychic" at Jean_standing_deactivating_psychic_animation
+
+    anchor (int(1315*character_sampling), int(1360*character_sampling))
+    offset (int(1315*character_sampling), int(1360*character_sampling))
+
+image Jean_standing_psychic:
+    "characters/Jean/images/standing/psychic.webp"
+
+    anchor (int(1220*character_sampling), int(1110*character_sampling))
+    offset (int(1220*character_sampling), int(1110*character_sampling))
 
 image Jean_standing_blinking:
     "characters/Jean/images/standing/eyes_[Jean.eyes].webp"
