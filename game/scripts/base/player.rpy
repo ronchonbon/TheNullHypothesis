@@ -13,7 +13,7 @@ init -3 python:
 
             self.level = 1
             self.XP = 0
-            self.XP_goal = 200
+            self.XP_goal = 250
             self.stat_points = 0
 
             self.income = 10

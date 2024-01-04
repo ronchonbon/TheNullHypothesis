@@ -1369,7 +1369,7 @@ screen news_screen():
 
                     add f"images/interface/phone/daily_bungle_{NewsPool.Articles[article_name].photo}.webp" anchor (0.5, 0.5) pos (0.835, 0.3) zoom interface_adjustment
 
-                    text "BY" anchor (0.5, 0.5) pos (0.835, 0.65):
+                    text "BY" anchor (0.5, 0.5) pos (0.832, 0.65):
                         font "agency_fb_bold.ttf"
 
                         size 26
@@ -1378,7 +1378,7 @@ screen news_screen():
 
                         text_align 0.5
 
-                    frame anchor (0.5, 0.5) pos (0.835, 0.85) xsize 0.35:
+                    frame anchor (0.5, 0.5) pos (0.832, 0.85) xsize 0.35:
                         text NewsPool.Articles[article_name].author xalign 0.5:
                             font "agency_fb_bold.ttf"
 

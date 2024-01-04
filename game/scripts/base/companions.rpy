@@ -21,7 +21,7 @@ init -2 python:
             
             self.level = 1
             self.XP = 0
-            self.XP_goal = 200
+            self.XP_goal = 250
             self.ability_points = 0
 
             self.stamina = 2

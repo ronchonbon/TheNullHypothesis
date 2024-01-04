@@ -133,7 +133,7 @@ label change_Character_stat(Character, flavor, update, alternate_values = None):
                 if update > 0:
                     $ update *= 0.75
                 elif update < 0:
-                    $ update *= 1.25
+                    $ update *= 1.33
 
             $ update = int(update)
 

@@ -17,7 +17,13 @@ label Character_orgasms(Character):
 
         $ Character.give_trait("orgasming")
 
+        show screen disable_click(1.0)
+
+        $ _skipping = False
+
         call Character_orgasm_narrations(Character) from _call_Character_orgasm_narrations
+
+        $ _skipping = True
 
     $ Character.History.update("orgasmed")
     

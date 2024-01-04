@@ -66,8 +66,10 @@ label classroom:
                 call travel("bg_campus") from _call_travel_24
             "Xavier's study":
                 call travel("bg_study") from _call_travel_25
-            "Approach. . ." if Offscreen:
+            "Approach. . ." if Offscreen and clock == Player.max_stamina:
                 call approach_Characters from _call_approach_Characters_2
+            "Approach. . . (locked)" if Offscreen and clock < Player.max_stamina:
+                call approach_Characters from _call_approach_Characters_8
             "Wait" if time_index < 3:
                 call wait_around from _call_wait_around_18
             "Wait (locked)" if time_index > 2:

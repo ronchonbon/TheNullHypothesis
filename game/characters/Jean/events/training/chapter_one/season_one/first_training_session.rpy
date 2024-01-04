@@ -401,7 +401,7 @@ label Jean_chapter_one_season_one_first_training_session:
         extend ""
         "I'm glad you're not hurt.":
             call change_Character_stat(Jean, "love", medium_stat) from _call_change_Character_stat_426
-            call change_Character_stat(Jean, "trust", medium_stat)
+            call change_Character_stat(Jean, "trust", medium_stat) from _call_change_Character_stat_588
                         
             $ Jean.change_face("neutral", blush = 1)
 

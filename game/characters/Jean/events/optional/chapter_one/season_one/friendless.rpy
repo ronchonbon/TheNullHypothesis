@@ -74,7 +74,7 @@ init python:
 label Jean_chapter_one_season_one_friendless:
     $ ongoing_Event = True
 
-    call remove_everyone_but(Jean, location = "bg_danger")
+    call remove_everyone_but(Jean, location = "bg_danger") from _call_remove_everyone_but_13
     call set_the_scene(location = "bg_danger", show_Characters = False) from _call_set_the_scene_398
 
     "You spot [Jean.name] across the room talking to a couple girls you don't recognize."

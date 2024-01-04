@@ -370,9 +370,10 @@ init python:
 
                 C.desire += base*modifier
 
-            if C.remote_vibrator is not None:
-                C.desire += int(2*C.remote_vibrator)
+            if C in all_Companions:
+                if C.remote_vibrator is not None:
+                    C.desire += int(2*C.remote_vibrator)
 
-            C.check_statuses()
+                C.check_statuses()
 
         return

@@ -14,7 +14,7 @@ init -1:
         "touch_thighs_higher": [0.7, 0.5, 0.5, 0.2, 0.0],
         "touch_breasts_over_clothes": [0.7, 0.5, 0.3, 0.1, 0.0],
         "touch_breasts": [0.8, 0.6, 0.4, 0.2, 0.0],
-        "pinch_nipples": [0.4, 0.7, 0.6, 0.3, 0.05],
+        "pinch_nipples": [0.6, 0.7, 0.6, 0.4, 0.2],
         "suck_nipples": [0.5, 0.8, 0.6, 0.6, 0.1],
         "touch_pussy_over_clothes": [0.7, 0.5, 0.3, 0.2, 0.0],
         "touch_pussy": [1.0, 0.8, 0.6, 0.6, 0.4],
