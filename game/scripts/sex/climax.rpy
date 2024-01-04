@@ -14,6 +14,7 @@ label Character_orgasms(Character):
 
     if Character.location == Player.location:
         $ orgasm_faces([Character])
+        $ orgasm_poses([Character])
 
         $ Character.give_trait("orgasming")
 

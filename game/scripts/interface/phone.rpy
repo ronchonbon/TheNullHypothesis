@@ -292,6 +292,15 @@ screen phone_screen():
 
         add At(f"images/interface/phone/frame_{Player.phone_frame + 1}.webp", interface)
 
+    if black_screen or renpy.get_screen("say"):
+        button xysize (1.0, 1.0):
+            background None
+            
+            if not renpy.get_screen("choice"):
+                action Return()
+            else:
+                action NullAction()
+
     use quick_menu
 
 screen home_screen():

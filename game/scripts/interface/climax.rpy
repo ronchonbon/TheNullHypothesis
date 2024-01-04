@@ -1,16 +1,16 @@
 screen climax_screen():
     if not black_screen and not belt_hidden and sandbox and not ongoing_Event and (not current_phone_Character or not current_phone_Character.mandatory_text_options):
         if not renpy.get_screen("say") and not renpy.get_screen("Player_customization_screen") and not renpy.get_screen("Player_menu") and not renpy.get_screen("shop_screen") and not renpy.get_screen("Wardrobe_screen"):
-            timer 5.0 action Function(renpy.call_in_new_context, "climax_screen_result") repeat True
+            timer 10.0 action Function(renpy.call_in_new_context, "climax_screen_result") repeat True
 
 label climax_screen_result:
     $ renpy.dynamic(temp_Characters = all_Companions[:])
 
     while temp_Characters:
         if temp_Characters[0].location != "hold":
-            if temp_Characters[0].remote_vibrator is not None:
+            if temp_Characters[0].remote_vibrator is not None and temp_Characters[0].remote_vibrator > 0.0:
                 if temp_Characters[0].stamina:
-                    call change_Character_stat(temp_Characters[0], "desire", int(5.0*temp_Characters[0].remote_vibrator)) from _call_change_Character_stat_24
+                    call change_Character_stat(temp_Characters[0], "desire", int(20.0*temp_Characters[0].remote_vibrator)) from _call_change_Character_stat_24
 
                     if temp_Characters[0].desire >= 100:
                         $ EventScheduler.Events[f"{temp_Characters[0].tag}_remote_vibrator_orgasm"].start()

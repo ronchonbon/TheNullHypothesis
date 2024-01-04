@@ -105,10 +105,10 @@ label Player_cumshot_narrations(Character, location):
         $ renpy.say(None, f"{subject.capitalize()} flinches at first as your cum lands on her face, then she leans in to try to catch every last drop.")
     elif location == "cumshot_hair":
         with orgasm_shake
-        $ renpy.say(None, f"You shudder and finally lose control, showering {object} with cum, getting it all in her hair.")
+        $ renpy.say(None, f"You shudder and finally lose control, showering {object} with cum and coating her hair.")
     elif location == "cumshot_back":
         with orgasm_shake
-        $ renpy.say(None, f"You shudder, as your cum shoots all over {owner} back.")
+        $ renpy.say(None, f"You shudder as your cum shoots all over {owner} back.")
     elif location == "cumshot_ass":
         with orgasm_shake
         $ renpy.say(None, f"Your cum sprays all over {owner} ass, dripping down its curves.")
@@ -141,8 +141,8 @@ label Player_cumshot_narrations(Character, location):
 
     return
 
-label Character_orgasm_narrations(Character):
-    if renpy.random.random() > 0.5:
+label Character_orgasm_narrations(Character, proper_subject = True):
+    if proper_subject:
         $ subject = Character.name
         $ object = Character.name
         $ owner = Character.name + "'s"
@@ -150,6 +150,8 @@ label Character_orgasm_narrations(Character):
         $ subject = "she"
         $ object = "her"
         $ owner = "her"
+
+    $ dice_roll = renpy.random.randint(1, 3)
 
     if (Character.vagina_Actions and Character.vagina_Actions[0].animation_type == "sex") or (Character.anus_Actions and Character.anus_Actions[0].animation_type == "anal"):
         $ dice_roll = renpy.random.randint(1, 2)
@@ -163,14 +165,29 @@ label Character_orgasm_narrations(Character):
 
         $ Character.change_face("sexy", blush = 2) 
         
-        $ renpy.say(None, f"That doesn't stop her, though, as she just keeps sucking.")
+        $ renpy.say(None, f"That doesn't stop her, though - she just keeps sucking.")
+    elif Character.location in public_locations and not are_Characters_in_Partners(get_Present(location = Character.location)[0]):
+        $ dice_roll = renpy.random.randint(1, 4)
+
+        if dice_roll == 1:
+            $ renpy.say(None, f"{subject.capitalize()} starts twitching as an orgasm takes over her body. She tries semi-successfully to stifle her moans.")
+        elif dice_roll == 2:
+            $ renpy.say(None, f"{subject.capitalize()} lets out a tiny moan as waves of pleasure run through her. She barely controls her shaking.")
+        elif dice_roll == 3:
+            $ renpy.say(None, f"{owner.capitalize()} eyes roll back and she opens her mouth silently as she orgasms hard.")
+        elif dice_roll == 4:
+            $ renpy.say(None, f"Waves of ecstasy roll through {subject}, her entire body tensing and tightening with each peak.")
     else:
-        $ dice_roll = renpy.random.randint(1, 2)
+        $ dice_roll = renpy.random.randint(1, 4)
 
         if dice_roll == 1:
             $ renpy.say(None, f"{subject.capitalize()} starts twitching uncontrollably as an orgasm takes over her body. It lasts for a minute before she's able to calm down.")
         elif dice_roll == 2:
             $ renpy.say(None, f"{subject.capitalize()} moans as waves of pleasure run through her. The orgasm causes her to shake uncontrollably.")
+        elif dice_roll == 3:
+            $ renpy.say(None, f"{subject.capitalize()} mewls in pleasure as an orgasm radiates throughout her body.")
+        elif dice_roll == 4:
+            $ renpy.say(None, f"Waves of ecstasy roll through {subject}, her entire body tensing and tightening with each peak.")
 
     $ renpy.pause(1.0, hard = True)
 

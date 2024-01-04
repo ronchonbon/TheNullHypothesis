@@ -230,7 +230,10 @@ label request_mode(Action, mode):
     $ Action.mode = mode
 
     if not ongoing_Event or has_Action_control:
-        call expression f"{Action.Action_type}_initiations" pass (Action = Action) from _call_expression_131
+        if renpy.random.random() > 0.5:
+            call expression f"{Action.Action_type}_initiations" pass (Action = Action, proper_subject = True) from _call_expression_12
+        else:
+            call expression f"{Action.Action_type}_initiations" pass (Action = Action, proper_subject = False) from _call_expression_13
 
     $ speed = temp_speed
     $ intensity = temp_intensity

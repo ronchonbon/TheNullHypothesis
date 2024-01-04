@@ -21,16 +21,48 @@ init -1 python:
         shame = [-5, 30]
         
         available_states = {
-            "standing": [0, 1]}
+            "standing": [0, 1],
+            "doggy": [0, 1],
+            "hands_and_knees": [0, 1],
+            "masturbation": [0, 1],
+            "missionary": [0, 1]}
         undressed_states = {
-            "standing": 1}
+            "standing": 1,
+            "doggy": 1,
+            "hands_and_knees": 1,
+            "masturbation": 1,
+            "missionary": 1}
         
         covers = {
             "standing": {
                 "pussy": [0],
+                "anus": [0]},
+            "doggy": {
+                "pussy": [0],
+                "anus": [0]},
+            "hands_and_knees": {
+                "pussy": [0],
+                "anus": [0]},
+            "masturbation": {
+                "pussy": [0],
+                "anus": [0]},
+            "missionary": {
+                "pussy": [0],
                 "anus": [0]}}
         hides = {
             "standing": {
+                "pussy": [0],
+                "anus": [0]},
+            "doggy": {
+                "pussy": [0],
+                "anus": [0]},
+            "hands_and_knees": {
+                "pussy": [0],
+                "anus": [0]},
+            "masturbation": {
+                "pussy": [0],
+                "anus": [0]},
+            "missionary": {
                 "pussy": [0],
                 "anus": [0]}}
 

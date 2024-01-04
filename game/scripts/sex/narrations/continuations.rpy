@@ -1,8 +1,8 @@
-label makeout_continuations(Action):
+label makeout_continuations(Action, proper_subject = True):
     $ renpy.dynamic(temp_Characters = get_Action_Characters(Action))
 
     while temp_Characters:
-        if renpy.random.random() > 0.5:
+        if proper_subject:
             $ subject = temp_Characters[0].name
             $ object = temp_Characters[0].name
             $ owner = temp_Characters[0].name + "'s"
@@ -120,11 +120,11 @@ label makeout_continuations(Action):
 
     return
 
-label choke_continuations(Action):
+label choke_continuations(Action, proper_subject = True):
     $ renpy.dynamic(temp_Characters = get_Action_Characters(Action))
 
     while temp_Characters:
-        if renpy.random.random() > 0.5:
+        if proper_subject:
             $ subject = temp_Characters[0].name
             $ object = temp_Characters[0].name
             $ owner = temp_Characters[0].name + "'s"
@@ -148,11 +148,11 @@ label choke_continuations(Action):
 
     return
 
-label touch_thighs_over_clothes_continuations(Action):
+label touch_thighs_over_clothes_continuations(Action, proper_subject = True):
     $ renpy.dynamic(temp_Characters = get_Action_Characters(Action))
 
     while temp_Characters:
-        if renpy.random.random() > 0.5:
+        if proper_subject:
             $ subject = temp_Characters[0].name
             $ object = temp_Characters[0].name
             $ owner = temp_Characters[0].name + "'s"
@@ -179,11 +179,11 @@ label touch_thighs_over_clothes_continuations(Action):
 
     return
 
-label touch_thighs_higher_over_clothes_continuations(Action):
+label touch_thighs_higher_over_clothes_continuations(Action, proper_subject = True):
     $ renpy.dynamic(temp_Characters = get_Action_Characters(Action))
 
     while temp_Characters:
-        if renpy.random.random() > 0.5:
+        if proper_subject:
             $ subject = temp_Characters[0].name
             $ object = temp_Characters[0].name
             $ owner = temp_Characters[0].name + "'s"
@@ -205,11 +205,11 @@ label touch_thighs_higher_over_clothes_continuations(Action):
 
     return
 
-label touch_thighs_continuations(Action):
+label touch_thighs_continuations(Action, proper_subject = True):
     $ renpy.dynamic(temp_Characters = get_Action_Characters(Action))
 
     while temp_Characters:
-        if renpy.random.random() > 0.5:
+        if proper_subject:
             $ subject = temp_Characters[0].name
             $ object = temp_Characters[0].name
             $ owner = temp_Characters[0].name + "'s"
@@ -236,11 +236,11 @@ label touch_thighs_continuations(Action):
 
     return
 
-label touch_thighs_higher_continuations(Action):
+label touch_thighs_higher_continuations(Action, proper_subject = True):
     $ renpy.dynamic(temp_Characters = get_Action_Characters(Action))
 
     while temp_Characters:
-        if renpy.random.random() > 0.5:
+        if proper_subject:
             $ subject = temp_Characters[0].name
             $ object = temp_Characters[0].name
             $ owner = temp_Characters[0].name + "'s"
@@ -262,11 +262,11 @@ label touch_thighs_higher_continuations(Action):
 
     return
 
-label touch_breasts_over_clothes_continuations(Action):
+label touch_breasts_over_clothes_continuations(Action, proper_subject = True):
     $ renpy.dynamic(temp_Characters = get_Action_Characters(Action))
 
     while temp_Characters:
-        if renpy.random.random() > 0.5:
+        if proper_subject:
             $ subject = temp_Characters[0].name
             $ object = temp_Characters[0].name
             $ owner = temp_Characters[0].name + "'s"
@@ -302,11 +302,11 @@ label touch_breasts_over_clothes_continuations(Action):
 
     return
 
-label touch_breasts_continuations(Action):
+label touch_breasts_continuations(Action, proper_subject = True):
     $ renpy.dynamic(temp_Characters = get_Action_Characters(Action))
 
     while temp_Characters:
-        if renpy.random.random() > 0.5:
+        if proper_subject:
             $ subject = temp_Characters[0].name
             $ object = temp_Characters[0].name
             $ owner = temp_Characters[0].name + "'s"
@@ -342,11 +342,11 @@ label touch_breasts_continuations(Action):
 
     return
 
-label pinch_nipples_continuations(Action):
+label pinch_nipples_continuations(Action, proper_subject = True):
     $ renpy.dynamic(temp_Characters = get_Action_Characters(Action))
 
     while temp_Characters:
-        if renpy.random.random() > 0.5:
+        if proper_subject:
             $ subject = temp_Characters[0].name
             $ object = temp_Characters[0].name
             $ owner = temp_Characters[0].name + "'s"
@@ -382,11 +382,11 @@ label pinch_nipples_continuations(Action):
 
     return
 
-label suck_nipples_continuations(Action):
+label suck_nipples_continuations(Action, proper_subject = True):
     $ renpy.dynamic(temp_Characters = get_Action_Characters(Action))
 
     while temp_Characters:
-        if renpy.random.random() > 0.5:
+        if proper_subject:
             $ subject = temp_Characters[0].name
             $ object = temp_Characters[0].name
             $ owner = temp_Characters[0].name + "'s"
@@ -424,11 +424,11 @@ label suck_nipples_continuations(Action):
 
     return
 
-label touch_pussy_over_clothes_continuations(Action):
+label touch_pussy_over_clothes_continuations(Action, proper_subject = True):
     $ renpy.dynamic(temp_Characters = get_Action_Characters(Action))
 
     while temp_Characters:
-        if renpy.random.random() > 0.5:
+        if proper_subject:
             $ subject = temp_Characters[0].name
             $ object = temp_Characters[0].name
             $ owner = temp_Characters[0].name + "'s"
@@ -455,11 +455,11 @@ label touch_pussy_over_clothes_continuations(Action):
 
     return
 
-label touch_pussy_continuations(Action):
+label touch_pussy_continuations(Action, proper_subject = True):
     $ renpy.dynamic(temp_Characters = get_Action_Characters(Action))
 
     while temp_Characters:
-        if renpy.random.random() > 0.5:
+        if proper_subject:
             $ subject = temp_Characters[0].name
             $ object = temp_Characters[0].name
             $ owner = temp_Characters[0].name + "'s"
@@ -488,11 +488,11 @@ label touch_pussy_continuations(Action):
 
     return
 
-label finger_pussy_continuations(Action):
+label finger_pussy_continuations(Action, proper_subject = True):
     $ renpy.dynamic(temp_Characters = get_Action_Characters(Action))
 
     while temp_Characters:
-        if renpy.random.random() > 0.5:
+        if proper_subject:
             $ subject = temp_Characters[0].name
             $ object = temp_Characters[0].name
             $ owner = temp_Characters[0].name + "'s"
@@ -513,8 +513,10 @@ label finger_pussy_continuations(Action):
         elif renpy.random.random() > 0.5:
             if temp_Characters[0].body_hair["pubic"] in ["bush", "hairy"]:
                 $ adjective = "hairy "
-            else:
+            elif not temp_Characters[0].body_hair["pubic"]:
                 $ adjective = "smooth "
+            else:
+                $ adjective = "trimmed "
         elif renpy.random.random() > 0.25:
             $ adjective = "glistening "
         else:
@@ -552,11 +554,11 @@ label finger_pussy_continuations(Action):
 
     return
 
-label eat_pussy_continuations(Action):
+label eat_pussy_continuations(Action, proper_subject = True):
     $ renpy.dynamic(temp_Characters = get_Action_Characters(Action))
 
     while temp_Characters:
-        if renpy.random.random() > 0.5:
+        if proper_subject:
             $ subject = temp_Characters[0].name
             $ object = temp_Characters[0].name
             $ owner = temp_Characters[0].name + "'s"
@@ -577,8 +579,10 @@ label eat_pussy_continuations(Action):
         elif renpy.random.random() > 0.5:
             if temp_Characters[0].body_hair["pubic"] in ["bush", "hairy"]:
                 $ adjective = "hairy "
-            else:
+            elif not temp_Characters[0].body_hair["pubic"]:
                 $ adjective = "smooth "
+            else:
+                $ adjective = "trimmed "
         elif renpy.random.random() > 0.25:
             $ adjective = "glistening "
         else:
@@ -597,11 +601,11 @@ label eat_pussy_continuations(Action):
 
     return
 
-label grab_ass_over_clothes_continuations(Action):
+label grab_ass_over_clothes_continuations(Action, proper_subject = True):
     $ renpy.dynamic(temp_Characters = get_Action_Characters(Action))
 
     while temp_Characters:
-        if renpy.random.random() > 0.5:
+        if proper_subject:
             $ subject = temp_Characters[0].name
             $ object = temp_Characters[0].name
             $ owner = temp_Characters[0].name + "'s"
@@ -623,11 +627,11 @@ label grab_ass_over_clothes_continuations(Action):
 
     return
 
-label grab_ass_continuations(Action):
+label grab_ass_continuations(Action, proper_subject = True):
     $ renpy.dynamic(temp_Characters = get_Action_Characters(Action))
 
     while temp_Characters:
-        if renpy.random.random() > 0.5:
+        if proper_subject:
             $ subject = temp_Characters[0].name
             $ object = temp_Characters[0].name
             $ owner = temp_Characters[0].name + "'s"
@@ -649,11 +653,11 @@ label grab_ass_continuations(Action):
 
     return
 
-label finger_ass_continuations(Action):
+label finger_ass_continuations(Action, proper_subject = True):
     $ renpy.dynamic(temp_Characters = get_Action_Characters(Action))
 
     while temp_Characters:
-        if renpy.random.random() > 0.5:
+        if proper_subject:
             $ subject = temp_Characters[0].name
             $ object = temp_Characters[0].name
             $ owner = temp_Characters[0].name + "'s"
@@ -713,11 +717,11 @@ label finger_ass_continuations(Action):
 
     return
 
-label eat_ass_continuations(Action):
+label eat_ass_continuations(Action, proper_subject = True):
     $ renpy.dynamic(temp_Characters = get_Action_Characters(Action))
 
     while temp_Characters:
-        if renpy.random.random() > 0.5:
+        if proper_subject:
             $ subject = temp_Characters[0].name
             $ object = temp_Characters[0].name
             $ owner = temp_Characters[0].name + "'s"
@@ -756,11 +760,11 @@ label eat_ass_continuations(Action):
 
     return
 
-label handjob_continuations(Action):
+label handjob_continuations(Action, proper_subject = True):
     $ renpy.dynamic(temp_Characters = get_Action_Characters(Action))
 
     while temp_Characters:
-        if renpy.random.random() > 0.5:
+        if proper_subject:
             $ subject = temp_Characters[0].name
             $ object = temp_Characters[0].name
             $ owner = temp_Characters[0].name + "'s"
@@ -808,11 +812,11 @@ label handjob_continuations(Action):
 
     return
 
-label fondle_balls_continuations(Action):
+label fondle_balls_continuations(Action, proper_subject = True):
     $ renpy.dynamic(temp_Characters = get_Action_Characters(Action))
 
     while temp_Characters:
-        if renpy.random.random() > 0.5:
+        if proper_subject:
             $ subject = temp_Characters[0].name
             $ object = temp_Characters[0].name
             $ owner = temp_Characters[0].name + "'s"
@@ -856,11 +860,11 @@ label fondle_balls_continuations(Action):
 
     return
 
-label blowjob_continuations(Action):
+label blowjob_continuations(Action, proper_subject = True):
     $ renpy.dynamic(temp_Characters = get_Action_Characters(Action))
 
     while temp_Characters:
-        if renpy.random.random() > 0.5:
+        if proper_subject:
             $ subject = temp_Characters[0].name
             $ object = temp_Characters[0].name
             $ owner = temp_Characters[0].name + "'s"
@@ -920,7 +924,7 @@ label blowjob_continuations(Action):
 
     return
 
-label suck_balls_continuations(Action):
+label suck_balls_continuations(Action, proper_subject = True):
     $ renpy.dynamic(temp_Characters = get_Action_Characters(Action))
 
     while temp_Characters:
@@ -928,11 +932,11 @@ label suck_balls_continuations(Action):
 
     return
 
-label deepthroat_continuations(Action):
+label deepthroat_continuations(Action, proper_subject = True):
     $ renpy.dynamic(temp_Characters = get_Action_Characters(Action))
 
     while temp_Characters:
-        if renpy.random.random() > 0.5:
+        if proper_subject:
             $ subject = temp_Characters[0].name
             $ object = temp_Characters[0].name
             $ owner = temp_Characters[0].name + "'s"
@@ -982,7 +986,7 @@ label deepthroat_continuations(Action):
 
     return
 
-label titjob_continuations(Action):
+label titjob_continuations(Action, proper_subject = True):
     $ renpy.dynamic(temp_Characters = get_Action_Characters(Action))
 
     while temp_Characters:
@@ -990,7 +994,7 @@ label titjob_continuations(Action):
 
     return
 
-label footjob_continuations(Action):
+label footjob_continuations(Action, proper_subject = True):
     $ renpy.dynamic(temp_Characters = get_Action_Characters(Action))
 
     while temp_Characters:
@@ -998,11 +1002,11 @@ label footjob_continuations(Action):
 
     return
 
-label self_touch_pussy_continuations(Action):
+label self_touch_pussy_continuations(Action, proper_subject = True):
     $ renpy.dynamic(temp_Characters = get_Action_Characters(Action))
 
     while temp_Characters:
-        if renpy.random.random() > 0.5:
+        if proper_subject:
             $ subject = temp_Characters[0].name
             $ object = temp_Characters[0].name
             $ owner = temp_Characters[0].name + "'s"
@@ -1037,11 +1041,11 @@ label self_touch_pussy_continuations(Action):
 
     return
 
-label self_finger_ass_continuations(Action):
+label self_finger_ass_continuations(Action, proper_subject = True):
     $ renpy.dynamic(temp_Characters = get_Action_Characters(Action))
 
     while temp_Characters:
-        if renpy.random.random() > 0.5:
+        if proper_subject:
             $ subject = temp_Characters[0].name
             $ object = temp_Characters[0].name
             $ owner = temp_Characters[0].name + "'s"
@@ -1095,11 +1099,11 @@ label self_finger_ass_continuations(Action):
 
     return
 
-label self_vibrator_continuations(Action):
+label self_vibrator_continuations(Action, proper_subject = True):
     $ renpy.dynamic(temp_Characters = get_Action_Characters(Action))
 
     while temp_Characters:
-        if renpy.random.random() > 0.5:
+        if proper_subject:
             $ subject = temp_Characters[0].name
             $ object = temp_Characters[0].name
             $ owner = temp_Characters[0].name + "'s"
@@ -1153,11 +1157,11 @@ label self_vibrator_continuations(Action):
 
     return
 
-label self_dildo_pussy_continuations(Action):
+label self_dildo_pussy_continuations(Action, proper_subject = True):
     $ renpy.dynamic(temp_Characters = get_Action_Characters(Action))
 
     while temp_Characters:
-        if renpy.random.random() > 0.5:
+        if proper_subject:
             $ subject = temp_Characters[0].name
             $ object = temp_Characters[0].name
             $ owner = temp_Characters[0].name + "'s"
@@ -1178,8 +1182,10 @@ label self_dildo_pussy_continuations(Action):
         elif renpy.random.random() > 0.5:
             if temp_Characters[0].body_hair["pubic"] in ["bush", "hairy"]:
                 $ adjective = "hairy "
-            else:
+            elif not temp_Characters[0].body_hair["pubic"]:
                 $ adjective = "smooth "
+            else:
+                $ adjective = "trimmed "
         elif renpy.random.random() > 0.25:
             $ adjective = "glistening "
         else:
@@ -1203,29 +1209,29 @@ label self_dildo_pussy_continuations(Action):
         $ dice_roll = renpy.random.choice(dice_pool)
 
         if dice_roll == 1:
-            $ renpy.say(None, f"{subject.capitalize} moves the dildo in and out of her, but seems fairly uncomfortable.")
+            $ renpy.say(None, f"{subject.capitalize()} moves the dildo in and out of her, but seems fairly uncomfortable.")
         elif dice_roll == 2:
-            $ renpy.say(None, f"{subject.capitalize} steadily slides the dildo in and out of her {adjective}{noun}.")
+            $ renpy.say(None, f"{subject.capitalize()} steadily slides the dildo in and out of her {adjective}{noun}.")
         elif dice_roll == 3:
-            $ renpy.say(None, f"{subject.capitalize} guides the dildo into her {adjective}{noun}, holding it inside and grinding it around, before pulling it back out.")
+            $ renpy.say(None, f"{subject.capitalize()} guides the dildo into her {adjective}{noun}, holding it inside and grinding it around, before pulling it back out.")
         elif dice_roll == 4:
             $ renpy.say(None, f"The dildo doesn't quite seem to satisfy {object} as she slides it in and out, undoubtedly wishing it was you instead.")
         elif dice_roll == 5:
-            $ renpy.say(None, f"{subject.capitalize} slides the dildo in and out of her {adjective}{noun} even faster, shuddering with every motion.")
+            $ renpy.say(None, f"{subject.capitalize()} slides the dildo in and out of her {adjective}{noun} even faster, shuddering with every motion.")
         elif dice_roll == 6:
             $ renpy.say(None, f"{owner.capitalize()} thumb toys with her clit as she continues playing with the dildo, every movement eliciting a moan.")
         elif dice_roll == 7:
-            $ renpy.say(None, f"{subject.capitalize} moans louder and louder as the dildo slides in and out of her {adjective}{noun}.")
+            $ renpy.say(None, f"{subject.capitalize()} moans louder and louder as the dildo slides in and out of her {adjective}{noun}.")
 
         $ temp_Characters.remove(temp_Characters[0])
 
     return
 
-label self_dildo_ass_continuations(Action):
+label self_dildo_ass_continuations(Action, proper_subject = True):
     $ renpy.dynamic(temp_Characters = get_Action_Characters(Action))
 
     while temp_Characters:
-        if renpy.random.random() > 0.5:
+        if proper_subject:
             $ subject = temp_Characters[0].name
             $ object = temp_Characters[0].name
             $ owner = temp_Characters[0].name + "'s"
@@ -1289,7 +1295,7 @@ label self_dildo_ass_continuations(Action):
 
     return
 
-label jerk_off_continuations(Action):
+label jerk_off_continuations(Action, proper_subject = True):
     $ renpy.dynamic(temp_Characters = get_Action_Characters(Action))
 
     while temp_Characters:
@@ -1297,11 +1303,11 @@ label jerk_off_continuations(Action):
 
     return
 
-label grind_pussy_continuations(Action):
+label grind_pussy_continuations(Action, proper_subject = True):
     $ renpy.dynamic(temp_Characters = get_Action_Characters(Action))
 
     while temp_Characters:
-        if renpy.random.random() > 0.5:
+        if proper_subject:
             $ subject = temp_Characters[0].name
             $ object = temp_Characters[0].name
             $ owner = temp_Characters[0].name + "'s"
@@ -1339,11 +1345,11 @@ label grind_pussy_continuations(Action):
 
     return
 
-label grind_ass_continuations(Action):
+label grind_ass_continuations(Action, proper_subject = True):
     $ renpy.dynamic(temp_Characters = get_Action_Characters(Action))
 
     while temp_Characters:
-        if renpy.random.random() > 0.5:
+        if proper_subject:
             $ subject = temp_Characters[0].name
             $ object = temp_Characters[0].name
             $ owner = temp_Characters[0].name + "'s"
@@ -1381,11 +1387,11 @@ label grind_ass_continuations(Action):
 
     return
 
-label sex_continuations(Action):
+label sex_continuations(Action, proper_subject = True):
     $ renpy.dynamic(temp_Characters = get_Action_Characters(Action))
 
     while temp_Characters:
-        if renpy.random.random() > 0.5:
+        if proper_subject:
             $ subject = temp_Characters[0].name
             $ object = temp_Characters[0].name
             $ owner = temp_Characters[0].name + "'s"
@@ -1406,8 +1412,10 @@ label sex_continuations(Action):
         elif renpy.random.random() > 0.5:
             if temp_Characters[0].body_hair["pubic"] in ["bush", "hairy"]:
                 $ adjective = "hairy "
-            else:
+            elif not temp_Characters[0].body_hair["pubic"]:
                 $ adjective = "smooth "
+            else:
+                $ adjective = "trimmed "
         elif renpy.random.random() > 0.25:
             $ adjective = "glistening "
         else:
@@ -1455,11 +1463,11 @@ label sex_continuations(Action):
 
     return
 
-label anal_continuations(Action):
+label anal_continuations(Action, proper_subject = True):
     $ renpy.dynamic(temp_Characters = get_Action_Characters(Action))
 
     while temp_Characters:
-        if renpy.random.random() > 0.5:
+        if proper_subject:
             $ subject = temp_Characters[0].name
             $ object = temp_Characters[0].name
             $ owner = temp_Characters[0].name + "'s"
@@ -1549,11 +1557,11 @@ label anal_continuations(Action):
 
     return
 
-label vibrator_continuations(Action):
+label vibrator_continuations(Action, proper_subject = True):
     $ renpy.dynamic(temp_Characters = get_Action_Characters(Action))
 
     while temp_Characters:
-        if renpy.random.random() > 0.5:
+        if proper_subject:
             $ subject = temp_Characters[0].name
             $ object = temp_Characters[0].name
             $ owner = temp_Characters[0].name + "'s"
@@ -1607,11 +1615,11 @@ label vibrator_continuations(Action):
 
     return
 
-label dildo_pussy_continuations(Action):
+label dildo_pussy_continuations(Action, proper_subject = True):
     $ renpy.dynamic(temp_Characters = get_Action_Characters(Action))
 
     while temp_Characters:
-        if renpy.random.random() > 0.5:
+        if proper_subject:
             $ subject = temp_Characters[0].name
             $ object = temp_Characters[0].name
             $ owner = temp_Characters[0].name + "'s"
@@ -1632,8 +1640,10 @@ label dildo_pussy_continuations(Action):
         elif renpy.random.random() > 0.5:
             if temp_Characters[0].body_hair["pubic"] in ["bush", "hairy"]:
                 $ adjective = "hairy "
-            else:
+            elif not temp_Characters[0].body_hair["pubic"]:
                 $ adjective = "smooth "
+            else:
+                $ adjective = "trimmed "
         elif renpy.random.random() > 0.25:
             $ adjective = "glistening "
         else:
@@ -1678,11 +1688,11 @@ label dildo_pussy_continuations(Action):
 
     return
 
-label dildo_ass_continuations(Action):
+label dildo_ass_continuations(Action, proper_subject = True):
     $ renpy.dynamic(temp_Characters = get_Action_Characters(Action))
 
     while temp_Characters:
-        if renpy.random.random() > 0.5:
+        if proper_subject:
             $ subject = temp_Characters[0].name
             $ object = temp_Characters[0].name
             $ owner = temp_Characters[0].name + "'s"

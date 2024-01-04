@@ -381,6 +381,9 @@ init -2 python:
         def give_status(self, status):
             global update_messages
             
+            if not self.status[status]:
+                update_messages.append("{color=%s}%s{/color} is {color=%s}%s{/color}" % (eval(f"{self.tag}_color"), self.name, "#feba00", status))
+            
             if status == "miffed":
                 if self.status["miffed"]:
                     self.status["miffed"] = 0
@@ -400,8 +403,6 @@ init -2 python:
             elif status == "nympho":
                 self.status[status] += 3
 
-            update_messages.append("{color=%s}%s{/color} is {color=%s}%s{/color}" % (eval(f"{self.tag}_color"), self.name, "#feba00", status))
-            
             if self.status[status] == 1:
                 EventScheduler.Events[f"{self.tag}_became_{status}"].start()
 

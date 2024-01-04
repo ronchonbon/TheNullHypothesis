@@ -1361,7 +1361,10 @@ label start_Action(Action, initiator = None):
                             has_stamina = False 
 
             if has_stamina:
-                call expression f"{Action.Action_type}_initiations" pass (Action = Action) from _call_expression_124
+                if renpy.random.random() > 0.5:
+                    call expression f"{Action.Action_type}_initiations" pass (Action = Action, proper_subject = True) from _call_expression_124
+                else:
+                    call expression f"{Action.Action_type}_initiations" pass (Action = Action, proper_subject = False) from _call_expression_14
 
     return
 
@@ -1397,6 +1400,7 @@ label continue_Actions:
 
         if ongoing_Actions:
             $ sex_faces(Present[:])
+            $ sex_poses(Present[:])
             $ desire_increases([Player] + Present[:])
 
             $ renpy.random.shuffle(temp_Actions)
@@ -1426,13 +1430,18 @@ label continue_Actions:
                     elif bored_Character and renpy.random.random() > 0.75:
                         call expression f"{bored_Character.tag}_bored_by_Action" pass (Action = temp_Actions[0]) from _call_expression_81
                     else:
-                        call expression f"{temp_Actions[0].Action_type}_continuations" pass (Action = temp_Actions[0]) from _call_expression_101
+                        if renpy.random.random() > 0.5:
+                            if renpy.random.random() > 0.5:
+                                call expression f"{temp_Actions[0].Action_type}_continuations" pass (Action = temp_Actions[0], proper_subject = True) from _call_expression_18
+                            else:
+                                call expression f"{temp_Actions[0].Action_type}_continuations" pass (Action = temp_Actions[0], proper_subject = False) from _call_expression_19
 
                 $ temp_Actions[0].counter += 1
 
                 $ temp_Actions.remove(temp_Actions[0])
 
             $ sex_faces(Present[:])
+            $ sex_poses(Present[:])
             $ sex_talk(Present[:])
 
         $ renpy.dynamic(temp_Characters = Present[:])

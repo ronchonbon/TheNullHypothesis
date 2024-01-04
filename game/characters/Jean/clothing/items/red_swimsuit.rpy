@@ -21,12 +21,52 @@ init -1 python:
         shame = [5, 20]
 
         available_states = {
-            "standing": [0, 1, 2, 3]}
+            "standing": [0, 1, 2, 3],
+            "doggy": [0, 2],
+            "hands_and_knees": [0, 1],
+            "masturbation": [0, 1, 2, 3],
+            "missionary": [0, 1, 2, 3]}
         undressed_states = {
-            "standing": 1}
+            "standing": 1,
+            "doggy": 2,
+            "hands_and_knees": 1,
+            "masturbation": 1,
+            "missionary": 1}
         
         covers = {
             "standing": {
+                "bra": [0, 2],
+                "breasts": [0, 2],
+                "back": [0, 1, 2, 3],
+                "belly": [0, 1, 2, 3],
+                "underwear": [0, 1],
+                "pussy": [0, 1],
+                "anus": [0, 1]},
+            "doggy": {
+                "bra": [0, 2],
+                "breasts": [0, 2],
+                "back": [0, 2],
+                "belly": [0, 2],
+                "underwear": [0],
+                "pussy": [0],
+                "anus": [0]},
+            "hands_and_knees": {
+                "bra": [0],
+                "breasts": [0],
+                "back": [0, 1],
+                "belly": [0, 1],
+                "underwear": [0, 1],
+                "pussy": [0, 1],
+                "anus": [0, 1]},
+            "masturbation": {
+                "bra": [0, 2],
+                "breasts": [0, 2],
+                "back": [0, 1, 2, 3],
+                "belly": [0, 1, 2, 3],
+                "underwear": [0, 1],
+                "pussy": [0, 1],
+                "anus": [0, 1]},
+            "missionary": {
                 "bra": [0, 2],
                 "breasts": [0, 2],
                 "back": [0, 1, 2, 3],
@@ -39,6 +79,38 @@ init -1 python:
                 "breasts": [0, 2],
                 "back": [0, 1, 2, 3],
                 "belly": [0, 1, 2, 3],
+                "pussy": [0, 1],
+                "anus": [0, 1]},
+            "doggy": {
+                "bra": [0, 2],
+                "breasts": [0, 2],
+                "back": [0, 2],
+                "belly": [0, 2],
+                "underwear": [0],
+                "pussy": [0],
+                "anus": [0]},
+            "hands_and_knees": {
+                "bra": [0],
+                "breasts": [0],
+                "back": [0, 1],
+                "belly": [0, 1],
+                "underwear": [0, 1],
+                "pussy": [0, 1],
+                "anus": [0, 1]},
+            "masturbation": {
+                "bra": [0, 2],
+                "breasts": [0, 2],
+                "back": [0, 1, 2, 3],
+                "belly": [0, 1, 2, 3],
+                "underwear": [0, 1],
+                "pussy": [0, 1],
+                "anus": [0, 1]},
+            "missionary": {
+                "bra": [0, 2],
+                "breasts": [0, 2],
+                "back": [0, 1, 2, 3],
+                "belly": [0, 1, 2, 3],
+                "underwear": [0, 1],
                 "pussy": [0, 1],
                 "anus": [0, 1]}}
 
