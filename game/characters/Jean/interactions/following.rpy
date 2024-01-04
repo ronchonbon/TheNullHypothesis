@@ -84,18 +84,13 @@ label Jean_follow_reject:
     return
 
 label Jean_follow_reject_asked_once:
-    $ Jean.change_face("confused1")
-
-    ch_Jean "Really. . ."
-    ch_Jean "Are you ignoring me?"
+    call Jean_asked_once("busy")
 
     return
 
 label Jean_follow_reject_asked_twice:
-    $ Jean.change_face("angry1")
-
-    ch_Jean "Okay, quit it."
-        
+    call Jean_asked_twice("busy")
+    call Jean_kicking_out
     call getting_kicked_out(Jean) from _call_getting_kicked_out_11
 
     return

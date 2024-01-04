@@ -586,18 +586,12 @@ label Jean_greets_Player_knocking_reject(welcoming_Characters):
     return True
 
 label Jean_greets_Player_knocking_reject_asked_once:
-    $ dice_roll = renpy.random.randint(1, 2)
-
-    if dice_roll == 1:
-        ch_Jean "Cut it out!"
-    elif dice_roll == 2:
-        ch_Jean "Really?" 
-        ch_Jean "Go away!"
+    call Jean_asked_once("knocking")
 
     return True
 
 label Jean_greets_Player_knocking_reject_asked_twice:
-    ch_Jean "You better cut it the hell out!"
+    call Jean_asked_twice("knocking")
 
     return True
 
@@ -618,18 +612,12 @@ label Jean_greets_Player_knocking_late:
     return True
 
 label Jean_greets_Player_knocking_late_asked_once:
-    $ dice_roll = renpy.random.randint(1, 2)
-
-    if dice_roll == 1:
-        ch_Jean "Cut it out!"
-    elif dice_roll == 2:
-        ch_Jean "Really?" 
-        ch_Jean "Go away!"
+    call Jean_asked_once("knocking")
 
     return True
 
 label Jean_greets_Player_knocking_late_asked_twice:
-    ch_Jean "You better cut it the hell out!"
+    call Jean_asked_twice("knocking")
 
     return True
 

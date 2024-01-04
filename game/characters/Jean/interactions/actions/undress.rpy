@@ -48,17 +48,13 @@ label Jean_rejects_show_bra:
     return
 
 label Jean_rejects_show_bra_asked_once:
-    $ Jean.change_face("appalled1")
-
-    ch_Jean "I just said no!" 
+    call Jean_asked_once("showing")
 
     return
 
 label Jean_rejects_show_bra_asked_twice:
-    $ Jean.change_face("appalled2")
-
-    ch_Jean "Seriously?!" 
-
+    call Jean_asked_twice("showing")   
+    call Jean_kicking_out
     call getting_kicked_out(Jean) from _call_getting_kicked_out_1
 
     return
@@ -248,17 +244,13 @@ label Jean_rejects_show_underwear:
     return
 
 label Jean_rejects_show_underwear_asked_once:
-    $ Jean.change_face("angry1")
-
-    ch_Jean "You better stop messing around."
+    call Jean_asked_once("showing")
 
     return
 
-label Jean_rejects_show_underwear_asked_twice:        
-    $ Jean.change_face("appalled1")
-
-    ch_Jean "Stop. Asking."
-
+label Jean_rejects_show_underwear_asked_twice:  
+    call Jean_asked_twice("showing")     
+    call Jean_kicking_out
     call getting_kicked_out(Jean) from _call_getting_kicked_out_2
 
     return
@@ -492,17 +484,13 @@ label Jean_rejects_show_breasts:
     return
 
 label Jean_rejects_show_breasts_asked_once:
-    $ Jean.change_face("confused1")
-
-    ch_Jean "Really? What did I already say?"
+    call Jean_asked_once("showing")
 
     return
 
-label Jean_rejects_show_breasts_asked_twice:      
-    $ Jean.change_face("perplexed")
-
-    ch_Jean "The fuck?"
-
+label Jean_rejects_show_breasts_asked_twice:
+    call Jean_asked_twice("showing")     
+    call Jean_kicking_out
     call getting_kicked_out(Jean) from _call_getting_kicked_out_3
 
     return
@@ -660,21 +648,13 @@ label Jean_rejects_show_pussy:
     return
 
 label Jean_rejects_show_pussy_asked_once:
-    $ Jean.change_face("angry1")
-
-    ch_Jean "You better be joking."
+    call Jean_asked_once("showing")
 
     return
 
 label Jean_rejects_show_pussy_asked_twice:
-    $ Jean.change_face("appalled2")
-
-    ch_Jean "Take a hint." 
-
-    $ Jean.change_face("angry1", eyes = "right")
-
-    ch_Jean "The hell, dude. . ."
-     
+    call Jean_asked_twice("showing")     
+    call Jean_kicking_out
     call getting_kicked_out(Jean) from _call_getting_kicked_out_4
 
     return
@@ -838,7 +818,8 @@ label Jean_rejects_give_bra_asked_once:
 
     return
 
-label Jean_rejects_give_bra_asked_twice:        
+label Jean_rejects_give_bra_asked_twice:  
+    call Jean_kicking_out      
     call getting_kicked_out(Jean) from _call_getting_kicked_out_5
 
     return
@@ -883,7 +864,8 @@ label Jean_rejects_give_underwear_asked_once:
 
     return
 
-label Jean_rejects_give_underwear_asked_twice:        
+label Jean_rejects_give_underwear_asked_twice: 
+    call Jean_kicking_out       
     call getting_kicked_out(Jean) from _call_getting_kicked_out_6
 
     return

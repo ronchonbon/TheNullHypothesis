@@ -7,10 +7,13 @@ label Jean_reject_swim:
     return
 
 label Jean_reject_swim_asked_once:
+    call Jean_asked_once("busy")
     
     return
 
-label Jean_reject_swim_asked_twice:        
+label Jean_reject_swim_asked_twice:  
+    call Jean_asked_twice("busy")
+    call Jean_kicking_out      
     call getting_kicked_out(Jean) from _call_getting_kicked_out_19
 
     return
@@ -35,17 +38,13 @@ label Jean_reject_sunbathe:
     return
 
 label Jean_reject_sunbathe_asked_once:
-    $ Jean.change_face("confused1")
-
-    ch_Jean "No, I really mean it."
+    call Jean_asked_once("busy")
     
     return
 
 label Jean_reject_sunbathe_asked_twice:
-    $ Jean.change_face("angry1")
-
-    ch_Jean "Ugh."
-
+    call Jean_asked_twice("busy")
+    call Jean_kicking_out
     call getting_kicked_out(Jean) from _call_getting_kicked_out_20
 
     return

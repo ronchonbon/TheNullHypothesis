@@ -35,39 +35,13 @@ label Jean_reject_train:
     return
 
 label Jean_reject_train_asked_once:
-    $ dice_roll = renpy.random.randint(1, 3)
-
-    if dice_roll == 1:
-        $ Jean.change_face("confused1")
-
-        ch_Jean "I just said no, [Player.first_name]."
-    elif dice_roll == 2:
-        $ Jean.change_face("worried1")
-
-        ch_Jean "Uh. . . no. . ."
-    elif dice_roll == 3:
-        $ Jean.change_face("angry1")
-
-        ch_Jean "Ease off, [Player.first_name]."
+    call Jean_asked_once("busy")
 
     return
 
 label Jean_reject_train_asked_twice:
-    $ dice_roll = renpy.random.randint(1, 3)
-
-    if dice_roll == 1:
-        $ Jean.change_face("angry1")
-
-        ch_Jean "Why don't you listen?"
-    elif dice_roll == 2:
-        $ Jean.change_face("angry2")
-
-        ch_Jean "Really not cool, [Player.first_name]."
-    elif dice_roll == 3:
-        $ Jean.change_face("angry1")
-
-        ch_Jean "Learn to listen!"
-        
+    call Jean_asked_twice("busy")
+    call Jean_kicking_out
     call getting_kicked_out(Jean) from _call_getting_kicked_out_21
 
     return
@@ -97,25 +71,11 @@ label Jean_reject_train_text:
     return
 
 label Jean_reject_train_asked_once_text:
-    $ dice_roll = renpy.random.randint(1, 3)
-
-    if dice_roll == 1:
-        call receive_text(Jean, "What? No. . .") from _call_receive_text_214
-    elif dice_roll == 2:
-        call receive_text(Jean, "I mean it, no") from _call_receive_text_215
-    elif dice_roll == 3:
-        call receive_text(Jean, "Are my messages sending?") from _call_receive_text_216
+    call Jean_asked_once_text("busy")
 
     return
 
 label Jean_reject_train_asked_twice_text:
-    $ dice_roll = renpy.random.randint(1, 3)
-
-    if dice_roll == 1:
-        call receive_text(Jean, "What's with you?? No!") from _call_receive_text_217
-    elif dice_roll == 2:
-        call receive_text(Jean, "This is really getting old [Player.first_name]") from _call_receive_text_218
-    elif dice_roll == 3:
-        call receive_text(Jean, "Ugh, no!") from _call_receive_text_219
+    call Jean_asked_twice_text("busy")
 
     return

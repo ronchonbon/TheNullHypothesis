@@ -10,7 +10,7 @@ init python:
 
 label Rogue_remote_vibrator_off:
     if Rogue.location == Player.location:
-        call Character_remote_vibrator_off_narrations(Rogue) from _call_Character_remote_vibrator_off_narrations_2
+        call Character_remote_vibrator_off_narrations(Rogue)
 
     return
 
@@ -26,7 +26,7 @@ init python:
 
 label Rogue_remote_vibrator_on:
     if Rogue.location == Player.location:
-        call Character_remote_vibrator_on_narrations(Rogue) from _call_Character_remote_vibrator_on_narrations_2
+        call Character_remote_vibrator_on_narrations(Rogue)
 
     return
 
@@ -43,13 +43,13 @@ init python:
 label Rogue_remote_vibrator_25:
     if Rogue.location == Player.location:
         if renpy.random.random() > 0.5:
-            call Character_desire_narrations(Rogue) from _call_Character_desire_narrations_15
+            call Character_desire_narrations(Rogue)
 
             if renpy.random.random() > 0.5:
-                call Character_remote_vibrator_narrations(Rogue, proper_subject = False) from _call_Character_remote_vibrator_narrations_18
+                call Character_remote_vibrator_narrations(Rogue, proper_subject = False)
         else:
             if renpy.random.random() > 0.5:
-                call Character_remote_vibrator_narrations(Rogue) from _call_Character_remote_vibrator_narrations_19
+                call Character_remote_vibrator_narrations(Rogue)
 
     return
 
@@ -66,13 +66,13 @@ init python:
 label Rogue_remote_vibrator_50:
     if Rogue.location == Player.location:
         if renpy.random.random() > 0.5:
-            call Character_desire_narrations(Rogue) from _call_Character_desire_narrations_16
+            call Character_desire_narrations(Rogue)
 
             if renpy.random.random() > 0.5:
-                call Character_remote_vibrator_narrations(Rogue, proper_subject = False) from _call_Character_remote_vibrator_narrations_20
+                call Character_remote_vibrator_narrations(Rogue, proper_subject = False)
         else:
             if renpy.random.random() > 0.5:
-                call Character_remote_vibrator_narrations(Rogue) from _call_Character_remote_vibrator_narrations_21
+                call Character_remote_vibrator_narrations(Rogue)
 
     return
 
@@ -89,13 +89,13 @@ init python:
 label Rogue_remote_vibrator_75:
     if Rogue.location == Player.location:
         if renpy.random.random() > 0.5:
-            call Character_desire_narrations(Rogue) from _call_Character_desire_narrations_17
+            call Character_desire_narrations(Rogue)
 
             if renpy.random.random() > 0.5:
-                call Character_remote_vibrator_narrations(Rogue, proper_subject = False) from _call_Character_remote_vibrator_narrations_22
+                call Character_remote_vibrator_narrations(Rogue, proper_subject = False)
         else:
             if renpy.random.random() > 0.5:
-                call Character_remote_vibrator_narrations(Rogue) from _call_Character_remote_vibrator_narrations_23
+                call Character_remote_vibrator_narrations(Rogue)
 
     return
 
@@ -110,10 +110,10 @@ init python:
         return EventClass(label, conditions)
 
 label Rogue_remote_vibrator_orgasm:
-    call Character_orgasms(Rogue) from _call_Character_orgasms_6
+    call Character_orgasms(Rogue)
     
     if Rogue.location == Player.location and renpy.random.random() > 0.5:
-        call Character_remote_vibrator_narrations(Rogue, proper_subject = False) from _call_Character_remote_vibrator_narrations_24
+        call Character_remote_vibrator_narrations(Rogue, proper_subject = False)
 
     return
 
@@ -130,12 +130,14 @@ init python:
 label Rogue_remote_vibrator_out_of_stamina:
     if Rogue.location == Player.location:
         if renpy.random.random() > 0.5:
-            call Character_out_of_stamina_narrations(Rogue) from _call_Character_out_of_stamina_narrations_2
+            call Character_out_of_stamina_narrations(Rogue)
 
             if renpy.random.random() > 0.5:
-                call Character_remote_vibrator_narrations(Rogue, proper_subject = False) from _call_Character_remote_vibrator_narrations_25
+                call Character_remote_vibrator_narrations(Rogue, proper_subject = False)
         else:
             if renpy.random.random() > 0.5:
-                call Character_remote_vibrator_narrations(Rogue) from _call_Character_remote_vibrator_narrations_26
+                call Character_remote_vibrator_narrations(Rogue)
+
+    call change_Character_stat(Rogue, "trust", -tiny_stat)
 
     return

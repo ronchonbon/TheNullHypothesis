@@ -113,15 +113,13 @@ label Rogue_text_how_are_you_late_reject:
     return
 
 label Rogue_text_how_are_you_late_reject_asked_once:
-    call receive_text(Rogue, "Just said im goin to bed") from _call_receive_text_541
-    call receive_text(Rogue, "Try again in the mornin") from _call_receive_text_542
+    call Rogue_asked_once_text("late")
 
     return
 
 label Rogue_text_how_are_you_late_reject_asked_twice:
-    call receive_text(Rogue, "Stop textin me!") from _call_receive_text_543
-    call receive_text(Rogue, "Tryin to sleep >:((") from _call_receive_text_544
-
+    call Rogue_asked_twice_text("late")
+    
     return
 
 label Rogue_text_how_are_you_relationship:

@@ -226,40 +226,13 @@ label Jean_change_Outfit_reject:
     return
     
 label Jean_change_Outfit_reject_asked_once:
-    $ dice_roll = renpy.random.randint(1, 3)
-
-    if dice_roll == 1:
-        $ Jean.change_face("angry1")
-
-        ch_Jean "I said no, [Jean.Player_petname]." 
-    elif dice_roll == 2:
-        $ Jean.change_face("angry1")
-
-        ch_Jean "Didn't you hear what I said?" 
-    elif dice_roll == 3:
-        $ Jean.change_face("furious")
-
-        ch_Jean "Don't ignore me." 
-        ch_Jean "I already said no."
+    call Jean_asked_once("changing")
 
     return
     
 label Jean_change_Outfit_reject_asked_twice:
-    $ dice_roll = renpy.random.randint(1, 3)
-
-    if dice_roll == 1:
-        $ Jean.change_face("appalled2")
-
-        ch_Jean "Really?!" 
-    elif dice_roll == 2:
-        $ Jean.change_face("appalled2")
-
-        ch_Jean "You better cut it out." 
-    elif dice_roll == 3:
-        $ Jean.change_face("appalled2")
-
-        ch_Jean "The more you ask, the less I want to do it."
-
+    call Jean_asked_twice("changing")
+    call Jean_kicking_out
     call getting_kicked_out(Jean) from _call_getting_kicked_out_9
 
     return
@@ -330,6 +303,7 @@ label Jean_rejected_Clothing_twice:
 
         ch_Jean "What the hell, [Player.first_name]?"
         
+    call Jean_kicking_out
     call getting_kicked_out(Jean) from _call_getting_kicked_out_10
 
     return

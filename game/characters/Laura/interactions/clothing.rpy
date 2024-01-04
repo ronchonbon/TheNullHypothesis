@@ -175,40 +175,13 @@ label Laura_change_Outfit_reject:
     return
     
 label Laura_change_Outfit_reject_asked_once:
-    $ dice_roll = renpy.random.randint(1, 3)
-
-    if dice_roll == 1:
-        $ Laura.change_face("suspicious1")
-
-        ch_Laura "What did I just say?"
-    elif dice_roll == 2:
-        $ Laura.change_face("suspicious1")
-
-        ch_Laura "Really?" 
-        ch_Laura "Are you not listening?"
-    elif dice_roll == 3:
-        $ Laura.change_face("suspicious1")
-
-        ch_Laura ". . ." 
+    call Laura_asked_once("changing")
 
     return
     
 label Laura_change_Outfit_reject_asked_twice:
-    $ dice_roll = renpy.random.randint(1, 3)
-
-    if dice_roll == 1:
-        $ Laura.change_face("appalled1")
-
-        ch_Laura "You will stop asking. Or else."
-    elif dice_roll == 2:
-        $ Laura.change_face("appalled1")
-
-        ch_Laura "Trying to anger me?"
-    elif dice_roll == 3:
-        $ Laura.change_face("appalled1")
-
-        ch_Laura "Don't ask again."
-        
+    call Laura_asked_twice("changing")
+    call Laura_kicking_out
     call getting_kicked_out(Laura) from _call_getting_kicked_out_31
 
     return
@@ -274,6 +247,7 @@ label Laura_rejected_Clothing_twice:
 
         ch_Laura "Not. Cute."
         
+    call Laura_kicking_out
     call getting_kicked_out(Laura) from _call_getting_kicked_out_32
 
     return

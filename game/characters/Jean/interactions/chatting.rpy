@@ -146,27 +146,15 @@ label Jean_busy_relationship:
     return
 
 label Jean_busy_asked_once:
-    $ Jean.change_face("confused1") 
-
-    ch_Jean "Uhm, hello. . . you just asked me?"
+    call Jean_asked_once("busy")
 
     return
 
 label Jean_busy_asked_twice:
-    $ Jean.change_face("angry1")  
-
-    ch_Jean "The hell?"
-
-    $ Jean.change_face("appalled1") 
-
-    ch_Jean "Are you ignoring me?!"
+    call Jean_asked_twice("busy")
 
     if Player.location == Jean.location:
-        if Player.location == Jean.home:
-            ch_Jean "Get out."
-        else:
-            ch_Jean "I'm out of here."
-            
+        call Jean_kicking_out
         call getting_kicked_out(Jean) from _call_getting_kicked_out_7
 
     return
@@ -184,23 +172,15 @@ label Jean_busy_late:
     return
 
 label Jean_busy_late_asked_once:
-    $ Jean.change_face("confused1")  
-
-    ch_Jean "Uhm. . . Weren't you listening?" 
-    ch_Jean "I'm about to go to bed."
+    call Jean_asked_once("late")
 
     return
 
 label Jean_busy_late_asked_twice:
-    $ Jean.change_face("appalled1") 
+    call Jean_asked_twice("late")
 
     if Player.location == Jean.location:
-        if Player.location == Jean.home:
-            ch_Jean "Stop ignoring me and get out."
-        else:
-            ch_Jean "Are you ignoring me?"
-            ch_Jean "I'm out of here."
-
+        call Jean_kicking_out
         call getting_kicked_out(Jean) from _call_getting_kicked_out_8
     else:
         ch_Jean "Stop ignoring me!"

@@ -102,22 +102,13 @@ label Laura_accepts_hookup_love:
     return
 
 label Laura_rejects_Action_asked_once:
-    $ Laura.change_face("angry1") 
-
-    ch_Laura "Don't make me repeat myself."
+    call Laura_asked_once("sex")
 
     return
 
 label Laura_rejects_Action_asked_twice:
-    $ Laura.change_face("furious") 
-
-    ch_Laura "{i}Grrrrrr{/i}"
-
-    if Player.location == Laura.home:
-        "She forcefully shoves you out of the room, slamming the door shut behind you."
-    else:
-        "She storms out of the room, slamming the door behind her."
-        
+    call Laura_asked_twice("sex")
+    call Laura_kicking_out
     call getting_kicked_out(Laura) from _call_getting_kicked_out_22
 
     return

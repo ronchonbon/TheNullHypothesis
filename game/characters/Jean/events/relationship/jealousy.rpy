@@ -207,9 +207,9 @@ label Jean_jealousy_went_on_date:
     "*SLAM*"
     ". . . and slams the door on the way out."
 
-    $ Jean.give_status("mad")
-
     call change_Character_stat(Jean, "trust", -large_stat) from _call_change_Character_stat_1108 
+
+    $ Jean.give_status("mad")
 
     ch_Player "Shit. . ."
 
@@ -366,12 +366,12 @@ label Jean_jealousy_flirted:
 
     call set_the_scene(location = "bg_girls_hallway") from _call_set_the_scene_365
 
-    $ Jean.give_status("mad")
-
     "*SLAM*"
     ". . . and slams the door behind you."
 
     call change_Character_stat(Jean, "trust", -large_stat) from _call_change_Character_stat_1109
+
+    $ Jean.give_status("mad")
 
     ch_Player "Shit. . ."
 

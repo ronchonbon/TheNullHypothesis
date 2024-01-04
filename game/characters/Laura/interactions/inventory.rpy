@@ -10,6 +10,7 @@ label Laura_rejected_gift_twice:
 
     ch_Laura "Stop trying to give me this shit."
         
+    call Laura_kicking_out
     call getting_kicked_out(Laura) from _call_getting_kicked_out_35
 
     return

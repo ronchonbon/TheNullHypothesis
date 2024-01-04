@@ -13,10 +13,13 @@ label Laura_reject_study:
     return
 
 label Laura_reject_study_asked_once:
+    call Laura_asked_once("busy")
 
     return
 
-label Laura_reject_study_asked_twice:        
+label Laura_reject_study_asked_twice:
+    call Laura_asked_twice("busy")
+    call Laura_kicking_out
     call getting_kicked_out(Laura) from _call_getting_kicked_out_39
 
     return
@@ -32,9 +35,11 @@ label Laura_reject_study_text:
     return
 
 label Laura_reject_study_asked_once_text:
+    call Laura_asked_once_text("busy")
 
     return
 
 label Laura_reject_study_asked_twice_text:
+    call Laura_asked_twice_text("busy")
 
     return

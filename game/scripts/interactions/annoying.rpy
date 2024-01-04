@@ -1,8 +1,7 @@
 label getting_kicked_out(Character):
     $ Character_picker_disabled = True
 
-    if not Character.status["miffed"] and not Character.status["mad"]:
-        $ Character.give_status("miffed")
+    $ Character.give_status("miffed")
 
     call reset_all_interfaces from _call_reset_all_interfaces_2
 

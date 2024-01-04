@@ -43,13 +43,13 @@ init python:
 label Laura_remote_vibrator_25:
     if Laura.location == Player.location:
         if renpy.random.random() > 0.5:
-            call Character_desire_narrations(Laura) from _call_Character_desire_narrations_9
+            call Character_desire_narrations(Laura)
 
             if renpy.random.random() > 0.5:
-                call Character_remote_vibrator_narrations(Laura, proper_subject = False) from _call_Character_remote_vibrator_narrations_9
+                call Character_remote_vibrator_narrations(Laura, proper_subject = False)
         else:
             if renpy.random.random() > 0.5:
-                call Character_remote_vibrator_narrations(Laura) from _call_Character_remote_vibrator_narrations_10
+                call Character_remote_vibrator_narrations(Laura)
 
     return
 
@@ -66,13 +66,13 @@ init python:
 label Laura_remote_vibrator_50:
     if Laura.location == Player.location:
         if renpy.random.random() > 0.5:
-            call Character_desire_narrations(Laura) from _call_Character_desire_narrations_10
+            call Character_desire_narrations(Laura)
 
             if renpy.random.random() > 0.5:
-                call Character_remote_vibrator_narrations(Laura, proper_subject = False) from _call_Character_remote_vibrator_narrations_11
+                call Character_remote_vibrator_narrations(Laura, proper_subject = False)
         else:
             if renpy.random.random() > 0.5:
-                call Character_remote_vibrator_narrations(Laura) from _call_Character_remote_vibrator_narrations_12
+                call Character_remote_vibrator_narrations(Laura)
 
     return
 
@@ -89,13 +89,13 @@ init python:
 label Laura_remote_vibrator_75:
     if Laura.location == Player.location:
         if renpy.random.random() > 0.5:
-            call Character_desire_narrations(Laura) from _call_Character_desire_narrations_11
+            call Character_desire_narrations(Laura)
 
             if renpy.random.random() > 0.5:
-                call Character_remote_vibrator_narrations(Laura, proper_subject = False) from _call_Character_remote_vibrator_narrations_13
+                call Character_remote_vibrator_narrations(Laura, proper_subject = False)
         else:
             if renpy.random.random() > 0.5:
-                call Character_remote_vibrator_narrations(Laura) from _call_Character_remote_vibrator_narrations_14
+                call Character_remote_vibrator_narrations(Laura)
 
     return
 
@@ -110,10 +110,10 @@ init python:
         return EventClass(label, conditions)
 
 label Laura_remote_vibrator_orgasm:
-    call Character_orgasms(Laura) from _call_Character_orgasms_4
+    call Character_orgasms(Laura)
     
     if Laura.location == Player.location and renpy.random.random() > 0.5:
-        call Character_remote_vibrator_narrations(Laura, proper_subject = False) from _call_Character_remote_vibrator_narrations_15
+        call Character_remote_vibrator_narrations(Laura, proper_subject = False)
 
     return
 
@@ -133,9 +133,11 @@ label Laura_remote_vibrator_out_of_stamina:
             call Character_out_of_stamina_narrations(Laura) from _call_Character_out_of_stamina_narrations_1
 
             if renpy.random.random() > 0.5:
-                call Character_remote_vibrator_narrations(Laura, proper_subject = False) from _call_Character_remote_vibrator_narrations_16
+                call Character_remote_vibrator_narrations(Laura, proper_subject = False)
         else:
             if renpy.random.random() > 0.5:
-                call Character_remote_vibrator_narrations(Laura) from _call_Character_remote_vibrator_narrations_17
+                call Character_remote_vibrator_narrations(Laura)
+
+    call change_Character_stat(Laura, "trust", -tiny_stat)
 
     return

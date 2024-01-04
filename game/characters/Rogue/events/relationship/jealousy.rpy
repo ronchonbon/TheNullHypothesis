@@ -149,10 +149,9 @@ label Rogue_jealousy_went_on_date:
     "She leaves without another word."
 
     call remove_Characters(Rogue) from _call_remove_Characters_293 
+    call change_Character_stat(Rogue, "trust", -large_stat) from _call_change_Character_stat_1149 
 
     $ Rogue.give_status("mad")
-
-    call change_Character_stat(Rogue, "trust", -large_stat) from _call_change_Character_stat_1149 
 
     ch_Player "Fuck. . ."
     "You've never heard [Rogue.name] raise her voice like that before. . ."
@@ -285,10 +284,9 @@ label Rogue_jealousy_flirted:
     "She leaves without another word."
 
     call remove_Characters(Rogue) from _call_remove_Characters_295 
+    call change_Character_stat(Rogue, "trust", -large_stat) from _call_change_Character_stat_1150 
 
     $ Rogue.give_status("mad")
-
-    call change_Character_stat(Rogue, "trust", -large_stat) from _call_change_Character_stat_1150 
 
     ch_Player "Fuck. . ."
     "You've never heard [Rogue.name] raise her voice like that before. . ."

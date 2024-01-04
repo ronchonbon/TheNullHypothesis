@@ -188,11 +188,7 @@ label Jean_greets_Player_mad:
 
         ch_Jean "I can't be around you right now. . ."
 
-        if Player.location != Jean.home:
-            "[Jean.name] turns around and leaves."
-        else:
-            "[Jean.name] points towards the door."
-
+        call Jean_kicking_out
         call getting_kicked_out(Jean) from _call_getting_kicked_out_12
     elif dice_roll == 2:
         $ Jean.change_face("angry1")

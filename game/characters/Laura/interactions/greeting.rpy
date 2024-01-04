@@ -177,11 +177,7 @@ label Laura_greets_Player_mad:
         ch_Laura "It's you[modifier]. . ."
         ch_Laura "{i}Grrrrr{/i}"
 
-        if not Player.location == Laura.home:
-            "[Laura.name] turns around and leaves."
-        else:
-            "[Laura.name] shoves you out the door."
-
+        call Laura_kicking_out
         call getting_kicked_out(Laura) from _call_getting_kicked_out_34
     elif dice_roll == 2:
         $ Laura.change_face("angry1")

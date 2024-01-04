@@ -14,10 +14,13 @@ label Jean_reject_study:
     return
 
 label Jean_reject_study_asked_once:
+    call Jean_asked_once("busy")
     
     return
 
-label Jean_reject_study_asked_twice:        
+label Jean_reject_study_asked_twice: 
+    call Jean_asked_twice("busy")
+    call Jean_kicking_out       
     call getting_kicked_out(Jean) from _call_getting_kicked_out_17
 
     return
@@ -35,9 +38,11 @@ label Jean_reject_study_text:
     return
 
 label Jean_reject_study_asked_once_text:
+    call Jean_asked_once_text("busy")
 
     return
 
 label Jean_reject_study_asked_twice_text:
+    call Jean_asked_twice_text("busy")
 
     return

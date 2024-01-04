@@ -13,17 +13,13 @@ label Rogue_reject_swim:
     return
 
 label Rogue_reject_swim_asked_once:
-    $ Rogue.change_face("confused1")
-
-    ch_Rogue "Ah said no. . ."
+    call Rogue_asked_once("busy")
     
     return
 
 label Rogue_reject_swim_asked_twice:        
-    $ Rogue.change_face("angry1")
-
-    ch_Rogue "Ah really don't like when you don't listen to me. . ."
-
+    call Rogue_asked_twice("busy")
+    call Rogue_kicking_out
     call getting_kicked_out(Rogue) from _call_getting_kicked_out_62
 
     return
@@ -44,17 +40,13 @@ label Rogue_reject_sunbathe:
     return
 
 label Rogue_reject_sunbathe_asked_once:
-    $ Rogue.change_face("confused1")
-
-    ch_Rogue "Ah said no. . ."
+    call Rogue_asked_once("busy")
     
     return
 
 label Rogue_reject_sunbathe_asked_twice:
-    $ Rogue.change_face("angry1")
-
-    ch_Rogue "Ah really don't like when you don't listen to me. . ."
-
+    call Rogue_asked_twice("busy")
+    call Rogue_kicking_out
     call getting_kicked_out(Rogue) from _call_getting_kicked_out_63
 
     return

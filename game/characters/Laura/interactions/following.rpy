@@ -69,22 +69,13 @@ label Laura_follow_reject:
     return
 
 label Laura_follow_reject_asked_once:
-    $ Laura.change_face("angry1")
-
-    ch_Laura "I said no."
+    call Laura_asked_once("busy")
 
     return
 
 label Laura_follow_reject_asked_twice:
-    $ Laura.change_face("appalled2")
-
-    ch_Laura "I just said I'm not following you."
-    
-    if Player.location == Laura.home:
-        ch_Laura "Get out, now."
-    else:
-        ch_Laura "This is absurd."
-        
+    call Laura_asked_twice("busy")
+    call Laura_kicking_out
     call getting_kicked_out(Laura) from _call_getting_kicked_out_33
 
     return

@@ -108,24 +108,15 @@ label Rogue_busy_relationship:
     return
 
 label Rogue_busy_asked_once:
-    $ Rogue.change_face("confused1")
-
-    ch_Rogue "You alright?"
-    ch_Rogue "Just asked me that. . ."
+    call Rogue_asked_once("repeating")
 
     return
 
 label Rogue_busy_asked_twice:
-    $ Rogue.change_face("angry1")
-
-    ch_Rogue "Ah told ya ah'm busy."
+    call Rogue_asked_once("repeating")
 
     if Player.location == Rogue.location:
-        if Player.location == Rogue.home:
-            ch_Rogue "Get out."
-        else:
-            ch_Rogue "Ah'm out of here."
-            
+        call Rogue_kicking_out
         call getting_kicked_out(Rogue) from _call_getting_kicked_out_51
 
     return
@@ -139,21 +130,15 @@ label Rogue_busy_late:
     return
 
 label Rogue_busy_late_asked_once:
-    $ Rogue.change_face("confused1")
-
-    ch_Rogue "Ah said ah'm 'bout to go to bed. . ."
+    call Rogue_asked_once("late")
 
     return
 
 label Rogue_busy_late_asked_twice:
-    $ Rogue.change_face("angry1")
+    call Rogue_asked_once("late")
     
     if Player.location == Rogue.location:
-        if Player.location == Rogue.home:
-            ch_Rogue "Ah think you should leave."
-        else:
-            ch_Rogue "Ah'm out of here."
-            
+        call Rogue_kicking_out
         call getting_kicked_out(Rogue) from _call_getting_kicked_out_52
 
     return

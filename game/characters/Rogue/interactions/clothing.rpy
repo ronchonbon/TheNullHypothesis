@@ -144,34 +144,13 @@ label Rogue_change_Outfit_reject:
     return
     
 label Rogue_change_Outfit_reject_asked_once:
-    $ dice_roll = renpy.random.randint(1, 3)
-
-    $ Rogue.change_face("angry1")
-
-    if dice_roll == 1:
-        ch_Rogue "Askin' again ain't gonna change my mind."
-    elif dice_roll == 2:
-        ch_Rogue "Why would you think ah already changed my mind?"
-    elif dice_roll == 3:
-        ch_Rogue "Ah already said no, [Rogue.Player_petname]."
+    call Rogue_asked_once("changing")
 
     return
     
 label Rogue_change_Outfit_reject_asked_twice:
-    $ dice_roll = renpy.random.randint(1, 2)
-
-    $ Rogue.change_face("appalled2")
-
-    if dice_roll == 1:
-        ch_Rogue "Now yer just pissin' me off."
-    elif dice_roll == 2:
-        ch_Rogue "Really?"
-
-    if Player.location == Rogue.home:
-        ch_Rogue "Get out."
-    else:
-        ch_Rogue "Ah'm out of here."
-        
+    call Rogue_asked_once("changing")
+    call Rogue_kicking_out
     call getting_kicked_out(Rogue) from _call_getting_kicked_out_53
 
     return

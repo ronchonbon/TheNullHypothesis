@@ -565,17 +565,12 @@ label Laura_greets_Player_knocking_reject(welcoming_Characters):
     return
 
 label Laura_greets_Player_knocking_reject_asked_once:
-    $ dice_roll = renpy.random.randint(1, 2)
-
-    if dice_roll == 1:
-        ch_Laura "I said go away!"
-    elif dice_roll == 2:
-        ch_Laura "Don't push it."
+    call Laura_asked_once("knocking")
 
     return
 
 label Laura_greets_Player_knocking_reject_asked_twice:
-    ch_Laura "Stop before I put a hole through the door."
+    call Laura_asked_twice("knocking")
 
     return
 
@@ -593,17 +588,12 @@ label Laura_greets_Player_knocking_late:
     return
 
 label Laura_greets_Player_knocking_late_asked_once:
-    $ dice_roll = renpy.random.randint(1, 2)
-
-    if dice_roll == 1:
-        ch_Laura "I said go away!"
-    elif dice_roll == 2:
-        ch_Laura "Don't push it."
+    call Laura_asked_once("knocking")
 
     return
 
 label Laura_greets_Player_knocking_late_asked_twice:
-    ch_Laura "Stop before I put a hole through the door."
+    call Laura_asked_twice("knocking")
 
     return
 

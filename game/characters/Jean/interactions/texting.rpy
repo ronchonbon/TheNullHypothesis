@@ -110,15 +110,13 @@ label Jean_text_how_are_you_late_reject:
     return
 
 label Jean_text_how_are_you_late_reject_asked_once:
-    call receive_text(Jean, "I'm about to put my phone down") from _call_receive_text_107
-    call receive_text(Jean, "Just text me tomorrow") from _call_receive_text_108
+    call Jean_asked_once_text("late")
 
     return
 
 label Jean_text_how_are_you_late_reject_asked_twice:
-    call receive_text(Jean, "Stopppp!") from _call_receive_text_109
-    call receive_text(Jean, "I'm going to bed") from _call_receive_text_110
-
+    call Jean_asked_twice_text("late")
+    
     return
 
 label Jean_text_how_are_you_relationship:

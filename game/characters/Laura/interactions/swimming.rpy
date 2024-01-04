@@ -51,47 +51,13 @@ label Laura_reject_swim:
     return
 
 label Laura_reject_swim_asked_once:
-    $ dice_roll = renpy.random.randint(1, 4)
-
-    if dice_roll == 1:
-        $ Laura.change_face("confused1")
-
-        ch_Laura ". . . No. . ."
-    elif dice_roll == 2:
-        $ Laura.change_face("angry1")
-
-        ch_Laura "What are you doing?"
-    elif dice_roll == 3:
-        $ Laura.change_face("angry1")
-
-        ch_Laura "I said no, don't make me say it again."
-    elif dice_roll == 4:
-        $ Laura.change_face("confused1")
-
-        ch_Laura "What? No."
+    call Laura_asked_once("busy")
     
     return
 
 label Laura_reject_swim_asked_twice:  
-    $ dice_roll = renpy.random.randint(1, 3)
-
-    if dice_roll == 1:
-        $ Laura.change_face("angry1")
-
-        ch_Laura "{i}Grrrrrrr{/i}"
-    elif dice_roll == 2:
-        $ Laura.change_face("angry1")
-
-        ch_Laura "Not funny."
-    elif dice_roll == 3:
-        $ Laura.change_face("angry1", eyes = "left")
-
-        ch_Laura "Whatever."
-    elif dice_roll == 4:
-        $ Laura.change_face("angry1")
-
-        ch_Laura "What the hell."
-        
+    call Laura_asked_twice("busy")
+    call Laura_kicking_out
     call getting_kicked_out(Laura) from _call_getting_kicked_out_41
 
     return
@@ -119,17 +85,13 @@ label Laura_reject_sunbathe:
     return
 
 label Laura_reject_sunbathe_asked_once:
-    $ Laura.change_face("confused1")
-
-    ch_Laura "What? No."
+    call Laura_asked_once("busy")
     
     return
 
 label Laura_reject_sunbathe_asked_twice:
-    $ Laura.change_face("angry1")
-
-    ch_Laura "What the hell."
-
+    call Laura_asked_twice("busy")
+    call Laura_kicking_out
     call getting_kicked_out(Laura) from _call_getting_kicked_out_42
 
     return

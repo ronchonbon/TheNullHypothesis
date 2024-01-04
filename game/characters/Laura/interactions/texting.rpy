@@ -113,14 +113,13 @@ label Laura_text_how_are_you_late_reject:
     return
 
 label Laura_text_how_are_you_late_reject_asked_once:
-    call receive_text(Laura, "Did my last text not go through") from _call_receive_text_330
+    call Laura_asked_once_text("late")
 
     return
 
 label Laura_text_how_are_you_late_reject_asked_twice:
-    call receive_text(Laura, "Shut up") from _call_receive_text_331
-    call receive_text(Laura, "I'm going to bed") from _call_receive_text_332
-
+    call Laura_asked_once_text("late")
+    
     return
 
 label Laura_text_how_are_you_relationship:

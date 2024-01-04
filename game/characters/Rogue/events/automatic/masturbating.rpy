@@ -10,7 +10,7 @@ init python:
 
 label Rogue_masturbating_25:
     if Rogue.location == Player.location and renpy.random.random() > 0.5:
-        call Character_desire_narrations(Rogue) from _call_Character_desire_narrations_12
+        call Character_desire_narrations(Rogue)
 
     return
 
@@ -26,7 +26,7 @@ init python:
 
 label Rogue_masturbating_50:
     if Rogue.location == Player.location and renpy.random.random() > 0.5:
-        call Character_desire_narrations(Rogue) from _call_Character_desire_narrations_13
+        call Character_desire_narrations(Rogue)
 
     return
 
@@ -42,7 +42,7 @@ init python:
 
 label Rogue_masturbating_75:
     if Rogue.location == Player.location and renpy.random.random() > 0.5:
-        call Character_desire_narrations(Rogue) from _call_Character_desire_narrations_14
+        call Character_desire_narrations(Rogue)
 
     return
 
@@ -57,6 +57,6 @@ init python:
         return EventClass(label, conditions)
 
 label Rogue_masturbating_orgasm:
-    call Character_orgasms(Rogue) from _call_Character_orgasms_5
+    call Character_orgasms(Rogue)
 
     return

@@ -173,26 +173,15 @@ label Laura_busy_relationship:
     return
 
 label Laura_busy_asked_once:
-    $ Laura.change_face("confused1")
-
-    ch_Laura "What did I just say?"
+    call Laura_asked_once("busy")
 
     return
 
 label Laura_busy_asked_twice:
-    $ Laura.change_face("appalled2") 
-
-    ch_Laura "You're pissing me off."
-
-    $ Laura.change_face("angry1")
+    call Laura_asked_twice("busy")
 
     if Player.location == Laura.location:
-        if Player.location == Laura.home:
-            ch_Laura "Go away." 
-            "She pushes you out of the room, locking the door behind you."
-        else:
-            "She storms out of the room."
-            
+        call Laura_kicking_out
         call getting_kicked_out(Laura) from _call_getting_kicked_out_29
 
     return
@@ -204,24 +193,16 @@ label Laura_busy_late:
     return
 
 label Laura_busy_late_asked_once:
-    $ Laura.change_face("confused1")
-
-    ch_Laura "You deaf?"
+    call Laura_asked_once("late")
 
     return
 
 label Laura_busy_late_asked_twice:
-    $ Laura.change_face("angry1")
+    call Laura_asked_twice("late")
     
     if Player.location == Laura.location:
-        if Player.location == Laura.home:
-            ch_Laura "Get out, now."
-        else:
-            ch_Laura "Enough of this."
-            
+        call Laura_kicking_out
         call getting_kicked_out(Laura) from _call_getting_kicked_out_30
-    else:
-        ch_Laura "Enough of this."
     
     return
 

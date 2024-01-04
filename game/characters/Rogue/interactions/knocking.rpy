@@ -527,19 +527,13 @@ label Rogue_greets_Player_knocking_reject(welcoming_Characters):
     return
 
 label Rogue_greets_Player_knocking_reject_asked_once:
-    $ dice_roll = renpy.random.randint(1, 2)
-
-    if dice_roll == 1:
-        ch_Rogue "You better quit knockin'!"
-    elif dice_roll == 2:
-        ch_Rogue "What did ah just say?"
-        ch_Rogue "Go away!"
+    call Rogue_asked_once("knocking")
 
     return
 
 label Rogue_greets_Player_knocking_reject_asked_twice:
-    ch_Rogue "If ya don't cut it out, I'm fixin' to come out 'n make ya!"
-
+    call Rogue_asked_twice("knocking")
+    
     return
 
 label Rogue_greets_Player_knocking_late:
@@ -559,19 +553,13 @@ label Rogue_greets_Player_knocking_late:
     return
 
 label Rogue_greets_Player_knocking_late_asked_once:
-    $ dice_roll = renpy.random.randint(1, 2)
-
-    if dice_roll == 1:
-        ch_Rogue "You better quit knockin'!"
-    elif dice_roll == 2:
-        ch_Rogue "What did ah just say?"
-        ch_Rogue "Go away!"
+    call Rogue_asked_once("knocking")
 
     return
 
 label Rogue_greets_Player_knocking_late_asked_twice:
-    ch_Rogue "If ya don't cut it out, I'm fixin' to come out 'n make ya!"
-
+    call Rogue_asked_twice("knocking")
+    
     return
 
 label Rogue_not_invited_in:

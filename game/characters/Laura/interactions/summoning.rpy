@@ -241,12 +241,12 @@ label Laura_summon_reject:
     return
 
 label Laura_summon_reject_asked_once:
-    call receive_text(Laura, "Can't you read?") from _call_receive_text_316
+    call Laura_asked_once_text("busy")
 
     return
 
 label Laura_summon_reject_asked_twice:
-    call receive_text(Laura, "Stop.") from _call_receive_text_317
+    call Laura_asked_twice_text("busy")
 
     return
 
@@ -310,21 +310,16 @@ label Laura_dismiss_reject:
     return True
 
 label Laura_dismiss_reject_asked_once:
-    $ Laura.change_face("angry1")
-
-    ch_Laura "I'm not going anywhere."
-
+    call Laura_asked_once("dismissing")
+    
     return
 
 label Laura_dismiss_reject_asked_twice:
-    $ Laura.change_face("appalled2")
+    call Laura_asked_twice("dismissing")
     
     if Player.location == Laura.home:
-        ch_Laura "You get out, now."
-
+        call Laura_kicking_out
         call getting_kicked_out(Laura) from _call_getting_kicked_out_40
-    else:
-        ch_Laura "I'll make you leave if you keep asking."
 
     return
 

@@ -106,22 +106,13 @@ label Rogue_accepts_hookup_love:
     return
 
 label Rogue_rejects_Action_asked_once:
-    $ Rogue.change_face("angry1") 
-
-    ch_Rogue "Ah already said no, stop askin'."
+    call Rogue_asked_once("sex")
 
     return
 
 label Rogue_rejects_Action_asked_twice:
-    $ Rogue.change_face("furious") 
-
-    ch_Rogue "That's it, you're done."
-
-    if Player.location == Rogue.home:
-        "She pushes you out of the room, locking the door behind you."
-    else:
-        "She storms out of the room."
-        
+    call Rogue_asked_twice("sex")
+    call Rogue_kicking_out
     call getting_kicked_out(Rogue) from _call_getting_kicked_out_44
 
     return

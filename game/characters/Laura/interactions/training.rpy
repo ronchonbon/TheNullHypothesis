@@ -23,47 +23,13 @@ label Laura_reject_train:
     return
 
 label Laura_reject_train_asked_once:
-    $ dice_roll = renpy.random.randint(1, 4)
-
-    if dice_roll == 1:
-        $ Laura.change_face("confused1")
-
-        ch_Laura ". . . No. . ."
-    elif dice_roll == 2:
-        $ Laura.change_face("angry1")
-
-        ch_Laura "What are you doing?"
-    elif dice_roll == 3:
-        $ Laura.change_face("angry1")
-
-        ch_Laura "I said no, don't make me say it again."
-    elif dice_roll == 4:
-        $ Laura.change_face("confused1")
-
-        ch_Laura "What? No."
+    call Laura_asked_once("busy")
     
     return
 
 label Laura_reject_train_asked_twice:
-    $ dice_roll = renpy.random.randint(1, 3)
-
-    if dice_roll == 1:
-        $ Laura.change_face("angry1")
-
-        ch_Laura "{i}Grrrrrrr{/i}"
-    elif dice_roll == 2:
-        $ Laura.change_face("angry1")
-
-        ch_Laura "Not funny."
-    elif dice_roll == 3:
-        $ Laura.change_face("angry1", eyes = "left")
-
-        ch_Laura "Whatever."
-    elif dice_roll == 4:
-        $ Laura.change_face("angry1")
-
-        ch_Laura "What the hell."
-        
+    call Laura_asked_twice("busy")
+    call Laura_kicking_out
     call getting_kicked_out(Laura) from _call_getting_kicked_out_43
 
     return
@@ -117,25 +83,11 @@ label Laura_reject_train_text:
     return
 
 label Laura_reject_train_asked_once_text:
-    $ dice_roll = renpy.random.randint(1, 3)
-
-    if dice_roll == 1:
-        call receive_text(Laura, ". . .") from _call_receive_text_446
-    elif dice_roll == 2:
-        call receive_text(Laura, "What?") from _call_receive_text_447
-    elif dice_roll == 3:
-        call receive_text(Laura, "I said I cant.") from _call_receive_text_448
+    call Laura_asked_once_text("busy")
     
     return
 
 label Laura_reject_train_asked_twice_text:
-    $ dice_roll = renpy.random.randint(1, 3)
-
-    if dice_roll == 1:
-        call receive_text(Laura, "This isn't cute.") from _call_receive_text_449
-    elif dice_roll == 2:
-        call receive_text(Laura, "This is very annoying") from _call_receive_text_450
-    elif dice_roll == 3:
-        call receive_text(Laura, "Stop") from _call_receive_text_451
+    call Laura_asked_twice_text("busy")
 
     return

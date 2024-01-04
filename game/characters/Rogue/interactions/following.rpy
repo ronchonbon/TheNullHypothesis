@@ -67,9 +67,7 @@ label Rogue_follow_reject:
     return
 
 label Rogue_follow_reject_asked_once:
-    $ Rogue.change_face("confused1")
-    
-    ch_Rogue "Ah just told you ah can't. . ."
+    call Rogue_asked_once("busy")
 
     return
 

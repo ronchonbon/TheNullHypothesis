@@ -35,24 +35,16 @@ label Rogue_rejects_show_bra:
     return
 
 label Rogue_rejects_show_bra_asked_once:
-    $ Rogue.change_face("angry1")
+    call Rogue_asked_once("showing")
 
-    ch_Rogue "Ah said no."
-    ch_Rogue "Yer not seein' my bra."
+    if renpy.random.random() > 0.5:
+        ch_Rogue "Yer not seein' my bra."
 
     return
 
 label Rogue_rejects_show_bra_asked_twice:
-    $ Rogue.change_face("appalled2")
-
-    ch_Rogue "Really?"
-    ch_Rogue "Why the hell are you still askin'?"
-
-    if Player.location == Rogue.home:
-        ch_Rogue "Get out."
-    else:
-        ch_Rogue "Ah'm out of here."
-        
+    call Rogue_asked_twice("showing")
+    call Rogue_kicking_out
     call getting_kicked_out(Rogue) from _call_getting_kicked_out_45
 
     return
@@ -202,22 +194,13 @@ label Rogue_rejects_show_underwear:
     return
 
 label Rogue_rejects_show_underwear_asked_once:
-    $ Rogue.change_face("angry1")
-
-    ch_Rogue "Ah said it's not happenin'."
+    call Rogue_asked_once("showing")
 
     return
 
 label Rogue_rejects_show_underwear_asked_twice:
-    $ Rogue.change_face("appalled2")
-
-    ch_Rogue "You tryin' to get kicked in the jewels?"
-
-    if Player.location == Rogue.home:
-        ch_Rogue "Get out."
-    else:
-        ch_Rogue "Ah'm out of here."
-        
+    call Rogue_asked_twice("showing")
+    call Rogue_kicking_out
     call getting_kicked_out(Rogue) from _call_getting_kicked_out_46
 
     return
@@ -390,22 +373,13 @@ label Rogue_rejects_show_breasts:
     return
 
 label Rogue_rejects_show_breasts_asked_once:
-    $ Rogue.change_face("angry1")
-
-    ch_Rogue "Ah was clear the first time."
+    call Rogue_asked_once("showing")
 
     return
 
 label Rogue_rejects_show_breasts_asked_twice:
-    $ Rogue.change_face("appalled2")
-
-    ch_Rogue "Ah'm done listenin' to you right now."
-
-    if Player.location == Rogue.home:
-        ch_Rogue "Get out."
-    else:
-        "She storms out of the room."
-        
+    call Rogue_asked_twice("showing")
+    call Rogue_kicking_out
     call getting_kicked_out(Rogue) from _call_getting_kicked_out_47
 
     return
@@ -558,21 +532,13 @@ label Rogue_rejects_show_pussy:
     return
 
 label Rogue_rejects_show_pussy_asked_once:
-    $ Rogue.change_face("angry1")
-
-    ch_Rogue "Didn't ya hear me sayin' no the first time?"
+    call Rogue_asked_once("showing")
 
     return
 
-label Rogue_rejects_show_pussy_asked_twice:       
-    $ Rogue.change_face("appalled1")
-
-    ch_Rogue "Ah think you should stop askin'."
-
-    $ Rogue.change_face("furious")
-
-    ch_Rogue "Or else."
-
+label Rogue_rejects_show_pussy_asked_twice:      
+    call Rogue_asked_twice("showing")
+    call Rogue_kicking_out
     call getting_kicked_out(Rogue) from _call_getting_kicked_out_48
 
     return
@@ -706,6 +672,7 @@ label Rogue_rejects_give_bra_asked_once:
     return
 
 label Rogue_rejects_give_bra_asked_twice:        
+    call Rogue_kicking_out
     call getting_kicked_out(Rogue) from _call_getting_kicked_out_49
 
     return
@@ -750,7 +717,8 @@ label Rogue_rejects_give_underwear_asked_once:
 
     return
 
-label Rogue_rejects_give_underwear_asked_twice:        
+label Rogue_rejects_give_underwear_asked_twice:  
+    call Rogue_kicking_out      
     call getting_kicked_out(Rogue) from _call_getting_kicked_out_50
 
     return

@@ -15,6 +15,7 @@ label Jean_rejected_gift_twice:
 
     ch_Jean "I'm not taking the damn thing."
         
+    call Jean_kicking_out
     call getting_kicked_out(Jean) from _call_getting_kicked_out_13
 
     return
@@ -31,6 +32,7 @@ label Jean_rejected_piercing_twice:
 
     ch_Jean "Why are you making me repeat myself?!"
         
+    call Jean_kicking_out
     call getting_kicked_out(Jean) from _call_getting_kicked_out_14
 
     return
@@ -47,6 +49,7 @@ label Jean_rejected_remote_vibrator_twice:
 
     ch_Jean "Why are you making me repeat myself?!"
         
+    call Jean_kicking_out
     call getting_kicked_out(Jean) from _call_getting_kicked_out_15
 
     return
@@ -63,6 +66,7 @@ label Jean_rejected_buttplug_twice:
 
     ch_Jean "Why are you making me repeat myself?!"
         
+    call Jean_kicking_out
     call getting_kicked_out(Jean) from _call_getting_kicked_out_16
 
     return

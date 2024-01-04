@@ -43,13 +43,13 @@ init python:
 label Jean_remote_vibrator_25:
     if Jean.location == Player.location:
         if renpy.random.random() > 0.5:
-            call Character_desire_narrations(Jean) from _call_Character_desire_narrations_3
+            call Character_desire_narrations(Jean)
 
             if renpy.random.random() > 0.5:
                 call Character_remote_vibrator_narrations(Jean, proper_subject = False) from _call_Character_remote_vibrator_narrations
         else:
             if renpy.random.random() > 0.5:
-                call Character_remote_vibrator_narrations(Jean) from _call_Character_remote_vibrator_narrations_1
+                call Character_remote_vibrator_narrations(Jean)
 
     return
 
@@ -66,13 +66,13 @@ init python:
 label Jean_remote_vibrator_50:
     if Jean.location == Player.location:
         if renpy.random.random() > 0.5:
-            call Character_desire_narrations(Jean) from _call_Character_desire_narrations_4
+            call Character_desire_narrations(Jean)
 
             if renpy.random.random() > 0.5:
-                call Character_remote_vibrator_narrations(Jean, proper_subject = False) from _call_Character_remote_vibrator_narrations_2
+                call Character_remote_vibrator_narrations(Jean, proper_subject = False)
         else:
             if renpy.random.random() > 0.5:
-                call Character_remote_vibrator_narrations(Jean) from _call_Character_remote_vibrator_narrations_3
+                call Character_remote_vibrator_narrations(Jean)
 
     return
 
@@ -89,13 +89,13 @@ init python:
 label Jean_remote_vibrator_75:
     if Jean.location == Player.location:
         if renpy.random.random() > 0.5:
-            call Character_desire_narrations(Jean) from _call_Character_desire_narrations_5
+            call Character_desire_narrations(Jean)
 
             if renpy.random.random() > 0.5:
-                call Character_remote_vibrator_narrations(Jean, proper_subject = False) from _call_Character_remote_vibrator_narrations_4
+                call Character_remote_vibrator_narrations(Jean, proper_subject = False)
         else:
             if renpy.random.random() > 0.5:
-                call Character_remote_vibrator_narrations(Jean) from _call_Character_remote_vibrator_narrations_5
+                call Character_remote_vibrator_narrations(Jean)
 
     return
 
@@ -110,10 +110,10 @@ init python:
         return EventClass(label, conditions)
 
 label Jean_remote_vibrator_orgasm:
-    call Character_orgasms(Jean) from _call_Character_orgasms_2
+    call Character_orgasms(Jean)
     
     if Jean.location == Player.location and renpy.random.random() > 0.5:
-        call Character_remote_vibrator_narrations(Jean, proper_subject = False) from _call_Character_remote_vibrator_narrations_6
+        call Character_remote_vibrator_narrations(Jean, proper_subject = False)
 
     return
 
@@ -133,9 +133,11 @@ label Jean_remote_vibrator_out_of_stamina:
             call Character_out_of_stamina_narrations(Jean) from _call_Character_out_of_stamina_narrations
 
             if renpy.random.random() > 0.5:
-                call Character_remote_vibrator_narrations(Jean, proper_subject = False) from _call_Character_remote_vibrator_narrations_7
+                call Character_remote_vibrator_narrations(Jean, proper_subject = False)
         else:
             if renpy.random.random() > 0.5:
-                call Character_remote_vibrator_narrations(Jean) from _call_Character_remote_vibrator_narrations_8
+                call Character_remote_vibrator_narrations(Jean)
+
+    call change_Character_stat(Jean, "trust", -tiny_stat)
 
     return

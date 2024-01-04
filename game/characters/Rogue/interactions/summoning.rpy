@@ -257,13 +257,12 @@ label Rogue_summon_reject:
     return
 
 label Rogue_summon_reject_asked_once:
-    call receive_text(Rogue, "Did ya not see my last text?") from _call_receive_text_527
+    call Rogue_asked_once_text("busy")
 
     return
 
 label Rogue_summon_reject_asked_twice:
-    call receive_text(Rogue, "The hell?") from _call_receive_text_528
-    call receive_text(Rogue, "Just said no") from _call_receive_text_529
+    call Rogue_asked_twice_text("busy")
 
     return
 
@@ -322,20 +321,15 @@ label Rogue_dismiss_reject:
     return True
 
 label Rogue_dismiss_reject_asked_once:
-    $ Rogue.change_face("angry1")
-
-    ch_Rogue "Ah already said ah'm not goin' anywhere."
+    call Rogue_asked_once("dismissing")
 
     return
 
 label Rogue_dismiss_reject_asked_twice:
-    $ Rogue.change_face("appalled2")
-
-    ch_Rogue "Are ya ignorin' me or somethin'?"
+    call Rogue_asked_twice("dismissing")
 
     if Player.location == Rogue.home:
-        ch_Rogue "Get out."
-
+        call Rogue_kicking_out
         call getting_kicked_out(Rogue) from _call_getting_kicked_out_61
 
     return

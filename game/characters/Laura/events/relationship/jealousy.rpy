@@ -146,12 +146,12 @@ label Laura_jealousy_went_on_date:
 
     call remove_Characters(Laura) from _call_remove_Characters_240
 
-    $ Laura.give_status("mad")
-
     "*SLAM*"
     ". . . and slamming the door on the way out."
 
     call change_Character_stat(Laura, "trust", -large_stat) from _call_change_Character_stat_940
+
+    $ Laura.give_status("mad")
 
     ". . ."
     ch_Player "Well shit. . ."
@@ -320,12 +320,12 @@ label Laura_jealousy_flirted:
 
     call set_the_scene(location = "bg_girls_hallway") from _call_set_the_scene_337
 
-    $ Laura.give_status("mad")
-
     "*SLAM*"
     ". . . and slamming the door behind you."
 
     call change_Character_stat(Laura, "trust", -large_stat) from _call_change_Character_stat_941
+
+    $ Laura.give_status("mad")
 
     ". . ."
     ch_Player "Well shit. . ."

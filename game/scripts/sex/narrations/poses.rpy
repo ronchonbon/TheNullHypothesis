@@ -21,7 +21,7 @@ init python:
                 if dice_roll == 1:
                     C.change_arms("neutral", left_arm = "grope")
                 elif dice_roll == 2:
-                    C.change_arms("neutral", right_arm = "touch_self")
+                    C.change_arms("neutral", right_arm = "touch_pussy")
                 elif dice_roll == 3:
                     C.change_arms("touch_self")
             elif C.desire >= 75:
@@ -32,7 +32,7 @@ init python:
                 elif dice_roll == 2:
                     C.change_arms("neutral", left_arm = "grope")
                 elif dice_roll == 2:
-                    C.change_arms("neutral", right_arm = "touch_self")
+                    C.change_arms("neutral", right_arm = "touch_pussy")
             elif C.desire >= 50:
                 dice_roll = renpy.random.randint(1, 3)
 

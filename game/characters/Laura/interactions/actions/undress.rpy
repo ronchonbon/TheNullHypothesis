@@ -44,29 +44,13 @@ label Laura_rejects_show_bra:
     return
 
 label Laura_rejects_show_bra_asked_once:
-    $ Laura.change_face("suspicious1")
-
-    ch_Laura "Really thought asking again would work?" 
+    call Laura_asked_once("showing")
 
     return
 
 label Laura_rejects_show_bra_asked_twice:
-    $ Laura.change_face("appalled1")
-
-    ch_Laura "No."
-    
-    show expression "images/effects/green_smack.webp" as smack onlayer effects:
-        anchor (0.5, 0.5) pos (0.5, 0.4)
-
-        zoom 0.0
-        alpha 0.0
-        ease 0.1 zoom 1.0 alpha 1.0
-        ease 1.0 alpha 0.0
-
-    with small_screenshake
-
-    "She punches you on the shoulder, hard." 
-    
+    call Laura_asked_twice("showing")
+    call Laura_kicking_out
     call getting_kicked_out(Laura) from _call_getting_kicked_out_23
 
     return
@@ -249,17 +233,13 @@ label Laura_rejects_show_underwear:
     return
 
 label Laura_rejects_show_underwear_asked_once:
-    $ Laura.change_face("confused1", eyes = "squint")
-
-    ch_Laura "Does 'no' mean something else to you?"
+    call Laura_asked_once("showing")
 
     return
 
-label Laura_rejects_show_underwear_asked_twice:      
-    $ Laura.change_face("appalled1")
-
-    ch_Laura "Stop before you get yourself hurt."
-  
+label Laura_rejects_show_underwear_asked_twice:     
+    call Laura_asked_twice("showing") 
+    call Laura_kicking_out
     call getting_kicked_out(Laura) from _call_getting_kicked_out_24
 
     return
@@ -469,17 +449,13 @@ label Laura_rejects_show_breasts:
     return
 
 label Laura_rejects_show_breasts_asked_once:
-    $ Laura.change_face("suspicious1")
-
-    ch_Laura "What's your problem?"
+    call Laura_asked_once("showing")
 
     return
 
 label Laura_rejects_show_breasts_asked_twice:
-    $ Laura.change_face("appalled1")
-
-    ch_Laura "Better stop asking."
-       
+    call Laura_asked_twice("showing") 
+    call Laura_kicking_out
     call getting_kicked_out(Laura) from _call_getting_kicked_out_25
 
     return
@@ -666,14 +642,12 @@ label Laura_rejects_show_pussy:
     return
 
 label Laura_rejects_show_pussy_asked_once:
-    $ Laura.change_face("angry1")
-
-    ch_Laura "Keep asking, and I will hurt you."
+    call Laura_asked_once("showing")
 
     return
 
 label Laura_rejects_show_pussy_asked_twice:
-    if approval_check(Laura, threshold = "love"):
+    if approval_check(Laura, threshold = "relationship") and renpy.random.random() > 0.25:
         $ Laura.change_face("appalled2")
 
         ch_Laura "It's almost like you want me to kick you in the crotch." 
@@ -703,10 +677,8 @@ label Laura_rejects_show_pussy_asked_twice:
             "Sorry. . .":
                 pass
     else:
-        $ Laura.change_face("appalled2")
-
-        ch_Laura "Don't make me lay you out."
-
+        call Laura_asked_twice("showing") 
+        call Laura_kicking_out
         call getting_kicked_out(Laura) from _call_getting_kicked_out_26
 
     return
@@ -896,7 +868,8 @@ label Laura_rejects_give_bra_asked_once:
 
     return
 
-label Laura_rejects_give_bra_asked_twice:        
+label Laura_rejects_give_bra_asked_twice:      
+    call Laura_kicking_out  
     call getting_kicked_out(Laura) from _call_getting_kicked_out_27
 
     return
@@ -941,7 +914,8 @@ label Laura_rejects_give_underwear_asked_once:
 
     return
 
-label Laura_rejects_give_underwear_asked_twice:        
+label Laura_rejects_give_underwear_asked_twice:      
+    call Laura_kicking_out  
     call getting_kicked_out(Laura) from _call_getting_kicked_out_28
 
     return
