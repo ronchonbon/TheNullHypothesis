@@ -102,13 +102,13 @@ label Laura_accepts_hookup_love:
     return
 
 label Laura_rejects_Action_asked_once:
-    call Laura_asked_once("sex")
+    call Laura_asked_once("sex") from _call_Laura_asked_once
 
     return
 
 label Laura_rejects_Action_asked_twice:
-    call Laura_asked_twice("sex")
-    call Laura_kicking_out
+    call Laura_asked_twice("sex") from _call_Laura_asked_twice
+    call Laura_kicking_out from _call_Laura_kicking_out
     call getting_kicked_out(Laura) from _call_getting_kicked_out_22
 
     return

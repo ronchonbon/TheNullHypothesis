@@ -44,13 +44,13 @@ label Laura_rejects_show_bra:
     return
 
 label Laura_rejects_show_bra_asked_once:
-    call Laura_asked_once("showing")
+    call Laura_asked_once("showing") from _call_Laura_asked_once_1
 
     return
 
 label Laura_rejects_show_bra_asked_twice:
-    call Laura_asked_twice("showing")
-    call Laura_kicking_out
+    call Laura_asked_twice("showing") from _call_Laura_asked_twice_1
+    call Laura_kicking_out from _call_Laura_kicking_out_1
     call getting_kicked_out(Laura) from _call_getting_kicked_out_23
 
     return
@@ -233,13 +233,13 @@ label Laura_rejects_show_underwear:
     return
 
 label Laura_rejects_show_underwear_asked_once:
-    call Laura_asked_once("showing")
+    call Laura_asked_once("showing") from _call_Laura_asked_once_2
 
     return
 
 label Laura_rejects_show_underwear_asked_twice:     
-    call Laura_asked_twice("showing") 
-    call Laura_kicking_out
+    call Laura_asked_twice("showing") from _call_Laura_asked_twice_2 
+    call Laura_kicking_out from _call_Laura_kicking_out_2
     call getting_kicked_out(Laura) from _call_getting_kicked_out_24
 
     return
@@ -449,13 +449,13 @@ label Laura_rejects_show_breasts:
     return
 
 label Laura_rejects_show_breasts_asked_once:
-    call Laura_asked_once("showing")
+    call Laura_asked_once("showing") from _call_Laura_asked_once_3
 
     return
 
 label Laura_rejects_show_breasts_asked_twice:
-    call Laura_asked_twice("showing") 
-    call Laura_kicking_out
+    call Laura_asked_twice("showing") from _call_Laura_asked_twice_3 
+    call Laura_kicking_out from _call_Laura_kicking_out_3
     call getting_kicked_out(Laura) from _call_getting_kicked_out_25
 
     return
@@ -642,7 +642,7 @@ label Laura_rejects_show_pussy:
     return
 
 label Laura_rejects_show_pussy_asked_once:
-    call Laura_asked_once("showing")
+    call Laura_asked_once("showing") from _call_Laura_asked_once_4
 
     return
 
@@ -677,8 +677,8 @@ label Laura_rejects_show_pussy_asked_twice:
             "Sorry. . .":
                 pass
     else:
-        call Laura_asked_twice("showing") 
-        call Laura_kicking_out
+        call Laura_asked_twice("showing") from _call_Laura_asked_twice_4 
+        call Laura_kicking_out from _call_Laura_kicking_out_4
         call getting_kicked_out(Laura) from _call_getting_kicked_out_26
 
     return
@@ -869,7 +869,7 @@ label Laura_rejects_give_bra_asked_once:
     return
 
 label Laura_rejects_give_bra_asked_twice:      
-    call Laura_kicking_out  
+    call Laura_kicking_out from _call_Laura_kicking_out_5  
     call getting_kicked_out(Laura) from _call_getting_kicked_out_27
 
     return
@@ -915,7 +915,7 @@ label Laura_rejects_give_underwear_asked_once:
     return
 
 label Laura_rejects_give_underwear_asked_twice:      
-    call Laura_kicking_out  
+    call Laura_kicking_out from _call_Laura_kicking_out_6  
     call getting_kicked_out(Laura) from _call_getting_kicked_out_28
 
     return

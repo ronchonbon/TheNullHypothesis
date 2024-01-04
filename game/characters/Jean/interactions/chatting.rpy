@@ -146,15 +146,15 @@ label Jean_busy_relationship:
     return
 
 label Jean_busy_asked_once:
-    call Jean_asked_once("busy")
+    call Jean_asked_once("busy") from _call_Jean_asked_once_5
 
     return
 
 label Jean_busy_asked_twice:
-    call Jean_asked_twice("busy")
+    call Jean_asked_twice("busy") from _call_Jean_asked_twice_5
 
     if Player.location == Jean.location:
-        call Jean_kicking_out
+        call Jean_kicking_out from _call_Jean_kicking_out_7
         call getting_kicked_out(Jean) from _call_getting_kicked_out_7
 
     return
@@ -172,15 +172,15 @@ label Jean_busy_late:
     return
 
 label Jean_busy_late_asked_once:
-    call Jean_asked_once("late")
+    call Jean_asked_once("late") from _call_Jean_asked_once_6
 
     return
 
 label Jean_busy_late_asked_twice:
-    call Jean_asked_twice("late")
+    call Jean_asked_twice("late") from _call_Jean_asked_twice_6
 
     if Player.location == Jean.location:
-        call Jean_kicking_out
+        call Jean_kicking_out from _call_Jean_kicking_out_8
         call getting_kicked_out(Jean) from _call_getting_kicked_out_8
     else:
         ch_Jean "Stop ignoring me!"

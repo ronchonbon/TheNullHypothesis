@@ -98,13 +98,13 @@ label Jean_accepts_hookup_love:
     return
 
 label Jean_rejects_Action_asked_once:
-    call Jean_asked_once("sex")
+    call Jean_asked_once("sex") from _call_Jean_asked_once
 
     return
 
 label Jean_rejects_Action_asked_twice:    
-    call Jean_asked_twice("sex")   
-    call Jean_kicking_out
+    call Jean_asked_twice("sex") from _call_Jean_asked_twice   
+    call Jean_kicking_out from _call_Jean_kicking_out
     call getting_kicked_out(Jean) from _call_getting_kicked_out
 
     return

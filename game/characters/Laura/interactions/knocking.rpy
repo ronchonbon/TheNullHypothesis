@@ -565,12 +565,12 @@ label Laura_greets_Player_knocking_reject(welcoming_Characters):
     return
 
 label Laura_greets_Player_knocking_reject_asked_once:
-    call Laura_asked_once("knocking")
+    call Laura_asked_once("knocking") from _call_Laura_asked_once_9
 
     return
 
 label Laura_greets_Player_knocking_reject_asked_twice:
-    call Laura_asked_twice("knocking")
+    call Laura_asked_twice("knocking") from _call_Laura_asked_twice_9
 
     return
 
@@ -588,12 +588,12 @@ label Laura_greets_Player_knocking_late:
     return
 
 label Laura_greets_Player_knocking_late_asked_once:
-    call Laura_asked_once("knocking")
+    call Laura_asked_once("knocking") from _call_Laura_asked_once_10
 
     return
 
 label Laura_greets_Player_knocking_late_asked_twice:
-    call Laura_asked_twice("knocking")
+    call Laura_asked_twice("knocking") from _call_Laura_asked_twice_10
 
     return
 

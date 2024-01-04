@@ -51,13 +51,13 @@ label Laura_reject_swim:
     return
 
 label Laura_reject_swim_asked_once:
-    call Laura_asked_once("busy")
+    call Laura_asked_once("busy") from _call_Laura_asked_once_13
     
     return
 
 label Laura_reject_swim_asked_twice:  
-    call Laura_asked_twice("busy")
-    call Laura_kicking_out
+    call Laura_asked_twice("busy") from _call_Laura_asked_twice_13
+    call Laura_kicking_out from _call_Laura_kicking_out_16
     call getting_kicked_out(Laura) from _call_getting_kicked_out_41
 
     return
@@ -85,13 +85,13 @@ label Laura_reject_sunbathe:
     return
 
 label Laura_reject_sunbathe_asked_once:
-    call Laura_asked_once("busy")
+    call Laura_asked_once("busy") from _call_Laura_asked_once_14
     
     return
 
 label Laura_reject_sunbathe_asked_twice:
-    call Laura_asked_twice("busy")
-    call Laura_kicking_out
+    call Laura_asked_twice("busy") from _call_Laura_asked_twice_14
+    call Laura_kicking_out from _call_Laura_kicking_out_17
     call getting_kicked_out(Laura) from _call_getting_kicked_out_42
 
     return

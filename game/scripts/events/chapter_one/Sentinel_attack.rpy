@@ -896,11 +896,14 @@ label ch1_Sentinel_attack:
 
     $ Jean.name = Jean.temp
     $ Jean.change_face("surprised3")
+    $ Jean.change_arms("angry")
 
     $ temp = Jean.Player_petname.capitalize()
 
     ch_Jean "[temp], you're awake?!"
     ch_Cecilia "I'll leave you two to catch up."
+
+    $ Jean.change_arms("angry", left_arm = "extended")
 
     hide Cecilia onlayer master with dissolve
 
@@ -908,23 +911,29 @@ label ch1_Sentinel_attack:
     "You try to turn off your power, but it feels different than before and won't listen to you."
 
     $ Jean.change_face("perplexed")
+    $ Jean.change_arms("neutral")
 
     ch_Player "Wait!" 
 
     $ Jean.change_face("worried2")
+    $ Jean.change_arms("sass", right_arm = "extended")
 
     ch_Jean "Can't you turn it off now that you're awake?"
 
     $ Jean.change_face("worried1")
+    $ Jean.change_arms("sass")
 
     ch_Jean "I need to hug you."
     ch_Player "I'm trying. . ."
 
     $ Jean.change_face("angry1")
+    $ Jean.change_arms("neutral")
 
     ch_Jean "Then let's give you a reason to try harder."
 
     call show_Character(Jean, x = stage_far_right, sprite_zoom = 1.4*Jean_standing_zoom) from _call_show_Character_6
+
+    $ Jean.change_arms("angry", left_arm = "extended")
 
     "Without any hesitation, [Jean.name] walks right up to you and grabs your hand."
 
@@ -939,6 +948,7 @@ label ch1_Sentinel_attack:
     ch_Player "My 'big sis''?"
 
     $ Jean.change_face("worried1", eyes = "closed")
+    $ Jean.change_arms(right_arm = "psychic1", left_arm = "extended")
 
     call Jean_activate_psychic from _call_Jean_activate_psychic_33
 
@@ -955,10 +965,12 @@ label ch1_Sentinel_attack:
     "As soon as it does, you see [Jean.name] physically recoil, and the presence disappears."
 
     $ Jean.change_face("worried1", mouth = "smirk")
+    $ Jean.change_arms("neutral", left_arm = "extended")
 
     ch_Jean "Well that didn't work. . ."
 
     $ Jean.change_face("angry1")
+    $ Jean.change_arms("angry", left_arm = "extended")
 
     "You try to push her away, but she squeezes your hand tightly."
     ch_Jean "[Player.first_name], I know you can do this." 
@@ -1008,6 +1020,7 @@ label ch1_Sentinel_attack:
     "Her grip on your hand reaffirms itself."
 
     $ Jean.change_face("confused1", mouth = "smirk")
+    $ Jean.change_arms("neutral", left_arm = "angry")
 
     ch_Jean "You cut it a bit close there, little. . . [Jean.Player_petname]." 
 
@@ -1025,6 +1038,7 @@ label ch1_Sentinel_attack:
             call change_Character_stat(Jean, "love", large_stat) from _call_change_Character_stat_556
             
             $ Jean.change_face("pleased2") 
+            $ Jean.change_arms("crossed")
             
             ch_Jean "You should do that." 
             
@@ -1039,6 +1053,7 @@ label ch1_Sentinel_attack:
             ch_Player "You called yourself my 'big sis''. . ." 
             
             $ Jean.change_face("worried2") 
+            $ Jean.change_arms("crossed")
             
             ch_Player "But I like using your name." 
             
@@ -1062,6 +1077,7 @@ label ch1_Sentinel_attack:
     ch_Jean "I don't like seeing you get hurt."
 
     $ Jean.change_face("confused1", eyes = "squint")
+    $ Jean.change_arms("hips")
 
     ch_Jean "Hmmm. . ."
 
@@ -1072,6 +1088,7 @@ label ch1_Sentinel_attack:
     ch_Jean "Just thinking about how much time I can afford away from studying."
 
     $ Jean.change_face("confused1", mouth = "smirk")
+    $ Jean.change_arms("sass")
 
     ch_Player "For?"
     ch_Jean "To smother you with training and stuff, duh." 
@@ -1099,6 +1116,7 @@ label ch1_Sentinel_attack:
     call show_Character(Rogue, x = stage_far_far_right) from _call_show_Character_7
 
     $ Rogue.change_face("worried1")
+    $ Rogue.change_arms("crossed")
 
     ch_Rogue "Can ah. . . come close?"
     ch_Player "Yeah, don't worry. I have my power under control now." 
@@ -1108,13 +1126,18 @@ label ch1_Sentinel_attack:
     call show_Character(Rogue, x = stage_far_right, sprite_zoom = 1.4*Rogue_standing_zoom) from _call_show_Character_8
 
     $ Rogue.change_face("worried1", eyes = "right")
+    $ Rogue.change_arms("sheepish", right_arm = "neutral")
 
     "She moves closer, but still refrains from touching you."
     ch_Player "What's wrong?"
 
     $ Rogue.change_face("worried2")
+    $ Rogue.change_arms("sheepish")
 
     ch_Rogue "Is yer. . . nullification off as well?"
+
+    $ Rogue.change_arms("sheepish", right_arm = "neutral")
+
     ch_Player "I don't. . . huh. . ."
 
     $ Rogue.change_face("worried1")
@@ -1129,22 +1152,26 @@ label ch1_Sentinel_attack:
     $ fade_in_from_black(0.4)
 
     $ Rogue.change_face("worried2")
+    $ Rogue.change_arms("crossed")
 
     ch_Rogue "Are ya alright?"
     ch_Player "I am."
     ch_Player "And, it's weird, but even after turning off my new power, the nullification still seems to be active."
 
     $ Rogue.change_face("worried1", eyes = "right")
+    $ Rogue.change_arms("neutral")
 
     ch_Rogue "Ah still don't think ah should. . ."
     ch_Player "It'll be okay."
     ch_Player "I promise."
 
     $ Rogue.change_face("worried1")
+    $ Rogue.change_arms("angry")
 
     ch_Rogue "Alright."
 
     $ Rogue.change_face("worried1", eyes = "down")
+    $ Rogue.change_arms("neutral", left_arm = "extended")
 
     "She slowly reaches out and takes your hand."
 
@@ -1153,19 +1180,23 @@ label ch1_Sentinel_attack:
     pause 1.0
 
     $ Rogue.change_face("worried1", mouth = "smirk")
+    $ Rogue.change_arms("neutral", left_arm = "angry")
 
     ch_Player "See?" 
 
     $ Rogue.change_face("worried1")
+    $ Rogue.change_arms("sheepish", left_arm = "angry")
 
     ch_Rogue "How are ya doin'?"
 
     $ Rogue.change_face("confused1")
+    $ Rogue.change_arms("neutral", left_arm = "angry")
 
     ch_Player "I'm actually doing really well."
     ch_Player "Whatever happened to me back there. . . it seems like it transformed part of my ability into something kinda similar to yours." 
 
     $ Rogue.change_face("perplexed")
+    $ Rogue.change_arms("angry")
 
     ch_Rogue "You're kiddin'?!"
 
@@ -1177,6 +1208,9 @@ label ch1_Sentinel_attack:
 
     ch_Player "So, I guess I kinda have you to thank." 
     ch_Rogue "Ah'm glad." 
+
+    $ Rogue.change_arms("neutral", left_arm = "angry")
+
     "Her grip tightens around yours."
 
     $ Rogue.change_face("worried1", eyes = "down")
@@ -1231,6 +1265,7 @@ label ch1_Sentinel_attack:
             $ Rogue.History.update("quirk_discouraged")
 
     $ Rogue.change_face("smirk2")
+    $ Rogue.change_arms("crossed")
 
     ch_Rogue "Alright, ah can't keep ya all to myself."
     ch_Rogue "I'm sure [Laura.public_name] would appreciate knowin' yer awake."
@@ -1341,11 +1376,13 @@ label ch1_Sentinel_attack:
     call show_Character(Laura, x = stage_far_right, sprite_zoom = 1.4*Laura_standing_zoom) from _call_show_Character_9
 
     $ Laura.change_face("furious")
+    $ Laura.change_arms("angry")
 
     "Despite the anger, she looks more haggard than you've ever seen her before."
     ch_Player "Are you o-"
 
     $ Laura.change_face("angry1", eyes = "closed")
+    $ Laura.change_arms("crossed")
 
     "She doesn't stop and pulls you right into a bear hug."
     "Her grip is weaker than usual, but she still manages to squeeze all the air out of your lungs."
@@ -1357,10 +1394,12 @@ label ch1_Sentinel_attack:
     "She holds you in the hug for an entire minute before she's satisfied."
 
     $ Laura.change_face("worried2", blush = 1)
+    $ Laura.change_arms("angry")
 
     pause 1.0
 
     $ Laura.change_face("worried1", eyes = "right", blush = 1)
+    $ Laura.change_arms("hips")
 
     ch_Player "I heard what you did for me. . ."
     ch_Laura "What exactly did they tell you?"
@@ -1375,6 +1414,7 @@ label ch1_Sentinel_attack:
     ch_Player "What was that about?" 
 
     $ Laura.change_face("furious", blush = 2)
+    $ Laura.change_arms("crossed")
 
     ch_Laura "It just seemed. . . the more skin contact we had. . ."
 
@@ -1385,13 +1425,18 @@ label ch1_Sentinel_attack:
     $ Laura.change_face("suspicious2", blush = 1)
 
     ch_Player "So you. . . basically cuddled up next to me. . . with both of us naked." 
+    
+    $ Laura.change_arms("angry")
+
     ch_Laura "Yes. . ."
 
     $ Laura.change_face("angry1", eyes = "right", blush = 1)
+    $ Laura.change_arms("angry", right_arm = "extended")
 
     ch_Laura "I respected your modesty, and nobody actually saw us like that but the doctor. . ." 
 
     $ Laura.change_face("angry1", eyes = "right", blush = 1)
+    $ Laura.change_arms("crossed")
 
     ch_Laura "{size=-5}Plus [Rogue.name] and [Jean.name]{/size}." 
 
@@ -1404,6 +1449,7 @@ label ch1_Sentinel_attack:
     pause 1.0
 
     $ Laura.change_face("angry1", eyes = "right", blush = 1)  
+    $ Laura.change_arms("angry")
 
     ch_Player "I don't know what else to say but thank you." 
     ch_Laura "Shut up. . ."
@@ -1413,8 +1459,12 @@ label ch1_Sentinel_attack:
     ch_Laura ". . . {size=-5}you're welcome{/size}."
 
     $ Laura.change_face("suspicious2")
+    $ Laura.change_arms("angry", left_arm = "extended")
 
     ch_Laura "But you are losing freedom privileges."
+
+    $ Laura.change_arms("crossed")
+
     ch_Player "I'm losing what?"
 
     $ Laura.change_face("angry1")
@@ -1462,10 +1512,12 @@ label ch1_Sentinel_attack:
             $ Laura.History.update("quirk_discouraged")
 
     $ Laura.change_face("neutral")
+    $ Laura.change_arms("hips")
 
     ch_Laura "From now on, you can also expect the intensity of your training to drastically increase."
 
     $ Laura.change_face("angry1")
+    $ Laura.change_arms("angry")
 
     ch_Player "Wait no, I. . ." 
 
@@ -1495,6 +1547,7 @@ label ch1_Sentinel_attack:
     call receive_text(Charles, "I am very glad to hear that you have awakened.") from _call_receive_text_668
 
     $ Laura.change_face("confused1")
+    $ Laura.change_arms("crossed")
 
     call open_texts(Charles) from _call_open_texts_16
     call receive_text(Charles, "Whenever you get a chance, please come to my study.") from _call_receive_text_669
@@ -1511,6 +1564,7 @@ label ch1_Sentinel_attack:
     ch_Player "Sorry, [Laura.name]. [Charles.name] wants to talk." 
 
     $ Laura.change_face("angry1")
+    $ Laura.change_arms("angry")
 
     ch_Player "You should really go recover some more." 
 
@@ -1556,12 +1610,12 @@ label ch1_Sentinel_attack:
 
     ch_Charles "[Player.first_name]! I am very glad to see you in good condition."
 
-    $ Charles.change_face("sad")
+    $ Charles.change_face("worried1", mouth = "smirk")
 
     ch_Charles "We were all quite worried."
     ch_Player "Well thankfully It doesn't seem like I was left with any physical scars." 
 
-    $ Charles.change_face("neutral")
+    $ Charles.change_face("worried1")
 
     ch_Player "Just mental ones I guess. . ."
     ch_Charles "Such is the way of things, unfortunately."
@@ -1569,14 +1623,20 @@ label ch1_Sentinel_attack:
     $ Charles.change_face("confused1")
 
     ch_Charles "Your physical recovery was quite surprising, for the second time, no less."
-    ch_Charles "No doubt thanks to this new 'evolution' of your power."
-    ch_Player "Yeah, what the hell is up with that?"
-    ch_Player "Why do things keep changing?"
+    
+    $ Charles.change_face("confused1", eyes = "squint")
 
+    ch_Charles "No doubt thanks to this new 'evolution' of your power."
+    
     $ Charles.change_face("neutral")
 
+    ch_Player "Yeah, what the hell is up with that?"
+    ch_Player "Why do things keep changing?"
     ch_Charles "I have been discussing this at length with Forge and Beast."
     ch_Charles "There are several possible explanations, but most of them are only theoretical phenomena."
+    
+    $ Charles.change_face("worried1")
+    
     ch_Charles "The most likely explanation is simply the fact that you are quite new to your powers and have not yet been able to explore all of its capabilities."
 
     $ Charles.change_face("sad")
@@ -1585,38 +1645,60 @@ label ch1_Sentinel_attack:
 
     if Player.History.check("ch1_Sentinel_attack_path_1A"):
         ch_Charles "Unfortunately, you are no stranger to duress by now. . ."
+        
+        $ Charles.change_face("worried1")
+
         ch_Charles "I was informed about your actions during the attack from other students who were present."
+        
+        $ Charles.change_face("worried1", mouth = "smirk")
+
         ch_Charles "Your efforts to get your fellow mutants out of harm's way is commendable."
         ch_Charles "I just wish you had not been. . . punished for such bravery. . ."
     elif Player.History.check("ch1_Sentinel_attack_path_1B"):
+        $ Charles.change_face("worried1")
+
         ch_Charles "I have heard, from other students that were present, about your actions in the mall during the attack."
+       
+        $ Charles.change_face("worried1", mouth = "smirk")
+
         ch_Charles "Your efforts to delay and distract the Sentinels are certainly commendable."
         ch_Charles "I just wish you had not been. . . punished for such bravery. . ."
     elif Player.History.check("ch1_Sentinel_attack_path_1C"):
+        $ Charles.change_face("worried1")
+
         ch_Charles "There has been a lot of talk concerning your actions in the mall during the attack."
 
         $ Charles.change_face("confused1")
 
         ch_Charles "You mustn't let your anger fuel your actions." 
+        
+        $ Charles.change_face("worried1", eyes = "right")
+
         ch_Charles "I know too well what can happen to someone when. . . they let anger and hatred control them."
 
-    $ Charles.change_face("neutral")
+    $ Charles.change_face("angry1")
 
     ch_Charles "These 'Sentinels' will not be the last foe you may have to face."
+    
+    $ Charles.change_face("worried1")
+
     ch_Player "Who even are the 'Sentinels', and why the hell would they attack a bunch of college students?!"
-
-    $ Charles.change_face("sad")
-
     ch_Charles "They are a weapon humanity has developed, in their campaign against mutant-kind."
+    
+    $ Charles.change_face("suspicious1")
+    
     ch_Charles "Developed. . . by our own government, no less."
 
     $ Charles.change_face("confused1")
 
     ch_Charles "But to use them in such an underhanded and public manner. . ."
+    
+    $ Charles.change_face("neutral")
+
     ch_Charles "I fear we are reaching a tipping point, as tensions will only continue to rise."
     ch_Player "They're getting desperate. . ."
 
-    $ Charles.change_face("sad")
+    $ Charles.change_face("worried1")
 
     menu:
         extend ""
@@ -1648,12 +1730,9 @@ label ch1_Sentinel_attack:
     ch_Charles "Keep your friends and allies close, [Player.first_name]. We may all need each other in the coming days."
     ch_Player "I will, thanks."
 
-    $ Charles.change_face("confused1")
+    $ Charles.change_face("smirk1")
 
     ch_Player "By the way, the X-Men, are they still around?"
-
-    $ Charles.change_face("neutral")
-
     ch_Charles "I'm afraid not."
     ch_Charles "They departed several weeks ago."
 
@@ -1661,6 +1740,9 @@ label ch1_Sentinel_attack:
 
     ch_Charles "However, Ororo visited your bedside many times, before she was forced to leave."
     ch_Charles "Piotr as well."
+    
+    $ Charles.change_face("smirk2")
+
     ch_Charles "We all care about you very much."
     ch_Player "Thanks for letting me know. . ."
 

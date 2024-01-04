@@ -297,9 +297,9 @@ label Rogue_asked_once_text(context):
         $ dice_pool.append(7)
 
     if dice_roll == 1:
-        call receive_text(Rogue, "Huh?")
+        call receive_text(Rogue, "Huh?") from _call_receive_text_1005
     elif dice_roll == 2:
-        call receive_text(Rogue, f"You're repeatin yourself, {Rogue.Player_petname}")
+        call receive_text(Rogue, f"You're repeatin yourself, {Rogue.Player_petname}") from _call_receive_text_1006
     elif dice_roll == 3:
         call receive_text(Rogue, "Did ya not see my last text?") from _call_receive_text_527
     elif dice_roll == 4:

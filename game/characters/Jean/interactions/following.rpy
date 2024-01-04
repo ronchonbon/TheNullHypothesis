@@ -84,13 +84,13 @@ label Jean_follow_reject:
     return
 
 label Jean_follow_reject_asked_once:
-    call Jean_asked_once("busy")
+    call Jean_asked_once("busy") from _call_Jean_asked_once_8
 
     return
 
 label Jean_follow_reject_asked_twice:
-    call Jean_asked_twice("busy")
-    call Jean_kicking_out
+    call Jean_asked_twice("busy") from _call_Jean_asked_twice_8
+    call Jean_kicking_out from _call_Jean_kicking_out_11
     call getting_kicked_out(Jean) from _call_getting_kicked_out_11
 
     return

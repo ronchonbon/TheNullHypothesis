@@ -257,12 +257,12 @@ label Rogue_summon_reject:
     return
 
 label Rogue_summon_reject_asked_once:
-    call Rogue_asked_once_text("busy")
+    call Rogue_asked_once_text("busy") from _call_Rogue_asked_once_text_1
 
     return
 
 label Rogue_summon_reject_asked_twice:
-    call Rogue_asked_twice_text("busy")
+    call Rogue_asked_twice_text("busy") from _call_Rogue_asked_twice_text_1
 
     return
 
@@ -321,15 +321,15 @@ label Rogue_dismiss_reject:
     return True
 
 label Rogue_dismiss_reject_asked_once:
-    call Rogue_asked_once("dismissing")
+    call Rogue_asked_once("dismissing") from _call_Rogue_asked_once_15
 
     return
 
 label Rogue_dismiss_reject_asked_twice:
-    call Rogue_asked_twice("dismissing")
+    call Rogue_asked_twice("dismissing") from _call_Rogue_asked_twice_8
 
     if Player.location == Rogue.home:
-        call Rogue_kicking_out
+        call Rogue_kicking_out from _call_Rogue_kicking_out_11
         call getting_kicked_out(Rogue) from _call_getting_kicked_out_61
 
     return

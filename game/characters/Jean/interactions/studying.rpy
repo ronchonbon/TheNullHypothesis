@@ -14,13 +14,13 @@ label Jean_reject_study:
     return
 
 label Jean_reject_study_asked_once:
-    call Jean_asked_once("busy")
+    call Jean_asked_once("busy") from _call_Jean_asked_once_11
     
     return
 
 label Jean_reject_study_asked_twice: 
-    call Jean_asked_twice("busy")
-    call Jean_kicking_out       
+    call Jean_asked_twice("busy") from _call_Jean_asked_twice_11
+    call Jean_kicking_out from _call_Jean_kicking_out_17       
     call getting_kicked_out(Jean) from _call_getting_kicked_out_17
 
     return
@@ -38,11 +38,11 @@ label Jean_reject_study_text:
     return
 
 label Jean_reject_study_asked_once_text:
-    call Jean_asked_once_text("busy")
+    call Jean_asked_once_text("busy") from _call_Jean_asked_once_text
 
     return
 
 label Jean_reject_study_asked_twice_text:
-    call Jean_asked_twice_text("busy")
+    call Jean_asked_twice_text("busy") from _call_Jean_asked_twice_text
 
     return

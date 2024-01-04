@@ -527,12 +527,12 @@ label Rogue_greets_Player_knocking_reject(welcoming_Characters):
     return
 
 label Rogue_greets_Player_knocking_reject_asked_once:
-    call Rogue_asked_once("knocking")
+    call Rogue_asked_once("knocking") from _call_Rogue_asked_once_12
 
     return
 
 label Rogue_greets_Player_knocking_reject_asked_twice:
-    call Rogue_asked_twice("knocking")
+    call Rogue_asked_twice("knocking") from _call_Rogue_asked_twice_5
     
     return
 
@@ -553,12 +553,12 @@ label Rogue_greets_Player_knocking_late:
     return
 
 label Rogue_greets_Player_knocking_late_asked_once:
-    call Rogue_asked_once("knocking")
+    call Rogue_asked_once("knocking") from _call_Rogue_asked_once_13
 
     return
 
 label Rogue_greets_Player_knocking_late_asked_twice:
-    call Rogue_asked_twice("knocking")
+    call Rogue_asked_twice("knocking") from _call_Rogue_asked_twice_6
     
     return
 

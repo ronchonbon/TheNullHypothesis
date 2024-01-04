@@ -108,15 +108,15 @@ label Rogue_busy_relationship:
     return
 
 label Rogue_busy_asked_once:
-    call Rogue_asked_once("repeating")
+    call Rogue_asked_once("repeating") from _call_Rogue_asked_once_5
 
     return
 
 label Rogue_busy_asked_twice:
-    call Rogue_asked_once("repeating")
+    call Rogue_asked_once("repeating") from _call_Rogue_asked_once_6
 
     if Player.location == Rogue.location:
-        call Rogue_kicking_out
+        call Rogue_kicking_out from _call_Rogue_kicking_out_7
         call getting_kicked_out(Rogue) from _call_getting_kicked_out_51
 
     return
@@ -130,15 +130,15 @@ label Rogue_busy_late:
     return
 
 label Rogue_busy_late_asked_once:
-    call Rogue_asked_once("late")
+    call Rogue_asked_once("late") from _call_Rogue_asked_once_7
 
     return
 
 label Rogue_busy_late_asked_twice:
-    call Rogue_asked_once("late")
+    call Rogue_asked_once("late") from _call_Rogue_asked_once_8
     
     if Player.location == Rogue.location:
-        call Rogue_kicking_out
+        call Rogue_kicking_out from _call_Rogue_kicking_out_8
         call getting_kicked_out(Rogue) from _call_getting_kicked_out_52
 
     return

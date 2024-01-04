@@ -67,7 +67,7 @@ label Rogue_follow_reject:
     return
 
 label Rogue_follow_reject_asked_once:
-    call Rogue_asked_once("busy")
+    call Rogue_asked_once("busy") from _call_Rogue_asked_once_11
 
     return
 

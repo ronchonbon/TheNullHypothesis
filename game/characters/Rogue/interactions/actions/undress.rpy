@@ -35,7 +35,7 @@ label Rogue_rejects_show_bra:
     return
 
 label Rogue_rejects_show_bra_asked_once:
-    call Rogue_asked_once("showing")
+    call Rogue_asked_once("showing") from _call_Rogue_asked_once_1
 
     if renpy.random.random() > 0.5:
         ch_Rogue "Yer not seein' my bra."
@@ -43,8 +43,8 @@ label Rogue_rejects_show_bra_asked_once:
     return
 
 label Rogue_rejects_show_bra_asked_twice:
-    call Rogue_asked_twice("showing")
-    call Rogue_kicking_out
+    call Rogue_asked_twice("showing") from _call_Rogue_asked_twice_1
+    call Rogue_kicking_out from _call_Rogue_kicking_out_1
     call getting_kicked_out(Rogue) from _call_getting_kicked_out_45
 
     return
@@ -194,13 +194,13 @@ label Rogue_rejects_show_underwear:
     return
 
 label Rogue_rejects_show_underwear_asked_once:
-    call Rogue_asked_once("showing")
+    call Rogue_asked_once("showing") from _call_Rogue_asked_once_2
 
     return
 
 label Rogue_rejects_show_underwear_asked_twice:
-    call Rogue_asked_twice("showing")
-    call Rogue_kicking_out
+    call Rogue_asked_twice("showing") from _call_Rogue_asked_twice_2
+    call Rogue_kicking_out from _call_Rogue_kicking_out_2
     call getting_kicked_out(Rogue) from _call_getting_kicked_out_46
 
     return
@@ -373,13 +373,13 @@ label Rogue_rejects_show_breasts:
     return
 
 label Rogue_rejects_show_breasts_asked_once:
-    call Rogue_asked_once("showing")
+    call Rogue_asked_once("showing") from _call_Rogue_asked_once_3
 
     return
 
 label Rogue_rejects_show_breasts_asked_twice:
-    call Rogue_asked_twice("showing")
-    call Rogue_kicking_out
+    call Rogue_asked_twice("showing") from _call_Rogue_asked_twice_3
+    call Rogue_kicking_out from _call_Rogue_kicking_out_3
     call getting_kicked_out(Rogue) from _call_getting_kicked_out_47
 
     return
@@ -532,13 +532,13 @@ label Rogue_rejects_show_pussy:
     return
 
 label Rogue_rejects_show_pussy_asked_once:
-    call Rogue_asked_once("showing")
+    call Rogue_asked_once("showing") from _call_Rogue_asked_once_4
 
     return
 
 label Rogue_rejects_show_pussy_asked_twice:      
-    call Rogue_asked_twice("showing")
-    call Rogue_kicking_out
+    call Rogue_asked_twice("showing") from _call_Rogue_asked_twice_4
+    call Rogue_kicking_out from _call_Rogue_kicking_out_4
     call getting_kicked_out(Rogue) from _call_getting_kicked_out_48
 
     return
@@ -672,7 +672,7 @@ label Rogue_rejects_give_bra_asked_once:
     return
 
 label Rogue_rejects_give_bra_asked_twice:        
-    call Rogue_kicking_out
+    call Rogue_kicking_out from _call_Rogue_kicking_out_5
     call getting_kicked_out(Rogue) from _call_getting_kicked_out_49
 
     return
@@ -718,7 +718,7 @@ label Rogue_rejects_give_underwear_asked_once:
     return
 
 label Rogue_rejects_give_underwear_asked_twice:  
-    call Rogue_kicking_out      
+    call Rogue_kicking_out from _call_Rogue_kicking_out_6      
     call getting_kicked_out(Rogue) from _call_getting_kicked_out_50
 
     return

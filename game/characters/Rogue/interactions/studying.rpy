@@ -13,13 +13,13 @@ label Rogue_reject_study:
     return
 
 label Rogue_reject_study_asked_once:
-    call Rogue_asked_once("busy")
+    call Rogue_asked_once("busy") from _call_Rogue_asked_once_14
 
     return
 
 label Rogue_reject_study_asked_twice:
-    call Rogue_asked_twice("busy")
-    call Rogue_kicking_out
+    call Rogue_asked_twice("busy") from _call_Rogue_asked_twice_7
+    call Rogue_kicking_out from _call_Rogue_kicking_out_10
     call getting_kicked_out(Rogue) from _call_getting_kicked_out_60
 
     return
@@ -62,11 +62,11 @@ label Rogue_reject_study_text:
     return
 
 label Rogue_reject_study_asked_once_text:
-    call Rogue_asked_once_text("busy")
+    call Rogue_asked_once_text("busy") from _call_Rogue_asked_once_text
 
     return
 
 label Rogue_reject_study_asked_twice_text:
-    call Rogue_asked_twice_text("busy")
+    call Rogue_asked_twice_text("busy") from _call_Rogue_asked_twice_text
 
     return

@@ -258,12 +258,12 @@ label Jean_summon_reject:
     return
 
 label Jean_summon_reject_asked_once:
-    call Jean_asked_once_text("busy")
+    call Jean_asked_once_text("busy") from _call_Jean_asked_once_text_1
 
     return
 
 label Jean_summon_reject_asked_twice:
-    call Jean_asked_twice_text("busy")
+    call Jean_asked_twice_text("busy") from _call_Jean_asked_twice_text_1
 
     return
 
@@ -339,7 +339,7 @@ label Jean_dismiss_reject:
     return True
 
 label Jean_dismiss_reject_asked_once:
-    call Jean_asked_once("dismissing")
+    call Jean_asked_once("dismissing") from _call_Jean_asked_once_12
     
     return
 
@@ -347,13 +347,13 @@ label Jean_dismiss_reject_asked_twice:
     if Player.location == Jean.home and renpy.random.random() > 0.5:
         ch_Jean "{i}You{/i} get out!"
         
-        call getting_kicked_out(Jean)
+        call getting_kicked_out(Jean) from _call_getting_kicked_out_18
     else:
-        call Jean_asked_twice("dismissing")
+        call Jean_asked_twice("dismissing") from _call_Jean_asked_twice_12
 
         if Player.location == Jean.home:
-            call Jean_kicking_out
-            call getting_kicked_out(Jean)
+            call Jean_kicking_out from _call_Jean_kicking_out_18
+            call getting_kicked_out(Jean) from _call_getting_kicked_out_65
 
     return
 

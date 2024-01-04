@@ -175,13 +175,13 @@ label Laura_change_Outfit_reject:
     return
     
 label Laura_change_Outfit_reject_asked_once:
-    call Laura_asked_once("changing")
+    call Laura_asked_once("changing") from _call_Laura_asked_once_7
 
     return
     
 label Laura_change_Outfit_reject_asked_twice:
-    call Laura_asked_twice("changing")
-    call Laura_kicking_out
+    call Laura_asked_twice("changing") from _call_Laura_asked_twice_7
+    call Laura_kicking_out from _call_Laura_kicking_out_9
     call getting_kicked_out(Laura) from _call_getting_kicked_out_31
 
     return
@@ -247,7 +247,7 @@ label Laura_rejected_Clothing_twice:
 
         ch_Laura "Not. Cute."
         
-    call Laura_kicking_out
+    call Laura_kicking_out from _call_Laura_kicking_out_10
     call getting_kicked_out(Laura) from _call_getting_kicked_out_32
 
     return

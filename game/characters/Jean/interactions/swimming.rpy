@@ -7,13 +7,13 @@ label Jean_reject_swim:
     return
 
 label Jean_reject_swim_asked_once:
-    call Jean_asked_once("busy")
+    call Jean_asked_once("busy") from _call_Jean_asked_once_13
     
     return
 
 label Jean_reject_swim_asked_twice:  
-    call Jean_asked_twice("busy")
-    call Jean_kicking_out      
+    call Jean_asked_twice("busy") from _call_Jean_asked_twice_13
+    call Jean_kicking_out from _call_Jean_kicking_out_19      
     call getting_kicked_out(Jean) from _call_getting_kicked_out_19
 
     return
@@ -38,13 +38,13 @@ label Jean_reject_sunbathe:
     return
 
 label Jean_reject_sunbathe_asked_once:
-    call Jean_asked_once("busy")
+    call Jean_asked_once("busy") from _call_Jean_asked_once_14
     
     return
 
 label Jean_reject_sunbathe_asked_twice:
-    call Jean_asked_twice("busy")
-    call Jean_kicking_out
+    call Jean_asked_twice("busy") from _call_Jean_asked_twice_14
+    call Jean_kicking_out from _call_Jean_kicking_out_20
     call getting_kicked_out(Jean) from _call_getting_kicked_out_20
 
     return

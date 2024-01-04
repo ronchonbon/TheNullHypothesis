@@ -48,13 +48,13 @@ label Jean_rejects_show_bra:
     return
 
 label Jean_rejects_show_bra_asked_once:
-    call Jean_asked_once("showing")
+    call Jean_asked_once("showing") from _call_Jean_asked_once_1
 
     return
 
 label Jean_rejects_show_bra_asked_twice:
-    call Jean_asked_twice("showing")   
-    call Jean_kicking_out
+    call Jean_asked_twice("showing") from _call_Jean_asked_twice_1   
+    call Jean_kicking_out from _call_Jean_kicking_out_1
     call getting_kicked_out(Jean) from _call_getting_kicked_out_1
 
     return
@@ -244,13 +244,13 @@ label Jean_rejects_show_underwear:
     return
 
 label Jean_rejects_show_underwear_asked_once:
-    call Jean_asked_once("showing")
+    call Jean_asked_once("showing") from _call_Jean_asked_once_2
 
     return
 
 label Jean_rejects_show_underwear_asked_twice:  
-    call Jean_asked_twice("showing")     
-    call Jean_kicking_out
+    call Jean_asked_twice("showing") from _call_Jean_asked_twice_2     
+    call Jean_kicking_out from _call_Jean_kicking_out_2
     call getting_kicked_out(Jean) from _call_getting_kicked_out_2
 
     return
@@ -484,13 +484,13 @@ label Jean_rejects_show_breasts:
     return
 
 label Jean_rejects_show_breasts_asked_once:
-    call Jean_asked_once("showing")
+    call Jean_asked_once("showing") from _call_Jean_asked_once_3
 
     return
 
 label Jean_rejects_show_breasts_asked_twice:
-    call Jean_asked_twice("showing")     
-    call Jean_kicking_out
+    call Jean_asked_twice("showing") from _call_Jean_asked_twice_3     
+    call Jean_kicking_out from _call_Jean_kicking_out_3
     call getting_kicked_out(Jean) from _call_getting_kicked_out_3
 
     return
@@ -648,13 +648,13 @@ label Jean_rejects_show_pussy:
     return
 
 label Jean_rejects_show_pussy_asked_once:
-    call Jean_asked_once("showing")
+    call Jean_asked_once("showing") from _call_Jean_asked_once_4
 
     return
 
 label Jean_rejects_show_pussy_asked_twice:
-    call Jean_asked_twice("showing")     
-    call Jean_kicking_out
+    call Jean_asked_twice("showing") from _call_Jean_asked_twice_4     
+    call Jean_kicking_out from _call_Jean_kicking_out_4
     call getting_kicked_out(Jean) from _call_getting_kicked_out_4
 
     return
@@ -819,7 +819,7 @@ label Jean_rejects_give_bra_asked_once:
     return
 
 label Jean_rejects_give_bra_asked_twice:  
-    call Jean_kicking_out      
+    call Jean_kicking_out from _call_Jean_kicking_out_5      
     call getting_kicked_out(Jean) from _call_getting_kicked_out_5
 
     return
@@ -865,7 +865,7 @@ label Jean_rejects_give_underwear_asked_once:
     return
 
 label Jean_rejects_give_underwear_asked_twice: 
-    call Jean_kicking_out       
+    call Jean_kicking_out from _call_Jean_kicking_out_6       
     call getting_kicked_out(Jean) from _call_getting_kicked_out_6
 
     return

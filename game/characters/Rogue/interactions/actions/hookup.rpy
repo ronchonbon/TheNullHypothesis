@@ -106,13 +106,13 @@ label Rogue_accepts_hookup_love:
     return
 
 label Rogue_rejects_Action_asked_once:
-    call Rogue_asked_once("sex")
+    call Rogue_asked_once("sex") from _call_Rogue_asked_once
 
     return
 
 label Rogue_rejects_Action_asked_twice:
-    call Rogue_asked_twice("sex")
-    call Rogue_kicking_out
+    call Rogue_asked_twice("sex") from _call_Rogue_asked_twice
+    call Rogue_kicking_out from _call_Rogue_kicking_out
     call getting_kicked_out(Rogue) from _call_getting_kicked_out_44
 
     return

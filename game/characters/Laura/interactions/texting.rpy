@@ -113,12 +113,12 @@ label Laura_text_how_are_you_late_reject:
     return
 
 label Laura_text_how_are_you_late_reject_asked_once:
-    call Laura_asked_once_text("late")
+    call Laura_asked_once_text("late") from _call_Laura_asked_once_text_2
 
     return
 
 label Laura_text_how_are_you_late_reject_asked_twice:
-    call Laura_asked_once_text("late")
+    call Laura_asked_once_text("late") from _call_Laura_asked_once_text_3
     
     return
 

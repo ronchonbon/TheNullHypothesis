@@ -113,12 +113,12 @@ label Rogue_text_how_are_you_late_reject:
     return
 
 label Rogue_text_how_are_you_late_reject_asked_once:
-    call Rogue_asked_once_text("late")
+    call Rogue_asked_once_text("late") from _call_Rogue_asked_once_text_2
 
     return
 
 label Rogue_text_how_are_you_late_reject_asked_twice:
-    call Rogue_asked_twice_text("late")
+    call Rogue_asked_twice_text("late") from _call_Rogue_asked_twice_text_2
     
     return
 

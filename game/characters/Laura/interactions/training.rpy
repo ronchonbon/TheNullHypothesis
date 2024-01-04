@@ -23,13 +23,13 @@ label Laura_reject_train:
     return
 
 label Laura_reject_train_asked_once:
-    call Laura_asked_once("busy")
+    call Laura_asked_once("busy") from _call_Laura_asked_once_15
     
     return
 
 label Laura_reject_train_asked_twice:
-    call Laura_asked_twice("busy")
-    call Laura_kicking_out
+    call Laura_asked_twice("busy") from _call_Laura_asked_twice_15
+    call Laura_kicking_out from _call_Laura_kicking_out_18
     call getting_kicked_out(Laura) from _call_getting_kicked_out_43
 
     return
@@ -83,11 +83,11 @@ label Laura_reject_train_text:
     return
 
 label Laura_reject_train_asked_once_text:
-    call Laura_asked_once_text("busy")
+    call Laura_asked_once_text("busy") from _call_Laura_asked_once_text_4
     
     return
 
 label Laura_reject_train_asked_twice_text:
-    call Laura_asked_twice_text("busy")
+    call Laura_asked_twice_text("busy") from _call_Laura_asked_twice_text_2
 
     return

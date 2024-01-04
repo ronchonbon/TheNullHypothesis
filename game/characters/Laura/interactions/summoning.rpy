@@ -241,12 +241,12 @@ label Laura_summon_reject:
     return
 
 label Laura_summon_reject_asked_once:
-    call Laura_asked_once_text("busy")
+    call Laura_asked_once_text("busy") from _call_Laura_asked_once_text_1
 
     return
 
 label Laura_summon_reject_asked_twice:
-    call Laura_asked_twice_text("busy")
+    call Laura_asked_twice_text("busy") from _call_Laura_asked_twice_text_1
 
     return
 
@@ -310,15 +310,15 @@ label Laura_dismiss_reject:
     return True
 
 label Laura_dismiss_reject_asked_once:
-    call Laura_asked_once("dismissing")
+    call Laura_asked_once("dismissing") from _call_Laura_asked_once_12
     
     return
 
 label Laura_dismiss_reject_asked_twice:
-    call Laura_asked_twice("dismissing")
+    call Laura_asked_twice("dismissing") from _call_Laura_asked_twice_12
     
     if Player.location == Laura.home:
-        call Laura_kicking_out
+        call Laura_kicking_out from _call_Laura_kicking_out_15
         call getting_kicked_out(Laura) from _call_getting_kicked_out_40
 
     return

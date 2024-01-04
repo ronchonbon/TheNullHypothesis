@@ -69,13 +69,13 @@ label Laura_follow_reject:
     return
 
 label Laura_follow_reject_asked_once:
-    call Laura_asked_once("busy")
+    call Laura_asked_once("busy") from _call_Laura_asked_once_8
 
     return
 
 label Laura_follow_reject_asked_twice:
-    call Laura_asked_twice("busy")
-    call Laura_kicking_out
+    call Laura_asked_twice("busy") from _call_Laura_asked_twice_8
+    call Laura_kicking_out from _call_Laura_kicking_out_11
     call getting_kicked_out(Laura) from _call_getting_kicked_out_33
 
     return

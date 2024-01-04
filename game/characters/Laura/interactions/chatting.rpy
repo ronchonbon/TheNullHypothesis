@@ -173,15 +173,15 @@ label Laura_busy_relationship:
     return
 
 label Laura_busy_asked_once:
-    call Laura_asked_once("busy")
+    call Laura_asked_once("busy") from _call_Laura_asked_once_5
 
     return
 
 label Laura_busy_asked_twice:
-    call Laura_asked_twice("busy")
+    call Laura_asked_twice("busy") from _call_Laura_asked_twice_5
 
     if Player.location == Laura.location:
-        call Laura_kicking_out
+        call Laura_kicking_out from _call_Laura_kicking_out_7
         call getting_kicked_out(Laura) from _call_getting_kicked_out_29
 
     return
@@ -193,15 +193,15 @@ label Laura_busy_late:
     return
 
 label Laura_busy_late_asked_once:
-    call Laura_asked_once("late")
+    call Laura_asked_once("late") from _call_Laura_asked_once_6
 
     return
 
 label Laura_busy_late_asked_twice:
-    call Laura_asked_twice("late")
+    call Laura_asked_twice("late") from _call_Laura_asked_twice_6
     
     if Player.location == Laura.location:
-        call Laura_kicking_out
+        call Laura_kicking_out from _call_Laura_kicking_out_8
         call getting_kicked_out(Laura) from _call_getting_kicked_out_30
     
     return

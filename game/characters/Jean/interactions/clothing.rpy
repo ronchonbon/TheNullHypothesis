@@ -226,13 +226,13 @@ label Jean_change_Outfit_reject:
     return
     
 label Jean_change_Outfit_reject_asked_once:
-    call Jean_asked_once("changing")
+    call Jean_asked_once("changing") from _call_Jean_asked_once_7
 
     return
     
 label Jean_change_Outfit_reject_asked_twice:
-    call Jean_asked_twice("changing")
-    call Jean_kicking_out
+    call Jean_asked_twice("changing") from _call_Jean_asked_twice_7
+    call Jean_kicking_out from _call_Jean_kicking_out_9
     call getting_kicked_out(Jean) from _call_getting_kicked_out_9
 
     return
@@ -303,7 +303,7 @@ label Jean_rejected_Clothing_twice:
 
         ch_Jean "What the hell, [Player.first_name]?"
         
-    call Jean_kicking_out
+    call Jean_kicking_out from _call_Jean_kicking_out_10
     call getting_kicked_out(Jean) from _call_getting_kicked_out_10
 
     return

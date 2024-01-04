@@ -188,7 +188,7 @@ label Jean_greets_Player_mad:
 
         ch_Jean "I can't be around you right now. . ."
 
-        call Jean_kicking_out
+        call Jean_kicking_out from _call_Jean_kicking_out_12
         call getting_kicked_out(Jean) from _call_getting_kicked_out_12
     elif dice_roll == 2:
         $ Jean.change_face("angry1")

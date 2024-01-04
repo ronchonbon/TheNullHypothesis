@@ -212,15 +212,20 @@ label ch1_mutant_hate:
     ch_Player "Ya'know, I'm starting to get used to that." 
 
     $ Kurt.change_face("sad")
+    $ Kurt.change_arms("shrug")
 
     ch_Kurt "I am becoming too predictable?"
 
-    $ Kurt.change_face("stunned")
+    $ Kurt.change_face("worried3")
+    $ Kurt.change_arms("crossed")
 
     ch_Player "Heh, just a bit."
+
+    $ Kurt.change_face("angry1", eyes = "right", mouth = "smirk")
+
     ch_Kurt "{size=-5}Scheiße. . .{/size}"
 
-    $ Kurt.change_face("neutral")
+    $ Kurt.change_face("confused1", mouth = "smirk")
 
     ch_Kurt "Just follow me, Bruder."
     "[Kurt.name] leads the way."
@@ -233,8 +238,13 @@ label ch1_mutant_hate:
     ch_Player "You're not just gonna poof us into town?" 
 
     $ Kurt.change_face("happy")
+    $ Kurt.change_arms("shrug")
 
     ch_Kurt "Where is zee fun in that?"
+
+    $ Kurt.change_face("smirk2")
+    $ Kurt.change_arms("neutral")
+
     ch_Kurt "It's nice to actually walk somevere for a change."
 
     $ Kurt.change_face("neutral")
@@ -269,23 +279,26 @@ label ch1_mutant_hate:
 
     ch_Player "C'mon man, it's not that cold out."
 
-    $ Kurt.change_face("sad")
+    $ Kurt.change_face("worried1")
+    $ Kurt.change_arms("crossed")
 
     if Player.check_traits("visible_mutation"):
         ch_Kurt "Put yours up too, mein Bruder."
         ch_Kurt "Zee harassment has only been getting worse lately. . ."
 
-        $ Kurt.change_face("neutral")
+        $ Kurt.change_face("neutral", eyes = "right")
 
         "You know he's right and put your hood up as well."
     else:
         ch_Kurt "I'm not cold."
         ch_Kurt "Zee harassment has only been getting worse lately. . ." 
 
-        $ Kurt.change_face("neutral")
+        $ Kurt.change_face("neutral", eyes = "right")
 
         ch_Player "It's gotten that bad?"
         ch_Kurt "Much worse. . ."
+
+    $ Kurt.change_arms("neutral", mouth = "frown")
 
     "You both continue on, [Kurt.name] leading the way since he's been to the comic book store before."
 
@@ -305,9 +318,17 @@ label ch1_mutant_hate:
     ch_Player "Can you hear that?"
 
     $ Kurt.change_face("confused1")
+    $ Kurt.change_arms("sheepish", right_arm = "neutral")
 
     ch_Kurt "Nein."
+
+    $ Kurt.change_arms("sheepish", left_arm = "neutral")
+
     ch_Kurt "Your hearing has gotten quite good. . ."
+
+    $ Kurt.change_face("worried1")
+    $ Kurt.change_arms("neutral")
+
     ch_Player "It sounds like a bunch of people shouting."
     "The shouting only gets louder, and eventually you see a large gathering down the road. . ."
     
@@ -325,20 +346,22 @@ label ch1_mutant_hate:
     ch_protest_leader "Mutants are a cancer to our society!"
     ch_protest_leader "They are an affront to god! Malformations, created by the devil himself to spit in the face of all that is holy!"
 
-    $ Kurt.change_face("angry1")
+    $ Kurt.change_face("angry1", eyes = "right")
+    $ Kurt.change_arms("angry")
 
     "[Kurt.name] becomes visibly upset by these remarks, and you see him shake as he tries to reel in his emotions."
 
-    $ Kurt.change_face("sad")
+    $ Kurt.change_face("furious", eyes = "right")
 
     menu:
         extend ""
         "I'm not happy either. We have to be better than people like this. (determined)": 
-            $ Kurt.change_face("neutral")
+            $ Kurt.change_face("worried1", mouth = "smirk")
 
             ch_Kurt "You are right, vee must be better." 
             
             $ Kurt.change_face("happy") 
+            $ Kurt.change_arms("neutral", right_arm = "extended")
             
             ch_Kurt "Heh, zey make it quite easy to do so. . ."
 
@@ -346,7 +369,8 @@ label ch1_mutant_hate:
         "I. . . don't understand why they hate us so much. . . (reluctant)":
             ch_Player ". . . just for existing." 
             
-            $ Kurt.change_face("neutral")
+            $ Kurt.change_face("worried1") 
+            $ Kurt.change_arms("neutral", right_arm = "extended")
 
             ch_Kurt "Zey are just sad people, looking for a scapegoat." 
             ch_Kurt "It iz not personal."
@@ -355,7 +379,8 @@ label ch1_mutant_hate:
         "What the fuck is wrong with these people? (bitter)":
             ch_Player "If they start messing with mutants. . . they deserve the consequences." 
             
-            $ Kurt.change_face("angry1")
+            $ Kurt.change_face("angry1") 
+            $ Kurt.change_arms("crossed")
 
             ch_Kurt "I am upset too, mein Bruder." 
             
@@ -365,7 +390,8 @@ label ch1_mutant_hate:
 
             $ Player.History.update("Bitter")
 
-    $ Kurt.change_face("neutral")
+    $ Kurt.change_face("neutral", eyes = "right")
+    $ Kurt.change_arms("neutral")
 
     show expression "images/backgrounds/ch1/bg_ch1_town_mob2.webp" as mob onlayer master zorder 4:
         subpixel True
@@ -384,16 +410,25 @@ label ch1_mutant_hate:
     ch_protest_leader "Mutants are inhuman abominations! They do not deserve the rights granted to us by god!"
     "As the crowd draws near, you notice some of them have weapons. . ."
 
-    $ Kurt.change_face("angry1")
+    $ Kurt.change_face("angry1", eyes = "right")
+    $ Kurt.change_arms("angry")
 
     ch_Player "Maybe we should go a different way. . ."
     "[Kurt.name] doesn't seem to hear you and keeps walking, trying to ignore them."
     "The sermonic tone of the protest leader takes a sharp turn, and his true feelings of hate and revulsion against mutants becomes abundantly clear."
     "His voice becomes hushed, and the entire crowd is silent, in rapt attention."
     ch_protest_leader "Man, woman, or child. They are all equally disgusting."
+    
+    $ Kurt.change_face("furious", eyes = "right")
+    $ Kurt.change_arms("angry")
+
     ch_protest_leader "They are less than human, yet think they are better than us because of it. God weeps due to their continued existence."
     ch_protest_leader "We must purge their kind from our world."
     "With each sentence, his zeal only deepens."
+    
+    $ Kurt.change_face("worried1", eyes = "right")
+    $ Kurt.change_arms("crossed")
+
     ch_Kurt "{size=-5}Unglaublich{/size}. . . using religion as an excuse for bigotry."
     "You tense up and hope nobody overheard what [Kurt.name] just said."
     "Thankfully, the mob is too distracted by their leader's words, but, unfortunately, so is [Kurt.name]."
@@ -411,14 +446,21 @@ label ch1_mutant_hate:
 
     pause 1.0
 
-    $ Kurt.change_face("surprised1")
+    $ Kurt.change_face("surprised2", eyes = "up")
+    $ Kurt.change_arms("sheepish", right_arm = "neutral")
 
     "He snaps out of it and quickly puts the hood back up."
 
     play music "sounds/music/Once and for All.ogg" fadeout 1.0
 
+    $ Kurt.change_face("worried3", eyes = "right")
+    $ Kurt.change_arms("angry")
+
     ch_protester "HEY! LOOK, A FUCKING MUTIE!"
     ch_Kurt "{size=-5}Scheiße{/size}. . ."
+
+    $ Kurt.change_face("worried2", eyes = "right") 
+
     ch_protester "You think you can just watch from the fucking sidelines like you're better than us?"
     "The entire crowd turns their attention to you and [Kurt.name]."
     "They start surrounding you."
@@ -431,12 +473,18 @@ label ch1_mutant_hate:
 
     with dissolve
 
+    $ Kurt.change_face("worried2")
+
     ch_Player "[Kurt.name]! We need to go, now."
+
+    $ Kurt.change_face("worried2", eyes = "right") 
+
     ch_protest_leader "The audacity."
     ch_protest_leader "Let's make an example out of them. . ." 
     "The closest ones brandish their weapons and tentatively move towards you both."
 
-    $ Kurt.change_face("sad")
+    $ Kurt.change_face("angry1")
+    $ Kurt.change_arms("angry", left_arm = "extended")
 
     "You can hear footsteps behind you as well."
     ch_Kurt "[Player.first_name], take my ha. . ."
@@ -450,6 +498,8 @@ label ch1_mutant_hate:
     with faster_dissolve
 
     ch_Player "Watch out!"
+
+    $ Kurt.change_face("surprised3") 
 
     show expression "images/effects/crack.webp" as crack onlayer effects:
         anchor (0.5, 0.5) pos (0.5, 0.5)
@@ -639,9 +689,13 @@ label ch1_mutant_hate:
 
     call Kurt_teleports_in from _call_Kurt_teleports_in_7
 
-    $ Kurt.change_face("surprised1")
+    $ Kurt.change_face("surprised2") 
+    $ Kurt.change_arms("angry")
 
     ch_Kurt "Heilige scheiße. . ."
+
+    $ Kurt.change_face("worried1") 
+
     ch_Kurt "Are you. . . okay?"
     "You feel exhausted, and as you look down at yourself, you feel the stab wound slowly finish closing up."
     ch_Player "Physically? Yes."
@@ -649,6 +703,9 @@ label ch1_mutant_hate:
     $ Kurt.change_face("sad")
 
     ch_Player "Mentally? Not so much. . ."
+
+    $ Kurt.change_arms("neutral", left_arm = "extended")
+
     ch_Kurt "Bruder, we have to go."
     "[Kurt.name] tentatively walks over to you and puts a hand on your shoulder."
     ch_Player "Yeah. . . let's go."
@@ -684,7 +741,8 @@ label ch1_mutant_hate:
 
     call add_Characters(Kurt) from _call_add_Characters_76
 
-    $ Kurt.change_face("neutral")
+    $ Kurt.change_face("worried1", mouth = "smirk") 
+    $ Kurt.change_arms("neutral")
 
     ch_Kurt "Let zee doctor check you over, I'll tell Xavier vat happened."
     ch_Player "Okay, thanks man."
@@ -726,7 +784,8 @@ label ch1_mutant_hate:
 
     call send_Characters(Laura, "bg_infirmary", behavior = False) from _call_send_Characters_219
 
-    $ Laura.change_face("angry1")
+    $ Laura.change_face("angry1") 
+    $ Laura.change_arms("angry")
 
     ch_Cecilia "I'll give you two some privacy. . ."
 
@@ -735,17 +794,20 @@ label ch1_mutant_hate:
     ch_Laura "I knew it, I could smell you."
     ch_Player "H-"
 
-    $ Laura.change_face("furious", blush = 1)
+    $ Laura.change_face("furious", blush = 1) 
+    $ Laura.change_arms("hips")
 
     ch_Laura "Shirt off, now."
     ch_Player "Wait what?!"
 
-    $ Laura.change_face("suspicious1", blush = 1)
+    $ Laura.change_face("suspicious1", blush = 1) 
+    $ Laura.change_arms("hips", left_arm = "extended")
 
     ch_Laura "I smell blood."
     ch_Laura "You are injured." 
 
-    $ Laura.change_face("suspicious2", blush = 1)
+    $ Laura.change_face("suspicious2", blush = 1) 
+    $ Laura.change_arms("hips")
 
     ch_Laura "Shirt. Off."
 
@@ -754,7 +816,8 @@ label ch1_mutant_hate:
         "Fine. . . (encourage_quirk)":
             ch_Player "But the doctor said I was okay. . ." 
             
-            $ Laura.change_face("angry1", blush = 1)
+            $ Laura.change_face("angry1", blush = 1) 
+            $ Laura.change_arms("crossed")
 
             ch_Laura "I will make sure of that myself."
 
@@ -767,10 +830,13 @@ label ch1_mutant_hate:
             "She closely inspects your body to look for injuries."
             "So she says. . ."
 
+            $ Laura.change_arms("angry", left_arm = "extended")
+
             ch_Laura "Right here." 
             "She touches the exact spot where you got stabbed."
 
             $ Laura.change_face("angry1", eyes = "squint", blush = 1)
+            $ Laura.change_arms("angry")
 
             ch_Laura "I know you were injured, your power must've healed it."
 
@@ -786,6 +852,7 @@ label ch1_mutant_hate:
             ch_Player "The doctor said I was okay." 
             
             $ Laura.change_face("angry1")
+            $ Laura.change_arms("crossed")
 
             ch_Laura "Fine." 
             ch_Laura "But you are going to explain exactly what happened."
@@ -793,10 +860,12 @@ label ch1_mutant_hate:
             $ Laura.History.update("quirk_discouraged")
 
     $ Laura.change_face("confused1")
+    $ Laura.change_arms("crossed")
 
     "You tell her what happened, how you got stabbed, and how things ended up."
 
     $ Laura.change_face("appalled1")
+    $ Laura.change_arms("angry")
 
     ch_Laura "Good, they got what they fucking deserved for hurting you. . ."
 
@@ -824,6 +893,9 @@ label ch1_mutant_hate:
             $ Laura.change_face("suspicious2") 
             
             ch_Laura "You tie your emotions too strongly to it." 
+            
+            $ Laura.change_arms("hips")
+
             ch_Laura "Were you expecting pity?"
 
             $ Player.History.update("Reluctant")
@@ -842,6 +914,7 @@ label ch1_mutant_hate:
             $ Player.History.update("Bitter")
 
     $ Laura.change_face("angry1")
+    $ Laura.change_arms("crossed")
 
     ch_Laura "Either way, expect your training to become even more difficult."
 
@@ -851,6 +924,7 @@ label ch1_mutant_hate:
     ch_Laura "Of course it's possible."
 
     $ Laura.change_face("neutral")
+    $ Laura.change_arms("hips")
 
     if Laura.History.check("quirk_encouraged") >= Laura.History.check("quirk_discouraged"):
         ch_Laura "From now on, you're letting me know before you leave campus."
@@ -861,6 +935,7 @@ label ch1_mutant_hate:
         ch_Laura "{i}You{/i} are my number one priority. I will not let you get hurt again." 
 
         $ Laura.change_face("furious", eyes = "right", blush = 1)
+        $ Laura.change_arms("angry")
 
         ch_Player "I. . . wait, 'number one priority'?" 
 
@@ -873,6 +948,7 @@ label ch1_mutant_hate:
         ch_Laura "And, you {i}will{/i} stop getting hurt." 
 
         $ Laura.change_face("suspicious2")
+        $ Laura.change_arms("angry")
 
         ch_Player "It's not like I do it on purpose. . ."
 
@@ -906,6 +982,7 @@ label ch1_mutant_hate:
     call send_Characters(Jean, "bg_campus", behavior = False) from _call_send_Characters_220
 
     $ Jean.change_face("worried3")
+    $ Jean.change_arms("angry")
 
     $ temp = Jean.Player_petname.capitalize()
 
@@ -933,6 +1010,7 @@ label ch1_mutant_hate:
                 "An angry mob of normal people just tried to murder you."
 
                 $ Jean.change_face("sad")
+                $ Jean.change_arms("sass")
 
                 "She finally lets go."
             "You're okay":
@@ -950,7 +1028,7 @@ label ch1_mutant_hate:
         "She hugs you tightly for a moment before letting go."
 
         $ Jean.change_face("worried1")
-        $ Jean.change_arms("neutral")
+        $ Jean.change_arms("sass")
 
         ch_Jean "You're okay, right?"
         ch_Player "Physically I am. . ."
@@ -959,10 +1037,12 @@ label ch1_mutant_hate:
         "An angry mob of normal people just tried to murder you."
 
     $ Jean.change_face("worried1", mouth = "smirk")
+    $ Jean.change_arms("angry")
 
     ch_Player "Thanks, [Jean.petname]. I needed that." 
 
     $ Jean.change_face("smirk2")
+    $ Jean.change_arms("crossed")
 
     if Jean.History.check("quirk_encouraged") >= Jean.History.check("quirk_discouraged"):
         $ Jean.change_face("worried1", mouth = "lipbite", blush = 1) 
@@ -1012,11 +1092,16 @@ label ch1_mutant_hate:
             $ Player.History.update("Bitter")
 
     $ Jean.change_face("worried1")
+    $ Jean.change_arms("neutral", right_arm = "extended")
 
     ch_Jean "I know it's hard, but you have to try to understand where they're coming from." 
+    
+    $ Jean.change_arms("angry")
+
     ch_Jean "Not all mutants are good." 
 
     $ Jean.change_face("confused1", mouth = "smirk")
+    $ Jean.change_arms("sass")
 
     ch_Jean "You can imagine the ego some people get when they realize they're special." 
     ch_Player "I know, you're right. . ."
@@ -1026,6 +1111,7 @@ label ch1_mutant_hate:
     $ Jean.change_face("confused1", eyes = "left")
 
     $ Rogue.change_face("worried3")
+    $ Rogue.change_arms("angry")
 
     $ temp = Rogue.Player_petname.capitalize()
 
@@ -1039,6 +1125,7 @@ label ch1_mutant_hate:
     ch_Jean "You better come find me later, we're going to have a lot to work on so you stop getting yourself hurt." 
 
     $ Rogue.change_face("worried2")
+    $ Rogue.change_arms("crossed")
 
     ch_Jean "Got it?"
     ch_Player "Got it. . ." 
@@ -1048,6 +1135,7 @@ label ch1_mutant_hate:
     ch_Jean "Good, now. . ."
 
     $ Jean.change_face("sly", eyes = "left")
+
     $ Rogue.change_face("worried1", eyes = "right")
 
     ch_Jean "I'll leave you two to catch up."
@@ -1068,6 +1156,7 @@ label ch1_mutant_hate:
         $ Jean.History.update("kiss")
 
         $ Jean.change_face("sexy", eyes = "left", blush = 1)
+        
         $ Rogue.change_face("worried1", mouth = "lipbite")
 
         ch_Jean "Mmm."
@@ -1081,21 +1170,26 @@ label ch1_mutant_hate:
         "[Jean.name] gives [Rogue.name] a pointed look. . ."
 
         $ Jean.change_face("smirk2", eyes = "closed", blush = 1)
+        $ Jean.change_arms("crossed")
+
         $ Rogue.change_face("worried2", mouth = "lipbite")
 
         ". . . before forcefully pulling you into another hug."
 
         $ Jean.change_face("kiss2", blush = 1)
+        
         $ Rogue.change_face("worried2", eyes = "down", mouth = "lipbite", blush = 1)
 
         "She holds you there for a long moment before giving you a kiss on the cheek and letting go."
 
         $ Rogue.change_face("worried1", mouth = "lipbite")
+       
         $ Jean.change_face("neutral", eyes = "left", blush = 1)
 
         pause 1.0
 
         $ Jean.change_face("worried1", mouth = "smirk", blush = 1)
+        $ Jean.change_arms("sass")
 
         ch_Jean "You're a good hugger."
         ch_Jean "See you later, [Jean.Player_petname]."
@@ -1105,25 +1199,34 @@ label ch1_mutant_hate:
     call remove_Characters(Jean) from _call_remove_Characters_230
 
     ch_Player "{i}Ahem{/i}. . . Hey, [Rogue.petname]."
+
+    $ Rogue.change_arms("sheepish", right_arm = "neutral")
+
     ch_Rogue "Hey. . . [Rogue.Player_petname]."
 
     $ Rogue.change_face("worried1")
+    $ Rogue.change_arms("sheepish")
 
     ch_Rogue "Ah came as soon as ah heard what happened." 
 
     $ Rogue.change_face("worried1", mouth = "lipbite", blush = 1)
+    $ Rogue.change_arms("crossed")
 
     ch_Rogue "Seems like ah was a bit slow. . ."
     ch_Player "Don't worry about it, I'm just glad you're here now." 
 
     $ Rogue.change_face("confused1", mouth = "smirk")
+    $ Rogue.change_arms("neutral", left_arm = "extended")
 
     ch_Rogue "Ah only heard bits about what happened, but yer alright?" 
 
     $ Rogue.change_face("worried1")
+    $ Rogue.change_arms("neutral")
 
     ch_Player "Yeah. . . for the most part."
     "You explain what happened. . ."
+
+    $ Rogue.change_arms("crossed")
 
     menu:
         extend ""
@@ -1150,6 +1253,7 @@ label ch1_mutant_hate:
             $ Player.History.update("Bitter")
 
     $ Rogue.change_face("furious", eyes = "right")
+    $ Rogue.change_arms("angry")
 
     "You're surprised to see [Rogue.name] get angry."
     ch_Rogue "Those bastards."
@@ -1157,10 +1261,14 @@ label ch1_mutant_hate:
     $ Rogue.change_face("confused1")
 
     ch_Rogue ". . ."
+
+    $ Rogue.change_arms("hips")
+
     ch_Rogue "Why are ya lookin' at me like that?"
     ch_Player "Sorry, just didn't expect that kind of reaction. . ."
 
     $ Rogue.change_face("angry1")
+    $ Rogue.change_arms("crossed")
 
     ch_Rogue "Well. . . ah can't help it when they try to hurt {i}you{/i} like that. . ."
 
@@ -1170,28 +1278,34 @@ label ch1_mutant_hate:
         ch_Rogue "Can ah. . . come with ya from now on?" 
 
         $ Rogue.change_face("worried2")
+        $ Rogue.change_arms("angry")
 
         ch_Rogue "Please? Ah want to be there with you for once." 
         ch_Player "I don't plan on getting into a situation like that again."
 
         $ Rogue.change_face("worried1", mouth = "smirk")
+        $ Rogue.change_arms("neutral")
 
         ch_Player "But yeah, I want you by my side next time."
     else:
         $ Rogue.change_face("neutral")
+        $ Rogue.change_arms("angry")
 
         ch_Rogue "Hon', ah know [Kurt.name] was with ya. . ."
 
         $ Rogue.change_face("worried1")
+        $ Rogue.change_arms("hips")
 
         ch_Rogue "You shouldn't be goin' around without more than a couple people backin' ya up."
         ch_Rogue "Ah should probably be with ya from now on. . ."
 
         $ Rogue.change_face("worried1", mouth = "smirk")
+        $ Rogue.change_arms("crossed")
 
         ch_Player "You're right, I'd feel better with you around." 
 
     $ Rogue.change_face("smirk2")
+    $ Rogue.change_arms("crossed")
 
     ch_Rogue "Thanks. . ."
     ch_Player "And thank you for checking up on me, I gotta go have a talk with Charles."
@@ -1213,7 +1327,7 @@ label ch1_mutant_hate:
 
     ch_Charles "Hello, [Player.first_name]. I am glad to see you are well."
 
-    $ Charles.change_face("sad")
+    $ Charles.change_face("worried1", mouth = "smirk")
 
     ch_Player "Hey Professor. I'm guessing Kurt told you what happened?" 
     ch_Charles "He did."
@@ -1227,41 +1341,59 @@ label ch1_mutant_hate:
 
     ch_Charles "He does not feel that way."
 
-    $ Charles.change_face("neutral")
+    $ Charles.change_face("worried1")
 
     ch_Charles "But it is also because of what you were forced to do."
 
     if Player.History.check("ch1_mutant_hate_path_1C"):
+        $ Charles.change_face("worried1", mouth = "smirk")
+
         ch_Charles "Despite the situation, he tells me you handled things calmly and with as much restraint as was possible."
         ch_Player "I tried."
         ch_Player "But. . . maybe I still went too far. . . I couldn't help but injure them so badly."
         ch_Player "My power control wasn't good enough. . ."
+        
+        $ Charles.change_face("angry1")
+
         ch_Charles "That is not your fault, [Player.first_name]."
+        
+        $ Charles.change_face("smirk1")
+
         ch_Charles "And do not worry, nobody was killed, we have made sure of that."
     elif Player.History.check("ch1_mutant_hate_path_1B"):
         ch_Player "What I was forced to do. . ."
         ch_Player "I probably killed someone!"
         ch_Player "What am I becoming?! That I can just break someone like that so easily. . ."
+        
+        $ Charles.change_face("worried1", mouth = "smirk")
+
         ch_Charles "Rest assured, [Player.first_name], nobody was killed."
 
-        $ Charles.change_face("happy")
+        $ Charles.change_face("smirk2")
 
         ch_Charles "And the fact you are so worried about their wellbeing means you are not becoming a monster."
     elif Player.History.check("ch1_mutant_hate_path_1A"):
         ch_Charles "He also told me what happened."
 
-        $ Charles.change_face("stunned", eyes = "wide")
+        $ Charles.change_face("worried1", eyes = "squint")
 
         ch_Charles "How. . . angry. . . you became."
+
+        $ Charles.change_face("worried1")
+
         ch_Player "They tried to kill me!"
         ch_Player "I think that warrants a bit of anger. . ."
+
+        $ Charles.change_face("neutral", eyes = "right")
+
+        pause 1.0
 
         $ Charles.change_face("neutral")
 
         ch_Charles "Maybe it does, but you {i}must not{/i} let it get out of control."
         ch_Charles "Thankfully, nobody was killed today. But, with such power. . . controlling our emotions is paramount."
 
-    $ Charles.change_face("neutral")
+    $ Charles.change_face("worried1")
 
     ch_Charles "Nevertheless, I am sorry you had to face the worst of humanity."
 
@@ -1276,6 +1408,8 @@ label ch1_mutant_hate:
         ch_Charles "I know today was very. . . disconcerting for you."
         ch_Charles "Please remember you are not alone, and there are many people at this school who would be happy to help you talk things through."
         ch_Player "Thanks. . . talking to someone might be helpful."
+
+    $ Charles.change_face("worried1")
 
     ch_Charles "I am afraid you can find enemies, not just in high places, but within the ranks of normal citizenry as well."
     ch_Player "It's. . . terrifying."
@@ -1299,34 +1433,44 @@ label ch1_mutant_hate:
     call set_the_scene(location = "bg_hallway") from _call_set_the_scene_285
     call send_Characters(Kurt, "bg_hallway") from _call_send_Characters_223
 
-    $ Kurt.change_face("surprised1")
+    $ Kurt.change_face("surprised2")
+    $ Kurt.change_arms("angry")
 
     ch_Kurt "[Player.first_name]!"
     ch_Player "Hey man."
 
-    $ Kurt.change_face("confused1")
+    $ Kurt.change_face("worried1")
+    $ Kurt.change_arms("crossed")
 
-    ch_Player "Xavier told me you wanted to say sorry, but I won't let you."
+    ch_Player "[Xavier.name] told me you wanted to say sorry, but I won't let you."
+    
+    $ Kurt.change_face("confused3")
+
     ch_Kurt "Eh?"
 
-    $ Kurt.change_face("sad")
+    $ Kurt.change_face("worried1")
+    $ Kurt.change_arms("angry")
 
     ch_Player "What happened isn't your fault or mine."
     ch_Kurt "Bu. . ."
 
-    $ Kurt.change_face("neutral")
+    $ Kurt.change_face("worried1", eyes = "right")
 
     ch_Player "And don't tell me you feel bad for teleporting away."
     ch_Player "I heard you fighting tooth and nail trying to get back to me."
     ch_Player "It would've been really stupid to try and fight alongside me." 
 
-    $ Kurt.change_face("confused1")
+    $ Kurt.change_face("confused1", eyes = "down")
 
     "You put your arm out."
 
     $ Kurt.change_face("neutral")
 
     ch_Kurt "Thank you. . . mein Bruder."
+
+    $ Kurt.change_face("worried1", mouth = "smirk")
+    $ Kurt.change_arms("neutral", left_arm = "extended")
+
     "He grabs your forearm."
     ch_Player "Any time, brother."
 

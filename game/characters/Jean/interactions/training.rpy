@@ -35,13 +35,13 @@ label Jean_reject_train:
     return
 
 label Jean_reject_train_asked_once:
-    call Jean_asked_once("busy")
+    call Jean_asked_once("busy") from _call_Jean_asked_once_15
 
     return
 
 label Jean_reject_train_asked_twice:
-    call Jean_asked_twice("busy")
-    call Jean_kicking_out
+    call Jean_asked_twice("busy") from _call_Jean_asked_twice_15
+    call Jean_kicking_out from _call_Jean_kicking_out_21
     call getting_kicked_out(Jean) from _call_getting_kicked_out_21
 
     return
@@ -71,11 +71,11 @@ label Jean_reject_train_text:
     return
 
 label Jean_reject_train_asked_once_text:
-    call Jean_asked_once_text("busy")
+    call Jean_asked_once_text("busy") from _call_Jean_asked_once_text_3
 
     return
 
 label Jean_reject_train_asked_twice_text:
-    call Jean_asked_twice_text("busy")
+    call Jean_asked_twice_text("busy") from _call_Jean_asked_twice_text_3
 
     return

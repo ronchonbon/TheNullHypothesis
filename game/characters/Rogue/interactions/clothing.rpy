@@ -144,13 +144,13 @@ label Rogue_change_Outfit_reject:
     return
     
 label Rogue_change_Outfit_reject_asked_once:
-    call Rogue_asked_once("changing")
+    call Rogue_asked_once("changing") from _call_Rogue_asked_once_9
 
     return
     
 label Rogue_change_Outfit_reject_asked_twice:
-    call Rogue_asked_once("changing")
-    call Rogue_kicking_out
+    call Rogue_asked_once("changing") from _call_Rogue_asked_once_10
+    call Rogue_kicking_out from _call_Rogue_kicking_out_9
     call getting_kicked_out(Rogue) from _call_getting_kicked_out_53
 
     return
