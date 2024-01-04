@@ -76,7 +76,7 @@ label Jean_back_from_mission:
             $ Jean.History.update("Player_wants_excuse_to_spend_time_together")
         "To be honest, I still don't know how I feel about having powers. But if it helps [Jean.name], then I'll do it.":
             call change_Character_stat(Jean, "love", -small_stat) from _call_change_Character_stat_173
-            call change_Character_stat(Jean, "trust", small_stat) from _call_change_Character_stat_174
+            call change_Character_stat(Jean, "trust", medium_stat) from _call_change_Character_stat_174
 
             $ Jean.change_face("sad")
 

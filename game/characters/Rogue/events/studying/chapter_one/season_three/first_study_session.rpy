@@ -22,7 +22,7 @@ label Rogue_chapter_one_season_three_first_study_session:
 
     ch_Rogue "So, wanna go easy or study hard today, [Rogue.Player_petname]?"
 
-    if Player.History.check("studied") >= 12:
+    if Player.History.check("studied", tracker = "weekly") >= 2:
         ch_Player "I've been doing pretty well in class, but we should still at least try a bit."
     else:
         ch_Player "I've been doing. . . okay in class so far. . ." 

@@ -401,6 +401,7 @@ label Jean_chapter_one_season_one_first_training_session:
         extend ""
         "I'm glad you're not hurt.":
             call change_Character_stat(Jean, "love", medium_stat) from _call_change_Character_stat_426
+            call change_Character_stat(Jean, "trust", medium_stat)
                         
             $ Jean.change_face("neutral", blush = 1)
 
@@ -478,7 +479,7 @@ label Jean_chapter_one_season_one_first_training_session_1A:
         extend ""
         "I want to help however I can.":
             call change_Character_stat(Jean, "love", medium_stat) from _call_change_Character_stat_828
-            call change_Character_stat(Jean, "trust", small_stat) from _call_change_Character_stat_829
+            call change_Character_stat(Jean, "trust", medium_stat) from _call_change_Character_stat_829
 
             ch_Player "I know I'm new to all this, but I don't care."
 

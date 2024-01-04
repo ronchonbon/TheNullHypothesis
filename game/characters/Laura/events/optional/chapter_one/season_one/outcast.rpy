@@ -241,4 +241,6 @@ label Laura_chapter_one_season_one_outcast:
 
     $ ongoing_Event = False
 
+    $ found_seat = True
+
     return

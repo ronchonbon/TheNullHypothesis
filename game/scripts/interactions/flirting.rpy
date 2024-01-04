@@ -135,12 +135,13 @@ label flirt(Character):
                 $ flirting = False
 
         if flirting and flirting_type:
-            if approval_check(Character, threshold = f"flirting_{flirting_type}"):
-                call change_Character_stat(Character, "love", eval(f"{Character.tag}_flirting_bonuses[flirting_type]")[0]) from _call_change_Character_stat
-                call change_Character_stat(Character, "trust", eval(f"{Character.tag}_flirting_bonuses[flirting_type]")[1]) from _call_change_Character_stat_1
-            else:
-                call change_Character_stat(Character, "love", eval(f"{Character.tag}_flirting_penalties[flirting_type]")[0]) from _call_change_Character_stat_2
-                call change_Character_stat(Character, "trust", eval(f"{Character.tag}_flirting_penalties[flirting_type]")[1]) from _call_change_Character_stat_3
+            if flirting_type != "a":
+                if approval_check(Character, threshold = f"flirting_{flirting_type}"):
+                    call change_Character_stat(Character, "love", eval(f"{Character.tag}_flirting_bonuses[flirting_type]")[0]) from _call_change_Character_stat
+                    call change_Character_stat(Character, "trust", eval(f"{Character.tag}_flirting_bonuses[flirting_type]")[1]) from _call_change_Character_stat_1
+                else:
+                    call change_Character_stat(Character, "love", eval(f"{Character.tag}_flirting_penalties[flirting_type]")[0]) from _call_change_Character_stat_2
+                    call change_Character_stat(Character, "trust", eval(f"{Character.tag}_flirting_penalties[flirting_type]")[1]) from _call_change_Character_stat_3
 
             call expression f"{Character.tag}_flirt_{flirting_type}" from _call_expression_213
 

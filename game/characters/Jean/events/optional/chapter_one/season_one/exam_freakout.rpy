@@ -7,7 +7,7 @@ init python:
             "Jean.location not in ['hold', Player.location, Player.destination]",
             "'bg_classroom' not in [Player.location, Player.destination]",
 
-            "renpy.random.random() > 0.75",
+            "renpy.random.random() > 0.25",
 
             "not EventScheduler.Events['Jean_chapter_one_season_one_exam_freakout'].completed",
 

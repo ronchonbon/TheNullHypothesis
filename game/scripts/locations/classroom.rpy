@@ -5,9 +5,10 @@ init python:
 label classroom:
     $ lights_on = True
     $ door_locked = False
-    $ found_seat = False
 
     if Player.destination != Player.location:
+        $ found_seat = False
+        
         call check_for_Events(traveling = True) from _call_check_for_Events_9
 
         if Player.destination != Player.location:

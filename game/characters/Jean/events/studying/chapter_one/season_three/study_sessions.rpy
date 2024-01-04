@@ -24,7 +24,7 @@ label Jean_chapter_one_season_three_study_sessions:
 
         ch_Jean "Ready?" 
         
-        if Player.History.check("studied") >= 12:
+        if Player.History.check("studied", tracker = "weekly") >= 4:
             $ Jean.change_face("smirk2") 
             
             ch_Jean "Your grades have been pretty stellar lately." 

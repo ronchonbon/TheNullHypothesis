@@ -49,7 +49,6 @@ init python:
             
             "Jean.location == 'bg_danger'",
             "Jean.behavior == 'training'",
-            "len(get_Present(location = 'bg_danger')[0]) == 1",
 
             "Jean.is_in_normal_mood()"]
 
@@ -67,7 +66,6 @@ init python:
                 
                 "Jean.location == 'bg_danger'",
                 "Jean.behavior == 'training'",
-                "len(get_Present(location = 'bg_danger')[0]) == 1",
                 
                 "Jean.is_in_normal_mood()"]}
 
@@ -76,6 +74,7 @@ init python:
 label Jean_chapter_one_season_one_friendless:
     $ ongoing_Event = True
 
+    call remove_everyone_but(Jean, location = "bg_danger")
     call set_the_scene(location = "bg_danger", show_Characters = False) from _call_set_the_scene_398
 
     "You spot [Jean.name] across the room talking to a couple girls you don't recognize."

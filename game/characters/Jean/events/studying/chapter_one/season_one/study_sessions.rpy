@@ -83,7 +83,7 @@ label Jean_chapter_one_season_one_study_sessions:
 
         ch_Jean "You never get excited to study?"
 
-        if Player.scholarship == "athletic" or Player.History.check("studied") >= 3:
+        if Player.scholarship == "academic" or Player.History.check("studied", tracker = "weekly") >= 2:
             ch_Player "I don't know about excited. . . but it's not completely unenjoyable."
         else:
             ch_Player "I wouldn't say that. . ."

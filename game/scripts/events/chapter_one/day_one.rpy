@@ -982,7 +982,7 @@ label meet_Laura_1A:
         "Whoa! Sick!":
             call change_Character_stat(Laura, "love", small_stat) from _call_change_Character_stat_884
 
-            $ Laura.change_face("smirk2")
+            $ Laura.change_face("smirk2", mouth = "happy")
 
             ch_Laura "They are. . . effective."
         "Damn, those look wicked sharp.":

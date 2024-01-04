@@ -122,6 +122,9 @@ label show_Character(Character, t = None, sprite_anchor = None, x = None, y = No
     else:
         $ Character.sprite_layer = 7
 
+    if not renpy.showing(f"{Character.tag}_sprite"):
+        $ Character.History.update("seen_Player")
+
     if (Character in all_Companions and not renpy.showing(f"{Character.tag}_sprite standing")) or (Character in all_NPCs and not renpy.showing(f"{Character.tag}_sprite")) or different or color_transforms or animation_transforms:
         $ renpy.hide(f"{Character.tag}_sprite")
         
@@ -162,9 +165,6 @@ label show_Character(Character, t = None, sprite_anchor = None, x = None, y = No
 
         if fade:
             with Dissolve(fade)
-
-        if not Character.History.check("seen_Player", tracker = "recent"):
-            $ Character.History.update("seen_Player")
 
     return
 

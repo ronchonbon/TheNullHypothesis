@@ -955,8 +955,10 @@ screen journal_screen():
             text "SUMMARY" + "_" anchor (0.0, 0.5) pos (0.364, 0.3365):
                 size 35
 
-        text current_journal_Quest.description anchor (0.5, 0.0) pos (0.635, 0.402):
-            if len(current_journal_Quest.description) >= 25:
+        text current_journal_Quest.description anchor (0.5, 0.5) pos (0.635, 0.422):
+            if len(current_journal_Quest.description) >= 30:
+                size 28
+            elif len(current_journal_Quest.description) >= 25:
                 size 32
             else:
                 size 36

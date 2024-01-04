@@ -18,7 +18,10 @@ init python:
 label Rogue_chapter_one_season_one_study_sessions:
     $ ongoing_Event = True
 
-    $ dice_roll = renpy.random.randint(1, 4)
+    if Rogue.History.check("studied_with_Player", tracker = "season") == 2:
+        $ dice_roll = renpy.random.randint(1, 1)
+    else:
+        $ dice_roll = renpy.random.randint(1, 4)
 
     if dice_roll == 1:
         $ Rogue.change_face("happy")
@@ -55,22 +58,25 @@ label Rogue_chapter_one_season_one_study_sessions:
 
         ch_Rogue "Yes. . ." 
 
-        menu:
-            extend ""
-            "Say please.":
-                call change_Character_stat(Rogue, "love", medium_stat) from _call_change_Character_stat_301
+        if Rogue.History.check("studied_with_Player", tracker = "season") == 2:
+            menu:
+                extend ""
+                "Say please (encourage_quirk).":
+                    call change_Character_stat(Rogue, "love", medium_stat) from _call_change_Character_stat_301
 
-                $ Rogue.change_face("worried2", mouth = "lipbite", blush = 2) 
-                
-                pause 1.0
-                
-                $ Rogue.change_face("pleased2", mouth = "lipbite", blush = 1) 
-                
-                ch_Rogue ". . . Please." 
-            "Be my guest.":
-                call change_Character_stat(Rogue, "love", small_stat) from _call_change_Character_stat_302
+                    $ Rogue.change_face("worried2", mouth = "lipbite", blush = 2) 
+                    
+                    pause 1.0
+                    
+                    $ Rogue.change_face("pleased2", mouth = "lipbite", blush = 1) 
+                    
+                    ch_Rogue ". . . Please." 
 
-                $ Rogue.change_face("pleased2", mouth = "lipbite", blush = 1)
+                    $ Rogue.History.update("quirk_encouraged")
+                "Be my guest.":
+                    call change_Character_stat(Rogue, "love", small_stat) from _call_change_Character_stat_302
+
+                    $ Rogue.change_face("pleased2", mouth = "lipbite", blush = 1)
 
         $ Rogue.change_face("worried1", mouth = "lipbite", blush = 1)
         

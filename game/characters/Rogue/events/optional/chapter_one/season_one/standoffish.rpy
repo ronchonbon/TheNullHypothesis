@@ -294,7 +294,7 @@ init python:
             "Rogue.location not in ['hold', Player.location, Player.destination]",
             "'bg_classroom' not in [Player.location, Player.destination]",
             
-            "renpy.random.random() > 0.75",
+            "renpy.random.random() > 0.5",
 
             "not EventScheduler.Events['Rogue_chapter_one_season_one_standoffish_part_two'].completed",
 
@@ -455,5 +455,7 @@ label Rogue_chapter_one_season_one_standoffish_part_two:
     "Maybe something did happen with those girls. . ."
 
     $ ongoing_Event = False
+
+    $ found_seat = True
 
     return

@@ -192,7 +192,7 @@ label Character_room:
             call start_Event(selected_Event) from _call_start_Event_15
 
     if Player.destination != Player.location:
-        if current_bedroom not in Present:
+        if current_bedroom not in get_Present(location = Player.location)[0]:
             if Player.destination != Player.location:
                 if "bg_shower" not in Player.location:
                     if current_bedroom.wants_alone_time:

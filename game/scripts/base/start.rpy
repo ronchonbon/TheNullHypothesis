@@ -81,7 +81,7 @@ label start:
         anchor (2257, 1045)
         offset (2172, 398)
 
-        zoom interface_adjustment
+        zoom 0.5
 
     $ renpy.pause(0.2, hard = True)
 
@@ -103,7 +103,7 @@ label start:
         anchor (2257, 1045)
         offset (2172, 398)
 
-        zoom interface_adjustment
+        zoom 0.5
 
         parallel:
             ease 2.0 rotate -21
