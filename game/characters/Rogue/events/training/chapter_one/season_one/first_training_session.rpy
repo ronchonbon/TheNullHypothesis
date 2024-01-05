@@ -97,7 +97,7 @@ label Rogue_chapter_one_season_one_first_training_session:
 
     ch_Rogue "Sure! Ah'll do anythin' ya want." 
 
-    if Rogue in Partners:
+    if approval_check(Rogue, threshold = "hookup"):
         $ Rogue.change_face("worried2") 
         $ Rogue.change_arms("crossed")
         

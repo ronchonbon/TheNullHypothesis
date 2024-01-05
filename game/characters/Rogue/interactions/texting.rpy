@@ -91,24 +91,64 @@ label Rogue_texting(message):
     return
 
 label Rogue_text_how_are_you:
-    call receive_text(Rogue, "Not too bad") from _call_receive_text_531
-    call receive_text(Rogue, "Thanks for askin :))") from _call_receive_text_532
+    $ dice_roll = renpy.random.randint(1, 3)
+    
+    if dice_roll == 1:
+        call receive_text(Rogue, "Not too bad") from _call_receive_text_531
+        call receive_text(Rogue, "Thanks for askin :))") from _call_receive_text_532
+    elif dice_roll == 2:
+        call receive_text(Rogue, "Good! Havin a pretty good day actually")
+    elif dice_roll == 3:
+        call receive_text(Rogue, "Meh, its a day. How are you?")
+
+        $ Rogue.mandatory_text_options = ["anything I can do?", "same", "jeez with the negativity"]
+        $ temp = Rogue.mandatory_text_options[:]
+
+        while Rogue.mandatory_text_options:
+            pause
+
+        if Rogue.text_history[-1][1] == temp[0]:
+            call change_Character_stat(Rogue, "love", tiny_stat)
+
+            call receive_text(Rogue, "Nah Im okay :)")
+            call receive_text(Rogue, "Youre sweet though")
+        elif Rogue.text_history[-1][1] == temp[1]:
+            call receive_text(Rogue, "we can do it, I believe in us")
+        elif Rogue.text_history[-1][1] == temp[2]:
+            call change_Character_stat(Rogue, "love", -tiny_stat)
+
+            call receive_text(Rogue, "I am not negative! So rude")
     
     return
 
 label Rogue_text_how_are_you_late_accept:
-    call receive_text(Rogue, "Im alright") from _call_receive_text_533
-    call receive_text(Rogue, "Was bout to go to sleep") from _call_receive_text_534
-    call receive_text(Rogue, "But I could. . .") from _call_receive_text_535
-    call receive_text(Rogue, "Stay up a bit longer if ya wanted to chat") from _call_receive_text_536
+    $ dice_roll = renpy.random.randint(1, 3)
+    
+    if dice_roll == 1:
+        call receive_text(Rogue, "Im alright") from _call_receive_text_533
+        call receive_text(Rogue, "Was bout to go to sleep") from _call_receive_text_534
+        call receive_text(Rogue, "But I could. . .") from _call_receive_text_535
+        call receive_text(Rogue, "Stay up a bit longer if ya wanted to chat") from _call_receive_text_536
+    elif dice_roll == 2:
+        call receive_text(Rogue, "Good, just gettin ready for bed :)")
+        call receive_text(Rogue, "Might stay up for a bit longer though")
+    elif dice_roll == 3:
+        call receive_text(Rogue, "Just hangin out a bit before going to sleep!")
 
     return
 
 label Rogue_text_how_are_you_late_reject:
-    call receive_text(Rogue, "Good") from _call_receive_text_537
-    call receive_text(Rogue, "Real tired tho") from _call_receive_text_538
-    call receive_text(Rogue, "Bout to hit the hay, can't really chat") from _call_receive_text_539
-    call receive_text(Rogue, "Sorry hon") from _call_receive_text_540
+    $ dice_roll = renpy.random.randint(1, 3)
+    
+    if dice_roll == 1:
+        call receive_text(Rogue, "Good") from _call_receive_text_537
+        call receive_text(Rogue, "Real tired tho") from _call_receive_text_538
+        call receive_text(Rogue, "Bout to hit the hay, can't really chat") from _call_receive_text_539
+        call receive_text(Rogue, "Sorry hon") from _call_receive_text_540
+    elif dice_roll == 2:
+        call receive_text(Rogue, "Sleepy! Night!")
+    elif dice_roll == 3:
+        call receive_text(Rogue, "Just gettin ready for bed, talk to ya tomorrow!")
 
     return
 
@@ -123,58 +163,136 @@ label Rogue_text_how_are_you_late_reject_asked_twice:
     return
 
 label Rogue_text_how_are_you_relationship:
-    call receive_text(Rogue, "Pretty good") from _call_receive_text_545
-    call receive_text(Rogue, "Could be better if we were hangin") from _call_receive_text_546
+    $ dice_roll = renpy.random.randint(1, 3)
+    
+    if dice_roll == 1:
+        call receive_text(Rogue, "Pretty good") from _call_receive_text_545
+        call receive_text(Rogue, "Could be better if we were hangin") from _call_receive_text_546
+    elif dice_roll == 2:
+        call receive_text(Rogue, "Good! Hope I get to see you later!")
+    elif dice_roll == 3:
+        call receive_text(Rogue, f"Heh, Im doing alright {Rogue.Player_petname} :)")
 
     return
 
 label Rogue_text_how_are_you_love:
-    call receive_text(Rogue, "Not too good") from _call_receive_text_547
-    call receive_text(Rogue, "Miss ya lots") from _call_receive_text_548
-    call receive_text(Rogue, "I really love you") from _call_receive_text_549
+    $ dice_roll = renpy.random.randint(1, 3)
+    
+    if dice_roll == 1:
+        call receive_text(Rogue, "Good, just thinkin bout ya :)")
+    elif dice_roll == 2:
+        call receive_text(Rogue, "Good :):)")
+        call receive_text(Rogue, "Youre so sweet always checkin on me")
+    elif dice_roll == 3:
+        call receive_text(Rogue, "Im good") from _call_receive_text_547
+        call receive_text(Rogue, "But I miss ya lots") from _call_receive_text_548
+        call receive_text(Rogue, "I really love you") from _call_receive_text_549
 
-    $ Rogue.mandatory_text_options = ["we just saw each other, but I love you too", "I always miss you too, love you", "we literally just saw each other, chill"]
-    $ temp = Rogue.mandatory_text_options[:]
+        $ Rogue.mandatory_text_options = ["we just saw each other, but I love you too", "I always miss you too, love you", "we literally just saw each other, chill"]
+        $ temp = Rogue.mandatory_text_options[:]
 
-    while Rogue.mandatory_text_options:
-        pause
+        while Rogue.mandatory_text_options:
+            pause
 
-    if Rogue.text_history[-1][1] == temp[0]:
-        call receive_text(Rogue, "Sorry, just can't help it") from _call_receive_text_550
-    elif Rogue.text_history[-1][1] == temp[1]:
-        call change_Character_stat(Rogue, "love", tiny_stat) from _call_change_Character_stat_786
+        if Rogue.text_history[-1][1] == temp[0]:
+            call receive_text(Rogue, "Sorry, just can't help it") from _call_receive_text_550
+        elif Rogue.text_history[-1][1] == temp[1]:
+            call change_Character_stat(Rogue, "love", tiny_stat) from _call_change_Character_stat_786
 
-        call receive_text(Rogue, "Really hope you come by later :)))") from _call_receive_text_551
-    elif Rogue.text_history[-1][1] == temp[2]:
-        call change_Character_stat(Rogue, "love", -tiny_stat) from _call_change_Character_stat_787
+            call receive_text(Rogue, "Really hope you come by later :)))") from _call_receive_text_551
+        elif Rogue.text_history[-1][1] == temp[2]:
+            call change_Character_stat(Rogue, "love", -tiny_stat) from _call_change_Character_stat_787
 
-        call receive_text(Rogue, "Sorry") from _call_receive_text_552
+            call receive_text(Rogue, "Sorry") from _call_receive_text_552
 
     return
 
 label Rogue_text_how_are_you_mad:
-    call receive_text(Rogue, "Madder than a cat in a rainstorm") from _call_receive_text_553
-    call receive_text(Rogue, "You best not come near anytime soon") from _call_receive_text_554
+    $ dice_roll = renpy.random.randint(1, 3)
+    
+    if dice_roll == 1:
+        call receive_text(Rogue, "Madder than a cat in a rainstorm") from _call_receive_text_553
+        call receive_text(Rogue, "You best not come near anytime soon") from _call_receive_text_554
+    elif dice_roll == 2:
+        call receive_text(Rogue, "Youre really gonna ask me that?")
+    elif dice_roll == 3:
+        call receive_text(Rogue, "You know damn well how Im doin")
 
     return
 
 label Rogue_text_how_are_you_hearbroken:
-    call receive_text(Rogue, "Im") from _call_receive_text_555
-    call receive_text(Rogue, "Well") from _call_receive_text_556
-    call receive_text(Rogue, "I reckon im just") from _call_receive_text_557
-    call receive_text(Rogue, "Sad as a willow") from _call_receive_text_558
+    $ dice_roll = renpy.random.randint(1, 3)
+    
+    if dice_roll == 1:
+        call receive_text(Rogue, "Im") from _call_receive_text_555
+        call receive_text(Rogue, "Well") from _call_receive_text_556
+        call receive_text(Rogue, "I reckon im just") from _call_receive_text_557
+        call receive_text(Rogue, "Sad as a willow") from _call_receive_text_558
+    elif dice_roll == 2:
+        call receive_text(Rogue, "Oh")
+        call receive_text(Rogue, "Im okay I guess")
+    elif dice_roll == 3:
+        call receive_text(Rogue, "Ive been better. . .")
 
     return
 
 label Rogue_text_how_are_you_horny:
-    call receive_text(Rogue, "Im alright") from _call_receive_text_559
-    call receive_text(Rogue, "Would be a might better if I could lay my eyes on you. . .") from _call_receive_text_560
+    if Rogue.location == Rogue.home:
+        $ dice_roll = renpy.random.randint(1, 3)
+    else:
+        $ dice_roll = renpy.random.randint(1, 2)
+
+    if dice_roll == 1:
+        call receive_text(Rogue, "Im alright") from _call_receive_text_559
+
+        if approval_check(Rogue, threshold = "hookup"):
+            call receive_text(Rogue, "Would be a might better if I could lay my eyes on you. . .") from _call_receive_text_560
+        else:
+            call receive_text(Rogue, "Wouldnt mind hangin out later though :)")
+    elif dice_roll == 2:
+        call receive_text(Rogue, "Good :)")
+        call receive_text(Rogue, "Was just thinkin bout you, actually")
+    elif dice_roll == 3:
+        call receive_text(Rogue, "I was just bout to text ya")
+        call receive_text(Rogue, "Wanna hang out or somethin? :)")
+
+        $ Rogue.mandatory_text_options = ["yeah of course!", "I wish, I'm pretty busy though. . .", "not really"]
+        $ temp = Rogue.mandatory_text_options[:]
+
+        while Rogue.mandatory_text_options:
+            pause
+
+        if Rogue.text_history[-1][1] == temp[0]:
+            call receive_text(Rogue, "Yay! My room?")
+            call send_text(Rogue, "be right there!")
+
+            call move_location(Rogue.home)
+        elif Rogue.text_history[-1][1] == temp[1]:
+            call receive_text(Rogue, "Well")
+            call receive_text(Rogue, "Maybe later")
+            call receive_text(Rogue, "Could be fun :)")
+        elif Rogue.text_history[-1][1] == temp[2]:
+            call change_Character_stat(Rogue, "love", -tiny_stat)
+
+            call receive_text(Rogue, "Rude")
     
     return
 
 label Rogue_text_how_are_you_nympho:
-    call receive_text(Rogue, "All hot and bothered") from _call_receive_text_561
-    call receive_text(Rogue, "Only a good dose of you could cool me off. . .") from _call_receive_text_562
+    if approval_check(Rogue, threshold = "hookup"):
+        $ dice_roll = renpy.random.randint(1, 3)
+    else:
+        $ dice_roll = renpy.random.randint(1, 2)
+
+    if dice_roll == 1:
+        call receive_text(Rogue, "Im okay but")
+        call receive_text(Rogue, "We should hang out later")
+    elif dice_roll == 2:
+        call receive_text(Rogue, "Good!")
+        call receive_text(Rogue, "Is it just me or is it really warm today, though?")
+    elif dice_roll == 3:
+        call receive_text(Rogue, "All hot and bothered") from _call_receive_text_561
+        call receive_text(Rogue, "Only a good dose of you could cool me off. . .") from _call_receive_text_562
 
     return
 
@@ -192,17 +310,26 @@ label Rogue_text_good_morning:
     return
 
 label Rogue_text_good_morning_relationship:
-    call receive_text(Rogue, "Mornin [Rogue.Player_petname] :)))") from _call_receive_text_567
+    $ dice_roll = renpy.random.randint(1, 3)
+
+    if dice_roll == 1:
+        call receive_text(Rogue, f"Mornin {Rogue.Player_petname} :)))") from _call_receive_text_567
+    elif dice_roll == 2:
+        call receive_text(Rogue, "Hey! Miss me last night? :)")
+    elif dice_roll == 3:
+        call receive_text(Rogue, f"Hey {Rogue.Player_petname} <33")
 
     return
 
 label Rogue_text_good_morning_love:
-    $ dice_roll = renpy.random.randint(1, 2)
+    $ dice_roll = renpy.random.randint(1, 3)
 
     if dice_roll == 1:
         call receive_text(Rogue, "Mornin lover") from _call_receive_text_568
         call receive_text(Rogue, "Had a dream bout ya last night") from _call_receive_text_569
     elif dice_roll == 2:
+        call receive_text(Rogue, "Good mornin!!! Cant wait to see you today :)")
+    elif dice_roll == 3:
         call receive_text(Rogue, "Mornin darlin") from _call_receive_text_570
         call receive_text(Rogue, "Sleep well") from _call_receive_text_571
 
@@ -225,25 +352,60 @@ label Rogue_text_good_morning_love:
     return
 
 label Rogue_text_good_morning_mad:
-    call receive_text(Rogue, "No") from _call_receive_text_576
-    call receive_text(Rogue, "It aint been") from _call_receive_text_577
+    $ dice_roll = renpy.random.randint(1, 3)
+
+    if dice_roll == 1:
+        call receive_text(Rogue, "No") from _call_receive_text_576
+        call receive_text(Rogue, "It aint been") from _call_receive_text_577
+    elif dice_roll == 2:
+        call receive_text(Rogue, "Is it?")
+    elif dice_roll == 2:
+        call receive_text(Rogue, "Mhm")
 
     return
 
 label Rogue_text_good_morning_hearbroken:
-    call receive_text(Rogue, "My mornins not been so good. . .") from _call_receive_text_578
+    $ dice_roll = renpy.random.randint(1, 3)
+
+    if dice_roll == 1:
+        call receive_text(Rogue, "My mornins not been so good. . .") from _call_receive_text_578
+    elif dice_roll == 2:
+        call receive_text(Rogue, "Mornin. . .")
+        call receive_text(Rogue, "Kinda wish Id stayed in bed. . .")
+    elif dice_roll == 2:
+        call receive_text(Rogue, "I guess. . .")
 
     return
 
 label Rogue_text_good_morning_horny:
-    call receive_text(Rogue, f"Good mornin {Rogue.Player_petname}") from _call_receive_text_579
-    call receive_text(Rogue, "Was just thinkin bout you") from _call_receive_text_580
+    $ dice_roll = renpy.random.randint(1, 3)
+
+    if dice_roll == 1:
+        call receive_text(Rogue, "Good mornin handsome!")
+    elif dice_roll == 2:
+        call receive_text(Rogue, "Good mornin :)")
+        call receive_text(Rogue, "Any chance you want to hang out later?")
+    elif dice_roll == 3:
+        call receive_text(Rogue, f"Good mornin {Rogue.Player_petname}") from _call_receive_text_579
+
+        if approval_check(Rogue, threshold = "hookup"):
+            call receive_text(Rogue, "Was just thinkin bout you") from _call_receive_text_580
 
     return
 
 label Rogue_text_good_morning_nympho:
-    call receive_text(Rogue, "Wish you could tell me in person") from _call_receive_text_581
-    call receive_text(Rogue, "Wouldnt mind you bein in bed with me. . .") from _call_receive_text_582
+    if approval_check(Rogue, threshold = "hookup"):
+        $ dice_roll = renpy.random.randint(1, 3)
+    else:
+        $ dice_roll = renpy.random.randint(1, 2)
+
+    if dice_roll == 1:
+        call receive_text(Rogue, "Yeah it is ;)")
+    elif dice_roll == 2:
+        call receive_text(Rogue, "Mmm good mornin to you too!")
+    elif dice_roll == 3:
+        call receive_text(Rogue, "Wish you could tell me in person") from _call_receive_text_581
+        call receive_text(Rogue, "Wouldnt mind you bein in bed with me. . .") from _call_receive_text_582
 
     return
 
@@ -251,7 +413,7 @@ label Rogue_text_goodnight:
     $ dice_roll = renpy.random.randint(1, 3)
 
     if dice_roll == 1:
-        call receive_text(Rogue, "Gnight [Rogue.Player_petname]!") from _call_receive_text_583
+        call receive_text(Rogue, f"Gnight {Rogue.Player_petname}!") from _call_receive_text_583
     elif dice_roll == 2:
         call receive_text(Rogue, "Sweet dreams darlin") from _call_receive_text_584
     elif dice_roll == 3:
@@ -261,21 +423,29 @@ label Rogue_text_goodnight:
     return
 
 label Rogue_text_goodnight_relationship:
-    call receive_text(Rogue, "Night hon") from _call_receive_text_587
-    call receive_text(Rogue, "Sleep tight") from _call_receive_text_588
+    $ dice_roll = renpy.random.randint(1, 3)
+
+    if dice_roll == 1:
+        call receive_text(Rogue, "Night hon") from _call_receive_text_587
+        call receive_text(Rogue, "Sleep tight") from _call_receive_text_588
+    elif dice_roll == 2:
+        call receive_text(Rogue, "Night! Cant wait to see you tomorrow :)")
+    elif dice_roll == 3:
+        call receive_text(Rogue, f"Sleep well {Rogue.Player_petname}")
 
     return
 
 label Rogue_text_goodnight_love:
-    $ dice_roll = renpy.random.randint(1, 2)
+    $ dice_roll = renpy.random.randint(1, 3)
 
     if dice_roll == 1:
-        call receive_text(Rogue, "Gnight [Rogue.Player_petname]") from _call_receive_text_589
+        call receive_text(Rogue, f"Gnight {Rogue.Player_petname}") from _call_receive_text_589
         call receive_text(Rogue, "Love you") from _call_receive_text_590
     elif dice_roll == 2:
+        call receive_text(Rogue, "Sleep well for me! <333")
+    elif dice_roll == 3:
         call receive_text(Rogue, "Gnight") from _call_receive_text_591
-        call receive_text(Rogue, ":(") from _call_receive_text_592
-        call receive_text(Rogue, "Wish you were here") from _call_receive_text_593
+        call receive_text(Rogue, "Wish you were here <3") from _call_receive_text_593
 
         $ Rogue.mandatory_text_options = ["I do too, we'll see about some other day", "if you're good, I might stay over tomorrow", "maybe I would be if you didn't snore"]
         $ temp = Rogue.mandatory_text_options[:]
@@ -297,39 +467,97 @@ label Rogue_text_goodnight_love:
     return
 
 label Rogue_text_goodnight_mad:
-    call receive_text(Rogue, "No") from _call_receive_text_598
-    call receive_text(Rogue, "It aint") from _call_receive_text_599
+    $ dice_roll = renpy.random.randint(1, 3)
+    
+    if dice_roll == 1:
+        call receive_text(Rogue, "No") from _call_receive_text_598
+        call receive_text(Rogue, "It aint") from _call_receive_text_599
+    elif dice_roll == 2:
+        call receive_text(Rogue, "K")
+    elif dice_roll == 3:
+        call receive_text(Rogue, "Whatever")
 
     return
 
 label Rogue_text_goodnight_hearbroken:
-    call receive_text(Rogue, "Oh") from _call_receive_text_600
-    call receive_text(Rogue, "Okay") from _call_receive_text_601
-    call receive_text(Rogue, "Goodnight") from _call_receive_text_602
+    $ dice_roll = renpy.random.randint(1, 3)
+    
+    if dice_roll == 1:
+        call receive_text(Rogue, "Oh") from _call_receive_text_600
+        call receive_text(Rogue, "Okay") from _call_receive_text_601
+        call receive_text(Rogue, "Goodnight") from _call_receive_text_602
+    elif dice_roll == 2:
+        call receive_text(Rogue, "Goodnight. . .")
+    elif dice_roll == 3:
+        call receive_text(Rogue, "Maybe. . . nevermind, goodnight")
 
     return
 
 label Rogue_text_goodnight_horny:
-    call receive_text(Rogue, "Oh, youre goin to bed?") from _call_receive_text_603
-    call receive_text(Rogue, "Was wonderin") from _call_receive_text_604
-    call receive_text(Rogue, "Never mind, maybe tomorrow") from _call_receive_text_605
-    call receive_text(Rogue, "Gnight! :)") from _call_receive_text_606
+    $ dice_roll = renpy.random.randint(1, 3)
+    
+    if dice_roll == 1:
+        call receive_text(Rogue, "Oh, youre goin to bed?") from _call_receive_text_603
+        call receive_text(Rogue, "Was wonderin") from _call_receive_text_604
+        call receive_text(Rogue, "Never mind, maybe tomorrow") from _call_receive_text_605
+        call receive_text(Rogue, "Gnight! :)") from _call_receive_text_606
+    elif dice_roll == 2:
+        call receive_text(Rogue, "Already going to bed?")
+
+        if approval_check(Rogue, threshold = "hookup"):
+            call receive_text(Rogue, "Sure you don't want to. . . you know?")
+            call receive_text(Rogue, ". . . I guess I can wait till we're together")
+        else:
+            call receive_text(Rogue, "Gnight ;)")
+    elif dice_roll == 3:
+        if approval_check(Rogue, threshold = "hookup"):
+            call receive_text(Rogue, "Sleep tight, think of me <3")
+        else:
+            call receive_text(Rogue, "Sleep tight haha")
 
     return
 
 label Rogue_text_goodnight_nympho:
-    call receive_text(Rogue, "Youre goin to bed?") from _call_receive_text_607
-    call receive_text(Rogue, "But") from _call_receive_text_608
-    call receive_text(Rogue, "I could really use some attention. . .") from _call_receive_text_609
-    call receive_text(Rogue, "Or at least havin you to press up against. . .") from _call_receive_text_610
+    $ dice_roll = renpy.random.randint(1, 3)
+
+    if dice_roll == 1:
+        call receive_text(Rogue, "Youre goin to bed?") from _call_receive_text_607
+        call receive_text(Rogue, "But") from _call_receive_text_608
+
+        if approval_check(Rogue, threshold = "hookup"):
+            call receive_text(Rogue, "I could really use some attention. . .") from _call_receive_text_609
+            call receive_text(Rogue, "Or at least have you to press up against. . .") from _call_receive_text_610
+        else:
+            call receive_text(Rogue, ":(")
+    elif dice_roll == 2:
+        if approval_check(Rogue, threshold = "hookup"):
+            call receive_text(Rogue, f"Come on {Rogue.Player_petname}, you cant go to bed without giving your {Rogue.petname} some attention!")
+
+        call receive_text(Rogue, ":(")
+        call receive_text(Rogue, "Fine")
+    elif dice_roll == 3:
+        call receive_text(Rogue, "Already?")
+        call receive_text(Rogue, "But. . .")
+
+        if approval_check(Rogue, threshold = "hookup"):
+            call receive_text(Rogue, "I'm dripping for you. . .")
 
     return
 
 label Rogue_text_ignored:
     call change_Character_stat(Rogue, "love", -tiny_stat) from _call_change_Character_stat_803
 
-    call receive_text(Rogue, "Oh") from _call_receive_text_611
-    call receive_text(Rogue, "Well okay") from _call_receive_text_612
+    $ dice_roll = renpy.random.randint(1, 3)
+
+    if dice_roll == 1:
+        call receive_text(Rogue, "Oh") from _call_receive_text_611
+        call receive_text(Rogue, "Maybe my texts aren't going through")
+    elif dice_roll == 2:
+        call receive_text(Rogue, ". . .")
+    elif dice_roll == 3:
+        call receive_text(Rogue, "?")
+
+    $ Rogue.give_status("miffed")
 
     return
 

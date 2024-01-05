@@ -28,7 +28,7 @@ label Jean_locker_room_showering:
 
     call send_Characters(Jean, "bg_lockers", behavior = "showering") from _call_send_Characters_44
     
-    if Jean in Partners:
+    if approval_check(Jean, threshold = "hookup"):
         $ Jean.change_face("smirk2", eyes = "left")
 
         "As you're finishing up, [Jean.name] walks in."

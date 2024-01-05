@@ -25,7 +25,7 @@ label Laura_locker_room_changing:
     call change_Outfit(Laura, Laura.Wardrobe.superhero_Outfit, instant = True) from _call_change_Outfit_9
     call set_the_scene(location = "bg_lockers") from _call_set_the_scene_117
 
-    if Laura in Partners:
+    if approval_check(Laura, threshold = "hookup"):
         if Laura.History.check("seen_breasts") and Laura.History.check("seen_pussy"):
             $ Laura.change_face("neutral", eyes = "down")
 

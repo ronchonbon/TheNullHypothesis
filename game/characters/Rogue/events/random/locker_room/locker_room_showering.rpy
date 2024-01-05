@@ -28,7 +28,7 @@ label Rogue_locker_room_showering:
 
     call send_Characters(Rogue, "bg_lockers", behavior = "showering") from _call_send_Characters_158
     
-    if Rogue in Partners:
+    if approval_check(Rogue, threshold = "hookup"):
         $ Rogue.change_face("smirk2", eyes = "left")
 
         "As you're finishing up, [Rogue.name] walks in."

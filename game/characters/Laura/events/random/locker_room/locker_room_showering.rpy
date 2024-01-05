@@ -28,7 +28,7 @@ label Laura_locker_room_showering:
 
     call send_Characters(Laura, "bg_lockers", behavior = "showering") from _call_send_Characters_101
     
-    if Laura in Partners:
+    if approval_check(Laura, threshold = "hookup"):
         $ Laura.change_face("suspicious1", blush = 1)
 
         "As you're finishing up, [Laura.name] walks in."

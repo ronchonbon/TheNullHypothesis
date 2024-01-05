@@ -25,7 +25,7 @@ label Jean_locker_room_changing:
     call change_Outfit(Jean, Jean.Wardrobe.superhero_Outfit, instant = True) from _call_change_Outfit_2
     call set_the_scene(location = "bg_lockers") from _call_set_the_scene_38
 
-    if Jean in Partners:
+    if approval_check(Jean, threshold = "hookup"):
         if Jean.History.check("seen_breasts") and Jean.History.check("seen_pussy"):
             $ Jean.change_face("neutral", eyes = "down")
 

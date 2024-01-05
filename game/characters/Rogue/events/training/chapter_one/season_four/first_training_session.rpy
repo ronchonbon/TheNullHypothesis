@@ -133,7 +133,7 @@ label Rogue_chapter_one_season_four_first_training_session:
 
     ch_Player "Fine, if you {i}really{/i} want me to. . ."
 
-    if Rogue in Partners and approval_check(Rogue, threshold = Rogue_thresholds["spank"]):
+    if approval_check(Rogue, threshold = "hookup"): and approval_check(Rogue, threshold = Rogue_thresholds["spank"]):
         $ Rogue.change_face("sly", mouth = "lipbite", blush = 1) 
         
         ch_Rogue "Ah'd think it shouldn't be too much of a surprise. . ." 

@@ -25,7 +25,7 @@ label Rogue_locker_room_changing:
     call change_Outfit(Rogue, Rogue.Wardrobe.superhero_Outfit, instant = True) from _call_change_Outfit_15
     call set_the_scene(location = "bg_lockers") from _call_set_the_scene_196
 
-    if Rogue in Partners:
+    if approval_check(Rogue, threshold = "see_underwear"):
         if Rogue.History.check("seen_breasts") and Rogue.History.check("seen_pussy"):
             $ Rogue.change_face("neutral", eyes = "down")
 
