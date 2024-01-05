@@ -1,4 +1,4 @@
-label Rogue_change_into_public_Outfit(context = "generic"):
+label Rogue_change_into_public_Outfit(context):
     $ dice_pool = []
 
     if context == "generic":

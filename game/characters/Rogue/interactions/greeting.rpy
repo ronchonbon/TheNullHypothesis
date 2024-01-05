@@ -1,5 +1,5 @@
 label Rogue_greets_Player:
-    if Rogue.History.check("seen_Player", tracker = "recent") or Rogue.History.check("seen_Player", tracker = "last"):
+    if Rogue.History.check("seen_Player", tracker = "recent") > 1 or Rogue.History.check("seen_Player", tracker = "last"):
         $ modifier = " again"
     else:
         $ modifier = ""
@@ -50,7 +50,7 @@ label Rogue_greets_Player:
     return
 
 label Rogue_greets_Player_relationship:
-    if Rogue.History.check("seen_Player", tracker = "recent") or Rogue.History.check("seen_Player", tracker = "last"):
+    if Rogue.History.check("seen_Player", tracker = "recent") > 1 or Rogue.History.check("seen_Player", tracker = "last"):
         $ modifier = " again"
     else:
         $ modifier = ""
@@ -76,7 +76,7 @@ label Rogue_greets_Player_relationship:
     elif dice_roll == 4:
         $ Rogue.change_face("confused1", mouth = "smirk")
 
-        if modifier == " again" and Rogue.History.check("seen_Player", tracker = "recent"):
+        if modifier == " again" and Rogue.History.check("seen_Player", tracker = "recent") > 1:
             ch_Rogue "Were ya comin' back for me?"
         else:
             ch_Rogue "Were ya lookin' for me?"
@@ -93,7 +93,7 @@ label Rogue_greets_Player_relationship:
     return
 
 label Rogue_greets_Player_love:
-    if Rogue.History.check("seen_Player", tracker = "recent") or Rogue.History.check("seen_Player", tracker = "last"):
+    if Rogue.History.check("seen_Player", tracker = "recent") > 1 or Rogue.History.check("seen_Player", tracker = "last"):
         $ modifier = " again"
     else:
         $ modifier = ""
@@ -145,7 +145,7 @@ label Rogue_greets_Player_love:
     return
 
 label Rogue_greets_Player_mad:
-    if Rogue.History.check("seen_Player", tracker = "recent") or Rogue.History.check("seen_Player", tracker = "last"):
+    if Rogue.History.check("seen_Player", tracker = "recent") > 1 or Rogue.History.check("seen_Player", tracker = "last"):
         $ modifier = " again"
     else:
         $ modifier = ""
@@ -181,7 +181,7 @@ label Rogue_greets_Player_mad:
     return
 
 label Rogue_greets_Player_heartbroken:
-    if Rogue.History.check("seen_Player", tracker = "recent") or Rogue.History.check("seen_Player", tracker = "last"):
+    if Rogue.History.check("seen_Player", tracker = "recent") > 1 or Rogue.History.check("seen_Player", tracker = "last"):
         $ modifier = " again"
     else:
         $ modifier = ""
@@ -220,7 +220,7 @@ label Rogue_greets_Player_heartbroken:
     return
 
 label Rogue_greets_Player_horny:
-    if Rogue.History.check("seen_Player", tracker = "recent") or Rogue.History.check("seen_Player", tracker = "last"):
+    if Rogue.History.check("seen_Player", tracker = "recent") > 1 or Rogue.History.check("seen_Player", tracker = "last"):
         $ modifier = " again"
     else:
         $ modifier = ""
@@ -266,7 +266,7 @@ label Rogue_greets_Player_horny:
     return
 
 label Rogue_greets_Player_nympho:
-    if Rogue.History.check("seen_Player", tracker = "recent") or Rogue.History.check("seen_Player", tracker = "last"):
+    if Rogue.History.check("seen_Player", tracker = "recent") > 1 or Rogue.History.check("seen_Player", tracker = "last"):
         $ modifier = " again"
     else:
         $ modifier = ""
@@ -405,7 +405,7 @@ label Rogue_greets_Jean:
     return
 
 label Rogue_simple_greeting:
-    if Rogue.History.check("seen_Player", tracker = "recent") or Rogue.History.check("seen_Player", tracker = "last"):
+    if Rogue.History.check("seen_Player", tracker = "recent") > 1 or Rogue.History.check("seen_Player", tracker = "last"):
         $ modifier = " again"
     else:
         $ modifier = ""

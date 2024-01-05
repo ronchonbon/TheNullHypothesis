@@ -602,6 +602,6 @@ label Laura_not_invited_in:
 
     return
 
-label Laura_one_second(context = "changing"):
+label Laura_one_second(context):
 
     return

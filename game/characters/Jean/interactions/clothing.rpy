@@ -1,4 +1,4 @@
-label Jean_change_into_public_Outfit(context = "generic"):
+label Jean_change_into_public_Outfit(context):
     $ dice_pool = []
 
     if context == "generic":

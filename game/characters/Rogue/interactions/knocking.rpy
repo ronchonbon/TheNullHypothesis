@@ -569,6 +569,6 @@ label Rogue_not_invited_in:
 
     return
 
-label Rogue_one_second(context = "changing"):
+label Rogue_one_second(context):
 
     return

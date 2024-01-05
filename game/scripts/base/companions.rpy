@@ -172,7 +172,7 @@ init -2 python:
             self.temp = None
 
         def change_face(self, face = None, **kwargs):
-            face = self.default_face() if not face else face
+            face, brows, eyes, mouth, blush = self.default_face() if not face else face
 
             brows = kwargs.get("brows", None)
             eyes = kwargs.get("eyes", None)
@@ -199,20 +199,78 @@ init -2 python:
             return
 
         def default_face(self):
-            if self.status["miffed"] or self.status["mad"]:
-                face = "furious"
-            elif self.status["heartbroken"]:
-                face = "sad"
-            elif self.status["horny"]:
-                face = "sexy"
-            elif self.status["nympho"]:
-                face = "sexy"
-            elif approval_check(self, threshold = "love"):
-                face = "smirk2"
-            else:
-                face = "neutral"
+            face = "neutral"
+            brows = None
+            eyes = None
+            mouth = None
+            blush = 0
 
-            return face
+            if self.status["mad"]:
+                $ dice_roll = renpy.random.randint(1, 2)
+                
+                if dice_roll == 1:
+                    face = "angry1"
+                elif dice_roll == 2:
+                    face = "furious"
+            elif self.status["miffed"]:
+                $ dice_roll = renpy.random.randint(1, 2)
+                
+                if dice_roll == 1:
+                    face = "angry1"
+                elif dice_roll == 2:
+                    face = "angry2"
+            elif self.status["heartbroken"]:
+                $ dice_roll = renpy.random.randint(1, 2)
+                
+                if dice_roll == 1:
+                    face = "sad"
+                elif dice_roll == 2:
+                    face = "worried1"
+            elif self.status["horny"]:
+                $ dice_roll = renpy.random.randint(1, 2)
+                
+                if dice_roll == 1:
+                    face = "sexy"
+                elif dice_roll == 2:
+                    face = "sly"
+                elif dice_roll == 3:
+                    face = "sexy"
+                    mouth = "smirk"
+            elif self.status["nympho"]:
+                $ dice_roll = renpy.random.randint(1, 3)
+                
+                if dice_roll == 1:
+                    brows = "worried"
+                    eyes = "sexy"
+                    mouth = "lipbite"
+                elif dice_roll == 2:
+                    brows = "worried"
+                    eyes = "sexy"
+                    mouth = "smirk"
+                elif dice_roll == 3:
+                    brows = "worried"
+                    eyes = "sexy"
+                    mouth = "open"
+            elif approval_check(self, threshold = "love"):
+                $ dice_roll = renpy.random.randint(1, 4)
+                
+                if dice_roll == 1:
+                    face = "happy"
+                elif dice_roll == 2:
+                    face = "pleased1"
+                elif dice_roll == 3:
+                    face = "smirk1"
+                elif dice_roll == 4:
+                    face = "smirk2"
+            else:
+                $ dice_roll = renpy.random.randint(1, 2)
+                
+                if dice_roll == 1:
+                    face = "neutral"
+                elif dice_roll == 2:
+                    face = "smirk1"
+
+            return face, brows, eyes, mouth, blush
 
         def change_arms(self, pose = None, **kwargs):
             if not pose:
@@ -243,75 +301,73 @@ init -2 python:
             left_arm = None
             right_arm = None
 
-            if self.status["miffed"] or self.status["mad"]:
-                if renpy.random.random() > 0.75:
+            if self.status["mad"]:
+                dice_roll = renpy.random.randint(1, 3)
+
+                if dice_roll == 1:
                     pose = "angry"
-                elif renpy.random.random() > 0.5:
+                elif dice_roll == 2:
                     pose = "crossed"
-                elif renpy.random.random() > 0.25:
+                elif dice_roll == 3:
                     pose = "hips"
-                else:
+            elif self.status["miffed"]:
+                dice_roll = renpy.random.randint(1, 3)
+
+                if dice_roll == 1:
                     pose = "neutral"
+                elif dice_roll == 2:
+                    pose = "crossed"
+                elif dice_roll == 3:
+                    pose = "hips"
             elif self.status["heartbroken"]:
-                if renpy.random.random() > 0.75:
-                    if self.tag in ["Rogue"]:
-                        left_arm = "rub_neck"
-                        right_arm = "neutral"
-                    elif self.tag in ["Laura"]:
-                        pose = "angry"
-                    elif self.tag in ["Jean"]:
-                        pose = "sass"
-                elif renpy.random.random() > 0.5:
+                dice_roll = renpy.random.randint(1, 5)
+
+                if dice_roll == 1:
+                    pose = "angry"
+                elif dice_roll == 2:
                     pose = "crossed"
-                elif renpy.random.random() > 0.25:
+                elif dice_roll == 3:
                     pose = "hips"
-                else:
-                    pose = "neutral"
+                elif dice_roll == 4:
+                    left_arm = "rub_neck"
+                    right_arm = "neutral"
+                elif dice_roll == 5:
+                    left_arm = "rub_neck"
+                    right_arm = "hip"
             elif self.status["horny"]:
-                if renpy.random.random() > 0.75:
-                    if self.tag in ["Rogue"]:
-                        left_arm = "rub_neck"
-                        right_arm = "neutral"
-                    elif self.tag in ["Laura"]:
-                        pose = "angry"
-                    elif self.tag in ["Jean"]:
-                        pose = "sass"
-                elif renpy.random.random() > 0.5:
+                dice_roll = renpy.random.randint(1, 3)
+
+                if dice_roll == 1:
                     pose = "crossed"
-                elif renpy.random.random() > 0.25:
+                elif dice_roll == 2:
                     pose = "hips"
-                else:
-                    pose = "neutral"
+                elif dice_roll == 3:
+                    left_arm = "rub_neck"
+                    right_arm = "neutral"
             elif self.status["nympho"]:
-                if renpy.random.random() > 0.75:
-                    if self.tag in ["Rogue"]:
-                        left_arm = "rub_neck"
-                        right_arm = "neutral"
-                    elif self.tag in ["Laura"]:
-                        pose = "angry"
-                    elif self.tag in ["Jean"]:
-                        pose = "sass"
-                elif renpy.random.random() > 0.5:
+                dice_roll = renpy.random.randint(1, 3)
+
+                if dice_roll == 1:
+                    pose = "angry"
+                elif dice_roll == 2:
                     pose = "crossed"
-                elif renpy.random.random() > 0.25:
-                    pose = "hips"
-                else:
-                    pose = "neutral"
+                elif dice_roll == 3:
+                    left_arm = "rub_neck"
+                    right_arm = "fist"
             else:
-                if renpy.random.random() > 0.75:
-                    if self.tag in ["Rogue"]:
-                        left_arm = "rub_neck"
-                        right_arm = "neutral"
-                    elif self.tag in ["Laura"]:
-                        pose = "angry"
-                    elif self.tag in ["Jean"]:
-                        pose = "sass"
-                elif renpy.random.random() > 0.5:
-                    pose = "crossed"
-                elif renpy.random.random() > 0.25:
-                    pose = "hips"
-                else:
+                dice_roll = renpy.random.randint(1, 5)
+
+                if dice_roll == 1:
                     pose = "neutral"
+                elif dice_roll == 2:
+                    pose = "crossed"
+                elif dice_roll == 3:
+                    pose = "hips"
+                elif dice_roll == 4:
+                    pose = "sass"
+                elif dice_roll == 5:
+                    left_arm = "neutral"
+                    right_arm = "hip"
 
             return pose, left_arm, right_arm
 

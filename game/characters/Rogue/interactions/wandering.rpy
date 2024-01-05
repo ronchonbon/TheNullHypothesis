@@ -1,5 +1,5 @@
 label Rogue_arrives(arriving_Characters):
-    if Rogue.History.check("seen_Player", tracker = "recent") or Rogue.History.check("seen_Player", tracker = "last"):
+    if Rogue.History.check("seen_Player", tracker = "recent") > 1 or Rogue.History.check("seen_Player", tracker = "last"):
         $ modifier = " again"
     else:
         $ modifier = ""
@@ -41,7 +41,7 @@ label Rogue_arrives(arriving_Characters):
     return
 
 label Rogue_arrives_relationship(arriving_Characters):
-    if Rogue.History.check("seen_Player", tracker = "recent") or Rogue.History.check("seen_Player", tracker = "last"):
+    if Rogue.History.check("seen_Player", tracker = "recent") > 1 or Rogue.History.check("seen_Player", tracker = "last"):
         $ modifier = " again"
     else:
         $ modifier = ""
@@ -100,7 +100,7 @@ label Rogue_arrives_relationship(arriving_Characters):
     return
 
 label Rogue_arrives_love(arriving_Characters):
-    if Rogue.History.check("seen_Player", tracker = "recent") or Rogue.History.check("seen_Player", tracker = "last"):
+    if Rogue.History.check("seen_Player", tracker = "recent") > 1 or Rogue.History.check("seen_Player", tracker = "last"):
         $ modifier = " again"
     else:
         $ modifier = ""
@@ -156,7 +156,7 @@ label Rogue_arrives_love(arriving_Characters):
     return
 
 label Rogue_arrives_mad(arriving_Characters):
-    if Rogue.History.check("seen_Player", tracker = "recent") or Rogue.History.check("seen_Player", tracker = "last"):
+    if Rogue.History.check("seen_Player", tracker = "recent") > 1 or Rogue.History.check("seen_Player", tracker = "last"):
         $ modifier = " again"
     else:
         $ modifier = ""
@@ -193,7 +193,7 @@ label Rogue_arrives_mad(arriving_Characters):
     return
 
 label Rogue_arrives_heartbroken(arriving_Characters):
-    if Rogue.History.check("seen_Player", tracker = "recent") or Rogue.History.check("seen_Player", tracker = "last"):
+    if Rogue.History.check("seen_Player", tracker = "recent") > 1 or Rogue.History.check("seen_Player", tracker = "last"):
         $ modifier = " again"
     else:
         $ modifier = ""
@@ -238,7 +238,7 @@ label Rogue_arrives_heartbroken(arriving_Characters):
     return
 
 label Rogue_arrives_horny(arriving_Characters):
-    if Rogue.History.check("seen_Player", tracker = "recent") or Rogue.History.check("seen_Player", tracker = "last"):
+    if Rogue.History.check("seen_Player", tracker = "recent") > 1 or Rogue.History.check("seen_Player", tracker = "last"):
         $ modifier = " again"
     else:
         $ modifier = ""
@@ -287,7 +287,7 @@ label Rogue_arrives_horny(arriving_Characters):
     return
 
 label Rogue_arrives_nympho(arriving_Characters):
-    if Rogue.History.check("seen_Player", tracker = "recent") or Rogue.History.check("seen_Player", tracker = "last"):
+    if Rogue.History.check("seen_Player", tracker = "recent") > 1 or Rogue.History.check("seen_Player", tracker = "last"):
         $ modifier = " again"
     else:
         $ modifier = ""

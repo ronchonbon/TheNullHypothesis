@@ -628,6 +628,6 @@ label Jean_not_invited_in:
 
     return
 
-label Jean_one_second(context = "changing"):
+label Jean_one_second(context):
 
     return

@@ -1,5 +1,5 @@
 label Kurt_arrives:
-    if Kurt.History.check("seen_Player", tracker = "recent") or Kurt.History.check("seen_Player", tracker = "last"):
+    if Kurt.History.check("seen_Player", tracker = "recent") > 1 or Kurt.History.check("seen_Player", tracker = "last"):
         $ modifier = " again"
     else:
         $ modifier = ""
@@ -40,7 +40,7 @@ label Kurt_leaves:
     return
     
 label Kurt_greets_Player:
-    if Kurt.History.check("seen_Player", tracker = "recent") or Kurt.History.check("seen_Player", tracker = "last"):
+    if Kurt.History.check("seen_Player", tracker = "recent") > 1 or Kurt.History.check("seen_Player", tracker = "last"):
         $ modifier = " again"
     else:
         $ modifier = ""

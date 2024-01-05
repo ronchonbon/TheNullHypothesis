@@ -1,5 +1,5 @@
 label Jean_greets_Player:
-    if Jean.History.check("seen_Player", tracker = "recent") or Jean.History.check("seen_Player", tracker = "last"):
+    if Jean.History.check("seen_Player", tracker = "recent") > 1 or Jean.History.check("seen_Player", tracker = "last"):
         $ modifier = " again"
     else:
         $ modifier = ""
@@ -56,7 +56,7 @@ label Jean_greets_Player:
     return
 
 label Jean_greets_Player_relationship:
-    if Jean.History.check("seen_Player", tracker = "recent") or Jean.History.check("seen_Player", tracker = "last"):
+    if Jean.History.check("seen_Player", tracker = "recent") > 1 or Jean.History.check("seen_Player", tracker = "last"):
         $ modifier = " again"
     else:
         $ modifier = ""
@@ -88,7 +88,7 @@ label Jean_greets_Player_relationship:
         $ Jean.change_face("confused1", mouth = "smirk")
 
         if modifier == " again":
-            if Jean.History.check("seen_Player", tracker = "recent"):
+            if Jean.History.check("seen_Player", tracker = "recent") > 1:
                 ch_Jean "Where'd you go?"
             else:
                 ch_Jean "Here you are!"
@@ -100,7 +100,7 @@ label Jean_greets_Player_relationship:
         $ Jean.change_face("smirk2")
 
         if modifier == " again":
-            if Jean.History.check("seen_Player", tracker = "recent"):
+            if Jean.History.check("seen_Player", tracker = "recent") > 1:
                 ch_Jean "I bet you came back just for me. . ."
             else:
                 ch_Jean "I bet you missed me. . ."
@@ -110,7 +110,7 @@ label Jean_greets_Player_relationship:
     return
 
 label Jean_greets_Player_love:
-    if Jean.History.check("seen_Player", tracker = "recent") or Jean.History.check("seen_Player", tracker = "last"):
+    if Jean.History.check("seen_Player", tracker = "recent") > 1 or Jean.History.check("seen_Player", tracker = "last"):
         $ modifier = " again"
     else:
         $ modifier = ""
@@ -134,7 +134,7 @@ label Jean_greets_Player_love:
 
         $ temp = Jean.Player_petname.capitalize()
 
-        if modifier == " again" and Jean.History.check("seen_Player", tracker = "recent"):
+        if modifier == " again" and Jean.History.check("seen_Player", tracker = "recent") > 1:
             ch_Jean "[temp]! Missed me that much?"
         else:
             ch_Jean "[temp]! Miss me?"
@@ -153,7 +153,7 @@ label Jean_greets_Player_love:
     elif dice_roll == 4:
         $ Jean.change_face("pleased1")
 
-        if modifier == " again" and Jean.History.check("seen_Player", tracker = "recent"):
+        if modifier == " again" and Jean.History.check("seen_Player", tracker = "recent") > 1:
             ch_Jean "Came back to find me, right?"
         else:
             ch_Jean "I'm so happy you're here!"
@@ -164,7 +164,7 @@ label Jean_greets_Player_love:
 
         $ Jean.change_face("sexy", blush = 1)
 
-        if modifier == " again" and Jean.History.check("seen_Player", tracker = "recent"):
+        if modifier == " again" and Jean.History.check("seen_Player", tracker = "recent") > 1:
             ch_Jean "Was just about to come find where you went."
         else:
             ch_Jean "Was just about to come find you."
@@ -172,7 +172,7 @@ label Jean_greets_Player_love:
     return
 
 label Jean_greets_Player_mad:
-    if Jean.History.check("seen_Player", tracker = "recent") or Jean.History.check("seen_Player", tracker = "last"):
+    if Jean.History.check("seen_Player", tracker = "recent") > 1 or Jean.History.check("seen_Player", tracker = "last"):
         $ modifier = " again"
     else:
         $ modifier = ""
@@ -208,7 +208,7 @@ label Jean_greets_Player_mad:
     return
 
 label Jean_greets_Player_heartbroken:
-    if Jean.History.check("seen_Player", tracker = "recent") or Jean.History.check("seen_Player", tracker = "last"):
+    if Jean.History.check("seen_Player", tracker = "recent") > 1 or Jean.History.check("seen_Player", tracker = "last"):
         $ modifier = " again"
     else:
         $ modifier = ""
@@ -255,7 +255,7 @@ label Jean_greets_Player_heartbroken:
     return
 
 label Jean_greets_Player_horny:
-    if Jean.History.check("seen_Player", tracker = "recent") or Jean.History.check("seen_Player", tracker = "last"):
+    if Jean.History.check("seen_Player", tracker = "recent") > 1 or Jean.History.check("seen_Player", tracker = "last"):
         $ modifier = " again"
     else:
         $ modifier = ""
@@ -303,7 +303,7 @@ label Jean_greets_Player_horny:
     return
 
 label Jean_greets_Player_nympho:
-    if Jean.History.check("seen_Player", tracker = "recent") or Jean.History.check("seen_Player", tracker = "last"):
+    if Jean.History.check("seen_Player", tracker = "recent") > 1 or Jean.History.check("seen_Player", tracker = "last"):
         $ modifier = " again"
     else:
         $ modifier = ""
@@ -463,7 +463,7 @@ label Jean_greets_Laura:
     return
 
 label Jean_simple_greeting:
-    if Jean.History.check("seen_Player", tracker = "recent") or Jean.History.check("seen_Player", tracker = "last"):
+    if Jean.History.check("seen_Player", tracker = "recent") > 1 or Jean.History.check("seen_Player", tracker = "last"):
         $ modifier = " again"
     else:
         $ modifier = ""

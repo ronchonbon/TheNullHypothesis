@@ -24,6 +24,8 @@ label Charles_no_jobs:
 
         ch_Charles "You have already worked the maximum amount today."
     elif dice_roll == 2:
+        $ Charles.change_face("confused1") 
+
         ch_Charles "Another job already?"
     elif dice_roll == 3:
         $ Charles.change_face("confused1") 

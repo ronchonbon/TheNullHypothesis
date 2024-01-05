@@ -1,5 +1,5 @@
 label Jean_summon_in_love:
-    if Jean.History.check("seen_Player", tracker = "recent"):
+    if Jean.History.check("seen_Player", tracker = "recent") > 1:
         $ dice_roll = renpy.random.randint(1, 3)
 
         if dice_roll == 1:
@@ -46,7 +46,7 @@ label Jean_summon_in_love:
     return
 
 label Jean_summon_in_relationship:
-    if Jean.History.check("seen_Player", tracker = "recent"):
+    if Jean.History.check("seen_Player", tracker = "recent") > 1:
         $ dice_roll = renpy.random.randint(1, 3)
 
         if dice_roll == 1:
@@ -81,7 +81,7 @@ label Jean_summon_in_relationship:
     return
 
 label Jean_summon_love_and_trust:
-    if Jean.History.check("seen_Player", tracker = "recent"):
+    if Jean.History.check("seen_Player", tracker = "recent") > 1:
         $ dice_roll = renpy.random.randint(1, 3)
 
         if dice_roll == 1:
@@ -113,7 +113,7 @@ label Jean_summon_love_and_trust:
     return
 
 label Jean_summon_love:
-    if Jean.History.check("seen_Player", tracker = "recent"):
+    if Jean.History.check("seen_Player", tracker = "recent") > 1:
         $ dice_roll = renpy.random.randint(1, 3)
 
         if dice_roll == 1:
@@ -145,7 +145,7 @@ label Jean_summon_love:
     return
 
 label Jean_summon_trust:
-    if Jean.History.check("seen_Player", tracker = "recent"):
+    if Jean.History.check("seen_Player", tracker = "recent") > 1:
         $ dice_roll = renpy.random.randint(1, 3)
 
         if dice_roll == 1:
@@ -177,7 +177,7 @@ label Jean_summon_trust:
     return
 
 label Jean_summon_temporary:
-    if Jean.History.check("seen_Player", tracker = "recent"):
+    if Jean.History.check("seen_Player", tracker = "recent") > 1:
         $ dice_roll = renpy.random.randint(1, 3)
 
         if dice_roll == 1:

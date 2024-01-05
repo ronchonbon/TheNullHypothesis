@@ -82,6 +82,6 @@ label Ororo_not_invited_in:
 
     return
 
-label Ororo_one_second(context = "changing"):
+label Ororo_one_second(context):
 
     return

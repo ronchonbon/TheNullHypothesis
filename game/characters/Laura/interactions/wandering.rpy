@@ -1,5 +1,5 @@
 label Laura_arrives(arriving_Characters):
-    if Laura.History.check("seen_Player", tracker = "recent") or Laura.History.check("seen_Player", tracker = "last"):
+    if Laura.History.check("seen_Player", tracker = "recent") > 1 or Laura.History.check("seen_Player", tracker = "last"):
         $ modifier = " again"
     else:
         $ modifier = ""
@@ -44,7 +44,7 @@ label Laura_arrives(arriving_Characters):
     return
 
 label Laura_arrives_relationship(arriving_Characters):
-    if Laura.History.check("seen_Player", tracker = "recent") or Laura.History.check("seen_Player", tracker = "last"):
+    if Laura.History.check("seen_Player", tracker = "recent") > 1 or Laura.History.check("seen_Player", tracker = "last"):
         $ modifier = " again"
     else:
         $ modifier = ""
@@ -100,7 +100,7 @@ label Laura_arrives_relationship(arriving_Characters):
     return
 
 label Laura_arrives_love(arriving_Characters):
-    if Laura.History.check("seen_Player", tracker = "recent") or Laura.History.check("seen_Player", tracker = "last"):
+    if Laura.History.check("seen_Player", tracker = "recent") > 1 or Laura.History.check("seen_Player", tracker = "last"):
         $ modifier = " again"
     else:
         $ modifier = ""
@@ -163,7 +163,7 @@ label Laura_arrives_love(arriving_Characters):
     return
 
 label Laura_arrives_mad(arriving_Characters):
-    if Laura.History.check("seen_Player", tracker = "recent") or Laura.History.check("seen_Player", tracker = "last"):
+    if Laura.History.check("seen_Player", tracker = "recent") > 1 or Laura.History.check("seen_Player", tracker = "last"):
         $ modifier = " again"
     else:
         $ modifier = ""
@@ -196,7 +196,7 @@ label Laura_arrives_mad(arriving_Characters):
     return
 
 label Laura_arrives_heartbroken(arriving_Characters):
-    if Laura.History.check("seen_Player", tracker = "recent") or Laura.History.check("seen_Player", tracker = "last"):
+    if Laura.History.check("seen_Player", tracker = "recent") > 1 or Laura.History.check("seen_Player", tracker = "last"):
         $ modifier = " again"
     else:
         $ modifier = ""
@@ -247,7 +247,7 @@ label Laura_arrives_heartbroken(arriving_Characters):
     return
 
 label Laura_arrives_horny(arriving_Characters):
-    if Laura.History.check("seen_Player", tracker = "recent") or Laura.History.check("seen_Player", tracker = "last"):
+    if Laura.History.check("seen_Player", tracker = "recent") > 1 or Laura.History.check("seen_Player", tracker = "last"):
         $ modifier = " again"
     else:
         $ modifier = ""
@@ -306,7 +306,7 @@ label Laura_arrives_horny(arriving_Characters):
     return
 
 label Laura_arrives_nympho(arriving_Characters):
-    if Laura.History.check("seen_Player", tracker = "recent") or Laura.History.check("seen_Player", tracker = "last"):
+    if Laura.History.check("seen_Player", tracker = "recent") > 1 or Laura.History.check("seen_Player", tracker = "last"):
         $ modifier = " again"
     else:
         $ modifier = ""

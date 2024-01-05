@@ -1,5 +1,5 @@
 label Charles_arrives:
-    if Charles.History.check("seen_Player", tracker = "recent") or Charles.History.check("seen_Player", tracker = "last"):
+    if Charles.History.check("seen_Player", tracker = "recent") > 1 or Charles.History.check("seen_Player", tracker = "last"):
         $ modifier = " again"
     else:
         $ modifier = ""
@@ -37,7 +37,7 @@ label Charles_leaves:
     return
     
 label Charles_greets_Player:
-    if Charles.History.check("seen_Player", tracker = "recent") or Charles.History.check("seen_Player", tracker = "last"):
+    if Charles.History.check("seen_Player", tracker = "recent") > 1 or Charles.History.check("seen_Player", tracker = "last"):
         $ modifier = " again"
     else:
         $ modifier = ""

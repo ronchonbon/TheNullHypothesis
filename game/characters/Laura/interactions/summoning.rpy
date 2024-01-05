@@ -1,5 +1,5 @@
 label Laura_summon_in_love:
-    if Laura.History.check("seen_Player", tracker = "recent"):
+    if Laura.History.check("seen_Player", tracker = "recent") > 1:
         $ dice_roll = renpy.random.randint(1, 3)
 
         if dice_roll == 1:
@@ -38,7 +38,7 @@ label Laura_summon_in_love:
     return
 
 label Laura_summon_in_relationship:
-    if Laura.History.check("seen_Player", tracker = "recent"):
+    if Laura.History.check("seen_Player", tracker = "recent") > 1:
         $ dice_roll = renpy.random.randint(1, 3)
 
         if dice_roll == 1:
@@ -71,7 +71,7 @@ label Laura_summon_in_relationship:
     return
 
 label Laura_summon_love_and_trust:
-    if Laura.History.check("seen_Player", tracker = "recent"):
+    if Laura.History.check("seen_Player", tracker = "recent") > 1:
         $ dice_roll = renpy.random.randint(1, 3)
 
         if dice_roll == 1:
@@ -104,7 +104,7 @@ label Laura_summon_love_and_trust:
     return
 
 label Laura_summon_love:
-    if Laura.History.check("seen_Player", tracker = "recent"):
+    if Laura.History.check("seen_Player", tracker = "recent") > 1:
         $ dice_roll = renpy.random.randint(1, 3)
 
         if dice_roll == 1:
@@ -138,7 +138,7 @@ label Laura_summon_love:
     return
 
 label Laura_summon_trust:
-    if Laura.History.check("seen_Player", tracker = "recent"):
+    if Laura.History.check("seen_Player", tracker = "recent") > 1:
         $ dice_roll = renpy.random.randint(1, 3)
 
         if dice_roll == 1:
@@ -170,7 +170,7 @@ label Laura_summon_trust:
     return
 
 label Laura_summon_temporary:
-    if Laura.History.check("seen_Player", tracker = "recent"):
+    if Laura.History.check("seen_Player", tracker = "recent") > 1:
         $ dice_roll = renpy.random.randint(1, 3)
 
         if dice_roll == 1:

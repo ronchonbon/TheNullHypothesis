@@ -69,7 +69,7 @@ init -2 python:
             self.temp = None
 
         def change_face(self, face = "neutral", **kwargs):
-            face = self.default_face() if not face else face
+            face, brows, eyes, mouth, blush = self.default_face() if not face else face
 
             brows = kwargs.get("brows", None)
             eyes = kwargs.get("eyes", None)
@@ -96,7 +96,20 @@ init -2 python:
             return
 
         def default_face(self):
-            return "neutral"
+            face = "neutral"
+            brows = None
+            eyes = None
+            mouth = None
+            blush = 0
+
+            dice_roll = renpy.random.randint(1, 2)
+
+            if dice_roll == 1:
+                face = "neutral"
+            elif dice_roll == 2:
+                face = "smirk1"
+
+            return face, brows, eyes, mouth, blush
 
         def change_arms(self, pose = None, **kwargs):
             if not pose:
@@ -127,9 +140,11 @@ init -2 python:
             left_arm = None
             right_arm = None
 
-            if renpy.random.random() > 0.5:
+            dice_roll = renpy.random.randint(1, 2)
+
+            if dice_roll == 1:
                 pose = "neutral"
-            else:
+            elif dice_roll == 2:
                 pose = "crossed"
 
             return pose, left_arm, right_arm

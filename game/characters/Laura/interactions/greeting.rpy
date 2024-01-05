@@ -1,5 +1,5 @@
 label Laura_greets_Player:
-    if Laura.History.check("seen_Player", tracker = "recent") or Laura.History.check("seen_Player", tracker = "last"):
+    if Laura.History.check("seen_Player", tracker = "recent") > 1 or Laura.History.check("seen_Player", tracker = "last"):
         $ modifier = " again"
     else:
         $ modifier = ""
@@ -50,7 +50,7 @@ label Laura_greets_Player:
     return
 
 label Laura_greets_Player_relationship:
-    if Laura.History.check("seen_Player", tracker = "recent") or Laura.History.check("seen_Player", tracker = "last"):
+    if Laura.History.check("seen_Player", tracker = "recent") > 1 or Laura.History.check("seen_Player", tracker = "last"):
         $ modifier = " again"
     else:
         $ modifier = ""
@@ -68,7 +68,7 @@ label Laura_greets_Player_relationship:
 
         $ Laura.change_face("pleased2")
 
-        if modifier == " again" and Laura.History.check("seen_Player", tracker = "recent"):
+        if modifier == " again" and Laura.History.check("seen_Player", tracker = "recent") > 1:
             ch_Laura "Good, you're back."
         else:
             ch_Laura "Good, you're here."
@@ -81,7 +81,7 @@ label Laura_greets_Player_relationship:
     elif dice_roll == 4:
         $ Laura.change_face("confused1")
 
-        if modifier == " again" and Laura.History.check("seen_Player", tracker = "recent"):
+        if modifier == " again" and Laura.History.check("seen_Player", tracker = "recent") > 1:
             ch_Laura "Where did you go?"
         else:
             ch_Laura "Where were you?"
@@ -95,7 +95,7 @@ label Laura_greets_Player_relationship:
     return
 
 label Laura_greets_Player_love:
-    if Laura.History.check("seen_Player", tracker = "recent") or Laura.History.check("seen_Player", tracker = "last"):
+    if Laura.History.check("seen_Player", tracker = "recent") > 1 or Laura.History.check("seen_Player", tracker = "last"):
         $ modifier = " again"
     else:
         $ modifier = ""
@@ -112,7 +112,7 @@ label Laura_greets_Player_love:
 
         $ Laura.change_face("pleased1")
 
-        if modifier == " again" and Laura.History.check("seen_Player", tracker = "recent"):
+        if modifier == " again" and Laura.History.check("seen_Player", tracker = "recent") > 1:
             ch_Laura "I. . . I'm glad you're back."
         else:
             ch_Laura "I. . . I'm glad you're here[modifier]."
@@ -125,7 +125,7 @@ label Laura_greets_Player_love:
 
         $ Laura.change_face("smirk2")
 
-        if modifier == " again" and Laura.History.check("seen_Player", tracker = "recent"):
+        if modifier == " again" and Laura.History.check("seen_Player", tracker = "recent") > 1:
             ch_Laura "Came back for me?"
         else:
             ch_Laura "Trying to find me?"
@@ -160,7 +160,7 @@ label Laura_greets_Player_love:
     return
 
 label Laura_greets_Player_mad:
-    if Laura.History.check("seen_Player", tracker = "recent") or Laura.History.check("seen_Player", tracker = "last"):
+    if Laura.History.check("seen_Player", tracker = "recent") > 1 or Laura.History.check("seen_Player", tracker = "last"):
         $ modifier = " again"
     else:
         $ modifier = ""
@@ -203,7 +203,7 @@ label Laura_greets_Player_mad:
     return
 
 label Laura_greets_Player_heartbroken:
-    if Laura.History.check("seen_Player", tracker = "recent") or Laura.History.check("seen_Player", tracker = "last"):
+    if Laura.History.check("seen_Player", tracker = "recent") > 1 or Laura.History.check("seen_Player", tracker = "last"):
         $ modifier = " again"
     else:
         $ modifier = ""
@@ -248,7 +248,7 @@ label Laura_greets_Player_heartbroken:
     return
 
 label Laura_greets_Player_horny:
-    if Laura.History.check("seen_Player", tracker = "recent") or Laura.History.check("seen_Player", tracker = "last"):
+    if Laura.History.check("seen_Player", tracker = "recent") > 1 or Laura.History.check("seen_Player", tracker = "last"):
         $ modifier = " again"
     else:
         $ modifier = ""
@@ -299,7 +299,7 @@ label Laura_greets_Player_horny:
     return
 
 label Laura_greets_Player_nympho:
-    if Laura.History.check("seen_Player", tracker = "recent") or Laura.History.check("seen_Player", tracker = "last"):
+    if Laura.History.check("seen_Player", tracker = "recent") > 1 or Laura.History.check("seen_Player", tracker = "last"):
         $ modifier = " again"
     else:
         $ modifier = ""
@@ -452,7 +452,7 @@ label Laura_greets_Jean:
     return
 
 label Laura_simple_greeting:
-    if Laura.History.check("seen_Player", tracker = "recent") or Laura.History.check("seen_Player", tracker = "last"):
+    if Laura.History.check("seen_Player", tracker = "recent") > 1 or Laura.History.check("seen_Player", tracker = "last"):
         $ modifier = " again"
     else:
         $ modifier = ""

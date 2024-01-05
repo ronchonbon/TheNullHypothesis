@@ -1,5 +1,5 @@
 label Rogue_summon_in_love:
-    if Rogue.History.check("seen_Player", tracker = "recent"):
+    if Rogue.History.check("seen_Player", tracker = "recent") > 1:
         $ dice_roll = renpy.random.randint(1, 3)
 
         if dice_roll == 1:
@@ -44,7 +44,7 @@ label Rogue_summon_in_love:
     return
 
 label Rogue_summon_in_relationship:
-    if Rogue.History.check("seen_Player", tracker = "recent"):
+    if Rogue.History.check("seen_Player", tracker = "recent") > 1:
         $ dice_roll = renpy.random.randint(1, 3)
 
         if dice_roll == 1:
@@ -82,7 +82,7 @@ label Rogue_summon_in_relationship:
     return
 
 label Rogue_summon_love_and_trust:
-    if Rogue.History.check("seen_Player", tracker = "recent"):
+    if Rogue.History.check("seen_Player", tracker = "recent") > 1:
         $ dice_roll = renpy.random.randint(1, 3)
 
         if dice_roll == 1:
@@ -116,7 +116,7 @@ label Rogue_summon_love_and_trust:
     return
 
 label Rogue_summon_love:
-    if Rogue.History.check("seen_Player", tracker = "recent"):
+    if Rogue.History.check("seen_Player", tracker = "recent") > 1:
         $ dice_roll = renpy.random.randint(1, 3)
 
         if dice_roll == 1:
@@ -150,7 +150,7 @@ label Rogue_summon_love:
     return
 
 label Rogue_summon_trust:
-    if Rogue.History.check("seen_Player", tracker = "recent"):
+    if Rogue.History.check("seen_Player", tracker = "recent") > 1:
         $ dice_roll = renpy.random.randint(1, 3)
 
         if dice_roll == 1:
@@ -184,7 +184,7 @@ label Rogue_summon_trust:
     return
 
 label Rogue_summon_temporary:
-    if Rogue.History.check("seen_Player", tracker = "recent"):
+    if Rogue.History.check("seen_Player", tracker = "recent") > 1:
         $ dice_roll = renpy.random.randint(1, 3)
 
         if dice_roll == 1:

@@ -1,5 +1,5 @@
 label Jean_arrives(arriving_Characters):
-    if Jean.History.check("seen_Player", tracker = "recent") or Jean.History.check("seen_Player", tracker = "last"):
+    if Jean.History.check("seen_Player", tracker = "recent") > 1 or Jean.History.check("seen_Player", tracker = "last"):
         $ modifier = " again"
     else:
         $ modifier = ""
@@ -41,7 +41,7 @@ label Jean_arrives(arriving_Characters):
     return
 
 label Jean_arrives_relationship(arriving_Characters):
-    if Jean.History.check("seen_Player", tracker = "recent") or Jean.History.check("seen_Player", tracker = "last"):
+    if Jean.History.check("seen_Player", tracker = "recent") > 1 or Jean.History.check("seen_Player", tracker = "last"):
         $ modifier = " again"
     else:
         $ modifier = ""
@@ -102,7 +102,7 @@ label Jean_arrives_relationship(arriving_Characters):
     return
 
 label Jean_arrives_love(arriving_Characters):
-    if Jean.History.check("seen_Player", tracker = "recent") or Jean.History.check("seen_Player", tracker = "last"):
+    if Jean.History.check("seen_Player", tracker = "recent") > 1 or Jean.History.check("seen_Player", tracker = "last"):
         $ modifier = " again"
     else:
         $ modifier = ""
@@ -169,7 +169,7 @@ label Jean_arrives_love(arriving_Characters):
     return
 
 label Jean_arrives_mad(arriving_Characters):
-    if Jean.History.check("seen_Player", tracker = "recent") or Jean.History.check("seen_Player", tracker = "last"):
+    if Jean.History.check("seen_Player", tracker = "recent") > 1 or Jean.History.check("seen_Player", tracker = "last"):
         $ modifier = " again"
     else:
         $ modifier = ""
@@ -212,7 +212,7 @@ label Jean_arrives_mad(arriving_Characters):
     return
 
 label Jean_arrives_heartbroken(arriving_Characters):
-    if Jean.History.check("seen_Player", tracker = "recent") or Jean.History.check("seen_Player", tracker = "last"):
+    if Jean.History.check("seen_Player", tracker = "recent") > 1 or Jean.History.check("seen_Player", tracker = "last"):
         $ modifier = " again"
     else:
         $ modifier = ""
@@ -261,7 +261,7 @@ label Jean_arrives_heartbroken(arriving_Characters):
     return
 
 label Jean_arrives_horny(arriving_Characters):
-    if Jean.History.check("seen_Player", tracker = "recent") or Jean.History.check("seen_Player", tracker = "last"):
+    if Jean.History.check("seen_Player", tracker = "recent") > 1 or Jean.History.check("seen_Player", tracker = "last"):
         $ modifier = " again"
     else:
         $ modifier = ""
@@ -323,7 +323,7 @@ label Jean_arrives_horny(arriving_Characters):
     return
 
 label Jean_arrives_nympho(arriving_Characters):
-    if Jean.History.check("seen_Player", tracker = "recent") or Jean.History.check("seen_Player", tracker = "last"):
+    if Jean.History.check("seen_Player", tracker = "recent") > 1 or Jean.History.check("seen_Player", tracker = "last"):
         $ modifier = " again"
     else:
         $ modifier = ""
