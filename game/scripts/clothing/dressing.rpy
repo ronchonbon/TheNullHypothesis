@@ -148,10 +148,10 @@ label set_Outfit_flags(Character, Outfit = None, hypothetical = False):
                             if Character.Clothes[candidate_type].string in Character.Clothes[C_type].blocked_by.keys() and Character.Clothes[candidate_type].state in Character.Clothes[C_type].blocked_by[Character.Clothes[candidate_type].string]:
                                 Character.Clothes[C_type].blocked = True
 
-                    # if Character.Clothes[C_type].covered or (("swimsuit" in Character.Clothes[C_type].name or "bikini" in Character.Clothes[C_type].name) and Character.location == "bg_pool"):
-                    #     Character.Outfit.shame += Character.Clothes[C_type].shame[0]
-                    # else:
-                    #     Character.Outfit.shame += Character.Clothes[C_type].shame[1]
+                    if Character.Clothes[C_type].covered or (("swimsuit" in Character.Clothes[C_type].name or "bikini" in Character.Clothes[C_type].name) and Character.location == "bg_pool"):
+                        Character.Outfit.shame += Character.Clothes[C_type].shame[0]
+                    else:
+                        Character.Outfit.shame += Character.Clothes[C_type].shame[1]
     
         $ renpy.dynamic(temp_body_parts = ["bra", "breasts", "back", "belly", "thighs", "underwear", "ass", "pussy", "anus", "feet"])
 
@@ -178,10 +178,10 @@ label set_Outfit_flags(Character, Outfit = None, hypothetical = False):
 
                                     hidden = True
                 
-                # if not covered:
-                #     $ Character.Outfit.shame += eval(f"{Character.tag}_Outfit_shame['{temp_body_parts[0]}_exposed']")
-                # elif not hidden:
-                #     $ Character.Outfit.shame += eval(f"{Character.tag}_Outfit_shame['{temp_body_parts[0]}_visible']")
+                if not covered:
+                    $ Character.Outfit.shame += eval(f"{Character.tag}_Outfit_shame['{temp_body_parts[0]}_exposed']")
+                elif not hidden:
+                    $ Character.Outfit.shame += eval(f"{Character.tag}_Outfit_shame['{temp_body_parts[0]}_visible']")
 
                 if not hypothetical and not black_screen and renpy.showing(f"{Character.tag}_sprite"):
                     if not hidden and Character.location != "hold" and Character.location == Player.location:
@@ -209,10 +209,10 @@ label set_Outfit_flags(Character, Outfit = None, hypothetical = False):
                             if Outfit.Clothes[candidate_type].string in Outfit.Clothes[C_type].blocked_by.keys() and Outfit.Clothes[candidate_type].state in Outfit.Clothes[C_type].blocked_by[Outfit.Clothes[candidate_type].string]:
                                 Outfit.Clothes[C_type].blocked = True
 
-                    # if Outfit.Clothes[C_type].covered or (("swimsuit" in Outfit.Clothes[C_type].name or "bikini" in Outfit.Clothes[C_type].name) and Character.location == "bg_pool"):
-                    #     Outfit.shame += Outfit.Clothes[C_type].shame[0]
-                    # else:
-                    #     Outfit.shame += Outfit.Clothes[C_type].shame[1]
+                    if Outfit.Clothes[C_type].covered or (("swimsuit" in Outfit.Clothes[C_type].name or "bikini" in Outfit.Clothes[C_type].name) and Character.location == "bg_pool"):
+                        Outfit.shame += Outfit.Clothes[C_type].shame[0]
+                    else:
+                        Outfit.shame += Outfit.Clothes[C_type].shame[1]
     
         $ renpy.dynamic(temp_body_parts = ["bra", "breasts", "back", "belly", "thighs", "underwear", "ass", "pussy", "anus", "feet"])
 
@@ -239,10 +239,10 @@ label set_Outfit_flags(Character, Outfit = None, hypothetical = False):
 
                                     hidden = True
                 
-                # if not covered:
-                #     $ Outfit.shame += eval(f"{Character.tag}_Outfit_shame['{temp_body_parts[0]}_exposed']")
-                # elif not hidden:
-                #     $ Outfit.shame += eval(f"{Character.tag}_Outfit_shame['{temp_body_parts[0]}_visible']")
+                if not covered:
+                    $ Outfit.shame += eval(f"{Character.tag}_Outfit_shame['{temp_body_parts[0]}_exposed']")
+                elif not hidden:
+                    $ Outfit.shame += eval(f"{Character.tag}_Outfit_shame['{temp_body_parts[0]}_visible']")
 
             $ temp_body_parts.remove(temp_body_parts[0])
                 

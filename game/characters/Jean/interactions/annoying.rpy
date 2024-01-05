@@ -118,6 +118,8 @@ label Jean_asked_once(context):
         $ dice_pool.append(18)
         $ dice_pool.append(19)
 
+    $ dice_roll = renpy.random.choice(dice_pool)
+
     if dice_roll == 1:
         $ Jean.change_face("angry1")
 
@@ -339,6 +341,8 @@ label Jean_asked_twice(context):
     elif context == "knocking":
         $ dice_pool.append(18)
 
+    $ dice_roll = renpy.random.choice(dice_pool)
+
     if dice_roll == 1:
         $ Jean.change_face("angry1")  
 
@@ -436,6 +440,8 @@ label Jean_asked_once_text(context):
         $ dice_pool.append(2)
         $ dice_pool.append(5)
 
+    $ dice_roll = renpy.random.choice(dice_pool)
+
     if dice_roll == 1:
         call receive_text(Jean, "Are my messages sending?") from _call_receive_text_216
     elif dice_roll == 2:
@@ -468,6 +474,8 @@ label Jean_asked_twice_text(context):
         $ dice_pool.append(1)
         $ dice_pool.append(2)
         $ dice_pool.append(5)
+
+    $ dice_roll = renpy.random.choice(dice_pool)
 
     if dice_roll == 1:
         call receive_text(Jean, f"This is really getting old {Player.first_name}") from _call_receive_text_218

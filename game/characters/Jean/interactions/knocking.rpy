@@ -627,3 +627,7 @@ label Jean_not_invited_in:
     ch_Jean "I'm comfy out here."
 
     return
+
+label Jean_one_second(context = "changing"):
+
+    return

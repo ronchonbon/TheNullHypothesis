@@ -601,3 +601,7 @@ label Laura_not_invited_in:
     ch_Laura "I don't want to go in."
 
     return
+
+label Laura_one_second(context = "changing"):
+
+    return

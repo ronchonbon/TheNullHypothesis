@@ -81,3 +81,7 @@ label Ororo_greets_Player_knocking_late_asked_twice:
 label Ororo_not_invited_in:
 
     return
+
+label Ororo_one_second(context = "changing"):
+
+    return

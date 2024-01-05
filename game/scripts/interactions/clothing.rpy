@@ -38,7 +38,7 @@ label ask_Character_to_change_Outfit(Character, Outfit_name, instant = False):
         call expression f"{Character.tag}_change_Outfit_reject_mad" from _call_expression_159
 
         $ Character.History.update("refused_to_change_Outfit")
-    elif approval_check(Character, threshold = "change_Outfit") and approval_check(Character, threshold = 0.5*Character.Wardrobe.Outfits[Outfit_name].shame):
+    elif approval_check(Character, threshold = "change_Outfit") and approval_check(Character, threshold = 0.4*Character.Wardrobe.Outfits[Outfit_name].shame):
         $ Items_to_remove, Items_to_add = get_changed_Items(Character, Character.Wardrobe.Outfits[Outfit_name])
 
         call does_Character_want_privacy(Character, Items_to_add = Items_to_add, Items_to_remove = Items_to_remove) from _call_does_Character_want_privacy_1

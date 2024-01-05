@@ -87,6 +87,8 @@ label Laura_asked_once(context):
         $ dice_pool.append(16)
         $ dice_pool.append(17)
 
+    $ dice_roll = renpy.random.choice(dice_pool)
+
     if dice_roll == 1:
         $ Laura.change_face("confused1")
 
@@ -251,6 +253,8 @@ label Laura_asked_twice(context):
     elif context == "knocking":
         $ dice_pool.append(14)
 
+    $ dice_roll = renpy.random.choice(dice_pool)
+
     if dice_roll == 1:
         $ Laura.change_face("angry1")
 
@@ -346,6 +350,8 @@ label Laura_asked_once_text(context):
         $ dice_pool.append(4)
         $ dice_pool.append(5)
 
+    $ dice_roll = renpy.random.choice(dice_pool)
+
     if dice_roll == 1:
         call receive_text(Laura, ". . .") from _call_receive_text_446
     elif dice_roll == 2:
@@ -383,6 +389,8 @@ label Laura_asked_twice_text(context):
         $ dice_pool.append(3)
         $ dice_pool.append(4)
         $ dice_pool.append(5)
+
+    $ dice_roll = renpy.random.choice(dice_pool)
 
     if dice_roll == 1:
         call receive_text(Laura, "This isn't cute.") from _call_receive_text_449

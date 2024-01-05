@@ -568,3 +568,7 @@ label Rogue_not_invited_in:
     ch_Rogue "Let's stay out here for now, [Rogue.Player_petname]."
 
     return
+
+label Rogue_one_second(context = "changing"):
+
+    return
