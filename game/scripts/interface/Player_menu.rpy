@@ -478,12 +478,12 @@ screen skills_screen():
         thumb None
         thumb_offset 0
 
-    text "MUTANT RANK" anchor (0.0, 0.5) pos (0.818, 0.513):
+    text "MUTANT RANK" anchor (0.0, 0.5) pos (0.818, 0.5125):
         font "agency_fb.ttf"
         
         size 25
 
-    text Player.mutant_rank.upper() anchor (1.0, 0.5) pos (0.921, 0.513):
+    text Player.mutant_rank.upper() anchor (1.0, 0.5) pos (0.921, 0.5125):
         font "agency_fb.ttf"
         
         size 25
