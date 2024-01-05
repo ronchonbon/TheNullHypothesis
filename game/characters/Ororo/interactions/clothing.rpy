@@ -1,4 +1,4 @@
-label Ororo_Party_change_into_public_Outfit:
+label Ororo_change_into_public_Outfit(context = "generic"):
 
     return
 

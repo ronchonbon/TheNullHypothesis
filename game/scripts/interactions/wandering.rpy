@@ -61,6 +61,15 @@ label Characters_arrive(arriving_Characters, invited = False, greetings = True, 
                         $ Character_picker_active = False
                         $ belt_disabled = True
 
+                        $ renpy.dynamic(temp_Characters = Present[:])
+
+                        while temp_Characters:
+                            if "public" not in temp_Characters[0].Outfit.flags and not are_Characters_in_Partners(temp_Characters[:] + grouped_Characters[:]):
+                                call expression f"{temp_Characters[0].tag}_change_into_public_Outfit" pass (context = "generic")
+                                call change_Outfit(temp_Characters[0], Outfit = temp_Characters[0].Wardrobe.indoor_Outfit, instant = True)
+
+                            $ temp_Characters.remove(temp_Characters[0])
+
                         "You get the door."
 
                         call add_Characters(grouped_Characters, fade = fade) from _call_add_Characters_77
@@ -88,6 +97,15 @@ label Characters_arrive(arriving_Characters, invited = False, greetings = True, 
                     $ belt_disabled = True
 
             if verb and grouped_Characters[0].behavior != "teaching":
+                $ renpy.dynamic(temp_Characters = Present[:])
+
+                while temp_Characters:
+                    if "public" not in temp_Characters[0].Outfit.flags and not are_Characters_in_Partners(temp_Characters[:] + grouped_Characters[:]):
+                        call expression f"{temp_Characters[0].tag}_change_into_public_Outfit" pass (context = "generic")
+                        call change_Outfit(temp_Characters[0], Outfit = temp_Characters[0].Wardrobe.indoor_Outfit, instant = True)
+
+                    $ temp_Characters.remove(temp_Characters[0])
+
                 if not invited:
                     if grouped_Characters[0] in all_Companions:    
                         $ status = grouped_Characters[0].get_status()

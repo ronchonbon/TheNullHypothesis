@@ -377,6 +377,12 @@ layeredimage Rogue_missionary_thighs:
     if Rogue.remote_vibrator is not None:
         "characters/Rogue/images/missionary/remote_vibrator.webp"
 
+    if Rogue.Clothes["underwear"].string:
+        "characters/Rogue/images/missionary/underwear_[Rogue.Clothes[underwear].string]_[Rogue.Clothes[underwear].state].webp"
+
+    if Rogue.Clothes["bodysuit"].string:
+        "characters/Rogue/images/missionary/bodysuit_[Rogue.Clothes[bodysuit].string]_[Rogue.Clothes[bodysuit].state]_thighs.webp"
+
     if Player.orgasming and focused_Character == Rogue:
         Null()
     elif not Rogue.anus_Actions or Rogue.anus_Actions[0].animation_type != "finger_ass":
@@ -588,6 +594,12 @@ layeredimage Rogue_missionary_breasts:
 
     if Rogue.piercings["nipple"] in ["ring", "both"]:
         "characters/Rogue/images/missionary/nipple_piercings_ring.webp"
+
+    if Rogue.Clothes["bra"].string:
+        "characters/Rogue/images/missionary/bra_[Rogue.Clothes[bra].string]_[Rogue.Clothes[bra].state].webp"
+
+    if Rogue.Clothes["bodysuit"].string:
+        "characters/Rogue/images/missionary/bodysuit_[Rogue.Clothes[bodysuit].string]_[Rogue.Clothes[bodysuit].state]_torso.webp"
 
     if Rogue.spunk["breasts"]:
         "characters/Rogue/images/missionary/spunk_breasts.webp"

@@ -340,6 +340,12 @@ layeredimage Jean_missionary_thighs:
     if Jean.remote_vibrator is not None:
         "characters/Jean/images/missionary/remote_vibrator.webp"
 
+    if Jean.Clothes["underwear"].string:
+        "characters/Jean/images/missionary/underwear_[Jean.Clothes[underwear].string]_[Jean.Clothes[underwear].state].webp"
+
+    if Jean.Clothes["bodysuit"].string:
+        "characters/Jean/images/missionary/bodysuit_[Jean.Clothes[bodysuit].string]_[Jean.Clothes[bodysuit].state]_thighs.webp"
+
     if Player.orgasming and focused_Character == Jean:
         Null()
     elif not Jean.anus_Actions or Jean.anus_Actions[0].animation_type != "finger_ass":
@@ -558,6 +564,12 @@ layeredimage Jean_missionary_breasts:
 
     if Jean.piercings["nipple"] in ["ring", "both"]:
         "characters/Jean/images/missionary/nipple_piercings_ring.webp"
+
+    if Jean.Clothes["bra"].string:
+        "characters/Jean/images/missionary/bra_[Jean.Clothes[bra].string]_[Jean.Clothes[bra].state].webp"
+
+    if Jean.Clothes["bodysuit"].string:
+        "characters/Jean/images/missionary/bodysuit_[Jean.Clothes[bodysuit].string]_[Jean.Clothes[bodysuit].state]_torso.webp"
 
     if Jean.spunk["breasts"]:
         "characters/Jean/images/missionary/spunk_breasts.webp"

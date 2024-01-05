@@ -307,6 +307,12 @@ layeredimage Jean_hands_and_knees_ass:
     always:
         "characters/Jean/images/hands_and_knees/ass.webp"
 
+    if Jean.Clothes["underwear"].string:
+        "characters/Jean/images/hands_and_knees/underwear_[Jean.Clothes[underwear].string]_[Jean.Clothes[underwear].state].webp"
+
+    if Jean.Clothes["bodysuit"].string:
+        "characters/Jean/images/hands_and_knees/bodysuit_[Jean.Clothes[bodysuit].string]_ass.webp"
+
     if Jean.spunk["ass"]:
         "characters/Jean/images/hands_and_knees/spunk_ass.webp"
 
@@ -409,6 +415,12 @@ layeredimage Jean_hands_and_knees_breasts:
 
     if Jean.piercings["nipple"] in ["ring", "both"]:
         "characters/Jean/images/hands_and_knees/nipple_piercings_ring.webp"
+
+    if Jean.Clothes["bra"].string:
+        "characters/Jean/images/hands_and_knees/bra_[Jean.Clothes[bra].string]_[Jean.Clothes[bra].state].webp"
+
+    if Jean.Clothes["bodysuit"].string:
+        "characters/Jean/images/hands_and_knees/bodysuit_[Jean.Clothes[bodysuit].string]_[Jean.Clothes[bodysuit].state]_torso.webp"
 
     if Jean.spunk["breasts"]:
         "characters/Jean/images/hands_and_knees/spunk_breasts.webp"

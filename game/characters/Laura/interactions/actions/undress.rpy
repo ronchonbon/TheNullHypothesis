@@ -19,6 +19,13 @@ label Laura_get_more_comfortable:
 
     return
 
+label Laura_rejects_undressing:
+    $ Laura.change_face("neutral", eyes = "squint", blush = 1)
+
+    ch_Laura "I don't want to undress."
+
+    return
+
 label Laura_rejects_show_bra:
     $ dice_roll = renpy.random.randint(1, 2)
 

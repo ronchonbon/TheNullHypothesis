@@ -20,6 +20,13 @@ label Jean_get_more_comfortable:
 
     return
 
+label Jean_rejects_undressing:
+    $ Jean.change_face("worried1", mouth = "lipbite", blush = 1)
+    
+    ch_Jean "I don't feel comfortably undressing. . ."
+
+    return
+
 label Jean_rejects_show_bra:
     if Jean.History.check("seen_bra"):
         $ Jean.change_face("perplexed")

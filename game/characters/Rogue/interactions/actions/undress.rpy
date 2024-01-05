@@ -16,6 +16,13 @@ label Rogue_get_more_comfortable:
 
     return
 
+label Rogue_rejects_undressing:
+    $ Rogue.change_face("worried1")
+
+    ch_Rogue "Ah. . . ah don't want to undress right now. . ."
+
+    return
+
 label Rogue_rejects_show_bra:
     $ Rogue.change_face("confused1", blush = 1)
 

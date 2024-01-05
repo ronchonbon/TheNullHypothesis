@@ -361,6 +361,12 @@ layeredimage Jean_doggy_ass:
     elif Jean.buttplug.string == "round_anal_plug":
         "characters/Jean/images/doggy/buttplug_round.webp"
 
+    if Jean.Clothes["underwear"].string:
+        "characters/Jean/images/doggy/underwear_[Jean.Clothes[underwear].string]_[Jean.Clothes[underwear].state].webp"
+
+    if Jean.Clothes["bodysuit"].string:
+        "characters/Jean/images/doggy/bodysuit_[Jean.Clothes[bodysuit].string]_[Jean.Clothes[bodysuit].state]_ass.webp"
+
     if Jean.spunk["ass"]:
         "characters/Jean/images/doggy/spunk_ass.webp"
 
@@ -493,6 +499,20 @@ layeredimage Jean_doggy_torso:
         "Jean_doggy_left_arm_animation[Player.cock_Actions[0].mode]"
     else:
         "Jean_doggy_left_arm_animation0"
+
+    if not Jean.Clothes["bra"].string:
+        Null()
+    elif Jean.right_hand_Actions and Jean.right_hand_Actions[0].animation_type == "self_finger_ass":
+        "characters/Jean/images/doggy/bra_[Jean.Clothes[bra].string]_[Jean.Clothes[bra].state]_finger.webp"
+    else:
+        "characters/Jean/images/doggy/bra_[Jean.Clothes[bra].string]_[Jean.Clothes[bra].state].webp"
+
+    if not Jean.Clothes["bodysuit"].string:
+        Null()
+    elif Jean.right_hand_Actions and Jean.right_hand_Actions[0].animation_type == "self_finger_ass":
+        "characters/Jean/images/doggy/bodysuit_[Jean.Clothes[bodysuit].string]_torso_finger.webp"
+    else:
+        "characters/Jean/images/doggy/bodysuit_[Jean.Clothes[bodysuit].string]_torso.webp"
 
     if Player.orgasming and focused_Character == Jean:
         "Jean_doggy_hair_animation0"

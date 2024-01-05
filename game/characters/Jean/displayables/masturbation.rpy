@@ -311,6 +311,12 @@ layeredimage Jean_masturbation_breasts:
     if Jean.piercings["nipple"] in ["ring", "both"]:
         "characters/Jean/images/masturbation/nipple_piercings_ring.webp"
 
+    if Jean.Clothes["bra"].string:
+        "characters/Jean/images/masturbation/bra_[Jean.Clothes[bra].string]_[Jean.Clothes[bra].state].webp"
+
+    if Jean.Clothes["bodysuit"].string:
+        "characters/Jean/images/masturbation/bodysuit_[Jean.Clothes[bodysuit].string]_[Jean.Clothes[bodysuit].state]_torso.webp"
+
     if Jean.spunk["breasts"]:
         "characters/Jean/images/masturbation/spunk_breasts.webp"
 
@@ -460,6 +466,12 @@ layeredimage Jean_masturbation_thighs:
 
     if Jean.remote_vibrator is not None:
         "characters/Jean/images/masturbation/remote_vibrator.webp"
+
+    if Jean.Clothes["underwear"].string:
+        "characters/Jean/images/masturbation/underwear_[Jean.Clothes[underwear].string]_[Jean.Clothes[underwear].state].webp"
+
+    if Jean.Clothes["bodysuit"].string:
+        "characters/Jean/images/masturbation/bodysuit_[Jean.Clothes[bodysuit].string]_[Jean.Clothes[bodysuit].state]_thighs.webp"
 
     if Jean.right_hand_Actions and Jean.right_hand_Actions[0].animation_type == "self_touch_pussy":
         "Jean_masturbation_right_hand_animation[Jean.right_hand_Actions[0].mode]"

@@ -340,6 +340,12 @@ layeredimage Laura_missionary_thighs:
     if Laura.remote_vibrator is not None:
         "characters/Laura/images/missionary/remote_vibrator.webp"
 
+    if Laura.Clothes["underwear"].string:
+        "characters/Laura/images/missionary/underwear_[Laura.Clothes[underwear].string]_[Laura.Clothes[underwear].state].webp"
+
+    if Laura.Clothes["bodysuit"].string:
+        "characters/Laura/images/missionary/bodysuit_[Laura.Clothes[bodysuit].string]_[Laura.Clothes[bodysuit].state]_thighs.webp"
+
     if Player.orgasming and focused_Character == Laura:
         Null()
     elif not Laura.anus_Actions or Laura.anus_Actions[0].animation_type != "finger_ass":
@@ -562,6 +568,12 @@ layeredimage Laura_missionary_breasts:
 
     if Laura.piercings["nipple"] in ["ring", "both"]:
         "characters/Laura/images/missionary/nipple_piercings_ring.webp"
+
+    if Laura.Clothes["bra"].string:
+        "characters/Laura/images/missionary/bra_[Laura.Clothes[bra].string]_[Laura.Clothes[bra].state].webp"
+
+    if Laura.Clothes["bodysuit"].string:
+        "characters/Laura/images/missionary/bodysuit_[Laura.Clothes[bodysuit].string]_[Laura.Clothes[bodysuit].state]_torso.webp"
 
     if Laura.spunk["breasts"]:
         "characters/Laura/images/missionary/spunk_breasts.webp"

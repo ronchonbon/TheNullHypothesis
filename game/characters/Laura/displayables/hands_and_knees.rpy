@@ -313,6 +313,12 @@ layeredimage Laura_hands_and_knees_ass:
     if Laura.tan_lines["full"]:
         "characters/Laura/images/hands_and_knees/tan_lines_[Laura.tan_lines[full]]_ass.webp"
 
+    if Laura.Clothes["underwear"].string:
+        "characters/Laura/images/hands_and_knees/underwear_[Laura.Clothes[underwear].string]_[Laura.Clothes[underwear].state].webp"
+
+    if Laura.Clothes["bodysuit"].string:
+        "characters/Laura/images/hands_and_knees/bodysuit_[Laura.Clothes[bodysuit].string]_ass.webp"
+
     if Laura.spunk["ass"]:
         "characters/Laura/images/hands_and_knees/spunk_ass.webp"
 
@@ -415,6 +421,12 @@ layeredimage Laura_hands_and_knees_breasts:
 
     if Laura.piercings["nipple"] in ["ring", "both"]:
         "characters/Laura/images/hands_and_knees/nipple_piercings_ring.webp"
+
+    if Laura.Clothes["bra"].string:
+        "characters/Laura/images/hands_and_knees/bra_[Laura.Clothes[bra].string]_[Laura.Clothes[bra].state].webp"
+
+    if Laura.Clothes["bodysuit"].string:
+        "characters/Laura/images/hands_and_knees/bodysuit_[Laura.Clothes[bodysuit].string]_[Laura.Clothes[bodysuit].state]_torso.webp"
 
     if Laura.spunk["breasts"]:
         "characters/Laura/images/hands_and_knees/spunk_breasts.webp"

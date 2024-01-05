@@ -313,6 +313,12 @@ layeredimage Rogue_hands_and_knees_ass:
     if Rogue.tan_lines["full"]:
         "characters/Rogue/images/hands_and_knees/tan_lines_[Rogue.tan_lines[full]]_ass.webp"
 
+    if Rogue.Clothes["underwear"].string:
+        "characters/Rogue/images/hands_and_knees/underwear_[Rogue.Clothes[underwear].string]_[Rogue.Clothes[underwear].state].webp"
+
+    if Rogue.Clothes["bodysuit"].string:
+        "characters/Rogue/images/hands_and_knees/bodysuit_[Rogue.Clothes[bodysuit].string]_ass.webp"
+
     if Rogue.spunk["ass"]:
         "characters/Rogue/images/hands_and_knees/spunk_ass.webp"
 
@@ -415,6 +421,12 @@ layeredimage Rogue_hands_and_knees_breasts:
 
     if Rogue.piercings["nipple"] in ["ring", "both"]:
         "characters/Rogue/images/hands_and_knees/nipple_piercings_ring.webp"
+
+    if Rogue.Clothes["bra"].string:
+        "characters/Rogue/images/hands_and_knees/bra_[Rogue.Clothes[bra].string]_[Rogue.Clothes[bra].state].webp"
+
+    if Rogue.Clothes["bodysuit"].string:
+        "characters/Rogue/images/hands_and_knees/bodysuit_[Rogue.Clothes[bodysuit].string]_[Rogue.Clothes[bodysuit].state]_torso.webp"
 
     if Rogue.spunk["breasts"]:
         "characters/Rogue/images/hands_and_knees/spunk_breasts.webp"

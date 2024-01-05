@@ -78,6 +78,14 @@ label Player_knocks(host):
             call move_location("bg_girls_hallway") from _call_move_location_44
 
     if Player.location != host.home:
+        $ renpy.dynamic(temp_Characters = get_Present(location = host.home)[0][:])
+
+        while temp_Characters:
+            if "public" not in temp_Characters[0].Outfit.flags:
+                call change_Outfit(temp_Characters[0], Outfit = temp_Characters[0].Wardrobe.indoor_Outfit, instant = True)
+
+            $ temp_Characters.remove(temp_Characters[0])
+            
         call set_the_scene(location = host.home) from _call_set_the_scene_301
 
     $ Character_picker_active = True

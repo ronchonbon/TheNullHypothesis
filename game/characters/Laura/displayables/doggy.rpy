@@ -374,6 +374,12 @@ layeredimage Laura_doggy_ass:
     elif Player.cock_Actions and Laura in Player.cock_Actions[0].Targets:
         "characters/Laura/images/doggy/male_right_arm_shadow.webp"
 
+    if Laura.Clothes["underwear"].string:
+        "characters/Laura/images/doggy/underwear_[Laura.Clothes[underwear].string]_[Laura.Clothes[underwear].state].webp"
+
+    if Laura.Clothes["bodysuit"].string:
+        "characters/Laura/images/doggy/bodysuit_[Laura.Clothes[bodysuit].string]_[Laura.Clothes[bodysuit].state]_ass.webp"
+
     if Laura.spunk["ass"]:
         "characters/Laura/images/doggy/spunk_ass.webp"
 
@@ -520,6 +526,20 @@ layeredimage Laura_doggy_torso:
         "characters/Laura/images/doggy/tan_lines_[Laura.tan_lines[full]]_torso_finger.webp"
     else:
         "characters/Laura/images/doggy/tan_lines_[Laura.tan_lines[full]]_torso.webp"
+
+    if not Laura.Clothes["bra"].string:
+        Null()
+    elif Laura.right_hand_Actions and Laura.right_hand_Actions[0].animation_type == "self_finger_ass":
+        "characters/Laura/images/doggy/bra_[Laura.Clothes[bra].string]_[Laura.Clothes[bra].state]_finger.webp"
+    else:
+        "characters/Laura/images/doggy/bra_[Laura.Clothes[bra].string]_[Laura.Clothes[bra].state].webp"
+
+    if not Laura.Clothes["bodysuit"].string:
+        Null()
+    elif Laura.right_hand_Actions and Laura.right_hand_Actions[0].animation_type == "self_finger_ass":
+        "characters/Laura/images/doggy/bodysuit_[Laura.Clothes[bodysuit].string]_torso_finger.webp"
+    else:
+        "characters/Laura/images/doggy/bodysuit_[Laura.Clothes[bodysuit].string]_torso.webp"
 
     if Player.orgasming and focused_Character == Laura:
         "Laura_doggy_hair_animation0"

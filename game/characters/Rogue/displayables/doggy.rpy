@@ -367,6 +367,12 @@ layeredimage Rogue_doggy_ass:
     elif Rogue.buttplug.string == "round_anal_plug":
         "characters/Rogue/images/doggy/buttplug_round.webp"
 
+    if Rogue.Clothes["underwear"].string:
+        "characters/Rogue/images/doggy/underwear_[Rogue.Clothes[underwear].string]_[Rogue.Clothes[underwear].state].webp"
+
+    if Rogue.Clothes["bodysuit"].string:
+        "characters/Rogue/images/doggy/bodysuit_[Rogue.Clothes[bodysuit].string]_[Rogue.Clothes[bodysuit].state]_ass.webp"
+
     if Rogue.spunk["ass"]:
         "characters/Rogue/images/doggy/spunk_ass.webp"
 
@@ -513,6 +519,20 @@ layeredimage Rogue_doggy_torso:
         "characters/Rogue/images/doggy/tan_lines_[Rogue.tan_lines[full]]_torso_finger.webp"
     else:
         "characters/Rogue/images/doggy/tan_lines_[Rogue.tan_lines[full]]_torso.webp"
+
+    if not Rogue.Clothes["bra"].string:
+        Null()
+    elif Rogue.right_hand_Actions and Rogue.right_hand_Actions[0].animation_type == "self_finger_ass":
+        "characters/Rogue/images/doggy/bra_[Rogue.Clothes[bra].string]_[Rogue.Clothes[bra].state]_finger.webp"
+    else:
+        "characters/Rogue/images/doggy/bra_[Rogue.Clothes[bra].string]_[Rogue.Clothes[bra].state].webp"
+
+    if not Rogue.Clothes["bodysuit"].string:
+        Null()
+    elif Rogue.right_hand_Actions and Rogue.right_hand_Actions[0].animation_type == "self_finger_ass":
+        "characters/Rogue/images/doggy/bodysuit_[Rogue.Clothes[bodysuit].string]_torso_finger.webp"
+    else:
+        "characters/Rogue/images/doggy/bodysuit_[Rogue.Clothes[bodysuit].string]_torso.webp"
 
     if Player.orgasming and focused_Character == Rogue:
         "Rogue_doggy_hair_animation0"

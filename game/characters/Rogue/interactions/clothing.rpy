@@ -1,11 +1,25 @@
-label Rogue_Party_change_into_public_Outfit:
-    $ dice_roll = renpy.random.randint(1, 3)
+label Rogue_change_into_public_Outfit(context = "generic"):
+    $ dice_pool = []
+
+    if context == "generic":
+        $ dice_pool.append(1)
+        $ dice_pool.append(2)
+    elif context == "leaving":
+        $ dice_pool.append(1)
+        $ dice_pool.append(2)
+        $ dice_pool.append(3)
+
+    $ dice_roll = renpy.random.choice(dice_pool)
 
     if dice_roll == 1:
         $ Rogue.change_face("worried1")
 
         ch_Rogue "Ah should make myself decent. . ."
     elif dice_roll == 2:
+        $ Rogue.change_face("smirk1")
+
+        ch_Rogue "Ah'll be right back."
+    elif dice_roll == 3:
         $ Rogue.change_face("surprised1")
 
         ch_Rogue "Oh, we're leaving?"
@@ -13,10 +27,6 @@ label Rogue_Party_change_into_public_Outfit:
         $ Rogue.change_face("worried1")
 
         ch_Rogue "Be right back."
-    elif dice_roll == 3:
-        $ Rogue.change_face("smirk1")
-
-        ch_Rogue "Ah'll be right back."
 
     return
 

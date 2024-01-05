@@ -6,6 +6,10 @@ label Ororo_get_more_comfortable:
     
     return
 
+label Ororo_rejects_undressing:
+
+    return
+
 label Ororo_rejects_show_bra:
 
     return

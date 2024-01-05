@@ -1,5 +1,15 @@
-label Laura_Party_change_into_public_Outfit:
-    $ dice_roll = renpy.random.randint(1, 3)
+label Laura_change_into_public_Outfit(context = "generic"):
+    $ dice_pool = []
+
+    if context == "generic":
+        $ dice_pool.append(1)
+        $ dice_pool.append(2)
+    elif context == "leaving":
+        $ dice_pool.append(1)
+        $ dice_pool.append(2)
+        $ dice_pool.append(3)
+
+    $ dice_roll = renpy.random.choice(dice_pool)
 
     if dice_roll == 1:
         ch_Laura "Gotta get dressed."

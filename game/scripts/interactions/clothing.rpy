@@ -297,19 +297,20 @@ label does_Character_agree_to_change_Clothes(Character, added_Items = None, remo
 
                         $ temp_body_parts = []
                 else:
-                    if Character.History.check(f"refused_to_show_{temp_body_parts[0]}", tracker = "recent") >= 2:
-                        call change_Character_stat(Character, "love", -small_stat) from _call_change_Character_stat_967
-                        call change_Character_stat(Character, "trust", -small_stat) from _call_change_Character_stat_968
+                    if not automatic:
+                        if Character.History.check(f"refused_to_show_{temp_body_parts[0]}", tracker = "recent") >= 2:
+                            call change_Character_stat(Character, "love", -small_stat) from _call_change_Character_stat_967
+                            call change_Character_stat(Character, "trust", -small_stat) from _call_change_Character_stat_968
 
-                        call expression f"{Character.tag}_rejects_show_{temp_body_parts[0]}_asked_twice" from _call_expression_206
-                    elif Character.History.check(f"refused_to_show_{temp_body_parts[0]}", tracker = "recent") == 1:
-                        call change_Character_stat(Character, "love", -tiny_stat) from _call_change_Character_stat_969
+                            call expression f"{Character.tag}_rejects_show_{temp_body_parts[0]}_asked_twice" from _call_expression_206
+                        elif Character.History.check(f"refused_to_show_{temp_body_parts[0]}", tracker = "recent") == 1:
+                            call change_Character_stat(Character, "love", -tiny_stat) from _call_change_Character_stat_969
 
-                        call expression f"{Character.tag}_rejects_show_{temp_body_parts[0]}_asked_once" from _call_expression_207
-                    else:
-                        call expression f"{Character.tag}_rejects_show_{temp_body_parts[0]}" from _call_expression_208
+                            call expression f"{Character.tag}_rejects_show_{temp_body_parts[0]}_asked_once" from _call_expression_207
+                        else:
+                            call expression f"{Character.tag}_rejects_show_{temp_body_parts[0]}" from _call_expression_208
 
-                    $ Character.History.update(f"refused_to_show_{temp_body_parts[0]}")
+                        $ Character.History.update(f"refused_to_show_{temp_body_parts[0]}")
 
                     $ agrees_to_remove = False
 

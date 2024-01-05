@@ -312,6 +312,12 @@ layeredimage Laura_masturbation_breasts:
     if Laura.piercings["nipple"] in ["ring", "both"]:
         "characters/Laura/images/masturbation/nipple_piercings_ring.webp"
 
+    if Laura.Clothes["bra"].string:
+        "characters/Laura/images/masturbation/bra_[Laura.Clothes[bra].string]_[Laura.Clothes[bra].state].webp"
+
+    if Laura.Clothes["bodysuit"].string:
+        "characters/Laura/images/masturbation/bodysuit_[Laura.Clothes[bodysuit].string]_[Laura.Clothes[bodysuit].state]_torso.webp"
+
     if Laura.spunk["breasts"]:
         "characters/Laura/images/masturbation/spunk_breasts.webp"
 
@@ -458,6 +464,12 @@ layeredimage Laura_masturbation_thighs:
 
     if Laura.remote_vibrator is not None:
         "characters/Laura/images/masturbation/remote_vibrator.webp"
+
+    if Laura.Clothes["underwear"].string:
+        "characters/Laura/images/masturbation/underwear_[Laura.Clothes[underwear].string]_[Laura.Clothes[underwear].state].webp"
+
+    if Laura.Clothes["bodysuit"].string:
+        "characters/Laura/images/masturbation/bodysuit_[Laura.Clothes[bodysuit].string]_[Laura.Clothes[bodysuit].state]_thighs.webp"
 
     if Laura.right_hand_Actions and Laura.right_hand_Actions[0].animation_type == "self_touch_pussy":
         "Laura_masturbation_right_hand_animation[Laura.right_hand_Actions[0].mode]"

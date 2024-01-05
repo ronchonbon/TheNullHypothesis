@@ -312,6 +312,12 @@ layeredimage Rogue_masturbation_breasts:
     if Rogue.piercings["nipple"] in ["ring", "both"]:
         "characters/Rogue/images/masturbation/nipple_piercings_ring.webp"
 
+    if Rogue.Clothes["bra"].string:
+        "characters/Rogue/images/masturbation/bra_[Rogue.Clothes[bra].string]_[Rogue.Clothes[bra].state].webp"
+
+    if Rogue.Clothes["bodysuit"].string:
+        "characters/Rogue/images/masturbation/bodysuit_[Rogue.Clothes[bodysuit].string]_[Rogue.Clothes[bodysuit].state]_torso.webp"
+
     if Rogue.spunk["breasts"]:
         "characters/Rogue/images/masturbation/spunk_breasts.webp"
 
@@ -451,6 +457,12 @@ layeredimage Rogue_masturbation_thighs:
 
     if Rogue.remote_vibrator is not None:
         "characters/Rogue/images/masturbation/remote_vibrator.webp"
+
+    if Rogue.Clothes["underwear"].string:
+        "characters/Rogue/images/masturbation/underwear_[Rogue.Clothes[underwear].string]_[Rogue.Clothes[underwear].state].webp"
+
+    if Rogue.Clothes["bodysuit"].string:
+        "characters/Rogue/images/masturbation/bodysuit_[Rogue.Clothes[bodysuit].string]_[Rogue.Clothes[bodysuit].state]_thighs.webp"
 
     if Rogue.right_hand_Actions and Rogue.right_hand_Actions[0].animation_type == "self_touch_pussy":
         "Rogue_masturbation_right_hand_animation[Rogue.right_hand_Actions[0].mode]"
