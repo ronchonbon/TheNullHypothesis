@@ -108,12 +108,12 @@ label Rogue_busy_relationship:
     return
 
 label Rogue_busy_asked_once:
-    call Rogue_asked_once("repeating") from _call_Rogue_asked_once_5
+    call Rogue_asked_once("busy") from _call_Rogue_asked_once_5
 
     return
 
 label Rogue_busy_asked_twice:
-    call Rogue_asked_once("repeating") from _call_Rogue_asked_once_6
+    call Rogue_asked_once("busy") from _call_Rogue_asked_once_6
 
     if Player.location == Rogue.location:
         call Rogue_kicking_out from _call_Rogue_kicking_out_7

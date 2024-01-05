@@ -153,7 +153,7 @@ label Kurt_busy:
     return
 
 label Kurt_busy_asked_once:
-    $ dice_roll = renpy.random.randint(1, 2)
+    $ dice_roll = renpy.random.randint(1, 3)
 
     if dice_roll == 1:
         $ Kurt.change_face("worried1") 
@@ -167,11 +167,15 @@ label Kurt_busy_asked_once:
         $ Kurt.change_face("confused1")
 
         ch_Kurt "Uh. . . you just asked me zat?"
+    elif dice_roll == 3:
+        $ Kurt.change_face("confused1")
+
+        ch_Kurt "Hmm?"
 
     return
 
 label Kurt_busy_asked_twice:
-    $ dice_roll = renpy.random.randint(1, 2)
+    $ dice_roll = renpy.random.randint(1, 3)
 
     if dice_roll == 1:
         $ Kurt.change_face("angry1") 
@@ -187,28 +191,36 @@ label Kurt_busy_asked_twice:
         $ Kurt.change_face("confused1") 
         
         ch_Kurt "Dude. . ."
+    elif dice_roll == 3:
+        $ Kurt.change_face("angry1")
+
+        ch_Kurt "Okay, enough now. . ."
 
     return
 
 label Kurt_busy_late:
-    $ dice_roll = renpy.random.randint(1, 2)
+    $ dice_roll = renpy.random.randint(1, 3)
 
     if dice_roll == 1:
-        $ Kurt.change_face("neutral", mouth = "happy") 
+        $ Kurt.change_face("smirk1") 
 
         ch_Kurt "I am doing fine." 
         ch_Kurt "Tired." 
         ch_Kurt "I sink I vill go to bed, gute Nacht."
     elif dice_roll == 2:
-        $ Kurt.change_face("neutral", mouth = "happy") 
+        $ Kurt.change_face("smirk1") 
 
         ch_Kurt "Good, just off to bed."
         ch_Kurt "Gute Nacht."
+    elif dice_roll == 3:
+        $ Kurt.change_face("smirk1")
+
+        ch_Kurt "About to go to sleep, gute Nacht!"
 
     return
 
 label Kurt_busy_late_asked_once:
-    $ dice_roll = renpy.random.randint(1, 2)
+    $ dice_roll = renpy.random.randint(1, 3)
 
     if dice_roll == 1:
         $ Kurt.change_face("confused1") 
@@ -218,6 +230,10 @@ label Kurt_busy_late_asked_once:
         $ Kurt.change_face("confused1") 
 
         ch_Kurt "I. . . are you messing viz me again?"
+    elif dice_roll == 3:
+        $ Kurt.change_face("confused1") 
+
+        ch_Kurt "You seem pretty tired too, [Player.first_name]."
 
     return
 
@@ -235,6 +251,8 @@ label Kurt_busy_late_asked_twice:
             call Kurt_teleports_out from _call_Kurt_teleports_out_5
             call move_location(Player.location) from _call_move_location_25
     elif dice_roll == 2:
+        $ Kurt.change_face("angry1", eyes = "closed") 
+
         ch_Kurt "Man, it is too late for zis."
 
         if Player.location == Kurt.location:
@@ -242,6 +260,16 @@ label Kurt_busy_late_asked_twice:
                 
             call Kurt_teleports_out from _call_Kurt_teleports_out_8
             call move_location(Player.location) from _call_move_location_1
+    elif dice_roll == 3:
+        $ Kurt.change_face("angry1") 
+
+        ch_Kurt "I sink you need to go to bed too."
+
+        if Player.location == Kurt.location:
+            $ Character_picker_disabled = True
+                
+            call Kurt_teleports_out
+            call move_location(Player.location)
 
     return
 
@@ -249,7 +277,7 @@ label Kurt_talk_later:
     $ dice_roll = renpy.random.randint(1, 3)
 
     if dice_roll == 1:
-        $ Kurt.change_face("neutral", mouth = "smirk") 
+        $ Kurt.change_face("smirk2")
 
         ch_Kurt "Later dude."
     elif dice_roll == 2:
@@ -257,7 +285,7 @@ label Kurt_talk_later:
 
         ch_Kurt "Talk to you later!"
     elif dice_roll == 3:
-        $ Kurt.change_face("happy") 
+        $ Kurt.change_face("smirk1") 
 
         ch_Kurt "See you around!"
 
@@ -274,7 +302,7 @@ label Kurt_dismiss:
     $ dice_roll = renpy.random.randint(1, 3)
 
     if dice_roll == 1:
-        $ Kurt.change_face("neutral", mouth = "smirk") 
+        $ Kurt.change_face("smirk2") 
 
         ch_Kurt "Later dude."
     elif dice_roll == 2:
@@ -282,7 +310,7 @@ label Kurt_dismiss:
 
         ch_Kurt "Sure, talk to you later!"
     elif dice_roll == 3:
-        $ Kurt.change_face("happy") 
+        $ Kurt.change_face("smirk1") 
 
         ch_Kurt "Okay, see you around!"
 
@@ -294,7 +322,7 @@ label Kurt_answering_phone:
     if dice_roll == 1:
         ch_Kurt "Hallo?"
     elif dice_roll == 2:
-        ch_Kurt "Hey, [Player.first_name]!"
+        ch_Kurt "Hey [Player.first_name]!"
     elif dice_roll == 3:
         ch_Kurt "Vat's up?"
 

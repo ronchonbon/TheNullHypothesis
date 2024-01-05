@@ -3,9 +3,12 @@ label Rogue_asked_once(context):
 
     if context == "generic":
         $ dice_pool.append(1)
+        $ dice_pool.append(20)
+        $ dice_pool.append(21)
     elif context == "repeating":
         $ dice_pool.append(1)
         $ dice_pool.append(2)
+        $ dice_pool.append(20)
     elif context == "busy":
         $ dice_pool.append(1)
         $ dice_pool.append(2)
@@ -46,10 +49,20 @@ label Rogue_asked_once(context):
         $ dice_pool.append(13)
         $ dice_pool.append(14)
     elif context == "dismissing":
+        $ dice_pool.append(7)
+        $ dice_pool.append(8)
+        $ dice_pool.append(9)
+        $ dice_pool.append(10)
+        $ dice_pool.append(11)
+        $ dice_pool.append(12)
+        $ dice_pool.append(13)
+        $ dice_pool.append(14)
         $ dice_pool.append(15)
-    elif context == "knocking":
         $ dice_pool.append(16)
+    elif context == "knocking":
         $ dice_pool.append(17)
+        $ dice_pool.append(18)
+        $ dice_pool.append(19)
 
     $ dice_roll = renpy.random.choice(dice_pool)
 
@@ -57,7 +70,6 @@ label Rogue_asked_once(context):
         $ Rogue.change_face("confused1")
 
         ch_Rogue "You alright?"
-        ch_Rogue "Just asked me that. . ."
     elif dice_roll == 2:
         $ Rogue.change_face("angry1")
 
@@ -119,10 +131,23 @@ label Rogue_asked_once(context):
 
         ch_Rogue "Ah already said ah'm not goin' anywhere."
     elif dice_roll == 16:
-        ch_Rogue "You better quit knockin'!"
+        $ Rogue.change_face("angry1")
+
+        ch_Rogue "Ah'm not leavin'."
     elif dice_roll == 17:
+        ch_Rogue "You better quit knockin'!"
+    elif dice_roll == 18:
         ch_Rogue "What did ah just say?"
-        ch_Rogue "Go away!"
+    elif dice_roll == 19:
+        ch_Rogue "Why are you still knockin? Not right now!"
+    elif dice_roll == 20:
+        $ Rogue.change_face("confused1")
+
+        ch_Rogue "Ah'm not sure what's happenin'?"
+    elif dice_roll == 20:
+        $ Rogue.change_face("confused1")
+
+        ch_Rogue "You feelin' okay, [Player.first_name]?"
 
     return
 
@@ -211,6 +236,9 @@ label Rogue_asked_twice(context):
         $ dice_pool.append(10)
     elif context == "knocking":
         $ dice_pool.append(14)
+        $ dice_pool.append(15)
+        $ dice_pool.append(16)
+        $ dice_pool.append(17)
 
     $ dice_roll = renpy.random.choice(dice_pool)
 
@@ -273,6 +301,12 @@ label Rogue_asked_twice(context):
         ch_Rogue "Or else."
     elif dice_roll == 14:
         ch_Rogue "If ya don't cut it out, I'm fixin' to come out 'n make ya!"
+    elif dice_roll == 15:
+        ch_Rogue "Cut it out, [Player.first_name]!"
+    elif dice_roll == 16:
+        ch_Rogue "Leave me alone right this instant!"
+    elif dice_roll == 17:
+        ch_Rogue "Go away!"
 
     return
 
@@ -326,18 +360,21 @@ label Rogue_asked_twice_text(context):
     if context == "generic":
         $ dice_pool.append(1)
         $ dice_pool.append(2)
+        $ dice_pool.append(3)
     elif context == "repeating":
         $ dice_pool.append(1)
         $ dice_pool.append(2)
+        $ dice_pool.append(3)
     elif context == "busy":
         $ dice_pool.append(1)
         $ dice_pool.append(2)
         $ dice_pool.append(3)
         $ dice_pool.append(4)
+        $ dice_pool.append(5)
     elif context == "late":
         $ dice_pool.append(1)
         $ dice_pool.append(2)
-        $ dice_pool.append(5)
+        $ dice_pool.append(6)
 
     $ dice_roll = renpy.random.choice(dice_pool)
 
@@ -346,11 +383,13 @@ label Rogue_asked_twice_text(context):
     elif dice_roll == 2:
         call receive_text(Rogue, "Stop") from _call_receive_text_650
     elif dice_roll == 3:
-        call receive_text(Rogue, "NO!") from _call_receive_text_648
+        call receive_text(Rogue, "Stop botherin me!")
     elif dice_roll == 4:
+        call receive_text(Rogue, "NO!") from _call_receive_text_648
+    elif dice_roll == 5:
         call receive_text(Rogue, "The hell?") from _call_receive_text_528
         call receive_text(Rogue, "Just said no") from _call_receive_text_529
-    elif dice_roll == 5:
+    elif dice_roll == 6:
         call receive_text(Rogue, "Stop textin me!") from _call_receive_text_543
         call receive_text(Rogue, "Tryin to sleep >:((") from _call_receive_text_544
 
@@ -367,11 +406,13 @@ label Rogue_kicking_out:
         elif dice_roll == 3:
             "She pushes you out of the room, locking the door behind you."
     else:
-        $ dice_roll = renpy.random.randint(1, 2)
+        $ dice_roll = renpy.random.randint(1, 3)
 
         if dice_roll == 1:
             ch_Rogue "Ah'm out of here."
         elif dice_roll == 2:
+            ch_Rogue "Ah'm sick of this."
+        elif dice_roll == 3:
             "She storms out of the room."
 
     return

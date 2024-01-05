@@ -117,6 +117,7 @@ label Jean_asked_once(context):
     elif context == "knocking":
         $ dice_pool.append(18)
         $ dice_pool.append(19)
+        $ dice_pool.append(20)
 
     $ dice_roll = renpy.random.choice(dice_pool)
 
@@ -195,6 +196,7 @@ label Jean_asked_once(context):
         ch_Jean "Cut it out!"
     elif dice_roll == 19:
         ch_Jean "Really?" 
+    elif dice_roll == 20:
         ch_Jean "Go away!"
 
     return
@@ -340,6 +342,8 @@ label Jean_asked_twice(context):
         $ dice_pool.append(17)
     elif context == "knocking":
         $ dice_pool.append(18)
+        $ dice_pool.append(19)
+        $ dice_pool.append(20)
 
     $ dice_roll = renpy.random.choice(dice_pool)
 
@@ -417,7 +421,10 @@ label Jean_asked_twice(context):
         ch_Jean "The more you ask, the less I want to do it."
     elif dice_roll == 18:
         ch_Jean "You better cut it the hell out!"
-        
+    elif dice_roll == 19:
+        ch_Jean "[Player.first_name], stop it right now!"
+    elif dice_roll == 20:
+        ch_Jean "Leave me alone!"
 
     return
 
@@ -427,18 +434,22 @@ label Jean_asked_once_text(context):
     if context == "generic":
         $ dice_pool.append(1)
         $ dice_pool.append(2)
+        $ dice_pool.append(6)
     elif context == "repeating":
         $ dice_pool.append(1)
         $ dice_pool.append(2)
+        $ dice_pool.append(6)
     elif context == "busy":
         $ dice_pool.append(1)
         $ dice_pool.append(2)
         $ dice_pool.append(3)
         $ dice_pool.append(4)
+        $ dice_pool.append(6)
     elif context == "late":
         $ dice_pool.append(1)
         $ dice_pool.append(2)
         $ dice_pool.append(5)
+        $ dice_pool.append(6)
 
     $ dice_roll = renpy.random.choice(dice_pool)
 
@@ -453,6 +464,8 @@ label Jean_asked_once_text(context):
     elif dice_roll == 5:
         call receive_text(Jean, "I'm about to put my phone down") from _call_receive_text_107
         call receive_text(Jean, "Just text me tomorrow") from _call_receive_text_108
+    elif dice_roll == 6:
+        call receive_text(Jean, "?")
 
     return
 
@@ -462,18 +475,22 @@ label Jean_asked_twice_text(context):
     if context == "generic":
         $ dice_pool.append(1)
         $ dice_pool.append(2)
+        $ dice_pool.append(6)
     elif context == "repeating":
         $ dice_pool.append(1)
         $ dice_pool.append(2)
+        $ dice_pool.append(6)
     elif context == "busy":
         $ dice_pool.append(1)
         $ dice_pool.append(2)
         $ dice_pool.append(3)
         $ dice_pool.append(4)
+        $ dice_pool.append(6)
     elif context == "late":
         $ dice_pool.append(1)
         $ dice_pool.append(2)
         $ dice_pool.append(5)
+        $ dice_pool.append(6)
 
     $ dice_roll = renpy.random.choice(dice_pool)
 
@@ -489,6 +506,8 @@ label Jean_asked_twice_text(context):
     elif dice_roll == 5:
         call receive_text(Jean, "Stopppp!") from _call_receive_text_109
         call receive_text(Jean, "I'm going to bed") from _call_receive_text_110
+    elif dice_roll == 6:
+        call receive_text(Jean, "What the actual hell, stop!")
 
     return
 
@@ -501,13 +520,15 @@ label Jean_kicking_out:
         elif dice_roll == 2:
             ch_Jean "Stop ignoring me and get out."
         elif dice_roll == 3:
-            "[Jean.name] turns around and leaves."
+            "[Jean.name] points towards the door."
     else:
-        $ dice_roll = renpy.random.randint(1, 2)
+        $ dice_roll = renpy.random.randint(1, 3)
 
         if dice_roll == 1:
             ch_Jean "I'm out of here."
         elif dice_roll == 2:
-            "[Jean.name] points towards the door."
+            "[Jean.name] turns around and leaves."
+        elif dice_roll == 3:
+            ch_Jean "I'm over this."
 
     return

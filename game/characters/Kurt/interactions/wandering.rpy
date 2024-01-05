@@ -15,7 +15,7 @@ label Kurt_arrives:
 
         ch_Kurt "Ah, good to see you[modifier], [Player.first_name]!"
     elif dice_roll == 3:
-        $ Kurt.change_face("pleased1")
+        $ Kurt.change_face("smirk2")
 
         ch_Kurt "Oh, hallo[modifier]!"
 
@@ -33,7 +33,7 @@ label Kurt_leaves:
 
         ch_Kurt "Talk to you later, ja?"
     elif dice_roll == 3:
-        $ Kurt.change_face("neutral", mouth = "happy")
+        $ Kurt.change_face("smirk2") 
 
         ch_Kurt "See you later, [Player.first_name]."
 
@@ -56,7 +56,7 @@ label Kurt_greets_Player:
 
         ch_Kurt "Ah, good to see you[modifier], [Player.first_name]!"
     elif dice_roll == 3:
-        $ Kurt.change_face("pleased1")
+        $ Kurt.change_face("smirk2")
 
         ch_Kurt "Oh, hallo[modifier]!"
 

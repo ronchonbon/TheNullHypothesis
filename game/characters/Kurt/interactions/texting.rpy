@@ -68,23 +68,27 @@ label Kurt_text_how_are_you:
     return
 
 label Kurt_text_how_are_you_late_reject:
-    $ dice_roll = renpy.random.randint(1, 2)
+    $ dice_roll = renpy.random.randint(1, 3)
 
     if dice_roll == 1:
         call receive_text(Kurt, "I go bed") from _call_receive_text_232
         call receive_text(Kurt, "Schlaf gut") from _call_receive_text_233
     elif dice_roll == 2:
         call receive_text(Kurt, "So sleepy") from _call_receive_text_49
+    elif dice_roll == 3:
+        call receive_text(Kurt, "Very tired")
 
     return
 
 label Kurt_text_how_are_you_late_reject_asked_once:
-    $ dice_roll = renpy.random.randint(1, 2)
+    $ dice_roll = renpy.random.randint(1, 3)
 
     if dice_roll == 1:
         call receive_text(Kurt, "Shush, go sleep") from _call_receive_text_234
     elif dice_roll == 2:
         call receive_text(Kurt, "Later!") from _call_receive_text_50
+    elif dice_roll == 2:
+        call receive_text(Kurt, "Talk later, it's time for bed")
 
     return
 
@@ -95,6 +99,8 @@ label Kurt_text_how_are_you_late_reject_asked_twice:
         call receive_text(Kurt, "Geh schlafen >:(") from _call_receive_text_235
     elif dice_roll == 2:
         call receive_text(Kurt, ". . .") from _call_receive_text_51
+    elif dice_roll == 3:
+        call receive_text(Kurt, "Gute Nacht!!!")
 
     return
 
@@ -130,10 +136,9 @@ label Kurt_text_phone_tips:
         call receive_text(Kurt, "Having trouble again???") from _call_receive_text_249
         call receive_text(Kurt, "Don't worry about all zee fancy stuff") from _call_receive_text_250
         call receive_text(Kurt, "Just focus on your own progress") from _call_receive_text_251
-        call receive_text(Kurt, "Can find zee updated info in your profile") from _call_receive_text_252
+        call receive_text(Kurt, "Can find zee updated info in the menu") from _call_receive_text_252
     elif dice_roll == 4:
         call receive_text(Kurt, "What? Trying to talk to a girl but can't find her?") from _call_receive_text_253
-        call receive_text(Kurt, "Just check zeir HumHum profile") from _call_receive_text_254
-        call receive_text(Kurt, "Or look at zee damn map >:)") from _call_receive_text_255
+        call receive_text(Kurt, "Just look at zee damn map >:)") from _call_receive_text_255
 
     return

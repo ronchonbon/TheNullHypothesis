@@ -32,14 +32,17 @@ label Charles_no_jobs:
 
         ch_Charles "I'm afraid that's all you can work today."
 
-    $ dice_roll = renpy.random.randint(1, 3)
+    if Player.History.check("studied", tracker = "weekly") + Player.History.check("attended_class", tracker = "weekly") < 3:
+        $ dice_roll = renpy.random.randint(1, 3)
+    else:
+        $ dice_roll = renpy.random.randint(1, 2)
 
     if dice_roll == 1:
         $ Charles.change_face("neutral")  
 
         ch_Charles "Students are not allowed to exceed their daily quota."
     elif dice_roll == 2:
-        $ Charles.change_face("neutral")  
+        $ Charles.change_face("smirk1")  
 
         ch_Charles "I suggest you make the most of your free time, [Player.first_name]."
     elif dice_roll == 3:
@@ -72,13 +75,15 @@ label Charles_no_jobs_asked_twice:
     $ dice_roll = renpy.random.randint(1, 2)
 
     if dice_roll == 1:
+        $ Charles.change_face("neutral", mouth = "frown") 
+
         ch_Charles "While there may be opportunities in the future for students to work more than once per day, it will not be allowed for the time being." 
 
         $ Charles.change_face("angry1") 
 
         ch_Charles "No amount of pleading will change that for the moment."
     elif dice_roll == 2:
-        $ Charles.change_face("confused1") 
+        $ Charles.change_face("neutral", mouth = "frown") 
 
         ch_Charles "Come now, [Player.first_name], surely there are better uses of your time than persisting on this matter."
 
@@ -88,10 +93,20 @@ label Charles_too_late_to_work:
     $ dice_roll = renpy.random.randint(1, 2)
 
     if dice_roll == 1:
-        ch_Charles "I'm afraid we only allow students to work during waking hours." 
+        $ Charles.change_face("neutral", mouth = "frown") 
+
+        ch_Charles "I'm afraid we only allow students to work during waking hours."
+
+        $ Charles.change_face("neutral") 
+        
         ch_Charles "Maintaining a sensible sleep schedule is important for your studies."
     elif dice_roll == 2:
+        $ Charles.change_face("neutral", mouth = "frown") 
+
         ch_Charles "Unfortunately, we restrict student working hours to daylight hours."
+
+        $ Charles.change_face("neutral") 
+
         ch_Charles "Feel free to come back tomorrow, [Player.first_name]."
 
     return
@@ -115,11 +130,11 @@ label Charles_too_late_to_work_asked_twice:
     $ dice_roll = renpy.random.randint(1, 2)
 
     if dice_roll == 1:
-        $ Charles.change_face("confused1") 
+        $ Charles.change_face("neutral", mouth = "frown") 
 
         ch_Charles "If you are that restless, might I recommend a training exercise in the Danger Room?"
     elif dice_roll == 2:
-        $ Charles.change_face("confused1") 
+        $ Charles.change_face("neutral", mouth = "frown") 
 
         ch_Charles "I must insist that you wait until daylight."
 

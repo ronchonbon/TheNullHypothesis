@@ -86,6 +86,7 @@ label Laura_asked_once(context):
     elif context == "knocking":
         $ dice_pool.append(16)
         $ dice_pool.append(17)
+        $ dice_pool.append(18)
 
     $ dice_roll = renpy.random.choice(dice_pool)
 
@@ -158,6 +159,8 @@ label Laura_asked_once(context):
         ch_Laura "I said go away!"
     elif dice_roll == 17:
         ch_Laura "Don't push it."
+    elif dice_roll == 18:
+        ch_Laura "Why are you still knocking?"
 
     return
 
@@ -252,6 +255,8 @@ label Laura_asked_twice(context):
         $ dice_pool.append(10)
     elif context == "knocking":
         $ dice_pool.append(14)
+        $ dice_pool.append(15)
+        $ dice_pool.append(16)
 
     $ dice_roll = renpy.random.choice(dice_pool)
 
@@ -321,6 +326,10 @@ label Laura_asked_twice(context):
         ch_Laura "Don't make me lay you out."
     elif dice_roll == 14:
         ch_Laura "Stop before I put a hole through the door."
+    elif dice_roll == 15:
+        ch_Laura "You really don't want me to come out there."
+    elif dice_roll == 16:
+        ch_Laura "Leave. Me. Alone."
 
     return
 
