@@ -13,15 +13,38 @@ label climax_screen_result:
                     call change_Character_stat(temp_Characters[0], "desire", int(5.0*temp_Characters[0].remote_vibrator)) from _call_change_Character_stat_24
 
                     if temp_Characters[0].desire >= 100:
+                        call Character_orgasms(temp_Characters[0]) from _call_Character_orgasms_1
+                        
+                        if temp_Characters[0].location == Player.location and renpy.random.random() > 0.5:
+                            call remote_vibrator_narrations(temp_Characters[0], proper_subject = False) from _call_remote_vibrator_narrations
+
                         call expression f"{temp_Characters[0].tag}_remote_vibrator_orgasm" from _call_expression_90
-                    elif temp_Characters[0].desire >= 75:
-                        call expression f"{temp_Characters[0].tag}_remote_vibrator_75" from _call_expression_101
-                    elif temp_Characters[0].desire >= 50:
-                        call expression f"{temp_Characters[0].tag}_remote_vibrator_50" from _call_expression_131
-                    elif temp_Characters[0].desire >= 25:
-                        call expression f"{temp_Characters[0].tag}_remote_vibrator_25" from _call_expression_132
+                    else:
+                        if temp_Characters[0].location == Player.location:
+                            if renpy.random.random() > 0.5:
+                                call desire_narrations(temp_Characters[0]) from _call_desire_narrations
+
+                                if renpy.random.random() > 0.5:
+                                    call remote_vibrator_narrations(temp_Characters[0], proper_subject = False) from _call_remote_vibrator_narrations_1
+                            else:
+                                if renpy.random.random() > 0.5:
+                                    call remote_vibrator_narrations(temp_Characters[0]) from _call_remote_vibrator_narrations_2
+
+                        call expression f"{temp_Characters[0].tag}_remote_vibrator_reactions" from _call_expression_101
                 else:
-                    call expression f"{temp_Characters[0].tag}_remote_vibrator_out_of_stamina" from _call_expression_133
+                    call change_Character_stat(temp_Characters[0], "trust", -tiny_stat) from _call_change_Character_stat_589
+
+                    if temp_Characters[0].location == Player.location:
+                        if renpy.random.random() > 0.5:
+                            call out_of_stamina_narrations(temp_Characters[0]) from _call_out_of_stamina_narrations
+
+                            if renpy.random.random() > 0.5:
+                                call remote_vibrator_narrations(temp_Characters[0], proper_subject = False) from _call_remote_vibrator_narrations_3
+                        else:
+                            if renpy.random.random() > 0.5:
+                                call remote_vibrator_narrations(temp_Characters[0]) from _call_remote_vibrator_narrations_4
+
+                    call expression f"{temp_Characters[0].tag}_remote_vibrator_out_of_stamina" from _call_expression_131
             
             if temp_Characters[0].behavior == "masturbating":
                 if temp_Characters[0].stamina and (not temp_Characters[0].History.check("orgasmed", tracker = "recent") or temp_Characters[0].status["nympho"]):
@@ -29,13 +52,21 @@ label climax_screen_result:
                         call change_Character_stat(temp_Characters[0], "desire", 5) from _call_change_Character_stat_25
 
                     if temp_Characters[0].desire >= 100:
-                        call expression f"{temp_Characters[0].tag}_masturbating_orgasm" from _call_expression_134
-                    elif temp_Characters[0].desire >= 75:
-                        call expression f"{temp_Characters[0].tag}_masturbating_75" from _call_expression_135
-                    elif temp_Characters[0].desire >= 50:
-                        call expression f"{temp_Characters[0].tag}_masturbating_50" from _call_expression_136
-                    elif temp_Characters[0].desire >= 25:
-                        call expression f"{temp_Characters[0].tag}_masturbating_25" from _call_expression_137
+                        call Character_orgasms(temp_Characters[0]) from _call_Character_orgasms_2
+                    else:
+                        if temp_Characters[0].location == Player.location:
+                            if renpy.random.random() > 0.5:
+                                call desire_narrations(temp_Characters[0]) from _call_desire_narrations_1
+
+                                if renpy.random.random() > 0.5:
+                                    call self_touch_pussy_continuations(temp_Characters[0], proper_subject = False) from _call_self_touch_pussy_continuations
+                            else:
+                                if renpy.random.random() > 0.5:
+                                    call self_touch_pussy_continuations(temp_Characters[0]) from _call_self_touch_pussy_continuations_1
+                        elif approval_check(temp_Characters[0], threshold = "hookup") and renpy.random.random() > 0.75:
+                            call expression f"{temp_Characters[0].tag}_masturbating_text" from _call_expression_132
+
+                            $ temp_Characters[0].History.update("sent_sext")
                 else:
                     $ temp_Characters[0].behavior = None
 

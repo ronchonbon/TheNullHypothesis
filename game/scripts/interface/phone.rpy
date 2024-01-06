@@ -1464,11 +1464,11 @@ screen remote_screen():
             if vibrator_Characters[current_vibrator_index].remote_vibrator == 0.0:
                 action [
                     SetField(vibrator_Characters[current_vibrator_index], "remote_vibrator", 0.1),
-                    Function(renpy.call_in_new_context, f"{vibrator_Characters[current_vibrator_index].tag}_remote_vibrator_on")]
+                    Function(renpy.call_in_new_context, "remote_vibrator_on", vibrator_Characters[current_vibrator_index])]
             else:
                 action [
                     SetField(vibrator_Characters[current_vibrator_index], "remote_vibrator", 0.0),
-                    Function(renpy.call_in_new_context, f"{vibrator_Characters[current_vibrator_index].tag}_remote_vibrator_off")]
+                    Function(renpy.call_in_new_context, "remote_vibrator_off", vibrator_Characters[current_vibrator_index])]
         else:
             action None
 

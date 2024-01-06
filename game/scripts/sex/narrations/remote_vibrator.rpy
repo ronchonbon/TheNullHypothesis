@@ -1,4 +1,4 @@
-label Character_remote_vibrator_on_narrations(Character, proper_subject = True):
+label remote_vibrator_on_narrations(Character, proper_subject = True):
     if proper_subject:
         $ subject = Character.name
         $ object = Character.name
@@ -33,7 +33,7 @@ label Character_remote_vibrator_on_narrations(Character, proper_subject = True):
 
     return
 
-label Character_remote_vibrator_off_narrations(Character, proper_subject = True):
+label remote_vibrator_off_narrations(Character, proper_subject = True):
     if proper_subject:
         $ subject = Character.name
         $ object = Character.name
@@ -68,7 +68,7 @@ label Character_remote_vibrator_off_narrations(Character, proper_subject = True)
 
     return
 
-label Character_remote_vibrator_narrations(Character, proper_subject = True):
+label remote_vibrator_narrations(Character, proper_subject = True):
     if proper_subject:
         $ subject = Character.name
         $ object = Character.name

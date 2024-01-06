@@ -646,7 +646,7 @@ screen accessory_screen(Character):
 
                             null width int(260*game_resolution)
 
-            if True:
+            if False:
                 if Character in [Rogue]:
                     $ left_arms = [
                         "bra", "crossed", "extended", "fight", "fist", "grope", "hip", "neutral", "rub_neck", "touch_ass"]

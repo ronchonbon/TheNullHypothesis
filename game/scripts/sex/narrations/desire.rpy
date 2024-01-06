@@ -1,4 +1,4 @@
-label Character_desire_narrations(Character, proper_subject = True):
+label desire_narrations(Character, proper_subject = True):
     if proper_subject:
         $ subject = Character.name
         $ object = Character.name
@@ -40,7 +40,7 @@ label Character_desire_narrations(Character, proper_subject = True):
 
     return
 
-label Character_out_of_stamina_narrations(Character, proper_subject = True):
+label out_of_stamina_narrations(Character, proper_subject = True):
     if proper_subject:
         $ subject = Character.name
         $ object = Character.name
