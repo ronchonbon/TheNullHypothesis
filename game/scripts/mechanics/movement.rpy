@@ -21,7 +21,7 @@ label travel(destination):
                 $ temp_Characters[0].location = destination
 
             if "public" not in temp_Characters[0].Outfit.flags:
-                call expression f"{temp_Characters[0].tag}_change_into_public_Outfit" pass (context = "leaving")
+                call expression f"{temp_Characters[0].tag}_change_into_public_Outfit" pass (context = "leaving") from _call_expression_35
 
                 pause 1.0
 

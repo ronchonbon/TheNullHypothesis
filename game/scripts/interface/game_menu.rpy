@@ -55,6 +55,11 @@ screen navigation():
                 
                 text_size 40
 
+            textbutton _("CREDITS"):
+                action ShowMenu("supporters_screen") 
+                
+                text_size 40
+
             textbutton _("OPTIONS"):
                 action ShowMenu("preferences") 
                 

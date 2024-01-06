@@ -341,8 +341,8 @@ screen database_screen():
 
                 action SetVariable("current_database_page", (current_database_page + 1) % database_length)
         
-        if current_database_section == "personal":
-            if current_database_Entry in all_Characters or current_database_Entry == Player:
+        if current_database_Entry in all_Characters or current_database_Entry == Player:
+            if current_database_section == "personal":
                 frame anchor (0.0, 0.0) pos (0.375, 0.345) xysize (0.543, 0.55):
                     if database_length >= 1:
                         if current_database_page == 0:

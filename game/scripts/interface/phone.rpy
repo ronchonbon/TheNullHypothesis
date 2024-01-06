@@ -940,7 +940,7 @@ screen text_history(Character):
                                 if status == "current":
                                     at message_appear(-1)
 
-                                text content:
+                                text content xalign 0.0:
                                     text_align 0.0
 
                                     size 30
@@ -973,7 +973,7 @@ screen text_history(Character):
                                 if status == "current":
                                     at message_appear(1)
 
-                                text content:
+                                text content xalign 1.0:
                                     text_align 1.0
 
                                     size 30

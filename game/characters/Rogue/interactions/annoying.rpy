@@ -383,7 +383,7 @@ label Rogue_asked_twice_text(context):
     elif dice_roll == 2:
         call receive_text(Rogue, "Stop") from _call_receive_text_650
     elif dice_roll == 3:
-        call receive_text(Rogue, "Stop botherin me!")
+        call receive_text(Rogue, "Stop botherin me!") from _call_receive_text_1141
     elif dice_roll == 4:
         call receive_text(Rogue, "NO!") from _call_receive_text_648
     elif dice_roll == 5:

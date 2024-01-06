@@ -99,9 +99,9 @@ label Jean_text_how_are_you:
         if Jean.behavior == "studying":
             call receive_text(Jean, "So much studying. . .") from _call_receive_text_101
     elif dice_roll == 2:
-        call receive_text(Jean, "Not bad! Hope you're having a good day too!")
+        call receive_text(Jean, "Not bad! Hope you're having a good day too!") from _call_receive_text_612
     elif dice_roll == 3:
-        call receive_text(Jean, "Busy, but I'm doing okay!")
+        call receive_text(Jean, "Busy, but I'm doing okay!") from _call_receive_text_1007
 
     return
 
@@ -113,11 +113,11 @@ label Jean_text_how_are_you_late_accept:
         call receive_text(Jean, "Was planning on studying a bit more") from _call_receive_text_103
         call receive_text(Jean, "I guess I could just do it tomorrow if you wanted to talk <3") from _call_receive_text_104
     elif dice_roll == 2:
-        call receive_text(Jean, "Good!")
-        call receive_text(Jean, "Not quite ready to go to bed yet if you want to talk :)")
+        call receive_text(Jean, "Good!") from _call_receive_text_1008
+        call receive_text(Jean, "Not quite ready to go to bed yet if you want to talk :)") from _call_receive_text_1009
     elif dice_roll == 3:
-        call receive_text(Jean, "Just taking a break before bed")
-        call receive_text(Jean, "Happy to chat :)")
+        call receive_text(Jean, "Just taking a break before bed") from _call_receive_text_1010
+        call receive_text(Jean, "Happy to chat :)") from _call_receive_text_1011
 
     return
 
@@ -128,9 +128,9 @@ label Jean_text_how_are_you_late_reject:
         call receive_text(Jean, "Tired") from _call_receive_text_105
         call receive_text(Jean, "Gotta get up early tomorrow to study") from _call_receive_text_106
     elif dice_roll == 2:
-        call receive_text(Jean, "Trying to go to sleep a bit early tonight")
+        call receive_text(Jean, "Trying to go to sleep a bit early tonight") from _call_receive_text_1012
     elif dice_roll == 3:
-        call receive_text(Jean, "So sleepy, think I'm going to go to bed")
+        call receive_text(Jean, "So sleepy, think I'm going to go to bed") from _call_receive_text_1013
 
     return
 
@@ -151,11 +151,11 @@ label Jean_text_how_are_you_relationship:
         call receive_text(Jean, "Way too busy") from _call_receive_text_111
         call receive_text(Jean, "Ughhh, I just want to hang out with you") from _call_receive_text_112
     elif dice_roll == 2:
-        call receive_text(Jean, "Oh you know, the usual")
-        call receive_text(Jean, "Thinking about you though!")
+        call receive_text(Jean, "Oh you know, the usual") from _call_receive_text_1014
+        call receive_text(Jean, "Thinking about you though!") from _call_receive_text_1015
     elif dice_roll == 3:
-        call receive_text(Jean, "Having a bit of a tough day")
-        call receive_text(Jean, "But your text made me feel a little better :)")
+        call receive_text(Jean, "Having a bit of a tough day") from _call_receive_text_1016
+        call receive_text(Jean, "But your text made me feel a little better :)") from _call_receive_text_1017
 
     return
 
@@ -163,12 +163,12 @@ label Jean_text_how_are_you_love:
     $ dice_roll = renpy.random.randint(1, 3)
 
     if dice_roll == 1:
-        call receive_text(Jean, "I'm actually pretty good!")
-        call receive_text(Jean, "Thinking of you lots <3")
+        call receive_text(Jean, "I'm actually pretty good!") from _call_receive_text_1018
+        call receive_text(Jean, "Thinking of you lots <3") from _call_receive_text_1019
     elif dice_roll == 2:
-        call receive_text(Jean, "I'm fine. . .")
-        call receive_text(Jean, "But")
-        call receive_text(Jean, f"Really just want to spend all my time with you, {Jean.Player_petname}")
+        call receive_text(Jean, "I'm fine. . .") from _call_receive_text_1020
+        call receive_text(Jean, "But") from _call_receive_text_1021
+        call receive_text(Jean, f"Really just want to spend all my time with you, {Jean.Player_petname}") from _call_receive_text_1022
     elif dice_roll == 3:
         call receive_text(Jean, f"I'm having {Player.first_name} withdrawal") from _call_receive_text_113
         call receive_text(Jean, "I know you miss me too") from _call_receive_text_114
@@ -199,9 +199,9 @@ label Jean_text_how_are_you_mad:
         call receive_text(Jean, "I'm angry") from _call_receive_text_118
         call receive_text(Jean, "If you couldn't tell") from _call_receive_text_119
     elif dice_roll == 2:
-        call receive_text(Jean, "Really?")
+        call receive_text(Jean, "Really?") from _call_receive_text_1023
     elif dice_roll == 3:
-        call receive_text(Jean, f"Pretty bad, {Player.first_name}.")
+        call receive_text(Jean, f"Pretty bad, {Player.first_name}.") from _call_receive_text_1024
 
     return
 
@@ -214,10 +214,10 @@ label Jean_text_how_are_you_hearbroken:
         call receive_text(Jean, "Not fine") from _call_receive_text_122
         call receive_text(Jean, "Never mind") from _call_receive_text_123
     elif dice_roll == 2:
-        call receive_text(Jean, "I'm okay I guess")
+        call receive_text(Jean, "I'm okay I guess") from _call_receive_text_1025
     elif dice_roll == 3:
-        call receive_text(Jean, "Just a little sad")
-        call receive_text(Jean, "Maybe really sad")
+        call receive_text(Jean, "Just a little sad") from _call_receive_text_1026
+        call receive_text(Jean, "Maybe really sad") from _call_receive_text_1027
 
     return
 
@@ -228,11 +228,11 @@ label Jean_text_how_are_you_horny:
         $ dice_roll = renpy.random.randint(1, 2)
 
     if dice_roll == 1:
-        call receive_text(Jean, "Good!")
-        call receive_text(Jean, "Just daydreaming a little. . .")
+        call receive_text(Jean, "Good!") from _call_receive_text_1028
+        call receive_text(Jean, "Just daydreaming a little. . .") from _call_receive_text_1029
     elif dice_roll == 2:
-        call receive_text(Jean, "A little restless")
-        call receive_text(Jean, "Probably just from studying all day")
+        call receive_text(Jean, "A little restless") from _call_receive_text_1030
+        call receive_text(Jean, "Probably just from studying all day") from _call_receive_text_1031
     elif dice_roll == 3:
         call receive_text(Jean, "I can't keep my mind off you") from _call_receive_text_124
         call receive_text(Jean, "Stop messing with my head!") from _call_receive_text_125
@@ -247,11 +247,11 @@ label Jean_text_how_are_you_nympho:
         $ dice_roll = renpy.random.randint(1, 2)
 
     if dice_roll == 1:
-        call receive_text(Jean, "Is it just me or is the mansion a million degrees?")
+        call receive_text(Jean, "Is it just me or is the mansion a million degrees?") from _call_receive_text_1032
     elif dice_roll == 2:
-        call receive_text(Jean, "I'm finee")
-        call receive_text(Jean, "Kind of restless")
-        call receive_text(Jean, "Maybe we can hang out later?")
+        call receive_text(Jean, "I'm finee") from _call_receive_text_1033
+        call receive_text(Jean, "Kind of restless") from _call_receive_text_1034
+        call receive_text(Jean, "Maybe we can hang out later?") from _call_receive_text_1035
     elif dice_roll == 3:
         call receive_text(Jean, "I am NOT okay") from _call_receive_text_127
         call receive_text(Jean, "I'm all") from _call_receive_text_128
@@ -279,9 +279,9 @@ label Jean_text_good_morning_relationship:
     if dice_roll == 1:
         call receive_text(Jean, "Morning [Jean.Player_petname]! <3") from _call_receive_text_135
     elif dice_roll == 2:
-        call receive_text(Jean, "Good morninggg :)")
+        call receive_text(Jean, "Good morninggg :)") from _call_receive_text_1036
     elif dice_roll == 3:
-        call receive_text(Jean, "Good morning!! Hope I get to see you today :)")
+        call receive_text(Jean, "Good morning!! Hope I get to see you today :)") from _call_receive_text_1037
 
     return
 
@@ -292,8 +292,8 @@ label Jean_text_good_morning_love:
         call receive_text(Jean, "Morning [Jean.Player_petname] <3") from _call_receive_text_136
         call receive_text(Jean, "I love you so much") from _call_receive_text_137
     elif dice_roll == 2:
-        call receive_text(Jean, "Good morning!")
-        call receive_text(Jean, "Had so many sweet dreams about you <3")
+        call receive_text(Jean, "Good morning!") from _call_receive_text_1038
+        call receive_text(Jean, "Had so many sweet dreams about you <3") from _call_receive_text_1039
     elif dice_roll == 3:
         call receive_text(Jean, "Morning") from _call_receive_text_138
         call receive_text(Jean, "I had a dream where you. . .") from _call_receive_text_139
@@ -326,9 +326,9 @@ label Jean_text_good_morning_mad:
         call receive_text(Jean, "Yeah, no") from _call_receive_text_145
         call receive_text(Jean, "Get a clue") from _call_receive_text_146
     elif dice_roll == 2:
-        call receive_text(Jean, "Right")
+        call receive_text(Jean, "Right") from _call_receive_text_1040
     elif dice_roll == 3:
-        call receive_text(Jean, f"Read the room {Player.first_name}")
+        call receive_text(Jean, f"Read the room {Player.first_name}") from _call_receive_text_1041
 
     return
 
@@ -338,9 +338,9 @@ label Jean_text_good_morning_hearbroken:
     if dice_roll == 1:
         call receive_text(Jean, "I guess so. . .") from _call_receive_text_147
     elif dice_roll == 2:
-        call receive_text(Jean, "It's not that good")
+        call receive_text(Jean, "It's not that good") from _call_receive_text_1042
     elif dice_roll == 3:
-        call receive_text(Jean, "I suppose")
+        call receive_text(Jean, "I suppose") from _call_receive_text_1043
 
     return
 
@@ -354,9 +354,9 @@ label Jean_text_good_morning_horny:
             call receive_text(Jean, "You reading my mind or something?") from _call_receive_text_149
             call receive_text(Jean, "Was just thinking about you ;)<3") from _call_receive_text_150
     elif dice_roll == 2:
-        call receive_text(Jean, "Heyy there :)")
+        call receive_text(Jean, "Heyy there :)") from _call_receive_text_1044
     elif dice_roll == 3:
-        call receive_text(Jean, "Hi! Hope you slept well :)")
+        call receive_text(Jean, "Hi! Hope you slept well :)") from _call_receive_text_1045
 
     return
 
@@ -367,17 +367,17 @@ label Jean_text_good_morning_nympho:
         $ dice_roll = renpy.random.randint(1, 2)
 
     if dice_roll == 1:
-        call receive_text(Jean, "I had some crazy dreams")
-        call send_text(Jean, "what happened?")
+        call receive_text(Jean, "I had some crazy dreams") from _call_receive_text_1046
+        call send_text(Jean, "what happened?") from _call_send_text_6
 
         if approval_check(Jean, threshold = "hookup"):
-            call receive_text(Jean, "I'll show you later ;)")
+            call receive_text(Jean, "I'll show you later ;)") from _call_receive_text_1047
         else:
-            call receive_text(Jean, "uh")
-            call receive_text(Jean, "I can't remember")
+            call receive_text(Jean, "uh") from _call_receive_text_1048
+            call receive_text(Jean, "I can't remember") from _call_receive_text_1049
     elif dice_roll == 2:
-        call receive_text(Jean, "My room was so hot last night omg")
-        call receive_text(Jean, "I could barely sleep")
+        call receive_text(Jean, "My room was so hot last night omg") from _call_receive_text_1050
+        call receive_text(Jean, "I could barely sleep") from _call_receive_text_1051
     elif dice_roll == 3:
         call receive_text(Jean, "Ugh why aren't you in bed with me rn") from _call_receive_text_151
         call receive_text(Jean, "Then it would be a great morning ;)") from _call_receive_text_152
@@ -408,10 +408,10 @@ label Jean_text_goodnight_relationship:
         call receive_text(Jean, "Aw") from _call_receive_text_158
         call receive_text(Jean, "Goodnight!") from _call_receive_text_159
     elif dice_roll == 2:
-        call receive_text(Jean, "Sleep tight sweetheart :)")
+        call receive_text(Jean, "Sleep tight sweetheart :)") from _call_receive_text_1052
     elif dice_roll == 3:
-        call receive_text(Jean, "Goodnight!")
-        call receive_text(Jean, "Can't wait to see you tomorrow!")
+        call receive_text(Jean, "Goodnight!") from _call_receive_text_1053
+        call receive_text(Jean, "Can't wait to see you tomorrow!") from _call_receive_text_1054
 
     return
 
@@ -422,7 +422,7 @@ label Jean_text_goodnight_love:
         call receive_text(Jean, "Goodnight [Jean.Player_petname]") from _call_receive_text_160
         call receive_text(Jean, "I love you <3") from _call_receive_text_161
     elif dice_roll == 2:
-        call receive_text(Jean, "Goodnight love! Sleep well for me <3")
+        call receive_text(Jean, "Goodnight love! Sleep well for me <3") from _call_receive_text_1055
     elif dice_roll == 3:
         call receive_text(Jean, "You're going to sleep?") from _call_receive_text_162
         call receive_text(Jean, "You SHOULD be in MY bed") from _call_receive_text_163
@@ -456,9 +456,9 @@ label Jean_text_goodnight_mad:
         call receive_text(Jean, "How about no") from _call_receive_text_169
         call receive_text(Jean, "Not good") from _call_receive_text_170
     elif dice_roll == 2:
-        call receive_text(Jean, "Whatever")
+        call receive_text(Jean, "Whatever") from _call_receive_text_1056
     elif dice_roll == 3:
-        call receive_text(Jean, "Right")
+        call receive_text(Jean, "Right") from _call_receive_text_1057
 
     return
 
@@ -470,9 +470,9 @@ label Jean_text_goodnight_hearbroken:
         call receive_text(Jean, "You're going to bed?") from _call_receive_text_172
         call receive_text(Jean, "Okay") from _call_receive_text_173
     elif dice_roll == 2:
-        call receive_text(Jean, "Okay. . .")
+        call receive_text(Jean, "Okay. . .") from _call_receive_text_1058
     elif dice_roll == 3:
-        call receive_text(Jean, "Good night. . .")
+        call receive_text(Jean, "Good night. . .") from _call_receive_text_1059
 
     return
 
@@ -483,10 +483,10 @@ label Jean_text_goodnight_horny:
         $ dice_roll = renpy.random.randint(1, 2)
 
     if dice_roll == 1:
-        call receive_text(Jean, "Good night!")
-        call receive_text(Jean, "Sweet dreams ;)")
+        call receive_text(Jean, "Good night!") from _call_receive_text_1060
+        call receive_text(Jean, "Sweet dreams ;)") from _call_receive_text_1061
     elif dice_roll == 2:
-        call receive_text(Jean, "Good nightttt")
+        call receive_text(Jean, "Good nightttt") from _call_receive_text_1062
     elif dice_roll == 3:
         call receive_text(Jean, "Not gonna stop by before bed?") from _call_receive_text_174
         call receive_text(Jean, "Maybe tomorrow ;)") from _call_receive_text_175
@@ -498,12 +498,12 @@ label Jean_text_goodnight_nympho:
     $ dice_roll = renpy.random.randint(1, 3)
 
     if dice_roll == 1:
-        call receive_text(Jean, "Aww, booo")
-        call receive_text(Jean, "Goodnight <333")
+        call receive_text(Jean, "Aww, booo") from _call_receive_text_1063
+        call receive_text(Jean, "Goodnight <333") from _call_receive_text_1064
     elif dice_roll == 2:
-        call receive_text(Jean, "You're sleeping?")
-        call receive_text(Jean, "But I'm so, so awake")
-        call receive_text(Jean, "Ugh, fine, goodnight")
+        call receive_text(Jean, "You're sleeping?") from _call_receive_text_1065
+        call receive_text(Jean, "But I'm so, so awake") from _call_receive_text_1066
+        call receive_text(Jean, "Ugh, fine, goodnight") from _call_receive_text_1067
     elif dice_roll == 3:
         call receive_text(Jean, "Tired already?") from _call_receive_text_177
         call receive_text(Jean, "Damn") from _call_receive_text_178
@@ -522,9 +522,9 @@ label Jean_text_ignored:
     if dice_roll == 1:
         call receive_text(Jean, "Cool. . .") from _call_receive_text_181
     elif dice_roll == 2:
-        call receive_text(Jean, "Not very nice, but ok")
+        call receive_text(Jean, "Not very nice, but ok") from _call_receive_text_1068
     elif dice_roll == 3:
-        call receive_text(Jean, "???")
+        call receive_text(Jean, "???") from _call_receive_text_1069
 
     $ Jean.give_status("miffed")
 

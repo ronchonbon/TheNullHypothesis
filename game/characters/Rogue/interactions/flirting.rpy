@@ -45,6 +45,13 @@ label Rogue_flirt_a:
         "Back":
             return
 
+    if approval_check(Rogue, threshold = f"flirting_{flirting_type}"):
+        call change_Character_stat(Rogue, "love", Rogue_flirting_bonuses[flirting_type][0]) from _call_change_Character_stat_603
+        call change_Character_stat(Rogue, "trust", Rogue_flirting_bonuses[flirting_type][1]) from _call_change_Character_stat_606
+    else:
+        call change_Character_stat(Rogue, "love", Rogue_flirting_penalties[flirting_type][0]) from _call_change_Character_stat_608
+        call change_Character_stat(Rogue, "trust", Rogue_flirting_penalties[flirting_type][1]) from _call_change_Character_stat_609
+
     call expression f"Rogue_flirt_{flirting_type}" from _call_expression_8
 
     return

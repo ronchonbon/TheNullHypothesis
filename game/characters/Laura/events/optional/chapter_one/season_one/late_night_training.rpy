@@ -107,8 +107,7 @@ label Laura_chapter_one_season_one_late_night_training:
 
         $ count -= 1
 
-    $ Laura.change_arms("fight")
-    
+    $ Laura.change_arms("X")
     $ Laura.give_trait("left_claw")
     $ Laura.give_trait("right_claw")
 

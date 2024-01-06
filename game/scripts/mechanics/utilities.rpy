@@ -123,21 +123,21 @@ label approach_Characters:
 
     menu:
         "Approach. . ."
-        "[temp_Characters[0].name]" if temp_Characters:
+        "[temp_Characters[0].name]" if temp_Characters and temp_Characters[0].behavior != "teaching":
             $ new_Characters = [temp_Characters[0]]
-        "[temp_Characters[1].name]" if len(temp_Characters) >= 2:
+        "[temp_Characters[1].name]" if len(temp_Characters) >= 2 and temp_Characters[1].behavior != "teaching":
             $ new_Characters = [temp_Characters[1]]
-        "[temp_Characters[2].name]" if len(temp_Characters) >= 3:
+        "[temp_Characters[2].name]" if len(temp_Characters) >= 3 and temp_Characters[2].behavior != "teaching":
             $ new_Characters = [temp_Characters[2]]
-        "[temp_Characters[3].name]" if len(temp_Characters) >= 4:
+        "[temp_Characters[3].name]" if len(temp_Characters) >= 4 and temp_Characters[3].behavior != "teaching":
             $ new_Characters = [temp_Characters[3]]
-        "[temp_Characters[4].name]" if len(temp_Characters) >= 5:
+        "[temp_Characters[4].name]" if len(temp_Characters) >= 5 and temp_Characters[4].behavior != "teaching":
             $ new_Characters = [temp_Characters[4]]
-        "[temp_Characters[5].name]" if len(temp_Characters) >= 6:
+        "[temp_Characters[5].name]" if len(temp_Characters) >= 6 and temp_Characters[5].behavior != "teaching":
             $ new_Characters = [temp_Characters[5]]
-        "[temp_Characters[6].name]" if len(temp_Characters) >= 7:
+        "[temp_Characters[6].name]" if len(temp_Characters) >= 7 and temp_Characters[6].behavior != "teaching":
             $ new_Characters = [temp_Characters[6]]
-        "[temp_Characters[7].name]" if len(temp_Characters) >= 8:
+        "[temp_Characters[7].name]" if len(temp_Characters) >= 8 and temp_Characters[7].behavior != "teaching":
             $ new_Characters = [temp_Characters[7]]
         "Back":
             return

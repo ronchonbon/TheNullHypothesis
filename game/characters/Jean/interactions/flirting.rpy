@@ -47,6 +47,13 @@ label Jean_flirt_a:
         "Back":
             return
 
+    if approval_check(Jean, threshold = f"flirting_{flirting_type}"):
+        call change_Character_stat(Jean, "love", Jean_flirting_bonuses[flirting_type][0]) from _call_change_Character_stat_593
+        call change_Character_stat(Jean, "trust", Jean_flirting_bonuses[flirting_type][1]) from _call_change_Character_stat_594
+    else:
+        call change_Character_stat(Jean, "love", Jean_flirting_penalties[flirting_type][0]) from _call_change_Character_stat_595
+        call change_Character_stat(Jean, "trust", Jean_flirting_penalties[flirting_type][1]) from _call_change_Character_stat_598
+
     call expression f"Jean_flirt_{flirting_type}" from _call_expression_6
 
     return

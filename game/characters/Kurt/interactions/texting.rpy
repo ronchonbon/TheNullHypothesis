@@ -76,7 +76,7 @@ label Kurt_text_how_are_you_late_reject:
     elif dice_roll == 2:
         call receive_text(Kurt, "So sleepy") from _call_receive_text_49
     elif dice_roll == 3:
-        call receive_text(Kurt, "Very tired")
+        call receive_text(Kurt, "Very tired") from _call_receive_text_1070
 
     return
 
@@ -88,7 +88,7 @@ label Kurt_text_how_are_you_late_reject_asked_once:
     elif dice_roll == 2:
         call receive_text(Kurt, "Later!") from _call_receive_text_50
     elif dice_roll == 2:
-        call receive_text(Kurt, "Talk later, it's time for bed")
+        call receive_text(Kurt, "Talk later, it's time for bed") from _call_receive_text_1071
 
     return
 
@@ -100,7 +100,7 @@ label Kurt_text_how_are_you_late_reject_asked_twice:
     elif dice_roll == 2:
         call receive_text(Kurt, ". . .") from _call_receive_text_51
     elif dice_roll == 3:
-        call receive_text(Kurt, "Gute Nacht!!!")
+        call receive_text(Kurt, "Gute Nacht!!!") from _call_receive_text_1072
 
     return
 

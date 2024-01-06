@@ -97,10 +97,10 @@ label Laura_text_how_are_you:
         call receive_text(Laura, "I'm fine") from _call_receive_text_319
         call receive_text(Laura, "Thanks") from _call_receive_text_320
     elif dice_roll == 2:
-        call receive_text(Laura, "Good. . .")
+        call receive_text(Laura, "Good. . .") from _call_receive_text_1073
     elif dice_roll == 2:
-        call receive_text(Laura, "Everything is fine")
-        call receive_text(Laura, "Why?")
+        call receive_text(Laura, "Everything is fine") from _call_receive_text_1074
+        call receive_text(Laura, "Why?") from _call_receive_text_1075
 
     return
 
@@ -114,12 +114,12 @@ label Laura_text_how_are_you_late_accept:
         call receive_text(Laura, "I don't have to go to bed yet") from _call_receive_text_324
         call receive_text(Laura, "If you wanted to hang out") from _call_receive_text_325
     elif dice_roll == 2:
-        call receive_text(Laura, "Fine, can't sleep")
-        call receive_text(Laura, "We can talk if you want")
+        call receive_text(Laura, "Fine, can't sleep") from _call_receive_text_1076
+        call receive_text(Laura, "We can talk if you want") from _call_receive_text_1077
     elif dice_roll == 3:
-        call receive_text(Laura, "Tired")
-        call receive_text(Laura, "But")
-        call receive_text(Laura, "Wouldn't mind talking some more")
+        call receive_text(Laura, "Tired") from _call_receive_text_1078
+        call receive_text(Laura, "But") from _call_receive_text_1079
+        call receive_text(Laura, "Wouldn't mind talking some more") from _call_receive_text_1080
 
     return
 
@@ -131,9 +131,9 @@ label Laura_text_how_are_you_late_reject:
         call receive_text(Laura, "Done training") from _call_receive_text_327
         call receive_text(Laura, "Going to bed") from _call_receive_text_328
     elif dice_roll == 2:
-        call receive_text(Laura, "Sleeping")
+        call receive_text(Laura, "Sleeping") from _call_receive_text_1081
     elif dice_roll == 2:
-        call receive_text(Laura, "It's late")
+        call receive_text(Laura, "It's late") from _call_receive_text_1082
 
     return
 
@@ -155,12 +155,12 @@ label Laura_text_how_are_you_relationship:
         call receive_text(Laura, "Bored") from _call_receive_text_334
         call receive_text(Laura, "Want to hang out with you") from _call_receive_text_335
     elif dice_roll == 2:
-        call receive_text(Laura, "Fine")
-        call receive_text(Laura, "When are we spending more time together?")
+        call receive_text(Laura, "Fine") from _call_receive_text_1083
+        call receive_text(Laura, "When are we spending more time together?") from _call_receive_text_1084
     elif dice_roll == 3:
-        call receive_text(Laura, "Meh")
-        call receive_text(Laura, "Fine")
-        call receive_text(Laura, "Better if you were here")
+        call receive_text(Laura, "Meh") from _call_receive_text_1085
+        call receive_text(Laura, "Fine") from _call_receive_text_1086
+        call receive_text(Laura, "Better if you were here") from _call_receive_text_1087
 
     return
 
@@ -168,12 +168,12 @@ label Laura_text_how_are_you_love:
     $ dice_roll = renpy.random.randint(1, 3)
     
     if dice_roll == 1:
-        call receive_text(Laura, "I am good")
-        call receive_text(Laura, "I can't stop thinking about you")
-        call receive_text(Laura, "But I am good")
+        call receive_text(Laura, "I am good") from _call_receive_text_1088
+        call receive_text(Laura, "I can't stop thinking about you") from _call_receive_text_1089
+        call receive_text(Laura, "But I am good") from _call_receive_text_1090
     elif dice_roll == 2:
-        call receive_text(Laura, "I'm fine")
-        call receive_text(Laura, f"I hope you are doing well {Laura.Player_petname}")
+        call receive_text(Laura, "I'm fine") from _call_receive_text_1091
+        call receive_text(Laura, f"I hope you are doing well {Laura.Player_petname}") from _call_receive_text_1092
     elif dice_roll == 3:
         call receive_text(Laura, "I'm fine") from _call_receive_text_336
         call receive_text(Laura, "I love you and") from _call_receive_text_337
@@ -208,9 +208,9 @@ label Laura_text_how_are_you_mad:
         call receive_text(Laura, "I'm pissed") from _call_receive_text_345
         call receive_text(Laura, "I need to cut something") from _call_receive_text_346
     elif dice_roll == 2:
-        call receive_text(Laura, "How do you think")
+        call receive_text(Laura, "How do you think") from _call_receive_text_1093
     elif dice_roll == 3:
-        call receive_text(Laura, "I am bad")
+        call receive_text(Laura, "I am bad") from _call_receive_text_1094
 
     return
 
@@ -223,7 +223,7 @@ label Laura_text_how_are_you_hearbroken:
     elif dice_roll == 2:
         pass
     elif dice_roll == 3:
-        call receive_text(Laura, "I don't want to talk about it")
+        call receive_text(Laura, "I don't want to talk about it") from _call_receive_text_1095
 
     return
 
@@ -236,11 +236,11 @@ label Laura_text_how_are_you_horny:
         if approval_check(Laura, threshold = "hookup"):
             call receive_text(Laura, "Woudl be better if I could see you") from _call_receive_text_350
     elif dice_roll == 2:
-        call receive_text(Laura, "Good")
-        call receive_text(Laura, "Are we seeing each other today?")
+        call receive_text(Laura, "Good") from _call_receive_text_1096
+        call receive_text(Laura, "Are we seeing each other today?") from _call_receive_text_1097
     elif dice_roll == 3:
-        call receive_text(Laura, "Good")
-        call receive_text(Laura, "I feel very warm")
+        call receive_text(Laura, "Good") from _call_receive_text_1098
+        call receive_text(Laura, "I feel very warm") from _call_receive_text_1099
 
     return
 
@@ -251,11 +251,11 @@ label Laura_text_how_are_you_nympho:
         $ dice_roll = renpy.random.randint(1, 2)
 
     if dice_roll == 1:
-        call receive_text(Laura, "I don't know")
-        call receive_text(Laura, "I feel. . . strange")
+        call receive_text(Laura, "I don't know") from _call_receive_text_1100
+        call receive_text(Laura, "I feel. . . strange") from _call_receive_text_1101
     elif dice_roll == 2:
-        call receive_text(Laura, "I'm. . . fine")
-        call receive_text(Laura, "It is very hot in the mansion today")
+        call receive_text(Laura, "I'm. . . fine") from _call_receive_text_1102
+        call receive_text(Laura, "It is very hot in the mansion today") from _call_receive_text_1103
     elif dice_roll == 3:
         call receive_text(Laura, "Unsatisfied") from _call_receive_text_351
         call receive_text(Laura, "You are coming over some time soon") from _call_receive_text_352
@@ -286,9 +286,9 @@ label Laura_text_good_morning_relationship:
         call receive_text(Laura, "I") from _call_receive_text_360
         call receive_text(Laura, "Hope you slept well") from _call_receive_text_361
     elif dice_roll == 2:
-        call receive_text(Laura, f"Hello {Laura.Player_petname}")
+        call receive_text(Laura, f"Hello {Laura.Player_petname}") from _call_receive_text_1104
     elif dice_roll == 3:
-        call receive_text(Laura, "I suppose it is a good morning")
+        call receive_text(Laura, "I suppose it is a good morning") from _call_receive_text_1105
 
     return
 
@@ -301,9 +301,9 @@ label Laura_text_good_morning_love:
         call receive_text(Laura, "You were in my dreams last night") from _call_receive_text_364
         call receive_text(Laura, "It was nice for once") from _call_receive_text_365
     elif dice_roll == 2:
-        call receive_text(Laura, "Hey")
-        call receive_text(Laura, "I'm glad you are awake")
-        call receive_text(Laura, "I missed you")
+        call receive_text(Laura, "Hey") from _call_receive_text_1106
+        call receive_text(Laura, "I'm glad you are awake") from _call_receive_text_1107
+        call receive_text(Laura, "I missed you") from _call_receive_text_1108
     elif dice_roll == 3:
         call receive_text(Laura, "Morning") from _call_receive_text_366
         call receive_text(Laura, "How did you sleep?") from _call_receive_text_367
@@ -335,9 +335,9 @@ label Laura_text_good_morning_mad:
     if dice_roll == 1:
         call receive_text(Laura, "Not in the mood.") from _call_receive_text_374
     elif dice_roll == 2:
-        call receive_text(Laura, "Leave me alone.")
+        call receive_text(Laura, "Leave me alone.") from _call_receive_text_1109
     elif dice_roll == 3:
-        call receive_text(Laura, "Sure")
+        call receive_text(Laura, "Sure") from _call_receive_text_1110
 
     return
 
@@ -349,7 +349,7 @@ label Laura_text_good_morning_hearbroken:
     elif dice_roll == 2:
         pass
     elif dice_roll == 3:
-        call receive_text(Laura, ". . .")
+        call receive_text(Laura, ". . .") from _call_receive_text_1111
 
     return
 
@@ -357,11 +357,11 @@ label Laura_text_good_morning_horny:
     $ dice_roll = renpy.random.randint(1, 3)
 
     if dice_roll == 1:
-        call receive_text(Laura, "Hello")
-        call receive_text(Laura, "We should spend time together today")
+        call receive_text(Laura, "Hello") from _call_receive_text_1112
+        call receive_text(Laura, "We should spend time together today") from _call_receive_text_1113
     elif dice_roll == 2:
-        call receive_text(Laura, "Good morning")
-        call receive_text(Laura, "Let's spend time together today")
+        call receive_text(Laura, "Good morning") from _call_receive_text_1114
+        call receive_text(Laura, "Let's spend time together today") from _call_receive_text_1115
     elif dice_roll == 3:
         call receive_text(Laura, "Good morning") from _call_receive_text_376
         
@@ -379,14 +379,14 @@ label Laura_text_good_morning_nympho:
         $ dice_roll = renpy.random.randint(1, 2)
 
     if dice_roll == 1:
-        call receive_text(Laura, "You're just waking up?")
-        call send_text(Laura, "uh. . . yeah?")
-        call receive_text(Laura, "I've been awake for hours")
-        call receive_text(Laura, "Can't stop thinking about")
-        call receive_text(Laura, "Stuff")
+        call receive_text(Laura, "You're just waking up?") from _call_receive_text_1116
+        call send_text(Laura, "uh. . . yeah?") from _call_send_text_7
+        call receive_text(Laura, "I've been awake for hours") from _call_receive_text_1117
+        call receive_text(Laura, "Can't stop thinking about") from _call_receive_text_1118
+        call receive_text(Laura, "Stuff") from _call_receive_text_1119
     elif dice_roll == 2:
-        call receive_text(Laura, "I hope so")
-        call receive_text(Laura, "Will I see you today?")
+        call receive_text(Laura, "I hope so") from _call_receive_text_1120
+        call receive_text(Laura, "Will I see you today?") from _call_receive_text_1121
     elif dice_roll == 3:
         call receive_text(Laura, "Could tell me that in person") from _call_receive_text_380
         call receive_text(Laura, "Why aren't you in my bed") from _call_receive_text_381
@@ -410,7 +410,7 @@ label Laura_text_goodnight:
         call receive_text(Laura, "Okay") from _call_receive_text_386
         call receive_text(Laura, "Goodnight") from _call_receive_text_387
     elif dice_roll == 3:
-        call receive_text(Laura, "Yep")
+        call receive_text(Laura, "Yep") from _call_receive_text_1122
     elif dice_roll == 4:
         call receive_text(Laura, "You're going to sleep or something?") from _call_receive_text_388
         call receive_text(Laura, "I'm not done training yet") from _call_receive_text_389
@@ -425,10 +425,10 @@ label Laura_text_goodnight_relationship:
         call receive_text(Laura, "Sleep well") from _call_receive_text_391
         call receive_text(Laura, "Or else") from _call_receive_text_392
     elif dice_roll == 2:
-        call receive_text(Laura, "Goodnight")
-        call receive_text(Laura, "See you tomorrow")
+        call receive_text(Laura, "Goodnight") from _call_receive_text_1123
+        call receive_text(Laura, "See you tomorrow") from _call_receive_text_1124
     elif dice_roll == 3:
-        call receive_text(Laura, "Talk to you tomorrow")
+        call receive_text(Laura, "Talk to you tomorrow") from _call_receive_text_1125
 
     return
 
@@ -440,8 +440,8 @@ label Laura_text_goodnight_love:
         call receive_text(Laura, "I") from _call_receive_text_394
         call receive_text(Laura, "Love you") from _call_receive_text_395
     elif dice_roll == 2:
-        call receive_text(Laura, "Goodnight")
-        call receive_text(Laura, f"{Laura.Player_petname}")
+        call receive_text(Laura, "Goodnight") from _call_receive_text_1126
+        call receive_text(Laura, f"{Laura.Player_petname}") from _call_receive_text_1127
     elif dice_roll == 3:
         call receive_text(Laura, "Sleep already?") from _call_receive_text_396
         call receive_text(Laura, "Why aren't you in my bed?") from _call_receive_text_397
@@ -474,9 +474,9 @@ label Laura_text_goodnight_mad:
         call receive_text(Laura, "No") from _call_receive_text_402
         call receive_text(Laura, "It hasn't been") from _call_receive_text_403
     elif dice_roll == 2:
-        call receive_text(Laura, "Mhm")
+        call receive_text(Laura, "Mhm") from _call_receive_text_1128
     elif dice_roll == 3:
-        call receive_text(Laura, "Sure")
+        call receive_text(Laura, "Sure") from _call_receive_text_1129
 
     return
 
@@ -489,7 +489,7 @@ label Laura_text_goodnight_hearbroken:
     elif dice_roll == 2:
         pass
     elif dice_roll == 3:
-        call receive_text(Laura, "Fine")
+        call receive_text(Laura, "Fine") from _call_receive_text_1130
 
     return
 
@@ -505,12 +505,12 @@ label Laura_text_goodnight_horny:
 
             $ Laura.behavior = "masturbating"
     elif dice_roll == 2:
-        call receive_text(Laura, "Goodnight")
+        call receive_text(Laura, "Goodnight") from _call_receive_text_1131
 
         if approval_check(Laura, threshold = "hookup"):
-            call receive_text(Laura, "I will be thinking of you tonight")
+            call receive_text(Laura, "I will be thinking of you tonight") from _call_receive_text_1132
     elif dice_roll == 3:
-        call receive_text(Laura, "Fine, goodnight")
+        call receive_text(Laura, "Fine, goodnight") from _call_receive_text_1133
 
     return
 
@@ -526,14 +526,14 @@ label Laura_text_goodnight_nympho:
             call receive_text(Laura, "Attention") from _call_receive_text_412
             call receive_text(Laura, "You better at least find me tomorrow") from _call_receive_text_413
     elif dice_roll == 2:
-        call receive_text(Laura, "Don't go to sleep yet")
-        call receive_text(Laura, ". . .")
-        call receive_text(Laura, "Fine, tomorrow")
+        call receive_text(Laura, "Don't go to sleep yet") from _call_receive_text_1134
+        call receive_text(Laura, ". . .") from _call_receive_text_1135
+        call receive_text(Laura, "Fine, tomorrow") from _call_receive_text_1136
     elif dice_roll == 3:
-        call receive_text(Laura, "Why do you go to bed so early")
+        call receive_text(Laura, "Why do you go to bed so early") from _call_receive_text_1137
         
         if approval_check(Laura, threshold = "hookup"):
-            call receive_text(Laura, "I need your attention")
+            call receive_text(Laura, "I need your attention") from _call_receive_text_1138
 
     return
 
@@ -545,9 +545,9 @@ label Laura_text_ignored:
     if dice_roll == 1:
         call receive_text(Laura, "Don't ignore me") from _call_receive_text_414
     elif dice_roll == 2:
-        call receive_text(Laura, "Is your phone working properly?")
+        call receive_text(Laura, "Is your phone working properly?") from _call_receive_text_1139
     elif dice_roll == 3:
-        call receive_text(Laura, "You better not be ignoring me")
+        call receive_text(Laura, "You better not be ignoring me") from _call_receive_text_1140
 
     $ Laura.give_status("miffed")
 

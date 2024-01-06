@@ -64,9 +64,10 @@ label Characters_arrive(arriving_Characters, invited = False, greetings = True, 
                         $ renpy.dynamic(temp_Characters = Present[:])
 
                         while temp_Characters:
-                            if "public" not in temp_Characters[0].Outfit.flags and not are_Characters_friends(temp_Characters[:] + grouped_Characters[:]):
-                                call expression f"{temp_Characters[0].tag}_change_into_public_Outfit" pass (context = "generic")
-                                call change_Outfit(temp_Characters[0], Outfit = temp_Characters[0].Wardrobe.indoor_Outfit, instant = True)
+                            if temp_Characters[0] in all_Companions:
+                                if "public" not in temp_Characters[0].Outfit.flags and not are_Characters_friends(temp_Characters[:] + grouped_Characters[:]):
+                                    call expression f"{temp_Characters[0].tag}_change_into_public_Outfit" pass (context = "generic") from _call_expression_33
+                                    call change_Outfit(temp_Characters[0], Outfit = temp_Characters[0].Wardrobe.indoor_Outfit, instant = True) from _call_change_Outfit_29
 
                             $ temp_Characters.remove(temp_Characters[0])
 
@@ -100,9 +101,10 @@ label Characters_arrive(arriving_Characters, invited = False, greetings = True, 
                 $ renpy.dynamic(temp_Characters = Present[:])
 
                 while temp_Characters:
-                    if "public" not in temp_Characters[0].Outfit.flags and not are_Characters_friends(temp_Characters[:] + grouped_Characters[:]):
-                        call expression f"{temp_Characters[0].tag}_change_into_public_Outfit" pass (context = "generic")
-                        call change_Outfit(temp_Characters[0], Outfit = temp_Characters[0].Wardrobe.indoor_Outfit, instant = True)
+                    if temp_Characters[0] in all_Companions:
+                        if "public" not in temp_Characters[0].Outfit.flags and not are_Characters_friends(temp_Characters[:] + grouped_Characters[:]):
+                            call expression f"{temp_Characters[0].tag}_change_into_public_Outfit" pass (context = "generic") from _call_expression_34
+                            call change_Outfit(temp_Characters[0], Outfit = temp_Characters[0].Wardrobe.indoor_Outfit, instant = True) from _call_change_Outfit_30
 
                     $ temp_Characters.remove(temp_Characters[0])
 

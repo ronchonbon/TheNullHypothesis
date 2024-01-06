@@ -49,6 +49,13 @@ label Laura_flirt_a:
         "Back":
             return
 
+    if approval_check(Laura, threshold = f"flirting_{flirting_type}"):
+        call change_Character_stat(Laura, "love", Laura_flirting_bonuses[flirting_type][0]) from _call_change_Character_stat_599
+        call change_Character_stat(Laura, "trust", Laura_flirting_bonuses[flirting_type][1]) from _call_change_Character_stat_600
+    else:
+        call change_Character_stat(Laura, "love", Laura_flirting_penalties[flirting_type][0]) from _call_change_Character_stat_601
+        call change_Character_stat(Laura, "trust", Laura_flirting_penalties[flirting_type][1]) from _call_change_Character_stat_602
+
     call expression f"Laura_flirt_{flirting_type}" from _call_expression_7
 
     return

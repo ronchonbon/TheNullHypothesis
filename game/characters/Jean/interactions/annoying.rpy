@@ -465,7 +465,7 @@ label Jean_asked_once_text(context):
         call receive_text(Jean, "I'm about to put my phone down") from _call_receive_text_107
         call receive_text(Jean, "Just text me tomorrow") from _call_receive_text_108
     elif dice_roll == 6:
-        call receive_text(Jean, "?")
+        call receive_text(Jean, "?") from _call_receive_text_254
 
     return
 
@@ -507,7 +507,7 @@ label Jean_asked_twice_text(context):
         call receive_text(Jean, "Stopppp!") from _call_receive_text_109
         call receive_text(Jean, "I'm going to bed") from _call_receive_text_110
     elif dice_roll == 6:
-        call receive_text(Jean, "What the actual hell, stop!")
+        call receive_text(Jean, "What the actual hell, stop!") from _call_receive_text_592
 
     return
 

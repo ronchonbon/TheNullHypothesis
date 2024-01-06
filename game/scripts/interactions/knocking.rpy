@@ -33,7 +33,7 @@ label Player_knocks(host):
             call change_Character_stat(sorted_Characters[0], "trust", -small_stat) from _call_change_Character_stat_983
 
             if renpy.random.random() > 0.5:
-                call expression f"{sorted_Characters[0].tag}_greets_Player_knocking_late_asked_twice"
+                call expression f"{sorted_Characters[0].tag}_greets_Player_knocking_late_asked_twice" from _call_expression_20
             else:
                 "You are being ignored."
         elif sorted_Characters[0].History.check("said_too_late_to_talk", tracker = "recent") == 1:
@@ -59,13 +59,14 @@ label Player_knocks(host):
             $ renpy.dynamic(temp_Characters = get_Present(location = host.home)[0][:])
 
             while temp_Characters:
-                if "public" not in temp_Characters[0].Outfit.flags and (not approval_check(temp_Characters[0], threshold = 0.4*temp_Characters[0].Outfit.shame) or not are_Characters_friends(temp_Characters[:] + Party[:])):
-                    call expression f"{temp_Characters[0].tag}_changing_one_second" pass (context = "changing")
-                    call change_Outfit(temp_Characters[0], Outfit = temp_Characters[0].Wardrobe.indoor_Outfit, instant = True)
+                if temp_Characters[0] in all_Companions:
+                    if "public" not in temp_Characters[0].Outfit.flags and (not approval_check(temp_Characters[0], threshold = 0.4*temp_Characters[0].Outfit.shame) or not are_Characters_friends(temp_Characters[:] + Party[:])):
+                        call expression f"{temp_Characters[0].tag}_one_second" pass (context = "changing") from _call_expression_27
+                        call change_Outfit(temp_Characters[0], Outfit = temp_Characters[0].Wardrobe.indoor_Outfit, instant = True) from _call_change_Outfit_24
 
                 $ temp_Characters.remove(temp_Characters[0])
 
-            call expression f"{sorted_Characters[0].tag}_greets_Player_knocking" pass (welcoming_Characters = sorted_Characters)
+            call expression f"{sorted_Characters[0].tag}_greets_Player_knocking" pass (welcoming_Characters = sorted_Characters) from _call_expression_28
         else:
             if sorted_Characters[0].History.check("rejected_knock_on_door", tracker = "recent") > 2:
                 call change_Character_stat(sorted_Characters[0], "love", -small_stat) from _call_change_Character_stat_985
@@ -95,9 +96,10 @@ label Player_knocks(host):
         $ renpy.dynamic(temp_Characters = get_Present(location = host.home)[0][:])
 
         while temp_Characters:
-            if "public" not in temp_Characters[0].Outfit.flags and (not approval_check(temp_Characters[0], threshold = 0.4*temp_Characters[0].Outfit.shame) or not are_Characters_friends(temp_Characters[:] + Party[:])):
-                call expression f"{temp_Characters[0].tag}_one_second" pass (context = "changing")
-                call change_Outfit(temp_Characters[0], Outfit = temp_Characters[0].Wardrobe.indoor_Outfit, instant = True)
+            if temp_Characters[0] in all_Companions:
+                if "public" not in temp_Characters[0].Outfit.flags and (not approval_check(temp_Characters[0], threshold = 0.4*temp_Characters[0].Outfit.shame) or not are_Characters_friends(temp_Characters[:] + Party[:])):
+                    call expression f"{temp_Characters[0].tag}_one_second" pass (context = "changing") from _call_expression_29
+                    call change_Outfit(temp_Characters[0], Outfit = temp_Characters[0].Wardrobe.indoor_Outfit, instant = True) from _call_change_Outfit_27
 
             $ temp_Characters.remove(temp_Characters[0])
             
