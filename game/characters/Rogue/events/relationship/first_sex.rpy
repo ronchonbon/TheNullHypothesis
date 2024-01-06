@@ -353,6 +353,10 @@ label Rogue_first_sex:
 
     "You fall asleep together, more connected than ever."
 
+    $ Rogue.remove_trait("virgin")
+
+    $ Player.History.update("took_virginity")
+
     jump go_to_sleep
 
     $ ongoing_Event = False

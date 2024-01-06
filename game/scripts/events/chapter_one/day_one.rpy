@@ -595,7 +595,7 @@ label meet_Rogue:
 
     menu:
         extend ""
-        "Looks like the rumors are a bit exaggerated. Xavier seems to think my power only makes me impervious to other mutant powers.":
+        "Looks like the rumors are a bit exaggerated. [Charles.name] seems to think my power only makes me impervious to other mutant powers.":
             call change_Character_stat(Rogue, "trust", medium_stat) from _call_change_Character_stat_637
 
             $ Rogue.change_face("pleased2")

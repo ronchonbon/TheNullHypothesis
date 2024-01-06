@@ -172,7 +172,8 @@ init -2 python:
             self.temp = None
 
         def change_face(self, face = None, **kwargs):
-            face, brows, eyes, mouth, blush = self.default_face() if not face else face
+            if not face:
+                face, brows, eyes, mouth, blush = self.default_face()
 
             brows = kwargs.get("brows", None)
             eyes = kwargs.get("eyes", None)
@@ -206,28 +207,28 @@ init -2 python:
             blush = 0
 
             if self.status["mad"]:
-                $ dice_roll = renpy.random.randint(1, 2)
+                dice_roll = renpy.random.randint(1, 2)
                 
                 if dice_roll == 1:
                     face = "angry1"
                 elif dice_roll == 2:
                     face = "furious"
             elif self.status["miffed"]:
-                $ dice_roll = renpy.random.randint(1, 2)
+                dice_roll = renpy.random.randint(1, 2)
                 
                 if dice_roll == 1:
                     face = "angry1"
                 elif dice_roll == 2:
                     face = "angry2"
             elif self.status["heartbroken"]:
-                $ dice_roll = renpy.random.randint(1, 2)
+                dice_roll = renpy.random.randint(1, 2)
                 
                 if dice_roll == 1:
                     face = "sad"
                 elif dice_roll == 2:
                     face = "worried1"
             elif self.status["horny"]:
-                $ dice_roll = renpy.random.randint(1, 2)
+                dice_roll = renpy.random.randint(1, 2)
                 
                 if dice_roll == 1:
                     face = "sexy"
@@ -237,7 +238,7 @@ init -2 python:
                     face = "sexy"
                     mouth = "smirk"
             elif self.status["nympho"]:
-                $ dice_roll = renpy.random.randint(1, 3)
+                dice_roll = renpy.random.randint(1, 3)
                 
                 if dice_roll == 1:
                     brows = "worried"
@@ -252,7 +253,7 @@ init -2 python:
                     eyes = "sexy"
                     mouth = "open"
             elif approval_check(self, threshold = "love"):
-                $ dice_roll = renpy.random.randint(1, 4)
+                dice_roll = renpy.random.randint(1, 4)
                 
                 if dice_roll == 1:
                     face = "happy"
@@ -263,7 +264,7 @@ init -2 python:
                 elif dice_roll == 4:
                     face = "smirk2"
             else:
-                $ dice_roll = renpy.random.randint(1, 2)
+                dice_roll = renpy.random.randint(1, 2)
                 
                 if dice_roll == 1:
                     face = "neutral"

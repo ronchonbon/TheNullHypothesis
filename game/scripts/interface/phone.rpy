@@ -1605,7 +1605,12 @@ screen achievements_list_screen():
                         background None
 
                         text a:
-                            size 28
+                            if len(a) >= 30:
+                                size 22
+                            elif len(a) > 25:
+                                size 28
+                            else:
+                                size 32
 
                             color "#ffffff"
 

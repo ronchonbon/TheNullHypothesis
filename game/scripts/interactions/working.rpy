@@ -48,6 +48,8 @@ label work(Character):
             
             call expression f"{Character.tag}_ask_for_job" from _call_expression_371
 
+            $ Player.History.update("worked")
+
             $ Character.History.update("gave_job")
             $ Character.remove_trait("electronic")
             $ Character.remove_trait("telepathic")

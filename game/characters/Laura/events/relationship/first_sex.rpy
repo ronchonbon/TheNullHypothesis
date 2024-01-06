@@ -497,9 +497,9 @@ label Laura_first_sex_part_two:
 
     $ Player.stamina -= 1
 
-    $ speed = 1.0
-    $ intensity = 1.0
-    $ starting_depth = 0.0
+    $ Laura.remove_trait("virgin")
+
+    $ Player.History.update("took_virginity")
 
     $ ongoing_Event = False
 

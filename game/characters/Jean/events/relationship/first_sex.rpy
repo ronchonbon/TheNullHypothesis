@@ -617,6 +617,12 @@ label Jean_first_sex_part_two:
 
     ch_Jean "{i}Frequently{/i}."
 
+    $ Player.stamina -= 1
+
+    $ Jean.remove_trait("virgin")
+
+    $ Player.History.update("took_virginity")
+
     $ ongoing_Event = False
 
     return

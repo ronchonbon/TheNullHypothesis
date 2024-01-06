@@ -71,7 +71,7 @@ label Jean_chapter_one_season_two_first_training_session:
 
     $ Jean.change_face("confused1")
 
-    ch_Player "Xavier seems to think I have a 'robust constitution' as a by-product of my power or something."
+    ch_Player "[Charles.name] seems to think I have a 'robust constitution' as a by-product of my power or something."
     ch_Player "So, now I heal pretty fast."
     ch_Jean "Hmm. . ."
     ch_Jean "I guess you're in a similar situation as I was."

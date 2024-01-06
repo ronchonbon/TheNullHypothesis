@@ -458,7 +458,7 @@ label Jean_chapter_one_season_one_first_training_session_1A:
     $ Jean.change_face("worried1")
     $ Jean.change_arms("crossed")
 
-    ch_Jean "Xavier sealed away some of my more dangerous abilities."
+    ch_Jean "Prof. X sealed away some of my more dangerous abilities."
 
     $ Jean.change_face("neutral")
 

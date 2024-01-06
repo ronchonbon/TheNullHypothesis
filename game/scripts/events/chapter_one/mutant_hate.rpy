@@ -744,7 +744,7 @@ label ch1_mutant_hate:
     $ Kurt.change_face("worried1", mouth = "smirk") 
     $ Kurt.change_arms("neutral")
 
-    ch_Kurt "Let zee doctor check you over, I'll tell Xavier vat happened."
+    ch_Kurt "Let zee doctor check you over, I'll tell Prof. X vat happened."
     ch_Player "Okay, thanks man."
 
     call Kurt_teleports_out from _call_Kurt_teleports_out_6

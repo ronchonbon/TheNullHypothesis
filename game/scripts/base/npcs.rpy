@@ -69,7 +69,8 @@ init -2 python:
             self.temp = None
 
         def change_face(self, face = "neutral", **kwargs):
-            face, brows, eyes, mouth, blush = self.default_face() if not face else face
+            if not face:
+                face, brows, eyes, mouth, blush = self.default_face()
 
             brows = kwargs.get("brows", None)
             eyes = kwargs.get("eyes", None)
