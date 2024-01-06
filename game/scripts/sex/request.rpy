@@ -334,7 +334,7 @@ label request_position(Character, new_position, Action = None, automatic = False
 
                 while temp_Characters:
                     if not temp_Characters[0].History.check("seen_Player_naked"):
-                        $ EventScheduler.Events[f"{temp_Characters[0].tag}_seeing_penis"].start()
+                        call expression f"{temp_Characters[0].tag}_seeing_penis"
 
                     $ temp_Characters[0].History.update("seen_Player_naked")
                     
@@ -382,7 +382,7 @@ label request_position(Character, new_position, Action = None, automatic = False
 
             while temp_Characters:
                 if not temp_Characters[0].History.check("seen_Player_naked"):
-                    $ EventScheduler.Events[f"{temp_Characters[0].tag}_seeing_penis"].start()
+                    call expression f"{temp_Characters[0].tag}_seeing_penis"
 
                 $ temp_Characters[0].History.update("seen_Player_naked")
                 

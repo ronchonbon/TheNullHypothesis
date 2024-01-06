@@ -13,15 +13,15 @@ label climax_screen_result:
                     call change_Character_stat(temp_Characters[0], "desire", int(5.0*temp_Characters[0].remote_vibrator)) from _call_change_Character_stat_24
 
                     if temp_Characters[0].desire >= 100:
-                        $ EventScheduler.Events[f"{temp_Characters[0].tag}_remote_vibrator_orgasm"].start()
+                        call expression f"{temp_Characters[0].tag}_remote_vibrator_orgasm"
                     elif temp_Characters[0].desire >= 75:
-                        $ EventScheduler.Events[f"{temp_Characters[0].tag}_remote_vibrator_75"].start()
+                        call expression f"{temp_Characters[0].tag}_remote_vibrator_75"
                     elif temp_Characters[0].desire >= 50:
-                        $ EventScheduler.Events[f"{temp_Characters[0].tag}_remote_vibrator_50"].start()
+                        call expression f"{temp_Characters[0].tag}_remote_vibrator_50"
                     elif temp_Characters[0].desire >= 25:
-                        $ EventScheduler.Events[f"{temp_Characters[0].tag}_remote_vibrator_25"].start()
+                        call expression f"{temp_Characters[0].tag}_remote_vibrator_25"
                 else:
-                    $ EventScheduler.Events[f"{temp_Characters[0].tag}_remote_vibrator_out_of_stamina"].start()
+                    call expression f"{temp_Characters[0].tag}_remote_vibrator_out_of_stamina"
             
             if temp_Characters[0].behavior == "masturbating":
                 if temp_Characters[0].stamina and (not temp_Characters[0].History.check("orgasmed", tracker = "recent") or temp_Characters[0].status["nympho"]):
@@ -29,13 +29,13 @@ label climax_screen_result:
                         call change_Character_stat(temp_Characters[0], "desire", 5) from _call_change_Character_stat_25
 
                     if temp_Characters[0].desire >= 100:
-                        $ EventScheduler.Events[f"{temp_Characters[0].tag}_masturbating_orgasm"].start()
+                        call expression f"{temp_Characters[0].tag}_masturbating_orgasm"
                     elif temp_Characters[0].desire >= 75:
-                        $ EventScheduler.Events[f"{temp_Characters[0].tag}_masturbating_75"].start()
+                        call expression f"{temp_Characters[0].tag}_masturbating_75"
                     elif temp_Characters[0].desire >= 50:
-                        $ EventScheduler.Events[f"{temp_Characters[0].tag}_masturbating_50"].start()
+                        call expression f"{temp_Characters[0].tag}_masturbating_50"
                     elif temp_Characters[0].desire >= 25:
-                        $ EventScheduler.Events[f"{temp_Characters[0].tag}_masturbating_25"].start()
+                        call expression f"{temp_Characters[0].tag}_masturbating_25"
                 else:
                     $ temp_Characters[0].behavior = None
 

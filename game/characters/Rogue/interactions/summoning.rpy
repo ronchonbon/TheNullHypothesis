@@ -267,27 +267,73 @@ label Rogue_summon_reject_asked_twice:
     return
 
 label Rogue_summon_reject_mad:
-    call receive_text(Rogue, "Ain't goin fuckin nowhere") from _call_receive_text_530
+    $ dice_roll = renpy.random.randint(1, 3)
+
+    if dice_roll == 1:
+        call receive_text(Rogue, "Ain't goin fuckin nowhere") from _call_receive_text_530
+    elif dice_roll == 2:
+        call receive_text(Rogue, "No way in hell")
+    elif dice_roll == 3:
+        call receive_text(Rogue, "What the hell are you thinkin?")
 
     return
     
 label Rogue_dismiss_accept:
     menu:
         "Hey, you can leave if you want.":
-            ch_Rogue "Alright, ah'll see you 'round then."
+            $ dice_roll = renpy.random.randint(1, 3)
+
+            if dice_roll == 1:
+                ch_Rogue "Alright, ah'll see you 'round then."
+            elif dice_roll == 2:
+                $ Rogue.change_face("worried1")
+
+                ch_Rogue "Okay, see you later!"
+            elif dice_roll == 3:
+                $ Rogue.change_face("smirk2")
+
+                ch_Rogue "That's nice, ah'll probably stick around though."
+
+                $ Rogue.History.update("said_no_to_dismiss")
+
+                return False
         "I think you should leave.":
-            call change_Character_stat(Rogue, "love", -tiny_stat) from _call_change_Character_stat_779
+            if not Rogue.quirk:
+                call change_Character_stat(Rogue, "love", -tiny_stat) from _call_change_Character_stat_779
             
-            $ Rogue.change_face("worried1")
+            $ dice_roll = renpy.random.randint(1, 3)
 
-            ch_Rogue "But. . ."
-            ch_Rogue "Okay, ah'll see you 'round. . ."
+            if dice_roll == 1:
+                $ Rogue.change_face("worried1")
+
+                ch_Rogue "But. . ."
+                ch_Rogue "Okay, ah'll see you 'round. . ."
+            elif dice_roll == 2:
+                $ Rogue.change_face("sad")
+
+                ch_Rogue "Oh. . . okay. . ."
+            elif dice_roll == 3:
+                $ Rogue.change_face("angry1")
+
+                ch_Rogue "Fine, I guess. . ."
         "Leave, give us some privacy." if len(Present) > 1:
-            call change_Character_stat(Rogue, "love", -tiny_stat) from _call_change_Character_stat_780
+            if not Rogue.quirk:
+                call change_Character_stat(Rogue, "love", -tiny_stat) from _call_change_Character_stat_780
 
-            $ Rogue.change_face("worried1")
+            $ dice_roll = renpy.random.randint(1, 3)
 
-            ch_Rogue "Okay. . . sorry."
+            if dice_roll == 1:
+                $ Rogue.change_face("worried1")
+
+                ch_Rogue "Okay. . . sorry."
+            elif dice_roll == 2:
+                $ Rogue.change_face("sad")
+
+                ch_Rogue "Sorry. . ."
+            elif dice_roll == 3:
+                $ Rogue.change_face("worried1")
+
+                ch_Rogue "See you later. . ."
         "Back":
             return False
 
@@ -296,25 +342,60 @@ label Rogue_dismiss_accept:
 label Rogue_dismiss_reject:
     menu:
         "Hey, you can leave if you want.":
-            $ Rogue.change_face("confused1")
+            $ dice_roll = renpy.random.randint(1, 3)
 
-            ch_Rogue "Thanks. . ."
+            if dice_roll == 1:
+                $ Rogue.change_face("confused1")
 
-            $ Rogue.change_face("neutral")
+                ch_Rogue "Thanks. . ."
 
-            ch_Rogue "But ah think ah'll stick 'round."
+                $ Rogue.change_face("neutral")
+
+                ch_Rogue "But ah think ah'll stick 'round."
+            elif dice_roll == 2:
+                $ Rogue.change_face("confused1")
+
+                ch_Rogue "Ah know?"
+            elif dice_roll == 3:
+                $ Rogue.change_face("confused1")
+
+                ch_Rogue "Gee, thanks for tellin' me. . ."
         "I think you should leave.":
-            call change_Character_stat(Rogue, "love", -tiny_stat) from _call_change_Character_stat_781
+            if not Rogue.quirk:
+                call change_Character_stat(Rogue, "love", -tiny_stat) from _call_change_Character_stat_781
 
-            $ Rogue.change_face("confused1")
+            $ dice_roll = renpy.random.randint(1, 3)
 
-            ch_Rogue "Ah'm good."
+            if dice_roll == 1:
+                $ Rogue.change_face("confused1")
+
+                ch_Rogue "Ah'm good."
+            elif dice_roll == 2:
+                $ Rogue.change_face("angry1")
+
+                ch_Rogue "So?"
+            elif dice_roll == 3:
+                $ Rogue.change_face("angry1")
+
+                ch_Rogue "That's great, hon."
         "Leave, give us some privacy." if len(Present) > 1:
-            call change_Character_stat(Rogue, "love", -tiny_stat) from _call_change_Character_stat_782
+            if not Rogue.quirk:
+                call change_Character_stat(Rogue, "love", -tiny_stat) from _call_change_Character_stat_782
 
-            $ Rogue.change_face("angry1")
+            $ dice_roll = renpy.random.randint(1, 3)
 
-            ch_Rogue "Maybe if you asked polite-like."
+            if dice_roll == 1:
+                $ Rogue.change_face("angry1")
+
+                ch_Rogue "Maybe if you asked polite-like."
+            elif dice_roll == 2:
+                $ Rogue.change_face("angry1")
+
+                ch_Rogue "No way in hell."
+            elif dice_roll == 3:
+                $ Rogue.change_face("angry1")
+
+                ch_Rogue "Rude - ain't no way."
         "Back":
             return False
 
@@ -335,9 +416,20 @@ label Rogue_dismiss_reject_asked_twice:
     return
 
 label Rogue_dismiss_reject_mad:
-    $ Rogue.change_face("appalled2")
+    $ dice_roll = renpy.random.randint(1, 3)
 
-    ch_Rogue "Ah'm already pissed off."
-    ch_Rogue "Not goin' nowhere."
+    if dice_roll == 1:
+        $ Rogue.change_face("appalled2")
+
+        ch_Rogue "Ah'm already pissed off."
+        ch_Rogue "Not goin' nowhere."
+    elif dice_roll == 2:
+        $ Rogue.change_face("furious")
+
+        ch_Rogue "Why do you think you can boss me 'round?"
+    elif dice_roll == 3:
+        $ Rogue.change_face("furious")
+
+        ch_Rogue "Ah'm really not in the mood for you to tell me what to do."
 
     return

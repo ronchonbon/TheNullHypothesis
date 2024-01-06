@@ -1,44 +1,14 @@
-init python:
-
-    def Jean_remote_vibrator_off():
-        label = "Jean_remote_vibrator_off"
-
-        conditions = [
-            "False"]
-
-        return EventClass(label, conditions)
-
 label Jean_remote_vibrator_off:
     if Jean.location == Player.location:
         call Character_remote_vibrator_off_narrations(Jean) from _call_Character_remote_vibrator_off_narrations
 
     return
 
-init python:
-
-    def Jean_remote_vibrator_on():
-        label = "Jean_remote_vibrator_on"
-
-        conditions = [
-            "False"]
-
-        return EventClass(label, conditions)
-
 label Jean_remote_vibrator_on:
     if Jean.location == Player.location:
         call Character_remote_vibrator_on_narrations(Jean) from _call_Character_remote_vibrator_on_narrations
 
     return
-
-init python:
-
-    def Jean_remote_vibrator_25():
-        label = "Jean_remote_vibrator_25"
-
-        conditions = [
-            "False"]
-
-        return EventClass(label, conditions)
 
 label Jean_remote_vibrator_25:
     if Jean.location == Player.location:
@@ -53,16 +23,6 @@ label Jean_remote_vibrator_25:
 
     return
 
-init python:
-
-    def Jean_remote_vibrator_50():
-        label = "Jean_remote_vibrator_50"
-
-        conditions = [
-            "False"]
-
-        return EventClass(label, conditions)
-
 label Jean_remote_vibrator_50:
     if Jean.location == Player.location:
         if renpy.random.random() > 0.5:
@@ -75,16 +35,6 @@ label Jean_remote_vibrator_50:
                 call Character_remote_vibrator_narrations(Jean) from _call_Character_remote_vibrator_narrations_3
 
     return
-
-init python:
-
-    def Jean_remote_vibrator_75():
-        label = "Jean_remote_vibrator_75"
-
-        conditions = [
-            "False"]
-
-        return EventClass(label, conditions)
 
 label Jean_remote_vibrator_75:
     if Jean.location == Player.location:
@@ -99,16 +49,6 @@ label Jean_remote_vibrator_75:
 
     return
 
-init python:
-
-    def Jean_remote_vibrator_orgasm():
-        label = "Jean_remote_vibrator_orgasm"
-
-        conditions = [
-            "False"]
-
-        return EventClass(label, conditions)
-
 label Jean_remote_vibrator_orgasm:
     call Character_orgasms(Jean) from _call_Character_orgasms_2
     
@@ -116,16 +56,6 @@ label Jean_remote_vibrator_orgasm:
         call Character_remote_vibrator_narrations(Jean, proper_subject = False) from _call_Character_remote_vibrator_narrations_6
 
     return
-
-init python:
-
-    def Jean_remote_vibrator_out_of_stamina():
-        label = "Jean_remote_vibrator_out_of_stamina"
-
-        conditions = [
-            "False"]
-
-        return EventClass(label, conditions)
 
 label Jean_remote_vibrator_out_of_stamina:
     if Jean.location == Player.location:

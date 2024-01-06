@@ -5,30 +5,19 @@ label Laura_accept_swim:
         $ Laura.change_face("confused1") 
 
         ch_Laura "Just. . . for fun?"
-    elif dice_roll == 2:
-        $ Laura.change_face("confused1") 
 
-        ch_Laura "You want to swim?"
-    elif dice_roll == 3:
-        $ Laura.change_face("confused1") 
-
-        ch_Laura "Swim in the pool?"
-
-    $ dice_roll = renpy.random.randint(1, 3)
-
-    if dice_roll == 1:
         $ Laura.change_face("neutral")
 
         ch_Laura ". . ."
         ch_Laura "Fine."
     elif dice_roll == 2:
-        $ Laura.change_face("neutral")
+        $ Laura.change_face("smirk1") 
 
-        ch_Laura "Okay."
+        ch_Laura "I suppose we could swim a little."
     elif dice_roll == 3:
         $ Laura.change_face("neutral")
 
-        ch_Laura "I suppose so."
+        ch_Laura "Sure, why not."
 
     return
 
@@ -63,24 +52,54 @@ label Laura_reject_swim_asked_twice:
     return
 
 label Laura_accept_sunbathe:
-    $ Laura.change_face("confused1") 
-    
-    ch_Laura "Just lying down in the sun?" 
-    
-    $ Laura.change_face("neutral") 
-    
-    ch_Laura "Fine."
+    $ dice_roll = renpy.random.randint(1, 3)
+
+    if dice_roll == 1:
+        $ Laura.change_face("confused1") 
+        
+        ch_Laura "Just lying down in the sun?" 
+        
+        $ Laura.change_face("neutral") 
+        
+        ch_Laura "Fine."
+    elif dice_roll == 2:
+        $ Laura.change_face("confused1")
+
+        ch_Laura "You want to just lay out here? Together?"
+
+        $ Laura.eyes = "left"
+
+        pause 1.0
+
+        $ Laura.change_face("neutral")
+
+        ch_Laura "Fine."
+    elif dice_roll == 3:
+        $ Laura.change_face("smirk1")
+
+        ch_Laura "I suppose sunbathing could be 'relaxing.'"
 
     return
 
 label Laura_reject_sunbathe:
-    $ Laura.change_face("confused1") 
-    
-    ch_Laura "Why would I want to idle around?" 
-    
-    $ Laura.change_face("neutral") 
-    
-    ch_Laura "No."
+    $ dice_roll = renpy.random.randint(1, 3)
+
+    if dice_roll == 1:
+        $ Laura.change_face("confused1") 
+        
+        ch_Laura "Why would I want to idle around right now?" 
+        
+        $ Laura.change_face("neutral") 
+        
+        ch_Laura "No."
+    elif dice_roll == 2:
+        $ Laura.change_face("neutral")
+
+        ch_Laura "Too much to do to just lay around right now."
+    elif dice_roll == 3:
+        $ Laura.change_face("neutral")
+
+        ch_Laura "No. . . thanks."
 
     return
 

@@ -1,14 +1,46 @@
 label Rogue_accept_swim:
-    $ Rogue.change_face("worried1", mouth = "smirk") 
-    
-    ch_Rogue "Sure, ah'm always down for a swim."
+    $ dice_roll = renpy.random.randint(1, 3)
+
+    if dice_roll == 1:
+        $ Rogue.change_face("worried1", mouth = "smirk") 
+        
+        ch_Rogue "Sure, ah'm always down for a swim."
+    elif dice_roll == 2:
+        $ Rogue.change_face("smirk2") 
+        
+        ch_Rogue "Ah'd love to go swimmin' with ya!"
+
+        $ Rogue.change_face("smirk1", blush = 1)
+
+        ch_Rogue "Ah'm glad you asked. . ."
+    elif dice_roll == 3:
+        $ Rogue.change_face("pleased1")
+
+        ch_Rogue "A swim sounds lovely right about now!"
 
     return
 
 label Rogue_reject_swim:
-    $ Rogue.change_face("worried1") 
+    $ dice_roll = renpy.random.randint(1, 3)
 
-    ch_Rogue "Ah'm sorry, maybe another time?"
+    if dice_roll == 1:
+        $ Rogue.change_face("worried1") 
+
+        ch_Rogue "Ah'm sorry, maybe another time?"
+    elif dice_roll == 2:
+        $ Rogue.change_face("worried1")
+
+        ch_Rogue "Sorry, [Rogue.Player_petname], it's not a great time."
+
+        $ Rogue.eyes = "left"
+
+        pause 1.0
+
+        $ Rogue.eyes = "right"
+    elif dice_roll == 3:
+        $ Rogue.change_face("worried1") 
+
+        ch_Rogue "Ah don't know. . . ask again later?"
 
     return
 
@@ -25,17 +57,39 @@ label Rogue_reject_swim_asked_twice:
     return
 
 label Rogue_accept_sunbathe:
-    $ Rogue.change_face("worried1", mouth = "smirk") 
-    
-    ch_Rogue "Sure, ah could use a bit of sun."
+    $ dice_roll = renpy.random.randint(1, 3)
+
+    if dice_roll == 1:
+        $ Rogue.change_face("worried1", mouth = "smirk") 
+        
+        ch_Rogue "Sure, ah could use a bit of sun."
+    elif dice_roll == 2:
+        $ Rogue.change_face("smirk2")
+
+        ch_Rogue "A little sun sounds real nice right about now."
+    elif dice_roll == 3:
+        $ Rogue.change_face("smirk2")
+
+        ch_Rogue "Ah'd love to! Will be nice to hang out too."
 
     return
 
 label Rogue_reject_sunbathe:
-    $ Rogue.change_face("worried1") 
-    
-    ch_Rogue "Ah'm sorry. . ."
-    ch_Rogue "Not sure ah wanna risk a sunburn."
+    $ dice_roll = renpy.random.randint(1, 3)
+
+    if dice_roll == 1:
+        $ Rogue.change_face("worried1") 
+        
+        ch_Rogue "Ah'm sorry. . ."
+        ch_Rogue "Not sure ah wanna risk a sunburn."
+    elif dice_roll == 2:
+        $ Rogue.change_face("worried1", mouth = "happy")
+
+        ch_Rogue "Maybe another time? Ah'm kinda busy. . ." 
+    elif dice_roll == 3:
+        $ Rogue.change_face("worried1")
+
+        ch_Rogue "Sorry, [Rogue.Player_petname], kinda got a busy day."
 
     return
 

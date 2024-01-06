@@ -152,7 +152,9 @@ label set_Outfit_flags(Character, Outfit = None, hypothetical = False):
                         Character.Outfit.shame += Character.Clothes[C_type].shame[0]
                     else:
                         Character.Outfit.shame += Character.Clothes[C_type].shame[1]
-    
+
+        $ proper_subject = True
+
         $ renpy.dynamic(temp_body_parts = ["bra", "breasts", "back", "belly", "thighs", "underwear", "ass", "pussy", "anus", "feet"])
 
         while temp_body_parts:
@@ -186,8 +188,10 @@ label set_Outfit_flags(Character, Outfit = None, hypothetical = False):
                 if not hypothetical and not black_screen and renpy.showing(f"{Character.tag}_sprite"):
                     if not hidden and Character.location != "hold" and Character.location == Player.location:
                         if temp_body_parts[0] in ["bra", "breasts", "underwear", "ass", "pussy", "anus"]:
-                            if day - EventScheduler.Events[f"{Character.tag}_seen_{temp_body_parts[0]}"].completed_when != 0:
-                                $ EventScheduler.Events[f"{Character.tag}_seen_{temp_body_parts[0]}"].start()
+                            if not Character.History.check(f"seen_{temp_body_parts[0]}", tracker = "recent"):
+                                call expression f"{Character.tag}_seen_{temp_body_parts[0]}" pass (proper_subject = proper_subject)
+                                
+                                $ proper_subject = False
 
                         $ Character.History.update(f"seen_{temp_body_parts[0]}")
 

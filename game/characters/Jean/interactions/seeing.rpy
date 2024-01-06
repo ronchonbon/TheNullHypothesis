@@ -1,13 +1,3 @@
-init python:
-
-    def Jean_seeing_penis():
-        label = "Jean_seeing_penis"
-
-        conditions = [
-            "False"]
-
-        return EventClass(label, conditions)
-
 label Jean_seeing_penis:
     "As you remove your pants, [Jean.name] can't help but glue her eyes to your crotch."
 

@@ -1,13 +1,3 @@
-init python:
-
-    def Laura_seeing_penis():
-        label = "Laura_seeing_penis"
-
-        conditions = [
-            "False"]
-
-        return EventClass(label, conditions)
-
 label Laura_seeing_penis:
     "You remove your pants, exposing yourself to her."
 

@@ -251,32 +251,76 @@ label Laura_summon_reject_asked_twice:
     return
 
 label Laura_summon_reject_mad:
-    call receive_text(Laura, "Leave me alone.") from _call_receive_text_318
+    $ dice_roll = renpy.random.randint(1, 3)
+
+    if dice_roll == 1:
+        call receive_text(Laura, "Leave me alone.") from _call_receive_text_318
+    elif dice_roll == 2:
+        call receive_text(Laura, "No way.")
+    elif dice_roll == 3:
+        call receive_text(Laura, "What did you think I would say to that?")
 
     return
     
 label Laura_dismiss_accept:
     menu:
         "Hey, you can leave if you want.":
-            $ Laura.change_face("confused1")
+            $ dice_roll = renpy.random.randint(1, 3)
 
-            ch_Laura "No shit."
+            if dice_roll == 1:
+                $ Laura.change_face("confused1")
 
-            $ Laura.change_face("neutral")
+                ch_Laura "No shit."
 
-            ch_Laura "Bye."
+                $ Laura.change_face("neutral")
+
+                ch_Laura "Bye."
+            elif dice_roll == 2:
+                $ Laura.change_face("confused1")
+
+                ch_Laura "K. . ."
+            elif dice_roll == 3:
+                $ Laura.change_face("confused1")
+
+                ch_Laura "Thanks."
+                ch_Laura "I'm staying though."
+
+                return False
         "I think you should leave.":
             call change_Character_stat(Laura, "love", -tiny_stat) from _call_change_Character_stat_498
 
-            $ Laura.change_face("angry1")
+            $ dice_roll = renpy.random.randint(1, 3)
 
-            ch_Laura "Fine. . ."
+            if dice_roll == 1:
+                $ Laura.change_face("angry1")
+
+                ch_Laura "Fine. . ."
+            elif dice_roll == 2:
+                $ Laura.change_face("furious")
+
+                ch_Laura "{i}Grrrr{/i}"
+                ch_Laura "Fine."
+            elif dice_roll == 3:
+                $ Laura.change_face("angry1")
+
+                ch_Laura "Whatever. . ."
         "Leave, give us some privacy." if len(Present) > 1:
             call change_Character_stat(Laura, "love", -tiny_stat) from _call_change_Character_stat_499
 
-            $ Laura.change_face("appalled1")
+            $ dice_roll = renpy.random.randint(1, 3)
 
-            ch_Laura ". . ."
+            if dice_roll == 1:
+                $ Laura.change_face("appalled1")
+
+                ch_Laura ". . ."
+            elif dice_roll == 2:
+                $ Laura.change_face("furious")
+
+                ch_Laura "Fine."
+            elif dice_roll == 3:
+                $ Laura.change_face("furious")
+
+                ch_Laura "Very rude, [Player.first_name]."
         "Back":
             return False
 
@@ -285,25 +329,58 @@ label Laura_dismiss_accept:
 label Laura_dismiss_reject:
     menu:
         "Hey, you can leave if you want.":
-            $ Laura.change_face("confused1")
+            $ dice_roll = renpy.random.randint(1, 3)
 
-            ch_Laura "Okay. . ."
+            if dice_roll == 1:
+                $ Laura.change_face("confused1")
 
-            $ Laura.change_face("neutral")
+                ch_Laura "Okay. . ."
 
-            ch_Laura "Still not leaving.."
+                $ Laura.change_face("neutral")
+
+                ch_Laura "Still not leaving.."
+            elif dice_roll == 2:
+                $ Laura.change_face("confused1")
+
+                ch_Laura "Good to know."
+            elif dice_roll == 3:
+                $ Laura.change_face("confused1")
+
+                ch_Laura "Okay?"
         "I think you should leave.":
             call change_Character_stat(Laura, "love", -tiny_stat) from _call_change_Character_stat_500
 
-            $ Laura.change_face("angry1")
+            $ dice_roll = renpy.random.randint(1, 3)
 
-            ch_Laura "I'm fine right here."
+            if dice_roll == 1:
+                $ Laura.change_face("angry1")
+
+                ch_Laura "I'm fine right here."
+            elif dice_roll == 2:
+                $ Laura.change_face("furious")
+
+                ch_Laura "Too bad."
+            elif dice_roll == 3:
+                $ Laura.change_face("furious")
+
+                ch_Laura "So?"
         "Leave, give us some privacy." if len(Present) > 1:
             call change_Character_stat(Laura, "love", -tiny_stat) from _call_change_Character_stat_501
 
-            $ Laura.change_face("appalled2")
+            $ dice_roll = renpy.random.randint(1, 3)
 
-            ch_Laura "Don't try and order me around."
+            if dice_roll == 1:
+                $ Laura.change_face("appalled2")
+
+                ch_Laura "Don't try and order me around."
+            elif dice_roll == 2:
+                $ Laura.change_face("furious")
+
+                ch_Laura "Not in the mood for this."
+            elif dice_roll == 3:
+                $ Laura.change_face("furious")
+
+                ch_Laura "Don't give me orders."
         "Back":
             return False
 
@@ -324,8 +401,19 @@ label Laura_dismiss_reject_asked_twice:
     return
 
 label Laura_dismiss_reject_mad:
-    $ Laura.change_face("appalled2")
+    $ dice_roll = renpy.random.randint(1, 3)
 
-    ch_Laura "I'm not in the mood."
+    if dice_roll == 1:
+        $ Laura.change_face("appalled2")
+
+        ch_Laura "I'm not in the mood."
+    elif dice_roll == 2:
+        $ Laura.change_face("angry1")
+
+        ch_Laura "You get out."
+    elif dice_roll == 3:
+        $ Laura.change_face("angry1")
+
+        ch_Laura "Why should I listen to you?"
 
     return

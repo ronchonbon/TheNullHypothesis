@@ -266,7 +266,7 @@ label Jean_arrives_horny(arriving_Characters):
     else:
         $ modifier = ""
 
-    if Jean in Partners:
+    if approval_check(Jean, threshold = "hookup"):
         $ dice_roll = renpy.random.randint(1, 4)
     else:
         $ dice_roll = renpy.random.randint(1, 2)

@@ -2,12 +2,6 @@ init python:
 
     def all_Rogue_Events():
         Events = [
-            Rogue_became_miffed(),
-            Rogue_became_mad(),
-            Rogue_became_heartbroken(),
-            Rogue_became_horny(),
-            Rogue_became_nympho(),
-
             Rogue_tan_wore_off(),
             
             Rogue_shaving(),
@@ -22,28 +16,6 @@ init python:
             Rogue_texting_training(),
             Rogue_texting_date(),
             Rogue_texting_ask_to_masturbate(),
-            
-            Rogue_seen_bra(),
-            Rogue_seen_breasts(),
-            Rogue_seen_underwear(),
-            Rogue_seen_ass(),
-            Rogue_seen_pussy(),
-            Rogue_seen_anus(),
-
-            Rogue_seeing_penis(),
-
-            Rogue_remote_vibrator_off(),
-            Rogue_remote_vibrator_on(),
-            Rogue_remote_vibrator_25(),
-            Rogue_remote_vibrator_50(),
-            Rogue_remote_vibrator_75(),
-            Rogue_remote_vibrator_orgasm(),
-            Rogue_remote_vibrator_out_of_stamina(),
-            
-            Rogue_masturbating_25(),
-            Rogue_masturbating_50(),
-            Rogue_masturbating_75(),
-            Rogue_masturbating_orgasm(),
 
             Rogue_bedroom_changing(),
             Rogue_bedroom_masturbating(),

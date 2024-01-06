@@ -283,29 +283,72 @@ label Jean_summon_reject_mad:
 label Jean_dismiss_accept:
     menu:
         "Hey, you can leave if you want.":
-            $ Jean.change_face("confused1")
+            $ dice_roll = renpy.random.randint(1, 3)
 
-            ch_Jean "I know. . ."
+            if dice_roll == 1:
+                $ Jean.change_face("confused1")
 
-            $ Jean.change_face("neutral")
+                ch_Jean "I know. . ."
 
-            ch_Jean "I'm gonna head out for unrelated reasons. . ."
+                $ Jean.change_face("neutral")
+
+                ch_Jean "I'm gonna head out for unrelated reasons. . ."
+            elif dice_roll == 2:
+                $ Jean.change_face("worried1")
+
+                ch_Jean "Okay, talk to you later!"
+            elif dice_roll == 3:
+                $ Jean.change_face("confused1")
+
+                ch_Jean "Good. . . to know. . ."
+
+                return False
         "I think you should leave.":
             call change_Character_stat(Jean, "love", -tiny_stat) from _call_change_Character_stat_251
 
-            $ Jean.change_face("confused1")
+            $ dice_roll = renpy.random.randint(1, 3)
 
-            ch_Jean "Rude. . ."
+            if dice_roll == 1:
+                $ Jean.change_face("confused1")
 
-            $ Jean.change_face("neutral")
+                ch_Jean "Rude. . ."
 
-            ch_Jean "Whatever, bye." 
+                $ Jean.change_face("neutral")
+
+                ch_Jean "Whatever, bye." 
+            elif dice_roll == 2:
+                $ Jean.change_face("worried1")
+
+                ch_Jean "Oh, okay."
+            elif dice_roll == 3:
+                $ Jean.change_face("surprised1")
+
+                ch_Jean "What?"
+
+                $ Jean.change_face("sad")
+
+                ch_Jean "Rude. . ."
         "Leave, give us some privacy." if len(Present) > 1:
             call change_Character_stat(Jean, "love", -tiny_stat) from _call_change_Character_stat_252
 
-            $ Jean.change_face("worried1") 
+            $ dice_roll = renpy.random.randint(1, 3)
 
-            ch_Jean "Don't have to be such an ass about it. . ." 
+            if dice_roll == 1:
+                $ Jean.change_face("worried1") 
+
+                ch_Jean "Don't have to be such an ass about it. . ." 
+            elif dice_roll == 2:
+                $ Jean.change_face("surprised1")
+
+                ch_Jean "Oh, I. . ."
+
+                $ Jean.change_face("sad")
+
+                ch_Jean "Okay. . ."
+            elif dice_roll == 3:
+                $ Jean.change_face("worried1")
+
+                ch_Jean "{size=-5}Jerk{/size}. . ."
         "Back":
             return False
 
@@ -314,25 +357,68 @@ label Jean_dismiss_accept:
 label Jean_dismiss_reject:
     menu:
         "Hey, you can leave if you want.":
-            $ Jean.change_face("confused1") 
+            $ dice_roll = renpy.random.randint(1, 3)
 
-            ch_Jean "Why are you telling me that?" 
+            if dice_roll == 1:
+                $ Jean.change_face("confused1") 
 
-            $ Jean.change_face("neutral")
+                ch_Jean "Why are you telling me that?" 
 
-            ch_Jean "I still have stuff to do here."
+                $ Jean.change_face("neutral")
+
+                ch_Jean "I still have stuff to do here."
+            elif dice_roll == 2:
+                $ Jean.change_face("confused1")
+
+                ch_Jean "That's nice. . . ?"
+            elif dice_roll == 3:
+                $ Jean.change_face("confused1")
+
+                ch_Jean "Okay. . ."
+
+                $ Jean.eyes = "right"
+
+                ch_Jean "But like. . ."
+
+                $ Jean.eyes = "left"
+
+                ch_Jean "I'm staying. . ."
+
+                $ Jean.eyes = "neutral"
         "I think you should leave.":
             call change_Character_stat(Jean, "love", -tiny_stat) from _call_change_Character_stat_253
 
-            $ Jean.change_face("confused1")
+            $ dice_roll = renpy.random.randint(1, 3)
 
-            ch_Jean "I think you should be nicer." 
+            if dice_roll == 1:
+                $ Jean.change_face("confused1")
+
+                ch_Jean "I think you should be nicer." 
+            elif dice_roll == 2:
+                $ Jean.change_face("confused1")
+
+                ch_Jean "Does that normally work?"
+            elif dice_roll == 3:
+                $ Jean.change_face("angry1")
+
+                ch_Jean "Don't be a jerk."
         "Leave, give us some privacy." if len(Present) > 1:
             call change_Character_stat(Jean, "love", -tiny_stat) from _call_change_Character_stat_254
 
-            $ Jean.change_face("angry1") 
+            $ dice_roll = renpy.random.randint(1, 3)
 
-            ch_Jean "Really thought being rude would work?"
+            if dice_roll == 1:
+                $ Jean.change_face("angry1") 
+
+                ch_Jean "Really thought being rude would work?"
+            elif dice_roll == 2:
+                $ Jean.change_face("angry1")
+
+                ch_Jean "Don't talk to me like that!"
+            elif dice_roll == 3:
+                $ Jean.change_face("angry1")
+
+                ch_Jean "Jeez, jerk much?"
         "Back":
             return False
 
@@ -359,5 +445,18 @@ label Jean_dismiss_reject_asked_twice:
 
 label Jean_dismiss_reject_mad:
     $ dice_roll = renpy.random.randint(1, 3)
+
+    if dice_roll == 1:
+        $ Jean.change_face("angry1")
+
+        ch_Jean "You should really rethink trying to boss me around right now."
+    elif dice_roll == 2:
+        $ Jean.change_face("furious")
+
+        ch_Jean "I am so not in the mood."
+    elif dice_roll == 3:
+        $ Jean.change_face("furious")
+
+        ch_Jean "Are you serious? Get lost."
 
     return

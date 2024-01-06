@@ -2,12 +2,6 @@ init python:
 
     def all_Laura_Events():
         Events = [
-            Laura_became_miffed(),
-            Laura_became_mad(),
-            Laura_became_heartbroken(),
-            Laura_became_horny(),
-            Laura_became_nympho(),
-
             Laura_tan_wore_off(),
 
             Laura_shaving(),
@@ -22,28 +16,6 @@ init python:
             Laura_texting_training(),
             Laura_texting_date(),
             Laura_texting_save_cum(),
-
-            Laura_seen_bra(),
-            Laura_seen_breasts(),
-            Laura_seen_underwear(),
-            Laura_seen_ass(),
-            Laura_seen_pussy(),
-            Laura_seen_anus(),
-            
-            Laura_seeing_penis(),
-
-            Laura_remote_vibrator_off(),
-            Laura_remote_vibrator_on(),
-            Laura_remote_vibrator_25(),
-            Laura_remote_vibrator_50(),
-            Laura_remote_vibrator_75(),
-            Laura_remote_vibrator_orgasm(),
-            Laura_remote_vibrator_out_of_stamina(),
-            
-            Laura_masturbating_25(),
-            Laura_masturbating_50(),
-            Laura_masturbating_75(),
-            Laura_masturbating_orgasm(),
             
             Laura_bedroom_changing(),
             Laura_bedroom_masturbating(),

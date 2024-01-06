@@ -460,10 +460,10 @@ init -2 python:
             elif status == "nympho":
                 self.status[status] += 3
 
-            if self.status[status] == 1:
-                EventScheduler.Events[f"{self.tag}_became_{status}"].start()
-
             self.History.update(status)
+
+            if self.status[status] == 1:
+                renpy.call(f"{self.tag}_became_{status}")
 
             return
 

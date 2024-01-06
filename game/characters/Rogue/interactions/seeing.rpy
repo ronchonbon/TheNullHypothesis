@@ -1,13 +1,3 @@
-init python:
-
-    def Rogue_seeing_penis():
-        label = "Rogue_seeing_penis"
-
-        conditions = [
-            "False"]
-
-        return EventClass(label, conditions)
-
 label Rogue_seeing_penis:
     "As you remove your pants, [Rogue.name] fixates on your crotch."
 

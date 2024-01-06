@@ -1,14 +1,40 @@
 label Laura_accept_study:
-    $ Laura.change_face("neutral")
+    $ dice_roll = renpy.random.randint(1, 3)
 
-    ch_Laura "Fine."
+    if dice_roll == 1:
+        $ Laura.change_face("neutral")
+
+        ch_Laura "Fine."
+    elif dice_roll == 2:
+        $ Laura.change_face("neutral")
+
+        ch_Laura "Must we?"
+
+        $ Laura.mouth = "frown"
+
+        ch_Laura ". . . Fine."
+    elif dice_roll == 3:
+        $ Laura.change_face("neutral", eyes = "right")
+
+        ch_Laura "If we must."
 
     return
 
 label Laura_reject_study:
-    $ Laura.change_face("neutral")
+    $ dice_roll = renpy.random.randint(1, 3)
 
-    ch_Laura "Nah."
+    if dice_roll == 1:
+        $ Laura.change_face("neutral")
+
+        ch_Laura "Nah."
+    elif dice_roll == 2:
+        $ Laura.change_face("neutral")
+
+        ch_Laura "Not interested."
+    elif dice_roll == 3:
+        $ Laura.change_face("neutral")
+
+        ch_Laura "Sounds boring."
 
     return
 
@@ -25,12 +51,27 @@ label Laura_reject_study_asked_twice:
     return
 
 label Laura_accept_study_text:
-    call receive_text(Laura, "Fine") from _call_receive_text_295
+    $ dice_roll = renpy.random.randint(1, 3)
+
+    if dice_roll == 1:
+        call receive_text(Laura, "Fine") from _call_receive_text_295
+    elif dice_roll == 2:
+        call receive_text(Laura, "I guess")
+        call receive_text(Laura, "I'll meet you there")
+    elif dice_roll == 3:
+        call receive_text(Laura, "Okay")
 
     return
 
 label Laura_reject_study_text:
-    call receive_text(Laura, "Rather not") from _call_receive_text_296
+    $ dice_roll = renpy.random.randint(1, 3)
+
+    if dice_roll == 1:
+        call receive_text(Laura, "Rather not") from _call_receive_text_296
+    elif dice_roll == 2:
+        call receive_text(Laura, "Why would I want to study right now?")
+    elif dice_roll == 3:
+        call receive_text(Laura, "No")
 
     return
 

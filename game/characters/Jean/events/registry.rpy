@@ -2,12 +2,6 @@ init python:
 
     def all_Jean_Events():
         Events = [
-            Jean_became_miffed(),
-            Jean_became_mad(),
-            Jean_became_heartbroken(),
-            Jean_became_horny(),
-            Jean_became_nympho(),
-
             Jean_tan_wore_off(),
             
             Jean_shaving(),
@@ -22,28 +16,6 @@ init python:
             Jean_texting_training(),
             Jean_texting_date(),
             Jean_texting_summon_horny(),
-            
-            Jean_seen_bra(),
-            Jean_seen_breasts(),
-            Jean_seen_underwear(),
-            Jean_seen_ass(),
-            Jean_seen_pussy(),
-            Jean_seen_anus(),
-
-            Jean_seeing_penis(),
-
-            Jean_remote_vibrator_off(),
-            Jean_remote_vibrator_on(),
-            Jean_remote_vibrator_25(),
-            Jean_remote_vibrator_50(),
-            Jean_remote_vibrator_75(),
-            Jean_remote_vibrator_orgasm(),
-            Jean_remote_vibrator_out_of_stamina(),
-            
-            Jean_masturbating_25(),
-            Jean_masturbating_50(),
-            Jean_masturbating_75(),
-            Jean_masturbating_orgasm(),
 
             Jean_locker_room_changing(),
             Jean_locker_room_showering(),

@@ -1,73 +1,43 @@
-init python:
+label Jean_seen_bra(proper_subject = True):
+    $ dice_pool = [1, 2, 3]
 
-    def Jean_seen_bra():
-        label = "Jean_seen_bra"
+    if Jean.desire >= 50:
+        $ dice_pool.append(4)
 
-        conditions = [
-            "False"]
+    if Jean.piercings["nipple"]:
+        $ dice_pool.append(5)
 
-        return EventClass(label, conditions)
+    $ dice_roll = renpy.random.choice(dice_pool)
 
-label Jean_seen_bra:
-
-    return
-
-init python:
-
-    def Jean_seen_breasts():
-        label = "Jean_seen_breasts"
-
-        conditions = [
-            "False"]
-
-        return EventClass(label, conditions)
-
-label Jean_seen_breasts:
+    if dice_roll == 1:
+        pass
+    elif dice_roll == 2:
+        pass
+    elif dice_roll == 3:
+        pass
+    elif dice_roll == 4:
+        pass
+    elif dice_roll == 5:
+        pass
 
     return
 
-init python:
-
-    def Jean_seen_underwear():
-        label = "Jean_seen_underwear"
-
-        conditions = [
-            "False"]
-
-        return EventClass(label, conditions)
-
-label Jean_seen_underwear:
+label Jean_seen_breasts(proper_subject = True):
 
     return
 
-init python:
-
-    def Jean_seen_ass():
-        label = "Jean_seen_ass"
-
-        conditions = [
-            "False"]
-
-        return EventClass(label, conditions)
-
-label Jean_seen_ass:
+label Jean_seen_underwear(proper_subject = True):
 
     return
 
-init python:
+label Jean_seen_ass(proper_subject = True):
 
-    def Jean_seen_pussy():
-        label = "Jean_seen_pussy"
+    return
 
-        conditions = [
-            "False"]
-
-        return EventClass(label, conditions)
-
-label Jean_seen_pussy:
+label Jean_seen_pussy(proper_subject = True):
     if "pubic" in Jean.desired_body_hair.keys() and Jean.body_hair["pubic"] != Jean.desired_body_hair["pubic"]:
         if (Jean.body_hair["pubic"] == "hairy") or (Jean.body_hair["pubic"] == "bush" and (not Jean.desired_body_hair["pubic"] or Jean.desired_body_hair["pubic"] in ["growing", "null", "strip", "triangle"])) or (Jean.body_hair["pubic"] == "triangle" and (not Jean.desired_body_hair["pubic"] or Jean.desired_body_hair["pubic"] in ["growing", "null", "strip"])) or (Jean.body_hair["pubic"] in ["growing", "null", "strip"] and not Jean.desired_body_hair["pubic"]):
-            if Jean.body_hair_growing["pubic"] or day - EventScheduler.Events["Jean_seen_pussy"].completed_when >= 4:
+            if Jean.body_hair_growing["pubic"] or day - Jean.History.check_when("seen_pussy") >= 4:
                 if Jean.check_traits("quirk"):
                     $ Jean.change_face("sly", mouth = "lipbite", blush = 1)
 
@@ -97,16 +67,6 @@ label Jean_seen_pussy:
 
     return
 
-init python:
-
-    def Jean_seen_anus():
-        label = "Jean_seen_anus"
-
-        conditions = [
-            "False"]
-
-        return EventClass(label, conditions)
-
-label Jean_seen_anus:
+label Jean_seen_anus(proper_subject = True):
 
     return

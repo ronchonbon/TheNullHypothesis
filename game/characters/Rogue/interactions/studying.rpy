@@ -1,14 +1,40 @@
 label Rogue_accept_study:
-    $ Rogue.change_face("smirk2")
+    $ dice_roll = renpy.random.randint(1, 3)
 
-    ch_Rogue "Sure, hon'."
+    if dice_roll == 1:
+        $ Rogue.change_face("smirk2")
+
+        ch_Rogue "Sure, hon'."
+    elif dice_roll == 2:
+        $ Rogue.change_face("pleased1")
+
+        ch_Rogue "Yeah, studyin' sounds good!"
+    elif dice_roll == 3:
+        $ Rogue.change_face("pleased1")
+
+        ch_Rogue "Ah sure do!"
 
     return
 
 label Rogue_reject_study:
-    $ Rogue.change_face("sad")
+    $ dice_roll = renpy.random.randint(1, 3)
 
-    ch_Rogue "Ah can't right now, but another time?"
+    if dice_roll == 1:
+        $ Rogue.change_face("sad")
+
+        ch_Rogue "Ah can't right now, but another time?"
+    elif dice_roll == 2:
+        $ Rogue.change_face("worried1")
+
+        ch_Rogue "Ah'm sorry, maybe later?"
+
+        $ Rogue.change_face("worried1", mouth = "open", blush = 1)
+
+        ch_Rogue "Thanks for askin' me though!"
+    elif dice_roll == 3:
+        $ Rogue.change_face("worried1")
+
+        ch_Rogue "No time right now. . . Catch up later, though?"
 
     return
 
@@ -44,20 +70,30 @@ label Rogue_accept_study_text:
         elif Rogue.text_history[-1][1] == temp[1]:
             $ Player.behavior = None
     else:
-        call receive_text(Rogue, "Always down to study with ya") from _call_receive_text_496
-        call receive_text(Rogue, "Omw!") from _call_receive_text_497
+        $ dice_roll = renpy.random.randint(1, 3)
+
+        if dice_roll == 1:
+            call receive_text(Rogue, "Always down to study with ya") from _call_receive_text_496
+            call receive_text(Rogue, "Omw!") from _call_receive_text_497
+        elif dice_roll == 2:
+            call receive_text(Rogue, "Ofc! I'll bring my books!")
+        elif dice_roll == 3:
+            call receive_text(Rogue, "Yeah! Coming!")
 
     return
 
 label Rogue_reject_study_text:
-    $ dice_roll = renpy.random.randint(1, 2)
+    $ dice_roll = renpy.random.randint(1, 3)
 
     if dice_roll == 1:
-        call receive_text(Rogue, "Sorry, hon") from _call_receive_text_498
+        call receive_text(Rogue, "Sorry hon") from _call_receive_text_498
         call receive_text(Rogue, "Too busy atm") from _call_receive_text_499
     elif dice_roll == 2:
         call receive_text(Rogue, "Can't :((") from _call_receive_text_500
         call receive_text(Rogue, "Too much going on") from _call_receive_text_501
+    elif dice_roll == 3:
+        call receive_text(Rogue, f":( Sorry {Rogue.Player_petname}")
+        call receive_text(Rogue "Rain check?")
 
     return
 

@@ -1,73 +1,23 @@
-init python:
-
-    def Rogue_seen_bra():
-        label = "Rogue_seen_bra"
-
-        conditions = [
-            "False"]
-
-        return EventClass(label, conditions)
-
-label Rogue_seen_bra:
+label Rogue_seen_bra(proper_subject = True):
 
     return
 
-init python:
-
-    def Rogue_seen_breasts():
-        label = "Rogue_seen_breasts"
-
-        conditions = [
-            "False"]
-
-        return EventClass(label, conditions)
-
-label Rogue_seen_breasts:
+label Rogue_seen_breasts(proper_subject = True):
 
     return
 
-init python:
-
-    def Rogue_seen_underwear():
-        label = "Rogue_seen_underwear"
-
-        conditions = [
-            "False"]
-
-        return EventClass(label, conditions)
-
-label Rogue_seen_underwear:
+label Rogue_seen_underwear(proper_subject = True):
 
     return
 
-init python:
-
-    def Rogue_seen_ass():
-        label = "Rogue_seen_ass"
-
-        conditions = [
-            "False"]
-
-        return EventClass(label, conditions)
-
-label Rogue_seen_ass:
+label Rogue_seen_ass(proper_subject = True):
 
     return
 
-init python:
-
-    def Rogue_seen_pussy():
-        label = "Rogue_seen_pussy"
-
-        conditions = [
-            "False"]
-
-        return EventClass(label, conditions)
-
-label Rogue_seen_pussy:
+label Rogue_seen_pussy(proper_subject = True):
     if "pubic" in Rogue.desired_body_hair.keys() and Rogue.body_hair["pubic"] != Rogue.desired_body_hair["pubic"]:
         if (Rogue.body_hair["pubic"] == "hairy") or (Rogue.body_hair["pubic"] == "bush" and (not Rogue.desired_body_hair["pubic"] or Rogue.desired_body_hair["pubic"] in ["growing", "null", "strip", "triangle"])) or (Rogue.body_hair["pubic"] == "triangle" and (not Rogue.desired_body_hair["pubic"] or Rogue.desired_body_hair["pubic"] in ["growing", "null", "strip"])) or (Rogue.body_hair["pubic"] in ["growing", "null", "strip"] and not Rogue.desired_body_hair["pubic"]):
-            if Rogue.body_hair_growing["pubic"] or day - EventScheduler.Events["Rogue_seen_pussy"].completed_when >= 4:
+            if Rogue.body_hair_growing["pubic"] or day - Rogue.History.check_when("seen_pussy") >= 4:
                 if Rogue.check_traits("quirk"):
                     $ Rogue.change_face("worried1", mouth = "lipbite", blush = 1)
 
@@ -94,16 +44,6 @@ label Rogue_seen_pussy:
 
     return
 
-init python:
-
-    def Rogue_seen_anus():
-        label = "Rogue_seen_anus"
-
-        conditions = [
-            "False"]
-
-        return EventClass(label, conditions)
-
-label Rogue_seen_anus:
+label Rogue_seen_anus(proper_subject = True):
 
     return
