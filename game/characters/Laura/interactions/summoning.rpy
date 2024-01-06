@@ -256,9 +256,9 @@ label Laura_summon_reject_mad:
     if dice_roll == 1:
         call receive_text(Laura, "Leave me alone.") from _call_receive_text_318
     elif dice_roll == 2:
-        call receive_text(Laura, "No way.")
+        call receive_text(Laura, "No way.") from _call_receive_text_1223
     elif dice_roll == 3:
-        call receive_text(Laura, "What did you think I would say to that?")
+        call receive_text(Laura, "What did you think I would say to that?") from _call_receive_text_1224
 
     return
     

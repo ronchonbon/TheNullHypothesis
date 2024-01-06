@@ -1015,7 +1015,7 @@ label start_Action(Action, initiator = None):
 
             while temp_Characters:
                 if not temp_Characters[0].History.check("seen_Player_naked"):
-                    call expression f"{temp_Characters[0].tag}_seeing_penis"
+                    call expression f"{temp_Characters[0].tag}_seeing_penis" from _call_expression_155
 
                 $ temp_Characters[0].History.update("seen_Player_naked")
                 
@@ -1399,8 +1399,11 @@ label continue_Actions:
                             temp_Actions.remove(A)
 
         if ongoing_Actions:
-            $ sex_faces(Present[:])
-            $ sex_poses(Present[:])
+            python:
+                for C in Present:
+                    sex_faces(C)
+                    sex_poses(C)
+
             $ desire_increases([Player] + Present[:])
 
             $ renpy.random.shuffle(temp_Actions)
@@ -1439,10 +1442,6 @@ label continue_Actions:
                 $ temp_Actions[0].counter += 1
 
                 $ temp_Actions.remove(temp_Actions[0])
-
-            $ sex_faces(Present[:])
-            $ sex_poses(Present[:])
-            $ sex_talk(Present[:])
 
         $ renpy.dynamic(temp_Characters = Present[:])
 
@@ -1483,6 +1482,15 @@ label continue_Actions:
             call Player_orgasms from _call_Player_orgasms
                 
             return
+
+        if ongoing_Actions:
+            $ renpy.dynamic(temp_Characters = Present[:])
+
+            while temp_Characters:
+                $ sex_faces(temp_Characters[0])
+                $ sex_poses(temp_Characters[0])
+
+                call sex_talk(temp_Characters[0]) from _call_sex_talk
 
     return
 

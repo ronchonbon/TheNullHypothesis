@@ -76,9 +76,9 @@ label Rogue_accept_study_text:
             call receive_text(Rogue, "Always down to study with ya") from _call_receive_text_496
             call receive_text(Rogue, "Omw!") from _call_receive_text_497
         elif dice_roll == 2:
-            call receive_text(Rogue, "Ofc! I'll bring my books!")
+            call receive_text(Rogue, "Ofc! I'll bring my books!") from _call_receive_text_1225
         elif dice_roll == 3:
-            call receive_text(Rogue, "Yeah! Coming!")
+            call receive_text(Rogue, "Yeah! Coming!") from _call_receive_text_1226
 
     return
 
@@ -92,8 +92,8 @@ label Rogue_reject_study_text:
         call receive_text(Rogue, "Can't :((") from _call_receive_text_500
         call receive_text(Rogue, "Too much going on") from _call_receive_text_501
     elif dice_roll == 3:
-        call receive_text(Rogue, f":( Sorry {Rogue.Player_petname}")
-        call receive_text(Rogue "Rain check?")
+        call receive_text(Rogue, f":( Sorry {Rogue.Player_petname}") from _call_receive_text_1227
+        call receive_text(Rogue "Rain check?") from _call_receive_text_1228
 
     return
 

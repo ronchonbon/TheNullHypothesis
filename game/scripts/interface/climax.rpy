@@ -13,15 +13,15 @@ label climax_screen_result:
                     call change_Character_stat(temp_Characters[0], "desire", int(5.0*temp_Characters[0].remote_vibrator)) from _call_change_Character_stat_24
 
                     if temp_Characters[0].desire >= 100:
-                        call expression f"{temp_Characters[0].tag}_remote_vibrator_orgasm"
+                        call expression f"{temp_Characters[0].tag}_remote_vibrator_orgasm" from _call_expression_90
                     elif temp_Characters[0].desire >= 75:
-                        call expression f"{temp_Characters[0].tag}_remote_vibrator_75"
+                        call expression f"{temp_Characters[0].tag}_remote_vibrator_75" from _call_expression_101
                     elif temp_Characters[0].desire >= 50:
-                        call expression f"{temp_Characters[0].tag}_remote_vibrator_50"
+                        call expression f"{temp_Characters[0].tag}_remote_vibrator_50" from _call_expression_131
                     elif temp_Characters[0].desire >= 25:
-                        call expression f"{temp_Characters[0].tag}_remote_vibrator_25"
+                        call expression f"{temp_Characters[0].tag}_remote_vibrator_25" from _call_expression_132
                 else:
-                    call expression f"{temp_Characters[0].tag}_remote_vibrator_out_of_stamina"
+                    call expression f"{temp_Characters[0].tag}_remote_vibrator_out_of_stamina" from _call_expression_133
             
             if temp_Characters[0].behavior == "masturbating":
                 if temp_Characters[0].stamina and (not temp_Characters[0].History.check("orgasmed", tracker = "recent") or temp_Characters[0].status["nympho"]):
@@ -29,13 +29,13 @@ label climax_screen_result:
                         call change_Character_stat(temp_Characters[0], "desire", 5) from _call_change_Character_stat_25
 
                     if temp_Characters[0].desire >= 100:
-                        call expression f"{temp_Characters[0].tag}_masturbating_orgasm"
+                        call expression f"{temp_Characters[0].tag}_masturbating_orgasm" from _call_expression_134
                     elif temp_Characters[0].desire >= 75:
-                        call expression f"{temp_Characters[0].tag}_masturbating_75"
+                        call expression f"{temp_Characters[0].tag}_masturbating_75" from _call_expression_135
                     elif temp_Characters[0].desire >= 50:
-                        call expression f"{temp_Characters[0].tag}_masturbating_50"
+                        call expression f"{temp_Characters[0].tag}_masturbating_50" from _call_expression_136
                     elif temp_Characters[0].desire >= 25:
-                        call expression f"{temp_Characters[0].tag}_masturbating_25"
+                        call expression f"{temp_Characters[0].tag}_masturbating_25" from _call_expression_137
                 else:
                     $ temp_Characters[0].behavior = None
 

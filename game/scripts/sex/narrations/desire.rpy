@@ -8,8 +8,8 @@ label Character_desire_narrations(Character, proper_subject = True):
         $ object = "her"
         $ owner = "her"
 
-    $ sex_faces([Character])
-    $ sex_poses([Character])
+    $ sex_faces(Character)
+    $ sex_poses(Character)
 
     $ dice_pool = []
 
@@ -50,8 +50,8 @@ label Character_out_of_stamina_narrations(Character, proper_subject = True):
         $ object = "her"
         $ owner = "her"
 
-    $ orgasm_faces([Character])
-    $ orgasm_poses([Character])
+    $ orgasm_faces(Character)
+    $ orgasm_poses(Character)
 
     $ dice_roll = renpy.random.randint(1, 4)
 

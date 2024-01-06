@@ -56,10 +56,10 @@ label Laura_accept_study_text:
     if dice_roll == 1:
         call receive_text(Laura, "Fine") from _call_receive_text_295
     elif dice_roll == 2:
-        call receive_text(Laura, "I guess")
-        call receive_text(Laura, "I'll meet you there")
+        call receive_text(Laura, "I guess") from _call_receive_text_1218
+        call receive_text(Laura, "I'll meet you there") from _call_receive_text_1219
     elif dice_roll == 3:
-        call receive_text(Laura, "Okay")
+        call receive_text(Laura, "Okay") from _call_receive_text_1220
 
     return
 
@@ -69,9 +69,9 @@ label Laura_reject_study_text:
     if dice_roll == 1:
         call receive_text(Laura, "Rather not") from _call_receive_text_296
     elif dice_roll == 2:
-        call receive_text(Laura, "Why would I want to study right now?")
+        call receive_text(Laura, "Why would I want to study right now?") from _call_receive_text_1221
     elif dice_roll == 3:
-        call receive_text(Laura, "No")
+        call receive_text(Laura, "No") from _call_receive_text_1222
 
     return
 

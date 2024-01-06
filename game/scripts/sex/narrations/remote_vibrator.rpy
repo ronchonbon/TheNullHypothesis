@@ -8,8 +8,8 @@ label Character_remote_vibrator_on_narrations(Character, proper_subject = True):
         $ object = "her"
         $ owner = "her"
 
-    $ sex_faces([Character])
-    $ sex_poses([Character])
+    $ sex_faces(Character)
+    $ sex_poses(Character)
 
     $ dice_pool = []
 
@@ -43,8 +43,8 @@ label Character_remote_vibrator_off_narrations(Character, proper_subject = True)
         $ object = "her"
         $ owner = "her"
 
-    $ sex_faces([Character])
-    $ sex_poses([Character])
+    $ sex_faces(Character)
+    $ sex_poses(Character)
 
     $ dice_pool = []
 
@@ -78,8 +78,8 @@ label Character_remote_vibrator_narrations(Character, proper_subject = True):
         $ object = "her"
         $ owner = "her"
 
-    $ sex_faces([Character])
-    $ sex_poses([Character])
+    $ sex_faces(Character)
+    $ sex_poses(Character)
 
     if renpy.random.random() > 0.5:
         $ noun = "folds"

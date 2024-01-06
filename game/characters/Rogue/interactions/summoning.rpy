@@ -272,9 +272,9 @@ label Rogue_summon_reject_mad:
     if dice_roll == 1:
         call receive_text(Rogue, "Ain't goin fuckin nowhere") from _call_receive_text_530
     elif dice_roll == 2:
-        call receive_text(Rogue, "No way in hell")
+        call receive_text(Rogue, "No way in hell") from _call_receive_text_1229
     elif dice_roll == 3:
-        call receive_text(Rogue, "What the hell are you thinkin?")
+        call receive_text(Rogue, "What the hell are you thinkin?") from _call_receive_text_1230
 
     return
     

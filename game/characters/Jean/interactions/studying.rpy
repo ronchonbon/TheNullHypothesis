@@ -57,9 +57,9 @@ label Jean_accept_study_text:
     if dice_roll == 1:
         call receive_text(Jean, "Ofc!") from _call_receive_text_65
     elif dice_roll == 2:
-        call receive_text(Jean, "Already on my way!")
+        call receive_text(Jean, "Already on my way!") from _call_receive_text_1213
     elif dice_roll == 3:
-        call receive_text(Jean, "That sounds fun!!")
+        call receive_text(Jean, "That sounds fun!!") from _call_receive_text_1214
 
     return
 
@@ -71,10 +71,10 @@ label Jean_reject_study_text:
         call receive_text(Jean, "Maybe later?") from _call_receive_text_67
         call receive_text(Jean, "<3") from _call_receive_text_68
     elif dice_roll == 2:
-        call receive_text(Jean, f"Not right now, sorry {Jean.Player_petname}. . .")
+        call receive_text(Jean, f"Not right now, sorry {Jean.Player_petname}. . .") from _call_receive_text_1215
     elif dice_roll == 3:
-        call receive_text(Jean, "Aw, bad timing :(")
-        call receive_text(Jean, "Ask me again later?")
+        call receive_text(Jean, "Aw, bad timing :(") from _call_receive_text_1216
+        call receive_text(Jean, "Ask me again later?") from _call_receive_text_1217
 
     return
 
