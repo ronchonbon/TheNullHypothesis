@@ -47,7 +47,7 @@ label Laura_accepts_self_touch_pussy:
         "You do as she says."
 
         if not Laura.History.check("seen_Player_naked"):
-            $ EventScheduler.Events["Laura_seeing_penis"].start()
+            call Laura_seeing_penis from _call_Laura_seeing_penis
 
         $ Laura.History.update("seen_Player_naked")
 
@@ -106,7 +106,7 @@ label Laura_accepts_self_finger_ass:
         "You do as she says."
 
         if not Laura.History.check("seen_Player_naked"):
-            $ EventScheduler.Events["Laura_seeing_penis"].start()
+            call Laura_seeing_penis from _call_Laura_seeing_penis_1
 
         $ Laura.History.update("seen_Player_naked")
 
@@ -152,7 +152,7 @@ label Laura_accepts_self_vibrator:
         "You do as she says."
 
         if not Laura.History.check("seen_Player_naked"):
-            $ EventScheduler.Events["Laura_seeing_penis"].start()
+            call Laura_seeing_penis from _call_Laura_seeing_penis_2
 
         $ Laura.History.update("seen_Player_naked")
 
@@ -198,7 +198,7 @@ label Laura_accepts_self_dildo_pussy:
         "You do as she says."
 
         if not Laura.History.check("seen_Player_naked"):
-            $ EventScheduler.Events["Laura_seeing_penis"].start()
+            call Laura_seeing_penis from _call_Laura_seeing_penis_3
 
         $ Laura.History.update("seen_Player_naked")
 
@@ -244,7 +244,7 @@ label Laura_accepts_self_dildo_ass:
         "You do as she says."
 
         if not Laura.History.check("seen_Player_naked"):
-            $ EventScheduler.Events["Laura_seeing_penis"].start()
+            call Laura_seeing_penis from _call_Laura_seeing_penis_4
 
         $ Laura.History.update("seen_Player_naked")
 

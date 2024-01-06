@@ -29,7 +29,7 @@ label Laura_accepts_striptease:
     ch_Laura "As long as you get naked first. . ."
 
     if not Laura.History.check("seen_Player_naked"):
-        $ EventScheduler.Events["Laura_seeing_penis"].start()
+        call Laura_seeing_penis from _call_Laura_seeing_penis_5
 
     $ Laura.History.update("seen_Player_naked")
 

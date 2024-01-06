@@ -155,7 +155,16 @@ label set_Outfit_flags(Character, Outfit = None, hypothetical = False):
 
         $ proper_subject = True
 
-        $ renpy.dynamic(temp_body_parts = ["bra", "breasts", "back", "belly", "thighs", "underwear", "ass", "pussy", "anus", "feet"])
+        if Character.position == "standing":
+            $ renpy.dynamic(temp_body_parts = ["bra", "breasts", "belly", "thighs", "underwear", "ass", "pussy", "feet"])
+        elif Character.position == "masturbation":
+            $ renpy.dynamic(temp_body_parts = ["bra", "breasts", "belly", "thighs", "underwear", "pussy", "anus", "feet"])
+        elif Character.position == "hands_and_knees":
+            $ renpy.dynamic(temp_body_parts = ["bra", "breasts", "back", "thighs", "underwear", "ass", "pussy"])
+        elif Character.position == "missionary":
+            $ renpy.dynamic(temp_body_parts = ["bra", "breasts", "belly", "thighs", "underwear", "pussy", "anus", "feet"])
+        elif Character.position == "doggy":
+            $ renpy.dynamic(temp_body_parts = ["back", "thighs", "underwear", "ass", "pussy", "anus", "feet"])
 
         while temp_body_parts:
             if temp_body_parts[0] not in ["bra", "underwear"] or Character.Clothes[temp_body_parts[0]].string:
@@ -188,7 +197,7 @@ label set_Outfit_flags(Character, Outfit = None, hypothetical = False):
                 if not hypothetical and not black_screen and renpy.showing(f"{Character.tag}_sprite"):
                     if not hidden and Character.location != "hold" and Character.location == Player.location:
                         if temp_body_parts[0] in ["bra", "breasts", "underwear", "ass", "pussy", "anus"]:
-                            if not Character.History.check(f"seen_{temp_body_parts[0]}", tracker = "recent"):
+                            if not Character.History.check(f"seen_{temp_body_parts[0]}", tracker = "recent") and renpy.random.random() > 0.75:
                                 call expression f"{Character.tag}_seen_{temp_body_parts[0]}" pass (proper_subject = proper_subject) from _call_expression_88
                                 
                                 $ proper_subject = False

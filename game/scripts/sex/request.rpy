@@ -322,6 +322,33 @@ label request_position(Character, new_position, Action = None, automatic = False
 
             call show_pose(Character, new_position) from _call_show_pose
 
+            $ proper_subject = True
+
+            if Character.position == "standing":
+                $ renpy.dynamic(temp_body_parts = ["bra", "breasts", "belly", "thighs", "underwear", "ass", "pussy", "feet"])
+            elif Character.position == "masturbation":
+                $ renpy.dynamic(temp_body_parts = ["bra", "breasts", "belly", "thighs", "underwear", "pussy", "anus", "feet"])
+            elif Character.position == "hands_and_knees":
+                $ renpy.dynamic(temp_body_parts = ["bra", "breasts", "back", "thighs", "underwear", "ass", "pussy"])
+            elif Character.position == "missionary":
+                $ renpy.dynamic(temp_body_parts = ["bra", "breasts", "belly", "thighs", "underwear", "pussy", "anus", "feet"])
+            elif Character.position == "doggy":
+                $ renpy.dynamic(temp_body_parts = ["back", "thighs", "underwear", "ass", "pussy", "anus", "feet"])
+
+            while temp_body_parts:
+                if temp_body_parts[0] not in ["bra", "underwear"] or Character.Clothes[temp_body_parts[0]].string:
+                    if not black_screen and renpy.showing(f"{Character.tag}_sprite"):
+                        if not Character.check_traits(f"{temp_body_parts[0]}_hidden"):
+                            if temp_body_parts[0] in ["bra", "breasts", "underwear", "ass", "pussy", "anus"]:
+                                if not Character.History.check(f"seen_{temp_body_parts[0]}", tracker = "recent") and renpy.random.random() > 0.5:
+                                    call expression f"{Character.tag}_seen_{temp_body_parts[0]}" pass (proper_subject = proper_subject, undressing = False) from _call_expression_135
+                                    
+                                    $ proper_subject = False
+
+                            $ Character.History.update(f"seen_{temp_body_parts[0]}")
+
+                $ temp_body_parts.remove(temp_body_parts[0])
+
             $ Character.History.update(new_position)
 
             $ hookup_length += 0.25
@@ -333,8 +360,7 @@ label request_position(Character, new_position, Action = None, automatic = False
                 $ renpy.dynamic(temp_Characters = Present[:])
 
                 while temp_Characters:
-                    if not temp_Characters[0].History.check("seen_Player_naked"):
-                        call expression f"{temp_Characters[0].tag}_seeing_penis" from _call_expression_139
+                    call expression f"{temp_Characters[0].tag}_seeing_penis" from _call_expression_139
 
                     $ temp_Characters[0].History.update("seen_Player_naked")
                     
@@ -370,6 +396,33 @@ label request_position(Character, new_position, Action = None, automatic = False
 
         call show_pose(Character, new_position) from _call_show_pose_1
 
+        $ proper_subject = True
+
+        if Character.position == "standing":
+            $ renpy.dynamic(temp_body_parts = ["bra", "breasts", "belly", "thighs", "underwear", "ass", "pussy", "feet"])
+        elif Character.position == "masturbation":
+            $ renpy.dynamic(temp_body_parts = ["bra", "breasts", "belly", "thighs", "underwear", "pussy", "anus", "feet"])
+        elif Character.position == "hands_and_knees":
+            $ renpy.dynamic(temp_body_parts = ["bra", "breasts", "back", "thighs", "underwear", "ass", "pussy"])
+        elif Character.position == "missionary":
+            $ renpy.dynamic(temp_body_parts = ["bra", "breasts", "belly", "thighs", "underwear", "pussy", "anus", "feet"])
+        elif Character.position == "doggy":
+            $ renpy.dynamic(temp_body_parts = ["back", "thighs", "underwear", "ass", "pussy", "anus", "feet"])
+
+        while temp_body_parts:
+            if temp_body_parts[0] not in ["bra", "underwear"] or Character.Clothes[temp_body_parts[0]].string:
+                if not black_screen and renpy.showing(f"{Character.tag}_sprite"):
+                    if not Character.check_traits(f"{temp_body_parts[0]}_hidden"):
+                        if temp_body_parts[0] in ["bra", "breasts", "underwear", "ass", "pussy", "anus"]:
+                            if not Character.History.check(f"seen_{temp_body_parts[0]}", tracker = "recent") and renpy.random.random() > 0.5:
+                                call expression f"{Character.tag}_seen_{temp_body_parts[0]}" pass (proper_subject = proper_subject, undressing = False) from _call_expression_136
+                                
+                                $ proper_subject = False
+
+                        $ Character.History.update(f"seen_{temp_body_parts[0]}")
+
+            $ temp_body_parts.remove(temp_body_parts[0])
+
         $ Character.History.update(new_position)
 
         $ hookup_length += 0.25
@@ -381,8 +434,7 @@ label request_position(Character, new_position, Action = None, automatic = False
             $ renpy.dynamic(temp_Characters = Present[:])
 
             while temp_Characters:
-                if not temp_Characters[0].History.check("seen_Player_naked"):
-                    call expression f"{temp_Characters[0].tag}_seeing_penis" from _call_expression_150
+                call expression f"{temp_Characters[0].tag}_seeing_penis" from _call_expression_150
 
                 $ temp_Characters[0].History.update("seen_Player_naked")
                 

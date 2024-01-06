@@ -233,9 +233,7 @@ layeredimage Jean_hands_and_knees:
     else: 
         "Jean_hands_and_knees_ass_handjob_animation0"
 
-    if not Player.check_traits("body_visible"):
-        Null()
-    elif Player.orgasming and focused_Character == Jean:
+    if Player.orgasming and focused_Character == Jean:
         "Jean_hands_and_knees_male_left_foot_animation0"
     elif Player.cock_Actions and Jean in Player.cock_Actions[0].Actors:
         "Jean_hands_and_knees_male_left_foot_animation[Player.cock_Actions[0].mode]"
@@ -260,9 +258,7 @@ layeredimage Jean_hands_and_knees:
     else: 
         "Jean_hands_and_knees_head_handjob_animation0"
 
-    if not Player.check_traits("body_visible"):
-        Null()
-    elif Player.cock_Actions and Jean in Player.cock_Actions[0].Actors:
+    if Player.cock_Actions and Jean in Player.cock_Actions[0].Actors:
         "Jean_hands_and_knees_male_body_[Player.cock_Actions[0].animation_type]_animation[Player.cock_Actions[0].mode]"
     else: 
         "Jean_hands_and_knees_male_body_handjob_animation0"

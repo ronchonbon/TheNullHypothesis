@@ -1,40 +1,91 @@
-label Jean_seen_bra(proper_subject = True):
-    $ dice_pool = [1, 2, 3]
+label Jean_seen_bra(proper_subject = True, undressing = True):
+    if proper_subject:
+        $ subject = Jean.name
+        $ object = Jean.name
+        $ owner = Jean.name + "'s"
+    else:
+        $ subject = "she"
+        $ object = "her"
+        $ owner = "her"
 
-    if Jean.desire >= 50:
-        $ dice_pool.append(4)
+    $ pool = seen_bra_narrations(Jean, proper_subject = proper_subject, undressing = undressing)
 
-    if Jean.piercings["nipple"]:
-        $ dice_pool.append(5)
+    $ dialogue = renpy.random.choice(pool)
 
-    $ dice_roll = renpy.random.choice(dice_pool)
-
-    if dice_roll == 1:
-        pass
-    elif dice_roll == 2:
-        pass
-    elif dice_roll == 3:
-        pass
-    elif dice_roll == 4:
-        pass
-    elif dice_roll == 5:
-        pass
+    "[dialogue]"
 
     return
 
-label Jean_seen_breasts(proper_subject = True):
+label Jean_seen_breasts(proper_subject = True, undressing = True):
+    if proper_subject:
+        $ subject = Jean.name
+        $ object = Jean.name
+        $ owner = Jean.name + "'s"
+    else:
+        $ subject = "she"
+        $ object = "her"
+        $ owner = "her"
+
+    $ pool = seen_breasts_narrations(Jean, proper_subject = proper_subject, undressing = undressing)
+
+    $ dialogue = renpy.random.choice(pool)
+
+    "[dialogue]"
 
     return
 
-label Jean_seen_underwear(proper_subject = True):
+label Jean_seen_underwear(proper_subject = True, undressing = True):
+    if proper_subject:
+        $ subject = Jean.name
+        $ object = Jean.name
+        $ owner = Jean.name + "'s"
+    else:
+        $ subject = "she"
+        $ object = "her"
+        $ owner = "her"
+
+    $ pool = seen_underwear_narrations(Jean, proper_subject = proper_subject, undressing = undressing)
+
+    $ dialogue = renpy.random.choice(pool)
+
+    "[dialogue]"
 
     return
 
-label Jean_seen_ass(proper_subject = True):
+label Jean_seen_ass(proper_subject = True, undressing = True):
+    if proper_subject:
+        $ subject = Jean.name
+        $ object = Jean.name
+        $ owner = Jean.name + "'s"
+    else:
+        $ subject = "she"
+        $ object = "her"
+        $ owner = "her"
+
+    $ pool = seen_ass_narrations(Jean, proper_subject = proper_subject, undressing = undressing)
+
+    $ dialogue = renpy.random.choice(pool)
+
+    "[dialogue]"
 
     return
 
-label Jean_seen_pussy(proper_subject = True):
+label Jean_seen_pussy(proper_subject = True, undressing = True):
+    if proper_subject:
+        $ subject = Jean.name
+        $ object = Jean.name
+        $ owner = Jean.name + "'s"
+    else:
+        $ subject = "she"
+        $ object = "her"
+        $ owner = "her"
+
+    $ pool = seen_pussy_narrations(Jean, proper_subject = proper_subject, undressing = undressing)
+
+    $ dialogue = renpy.random.choice(pool)
+
+    "[dialogue]"
+
     if "pubic" in Jean.desired_body_hair.keys() and Jean.body_hair["pubic"] != Jean.desired_body_hair["pubic"]:
         if (Jean.body_hair["pubic"] == "hairy") or (Jean.body_hair["pubic"] == "bush" and (not Jean.desired_body_hair["pubic"] or Jean.desired_body_hair["pubic"] in ["growing", "null", "strip", "triangle"])) or (Jean.body_hair["pubic"] == "triangle" and (not Jean.desired_body_hair["pubic"] or Jean.desired_body_hair["pubic"] in ["growing", "null", "strip"])) or (Jean.body_hair["pubic"] in ["growing", "null", "strip"] and not Jean.desired_body_hair["pubic"]):
             if Jean.body_hair_growing["pubic"] or day - Jean.History.check_when("seen_pussy") >= 4:
@@ -67,6 +118,20 @@ label Jean_seen_pussy(proper_subject = True):
 
     return
 
-label Jean_seen_anus(proper_subject = True):
+label Jean_seen_anus(proper_subject = True, undressing = True):
+    if proper_subject:
+        $ subject = Jean.name
+        $ object = Jean.name
+        $ owner = Jean.name + "'s"
+    else:
+        $ subject = "she"
+        $ object = "her"
+        $ owner = "her"
+        
+    $ pool = seen_anus_narrations(Jean, proper_subject = proper_subject, undressing = undressing)
+
+    $ dialogue = renpy.random.choice(pool)
+
+    "[dialogue]"
 
     return

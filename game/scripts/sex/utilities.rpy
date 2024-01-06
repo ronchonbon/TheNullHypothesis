@@ -1014,8 +1014,7 @@ label start_Action(Action, initiator = None):
             $ renpy.dynamic(temp_Characters = Present[:])
 
             while temp_Characters:
-                if not temp_Characters[0].History.check("seen_Player_naked"):
-                    call expression f"{temp_Characters[0].tag}_seeing_penis" from _call_expression_155
+                call expression f"{temp_Characters[0].tag}_seeing_penis" from _call_expression_155
 
                 $ temp_Characters[0].History.update("seen_Player_naked")
                 
