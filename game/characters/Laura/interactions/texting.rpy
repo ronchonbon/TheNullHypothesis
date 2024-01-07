@@ -98,7 +98,7 @@ label Laura_text_how_are_you:
         call receive_text(Laura, "Thanks") from _call_receive_text_320
     elif dice_roll == 2:
         call receive_text(Laura, "Good. . .") from _call_receive_text_1073
-    elif dice_roll == 2:
+    elif dice_roll == 3:
         call receive_text(Laura, "Everything is fine") from _call_receive_text_1074
         call receive_text(Laura, "Why?") from _call_receive_text_1075
 
@@ -132,7 +132,7 @@ label Laura_text_how_are_you_late_reject:
         call receive_text(Laura, "Going to bed") from _call_receive_text_328
     elif dice_roll == 2:
         call receive_text(Laura, "Sleeping") from _call_receive_text_1081
-    elif dice_roll == 2:
+    elif dice_roll == 3:
         call receive_text(Laura, "It's late") from _call_receive_text_1082
 
     return

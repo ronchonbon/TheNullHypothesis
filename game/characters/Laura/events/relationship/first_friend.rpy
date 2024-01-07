@@ -388,6 +388,8 @@ init python:
 
             "approval_check(Laura, threshold = 'dating')",
             
+            "Laura.location != Player.location",
+
             "'bg_shower' not in Player.destination",
             "Player.destination not in bedrooms or 'bg_shower' not in Player.location",
             "not get_Present(location = Player.destination)[0]",

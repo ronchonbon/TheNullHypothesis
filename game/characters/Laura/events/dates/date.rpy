@@ -613,7 +613,7 @@ label Laura_date_dinner:
         "[third_compliment]":
             $ flirting_type = "a" + indices[2]
             
-    call expression f"Laura_flirt_a{flirting_type}" from _call_expression_1
+    call expression f"Laura_flirt_{flirting_type}" from _call_expression_1
 
     if approval_check(Laura, threshold = f"flirting_{flirting_type}"):
         call change_Character_stat(Laura, "love", Laura_flirting_bonuses[flirting_type][0]) from _call_change_Character_stat_14

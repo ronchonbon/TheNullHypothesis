@@ -673,7 +673,7 @@ label Jean_date_dinner:
         "[third_compliment]":
             $ flirting_type = "a" + indices[2]
 
-    call expression f"Jean_flirt_a{flirting_type}" from _call_expression
+    call expression f"Jean_flirt_{flirting_type}" from _call_expression
 
     if approval_check(Jean, threshold = f"flirting_{flirting_type}"):
         call change_Character_stat(Jean, "love", Jean_flirting_bonuses[flirting_type][0]) from _call_change_Character_stat_9

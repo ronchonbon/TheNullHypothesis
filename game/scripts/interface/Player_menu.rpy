@@ -912,7 +912,7 @@ screen journal_screen():
         vbox:
             for Q in reversed(QuestPool.Quests.values()):
                 if Q.unlocked and (not current_journal_filter or Q.Quest_type == current_journal_filter) and (not current_journal_chapter or Q.chapter == current_journal_chapter):
-                    if show_completed_Quests or not Q.completed:
+                    if show_completed_Quests or not Q.fully_completed:
                         button xysize (int(911*game_resolution), int(191*game_resolution)):
                             idle_background At(f"images/interface/Player_menu/journal_button_{Q.Quest_type}_idle.webp", interface)
                             hover_background At(f"images/interface/Player_menu/journal_button_{Q.Quest_type}.webp", interface)

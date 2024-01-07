@@ -472,7 +472,7 @@ label day_three_combat_lesson:
 
     pause 0.5
 
-    $ Laura.change_arms("fight")
+    $ Laura.change_arms("X")
 
     "She reflexively unsheathes her claws and gets into a fighting stance."
     

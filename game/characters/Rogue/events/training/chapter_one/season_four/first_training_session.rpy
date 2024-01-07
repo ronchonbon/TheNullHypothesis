@@ -57,7 +57,10 @@ label Rogue_chapter_one_season_four_first_training_session:
 
     ch_Rogue "Ah'm sick of people feelin' sorry for me. . ."
 
-    $ temp = Rogue.petname.capitalize()
+    if Rogue.petname not in ["Anna Marie"]:
+        $ temp = Rogue.petname.capitalize()
+    else:
+        $ temp = Rogue.petname
 
     menu:
         extend ""
@@ -257,7 +260,10 @@ label Rogue_chapter_one_season_four_first_training_session:
 
     ch_Rogue "Thanks for comin' so quick."
 
-    $ temp = Rogue.petname.capitalize()
+    if Rogue.petname not in ["Anna Marie"]:
+        $ temp = Rogue.petname.capitalize()
+    else:
+        $ temp = Rogue.petname
 
     ch_Player "[temp], what's this about?"
 

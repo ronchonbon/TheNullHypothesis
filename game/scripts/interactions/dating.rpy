@@ -1,3 +1,5 @@
+define date_threshold = 5
+
 default eating_dinner = False
 default ordered_food = False
 default food_arrived = False

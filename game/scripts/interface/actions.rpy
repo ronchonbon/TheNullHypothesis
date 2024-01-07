@@ -194,6 +194,21 @@ screen Action_screen(automatic = False):
 
                     tooltip "Open Undressing Menu"
 
+            text "POSE" anchor (0.5, 0.5) pos (0.884, 0.235):
+                font "agency_fb_bold.ttf"
+
+                size 26
+
+            text "ACTION" anchor (0.5, 0.5) pos (0.928, 0.235):
+                font "agency_fb_bold.ttf"
+
+                size 26
+
+            text "STRIP" anchor (0.5, 0.5) pos (0.973, 0.235):
+                font "agency_fb_bold.ttf"
+
+                size 26
+
             if Action_screen_tab == "pose":
                 if has_position_control:
                     $ pose_list = all_poses[:]

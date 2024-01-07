@@ -98,15 +98,16 @@ label Characters_arrive(arriving_Characters, invited = False, greetings = True, 
                     $ belt_disabled = True
 
             if verb and grouped_Characters[0].behavior != "teaching":
-                $ renpy.dynamic(temp_Characters = Present[:])
+                if Player.location in bedrooms:
+                    $ renpy.dynamic(temp_Characters = Present[:])
 
-                while temp_Characters:
-                    if temp_Characters[0] in all_Companions:
-                        if "public" not in temp_Characters[0].Outfit.flags and not are_Characters_friends(temp_Characters[:] + grouped_Characters[:]):
-                            call expression f"{temp_Characters[0].tag}_change_into_public_Outfit" pass (context = "generic") from _call_expression_34
-                            call change_Outfit(temp_Characters[0], Outfit = temp_Characters[0].Wardrobe.indoor_Outfit, instant = True) from _call_change_Outfit_30
+                    while temp_Characters:
+                        if temp_Characters[0] in all_Companions:
+                            if "public" not in temp_Characters[0].Outfit.flags and not are_Characters_friends(temp_Characters[:] + grouped_Characters[:]):
+                                call expression f"{temp_Characters[0].tag}_change_into_public_Outfit" pass (context = "generic") from _call_expression_34
+                                call change_Outfit(temp_Characters[0], Outfit = temp_Characters[0].Wardrobe.indoor_Outfit, instant = True) from _call_change_Outfit_30
 
-                    $ temp_Characters.remove(temp_Characters[0])
+                        $ temp_Characters.remove(temp_Characters[0])
 
                 if not invited:
                     if grouped_Characters[0] in all_Companions:    
@@ -215,7 +216,7 @@ label Characters_leave(leaving_Characters, farewells = True, fade = True, remove
 
         while temp_temp_Characters:
             if temp_temp_Characters[0] in all_Companions:
-                if sandbox and not ongoing_Event and "public" not in temp_temp_Characters[0].Outfit.flags and not (("exercise" in temp_temp_Characters[0].Outfit.flags or "hero" in temp_temp_Characters[0].Outfit.flags) and temp_temp_Characters[0].destination in ["bg_danger", "bg_lockers"]) and not ("swim" in temp_temp_Characters[0].Outfit.flags and temp_temp_Characters[0].destination in ["bg_pool"]):                       
+                if sandbox and not ongoing_Event and "public" not in temp_temp_Characters[0].Outfit.flags and not (("exercise" in temp_temp_Characters[0].Outfit.flags or "hero" in temp_temp_Characters[0].Outfit.flags) and temp_temp_Characters[0].destination in ["bg_danger", "bg_lockers"]) and not ("swim" in temp_temp_Characters[0].Outfit.flags and temp_temp_Characters[0].destination in ["bg_pool", "bg_lockers", "bg_danger"]):                       
                     call set_Character_Outfits(temp_temp_Characters[0], instant = False) from _call_set_Character_Outfits_21
 
                     pause 1.0

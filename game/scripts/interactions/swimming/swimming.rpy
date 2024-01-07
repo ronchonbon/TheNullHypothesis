@@ -37,7 +37,7 @@ label swim:
 label ask_to_swim(Character):   
     $ status = Character.get_status()
 
-    if Character.swimming_Outfit.name != Character.indoor_Outfit.name and Character.is_in_normal_mood() and approval_check(Character, threshold = "friendship") and (not time_index >= 3 or approval_check(Character, threshold = "talk_late")):
+    if Character.Wardrobe.swimming_Outfit.name != Character.Wardrobe.indoor_Outfit.name and Character.is_in_normal_mood() and approval_check(Character, threshold = "friendship") and (not time_index >= 3 or approval_check(Character, threshold = "talk_late")):
         call expression f"{Character.tag}_accept_swim" from _call_expression_330
     else:
         if Character.History.check("said_no_to_swimming", tracker = "recent") >= 2:

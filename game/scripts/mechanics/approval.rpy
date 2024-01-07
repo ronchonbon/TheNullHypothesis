@@ -4,7 +4,9 @@ init -2:
     define large_stat = 25
     define medium_stat = 10
     define small_stat = 5
-    define tiny_stat = 1
+    define tiny_stat = 2
+
+    define stat_sigma = 10
     
     define date_bonus = 2
 
@@ -13,6 +15,8 @@ init -2:
     define max_stats = [250, 500, 750, 1000]
 
 init python:
+
+    import math
 
     def approval_check(Character, flavor = None, threshold = None, extra_condition = None):
         if Character not in all_Companions:
@@ -34,7 +38,7 @@ init python:
         if not threshold:
             return value
         elif isinstance(threshold, str):
-            if Character.love >= eval(f"{Character.tag}_thresholds['{threshold}'][0]") and Character.trust >= eval(f"{Character.tag}_thresholds['{threshold}'][1]"):
+            if Character.love + abs(renpy.random.gauss(0, stat_sigma)) >= eval(f"{Character.tag}_thresholds['{threshold}'][0]") and Character.trust + abs(renpy.random.gauss(0, stat_sigma)) >= eval(f"{Character.tag}_thresholds['{threshold}'][1]"):
                 conditions = eval(f"{Character.tag}_conditions")
 
                 if threshold not in conditions.keys():
@@ -46,10 +50,10 @@ init python:
 
                     return True
         elif isinstance(threshold, float) or isinstance(threshold, int):
-            if value >= threshold:
+            if value + abs(renpy.random.gauss(0, stat_sigma)) >= threshold:
                 return True
         elif len(threshold) > 1:
-            if Character.love >= threshold[0] and Character.trust >= threshold[1]:
+            if Character.love + abs(renpy.random.gauss(0, stat_sigma)) >= threshold[0] and Character.trust + abs(renpy.random.gauss(0, stat_sigma)) >= threshold[1]:
                 return True
         else:
             error("Something unexpected happened.")

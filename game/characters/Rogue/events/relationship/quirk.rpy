@@ -41,7 +41,10 @@ label Rogue_penultimate_penultimate_quirk:
 
         "You walk over to her instead."
 
-        $ temp = Rogue.petname.capitalize()
+        if Rogue.petname not in ["Anna Marie"]:
+            $ temp = Rogue.petname.capitalize()
+        else:
+            $ temp = Rogue.petname
 
         ch_Player "[temp], why are you standing so far away?"
 

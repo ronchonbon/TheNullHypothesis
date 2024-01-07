@@ -755,7 +755,7 @@ label ch1_mutant_hate:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom cinematic_adjustment
+        zoom background_adjustment
 
     with dissolve
 

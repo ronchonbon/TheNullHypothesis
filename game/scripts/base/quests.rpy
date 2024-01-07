@@ -28,6 +28,7 @@ init -2 python:
 
             self.unlocked = False
             self.completed = False
+            self.fully_completed = False
 
         def check_unlocked(self):
             self.unlocked = True
@@ -42,16 +43,31 @@ init -2 python:
 
         def check_completion(self):
             self.completed = True
+            self.fully_completed = True
 
             for objective, target in self.objectives.values():
                 if target is None:
                     if not eval(objective):
                         self.completed = False
+                        self.fully_completed = False
 
                         break
                 else:
                     if eval(objective) < target:
                         self.completed = False
+                        self.fully_completed = False
+
+                        break
+
+            for objective, target in self.optional_objectives.values():
+                if target is None:
+                    if not eval(objective):
+                        self.fully_completed = False
+
+                        break
+                else:
+                    if eval(objective) < target:
+                        self.fully_completed = False
 
                         break
 
@@ -82,6 +98,7 @@ init -2 python:
                 if not changed:
                     Quest.unlocked = self.Quests[Quest.string].unlocked
                     Quest.completed = self.Quests[Quest.string].completed
+                    Quest.fully_completed = self.Quests[Quest.string].fully_completed
 
                 self.Quests[Quest.string] = Quest
 

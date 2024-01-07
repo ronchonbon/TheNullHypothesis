@@ -121,7 +121,7 @@ screen phone_screen():
     if current_phone_Character:
         on "hide" action [
             SetVariable(current_phone_screen, "home"),
-            SetField(current_phone_Character, "electronic", False),
+            Function(current_phone_Character.remove_trait, "electronic"),
             SetVariable("phone_interactable", True),
             SetVariable("input_cheats", False),
             SetVariable("choice_disabled", False),
@@ -670,7 +670,7 @@ screen call_choice_screen():
                     else:
                         if C.location != Player.location:
                             action [
-                                SetField(C, "electronic", True),
+                                Function(C.give_trait, "electronic"),
                                 SetVariable("current_phone_Character", C),
                                 SetVariable("current_phone_screen", "call"),
                                 Call("chat", C, from_current = True)]
@@ -934,7 +934,6 @@ screen text_history(Character):
                                 background Frame(At("images/interface/phone/text_frame.webp", interface), 10, 10)
 
                                 padding (15, 15, 15, 15)
-                                minimum (int(0.05*config.screen_width), 0)
                                 xmaximum int(0.2*config.screen_width)
 
                                 if status == "current":
@@ -967,7 +966,6 @@ screen text_history(Character):
                                 background Frame(At("images/interface/phone/text_frame_Player.webp", interface), 10, 10)
 
                                 padding (15, 15, 15, 15)
-                                minimum (int(0.05*config.screen_width), 0)
                                 xmaximum int(0.2*config.screen_width)
 
                                 if status == "current":
@@ -1216,11 +1214,10 @@ screen humhum_screen():
     text "Name" anchor (0.0, 0.5) pos (0.496, 0.179):
         size 30
 
-    if len(current_phone_Character.name) < 10:
-        text f"{current_phone_Character.name}" anchor (1.0, 0.5) pos (0.95, 0.179):
+    text f"{current_phone_Character.name}" anchor (1.0, 0.5) pos (0.613, 0.179):
+        if len(current_phone_Character.name) < 10:
             size 30 
-    else:
-        text f"{current_phone_Character.name}" anchor (1.0, 0.5) pos (0.613, 0.179):
+        else:
             size 25 
             
     text "Love" anchor (0.0, 0.5) pos (0.496, 0.243):
@@ -1266,7 +1263,7 @@ screen humhum_screen():
     add At("images/interface/phone/humhum_bar.webp", interface)
 
     imagebutton:
-        idle At("images/interface/phone/humhum_home.webp", interface)
+        idle At("images/interface/phone/humhum_home_idle.webp", interface)
         hover At("images/interface/phone/humhum_home.webp", interface)
 
         if phone_interactable and not phone_disabled:
@@ -1284,7 +1281,7 @@ screen humhum_screen():
     #         action None
 
     imagebutton:
-        idle At("images/interface/phone/humhum_friends.webp", interface)
+        idle At("images/interface/phone/humhum_friends_idle.webp", interface)
         hover At("images/interface/phone/humhum_friends.webp", interface)
 
         if phone_interactable and not phone_disabled:

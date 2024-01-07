@@ -865,7 +865,7 @@ label ch1_Sentinel_attack:
         transform_anchor True
 
         align (0.5, 0.5)
-        xzoom -cinematic_adjustment yzoom cinematic_adjustment
+        xzoom -background_adjustment yzoom background_adjustment
 
     with dissolve
 
@@ -1325,7 +1325,10 @@ label ch1_Sentinel_attack:
 
             $ Rogue.change_face("worried2", blush = 1) 
 
-            $ temp = Rogue.petname.capitalize()
+            if Rogue.petname not in ["Anna Marie"]:
+                $ temp = Rogue.petname.capitalize()
+            else:
+                $ temp = Rogue.petname
             
             ch_Player "[temp], you don't have to ask for permission. . ." 
             

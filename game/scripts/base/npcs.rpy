@@ -175,3 +175,7 @@ init -2 python:
                 self.destination = renpy.random.choice(possible_locations)
 
             return
+
+        def is_in_normal_mood(self):
+
+            return True

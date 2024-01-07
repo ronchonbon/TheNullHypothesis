@@ -253,7 +253,9 @@ layeredimage Laura_standing:
         "Laura_standing_male_head_suck_right_nipple_animation[Player.mouth_Actions[0].mode]" at Transform(offset = (Laura_standing_right_nipple_position[0], Laura_standing_right_nipple_position[1]))
 
 layeredimage Laura_standing_hair_back:
-    always:
+    if Laura.check_traits("wet") or Laura.Clothes["hair"].string == "wet":
+        "characters/Laura/images/standing/hair_back_wet.webp"
+    else:
         "characters/Laura/images/standing/hair_back_[Laura.Clothes[hair].string].webp"
 
     anchor (int(1300*character_sampling), int(1490*character_sampling))

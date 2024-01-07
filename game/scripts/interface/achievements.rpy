@@ -22,7 +22,8 @@ screen achievements_screen():
 
     style_prefix "achievements"
 
-    timer 10.0 action Function(achievements_screen_result) repeat True
+    if sandbox and not ongoing_Event:
+        timer 10.0 action Function(achievements_screen_result) repeat True
 
     if achievement_messages and not achievement_message:
         timer 0.2 action [

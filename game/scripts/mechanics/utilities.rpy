@@ -140,11 +140,11 @@ label approach_Characters:
         "[temp_Characters[7].name]" if len(temp_Characters) >= 8 and temp_Characters[7].behavior != "teaching":
             $ new_Characters = [temp_Characters[7]]
         "Back":
-            return
+            return False
 
     call set_the_scene(greetings = True, fade = False, selected_Character = new_Characters[0]) from _call_set_the_scene_404
 
-    return
+    return True
 
 label reset_all_interfaces:
     call stop_all_Actions(automatic = True) from _call_stop_all_Actions_6

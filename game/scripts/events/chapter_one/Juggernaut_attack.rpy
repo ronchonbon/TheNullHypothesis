@@ -861,7 +861,7 @@ label ch1_Juggernaut_attack:
         transform_anchor True
 
         align (0.5, 0.5)
-        zoom cinematic_adjustment
+        zoom background_adjustment
 
     ch_Cecilia "[Player.full_name]?! You're awake already?"
     ch_Player "Uh, hey. . . yeah? How long has it been?"
@@ -967,7 +967,7 @@ label ch1_Juggernaut_attack:
 
     menu:
         extend ""
-        "I'd still do it all over again, I had to help [Rogue.name].":
+        "I had to help [Rogue.name].":
             call change_Character_stat(Laura, "love", medium_stat) from _call_change_Character_stat_1587
             call change_Character_stat(Laura, "trust", medium_stat) from _call_change_Character_stat_1588
 
@@ -1311,8 +1311,10 @@ label ch1_Juggernaut_attack:
     ch_Rogue "[temp]?! Is that you?"
 
     call send_Characters(Rogue, "bg_girls_hallway", behavior = False) from _call_send_Characters_172
+    call remove_Characters(location = Rogue.home) from _call_remove_Characters_346
 
     $ Rogue.change_face("worried3")
+    $ Rogue.change_arms("angry", left_arm = "extended")
 
     "She opens the door and pulls you inside. . ."
 
@@ -1816,7 +1818,7 @@ label ch1_Juggernaut_attack_path_1A:
 
     "She notices [Rogue.name]."
 
-    $ Laura.change_arms("fight")
+    $ Laura.change_arms("claws")
 
     pause 0.2
 
@@ -2269,7 +2271,7 @@ label ch1_Juggernaut_attack_path_1B:
 
     "She notices [Rogue.name]."
 
-    $ Laura.change_arms("fight")
+    $ Laura.change_arms("claws")
 
     pause 0.2
 

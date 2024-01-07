@@ -74,7 +74,7 @@ screen say(who, what, two_window = False, hide_after = None):
                 $ dialogue_position = [C.sprite_position[0] - 0.02, C.sprite_position[1] - 0.4]
             elif C.sprite_position[0] < stage_far_far_right and C.position not in ["doggy", "masturbation", "missionary"]:
                 $ dialogue_anchor = [0.0, 0.0]
-                $ dialogue_position = [C.sprite_position[0] + 0.04, C.sprite_position[1] - 0.1]
+                $ dialogue_position = [C.sprite_position[0] + 0.05, C.sprite_position[1] - 0.1]
             elif C.position in ["doggy", "masturbation"]:
                 $ dialogue_anchor = [1.0, 0.0]
                 $ dialogue_position = [C.sprite_position[0] - 0.08, C.sprite_position[1] - 0.1]
@@ -83,7 +83,7 @@ screen say(who, what, two_window = False, hide_after = None):
                 $ dialogue_position = [C.sprite_position[0] + 0.04, C.sprite_position[1] + 0.05]
             else:
                 $ dialogue_anchor = [1.0, 0.0]
-                $ dialogue_position = [C.sprite_position[0] - 0.04, C.sprite_position[1] - 0.1]
+                $ dialogue_position = [C.sprite_position[0] - 0.05, C.sprite_position[1] - 0.1]
         elif renpy.get_screen("shop_screen"):
             $ dialogue_anchor = [0.5, 0.0]
             $ dialogue_position = [0.88, 0.05]
@@ -217,7 +217,7 @@ screen choice(items, menu_location = None):
                                         null width 4
 
                                         fixed xysize (int(262*0.15), int(262*0.15)):
-                                            add "images/interface/dialogue/academic.webp" zoom 0.15
+                                            add "images/interface/dialogue/academic.webp" align (0.5, 0.5) zoom 0.15
 
                                         null width 4
 
@@ -231,7 +231,7 @@ screen choice(items, menu_location = None):
                                         null width 4
 
                                         fixed xysize (int(262*0.15), int(262*0.15)):
-                                            add "images/interface/dialogue/athletic.webp" zoom 0.15
+                                            add "images/interface/dialogue/athletic.webp" align (0.5, 0.5) zoom 0.15
 
                                         null width 4
 
@@ -245,7 +245,7 @@ screen choice(items, menu_location = None):
                                         null width 4
 
                                         fixed xysize (int(262*0.15), int(262*0.15)):
-                                            add "images/interface/dialogue/artistic.webp" zoom 0.15
+                                            add "images/interface/dialogue/artistic.webp" align (0.5, 0.5) zoom 0.15
 
                                         null width 4
 
@@ -259,7 +259,7 @@ screen choice(items, menu_location = None):
                                         null width 4
 
                                         fixed xysize (int(262*0.15), int(262*0.15)):
-                                            add "images/interface/dialogue/bitter.webp" zoom 0.15
+                                            add "images/interface/dialogue/bitter.webp" align (0.5, 0.5) zoom 0.15
 
                                         null width 4
 
@@ -273,7 +273,7 @@ screen choice(items, menu_location = None):
                                         null width 4
 
                                         fixed xysize (int(262*0.15), int(262*0.15)):
-                                            add "images/interface/dialogue/determined.webp" zoom 0.15
+                                            add "images/interface/dialogue/determined.webp" align (0.5, 0.5) zoom 0.15
 
                                         null width 4
 
@@ -287,7 +287,7 @@ screen choice(items, menu_location = None):
                                         null width 4
 
                                         fixed xysize (int(262*0.15), int(262*0.15)):
-                                            add "images/interface/dialogue/reluctant.webp" zoom 0.15
+                                            add "images/interface/dialogue/reluctant.webp" align (0.5, 0.5) zoom 0.15
 
                                         null width 4
 
@@ -301,7 +301,7 @@ screen choice(items, menu_location = None):
                                         null width 4
 
                                         fixed xysize (int(262*0.15), int(262*0.15)):
-                                            add "images/interface/dialogue/encourage_quirk.webp" zoom 0.15
+                                            add "images/interface/dialogue/encourage_quirk.webp" align (0.5, 0.5) zoom 0.15
 
                                         null width 4
 
@@ -315,7 +315,7 @@ screen choice(items, menu_location = None):
                                         null width 4
 
                                         fixed xysize (int(262*0.15), int(262*0.15)):
-                                            add "images/interface/dialogue/discourage_quirk.webp" zoom 0.15
+                                            add "images/interface/dialogue/discourage_quirk.webp" align (0.5, 0.5) zoom 0.15
 
                                         null width 4
 
