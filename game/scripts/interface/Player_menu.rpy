@@ -180,6 +180,9 @@ screen Player_menu():
     if black_screen or renpy.get_screen("say"):
         button xysize (1.0, 1.0):
             background None
+
+            hover_sound None
+            activate_sound None
             
             if not renpy.get_screen("choice"):
                 action Return()

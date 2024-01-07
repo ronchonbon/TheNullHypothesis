@@ -3,14 +3,7 @@ init -1:
     default achievement_messages = []
     default achievement_message = None
 
-    default temp_achievements = [0]
-
 style achievements is default
-
-style achievements_frame:
-    background Frame(At("images/interface/belt/update.webp", interface), 10, 10)
-
-    padding (15, 15, 15, 15)
 
 style achievements_text:
     font "agency_fb.ttf"
@@ -32,6 +25,8 @@ screen achievements_screen():
             Play("sound", "sounds/interface/achievement.ogg")]
 
     if achievement_message:
+        timer 3.3 action SetVariable("achievement_message", None)
+
         fixed align (0.0, 1.0) xysize (int(766*game_resolution), int(277*game_resolution)):
             if achievements[achievement_message]["points"] == 5:
                 add "images/interface/belt/achievement_bronze.webp" zoom interface_adjustment
@@ -43,7 +38,7 @@ screen achievements_screen():
                 add "images/interface/belt/achievement_foil.webp" zoom interface_adjustment
 
             frame anchor (0.5, 0.5) pos (0.65, 0.5) xysize (0.6, 0.9):
-                background None
+                padding (15, 15, 15, 15)
 
                 text achievement_message
 
@@ -51,8 +46,6 @@ screen achievements_screen():
                 fade_in(0.4)
                 pause 2.5
                 fade_out(0.4)
-
-        timer 3.3 action SetVariable("achievement_message", None)
 
 init python:
 

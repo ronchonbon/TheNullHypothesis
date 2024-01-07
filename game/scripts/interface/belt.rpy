@@ -230,6 +230,8 @@ screen updates_screen():
                 RemoveFromSet(update_messages, update_messages[0])]
 
         if update_message:
+            timer 3.3 action SetVariable("update_message", None)
+
             if Action_screen_showing:
                 frame anchor (0.0, 1.0) pos (0.02, 0.98):
                     text update_message
@@ -246,5 +248,3 @@ screen updates_screen():
                         fade_in(0.4)
                         pause 2.5
                         fade_out(0.4)
-
-            timer 3.3 action SetVariable("update_message", None)

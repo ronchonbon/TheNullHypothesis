@@ -124,7 +124,7 @@ label Rogue_busy_asked_twice:
 label Rogue_busy_late:
     $ Rogue.change_face("worried1")
 
-    ch_Rogue "Ah'm okay, but can't really chat. . ."
+    ch_Rogue "It's pretty late. . ."
     ch_Rogue "Was 'bout to go to bed, sorry hon'."
 
     return

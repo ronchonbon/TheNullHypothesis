@@ -137,6 +137,8 @@ screen phone_screen():
             SetVariable("say_obscured", False),
             SetVariable("Character_picker_disabled", False)]
 
+    sensitive phone_interactable and not phone_disabled
+
     timer 0.5 action SetVariable("booting", False)
     
     if not black_screen:
@@ -295,6 +297,9 @@ screen phone_screen():
     if black_screen or renpy.get_screen("say"):
         button xysize (1.0, 1.0):
             background None
+
+            hover_sound None
+            activate_sound None
             
             if not renpy.get_screen("choice"):
                 action Return()
@@ -331,31 +336,28 @@ screen home_screen():
 
         color "#ffffff"
 
-    if phone_interactable and not phone_disabled:
-        imagebutton:
-            idle At("images/interface/phone/search_bar_idle.webp", interface)
-            hover At("images/interface/phone/search_bar.webp", interface)
-            selected_idle At("images/interface/phone/search_bar.webp", interface)
+    imagebutton:
+        idle At("images/interface/phone/search_bar_idle.webp", interface)
+        hover At("images/interface/phone/search_bar.webp", interface)
+        selected_idle At("images/interface/phone/search_bar.webp", interface)
 
-            selected input_cheats
+        selected input_cheats
 
-            action ToggleVariable("input_cheats")
+        action ToggleVariable("input_cheats")
 
-        if input_cheats:
-            input id "cheat_input" value VariableInputValue("current_input", default = True) anchor (0.0, 0.5) pos (0.403, 0.235):
-                font "agency_fb.ttf"
+    if input_cheats:
+        input id "cheat_input" value VariableInputValue("current_input", default = True) anchor (0.0, 0.5) pos (0.403, 0.235):
+            font "agency_fb.ttf"
 
-                size 30
+            size 30
 
-                color "#000000"
+            color "#000000"
 
-                length 25
+            length 25
 
-            key "K_RETURN" action [
-                SetVariable("input_cheats", False),
-                Call("enter_cheat_code", current_input, from_current = True)]
-    else:
-        add At("images/interface/phone/search_bar_idle.webp", interface)
+        key "K_RETURN" action [
+            SetVariable("input_cheats", False),
+            Call("enter_cheat_code", current_input, from_current = True)]
 
     if not input_cheats:
         text "Search. . ." anchor (0.0, 0.5) pos (0.403, 0.235):
@@ -379,23 +381,17 @@ screen home_screen():
             idle At("images/interface/phone/home_humhum_left_idle.webp", interface)
             hover At("images/interface/phone/home_humhum_left.webp", interface)
 
-            if phone_interactable and not phone_disabled:
-                action [
-                    SetVariable("humhum_index", (humhum_index - 1) % len(list(HumHumPool.HumHumThreads.keys()))),
-                    SetVariable("humhum_yadjustment.value", 0)]
-            else:
-                action None
+            action [
+                SetVariable("humhum_index", (humhum_index - 1) % len(list(HumHumPool.HumHumThreads.keys()))),
+                SetVariable("humhum_yadjustment.value", 0)]
 
         imagebutton:
             idle At("images/interface/phone/home_humhum_right_idle.webp", interface)
             hover At("images/interface/phone/home_humhum_right.webp", interface)
 
-            if phone_interactable and not phone_disabled:
-                action [
-                    SetVariable("humhum_index", (humhum_index + 1) % len(list(HumHumPool.HumHumThreads.keys()))),
-                    SetVariable("humhum_yadjustment.value", 0)]
-            else:
-                action None
+            action [
+                SetVariable("humhum_index", (humhum_index + 1) % len(list(HumHumPool.HumHumThreads.keys()))),
+                SetVariable("humhum_yadjustment.value", 0)]
 
         fixed anchor (0.5, 0.5) pos (0.486, 0.392) xysize (int(905*game_resolution), int(354*game_resolution)):
             add At("images/interface/phone/home_humhum_box.webp", interface)
@@ -478,34 +474,25 @@ screen home_screen():
         idle At("images/interface/icons/call_idle.webp", phone_icon) 
         hover At("images/interface/icons/call.webp", phone_icon)
         
-        if phone_interactable and not phone_disabled:
-            action [
-                SetVariable("loading", True),
-                SetVariable("current_phone_screen", "call_choice")]
-        else:
-            action None
+        action [
+            SetVariable("loading", True),
+            SetVariable("current_phone_screen", "call_choice")]
 
     imagebutton anchor (0.5, 0.5) pos (0.496, 0.8):
         idle At("images/interface/icons/humhum_idle.webp", phone_icon) 
         hover At("images/interface/icons/humhum.webp", phone_icon)
         
-        if phone_interactable and not phone_disabled:
-            action [
-                SetVariable("loading", True),
-                SetVariable("current_phone_screen", "humhum_choice")]
-        else:
-            action None
+        action [
+            SetVariable("loading", True),
+            SetVariable("current_phone_screen", "humhum_choice")]
 
     imagebutton anchor (0.5, 0.5) pos (0.576, 0.8):
         idle At("images/interface/icons/blah_idle.webp", phone_icon) 
         hover At("images/interface/icons/blah.webp", phone_icon)
-        
-        if phone_interactable and not phone_disabled:
-            action [
-                SetVariable("loading", True),
-                SetVariable("current_phone_screen", "text_choice")]
-        else:
-            action None
+    
+        action [
+            SetVariable("loading", True),
+            SetVariable("current_phone_screen", "text_choice")]
 
 screen app_screen():
     style_prefix "phone"
@@ -520,107 +507,77 @@ screen app_screen():
     imagebutton anchor (0.5, 0.5) pos (0.416, 0.23):
         idle At("images/interface/icons/call_idle.webp", phone_icon) 
         hover At("images/interface/icons/call.webp", phone_icon)
-        
-        if phone_interactable and not phone_disabled:
-            action [
-                SetVariable("loading", True),
-                SetVariable("current_phone_screen", "call_choice")]
-        else:
-            action None
+    
+        action [
+            SetVariable("loading", True),
+            SetVariable("current_phone_screen", "call_choice")]
 
     imagebutton anchor (0.5, 0.5) pos (0.576, 0.23):
         idle At("images/interface/icons/blah_idle.webp", phone_icon) 
         hover At("images/interface/icons/blah.webp", phone_icon)
-        
-        if phone_interactable and not phone_disabled:
-            action [
-                SetVariable("loading", True),
-                SetVariable("current_phone_screen", "text_choice")]
-        else:
-            action None
+    
+        action [
+            SetVariable("loading", True),
+            SetVariable("current_phone_screen", "text_choice")]
 
     imagebutton anchor (0.5, 0.5) pos (0.416, 0.41333):
         idle At("images/interface/icons/daily_bungle_idle.webp", phone_icon) 
         hover At("images/interface/icons/daily_bungle.webp", phone_icon)
-        
-        if phone_interactable and not phone_disabled:
-            action [
-                SetVariable("daily_bungle_ad", renpy.random.choice([1, 2, 3, 4])),
-                SetVariable("current_phone_screen", "news")]
-        else:
-            action None
+    
+        action [
+            SetVariable("daily_bungle_ad", renpy.random.choice([1, 2, 3, 4])),
+            SetVariable("current_phone_screen", "news")]
 
     if humhum_available:
         imagebutton anchor (0.5, 0.5) pos (0.496, 0.41333):
             idle At("images/interface/icons/humhum_idle.webp", phone_icon) 
             hover At("images/interface/icons/humhum.webp", phone_icon)
-            
-            if phone_interactable and not phone_disabled:
-                action [
-                    SetVariable("loading", True),
-                    SetVariable("current_phone_screen", "humhum_home")]
-            else:
-                action None
+        
+            action [
+                SetVariable("loading", True),
+                SetVariable("current_phone_screen", "humhum_home")]
 
     imagebutton anchor (0.5, 0.5) pos (0.576, 0.4133):
         idle At("images/interface/icons/hot_control_idle.webp", phone_icon) 
         hover At("images/interface/icons/hot_control.webp", phone_icon)
-        
-        if phone_interactable and not phone_disabled:
-            action SetVariable("current_phone_screen", "remote")
-        else:
-            action None
+    
+        action SetVariable("current_phone_screen", "remote")
 
     imagebutton anchor (0.5, 0.5) pos (0.416, 0.59666):
         idle At("images/interface/icons/achievements_idle.webp", phone_icon) 
         hover At("images/interface/icons/achievements.webp", phone_icon)
-        
-        if phone_interactable and not phone_disabled:
-            action [
-                SetVariable("loading", True),
-                SetVariable("current_phone_screen", "achievements_home")]
-        else:
-            action None
+    
+        action [
+            SetVariable("loading", True),
+            SetVariable("current_phone_screen", "achievements_home")]
 
     imagebutton anchor (0.5, 0.5) pos (0.576, 0.59666):
         idle At("images/interface/icons/music_idle.webp", phone_icon) 
         hover At("images/interface/icons/music.webp", phone_icon)
-        
-        if phone_interactable and not phone_disabled:
-            action [
-                SetVariable("loading", True),
-                SetVariable("current_phone_screen", "music")]
-        else:
-            action None
+    
+        action [
+            SetVariable("loading", True),
+            SetVariable("current_phone_screen", "music")]
 
     imagebutton anchor (0.5, 0.5) pos (0.416, 0.78):
         idle At("images/interface/icons/save_idle.webp", phone_icon) 
         hover At("images/interface/icons/save.webp", phone_icon)
-        
-        if phone_interactable and not phone_disabled:
-            action ShowMenu("save")
-        else:
-            action None
+    
+        action ShowMenu("save")
 
     imagebutton anchor (0.5, 0.5) pos (0.496, 0.78):
         idle At("images/interface/icons/load_idle.webp", phone_icon) 
         hover At("images/interface/icons/load.webp", phone_icon)
-        
-        if phone_interactable and not phone_disabled:
-            action ShowMenu("load")
-        else:
-            action None
+    
+        action ShowMenu("load")
 
     imagebutton anchor (0.5, 0.5) pos (0.576, 0.78):
         idle At("images/interface/icons/config_idle.webp", phone_icon) 
         hover At("images/interface/icons/config.webp", phone_icon)
-        
-        if phone_interactable and not phone_disabled:
-            action [
-                SetVariable("loading", True),
-                SetVariable("current_phone_screen", "config")]
-        else:
-            action None
+    
+        action [
+            SetVariable("loading", True),
+            SetVariable("current_phone_screen", "config")]
 
 screen call_choice_screen():
     style_prefix "phone"
@@ -661,25 +618,22 @@ screen call_choice_screen():
 
                 text f"{C.name}" anchor (0.0, 0.5) pos (0.215, 0.5):
                     size 40
-                
-                if phone_interactable and not phone_disabled:
-                    if C.History.check("said_goodnight", tracker = "daily"):
-                        action Show("say", who = None, what = "You already said goodnight.", hide_after = 5.0)
-                    elif C.History.check("said_too_late_to_talk", tracker = "recent") >= 2:
-                        action Show("say", who = None, what = "Maybe give it a rest.", hide_after = 5.0)
-                    else:
-                        if C.location != Player.location:
-                            action [
-                                Function(C.give_trait, "electronic"),
-                                SetVariable("current_phone_Character", C),
-                                SetVariable("current_phone_screen", "call"),
-                                Call("chat", C, from_current = True)]
-                        else:
-                            action [
-                                Hide("phone_screen"),
-                                Call("chat", C, from_current = True)]
+            
+                if C.History.check("said_goodnight", tracker = "daily"):
+                    action Show("say", who = None, what = "You already said goodnight.", hide_after = 5.0)
+                elif C.History.check("said_too_late_to_talk", tracker = "recent") >= 2:
+                    action Show("say", who = None, what = "Maybe give it a rest.", hide_after = 5.0)
                 else:
-                    action NullAction()
+                    if C.location != Player.location:
+                        action [
+                            Function(C.give_trait, "electronic"),
+                            SetVariable("current_phone_Character", C),
+                            SetVariable("current_phone_screen", "call"),
+                            Call("chat", C, from_current = True)]
+                    else:
+                        action [
+                            Hide("phone_screen"),
+                            Call("chat", C, from_current = True)]
 
     vbar value YScrollValue("call_choice_screen_viewport") anchor (0.0, 0.0) pos (0.612, 0.217) xysize (int(29*game_resolution), int(1350*game_resolution)):
         base_bar At("images/interface/phone/call_scrollbar.webp", interface)
@@ -774,12 +728,9 @@ screen text_choice_screen():
                     text f"{C.name}" anchor (0.0, 0.5) pos (0.215, 0.5):
                         size 40
                     
-                    if phone_interactable and not phone_disabled:
-                        action [
-                            SetVariable("current_phone_Character", C),
-                            SetVariable("current_phone_screen", "text")]
-                    else:
-                        action NullAction()
+                    action [
+                        SetVariable("current_phone_Character", C),
+                        SetVariable("current_phone_screen", "text")]
 
         vbar value YScrollValue("text_choice_screen_viewport") anchor (0.0, 0.0) pos (0.612, 0.217) xysize (int(29*game_resolution), int(1350*game_resolution)):
             base_bar At("images/interface/phone/blah_scrollbar.webp", interface)
@@ -1090,28 +1041,19 @@ screen humhum_home_screen():
             idle At("images/interface/phone/humhum_home.webp", interface)
             hover At("images/interface/phone/humhum_home.webp", interface)
 
-            if phone_interactable and not phone_disabled:
-                action SetVariable("current_phone_screen", "humhum_home")
-            else:
-                action None
+            action SetVariable("current_phone_screen", "humhum_home")
 
         # imagebutton:
         #     idle At("images/interface/phone/humhum_gallery_idle.webp", interface)
         #     hover At("images/interface/phone/humhum_gallery.webp", interface)
 
-        #     if phone_interactable and not phone_disabled:
-        #         action SetVariable("current_phone_screen", "humhum_gallery")
-        #     else:
-        #         action None
+        #     action SetVariable("current_phone_screen", "humhum_gallery")
 
         imagebutton:
             idle At("images/interface/phone/humhum_friends_idle.webp", interface)
             hover At("images/interface/phone/humhum_friends.webp", interface)
 
-            if phone_interactable and not phone_disabled:
-                action SetVariable("current_phone_screen", "humhum_choice")
-            else:
-                action None
+            action SetVariable("current_phone_screen", "humhum_choice")
 
 screen humhum_choice_screen():
     style_prefix "phone"
@@ -1142,13 +1084,10 @@ screen humhum_choice_screen():
                 imagebutton:
                     idle At(f"images/interface/icons/{G.tag}_idle.webp", phone_icon) 
                     hover At(f"images/interface/icons/{G.tag}.webp", phone_icon)
-                    
-                    if phone_interactable and not phone_disabled:
-                        action [
-                            SetVariable("current_phone_Character", G),
-                            SetVariable("current_phone_screen", "humhum")]
-                    else:
-                        action None
+                
+                    action [
+                        SetVariable("current_phone_Character", G),
+                        SetVariable("current_phone_screen", "humhum")]
 
         vbar value YScrollValue("humhum_choice_screen_viewport") anchor (0.0, 0.0) pos (0.614, 0.175) xysize (int(27*game_resolution), int(1299*game_resolution)):
             base_bar At("images/interface/phone/humhum_scrollbar.webp", interface)
@@ -1164,28 +1103,19 @@ screen humhum_choice_screen():
             idle At("images/interface/phone/humhum_home_idle.webp", interface)
             hover At("images/interface/phone/humhum_home.webp", interface)
 
-            if phone_interactable and not phone_disabled:
-                action SetVariable("current_phone_screen", "humhum_home")
-            else:
-                action None
+            action SetVariable("current_phone_screen", "humhum_home")
 
         # imagebutton:
         #     idle At("images/interface/phone/humhum_gallery_idle.webp", interface)
         #     hover At("images/interface/phone/humhum_gallery.webp", interface)
 
-        #     if phone_interactable and not phone_disabled:
-        #         action SetVariable("current_phone_screen", "humhum_gallery")
-        #     else:
-        #         action None
+        #     action SetVariable("current_phone_screen", "humhum_gallery")
 
         imagebutton:
             idle At("images/interface/phone/humhum_friends.webp", interface)
             hover At("images/interface/phone/humhum_friends.webp", interface)
 
-            if phone_interactable and not phone_disabled:
-                action SetVariable("current_phone_screen", "humhum_choice")
-            else:
-                action None
+            action SetVariable("current_phone_screen", "humhum_choice")
 
 screen humhum_screen():
     style_prefix "phone"
@@ -1266,28 +1196,19 @@ screen humhum_screen():
         idle At("images/interface/phone/humhum_home_idle.webp", interface)
         hover At("images/interface/phone/humhum_home.webp", interface)
 
-        if phone_interactable and not phone_disabled:
-            action SetVariable("current_phone_screen", "humhum_home")
-        else:
-            action None
+        action SetVariable("current_phone_screen", "humhum_home")
 
     # imagebutton:
     #     idle At("images/interface/phone/humhum_gallery_idle.webp", interface)
     #     hover At("images/interface/phone/humhum_gallery.webp", interface)
 
-    #     if phone_interactable and not phone_disabled:
-    #         action SetVariable("current_phone_screen", "humhum_gallery")
-    #     else:
-    #         action None
+    #     action SetVariable("current_phone_screen", "humhum_gallery")
 
     imagebutton:
         idle At("images/interface/phone/humhum_friends_idle.webp", interface)
         hover At("images/interface/phone/humhum_friends.webp", interface)
 
-        if phone_interactable and not phone_disabled:
-            action SetVariable("current_phone_screen", "humhum_choice")
-        else:
-            action None
+        action SetVariable("current_phone_screen", "humhum_choice")
 
 screen news_screen():
     style_prefix "phone"
@@ -1556,10 +1477,7 @@ screen achievements_home_screen():
                 idle_color "#801a48"
                 hover_color "#16172b"
 
-            if phone_interactable and not phone_disabled:
-                action SetVariable("current_phone_screen", "achievements_list")
-            else:
-                action None
+            action SetVariable("current_phone_screen", "achievements_list")
 
 screen achievements_list_screen():
     style_prefix "phone"
@@ -1665,47 +1583,32 @@ screen music_screen():
         idle At("images/interface/phone/music_shuffle_idle.webp", interface)
         hover At("images/interface/phone/music_shuffle.webp", interface)
 
-        if phone_interactable and not phone_disabled:
-            action Play("music", song_list[(renpy.random.randint(0, len(song_list))) % len(song_list)], loop = music_repeating)
-        else:
-            action None
+        action Play("music", song_list[(renpy.random.randint(0, len(song_list))) % len(song_list)], loop = music_repeating)
 
     imagebutton:
         idle At("images/interface/phone/music_left_idle.webp", interface)
         hover At("images/interface/phone/music_left.webp", interface)
         
-        if phone_interactable and not phone_disabled:
-            action Play("music", song_list[(current_song - 1) % len(song_list)], loop = music_repeating)
-        else:
-            action None
+        action Play("music", song_list[(current_song - 1) % len(song_list)], loop = music_repeating)
 
     if renpy.music.get_pause():
         imagebutton:
             idle At("images/interface/phone/music_play.webp", interface)
             hover At("images/interface/phone/music_pause.webp", interface)
             
-            if phone_interactable and not phone_disabled:
-                action PauseAudio("music", value = False)
-            else:
-                action None
+            action PauseAudio("music", value = False)
     else:
         imagebutton:
             idle At("images/interface/phone/music_pause.webp", interface)
             hover At("images/interface/phone/music_play.webp", interface)
             
-            if phone_interactable and not phone_disabled:
-                action PauseAudio("music", value = True)
-            else:
-                action None
+            action PauseAudio("music", value = True)
 
     imagebutton:
         idle At("images/interface/phone/music_right_idle.webp", interface)
         hover At("images/interface/phone/music_right.webp", interface)
         
-        if phone_interactable and not phone_disabled:
-            action Play("music", song_list[(current_song + 1) % len(song_list)], loop = music_repeating)
-        else:
-            action None
+        action Play("music", song_list[(current_song + 1) % len(song_list)], loop = music_repeating)
 
     imagebutton:
         idle At("images/interface/phone/music_repeat_idle.webp", interface)
@@ -1714,17 +1617,14 @@ screen music_screen():
         
         selected music_repeating
 
-        if phone_interactable and not phone_disabled:
-            if music_repeating:
-                action [
-                    Play("music", song_list[current_song], loop = False),
-                    SetVariable("music_repeating", False)]
-            else:
-                action [
-                    Play("music", song_list[current_song], loop = True),
-                    SetVariable("music_repeating", True)]
+        if music_repeating:
+            action [
+                Play("music", song_list[current_song], loop = False),
+                SetVariable("music_repeating", False)]
         else:
-            action None
+            action [
+                Play("music", song_list[current_song], loop = True),
+                SetVariable("music_repeating", True)]
 
     viewport id "music_screen_viewport" anchor (0.5, 0.0) pos (0.487, 0.378) xysize (int(847*game_resolution), int(1035*game_resolution)):
         draggable True
@@ -1744,10 +1644,7 @@ screen music_screen():
                     text file.split("/")[-1].split(".")[0] anchor (0.0, 0.5) pos (0.1, 0.5):
                         size 32
 
-                    if phone_interactable and not phone_disabled:
-                        action Play("music", file, loop = music_repeating)
-                    else:
-                        action None
+                    action Play("music", file, loop = music_repeating)
 
     vbar value YScrollValue("music_screen_viewport") anchor (0.0, 0.0) pos (0.605, 0.378) xysize (int(29*game_resolution), int(1035*game_resolution)):
         base_bar At("images/interface/phone/music_scrollbar.webp", interface)
@@ -1812,7 +1709,7 @@ screen config_screen():
                     SetVariable("Player.phone_wallpaper", wallpaper_types[(wallpaper_index - 1) % len(wallpaper_types)]),
                     SetVariable("wallpaper_index", (wallpaper_index - 1) % len(wallpaper_types))]
 
-            if wallpaper_index < 4:
+            if wallpaper_index > 3:
                 text f"{wallpaper_types[wallpaper_index]}":
                     size 32
             else:

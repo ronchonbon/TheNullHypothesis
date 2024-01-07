@@ -46,6 +46,8 @@ label classroom:
                 else:
                     call set_the_scene(location = "bg_classroom", fade = False) from _call_set_the_scene_384
 
+                $ Character_picker_disabled = True
+
                 pause 1.5
 
                 call take_class from _call_take_class
@@ -56,6 +58,8 @@ label classroom:
                     $ found_seat = True
                 else:
                     call set_the_scene(location = "bg_classroom", fade = False) from _call_set_the_scene_385
+
+                $ Character_picker_disabled = True
 
                 pause 1.5
                     

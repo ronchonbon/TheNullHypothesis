@@ -14,7 +14,7 @@ init -1:
     default current_shop_page = 0
     default current_shop_Item = None
     
-    default shopping_cart = []
+    default shopping_cart = None
 
     default something_bought = False
 
@@ -32,12 +32,13 @@ screen shop_screen(shop_type, discount = False, restricted = True):
     on "show" action [
         SetVariable("current_shop_page", 0),
         SetVariable("current_shop_Item", None),
-        SetVariable("shopping_cart", []),
+        SetVariable("shopping_cart", None),
         SetVariable("belt_hidden", True),
         SetVariable("say_obscured", True),
         SetVariable("choice_disabled", True),
         SetVariable("Character_picker_disabled", True)]
     on "hide" action [
+        SetVariable("shopping_cart", None),
         SetVariable("belt_hidden", False),
         SetVariable("say_obscured", False),
         SetVariable("choice_disabled", False),
@@ -115,10 +116,11 @@ screen shop_screen(shop_type, discount = False, restricted = True):
                 $ quantity = 0
                 $ removable_Item = None
 
-                for I_temp in shopping_cart:
-                    if I.Owner == I_temp.Owner and I.string == I_temp.string:
-                        $ quantity += 1
-                        $ removable_Item = I_temp
+                if shopping_cart:
+                    for I_temp in shopping_cart:
+                        if I.Owner == I_temp.Owner and I.string == I_temp.string:
+                            $ quantity += 1
+                            $ removable_Item = I_temp
 
                 fixed xysize (1.0, int(177*game_resolution)):
                     button anchor (0.0, 0.5) pos (0.0, 0.5) xysize (int(925*game_resolution), int(177*game_resolution)):
@@ -150,7 +152,10 @@ screen shop_screen(shop_type, discount = False, restricted = True):
                         idle At("images/interface/shop/plus_idle.webp", interface)
                         hover At("images/interface/shop/plus.webp", interface)
 
-                        action AddToSet(shopping_cart, copy.copy(I))
+                        if shopping_cart:
+                            action AddToSet(shopping_cart, copy.copy(I))
+                        else:
+                            action SetVariable("shopping_cart", [copy.copy(I)])
 
                     add "images/interface/shop/quantity.webp" anchor (0.5, 0.5) pos (0.88, 0.53) zoom interface_adjustment
 
@@ -178,8 +183,9 @@ screen shop_screen(shop_type, discount = False, restricted = True):
 
     $ total_cost = 0
 
-    for I in shopping_cart:
-        $ total_cost += I.price
+    if shopping_cart:
+        for I in shopping_cart:
+            $ total_cost += I.price
 
     $ total_cost = int(total_cost*modifier)
 
@@ -202,7 +208,7 @@ screen shop_screen(shop_type, discount = False, restricted = True):
                 SetVariable("something_bought", True),
                 SetVariable("Player.cash", Player.cash - total_cost),
                 Function(buy_shopping_cart, cart = shopping_cart),
-                SetVariable("shopping_cart", []),
+                SetVariable("shopping_cart", None),
                 SetVariable("inventory_alert", True)]
         else:
             action None
@@ -216,7 +222,7 @@ screen shop_screen(shop_type, discount = False, restricted = True):
         idle At("images/interface/shop/clear_idle.webp", interface)
         hover At("images/interface/shop/clear.webp", interface)
 
-        action SetVariable("shopping_cart", [])
+        action SetVariable("shopping_cart", None)
 
         tooltip "Clear Cart"
 
@@ -275,6 +281,9 @@ screen shop_screen(shop_type, discount = False, restricted = True):
     if black_screen or renpy.get_screen("say"):
         button xysize (1.0, 1.0):
             background None
+
+            hover_sound None
+            activate_sound None
             
             if not renpy.get_screen("choice"):
                 action Return()

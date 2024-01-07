@@ -102,3 +102,5 @@ screen supporters_screen():
                 
                 for supporter in ["Hans", "Mugetsu_x", "NegaNexus", "Neverknowing", "RedPandaExpress"]:
                     text supporter
+
+    use navigation
