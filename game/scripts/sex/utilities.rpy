@@ -1491,6 +1491,8 @@ label continue_Actions:
 
                 call sex_talk(temp_Characters[0]) from _call_sex_talk
 
+                $ temp_Characters.remove(temp_Characters[0])
+
     return
 
 label stop_all_Actions(close_interface = True, automatic = False, summary = False):

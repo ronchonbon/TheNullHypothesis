@@ -25,6 +25,6 @@ label sex_talk(Character):
         elif dice_roll == 4:
             $ renpy.say(Character.voice, "*cough*")
     else:
-        call expression f"{Character.tag}_sex_talk" from _call_expression_138
+        call expression f"{Character.tag}_dirty_talk" from _call_expression_138
 
     return

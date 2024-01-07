@@ -56,32 +56,32 @@ screen Action_screen(automatic = False):
             size 35
 
         if Action_hover_type:
-            add At(At(At("images/interface/Action_menu/popup.webp", change_anchor(0.5, 0.5)), change_pos(0.825, 0.28)), zoom_sprite(0.5))
-
+            add "images/interface/Action_menu/popup.webp" anchor (0.5, 0.5) pos (0.825, 0.28)
+            
             if hookup_length >= max_hookup_length*math.sqrt(focused_Character.max_stamina) and focused_Character.desire <= 75:
-                add At(At(At("images/interface/Action_menu/low.webp", change_anchor(0.5, 0.5)), change_pos(0.825, 0.283)), zoom_sprite(0.2))
+                add "images/interface/Action_menu/low.webp" anchor (0.5, 0.5) pos (0.824, 0.281) zoom 0.4
             elif Action_hover_type in ["high", "low"] and Action_hover_size >= 0.9:
-                add At(At(At("images/interface/Action_menu/[Action_hover_type].webp", change_anchor(0.5, 0.5)), change_pos(0.825, 0.283)), zoom_sprite(0.5))
+                add "images/interface/Action_menu/[Action_hover_type].webp" anchor (0.5, 0.5) pos (0.824, 0.281) zoom 1.0
             elif Action_hover_type in ["high", "low"] and Action_hover_size >= 0.8:
-                add At(At(At("images/interface/Action_menu/[Action_hover_type].webp", change_anchor(0.5, 0.5)), change_pos(0.825, 0.283)), zoom_sprite(0.45))
+                add "images/interface/Action_menu/[Action_hover_type].webp" anchor (0.5, 0.5) pos (0.824, 0.281) zoom 0.9
             elif Action_hover_type in ["high", "low"] and Action_hover_size >= 0.7:
-                add At(At(At("images/interface/Action_menu/[Action_hover_type].webp", change_anchor(0.5, 0.5)), change_pos(0.825, 0.283)), zoom_sprite(0.4))
+                add "images/interface/Action_menu/[Action_hover_type].webp" anchor (0.5, 0.5) pos (0.824, 0.281) zoom 0.8
             elif Action_hover_type in ["high", "low"] and Action_hover_size >= 0.6:
-                add At(At(At("images/interface/Action_menu/[Action_hover_type].webp", change_anchor(0.5, 0.5)), change_pos(0.825, 0.283)), zoom_sprite(0.35))
+                add "images/interface/Action_menu/[Action_hover_type].webp" anchor (0.5, 0.5) pos (0.824, 0.281) zoom 0.7
             elif Action_hover_type in ["high", "low"] and Action_hover_size >= 0.5:
-                add At(At(At("images/interface/Action_menu/[Action_hover_type].webp", change_anchor(0.5, 0.5)), change_pos(0.825, 0.283)), zoom_sprite(0.3))
+                add "images/interface/Action_menu/[Action_hover_type].webp" anchor (0.5, 0.5) pos (0.824, 0.281) zoom 0.6
             elif Action_hover_type in ["high", "low"] and Action_hover_size >= 0.4:
-                add At(At(At("images/interface/Action_menu/[Action_hover_type].webp", change_anchor(0.5, 0.5)), change_pos(0.825, 0.283)), zoom_sprite(0.25))
+                add "images/interface/Action_menu/[Action_hover_type].webp" anchor (0.5, 0.5) pos (0.824, 0.281) zoom 0.5
             elif Action_hover_type in ["high", "low"] and Action_hover_size >= 0.3:
-                add At(At(At("images/interface/Action_menu/[Action_hover_type].webp", change_anchor(0.5, 0.5)), change_pos(0.825, 0.283)), zoom_sprite(0.2))
+                add "images/interface/Action_menu/[Action_hover_type].webp" anchor (0.5, 0.5) pos (0.824, 0.281) zoom 0.4
             elif Action_hover_type in ["high", "low"] and Action_hover_size >= 0.2:
-                add At(At(At("images/interface/Action_menu/[Action_hover_type].webp", change_anchor(0.5, 0.5)), change_pos(0.825, 0.283)), zoom_sprite(0.15))
+                add "images/interface/Action_menu/[Action_hover_type].webp" anchor (0.5, 0.5) pos (0.824, 0.281) zoom 0.3
             elif Action_hover_type in ["high", "low"] and Action_hover_size >= 0.1:
-                add At(At(At("images/interface/Action_menu/[Action_hover_type].webp", change_anchor(0.5, 0.5)), change_pos(0.825, 0.283)), zoom_sprite(0.1))
+                add "images/interface/Action_menu/[Action_hover_type].webp" anchor (0.5, 0.5) pos (0.824, 0.281) zoom 0.2
             elif Action_hover_type in ["high", "low"] and Action_hover_size >= 0.0:
-                add At(At(At("images/interface/Action_menu/[Action_hover_type].webp", change_anchor(0.5, 0.5)), change_pos(0.825, 0.283)), zoom_sprite(0.05))
+                add "images/interface/Action_menu/[Action_hover_type].webp" anchor (0.5, 0.5) pos (0.824, 0.281) zoom 0.1
             else:
-                add At(At(At("images/interface/Action_menu/[Action_hover_type].webp", change_anchor(0.5, 0.5)), change_pos(0.825, 0.283)), zoom_sprite(0.5))
+                add "images/interface/Action_menu/[Action_hover_type].webp" anchor (0.5, 0.5) pos (0.824, 0.281) zoom 1.0
 
         if Player.desire >= 90:
             add At("images/interface/Action_menu/lightning_male.webp", pulse(intensity = 1.0)) anchor (0.5, 0.5) pos (0.94, 0.0478) zoom interface_adjustment
@@ -579,6 +579,21 @@ screen Action_screen(automatic = False):
                             SetVariable("intensity", 2.0)]
 
                     tooltip "Set Intensity to 3"
+
+                text "x1" anchor (0.5, 0.5) pos (0.886, 0.961):
+                    font "agency_fb_bold.ttf"
+
+                    size 26
+
+                text "x2" anchor (0.5, 0.5) pos (0.928, 0.961):
+                    font "agency_fb_bold.ttf"
+
+                    size 26
+
+                text "x3" anchor (0.5, 0.5) pos (0.97, 0.961):
+                    font "agency_fb_bold.ttf"
+
+                    size 26
 
             imagebutton:
                 idle At("images/interface/Action_menu/close_idle.webp", interface) 
